@@ -1,0 +1,91 @@
+/**
+ * @Project NUKEVIET 3.0
+ * @Author VINADES., JSC (contact@vinades.vn)
+ * @Copyright (C) 2010 VINADES ., JSC. All rights reserved
+ * @Createdate Dec 3, 2010  1:24:26 PM 
+ */
+
+/*Tabview*/
+div.TabView {
+	margin-top: 10px;
+}
+
+div.TabView div.Tabs {
+	overflow: hidden;
+	background: #F7F7F7 url('../images/organs/bg_divtab.png') repeat-x bottom;
+	height: 30px;
+}
+
+div.TabView div.Tabs a {
+	float: left;
+	display: block;
+	text-align: center;
+	height: 30px;
+	line-height: 30px;
+	text-decoration: none;
+	color: #000;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-weight: normal;
+	text-transform: uppercase;
+}
+
+div.TabView div.Tabs a:hover {
+	color: #FF0000;
+}
+
+div.TabView div.Tabs a.Active {
+	color: #000000;
+	background: url('../images/organs/pro_tab.png') repeat-x;
+	border-top: 1px solid #e6e6e6;
+	border-right: 1px solid #e6e6e6;
+	border-left: 1px solid #e6e6e6;
+	font-weight: bold;
+}
+
+div.TabView div.Pages {
+	background: #FFFFFF;
+	height: auto;
+	width: auto;
+	clear: both;
+	overflow: hidden;
+}
+
+div.TabView div.Pages div.Page {
+	height: auto;
+	padding: 5px;
+	width: auto;
+	overflow: hidden;
+	border: 1px solid #e6e6e6;
+	border-top:0;
+}
+/*tab end*/
+.view_org {
+	margin-top:2px;
+}
+.view_org .div_header{
+	padding:10px;
+	background:#FBFFFF;
+	border:1px solid #F0F0F0;
+}
+.view_org h2{
+	line-height:24px;
+}
+.view_org .items {
+	padding:10px;
+	border-bottom:#CCCCCC 1px dotted
+}
+.view_org .items span{
+	float:left;
+	display:inline-block;
+	width:48%;
+	color:#666666;
+	font-weight:bold;
+}
+.view_org .items strong{
+	color:#000000;
+}
+.view_org .items img{
+	float:right;
+	width:80px
+}

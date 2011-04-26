@@ -64,9 +64,9 @@ function nv_fix_row_order ( $parentid = 0, $order = 0, $lev = 0 )
 }
 
 ///////////////////////
-function drawselect_number ( $select_name = "", $number_start = 0, $number_end = 1, $number_curent = 0, $func_onchange = "" )
-{
-    $html = "<select name=\"" . $select_name . "\" onchange=\"" . $func_onchange . "\">";
+function drawselect_number ( $select_name = "", $number_start = 0, $number_end = 1, $number_curent = 0, $func_onchange = "", $enable ="" )
+{ 
+    $html = "<select name=\"" . $select_name . "\" onchange=\"" . $func_onchange . "\" ".$enable.">";
     for ( $i = $number_start; $i < $number_end; $i ++ )
     {
         $select = ( $i == $number_curent ) ? "selected=\"selected\"" : "";
@@ -102,5 +102,49 @@ function nv_fix_personweight ( $organid = 0 )
         $db->sql_query( $sql );
     }
     //////////////////////////
+}
+function getall_organid_of_parent ($array_organs,$pid)
+{
+	$array_id = array();
+	foreach ( $array_organs as $organid => $info )
+	{
+		if ( $pid == $info['parentid'] )
+		{
+			$array_id[]= $organid;
+			if ( $info['numsub'] > 0 ) 
+			{
+				$temp_array = getall_organid_of_parent ($array_organs,$organid);
+				$array_id = array_merge($array_id,$temp_array);
+			}
+		}
+	}
+	return $array_id;
+}
+function getall_numper_of_parent ($array_organs,$pid)
+{
+	$count = $array_organs[$pid]['numperson'];
+	foreach ( $array_organs as $organid => $info )
+	{
+		if ( $info['parentid'] == $pid )
+		{
+			$count = $count + $info['numperson'];
+			if ( $info['numsub'] > 0 ) 
+			{
+				$count = $count + getall_numper_of_parent ($array_organs,$organid);
+			}
+		}
+	}
+	return $count;
+} 
+function getall_organid_parent ($array_organs,$oid)
+{
+	$array_id = array();
+	if ( $array_organs[$oid]['parentid'] > 0 )
+	{
+		$array_id[] = $array_organs[$oid]['parentid'];
+		$temp_array = getall_organid_parent($array_organs,$array_organs[$oid]['parentid']);
+		$array_id = array_merge($array_id,$temp_array);
+	}
+	return $array_id;
 }
 ?>

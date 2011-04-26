@@ -19,6 +19,12 @@
       </tbody>
       <tbody>
         <tr>
+        <td align="right" width="140px" ><strong>{LANG.organ_alias}</strong></td>
+        <td><input style="width: 400px" name="alias" type="text" value="{DATA.alias}" maxlength="255" /></td>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr>
         <td align="right"><strong>{LANG.organ_other_title}</strong></td>
         <td>
         	<select name="parentid">
@@ -26,32 +32,36 @@
               <!-- BEGIN: parent_loop -->
                 <option value="{ROW.organid}" {ROW.select}>{ROW.title}</option>
               <!-- END: parent_loop -->
-            </select> (*)
+            </select>
         </td>
         </tr>
       </tbody>
       <tbody>
         <tr>
         <td align="right"><strong>{LANG.organ_phone_title}: </strong></td>
-        <td><input style="width: 200px" name="phone" type="text" value="{DATA.phone}" maxlength="255" /> (*)</td>
+        <td>
+        	<input style="width: 200px" name="phone" type="text" value="{DATA.phone}" maxlength="255" />
+            <strong>{LANG.phone_ext_title} : </strong>
+            <input style="width: 100px" name="phone_ext" type="text" value="{DATA.phone_ext}" maxlength="255" />
+        </td>
         </tr>
       </tbody>
       <tbody>
         <tr>
         <td align="right"><strong>{LANG.organ_fax_title}: </strong></td>
-        <td><input style="width: 200px" name="fax" type="text" value="{DATA.fax}" maxlength="255" /> (*)</td>
+        <td><input style="width: 200px" name="fax" type="text" value="{DATA.fax}" maxlength="255" /></td>
         </tr>
       </tbody>
       <tbody>
         <tr>
         <td align="right"><strong>{LANG.organ_email_title}: </strong></td>
-        <td><input style="width: 200px" name="email" type="text" value="{DATA.email}" maxlength="255" /> (*)</td>
+        <td><input style="width: 200px" name="email" type="text" value="{DATA.email}" maxlength="255" /></td>
         </tr>
       </tbody>
       <tbody>
         <tr>
         <td align="right"><strong>{LANG.organ_website_title}: </strong></td>
-        <td><input style="width: 400px" name="website" type="text" value="{DATA.website}" maxlength="255" /> (*)
+        <td><input style="width: 400px" name="website" type="text" value="{DATA.website}" maxlength="255" />
         	eg : www.domain1.vn; www.domain2.vn
         </td>
         </tr>
@@ -59,7 +69,7 @@
       <tbody>
         <tr bgcolor="#EFEFEF">
         <td align="right"><strong>{LANG.organ_address_title} : </strong></td>
-        <td><input style="width: 400px" name="address" type="text" value="{DATA.address}" maxlength="255" /> (*)</td>
+        <td><input style="width: 400px" name="address" type="text" value="{DATA.address}" maxlength="255" /></td>
         </tr>
       </tbody>
     </table>

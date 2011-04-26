@@ -12,9 +12,19 @@
     <input name="save" type="hidden" value="1" />
     <table summary="" class="tab1">
       <tbody>
-        <tr bgcolor="#EFEFEF">
-        <td align="right" width="140px" ><strong>{LANG.organ_person_name}</strong></td>
+        <tr>
+        <td align="right" width="150px" ><strong>{LANG.organ_person_name}</strong></td>
         <td><input style="width: 400px" name="name" type="text" value="{DATA.name}" maxlength="255" /> (*)</td>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr>
+            <td align="right" width="150px" ><strong>{LANG.addper_birthday}</strong></td>
+            <td>
+                <input name="birthday" id="birthday" value="{DATA.birthday}" style="width: 100px;" maxlength="10" type="text"/> 
+                &nbsp;&nbsp;&nbsp;&nbsp;<strong>{LANG.addper_dayinto} :</strong>
+                <input name="dayinto" id="dayinto" value="{DATA.dayinto}" style="width: 100px;" maxlength="10" type="text"/> Eg : 31/12/2010
+            </td>
         </tr>
       </tbody>
       <tbody>
@@ -25,14 +35,20 @@
               <!-- BEGIN: parent_loop -->
                 <option value="{ROW.organid}" {ROW.select}>{ROW.title}</option>
               <!-- END: parent_loop -->
-            </select> (*)
+            </select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            {LANG.organ_phone_ext_title}
+            <input style="width: 80px" name="phone_ext" type="text" value="{DATA.phone_ext}" maxlength="255" />
         </td>
         </tr>
       </tbody>
       <tbody>
         <tr bgcolor="#EFEFEF">
-        <td align="right"><strong>{LANG.organ_phone_title}: </strong></td>
-        <td><input style="width: 200px" name="phone" type="text" value="{DATA.phone}" maxlength="255" /></td>
+        <td align="right"><strong>{LANG.organ_phonehome_title}: </strong></td>
+        <td>
+        	<input style="width: 200px" name="phone" type="text" value="{DATA.phone}" maxlength="255" />
+            &nbsp;&nbsp;<strong>{LANG.organ_mobile_title}: </strong>
+            <input style="width: 200px" name="mobile" type="text" value="{DATA.mobile}" maxlength="255" />
+        </td>
         </tr>
       </tbody>
       <tbody>
@@ -49,12 +65,30 @@
       </tbody>
       <tbody>
         <tr>
-        <td align="right"><strong>{LANG.addper_address_title} : </strong></td>
-        <td><input style="width: 400px" name="address" type="text" value="{DATA.address}" maxlength="255" /></td>
+        <td align="right"><strong>{LANG.addper_position_other_title}: </strong></td>
+        <td><input style="width: 400px" name="position_other" type="text" value="{DATA.position_other}" maxlength="255" /></td>
         </tr>
       </tbody>
       <tbody>
-      	<tr bgcolor="#EFEFEF">
+        <tr>
+        <td align="right"><strong>{LANG.addper_professional} : </strong></td>
+        <td><textarea name="professional" style="width:98%; height:60px">{DATA.professional}</textarea></td>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr>
+        <td align="right"><strong>{LANG.addper_address_title} : </strong></td>
+        <td><input style="width: 500px" name="address" type="text" value="{DATA.address}" maxlength="255" /></td>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr>
+        <td align="right"><strong>{LANG.addper_marital_status} : </strong></td>
+        <td><input style="width: 500px" name="marital_status" type="text" value="{DATA.marital_status}" maxlength="255" /></td>
+        </tr>
+      </tbody>
+      <tbody>
+      	<tr>
         <td align="right"><strong>{LANG.addper_photo_title} : </strong></td>
         <td>
         	<input style="width: 400px" name="photo" id="photo" type="text" value="{DATA.photo}" maxlength="255" />

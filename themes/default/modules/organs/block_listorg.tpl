@@ -12,7 +12,7 @@
 		persist: "cookie",
 		collapsed: true,
 		animated:"normal",
-		unique: false
+		unique: true
 	});
 </script>
 <!-- END: main -->

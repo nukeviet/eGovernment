@@ -12,7 +12,7 @@ $page_title = $lang_module['addper_title'];
 $month_dir_module = nv_mkdir( NV_UPLOADS_REAL_DIR . '/' . $module_name, date( "Y_m" ), true );
 
 $data = array( 
-    "personid" => 0, "name" => '', "photo" => '', "email" => '', "position" => '', "address" => '', "phone" => '', "birthday" => 0, "description" => '', "addtime" => 0, "edittime" => 0, "organid" => 0, "weight" => 0, "active" => 1 
+    "personid" => 0, "name" => '', "photo" => '', "email" => '', "position" => '', "address" => '', "phone" => '',"phone_ext"=>"", "birthday" => "", "description" => '', "addtime" => 0, "edittime" => 0, "organid" => 0, "weight" => 0, "active" => 1,"marital_status" => "", "mobile" => "", "dayinto" => "", "position_other"=>"","professional" => "" 
 );
 $table_name = NV_PREFIXLANG . "_" . $module_data . "_person";
 
@@ -41,9 +41,42 @@ if ( $nv_Request->get_int( 'save', 'post' ) == 1 )
     $data['description'] = nv_nl2br( nv_htmlspecialchars( strip_tags( $data['description'] ) ), '' );
     $data['address'] = filter_text_input( 'address', 'post', '', 1 );
     $data['phone'] = filter_text_input( 'phone', 'post', '', 1 );
+    $data['phone_ext'] = filter_text_input( 'phone_ext', 'post', '', 1 );
+    $data['mobile'] = filter_text_input( 'mobile', 'post', '', 1 );
     $data['email'] = filter_text_input( 'email', 'post', '', 1 );
     $data['photo'] = filter_text_input( 'photo', 'post', '' );
     $data['position'] = filter_text_input( 'position', 'post', '', 1 );
+    $data['position_other'] = filter_text_input( 'position_other', 'post', '', 1 );
+    $data['marital_status'] = filter_text_input( 'marital_status', 'post', '', 1 );
+    $data['professional'] = filter_text_input( 'professional', 'post', '', 1 );
+    $birthday = $nv_Request->get_string( 'birthday', 'post', '' ); 
+	if ( ! empty( $birthday ) and ! preg_match( "/^([0-9]{1,2})\\/([0-9]{1,2})\/([0-9]{4})$/", $birthday ) ) $birthday = "";
+	if ( empty( $birthday ) )
+    {
+        $data['birthday'] = 0;
+    }
+    else
+    {
+        $phour = date('H');
+        $pmin = date('i');
+        unset( $m );
+        preg_match( "/^([0-9]{1,2})\\/([0-9]{1,2})\/([0-9]{4})$/", $birthday, $m );
+        $data['birthday'] = mktime( $phour, $pmin, 0, $m[2], $m[1], $m[3] );
+    }
+	$dayinto = $nv_Request->get_string( 'dayinto', 'post', '');
+	if ( ! empty( $dayinto ) and ! preg_match( "/^([0-9]{1,2})\\/([0-9]{1,2})\/([0-9]{4})$/", $dayinto ) ) $dayinto = "";
+	if ( empty($dayinto) )
+    {
+        $data['dayinto'] = 0;
+    }
+    else
+    {
+        $phour = date('H');
+        $pmin = date('i');
+        unset( $m );
+        preg_match( "/^([0-9]{1,2})\\/([0-9]{1,2})\/([0-9]{4})$/", $dayinto, $m );
+        $data['dayinto'] = mktime( $phour, $pmin, 0, $m[2], $m[1], $m[3] );
+    }
     $data['active'] = $nv_Request->get_int( 'active', 'post', 0 );
     //* check error*//
     if ( empty( $data['name'] ) )
@@ -71,74 +104,34 @@ if ( $nv_Request->get_int( 'save', 'post' ) == 1 )
         {
             $data['photo'] = "";
         }
-        $check_thumb = false;
-        if ( $id > 0 )
-        {
-            list( $photo ) = $db->sql_fetchrow( $db->sql_query( "SELECT `photo` FROM `" . $table_name . "` WHERE `id`=" . $id ) );
-            if ( $data['photo'] != $photo )
-            {
-                $check_thumb = true;
-                if ( file_exists( NV_UPLOADS_REAL_DIR . "/" . $module_name . "/" . $photo ) )
-                {
-                    nv_deletefile( NV_UPLOADS_REAL_DIR . "/" . $module_name . "/" . $photo );
-                }
-            
-            }
-            else
-            {
-                $data['photo'] = $photo;
-            }
-        }
-        elseif ( ! empty( $data['photo'] ) )
-        {
-            $check_thumb = true;
-        }
-        $photo = NV_UPLOADS_REAL_DIR . "/" . $module_name . "/" . $data['photo'];
-        if ( $check_thumb and file_exists( $photo ) )
-        {
-            require_once ( NV_ROOTDIR . "/includes/class/image.class.php" );
-            
-            $basename = basename( $photo );
-            $image = new image( $photo, NV_MAX_WIDTH, NV_MAX_HEIGHT );
-            
-            $thumb_basename = $basename;
-            $i = 1;
-            while ( file_exists( NV_UPLOADS_REAL_DIR . '/' . $module_name . '/thumb/' . $thumb_basename ) )
-            {
-                $thumb_basename = preg_replace( '/(.*)(\.[a-zA-Z]+)$/', '\1_' . $i . '\2', $basename );
-                $i ++;
-            }
-            
-            $image->resizeXY( 150, 150 );
-            $image->save( NV_UPLOADS_REAL_DIR . '/' . $module_name . '/thumb', $thumb_basename );
-            $image_info = $image->create_Image_info;
-            $thumb_name = str_replace( NV_UPLOADS_REAL_DIR . '/' . $module_name . '/', '', $image_info['src'] );
-            $image->close();
-            
-            $data['photo'] = $thumb_name;
-        }
         if ( $id == 0 ) // insert data
         {
             list( $weight ) = $db->sql_fetchrow( $db->sql_query( "SELECT max(`weight`) FROM " . $table_name . " WHERE `organid`=" . $db->dbescape( $data['organid'] ) . "" ) );
             $weight = intval( $weight ) + 1;
-            $sql = "INSERT INTO " . $table_name . " (`personid`, `name`, `photo`, `email`, `position`, `address`, `phone`, `birthday`, `description`, `addtime`, `edittime`, `organid`, `weight`, `active` ) 
+            $sql = "INSERT INTO " . $table_name . " (`personid`, `name`, `photo`, `email`, `position`,`position_other` ,`address`, `phone`,`phone_ext` ,`mobile`, `birthday`, `description`, `addtime`, `edittime`, `organid`, `weight`, `active`,`dayinto`,`marital_status`,`professional` ) 
          			VALUES (
          				NULL, 
          				" . $db->dbescape( $data['name'] ) . ",
          				" . $db->dbescape( $data['photo'] ) . ",
          				" . $db->dbescape( $data['email'] ) . ",
          				" . $db->dbescape( $data['position'] ) . ",
+         				" . $db->dbescape( $data['position_other'] ) . ",
          				" . $db->dbescape( $data['address'] ) . ",
          				" . $db->dbescape( $data['phone'] ) . ",
+         				" . $db->dbescape( $data['phone_ext'] ) . ",
+         				" . $db->dbescape( $data['mobile'] ) . ",
          				" . intval( $data['birthday'] ) . ",
          				" . $db->dbescape( $data['description'] ) . ",
          				UNIX_TIMESTAMP(), 
          				UNIX_TIMESTAMP(), 
          				" . intval( $data['organid'] ) . ",		
          				" . intval( $weight ) . ",
-         				" . intval( $data['active'] ) . "
+         				" . intval( $data['active'] ) . ",
+         				" . intval( $data['dayinto'] ) . ",
+         				" . $db->dbescape( $data['marital_status'] ) . ",
+         				" . $db->dbescape( $data['professional'] ) . "
          			)";
-            $newcatid = intval( $db->sql_query_insert_id( $sql ) );
+            $newcatid = intval( $db->sql_query_insert_id( $sql ) ); 
             if ( $newcatid > 0 )
             {
                 nv_insert_logs( NV_LANG_DATA, $module_name, 'log_add_catalog', "id " . $newcatid, $admin_info['userid'] );
@@ -163,9 +156,15 @@ if ( $nv_Request->get_int( 'save', 'post' ) == 1 )
             		  	  `address` = " . $db->dbescape( $data['address'] ) . ", 
             		  	  `email` = " . $db->dbescape( $data['email'] ) . ", 
             		  	  `phone` = " . $db->dbescape( $data['phone'] ) . ", 
+            		  	  `mobile` = " . $db->dbescape( $data['mobile'] ) . ", 
             		  	  `photo` = " . $db->dbescape( $data['photo'] ) . ", 
+            		  	  `phone_ext` = " . $db->dbescape( $data['phone_ext'] ) . ",
             		  	  `position` = " . $db->dbescape( $data['position'] ) . ",
+            		  	  `position_other` = " . $db->dbescape( $data['position_other'] ) . ",
+            		  	  `marital_status` = " . $db->dbescape( $data['marital_status'] ) . ",
             		  	  `birthday` = " . intval( $data['birthday'] ) . ",
+            		  	  `dayinto` = " . intval( $data['dayinto'] ) . ",
+            		  	  `professional` = " . $db->dbescape( $data['professional'] ) . ",
             		  	  `edittime` = UNIX_TIMESTAMP() 
             		  WHERE `personid` = " . intval( $id ) . "";
             $db->sql_query( $query );
@@ -179,9 +178,9 @@ if ( $nv_Request->get_int( 'save', 'post' ) == 1 )
                     $weight = intval( $weight ) + 1;
                     $sql = "UPDATE " . $table_name . " SET `weight`=" . $weight . " WHERE `organid`=" . intval( $id );
                     $db->sql_query( $sql );
-                    nv_fix_organ( $data['organid'] );
                     nv_fix_organ( $data['organid_old'] );
                 }
+                nv_fix_organ( $data['organid'] );
                 nv_del_moduleCache( $module_name );
                 Header( "Location: " . NV_BASE_ADMINURL . "index.php?" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=listper&pid=" . $data['organid'] . "" );
                 die();
@@ -208,7 +207,8 @@ if ( $id > 0 && $nv_Request->get_int( 'save', 'post' ) == 0 ) // insert data
     {
         $data['photo'] = NV_BASE_SITEURL . NV_UPLOADS_DIR . "/" . $module_name . "/" . $data['photo'];
     }
-
+    $data['birthday'] = ( $data['birthday'] > 0 ) ? date( "d/m/Y", $data['birthday'] ) : "";
+	$data['dayinto'] = ( $data['dayinto'] > 0 ) ? date( "d/m/Y", $data['dayinto'] ) : "";
 }
 
 $xtpl = new XTemplate( "addper.tpl", NV_ROOTDIR . "/themes/" . $global_config['module_theme'] . "/modules/" . $module_file );
@@ -223,6 +223,11 @@ $xtpl->assign( 'UPLOAD_CURRENT', NV_UPLOADS_DIR . '/' . $module_name . '/' . dat
 $sql = "SELECT organid, title, lev FROM " . NV_PREFIXLANG . "_" . $module_data . "_rows ORDER BY `order` ASC";
 $result = $db->sql_query( $sql );
 $array_cat_list = array();
+if ( $db->sql_numrows($result) == 0 ) 
+{
+	Header( "Location: " . NV_BASE_ADMINURL . "index.php?" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=addrow" );
+    die();
+}
 while ( $row = $db->sql_fetchrow( $result, 2 ) )
 {
     $xtitle = "";

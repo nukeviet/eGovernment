@@ -7,12 +7,12 @@
 
 /*Tabview*/
 div.TabView {
-	margin-top: 10px;
+	margin-top: 2px;
 }
 
 div.TabView div.Tabs {
 	overflow: hidden;
-	background: #F7F7F7 url('../images/organs/bg_divtab.png') repeat-x bottom;
+	background: #D5E2EA url('../images/organs/bg_divtab.png') repeat-x bottom;
 	height: 30px;
 }
 
@@ -36,7 +36,7 @@ div.TabView div.Tabs a:hover {
 
 div.TabView div.Tabs a.Active {
 	color: #000000;
-	background: url('../images/organs/pro_tab.png') repeat-x;
+	background:#FFFFFF;
 	border-top: 1px solid #e6e6e6;
 	border-right: 1px solid #e6e6e6;
 	border-left: 1px solid #e6e6e6;
@@ -64,12 +64,14 @@ div.TabView div.Pages div.Page {
 	margin-top:2px;
 }
 .view_org .div_header{
-	padding:10px;
-	background:#FBFFFF;
+	padding:6px;
+	background:#D5E2EA;
 	border:1px solid #F0F0F0;
 }
 .view_org h2{
 	line-height:24px;
+	text-transform:uppercase;
+	font-weight:700;
 }
 .view_org .items {
 	padding:10px;
@@ -88,4 +90,136 @@ div.TabView div.Pages div.Page {
 .view_org .items img{
 	float:right;
 	width:80px
+}
+.view_org .items_gird{
+	width:25%;
+	float:left;
+}
+.view_org .items_gird .content{
+	margin:auto;
+	background:#F8F8F8;
+	height:180px;
+	text-align:center;
+	margin:1px;
+	padding:10px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+.view_org .items_gird img{
+	width:80px;
+	height:100px;
+	padding:1px;
+	border:#0080C0 1px solid;
+}
+
+/*list menu h*/
+.menucate_ograns{
+	
+}
+.menucate_ograns h2{
+	background:#027FB9;
+	text-transform:uppercase;
+	line-height:24px;
+	color:#FFFFFF;
+	padding:0px 5px;
+	font-weight:700;
+}
+.menucate_ograns ul{
+	border:1px solid #F2F2F2;
+	border-top:0px;
+}
+.menucate_ograns ul li{
+	background:#E6E6FA;
+	padding:2px 5px;
+	border-bottom:1px solid #C8C8F0;
+	border-top:1px solid #FBFBFB;
+}
+.menucate_ograns ul li:hover{
+	background:#CEDDE6;
+}
+.menucate_ograns ul li a{
+	color:#000000;
+	display:block;
+	height:100%;
+	width:100%;
+}
+/*list menu v*/
+.menuparent_ograns{ 
+	background:#027FB9;
+}
+.menuparent_ograns ul li{ 
+	float:left;
+	padding:0px 5px;
+	border-left:1px solid #0195D9;
+	border-right:1px solid #034D70;
+	line-height:30px
+}
+.menuparent_ograns ul li a{ 
+	color:#FFFFFF;
+	text-transform:uppercase;
+	font-weight:bold;	
+	font-size:13px
+}
+.search_ograns {
+	background:#FFFFFF;
+	padding:6px;
+}
+
+.detail_person {}
+.detail_person .detail_img {
+	width:100px;
+	height:120px;
+	padding:1px;
+	border:1px solid #0080C0;
+	margin-right:10px;
+}
+.detail_person strong {
+	font-weight:bold;
+}
+.detail_person .ullist {}
+.detail_person .ullist li {
+	border-bottom:#CCCCCC 1px dotted;
+	line-height:24px;
+}
+.detail_person .ullist li span {
+	display:inline-block;
+	width:150px
+}
+.catelist {
+	border:1px solid #BEDEDE;
+	margin-bottom:3px;
+}
+.catelist h2{
+	background:#D5E2EA;
+	line-height:24px;
+	font-weight:bold;
+	padding:0px 5px;
+}
+.catelist .content{
+	padding:5px;
+}
+
+table.tabo {
+	background: #fff;
+	border-collapse: separate;
+	border-spacing: 1px;
+	caption-side: top;
+	empty-cells: show;
+	width: 100%;
+}
+table.tabo td {
+	padding:4px;
+}
+table.tabo tbody {
+	background: #E6E6FA;
+}
+
+table.tabo tbody.second {
+	background: #eee;
+}
+
+table.tabo thead {
+	background: #CECEFF;
+	white-space: nowrap;
 }

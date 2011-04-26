@@ -7,7 +7,7 @@
   <table summary="" class="tab1">
       <thead>
         <tr>
-          <td width="10px" align="center"></td>
+          <td width="10px" align="center">{LANG.organ_person_posi}</td>
           <td><strong>{LANG.organ_name}</strong></td>
           <td><strong>{LANG.organ_persons}</strong></td>
           <td><strong>{LANG.organ_active}</strong></td>
@@ -20,7 +20,7 @@
         	{ROW.select_weight}
         </td>
         <td><a href="{ROW.link_row}" title="{ROW.title}" class="add_icon">{ROW.title} </a><strong>({ROW.numsub})</strong></td>
-        <td><a href="{ROW.link_per}" title="{LANG.oran_persons_list}" class="add_icon">{LANG.organ_persons_list} </a><strong>({ROW.numperson})</strong></td>
+        <td><a href="{ROW.link_per}" title="{LANG.oran_persons_list}" class="add_icon">{LANG.organ_persons_list} </a><strong>({ROW.number_per})</strong></td>
         <td align="center" width="80">
         	<select name="active" id="{ROW.organid}" onchange="ChangeActive(this,url_change)">
             	<option {CHECK_NO} value="0">{LANG.active_no}</option>

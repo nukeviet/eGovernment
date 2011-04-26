@@ -32,22 +32,21 @@
             <!-- END: about -->
             <!-- BEGIN: person -->
             <div class="Page">
-            	<!-- BEGIN: loop -->
-                <div class="items clearfix">
-                	<div class="fl clearfix" style="width:80%">
-                        <span>{ROW.position} : </span>
-                        <span><strong><a href="javascript:void(0)" onclick="viewper('{ROW.personid}')" >{ROW.name}</a></strong></span>
-                        <span>{LANG.vieworg_phone} : </span><span>{ROW.phone}</span>
-                        <span>{LANG.vieworg_email} :</span><span><a href="mailto:{ROW.email}">{ROW.email}</a></span>
-                        <span>{LANG.viewper_address} :</span><span>{ROW.address}</span>
+            	<div class="clearfix">
+                    <!-- BEGIN: loop -->
+                    <div class="items_gird">
+                    	<div class="content">
+                            <!-- BEGIN: img --><a href="{ROW.link}"><img src="{ROW.photo}"></a><!-- END: img --> 
+                            <br /><span style="font-weight:700"><a href="{ROW.link}">{ROW.name}</a></span> 
+                            <br /><span>{ROW.position}</span>
+                            <br /><span style="color:#FF0000">{LANG.vieworg_birthday} {ROW.birthday}</span>
+                        </div>
                     </div>
-                    <!-- BEGIN: img -->
-                    <a href="#"><img src="{ROW.photo}"></a>
-                    <!-- END: img -->
-                    <div class="clear"></div>
-                    <div id="viewper_{ROW.personid}"></div>
+                    <!-- END: loop -->
                 </div>
-                <!-- END: loop -->
+                <!-- BEGIN: pages -->
+                <div style="line-height:22px; text-align:right">{html_pages}</div>
+                <!-- END: pages -->
             </div> 
             <!-- END: person -->
         </div>

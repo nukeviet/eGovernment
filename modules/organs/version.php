@@ -8,7 +8,7 @@
 
 $module_version = array( 
     "name" => "Organs", //
-    "modfuncs" => "main, vieworg", //
+    "modfuncs" => "main, vieworg, person, viewsearch", //
     "submenu" => "", //
 	"is_sysmod" => 0, //
     "virtual" => 1, //

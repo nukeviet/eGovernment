@@ -42,7 +42,7 @@
                         <span>{LANG.viewper_address} :</span><span>{ROW.address}</span>
                     </div>
                     <!-- BEGIN: img -->
-                    <a href="#"><img src="{ROW.photo}"></a>
+                    <a href="{ROW.link}"><img src="{ROW.photo}"></a>
                     <!-- END: img -->
                     <div class="clear"></div>
                     <div id="viewper_{ROW.personid}"></div>

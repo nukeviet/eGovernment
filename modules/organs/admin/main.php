@@ -9,17 +9,29 @@
 if ( ! defined( 'NV_IS_FILE_ADMIN' ) ) die( 'Stop!!!' );
 
 $page_title = $lang_module['main'];
-$base_url = NV_BASE_ADMINURL . "index.php?" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=" . $op;
+
 $per_page = 20;
 $page = $nv_Request->get_int( 'page', 'get', 0 );
 $parentid = $nv_Request->get_int( 'pid', 'get', 0 );
 
-$sql = "SELECT * FROM `" . NV_PREFIXLANG . "_" . $module_data . "_rows` WHERE organid=".intval($parentid);
+$base_url = NV_BASE_ADMINURL . "index.php?" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=" . $op."&pid=".$parentid;
+$sql = "SELECT * FROM `" . NV_PREFIXLANG . "_" . $module_data . "_rows` ORDER BY `order` ASC ";
 $result = $db->sql_query( $sql );
-$row = $db->sql_fetchrow( $result, 2 );
+$array_organs = array();
+while ($row = $db->sql_fetchrow( $result, 2 ))
+{
+	$array_organs[$row['organid']] = $row;
+}
 
-if (!empty($row)) {
-	$page_title = $lang_module['main'] . $lang_module['main_sub'] . $row['title']; 
+if (!empty($array_organs[$parentid])) {
+	$array_id = getall_organid_parent ($array_organs,$parentid);
+	$temp_title = "";
+	foreach ( $array_id as $id_i )
+	{
+		$link = NV_BASE_ADMINURL . "index.php?" . NV_NAME_VARIABLE . "=" . $module_name . "&amp;" . NV_OP_VARIABLE . "=main&amp;pid=" . $id_i;
+		$temp_title .= "<a href=\"".$link."\">".$array_organs[$id_i]['title']."</a>"." -> ";
+	}
+	$page_title = $lang_module['main'] . $lang_module['main_sub'] . $temp_title . $array_organs[$parentid]['title']; 
 }
 
 $xtpl = new XTemplate( "main.tpl", NV_ROOTDIR . "/themes/" . $global_config['module_theme'] . "/modules/" . $module_file );
@@ -58,6 +70,7 @@ while ( $row = $db->sql_fetchrow( $result, 2 ) )
     $row['link_row'] = NV_BASE_ADMINURL . "index.php?" . NV_NAME_VARIABLE . "=" . $module_name . "&amp;" . NV_OP_VARIABLE . "=".$op."&amp;pid=" . $row['organid'];
     $row['link_per'] = NV_BASE_ADMINURL . "index.php?" . NV_NAME_VARIABLE . "=" . $module_name . "&amp;" . NV_OP_VARIABLE . "=listper&amp;pid=" . $row['organid'];
     $row['select_weight'] = drawselect_number ( $row['organid'], 1, $all_page + 1, $row['weight'], "nv_chang_organs('".$row['organid']."',this,url_change_weight,url_back);" );
+    $row['number_per'] = getall_numper_of_parent ($array_organs,$row['organid']);
     $xtpl->assign( 'ROW', $row );
     $xtpl->parse( 'main.row' );
     $i ++;

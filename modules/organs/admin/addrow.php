@@ -34,11 +34,13 @@ if ( $nv_Request->get_int( 'save', 'post' ) == 1 )
     $data['parentid'] = $nv_Request->get_int( 'parentid', 'post', 0 );
     $data['parentid_old'] = $nv_Request->get_int( 'parentid_old', 'post', 0 );
     $data['title'] = filter_text_input( 'title', 'post', '', 1 );
-    $data['alias'] = ( $data['title'] != "" ) ? change_alias( $data['title'] ) : "";
+    $alias = filter_text_input( 'alias', 'post', '', 1 );
+    $data['alias'] = ( $alias != "" ) ? change_alias( $alias ) : change_alias( $data['title'] );
     $data['description'] = $nv_Request->get_string( 'description', 'post', '' );
     $data['description'] = nv_nl2br( nv_htmlspecialchars( strip_tags( $data['description'] ) ), '' );
     $data['address'] = filter_text_input( 'address', 'post', '', 1 );
     $data['phone'] = filter_text_input( 'phone', 'post', '', 1 );
+    $data['phone_ext'] = filter_text_input( 'phone_ext', 'post', '', 1 );
     $data['email'] = filter_text_input( 'email', 'post', '', 1 );
     $data['fax'] = filter_text_input( 'fax', 'post', '', 1 );
     $data['website'] = $nv_Request->get_string( 'website', 'post', '', 1 );
@@ -65,7 +67,7 @@ if ( $nv_Request->get_int( 'save', 'post' ) == 1 )
         {
             list( $weight ) = $db->sql_fetchrow( $db->sql_query( "SELECT max(`weight`) FROM " . $table_name . " WHERE `parentid`=" . $db->dbescape( $data['parentid'] ) . "" ) );
             $weight = intval( $weight ) + 1;
-            $sql = "INSERT INTO " . $table_name . " (`organid`, `parentid`, `title`, `alias`, `image`, `thumbnail`, `weight`, `order`, `numsub`, `suborgan`, `lev`, `active`, `add_time`, `edit_time`, `address`, `email`, `phone`, `fax`, `website`, `numperson`, `description`,`view` ) 
+            $sql = "INSERT INTO " . $table_name . " (`organid`, `parentid`, `title`, `alias`, `image`, `thumbnail`, `weight`, `order`, `numsub`, `suborgan`, `lev`, `active`, `add_time`, `edit_time`, `address`, `email`, `phone`,`phone_ext` ,`fax`, `website`, `numperson`, `description`,`view` ) 
          			VALUES (
          				NULL, 
          				" . intval( $data['parentid'] ) . ",
@@ -84,6 +86,7 @@ if ( $nv_Request->get_int( 'save', 'post' ) == 1 )
          				" . $db->dbescape( $data['address'] ) . ",
          				" . $db->dbescape( $data['email'] ) . ",
          				" . $db->dbescape( $data['phone'] ) . ",
+         				" . $db->dbescape( $data['phone_ext'] ) .",
          				" . $db->dbescape( $data['fax'] ) . ",
          				" . $db->dbescape( $data['website'] ) . ",
          				0,
@@ -116,6 +119,7 @@ if ( $nv_Request->get_int( 'save', 'post' ) == 1 )
             		  	  `address` = " . $db->dbescape( $data['address'] ) . ", 
             		  	  `email` = " . $db->dbescape( $data['email'] ) . ", 
             		  	  `phone` = " . $db->dbescape( $data['phone'] ) . ", 
+            		  	  `phone_ext` = " . $db->dbescape( $data['phone_ext'] ) . ", 
             		  	  `fax` = " . $db->dbescape( $data['fax'] ) . ", 
             		  	  `website` = " . $db->dbescape( $data['website'] ) . ",
             		  	  `view` = " . intval( $data['view'] ) . ",
@@ -158,6 +162,7 @@ if ( $id > 0 && $nv_Request->get_int( 'save', 'post' ) == 0) // insert data
 
 $xtpl = new XTemplate( "addrow.tpl", NV_ROOTDIR . "/themes/" . $global_config['module_theme'] . "/modules/" . $module_file );
 $xtpl->assign( 'LANG', $lang_module );
+$xtpl->assign( 'NV_BASE_SITEURL', NV_BASE_SITEURL );
 /* begin set input select parentid */
 $sql = "SELECT organid, title, lev FROM " . $table_name . " WHERE `organid` !='" . $data['organid'] . "' ORDER BY `order` ASC";
 $result = $db->sql_query( $sql );

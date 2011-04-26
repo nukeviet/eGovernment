@@ -84,7 +84,22 @@ function nv_del_org (id, base_adminurl,lang_confirm)
 		});
 	}
 }
-
+function nv_del_per (id, base_adminurl,lang_confirm)
+{
+	if (confirm(lang_confirm))
+	{
+		var href = base_adminurl + 'index.php?' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=delper&id=' + id;
+		$.ajax({	
+			type: 'POST',
+			url: href,
+			data:'',
+			success: function(data){				
+				alert(data);
+				window.location = nv_siteroot + "index.php?" + nv_lang_variable + '=' + nv_sitelang  + '&' + nv_name_variable + '=' + nv_module_name;
+			}
+		});
+	}
+}
 /**/
 function viewper(id)
 {
@@ -94,4 +109,10 @@ function viewper(id)
 function closeper(id)
 {
 	$("#viewper_"+id).slideUp();
+}
+function search_submit_form(){
+	var oid = $("#organid").val();
+	var text = $("#otextseach").val();
+	window.location = nv_siteroot + "index.php?" + nv_lang_variable + '=' + nv_sitelang  + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=viewsearch&oid='+oid+'&q='+rawurlencode(text);
+	return false;
 }

@@ -8,7 +8,7 @@
       <thead>
         <tr>
           <td width="10px" align="center"><input type="checkbox" id="checkall" name="checkall" /></td>
-          <td width="10px" align="center"></td>
+          <td width="10px" align="center">{LANG.organ_person_posi}</td>
           <td><strong>{LANG.organ_person_name}</strong></td>
           <td><strong>{LANG.organ_address}</strong></td>
           <td width="120px"><strong>{LANG.organ_active}</strong></td>

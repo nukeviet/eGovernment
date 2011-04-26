@@ -9,23 +9,41 @@
 if ( ! defined( 'NV_IS_MOD_ORGAN' ) ) die( 'Stop!!!' );
 $page_title = $module_info['custom_title'];
 $key_words = $module_info['keywords'];
-
-$person_data = $organs_data = array();
-
-$sql = "SELECT * FROM `" . NV_PREFIXLANG . "_" . $module_data . "_rows` WHERE view = 1 ORDER BY weight ASC LIMIT 1 ";
-$result = $db->sql_query( $sql );
-$organs_data = $db->sql_fetchrow( $result, 2 );
-if ( empty ( $organs_data )) $contents = "no data!";
-else 
+$id = 0;
+foreach ( $global_organ_rows as $organid => $organinfo )
 {
-	$sql = "SELECT * FROM `" . NV_PREFIXLANG . "_" . $module_data . "_person` WHERE organid=" . intval( $organs_data['organid']);
-	$result = $db->sql_query( $sql );
-	while ( $row = $db->sql_fetchrow( $result, 2 ))
+	if ($organinfo ['numsub'] > 0)
 	{
-		$person_data[] = $row;
+		$id = $organid; break;
 	}
-	$contents = vieworg( $organs_data,$person_data );
 }
+$array_content = array();
+foreach ( $global_organ_rows as $organid => $organinfo )
+{
+    if ( $organinfo['parentid'] == $id )
+    {
+        $person_data = array();
+        $sql = "SELECT * FROM `" . NV_PREFIXLANG . "_" . $module_data . "_person` WHERE organid=" . intval( $organinfo['organid'] ) . " ORDER BY `weight` LIMIT 5";
+        $result = $db->sql_query( $sql );
+        while ( $row = $db->sql_fetchrow( $result, 2 ) )
+        {
+            if ( ! empty( $row['photo'] ) )
+            {
+                $urlimg = NV_ROOTDIR . '/' . NV_UPLOADS_DIR . '/' . $module_name . '/' . $row['photo'];
+                $imageinfo = nv_ImageInfo( $urlimg, 200, true, NV_UPLOADS_REAL_DIR . '/' . $module_name . '/thumb' );
+                $row['photo'] = $imageinfo['src'];
+            }
+            $row['link'] = NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=person/" . $global_organ_rows[$id]['alias'] . "-" . $id . "/" . change_alias( $row['name'] ) . "-" . $row['personid'];
+            $person_data[] = $row;
+        }
+        $array_content[] = array( 
+            "id" => $organinfo['organid'], "data" => $person_data 
+        );
+        unset( $person_data );
+    }
+}
+$contents = vieworg_catelist( $array_content );	
+
 
 include ( NV_ROOTDIR . "/includes/header.php" );
 echo nv_site_theme( $contents );

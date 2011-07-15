@@ -44,7 +44,7 @@ $sql_create_module[] = "CREATE TABLE `" . $db_config['prefix'] . "_" . $lang . "
   `personid` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
   `photo` varchar(255) NOT NULL,
-  `phone_ext` CHAR( 20 ) NOT NULL
+  `phone_ext` CHAR( 20 ) NOT NULL,
   `mobile` char(20) NOT NULL,
   `email` varchar(50) NOT NULL,
   `position` text NOT NULL,

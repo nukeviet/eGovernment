@@ -7,9 +7,9 @@
             <thead><tr>
             	<td align="center" width="20">{LANG.vieworg_no}</td>
             	<td>{LANG.vieworg_name}</td>
-                <td>{LANG.vieworg_position}</td>
-                <td>{LANG.vieworg_birthday}</td>
-                <td>{LANG.vieworg_mobile_title}</td>
+                <td width="280">{LANG.vieworg_position}</td>
+                <td  width="100">{LANG.vieworg_birthday}</td>
+                <td  width="100">{LANG.vieworg_mobile_title}</td>
             </tr></thead>
             <!-- BEGIN: loop -->
             <tbody {bg}><tr>

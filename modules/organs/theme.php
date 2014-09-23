@@ -33,7 +33,7 @@ function detail_per($data_content)
     $xtpl->assign( 'LANG', $lang_module );
     $xtpl->assign( 'NV_BASE_SITEURL', NV_BASE_SITEURL );
     $xtpl->assign( 'TEMPLATE', $global_config['site_theme'] );
-    if ( $data_content['birthday'] > 0 ) $data_content['birthday'] = date("d/m/Y",$data_content['birthday']);
+    if ( $data_content['birthday'] != 0 ) $data_content['birthday'] = date("d/m/Y",$data_content['birthday']);
     else { $data_content['birthday'] = ""; }
     if ( $data_content['dayinto'] > 0 ) $data_content['dayinto'] = date("d/m/Y",$data_content['dayinto']);
 	else { $data_content['dayinto'] = ""; }

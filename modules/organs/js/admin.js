@@ -1,24 +1,10 @@
 /**
- * @Project NUKEVIET 3.0
+ * @Project NUKEVIET 4.x
  * @Author VINADES., JSC (contact@vinades.vn)
- * @Copyright (C) 2010 VINADES ., JSC. All rights reserved
+ * @Copyright (C) 2014 VINADES ., JSC. All rights reserved
+ * @License GNU/GPL version 2 or any later version
  * @Createdate Dec 3, 2010  12:48:35 PM 
  */
-
-// function checkall end uncheckall
-function checkall(){
-	$('#checkall').click(function(){
-		if ( $(this).attr('checked') ){
-			$('input:checkbox').each(function(){
-				$(this).attr('checked','checked');
-			});
-		}else {
-			$('input:checkbox').each(function(){
-			$(this).removeAttr('checked');
-			});
-		}
-	});
-}
 
 // function delete lay tu link cua the <a>
 /*
@@ -52,7 +38,7 @@ function delete_all(filelist,class_name,lang_confirm,lang_error,url_del,url_back
 	$('a.'+class_name).click(function(event){
 		event.preventDefault();
 		var listall = [];
-		$('input.'+filelist+':checked').each(function(){
+		$('input[name="' + filelist +'"]:checked').each(function(){
 			listall.push($(this).val());
 		});
 		if (listall.length<1){

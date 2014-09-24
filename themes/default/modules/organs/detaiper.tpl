@@ -1,45 +1,80 @@
 <!-- BEGIN: main -->
-<div class="detail_person">
-	<table width="100%"><tr>
-    	<!-- BEGIN: photo -->
-    	<td width="85"><a href="{DATA.imgsrc}" rel="shadowbox"><img src="{DATA.photo}" class="detail_img" /></a></td>
-        <!-- END: photo -->
-        <td>
-            <ul class="ullist">
-                <li><span>{LANG.vieworg_name} : </span><strong style="font-size:14px">{DATA.name}</strong></li>
-                <li><span>{LANG.vieworg_position} : </span><strong>{DATA.position}</strong></li>
-                <li><span>{LANG.vieworg_position_other} : </span><strong>{DATA.position_other}</strong></li>
-                <li><span>{LANG.vieworg_ofogran} : </span><strong>{DATA.ofogran}</strong></li>
-                <li><span>{LANG.vieworg_mobile_title} : </span><strong>{DATA.mobile}</strong></li>
-            </ul>
-        </td>
-    </tr></table>
-    <table width="100%"><tr>
-        <td>
-            <ul class="ullist">
-            	<li><span>{LANG.vieworg_birthday} : </span><strong>{DATA.birthday}</strong></li>
-                <li><span>{LANG.vieworg_dayinto} : </span><strong>{DATA.dayinto}</strong></li>
-                <li><span>{LANG.vieworg_email} : </span><strong><a href="mailto:{ROW.email}">{DATA.email}</a></strong></li>
-                <li><span>{LANG.vieworg_phone} : </span><strong>{DATA.phone}</strong>
-                &nbsp;&nbsp;&nbsp; {LANG.vieworg_phone_ext}: <strong>{DATA.phone_ext}</strong></li>
-                <li><span>{LANG.vieworg_marital_status} : </span><strong>{DATA.marital_status}</strong></li>
-                <li><span>{LANG.viewper_address} : </span><strong>{DATA.address}</strong></li>
-            </ul>
-        </td>
-    </tr></table>
-    <table width="100%">
-        <tr><td>
-            <ul class="ullist">
-            	<li>{LANG.vieworg_professional} : <strong>{DATA.professional}</strong></li>
-            </ul>
-        </tr></td>
-        <tr><td>
-            {DATA.description}
-        </tr></td>
-        <tr><td align="right">
-            {admin_link}
-        </tr></td>
-    </table>
-    
+
+<!-- BEGIN: photo -->
+<div class="text-center">
+	<a href="{DATA.imgsrc}" rel="shadowbox"><img src="{DATA.photo}" class="img-thumbnail" /></a><br /><br />
 </div>
+<!-- END: photo -->
+
+<div class="table-responsive">
+	<table class="table table-striped table-bordered table-hover">
+		<colgroup>
+			<col width="200" />
+		</colgroup>
+		<tbody>
+			<tr>
+				<td>{LANG.vieworg_name}</td>
+				<td>{DATA.name}</td>
+			</tr>
+			<tr>
+				<td>{LANG.vieworg_position}</td>
+				<td>{DATA.position}</td>
+			</tr>
+			<tr>
+				<td>{LANG.vieworg_position_other}</td>
+				<td>{DATA.position_other}</td>
+			</tr>
+			<tr>
+				<td>{LANG.vieworg_ofogran}</td>
+				<td>{DATA.ofogran}</td>
+			</tr>
+			<tr>
+				<td>{LANG.vieworg_mobile_title}</td>
+				<td>{DATA.mobile}</td>
+			</tr>
+			<tr>
+				<td>{LANG.vieworg_birthday}</td>
+				<td>{DATA.birthday}</td>
+			</tr>
+			<tr>
+				<td>{LANG.vieworg_dayinto}</td>
+				<td>{DATA.dayinto}</td>
+			</tr>
+			<tr>
+				<td>{LANG.vieworg_email}</td>
+				<td><a href="mailto:{ROW.email}" title="Mail to {DATA.email}">{DATA.email}</a></td>
+			</tr>
+			<tr>
+				<td>{LANG.vieworg_phone}</td>
+				<td>{DATA.phone}</td>
+			</tr>
+			<tr>
+				<td>{LANG.vieworg_phone_ext}</td>
+				<td>{DATA.phone_ext}</td>
+			</tr>
+			<tr>
+				<td>{LANG.vieworg_marital_status}</td>
+				<td>{DATA.marital_status}</td>
+			</tr>
+			<tr>
+				<td>{LANG.viewper_address}</td>
+				<td>{DATA.address}</td>
+			</tr>
+			<tr>
+				<td>{LANG.vieworg_phone}</td>
+				<td>{DATA.phone}</td>
+			</tr>
+			<tr>
+				<td>{LANG.vieworg_professional}</td>
+				<td>{DATA.professional}</td>
+			</tr>
+			<tr>
+				<td colspan="2">{DATA.description}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div class="text-center">{admin_link}</div><br />
+
 <!-- END: main -->

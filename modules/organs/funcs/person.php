@@ -1,8 +1,9 @@
 <?php
 /**
- * @Project NUKEVIET 3.0
+ * @Project NUKEVIET 4.x
  * @Author VINADES., JSC (contact@vinades.vn)
- * @Copyright (C) 2010 VINADES ., JSC. All rights reserved
+ * @Copyright (C) 2014 VINADES ., JSC. All rights reserved
+ * @License GNU/GPL version 2 or any later version
  * @Createdate Dec 3, 2010  11:32:04 AM 
  */
 
@@ -32,9 +33,9 @@ if ( ! empty( $array_op[1] ) )
 }
 
 $data_content = array();
-$sql = "SELECT * FROM `" . NV_PREFIXLANG . "_" . $module_data . "_person` WHERE personid=" . intval( $pid ) . " AND `active`=1";
-$result = $db->sql_query( $sql );
-$data_content = $db->sql_fetchrow( $result, 2 );
+$sql = "SELECT * FROM " . NV_PREFIXLANG . "_" . $module_data . "_person WHERE personid=" . intval( $pid ) . " AND active=1";
+$result = $db->query( $sql );
+$data_content = $result->fetch();
 
 if ( empty( $data_content ) )
 {
@@ -53,8 +54,6 @@ if ( ! empty( $data_content['photo'] ) )
 $page_title = $data_content['name'];
 $contents = detail_per( $data_content );
 
-include ( NV_ROOTDIR . "/includes/header.php" );
+include NV_ROOTDIR . '/includes/header.php';
 echo nv_site_theme( $contents );
-include ( NV_ROOTDIR . "/includes/footer.php" );
-
-?>
+include NV_ROOTDIR . '/includes/footer.php';

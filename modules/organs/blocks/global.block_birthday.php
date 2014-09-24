@@ -1,8 +1,9 @@
 <?php
 /**
- * @Project NUKEVIET 3.0
+ * @Project NUKEVIET 4.x
  * @Author VINADES.,JSC (contact@vinades.vn)
- * @Copyright (C) 2010 VINADES., JSC. All rights reserved
+ * @Copyright (C) 2014 VINADES., JSC. All rights reserved
+ * @License GNU/GPL version 2 or any later version
  * @Createdate 3/9/2010 23:25
  */
 
@@ -49,13 +50,13 @@ if ( ! nv_function_exists( 'nv_block_sbirthday' ) )
         $module = $block_config['module'];
         $mod_data = $site_mods[$module]['module_data'];
         $mod_file = $site_mods[$module]['module_file'];
-        //$sql = "SELECT `name`, `position`, `organid` FROM `" . NV_PREFIXLANG . "_" . $mod_data . "_person` WHERE FROM_UNIXTIME(`birthday`,'%m-%d')='" . date( "m-d", NV_CURRENTTIME ) . "'";
-        $sql = "SELECT `name`, `position`, `organid` FROM `" . NV_PREFIXLANG . "_" . $mod_data . "_person` WHERE DATE_FORMAT(DATE_ADD(FROM_UNIXTIME(0), INTERVAL `birthday` SECOND),'%m-%d')='" . date( "m-d", NV_CURRENTTIME ) . "'";
+        //$sql = "SELECT name, position, organid FROM " . NV_PREFIXLANG . "_" . $mod_data . "_person WHERE FROM_UNIXTIME(birthday,'%m-%d')='" . date( "m-d", NV_CURRENTTIME ) . "'";
+        $sql = "SELECT name, position, organid FROM " . NV_PREFIXLANG . "_" . $mod_data . "_person WHERE DATE_FORMAT(DATE_ADD(FROM_UNIXTIME(0), INTERVAL birthday SECOND),'%m-%d')='" . date( "m-d", NV_CURRENTTIME ) . "'";
         $list = nv_db_cache( $sql, 'person', $module );
         $i = 1;
         if ( ! empty( $list ) )
         {
-            $sql = "SELECT `organid`, `parentid`, `title` FROM `" . NV_PREFIXLANG . "_" . $mod_data . "_rows`";
+            $sql = "SELECT organid, parentid, title FROM " . NV_PREFIXLANG . "_" . $mod_data . "_rows";
             $list_organ = nv_db_cache( $sql, 'organid', $module );
             
             if ( file_exists( NV_ROOTDIR . "/themes/" . $module_info['template'] . "/modules/" . $mod_file . "/block_birthday.tpl" ) )
@@ -92,5 +93,3 @@ if ( defined( 'NV_SYSTEM' ) )
         $content = nv_block_sbirthday( $block_config );
     }
 }
-
-?>

@@ -1,8 +1,9 @@
 <?php
 /**
- * @Project NUKEVIET 3.0
+ * @Project NUKEVIET 4.x
  * @Author VINADES., JSC (contact@vinades.vn)
- * @Copyright (C) 2010 VINADES ., JSC. All rights reserved
+ * @Copyright (C) 2014 VINADES ., JSC. All rights reserved
+ * @License GNU/GPL version 2 or any later version
  * @Createdate Dec 3, 2010  11:33:22 AM 
  */
 
@@ -14,13 +15,13 @@ $month_dir_module = nv_mkdir( NV_UPLOADS_REAL_DIR . '/' . $module_name, date( "Y
 $data = array( "personid" => 0, "name" => '', "photo" => '', "email" => '', "position" => '', "address" => '', "phone" => '', "phone_ext" => "", "birthday" => "", "description" => '', "addtime" => 0, "edittime" => 0, "organid" => 0, "weight" => 0, "active" => 1, "marital_status" => "", "mobile" => "", "dayinto" => "", "position_other" => "", "professional" => "" );
 $table_name = NV_PREFIXLANG . "_" . $module_data . "_person";
 
-$base_url = NV_BASE_ADMINURL . "index.php?" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=" . $op;
+$base_url = NV_BASE_ADMINURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=" . $op;
 
 ////////////////////////////
 $data['organid'] = $nv_Request->get_int( 'pid', 'get', 0 );
-$sql = "SELECT * FROM `" . NV_PREFIXLANG . "_" . $module_data . "_rows` WHERE organid=" . intval( $data['organid'] );
-$result = $db->sql_query( $sql );
-$row = $db->sql_fetchrow( $result, 2 );
+$sql = "SELECT * FROM " . NV_PREFIXLANG . "_" . $module_data . "_rows WHERE organid=" . intval( $data['organid'] );
+$result = $db->query( $sql );
+$row = $result->fetch();
 
 if ( ! empty( $row ) )
 {
@@ -34,19 +35,19 @@ if ( $nv_Request->get_int( 'save', 'post' ) == 1 )
 {
     $data['organid'] = $nv_Request->get_int( 'organid', 'post', 0 );
     $data['organid_old'] = $nv_Request->get_int( 'organid_old', 'post', 0 );
-    $data['name'] = filter_text_input( 'name', 'post', '', 1 );
+    $data['name'] = $nv_Request->get_title( 'name', 'post', '', 1 );
     $data['description'] = $nv_Request->get_string( 'description', 'post', '' );
     $data['description'] = nv_nl2br( nv_htmlspecialchars( strip_tags( $data['description'] ) ), '' );
-    $data['address'] = filter_text_input( 'address', 'post', '', 1 );
-    $data['phone'] = filter_text_input( 'phone', 'post', '', 1 );
-    $data['phone_ext'] = filter_text_input( 'phone_ext', 'post', '', 1 );
-    $data['mobile'] = filter_text_input( 'mobile', 'post', '', 1 );
-    $data['email'] = filter_text_input( 'email', 'post', '', 1 );
-    $data['photo'] = filter_text_input( 'photo', 'post', '' );
-    $data['position'] = filter_text_input( 'position', 'post', '', 1 );
-    $data['position_other'] = filter_text_input( 'position_other', 'post', '', 1 );
-    $data['marital_status'] = filter_text_input( 'marital_status', 'post', '', 1 );
-    $data['professional'] = filter_text_input( 'professional', 'post', '', 1 );
+    $data['address'] = $nv_Request->get_title( 'address', 'post', '', 1 );
+    $data['phone'] = $nv_Request->get_title( 'phone', 'post', '', 1 );
+    $data['phone_ext'] = $nv_Request->get_title( 'phone_ext', 'post', '', 1 );
+    $data['mobile'] = $nv_Request->get_title( 'mobile', 'post', '', 1 );
+    $data['email'] = $nv_Request->get_title( 'email', 'post', '', 1 );
+    $data['photo'] = $nv_Request->get_title( 'photo', 'post', '' );
+    $data['position'] = $nv_Request->get_title( 'position', 'post', '', 1 );
+    $data['position_other'] = $nv_Request->get_title( 'position_other', 'post', '', 1 );
+    $data['marital_status'] = $nv_Request->get_title( 'marital_status', 'post', '', 1 );
+    $data['professional'] = $nv_Request->get_title( 'professional', 'post', '', 1 );
     $birthday = $nv_Request->get_string( 'birthday', 'post', '' );
     if ( ! empty( $birthday ) and ! preg_match( "/^([0-9]{1,2})\\/([0-9]{1,2})\/([0-9]{4})$/", $birthday ) ) $birthday = "";
     if ( empty( $birthday ) )
@@ -76,10 +77,19 @@ if ( $nv_Request->get_int( 'save', 'post' ) == 1 )
         $data['dayinto'] = mktime( $phour, $pmin, 0, $m[2], $m[1], $m[3] );
     }
     $data['active'] = $nv_Request->get_int( 'active', 'post', 0 );
+	
     //* check error*//
     if ( empty( $data['name'] ) )
     {
         $error = $lang_module['error_person_title'];
+    }
+    elseif ( empty( $data['birthday'] ) )
+    {
+    	$error = $lang_module['error_organ_birthday'];
+    }
+    elseif ( empty( $data['position'] ) )
+    {
+    	$error = $lang_module['error_organ_position'];
     }
     elseif ( ! empty( $data['email'] ) )
     {
@@ -88,6 +98,7 @@ if ( $nv_Request->get_int( 'save', 'post' ) == 1 )
             $error = $lang_module['error_organ_emal'];
         }
     }
+    
     /**action with none error**/
     if ( empty( $error ) )
     {
@@ -104,39 +115,39 @@ if ( $nv_Request->get_int( 'save', 'post' ) == 1 )
         }
         if ( $id == 0 ) // insert data
         {
-            list( $weight ) = $db->sql_fetchrow( $db->sql_query( "SELECT max(`weight`) FROM " . $table_name . " WHERE `organid`=" . $db->dbescape( $data['organid'] ) . "" ) );
+            $weight = $db->query( "SELECT max(weight) FROM " . $table_name . " WHERE organid=" . $db->quote( $data['organid'] ) . "" )->fetchColumn();
             $weight = intval( $weight ) + 1;
-            $sql = "INSERT INTO " . $table_name . " (`personid`, `name`, `photo`, `email`, `position`,`position_other` ,`address`, `phone`,`phone_ext` ,`mobile`, `birthday`, `description`, `addtime`, `edittime`, `organid`, `weight`, `active`,`dayinto`,`marital_status`,`professional` ) 
+            $sql = "INSERT INTO " . $table_name . " (personid, name, photo, email, position,position_other ,address, phone,phone_ext ,mobile, birthday, description, addtime, edittime, organid, weight, active,dayinto,marital_status,professional ) 
          			VALUES (
          				NULL, 
-         				" . $db->dbescape( $data['name'] ) . ",
-         				" . $db->dbescape( $data['photo'] ) . ",
-         				" . $db->dbescape( $data['email'] ) . ",
-         				" . $db->dbescape( $data['position'] ) . ",
-         				" . $db->dbescape( $data['position_other'] ) . ",
-         				" . $db->dbescape( $data['address'] ) . ",
-         				" . $db->dbescape( $data['phone'] ) . ",
-         				" . $db->dbescape( $data['phone_ext'] ) . ",
-         				" . $db->dbescape( $data['mobile'] ) . ",
+         				" . $db->quote( $data['name'] ) . ",
+         				" . $db->quote( $data['photo'] ) . ",
+         				" . $db->quote( $data['email'] ) . ",
+         				" . $db->quote( $data['position'] ) . ",
+         				" . $db->quote( $data['position_other'] ) . ",
+         				" . $db->quote( $data['address'] ) . ",
+         				" . $db->quote( $data['phone'] ) . ",
+         				" . $db->quote( $data['phone_ext'] ) . ",
+         				" . $db->quote( $data['mobile'] ) . ",
          				" . intval( $data['birthday'] ) . ",
-         				" . $db->dbescape( $data['description'] ) . ",
+         				" . $db->quote( $data['description'] ) . ",
          				UNIX_TIMESTAMP(), 
          				UNIX_TIMESTAMP(), 
          				" . intval( $data['organid'] ) . ",		
          				" . intval( $weight ) . ",
          				" . intval( $data['active'] ) . ",
          				" . intval( $data['dayinto'] ) . ",
-         				" . $db->dbescape( $data['marital_status'] ) . ",
-         				" . $db->dbescape( $data['professional'] ) . "
+         				" . $db->quote( $data['marital_status'] ) . ",
+         				" . $db->quote( $data['professional'] ) . "
          			)";
-            $newcatid = intval( $db->sql_query_insert_id( $sql ) );
+            $newcatid = intval( $db->insert_id( $sql ) );
             if ( $newcatid > 0 )
             {
                 nv_insert_logs( NV_LANG_DATA, $module_name, 'log_add_catalog', "id " . $newcatid, $admin_info['userid'] );
-                $db->sql_freeresult();
+                //$xxx->closeCursor();
                 nv_fix_organ( $data['organid'] );
                 nv_del_moduleCache( $module_name );
-                Header( "Location: " . NV_BASE_ADMINURL . "index.php?" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=listper&pid=" . $data['organid'] . "" );
+                Header( "Location: " . NV_BASE_ADMINURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=listper&pid=" . $data['organid'] . "" );
                 die();
             }
             else
@@ -147,49 +158,49 @@ if ( $nv_Request->get_int( 'save', 'post' ) == 1 )
         else // update data
         {
             $query = "UPDATE " . $table_name . " 
-            		  SET `organid` = " . $db->dbescape( $data['organid'] ) . ",
-            		  	  `name` = " . $db->dbescape( $data['name'] ) . ", 
-            		  	  `active` = " . intval( $data['active'] ) . ",
-            		  	  `description` = " . $db->dbescape( $data['description'] ) . ", 
-            		  	  `address` = " . $db->dbescape( $data['address'] ) . ", 
-            		  	  `email` = " . $db->dbescape( $data['email'] ) . ", 
-            		  	  `phone` = " . $db->dbescape( $data['phone'] ) . ", 
-            		  	  `mobile` = " . $db->dbescape( $data['mobile'] ) . ", 
-            		  	  `photo` = " . $db->dbescape( $data['photo'] ) . ", 
-            		  	  `phone_ext` = " . $db->dbescape( $data['phone_ext'] ) . ",
-            		  	  `position` = " . $db->dbescape( $data['position'] ) . ",
-            		  	  `position_other` = " . $db->dbescape( $data['position_other'] ) . ",
-            		  	  `marital_status` = " . $db->dbescape( $data['marital_status'] ) . ",
-            		  	  `birthday` = " . intval( $data['birthday'] ) . ",
-            		  	  `dayinto` = " . intval( $data['dayinto'] ) . ",
-            		  	  `professional` = " . $db->dbescape( $data['professional'] ) . ",
-            		  	  `edittime` = UNIX_TIMESTAMP() 
-            		  WHERE `personid` = " . intval( $id ) . "";
-            $db->sql_query( $query );
-            if ( $db->sql_affectedrows() > 0 )
+            		  SET organid = " . $db->quote( $data['organid'] ) . ",
+            		  	  name = " . $db->quote( $data['name'] ) . ", 
+            		  	  active = " . intval( $data['active'] ) . ",
+            		  	  description = " . $db->quote( $data['description'] ) . ", 
+            		  	  address = " . $db->quote( $data['address'] ) . ", 
+            		  	  email = " . $db->quote( $data['email'] ) . ", 
+            		  	  phone = " . $db->quote( $data['phone'] ) . ", 
+            		  	  mobile = " . $db->quote( $data['mobile'] ) . ", 
+            		  	  photo = " . $db->quote( $data['photo'] ) . ", 
+            		  	  phone_ext = " . $db->quote( $data['phone_ext'] ) . ",
+            		  	  position = " . $db->quote( $data['position'] ) . ",
+            		  	  position_other = " . $db->quote( $data['position_other'] ) . ",
+            		  	  marital_status = " . $db->quote( $data['marital_status'] ) . ",
+            		  	  birthday = " . intval( $data['birthday'] ) . ",
+            		  	  dayinto = " . intval( $data['dayinto'] ) . ",
+            		  	  professional = " . $db->quote( $data['professional'] ) . ",
+            		  	  edittime = UNIX_TIMESTAMP() 
+            		  WHERE personid = " . intval( $id ) . "";
+			
+            if ( $db->query( $query ) )
             {
                 nv_insert_logs( NV_LANG_DATA, $module_name, 'log_edit_catalog', "id " . $id, $admin_info['userid'] );
-                $db->sql_freeresult();
+                //$xxx->closeCursor();
                 if ( $data['organid'] != $data['organid_old'] )
                 {
-                    list( $weight ) = $db->sql_fetchrow( $db->sql_query( "SELECT max(`weight`) FROM " . $table_name . " WHERE `organid`=" . $db->dbescape( $data['organid'] ) . "" ) );
+                    $weight = $db->query( "SELECT max(weight) FROM " . $table_name . " WHERE organid=" . $db->quote( $data['organid'] ) . "" )->fetchColumn();
                     $weight = intval( $weight ) + 1;
-                    $sql = "UPDATE " . $table_name . " SET `weight`=" . $weight . " WHERE `organid`=" . intval( $id );
-                    $db->sql_query( $sql );
+                    $sql = "UPDATE " . $table_name . " SET weight=" . $weight . " WHERE organid=" . intval( $id );
+                    $db->query( $sql );
                     nv_fix_personweight( $data['organid_old'] );
                     nv_fix_personweight( $data['organid'] );
                     nv_fix_organ( $data['organid_old'] );
                 }
                 nv_fix_organ( $data['organid'] );
                 nv_del_moduleCache( $module_name );
-                Header( "Location: " . NV_BASE_ADMINURL . "index.php?" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=listper&pid=" . $data['organid'] . "" );
+                Header( "Location: " . NV_BASE_ADMINURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=listper&pid=" . $data['organid'] . "" );
                 die();
             }
             else
             {
                 $error = $lang_module['errorsave'];
             }
-            $db->sql_freeresult();
+            //$xxx->closeCursor();
         }
     }
 }
@@ -197,9 +208,9 @@ if ( $nv_Request->get_int( 'save', 'post' ) == 1 )
 $id = $nv_Request->get_int( 'id', 'get', 0 );
 if ( $id > 0 && $nv_Request->get_int( 'save', 'post' ) == 0 ) // insert data
 {
-    $sql = "SELECT * FROM `" . $table_name . "` WHERE personid=" . intval( $id );
-    $result = $db->sql_query( $sql );
-    $data = $db->sql_fetchrow( $result, 2 );
+    $sql = "SELECT * FROM " . $table_name . " WHERE personid=" . intval( $id );
+    $result = $db->query( $sql );
+    $data = $result->fetch();
     $data['organid_old'] = $data['organid'];
     if ( ! empty( $data['description'] ) ) $data['description'] = nv_htmlspecialchars( $data['description'] );
     
@@ -214,21 +225,23 @@ if ( $id > 0 && $nv_Request->get_int( 'save', 'post' ) == 0 ) // insert data
 $xtpl = new XTemplate( "addper.tpl", NV_ROOTDIR . "/themes/" . $global_config['module_theme'] . "/modules/" . $module_file );
 $xtpl->assign( 'LANG', $lang_module );
 $xtpl->assign( 'NV_BASE_ADMINURL', NV_BASE_ADMINURL );
+$xtpl->assign( 'NV_BASE_SITEURL', NV_BASE_SITEURL );
+$xtpl->assign( 'NV_LANG_INTERFACE', NV_LANG_INTERFACE );
 $xtpl->assign( 'NV_NAME_VARIABLE', NV_NAME_VARIABLE );
 $xtpl->assign( 'NV_OP_VARIABLE', NV_OP_VARIABLE );
 $xtpl->assign( 'module_name', $module_name );
 $xtpl->assign( 'NV_UPLOADS_DIR', NV_UPLOADS_DIR );
 $xtpl->assign( 'UPLOAD_CURRENT', NV_UPLOADS_DIR . '/' . $module_name . '/' . date( "Y_m" ) );
 /* begin set input select parentid */
-$sql = "SELECT organid, title, lev FROM " . NV_PREFIXLANG . "_" . $module_data . "_rows ORDER BY `order` ASC";
-$result = $db->sql_query( $sql );
+$sql = "SELECT organid, title, lev FROM " . NV_PREFIXLANG . "_" . $module_data . "_rows ORDER BY orders ASC";
+$result = $db->query( $sql );
 $array_cat_list = array();
-if ( $db->sql_numrows( $result ) == 0 )
+if ( $result->rowCount() == 0 )
 {
-    Header( "Location: " . NV_BASE_ADMINURL . "index.php?" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=addrow" );
+    Header( "Location: " . NV_BASE_ADMINURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=addrow" );
     die();
 }
-while ( $row = $db->sql_fetchrow( $result, 2 ) )
+while ( $row = $result->fetch() )
 {
     $xtitle = "";
     if ( $row['lev'] > 0 )
@@ -274,7 +287,6 @@ $xtpl->assign( 'DATA', $data );
 $xtpl->parse( 'main' );
 $contents = $xtpl->text( 'main' );
 
-include ( NV_ROOTDIR . "/includes/header.php" );
+include NV_ROOTDIR . '/includes/header.php';
 echo nv_admin_theme( $contents );
-include ( NV_ROOTDIR . "/includes/footer.php" );
-?>
+include NV_ROOTDIR . '/includes/footer.php';

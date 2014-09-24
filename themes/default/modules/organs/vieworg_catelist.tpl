@@ -1,27 +1,32 @@
 <!-- BEGIN: main -->
+
 <!-- BEGIN: cateloop -->
-<div class="catelist">
-    <h2><a href="{CATE.link}">{CATE.title}</a></h2>
-    <div class="content">
-        <table class="tabo">
-            <thead><tr>
-            	<td align="center" width="20">{LANG.vieworg_no}</td>
-            	<td>{LANG.vieworg_name}</td>
-                <td width="280">{LANG.vieworg_position}</td>
-                <td  width="100">{LANG.vieworg_birthday}</td>
-                <td  width="100">{LANG.vieworg_mobile_title}</td>
-            </tr></thead>
-            <!-- BEGIN: loop -->
-            <tbody {bg}><tr>
-            	<td align="center">{ROW.no}</td>
-                <td><a href="{ROW.link}">{ROW.name}</a></td>
-                <td>{ROW.position}</td>
-                <td>{ROW.birthday}</td>
-                <td>{ROW.mobile}</td>
-            </tr></tbody>
-            <!-- END: loop -->
-        </table>
-    </div>
+<div class="table-responsive">
+	<table class="table table-striped table-bordered table-hover">
+		<caption>
+			<a href="{CATE.link}">{CATE.title}</a>
+		</caption>
+		<thead>
+			<tr>
+				<th class="text-center">{LANG.vieworg_no}</th>
+				<th>{LANG.vieworg_name}</th>
+				<th>{LANG.vieworg_position}</th>
+				<th>{LANG.vieworg_birthday}</th>
+				<th>{LANG.vieworg_mobile_title}</th>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- BEGIN: loop -->
+			<tr>
+				<td class="text-center">{ROW.no}</td>
+				<td><a href="{ROW.link}">{ROW.name}</a></td>
+				<td>{ROW.position}</td>
+				<td>{ROW.birthday}</td>
+				<td>{ROW.mobile}</td>
+			</tr><!-- END: loop -->
+		</tbody>
+	</table>
 </div>
 <!-- END: cateloop -->
+
 <!-- END: main -->

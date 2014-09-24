@@ -1,8 +1,9 @@
 <?php
 /**
- * @Project NUKEVIET 3.0
+ * @Project NUKEVIET 4.x
  * @Author VINADES., JSC (contact@vinades.vn)
- * @Copyright (C) 2010 VINADES ., JSC. All rights reserved
+ * @Copyright (C) 2014 VINADES ., JSC. All rights reserved
+ * @License GNU/GPL version 2 or any later version
  * @Createdate Dec 3, 2010  11:12:21 AM 
  */
 
@@ -13,10 +14,10 @@ define( 'NV_IS_MOD_ORGAN', true );
 global $global_organ_rows;
 $global_organ_rows = array();
 $link = NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=vieworg";
-$sql = "SELECT `organid`, `parentid`, `title`, `alias`, `numsub`, `suborgan`, `numperson`,`view`,`lev` FROM " . NV_PREFIXLANG . "_" . $module_data . "_rows" . " WHERE active=1 ORDER BY `order` ASC";
-$result = $db->sql_query( $sql );
+$sql = "SELECT organid, parentid, title, alias, numsub, suborgan, numperson,view,lev FROM " . NV_PREFIXLANG . "_" . $module_data . "_rows" . " WHERE active=1 ORDER BY orders ASC";
+$result = $db->query( $sql );
 $array_cat_list = array();
-while ( list( $organid_i, $parentid_i, $title_i, $alias_i, $numsub_i, $suborgan_i, $numperson_i, $view_i, $lev_i ) = $db->sql_fetchrow( $result ) )
+while ( list( $organid_i, $parentid_i, $title_i, $alias_i, $numsub_i, $suborgan_i, $numperson_i, $view_i, $lev_i ) = $result->fetch( 3 ) )
 {
     $link_i = $link . "/".$alias_i."-".$organid_i;
     $global_organ_rows[$organid_i] = array( 
@@ -24,7 +25,7 @@ while ( list( $organid_i, $parentid_i, $title_i, $alias_i, $numsub_i, $suborgan_
     );
 }
 
-function draw_menu_organ ( )
+function draw_menu_organ ()
 {
     global $global_organ_rows;
     $html = "";
@@ -73,28 +74,28 @@ function draw_sub ( $pid )
 function nv_link_edit_org ( $id )
 {
     global $lang_global, $module_name;
-    $link = "<span class=\"edit_icon\"><a href=\"" . NV_BASE_ADMINURL . "index.php?" . NV_NAME_VARIABLE . "=" . $module_name . "&amp;" . NV_OP_VARIABLE . "=addrow&amp;id=" . $id . "\">" . $lang_global['edit'] . "</a></span>";
+    $link = "<em class=\"fa fa-edit fa-lg\">&nbsp;</em><a href=\"" . NV_BASE_ADMINURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&amp;" . NV_OP_VARIABLE . "=addrow&amp;id=" . $id . "\">" . $lang_global['edit'] . "</a>";
     return $link;
 }
 
 function nv_link_delete_org ( $id )
 {
     global $lang_global, $module_name,$lang_module;
-    $link = "<span class=\"delete_icon\"><a href=\"javascript:void(0);\" onclick=\"nv_del_org(" . $id . ",'" . NV_BASE_ADMINURL . "','".$lang_module['del_config']."')\">" . $lang_global['delete'] . "</a></span>";
+    $link = "<em class=\"fa fa-trash-o fa-lg\">&nbsp;</em><a href=\"javascript:void(0);\" onclick=\"nv_del_org(" . $id . ",'" . NV_BASE_ADMINURL . "','".$lang_module['del_config']."')\">" . $lang_global['delete'] . "</a>";
     return $link;
 }
 
 function nv_link_edit_per ( $id )
 {
     global $lang_global, $module_name;
-    $link = "<span class=\"edit_icon\"><a href=\"" . NV_BASE_ADMINURL . "index.php?" . NV_NAME_VARIABLE . "=" . $module_name . "&amp;" . NV_OP_VARIABLE . "=addper&amp;id=" . $id . "\">" . $lang_global['edit'] . "</a></span>";
+    $link = "<em class=\"fa fa-edit fa-lg\">&nbsp;</em><a href=\"" . NV_BASE_ADMINURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&amp;" . NV_OP_VARIABLE . "=addper&amp;id=" . $id . "\">" . $lang_global['edit'] . "</a>";
     return $link;
 }
 
 function nv_link_delete_per ( $id )
 {
     global $lang_global, $module_name,$lang_module;
-    $link = "<span class=\"delete_icon\"><a href=\"javascript:void(0);\" onclick=\"nv_del_per(" . $id . ",'" . NV_BASE_ADMINURL . "','".$lang_module['del_config']."')\">" . $lang_global['delete'] . "</a></span>";
+    $link = "<em class=\"fa fa-trash-o fa-lg\">&nbsp;</em><a href=\"javascript:void(0);\" onclick=\"nv_del_per(" . $id . ",'" . NV_BASE_ADMINURL . "','".$lang_module['del_config']."')\">" . $lang_global['delete'] . "</a>";
     return $link;
 }
 
@@ -192,5 +193,3 @@ function nv_ograns_page ( $base_url, $num_items, $per_page, $start_item, $add_pr
     }
     return $page_string;
 }
-
-?>

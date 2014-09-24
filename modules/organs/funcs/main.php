@@ -1,8 +1,9 @@
 <?php
 /**
- * @Project NUKEVIET 3.0
+ * @Project NUKEVIET 4.x
  * @Author VINADES., JSC (contact@vinades.vn)
- * @Copyright (C) 2010 VINADES ., JSC. All rights reserved
+ * @Copyright (C) 2014 VINADES ., JSC. All rights reserved
+ * @License GNU/GPL version 2 or any later version
  * @Createdate Dec 3, 2010  11:32:04 AM 
  */
 
@@ -10,22 +11,24 @@ if ( ! defined( 'NV_IS_MOD_ORGAN' ) ) die( 'Stop!!!' );
 $page_title = $module_info['custom_title'];
 $key_words = $module_info['keywords'];
 $id = 0;
+
 foreach ( $global_organ_rows as $organid => $organinfo )
 {
-	if ($organinfo ['numsub'] > 0)
+	if ( $organinfo['numsub'] > 0 )
 	{
 		$id = $organid; break;
 	}
 }
+
 $array_content = array();
 foreach ( $global_organ_rows as $organid => $organinfo )
 {
     if ( $organinfo['parentid'] == $id )
     {
         $person_data = array();
-        $sql = "SELECT * FROM `" . NV_PREFIXLANG . "_" . $module_data . "_person` WHERE `organid`=" . intval( $organinfo['organid'] ) . " AND `active`=1 ORDER BY `weight` LIMIT 5";
-        $result = $db->sql_query( $sql );
-        while ( $row = $db->sql_fetchrow( $result, 2 ) )
+        $sql = "SELECT * FROM " . NV_PREFIXLANG . "_" . $module_data . "_person WHERE organid=" . intval( $organinfo['organid'] ) . " AND active=1 ORDER BY weight LIMIT 5";
+        $result = $db->query( $sql );
+        while ( $row = $result->fetch() )
         {
             if ( ! empty( $row['photo'] ) )
             {
@@ -42,11 +45,9 @@ foreach ( $global_organ_rows as $organid => $organinfo )
         unset( $person_data );
     }
 }
+
 $contents = vieworg_catelist( $array_content );	
 
-
-include ( NV_ROOTDIR . "/includes/header.php" );
+include NV_ROOTDIR . '/includes/header.php';
 echo nv_site_theme( $contents );
-include ( NV_ROOTDIR . "/includes/footer.php" );
-
-?>
+include NV_ROOTDIR . '/includes/footer.php';

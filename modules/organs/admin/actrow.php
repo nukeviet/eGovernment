@@ -1,8 +1,9 @@
 <?php
 /**
- * @Project NUKEVIET 3.0
+ * @Project NUKEVIET 4.x
  * @Author VINADES.,JSC (contact@vinades.vn)
- * @Copyright (C) 2010 VINADES.,JSC. All rights reserved
+ * @Copyright (C) 2014 VINADES.,JSC. All rights reserved
+ * @License GNU/GPL version 2 or any later version
  * @Createdate 2-10-2010 18:49
  */
 
@@ -13,13 +14,12 @@ $value = $nv_Request->get_int( 'value', 'post,get', 0 );
 $contents = $lang_module['active_change_not_complete']; 
 if ( $id > 0 )
 {
-	$query = "UPDATE `" . NV_PREFIXLANG . "_" . $module_data . "_rows` SET `active`=" . $value . " WHERE organid=".$id;
-	if ( $db->sql_query( $query ) )
+	$query = "UPDATE " . NV_PREFIXLANG . "_" . $module_data . "_rows SET active=" . $value . " WHERE organid=".$id;
+	if ( $db->query( $query ) )
     {
-        $db->sql_freeresult();
+        //$xxx->closeCursor();
         $contents = $lang_module['active_change_complete'];
     }
 }
 nv_del_moduleCache( $module_name );
 echo $contents;
-?>

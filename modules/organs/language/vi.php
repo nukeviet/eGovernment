@@ -1,9 +1,10 @@
 <?php
 /**
- * @Project NUKEVIET 3.0
+ * @Project NUKEVIET 4.x
  * @Author VINADES., JSC (contact@vinades.vn)
- * @Copyright (C) 2010 VINADES ., JSC. All rights reserved
+ * @Copyright (C) 2014 VINADES ., JSC. All rights reserved
  * @Language Vietnamese
+ * @License CC BY-SA (http://creativecommons.org/licenses/by-sa/4.0/)
  * @Createdate Dec 3, 2010  11:30:02 AM 
  */
  
@@ -47,4 +48,3 @@ $lang_module['vieworg_no'] = "STT";
 $lang_module['vieworg_search_result'] = "Kết quả tìm kiếm";
 $lang_module['vieworg_search_nodata'] = "Không tìm thấy nội dung nào theo yêu cầu!";
 $lang_module['vieworg_phone_ext'] = "Số máy lẻ";
-?>

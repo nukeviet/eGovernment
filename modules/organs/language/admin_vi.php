@@ -1,9 +1,10 @@
 <?php
 /**
- * @Project NUKEVIET 3.0
+ * @Project NUKEVIET 4.x
  * @Author VINADES., JSC (contact@vinades.vn)
- * @Copyright (C) 2010 VINADES ., JSC. All rights reserved
+ * @Copyright (C) 2014 VINADES ., JSC. All rights reserved
  * @Language Vietnamese
+ * @License CC BY-SA (http://creativecommons.org/licenses/by-sa/4.0/)
  * @Createdate Dec 3, 2010  11:30:02 AM 
  */
  
@@ -59,7 +60,9 @@ $lang_module['organ_add_persons'] = "Thêm nhân sự";
 $lang_module['config'] = "config";
 
 $lang_module['error_organ_title'] = "Không có tên tổ chức, cơ sở";
-$lang_module['error_organ_emal'] = "địa chỉ email nhập không đúng";
+$lang_module['error_organ_emal'] = "Địa chỉ email nhập không đúng";
+$lang_module['error_organ_birthday'] = "Ngày sinh chưa nhập hoặc không hợp lệ";
+$lang_module['error_organ_position'] = "Chưa chọn chức vụ chính";
 $lang_module['errorsave'] = "Có lỗi không ghi được dữ liệu bạn. Ban xem lại có thể bị trùng tên hoặc tiêu đề";
 
 $lang_module['list_person'] = "Danh sách nhân sự";
@@ -83,5 +86,3 @@ $lang_module['addper_decription_title'] = "Tiểu sử";
 $lang_module['error_person_title'] = "Không có tên của nhân sự này";
 $lang_module['view_active_title'] = "Hiển thị thông tin chi tiết";
 $lang_module['view_active_title_note'] = "Nếu bạn không muốn hiển thị thông tin của tổ chức hay cơ sở hãy bỏ phần chọn này";
-
-?>

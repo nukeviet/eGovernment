@@ -1,10 +1,10 @@
 <!-- BEGIN: main -->
-<div class="menucate_ograns">
-	<h2>{title}</h2>
-    <ul>
-        <!-- BEGIN: loop -->
-        <li><a href="{ROW.link}" title="{ROW.title}">{ROW.title}</a></li>
-        <!-- END: loop -->
-    </ul>
-</div>
+<h3>{title}</h3>
+<ul style="padding: 0">
+	<!-- BEGIN: loop -->
+	<li>
+		<a href="{ROW.link}" title="{ROW.title}">{ROW.title}</a>
+	</li>
+	<!-- END: loop -->
+</ul>
 <!-- END: main -->

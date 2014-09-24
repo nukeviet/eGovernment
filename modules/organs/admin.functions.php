@@ -1,15 +1,16 @@
 <?php
 /**
- * @Project NUKEVIET 3.0
+ * @Project NUKEVIET 4.x
  * @Author VINADES., JSC (contact@vinades.vn)
- * @Copyright (C) 2010 VINADES ., JSC. All rights reserved
+ * @Copyright (C) 2014 VINADES ., JSC. All rights reserved
+ * @License GNU/GPL version 2 or any later version
  * @Createdate Dec 3, 2010  11:11:28 AM 
  */
 
 if ( ! defined( 'NV_ADMIN' ) or ! defined( 'NV_MAINFILE' ) or ! defined( 'NV_IS_MODADMIN' ) ) die( 'Stop!!!' );
 
-$submenu['addrow'] = $lang_module['addrow_title'];
-$submenu['addper'] = $lang_module['addper_title'];
+//$submenu['addrow'] = $lang_module['addrow_title'];
+//$submenu['addper'] = $lang_module['addper_title'];
 $allow_func = array( 
     'main', 'config', 'delrow', 'actrow', 'addrow', 'changeorgan', 'listper', 'actper', 'delper', 'changeper' , 'addper'
 );
@@ -20,14 +21,14 @@ define( 'NV_IS_FILE_ADMIN', true );
 function nv_fix_row_order ( $parentid = 0, $order = 0, $lev = 0 )
 {
     global $db, $db_config, $lang_module, $lang_global, $module_name, $module_data, $op;
-    $query = "SELECT `organid`, `parentid` FROM `" . NV_PREFIXLANG . "_" . $module_data . "_rows` WHERE `parentid`=" . $parentid . " ORDER BY `weight` ASC";
-    $result = $db->sql_query( $query );
+    $query = "SELECT organid, parentid FROM " . NV_PREFIXLANG . "_" . $module_data . "_rows WHERE parentid=" . $parentid . " ORDER BY weight ASC";
+    $result = $db->query( $query );
     $array_cat_order = array();
-    while ( $row = $db->sql_fetchrow( $result ) )
+    while ( $row = $result->fetch() )
     {
         $array_cat_order[] = $row['organid'];
     }
-    $db->sql_freeresult();
+    //$xxx->closeCursor();
     $weight = 0;
     if ( $parentid > 0 )
     {
@@ -41,24 +42,24 @@ function nv_fix_row_order ( $parentid = 0, $order = 0, $lev = 0 )
     {
         $order ++;
         $weight ++;
-        $sql = "UPDATE `" . NV_PREFIXLANG . "_" . $module_data . "_rows` SET `weight`=" . $weight . ", `order`=" . $order . ", `lev`='" . $lev . "' WHERE `organid`=" . intval( $catid_i );
-        $db->sql_query( $sql );
+        $sql = "UPDATE " . NV_PREFIXLANG . "_" . $module_data . "_rows SET weight=" . $weight . ", orders=" . $order . ", lev='" . $lev . "' WHERE organid=" . intval( $catid_i );
+        $db->query( $sql );
         $order = nv_fix_row_order( $catid_i, $order, $lev );
     }
     $numsubcat = $weight;
     if ( $parentid > 0 )
     {
-        $sql = "UPDATE `" . NV_PREFIXLANG . "_" . $module_data . "_rows` SET `numsub`=" . $numsubcat;
+        $sql = "UPDATE " . NV_PREFIXLANG . "_" . $module_data . "_rows SET numsub=" . $numsubcat;
         if ( $numsubcat == 0 )
         {
-            $sql .= ",`suborgan`=''";
+            $sql .= ",suborgan=''";
         }
         else
         {
-            $sql .= ",`suborgan`='" . implode( ",", $array_cat_order ) . "'";
+            $sql .= ",suborgan='" . implode( ",", $array_cat_order ) . "'";
         }
-        $sql .= " WHERE `organid`=" . intval( $parentid );
-        $db->sql_query( $sql );
+        $sql .= " WHERE organid=" . intval( $parentid );
+        $db->query( $sql );
     }
     return $order;
 }
@@ -66,7 +67,7 @@ function nv_fix_row_order ( $parentid = 0, $order = 0, $lev = 0 )
 ///////////////////////
 function drawselect_number ( $select_name = "", $number_start = 0, $number_end = 1, $number_curent = 0, $func_onchange = "", $enable ="" )
 { 
-    $html = "<select name=\"" . $select_name . "\" onchange=\"" . $func_onchange . "\" ".$enable.">";
+    $html = "<select class=\"form-control\" name=\"" . $select_name . "\" onchange=\"" . $func_onchange . "\" ".$enable.">";
     for ( $i = $number_start; $i < $number_end; $i ++ )
     {
         $select = ( $i == $number_curent ) ? "selected=\"selected\"" : "";
@@ -79,12 +80,12 @@ function drawselect_number ( $select_name = "", $number_start = 0, $number_end =
 function nv_fix_organ ( $organid = 0 )
 {
     global $db, $db_config, $lang_module, $lang_global, $module_name, $module_data, $op;
-    $query = "SELECT count(*) FROM `" . NV_PREFIXLANG . "_" . $module_data . "_person` WHERE `organid`=" . $organid . "";
-    $result = $db->sql_query( $query );
+    $query = "SELECT count(*) FROM " . NV_PREFIXLANG . "_" . $module_data . "_person WHERE organid=" . $organid . "";
+    $result = $db->query( $query );
     $numperson = 0;
-    list( $numperson ) = $db->sql_fetchrow( $result );
-    $sql = "UPDATE `" . NV_PREFIXLANG . "_" . $module_data . "_rows` SET `numperson`=" . $numperson . " WHERE `organid`=" . $organid . "";
-    $db->sql_query( $sql );
+    $numperson = $result->fetchColumn();
+    $sql = "UPDATE " . NV_PREFIXLANG . "_" . $module_data . "_rows SET numperson=" . $numperson . " WHERE organid=" . $organid . "";
+    $db->query( $sql );
 }
 
 function nv_fix_personweight ( $organid = 0 )
@@ -92,14 +93,14 @@ function nv_fix_personweight ( $organid = 0 )
     global $db, $db_config, $lang_module, $lang_global, $module_name, $module_data, $op;
     $table = NV_PREFIXLANG . "_" . $module_data . "_person";
     /////////////////////////
-    $query = "SELECT `personid` FROM `" . $table . "` WHERE `organid` =" . $organid . " ORDER BY `weight` ASC";
-    $result = $db->sql_query( $query );
+    $query = "SELECT personid FROM " . $table . " WHERE organid =" . $organid . " ORDER BY weight ASC";
+    $result = $db->query( $query );
     $weight = 0;
-    while ( $row = $db->sql_fetchrow( $result ) )
+    while ( $row = $result->fetch() )
     {
         $weight ++;
-        $sql = "UPDATE `" . $table . "` SET `weight`=" . $weight . " WHERE `personid`=" . intval( $row['personid'] );
-        $db->sql_query( $sql );
+        $sql = "UPDATE " . $table . " SET weight=" . $weight . " WHERE personid=" . intval( $row['personid'] );
+        $db->query( $sql );
     }
     //////////////////////////
 }
@@ -147,4 +148,3 @@ function getall_organid_parent ($array_organs,$oid)
 	}
 	return $array_id;
 }
-?>

@@ -1,58 +1,87 @@
 <!-- BEGIN: main -->
-<div class="view_org">
-	<div class="div_header">
-		<h2>{DATA.title} {admin_link}</h2>
-        <!-- BEGIN: address -->
-        <span>{LANG.vieworg_address} :</span><span>{DATA.address}</span> <br />
-        <!-- END: address -->
-        <!-- BEGIN: phone -->
-        <span>{LANG.vieworg_phone} :</span><span>{DATA.phone}</span><br />
-        <!-- END: phone -->
-        <!-- BEGIN: fax -->
-        <span>{LANG.vieworg_fax} : {DATA.fax}</span> <br>
-        <!-- END: fax -->
-        <!-- BEGIN: website -->
-        <span>{LANG.vieworg_website} : </span><span>{DATA.website}</span> <br />
-        <!-- END: website -->
-    </div>
-    <div class="TabView" id="TabView">
-        <div class="Tabs">
-        	<!-- BEGIN: tab_about -->
-            <a href="#">{LANG.vieworg_about}</a> 
-            <!-- END: tab_about -->
-            <!-- BEGIN: tab_person -->
-            <a href="#">{LANG.vieworg_person}</a>
-            <!-- END: tab_person -->
-        </div>
-        <div class="Pages">
-        	<!-- BEGIN: about -->
-            <div class="Page">
-                {DATA.description}
-            </div>
-            <!-- END: about -->
-            <!-- BEGIN: person -->
-            <div class="Page">
-            	<div class="clearfix">
-                    <!-- BEGIN: loop -->
-                    <div class="items_gird">
-                    	<div class="content">
-                            <!-- BEGIN: img --><a href="{ROW.link}"><img src="{ROW.photo}"></a><!-- END: img --> 
-                            <br /><span style="font-weight:700"><a href="{ROW.link}">{ROW.name}</a></span> 
-                            <br /><span>{ROW.position}</span>
-                            <br /><span style="color:#FF0000">{LANG.vieworg_birthday} {ROW.birthday}</span>
-                        </div>
-                    </div>
-                    <!-- END: loop -->
-                </div>
-                <!-- BEGIN: pages -->
-                <div style="line-height:22px; text-align:right">{html_pages}</div>
-                <!-- END: pages -->
-            </div> 
-            <!-- END: person -->
-        </div>
-    </div>    
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		{DATA.title}
+	</div>
+	<div class="panel-body">
+		<ul style="padding: 0">
+			<!-- BEGIN: address -->
+			<li>
+				<strong>{LANG.vieworg_address}:</strong> {DATA.address}
+			</li>
+			<!-- END: address -->
+			<!-- BEGIN: phone -->
+			<li>
+				<strong>{LANG.vieworg_phone}:</strong> {DATA.phone}
+			</li>
+			<!-- END: phone -->
+			<!-- BEGIN: fax -->
+			<li>
+				<strong>{LANG.vieworg_fax}:</strong> {DATA.fax}
+			</li>
+			<!-- END: fax -->
+			<!-- BEGIN: website -->
+			<li>
+				<strong>{LANG.vieworg_website}:</strong> {DATA.website}
+			</li>
+			<!-- END: website -->
+		</ul>
+		<p class="text-center">
+			{admin_link}
+		</p>
+	</div>
+	<div class="panel-footer">
+		<!-- Nav tabs -->
+		<ul class="nav nav-tabs" role="tablist">
+			<!-- BEGIN: tab_about -->
+			<li class="active">
+				<a href="#about" role="tab" data-toggle="tab">{LANG.vieworg_about}</a>
+			</li>
+			<!-- END: tab_about -->
+			<!-- BEGIN: tab_person -->
+			<li>
+				<a href="#vieworg_person" role="tab" data-toggle="tab">{LANG.vieworg_person}</a>
+			</li>
+			<!-- END: tab_person -->
+		</ul>
+
+		<!-- Tab panes -->
+		<div class="tab-content">
+			<!-- BEGIN: about -->
+			<div class="tab-pane active" id="about">
+				{DATA.description}
+			</div>
+			<!-- END: about -->
+			<!-- BEGIN: person -->
+			<div class="tab-pane" id="vieworg_person">
+				<div class="row">
+					<!-- BEGIN: loop -->
+					<div class="col-sm-6 col-md-4">
+						<div class="thumbnail">
+							<!-- BEGIN: img -->
+							<a href="{ROW.link}" title="{ROW.name}"><img src="{ROW.photo}" height="100" alt="{ROW.name}"></a>
+							<!-- END: img -->
+							<div class="caption text-center">
+								<h3><a href="{ROW.link}" title="{ROW.name}">{ROW.name}</a></h3>
+								<p>
+									{ROW.position}<br />
+									{ROW.birthday}
+								</p>
+							</div>
+						</div>
+					</div>
+					<!-- END: loop -->
+				</div>
+			</div>
+			
+			<!-- BEGIN: pages -->
+			<div class="text-center">
+				{html_pages}
+			</div>
+			<!-- END: pages -->
+			
+			<!-- END: person -->
+		</div>
+	</div>
 </div>
-<script language="javascript" type="text/javascript">
-	tabview_initialize('TabView');
-</script>
 <!-- END: main -->

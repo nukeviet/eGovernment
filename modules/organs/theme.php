@@ -1,8 +1,9 @@
 <?php
 /**
- * @Project NUKEVIET 3.0
+ * @Project NUKEVIET 4.x
  * @Author VINADES., JSC (contact@vinades.vn)
- * @Copyright (C) 2010 VINADES ., JSC. All rights reserved
+ * @Copyright (C) 2014 VINADES ., JSC. All rights reserved
+ * @License GNU/GPL version 2 or any later version
  * @Createdate Dec 3, 2010  11:23:15 AM 
  */
 
@@ -85,7 +86,7 @@ function vieworg_list ($organs_data,$person_data,$pages)
     	$xtpl->parse( 'main.person' );
     	$xtpl->parse( 'main.tab_person' );
     }
-    if ( !empty($organs_data ['about'])) 
+    if ( !empty($organs_data ['description'])) 
     {
     	$xtpl->parse( 'main.about' );
     	$xtpl->parse( 'main.tab_about' );
@@ -141,7 +142,8 @@ function vieworg_gird ($organs_data,$person_data,$html_pages)
     	$xtpl->parse( 'main.person' );
     	$xtpl->parse( 'main.tab_person' );
     }
-    if ( !empty($organs_data ['about'])) 
+
+    if ( !empty($organs_data ['description'])) 
     {
     	$xtpl->parse( 'main.about' );
     	$xtpl->parse( 'main.tab_about' );
@@ -218,5 +220,3 @@ function searchresult ($person_data,$html_pages)
     $xtpl->parse( 'main' );
     return $xtpl->text( 'main' );
 }
-
-?>

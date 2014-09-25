@@ -36,7 +36,7 @@ foreach ( $global_organ_rows as $organid => $organinfo )
                 $imageinfo = nv_ImageInfo( $urlimg, 200, true, NV_UPLOADS_REAL_DIR . '/' . $module_name . '/thumb' );
                 $row['photo'] = $imageinfo['src'];
             }
-            $row['link'] = NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=person/" . $global_organ_rows[$id]['alias'] . "-" . $id . "/" . change_alias( $row['name'] ) . "-" . $row['personid'];
+            $row['link'] = NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=person/" . $global_organ_rows[$organid]['alias'] . "-" . $organid . "/" . change_alias( $row['name'] ) . "-" . $row['personid'];
             $person_data[] = $row;
         }
         $array_content[] = array( 

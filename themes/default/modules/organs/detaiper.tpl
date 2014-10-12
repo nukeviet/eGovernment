@@ -26,7 +26,7 @@
 			</tr>
 			<tr>
 				<td>{LANG.vieworg_ofogran}</td>
-				<td>{DATA.ofogran}</td>
+				<td><a href="{DATA.ofogran_url}" title="{DATA.ofogran}">{DATA.ofogran}</a></td>
 			</tr>
 			<tr>
 				<td>{LANG.vieworg_mobile_title}</td>
@@ -42,7 +42,11 @@
 			</tr>
 			<tr>
 				<td>{LANG.vieworg_email}</td>
-				<td><a href="mailto:{ROW.email}" title="Mail to {DATA.email}">{DATA.email}</a></td>
+				<td>
+					<!-- BEGIN: mail -->
+					<a href="mailto:{DATA.email}" title="Mail to {DATA.email}">{DATA.email}</a>
+					<!-- END: mail -->
+				</td>
 			</tr>
 			<tr>
 				<td>{LANG.vieworg_phone}</td>
@@ -68,9 +72,11 @@
 				<td>{LANG.vieworg_professional}</td>
 				<td>{DATA.professional}</td>
 			</tr>
+			<!-- BEGIN: description -->
 			<tr>
 				<td colspan="2">{DATA.description}</td>
 			</tr>
+			<!-- END: description -->
 		</tbody>
 	</table>
 </div>

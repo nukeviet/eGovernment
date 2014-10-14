@@ -1,10 +1,8 @@
 <!-- BEGIN: main -->
 
-<!-- BEGIN: photo -->
 <div class="text-center">
-	<a href="{DATA.imgsrc}" rel="shadowbox"><img src="{DATA.photo}" class="img-thumbnail" /></a><br /><br />
+	<a href="{DATA.imgsrc}" rel="shadowbox"><img src="{DATA.photo}" class="img-thumbnail" style="max-width: {WIDTH}px" /></a><br /><br />
 </div>
-<!-- END: photo -->
 
 <div class="table-responsive">
 	<table class="table table-striped table-bordered table-hover">

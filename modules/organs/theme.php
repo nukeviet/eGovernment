@@ -11,7 +11,7 @@ if( !defined( 'NV_IS_MOD_ORGAN' ) ) die( 'Stop!!!' );
 
 function detail_per( $data_content )
 {
-	global $global_config, $module_name, $module_file, $lang_module, $module_config, $module_info, $global_organ_rows, $my_head;
+	global $global_config, $module_name, $module_file, $lang_module, $module_config, $module_info, $global_organ_rows, $my_head, $arr_config;
 
 	if( !defined( 'SHADOWBOX' ) )
 	{
@@ -25,6 +25,7 @@ function detail_per( $data_content )
 	$xtpl->assign( 'LANG', $lang_module );
 	$xtpl->assign( 'NV_BASE_SITEURL', NV_BASE_SITEURL );
 	$xtpl->assign( 'TEMPLATE', $global_config['site_theme'] );
+	$xtpl->assign( 'WIDTH', $arr_config['thumb_width'] );
 
 	if( $data_content['birthday'] != 0 )
 		$data_content['birthday'] = date( "d/m/Y", $data_content['birthday'] );

@@ -46,10 +46,15 @@ while ( $row = $result->fetch() )
         $imageinfo = nv_ImageInfo( $urlimg, $arr_config['thumb_width'], true, NV_UPLOADS_REAL_DIR . '/' . $module_name . '/thumb' );
         $row['photo'] = $imageinfo['src'];
     }
+	else
+	{
+		$row['photo'] = NV_BASE_SITEURL . 'themes/' . $global_config['site_theme'] . '/images/' . $module_file . '/no-avatar.jpg';
+	}
+
     $row['link'] = NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=person/" . $global_organ_rows[$row['organid']]['alias'] . "-" . $row['organid'] . "/" . change_alias( $row['name'] ) . "-" . $row['personid'];
     $person_data[] = $row;
 }
-$html_pages = nv_ograns_page( $base_url, $all_page, $per_page, $page );
+$html_pages = nv_alias_page( $page_title, $base_url, $all_page, $per_page, $page );
 $contents = searchresult( $person_data,$html_pages );
 
 include NV_ROOTDIR . '/includes/header.php';

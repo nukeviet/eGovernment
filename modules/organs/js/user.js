@@ -3,7 +3,7 @@
  * @Author VINADES., JSC (contact@vinades.vn)
  * @Copyright (C) 2014 VINADES ., JSC. All rights reserved
  * @License GNU/GPL version 2 or any later version
- * @Createdate Dec 3, 2010  12:49:25 PM 
+ * @Createdate Dec 3, 2010  12:49:25 PM
  */
 
 //----- Auxiliary -------------------------------------------------------------
@@ -55,14 +55,14 @@ document.cookie = cookieName+"="+escape(cookieValue)+ ";expires="+expire.toGMTSt
 function ReadCookie(cookieName) {
 var theCookie=""+document.cookie;
 var ind=theCookie.indexOf(cookieName);
-if (ind==-1 || cookieName=="") return ""; 
+if (ind==-1 || cookieName=="") return "";
 var ind1=theCookie.indexOf(';',ind);
-if (ind1==-1) ind1=theCookie.length; 
+if (ind1==-1) ind1=theCookie.length;
 return unescape(theCookie.substring(ind+cookieName.length+1,ind1));
 }
 function tabview_switch(TabViewId, id) { tabview_aux(TabViewId, id); SetCookieForTabView('tvID',id,36) }
-function tabview_initialize(TabViewId) 
-{ 
+function tabview_initialize(TabViewId)
+{
 	tvID2 = ReadCookie('tvID')
 	if (tvID2==-1 || tvID2=="") { SetCookieForTabView('tvID',1,36); tabview_aux(TabViewId,  1);  }
 	else {tabview_aux(TabViewId,  tvID2); }
@@ -74,11 +74,11 @@ function nv_del_org (id, base_adminurl,lang_confirm)
 	if (confirm(lang_confirm))
 	{
 		var href = base_adminurl + 'index.php?' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=delrow&id=' + id;
-		$.ajax({	
+		$.ajax({
 			type: 'POST',
 			url: href,
 			data:'',
-			success: function(data){				
+			success: function(data){
 				alert(data);
 				window.location = nv_siteroot + "index.php?" + nv_lang_variable + '=' + nv_sitelang  + '&' + nv_name_variable + '=' + nv_module_name;
 			}
@@ -90,11 +90,11 @@ function nv_del_per (id, base_adminurl,lang_confirm)
 	if (confirm(lang_confirm))
 	{
 		var href = base_adminurl + 'index.php?' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=delper&id=' + id;
-		$.ajax({	
+		$.ajax({
 			type: 'POST',
 			url: href,
 			data:'',
-			success: function(data){				
+			success: function(data){
 				alert(data);
 				window.location = nv_siteroot + "index.php?" + nv_lang_variable + '=' + nv_sitelang  + '&' + nv_name_variable + '=' + nv_module_name;
 			}
@@ -102,15 +102,6 @@ function nv_del_per (id, base_adminurl,lang_confirm)
 	}
 }
 /**/
-function viewper(id)
-{
-	$("#viewper_"+id).load(nv_siteroot + "index.php?" + nv_lang_variable + '=' + nv_sitelang  + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=viewper&id='+id);
-	$("#viewper_"+id).slideDown();
-}
-function closeper(id)
-{
-	$("#viewper_"+id).slideUp();
-}
 function search_submit_form(){
 	var oid = $("#organid").val();
 	var text = $("#otextseach").val();

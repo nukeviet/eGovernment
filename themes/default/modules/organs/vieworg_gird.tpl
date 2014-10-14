@@ -41,9 +41,7 @@
 			<div class="col-sm-6 col-md-4">
 				<div class="thumbnail">
 					<div style="height: {HEIGHT}px">
-						<!-- BEGIN: img -->
 						<a href="{ROW.link}" title="{ROW.name}"><img src="{ROW.photo}" style="max-height: {HEIGHT}px" alt="{ROW.name}"></a>
-						<!-- END: img -->
 					</div>
 					<div class="caption text-center">
 						<h3><a href="{ROW.link}" title="{ROW.name}">{ROW.name}</a></h3>

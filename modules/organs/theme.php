@@ -7,20 +7,7 @@
  * @Createdate Dec 3, 2010  11:23:15 AM
  */
 
-if( !defined( 'NV_IS_MOD_ORGAN' ) )
-	die( 'Stop!!!' );
-
-function viewper( $data_content )
-{
-	global $global_config, $module_name, $module_file, $lang_module, $module_config, $module_info;
-	$xtpl = new XTemplate( "viewper.tpl", NV_ROOTDIR . "/themes/" . $module_info['template'] . "/modules/" . $module_file );
-	$xtpl->assign( 'LANG', $lang_module );
-	$xtpl->assign( 'NV_BASE_SITEURL', NV_BASE_SITEURL );
-	$xtpl->assign( 'TEMPLATE', $global_config['site_theme'] );
-	$xtpl->assign( 'DATA', $data_content );
-	$xtpl->parse( 'main' );
-	return $xtpl->text( 'main' );
-}
+if( !defined( 'NV_IS_MOD_ORGAN' ) ) die( 'Stop!!!' );
 
 function detail_per( $data_content )
 {
@@ -65,9 +52,6 @@ function detail_per( $data_content )
 	}
 
 	$xtpl->assign( 'DATA', $data_content );
-
-	if( !empty( $data_content['photo'] ) )
-		$xtpl->parse( 'main.photo' );
 
 	if( ! empty( $data_content['description'] ) )
 	{
@@ -129,8 +113,6 @@ function vieworg_list( $organs_data, $person_data, $html_pages )
 		foreach( $person_data as $person )
 		{
 			$xtpl->assign( 'ROW', $person );
-			if( !empty( $person['photo'] ) )
-				$xtpl->parse( 'main.person.loop.img' );
 			$xtpl->parse( 'main.person.loop' );
 		}
 		$xtpl->parse( 'main.person' );
@@ -198,8 +180,6 @@ function vieworg_gird( $organs_data, $person_data, $html_pages )
 		{
 			$person['birthday'] = date( "d/m/Y", $person['birthday'] );
 			$xtpl->assign( 'ROW', $person );
-			if( !empty( $person['photo'] ) )
-				$xtpl->parse( 'main.person.loop.img' );
 			$xtpl->parse( 'main.person.loop' );
 		}
 
@@ -262,11 +242,13 @@ function vieworg_catelist( $array_content )
 
 function searchresult( $person_data, $html_pages )
 {
-	global $global_config, $module_name, $module_file, $lang_module, $module_config, $module_info;
+	global $global_config, $module_name, $arr_config, $module_file, $lang_module, $module_config, $module_info;
 	$xtpl = new XTemplate( "viewsearch.tpl", NV_ROOTDIR . "/themes/" . $module_info['template'] . "/modules/" . $module_file );
 	$xtpl->assign( 'LANG', $lang_module );
 	$xtpl->assign( 'NV_BASE_SITEURL', NV_BASE_SITEURL );
 	$xtpl->assign( 'TEMPLATE', $global_config['site_theme'] );
+	$xtpl->assign( 'WIDTH', $arr_config['thumb_width'] );
+	$xtpl->assign( 'HEIGHT', $arr_config['thumb_height'] );
 
 	if( !empty( $person_data ) )
 	{
@@ -274,8 +256,7 @@ function searchresult( $person_data, $html_pages )
 		{
 			$person['birthday'] = date( "d/m/Y", $person['birthday'] );
 			$xtpl->assign( 'ROW', $person );
-			if( !empty( $person['photo'] ) )
-				$xtpl->parse( 'main.loop.img' );
+
 			$xtpl->parse( 'main.loop' );
 		}
 		if( !empty( $html_pages ) )

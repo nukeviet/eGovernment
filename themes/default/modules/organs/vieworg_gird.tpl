@@ -26,62 +26,44 @@
 			</li>
 			<!-- END: website -->
 		</ul>
+		<!-- BEGIN: about -->
+		<p>{DATA.description}</p>
+		<!-- END: about -->
+
 		<p class="text-center">
 			{admin_link}
 		</p>
-	</div>
-	<div class="panel-footer">
-		<!-- Nav tabs -->
-		<ul class="nav nav-tabs" role="tablist">
-			<!-- BEGIN: tab_about -->
-			<li class="active">
-				<a href="#about" role="tab" data-toggle="tab">{LANG.vieworg_about}</a>
-			</li>
-			<!-- END: tab_about -->
-			<!-- BEGIN: tab_person -->
-			<li>
-				<a href="#vieworg_person" role="tab" data-toggle="tab">{LANG.vieworg_person}</a>
-			</li>
-			<!-- END: tab_person -->
-		</ul>
 
-		<!-- Tab panes -->
-		<div class="tab-content">
-			<!-- BEGIN: about -->
-			<div class="tab-pane active" id="about">
-				{DATA.description}
-			</div>
-			<!-- END: about -->
-			<!-- BEGIN: person -->
-			<div class="tab-pane" id="vieworg_person">
-				<div class="row">
-					<!-- BEGIN: loop -->
-					<div class="col-sm-6 col-md-4">
-						<div class="thumbnail">
-							<!-- BEGIN: img -->
-							<a href="{ROW.link}" title="{ROW.name}"><img src="{ROW.photo}" height="100" alt="{ROW.name}"></a>
-							<!-- END: img -->
-							<div class="caption text-center">
-								<h3><a href="{ROW.link}" title="{ROW.name}">{ROW.name}</a></h3>
-								<p>
-									{ROW.position}<br />
-									{ROW.birthday}
-								</p>
-							</div>
-						</div>
+		<!-- BEGIN: person -->
+		<hr />
+		<div class="row">
+			<!-- BEGIN: loop -->
+			<div class="col-sm-6 col-md-4">
+				<div class="thumbnail">
+					<div style="height: {HEIGHT}px">
+						<!-- BEGIN: img -->
+						<a href="{ROW.link}" title="{ROW.name}"><img src="{ROW.photo}" style="max-height: {HEIGHT}px" alt="{ROW.name}"></a>
+						<!-- END: img -->
 					</div>
-					<!-- END: loop -->
+					<div class="caption text-center">
+						<h3><a href="{ROW.link}" title="{ROW.name}">{ROW.name}</a></h3>
+						<p>
+							{ROW.position}<br />
+							{ROW.birthday}
+						</p>
+					</div>
 				</div>
 			</div>
-			
-			<!-- BEGIN: pages -->
-			<div class="text-center">
-				{html_pages}
-			</div>
-			<!-- END: pages -->
-			
-			<!-- END: person -->
+			<!-- END: loop -->
 		</div>
+		<!-- END: person -->
 	</div>
 </div>
+
+<!-- BEGIN: pages -->
+<div class="text-center">
+	{html_pages}
+</div>
+<!-- END: pages -->
+
 <!-- END: main -->

@@ -4,13 +4,14 @@
  * @Author VINADES., JSC (contact@vinades.vn)
  * @Copyright (C) 2014 VINADES ., JSC. All rights reserved
  * @License GNU/GPL version 2 or any later version
- * @Createdate Dec 3, 2010  11:10:39 AM 
+ * @Createdate Dec 3, 2010  11:10:39 AM
  */
 
 $sql_drop_module = array();
 $sql_drop_module[] = "DROP TABLE IF EXISTS " . $db_config['prefix'] . "_" . $lang . "_" . $module_data . "_rows;";
 $sql_drop_module[] = "DROP TABLE IF EXISTS " . $db_config['prefix'] . "_" . $lang . "_" . $module_data . "_person;";
-$sql_create_module = $sql_drop_module; 
+$sql_drop_module[] = "DROP TABLE IF EXISTS " . $db_config['prefix'] . "_" . $lang . "_" . $module_data . "_config;";
+$sql_create_module = $sql_drop_module;
 
 $sql_create_module[] = "CREATE TABLE " . $db_config['prefix'] . "_" . $lang . "_" . $module_data . "_rows (
   organid mediumint(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -64,3 +65,16 @@ $sql_create_module[] = "CREATE TABLE " . $db_config['prefix'] . "_" . $lang . "_
   professional text NOT NULL,
   PRIMARY KEY (personid)
 ) ENGINE=MyISAM";
+
+$sql_create_module[] = "CREATE TABLE IF NOT EXISTS " . $db_config['prefix'] . "_" . $lang . "_" . $module_data . "_config (
+ config_name varchar(30) NOT NULL,
+ config_value varchar(255) NOT NULL,
+ UNIQUE KEY config_name (config_name)
+)ENGINE=MyISAM";
+
+$sql_create_module[] = "INSERT INTO " . $db_config['prefix'] . "_" . $lang . "_" . $module_data . "_config VALUES
+('per_page', '10'),
+('organ_view_type', '0'),
+('thumb_width', '80'),
+('thumb_height', '100')
+";

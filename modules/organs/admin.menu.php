@@ -12,5 +12,4 @@ if( ! defined( 'NV_ADMIN' ) ) die( 'Stop!!!' );
 
 $submenu['addrow'] = $lang_module['addrow_title'];
 $submenu['addper'] = $lang_module['addper_title'];
-
-?>
+$submenu['config'] = $lang_module['config'];

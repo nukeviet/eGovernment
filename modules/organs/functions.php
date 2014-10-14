@@ -4,7 +4,7 @@
  * @Author VINADES., JSC (contact@vinades.vn)
  * @Copyright (C) 2014 VINADES ., JSC. All rights reserved
  * @License GNU/GPL version 2 or any later version
- * @Createdate Dec 3, 2010  11:12:21 AM 
+ * @Createdate Dec 3, 2010  11:12:21 AM
  */
 
 if ( ! defined( 'NV_SYSTEM' ) ) die( 'Stop!!!' );
@@ -20,9 +20,17 @@ $array_cat_list = array();
 while ( list( $organid_i, $parentid_i, $title_i, $alias_i, $numsub_i, $suborgan_i, $numperson_i, $view_i, $lev_i ) = $result->fetch( 3 ) )
 {
     $link_i = $link . "/".$alias_i."-".$organid_i;
-    $global_organ_rows[$organid_i] = array( 
+    $global_organ_rows[$organid_i] = array(
         "organid" => $organid_i, "parentid" => $parentid_i, "title" => $title_i, "alias" => $alias_i, "link" => $link_i, "suborgan" => $suborgan_i , "numperson" => $numperson_i, "numsub" => $numsub_i,'view'=> $view_i, 'lev' =>$lev_i
     );
+}
+
+$arr_config = array();
+$sql = "SELECT * FROM " . NV_PREFIXLANG . "_" . $module_data . "_config ";
+$result = $db->query( $sql );
+while( $r = $result->fetch() )
+{
+	$arr_config[$r['config_name']] = $r['config_value'];
 }
 
 function draw_menu_organ ()
@@ -103,11 +111,11 @@ function getparentid ($id)
 {
 	global $global_organ_rows;
 	if ( $id == 0 ) return 0;
-	elseif ( $id > 0 ) 
+	elseif ( $id > 0 )
 	{
 		$pid = $global_organ_rows[$id]['parentid'];
 		if ( $pid == 0 ) return $id;
-		elseif ( $pid > 0 ) 
+		elseif ( $pid > 0 )
 		{
 			$pid = getparentid ($pid);
 			return $pid;
@@ -154,7 +162,7 @@ function nv_ograns_page ( $base_url, $num_items, $per_page, $start_item, $add_pr
             {
                 $page_string .= " ... ";
             }
-            
+
             for ( $i = $total_pages - 2; $i < $total_pages + 1; $i ++ )
             {
                 $href = "href=\"" . $base_url . "/page-" . ( ( $i - 1 ) * $per_page ) . "\"";

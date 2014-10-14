@@ -86,13 +86,16 @@ function detail_per( $data_content )
 	return $xtpl->text( 'main' );
 }
 
-function vieworg_list( $organs_data, $person_data, $pages )
+function vieworg_list( $organs_data, $person_data, $html_pages )
 {
-	global $global_config, $module_name, $module_file, $lang_module, $module_config, $module_info;
+	global $global_config, $module_name, $module_file, $lang_module, $module_config, $module_info, $arr_config;
+
 	$xtpl = new XTemplate( "vieworg_list.tpl", NV_ROOTDIR . "/themes/" . $module_info['template'] . "/modules/" . $module_file );
 	$xtpl->assign( 'LANG', $lang_module );
 	$xtpl->assign( 'NV_BASE_SITEURL', NV_BASE_SITEURL );
 	$xtpl->assign( 'TEMPLATE', $global_config['site_theme'] );
+	$xtpl->assign( 'WIDTH', $arr_config['thumb_width'] );
+
 	if( !empty( $organs_data['website'] ) )
 	{
 		$temp = explode( ";", $organs_data['website'] );
@@ -103,18 +106,24 @@ function vieworg_list( $organs_data, $person_data, $pages )
 			$organs_data['website'] .= '<a href="http://' . $it . '">' . $it . '</a>&nbsp;&nbsp;';
 		}
 	}
+
 	if( $organs_data['view'] )
 		$xtpl->assign( 'DATA', $organs_data );
+
 	if( !empty( $organs_data['address'] ) )
 		$xtpl->parse( 'main.address' );
+
 	if( !empty( $organs_data['phone'] ) )
 		$xtpl->parse( 'main.phone' );
+
 	if( !empty( $organs_data['fax'] ) )
 		$xtpl->parse( 'main.fax' );
+
 	if( !empty( $organs_data['website'] ) )
 	{
 		$xtpl->parse( 'main.website' );
 	}
+
 	if( !empty( $person_data ) )
 	{
 		foreach( $person_data as $person )
@@ -125,30 +134,41 @@ function vieworg_list( $organs_data, $person_data, $pages )
 			$xtpl->parse( 'main.person.loop' );
 		}
 		$xtpl->parse( 'main.person' );
-		$xtpl->parse( 'main.tab_person' );
 	}
+
 	if( !empty( $organs_data['description'] ) )
 	{
 		$xtpl->parse( 'main.about' );
-		$xtpl->parse( 'main.tab_about' );
 	}
+
 	$admin_link = "";
 	if( defined( 'NV_IS_MODADMIN' ) )
 	{
 		$admin_link = nv_link_edit_org( $organs_data['organid'] ) . " " . nv_link_delete_org( $organs_data['organid'] );
 	}
 	$xtpl->assign( 'admin_link', $admin_link );
+
+	if( !empty( $html_pages ) )
+	{
+		$xtpl->assign( 'html_pages', $html_pages );
+		$xtpl->parse( 'main.pages' );
+	}
+
 	$xtpl->parse( 'main' );
 	return $xtpl->text( 'main' );
 }
 
 function vieworg_gird( $organs_data, $person_data, $html_pages )
 {
-	global $global_config, $module_name, $module_file, $lang_module, $module_config, $module_info;
+	global $global_config, $module_name, $module_file, $lang_module, $module_config, $module_info, $arr_config;
+
 	$xtpl = new XTemplate( "vieworg_gird.tpl", NV_ROOTDIR . "/themes/" . $module_info['template'] . "/modules/" . $module_file );
 	$xtpl->assign( 'LANG', $lang_module );
 	$xtpl->assign( 'NV_BASE_SITEURL', NV_BASE_SITEURL );
 	$xtpl->assign( 'TEMPLATE', $global_config['site_theme'] );
+	$xtpl->assign( 'WIDTH', $arr_config['thumb_width'] );
+	$xtpl->assign( 'HEIGHT', $arr_config['thumb_height'] );
+
 	if( !empty( $organs_data['website'] ) )
 	{
 		$temp = explode( ";", $organs_data['website'] );
@@ -171,6 +191,7 @@ function vieworg_gird( $organs_data, $person_data, $html_pages )
 	{
 		$xtpl->parse( 'main.website' );
 	}
+
 	if( !empty( $person_data ) )
 	{
 		foreach( $person_data as $person )
@@ -181,20 +202,21 @@ function vieworg_gird( $organs_data, $person_data, $html_pages )
 				$xtpl->parse( 'main.person.loop.img' );
 			$xtpl->parse( 'main.person.loop' );
 		}
-		if( !empty( $html_pages ) )
-		{
-			$xtpl->assign( 'html_pages', $html_pages );
-			$xtpl->parse( 'main.person.pages' );
-		}
+
 		$xtpl->parse( 'main.person' );
-		$xtpl->parse( 'main.tab_person' );
+	}
+
+	if( !empty( $html_pages ) )
+	{
+		$xtpl->assign( 'html_pages', $html_pages );
+		$xtpl->parse( 'main.pages' );
 	}
 
 	if( !empty( $organs_data['description'] ) )
 	{
 		$xtpl->parse( 'main.about' );
-		$xtpl->parse( 'main.tab_about' );
 	}
+
 	$admin_link = "";
 	if( defined( 'NV_IS_MODADMIN' ) )
 	{

@@ -5,9 +5,9 @@
  * @Copyright (C) 2014 VINADES ., JSC. All rights reserved
  * @Language Vietnamese
  * @License CC BY-SA (http://creativecommons.org/licenses/by-sa/4.0/)
- * @Createdate Dec 3, 2010  11:30:02 AM 
+ * @Createdate Dec 3, 2010  11:30:02 AM
  */
- 
+
 if ( ! defined( 'NV_MAINFILE' ) )
 {
     die( 'Stop!!!' );
@@ -57,7 +57,7 @@ $lang_module['organ_active_title'] = "Hoạt động";
 $lang_module['organ_nothing_title'] = "Không có tổ chức, cơ sở nào";
 $lang_module['organ_alias'] = "Liên kết tĩnh";
 $lang_module['organ_add_persons'] = "Thêm nhân sự";
-$lang_module['config'] = "config";
+$lang_module['config'] = "Cấu hình module";
 
 $lang_module['error_organ_title'] = "Không có tên tổ chức, cơ sở";
 $lang_module['error_organ_emal'] = "Địa chỉ email nhập không đúng";
@@ -86,3 +86,9 @@ $lang_module['addper_decription_title'] = "Tiểu sử";
 $lang_module['error_person_title'] = "Không có tên của nhân sự này";
 $lang_module['view_active_title'] = "Hiển thị thông tin chi tiết";
 $lang_module['view_active_title_note'] = "Nếu bạn không muốn hiển thị thông tin của tổ chức hay cơ sở hãy bỏ phần chọn này";
+
+$lang_module['config_per_page'] = "Số nhân sự hiển thị trên một trang";
+$lang_module['config_organ_view'] = "Kiểu hiển thị danh sách nhân sự khi xem tổ chức";
+$lang_module['config_organ_view_0'] = "Hiển thị dạng lưới";
+$lang_module['config_organ_view_1'] = "Hiển thị dạng danh sách dọc";
+$lang_module['config_thumb_size'] = "Kích thước ảnh hồ sơ";

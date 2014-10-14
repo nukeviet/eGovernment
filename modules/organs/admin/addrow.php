@@ -4,14 +4,14 @@
  * @Author VINADES., JSC (contact@vinades.vn)
  * @Copyright (C) 2014 VINADES ., JSC. All rights reserved
  * @License GNU/GPL version 2 or any later version
- * @Createdate Dec 3, 2010  11:33:22 AM 
+ * @Createdate Dec 3, 2010  11:33:22 AM
  */
 
 if ( ! defined( 'NV_IS_FILE_ADMIN' ) ) die( 'Stop!!!' );
 
 $page_title = $lang_module['addrow_title'];
-$data = array( 
-    "organid" => 0, "parentid" => 0, "parentid_old" => 0, "title" => "", "alias" => "", "image" => "", "thumbnail" => "", "weight" => 0, "numsub" => 0, "suborgan" => 0, "lev" => 0, "active" => 1, "add_time" => 0, "edit_time" => 0, "address" => "", "email" => "", "phone" => "", "fax" => "", "website" => "", "numperson" => 0, "description" => "" , "view" => 1 
+$data = array(
+    "organid" => 0, "parentid" => 0, "parentid_old" => 0, "title" => "", "alias" => "", "image" => "", "thumbnail" => "", "weight" => 0, "numsub" => 0, "suborgan" => 0, "lev" => 0, "active" => 1, "add_time" => 0, "edit_time" => 0, "address" => "", "email" => "", "phone" => "", "fax" => "", "website" => "", "numperson" => 0, "description" => "" , "view" => 1
 );
 $table_name = NV_PREFIXLANG . "_" . $module_data . "_rows";
 
@@ -24,7 +24,7 @@ $result = $db->query( $sql );
 $row = $result->fetch();
 
 if (!empty($row)) {
-	$page_title = $lang_module['addrow_title'] . $lang_module['main_sub'] . $row['title']; 
+	$page_title = $lang_module['addrow_title'] . $lang_module['main_sub'] . $row['title'];
 }
 
 /*error*/
@@ -37,8 +37,7 @@ if ( $nv_Request->get_int( 'save', 'post' ) == 1 )
     $data['title'] = $nv_Request->get_title( 'title', 'post', '', 1 );
     $alias = $nv_Request->get_title( 'alias', 'post', '', 1 );
     $data['alias'] = ( $alias != "" ) ? change_alias( $alias ) : change_alias( $data['title'] );
-    $data['description'] = $nv_Request->get_string( 'description', 'post', '' );
-    $data['description'] = nv_nl2br( nv_htmlspecialchars( strip_tags( $data['description'] ) ), '' );
+    $data['description'] = $nv_Request->get_editor( 'description', '', NV_ALLOWED_HTML_TAGS );
     $data['address'] = $nv_Request->get_title( 'address', 'post', '', 1 );
     $data['phone'] = $nv_Request->get_title( 'phone', 'post', '', 1 );
     $data['phone_ext'] = $nv_Request->get_title( 'phone_ext', 'post', '', 1 );
@@ -68,22 +67,22 @@ if ( $nv_Request->get_int( 'save', 'post' ) == 1 )
         {
             $weight = $db->query( "SELECT max(weight) FROM " . $table_name . " WHERE parentid=" . $db->quote( $data['parentid'] ) . "" )->fetchColumn();
             $weight = intval( $weight ) + 1;
-            $sql = "INSERT INTO " . $table_name . " (organid, parentid, title, alias, image, thumbnail, weight, orders, numsub, suborgan, lev, active, add_time, edit_time, address, email, phone,phone_ext ,fax, website, numperson, description,view ) 
+            $sql = "INSERT INTO " . $table_name . " (organid, parentid, title, alias, image, thumbnail, weight, orders, numsub, suborgan, lev, active, add_time, edit_time, address, email, phone,phone_ext ,fax, website, numperson, description,view )
          			VALUES (
-         				NULL, 
+         				NULL,
          				" . intval( $data['parentid'] ) . ",
          				" . $db->quote( $data['title'] ) . ",
          				" . $db->quote( $data['alias'] ) . ",
          				" . $db->quote( $data['image'] ) . ",
          				" . $db->quote( $data['thumbnail'] ) . ",
          				" . intval( $weight ) . ",
-         				0, 
          				0,
-         				'', 
-         				0, 
+         				0,
+         				'',
+         				0,
          				" . intval( $data['active'] ) . ",
-         				UNIX_TIMESTAMP(), 
-         				UNIX_TIMESTAMP(), 
+         				UNIX_TIMESTAMP(),
+         				UNIX_TIMESTAMP(),
          				" . $db->quote( $data['address'] ) . ",
          				" . $db->quote( $data['email'] ) . ",
          				" . $db->quote( $data['phone'] ) . ",
@@ -111,22 +110,22 @@ if ( $nv_Request->get_int( 'save', 'post' ) == 1 )
         }
         else // update data
         {
-            $query = "UPDATE " . $table_name . " 
+            $query = "UPDATE " . $table_name . "
             		  SET parentid = " . $db->quote( $data['parentid'] ) . ",
-            		  	  title = " . $db->quote( $data['title'] ) . ", 
+            		  	  title = " . $db->quote( $data['title'] ) . ",
             		  	  alias = " . $db->quote( $data['alias'] ) . ",
             		  	  active = " . intval( $data['active'] ) . ",
-            		  	  description = " . $db->quote( $data['description'] ) . ", 
-            		  	  address = " . $db->quote( $data['address'] ) . ", 
-            		  	  email = " . $db->quote( $data['email'] ) . ", 
-            		  	  phone = " . $db->quote( $data['phone'] ) . ", 
-            		  	  phone_ext = " . $db->quote( $data['phone_ext'] ) . ", 
-            		  	  fax = " . $db->quote( $data['fax'] ) . ", 
+            		  	  description = " . $db->quote( $data['description'] ) . ",
+            		  	  address = " . $db->quote( $data['address'] ) . ",
+            		  	  email = " . $db->quote( $data['email'] ) . ",
+            		  	  phone = " . $db->quote( $data['phone'] ) . ",
+            		  	  phone_ext = " . $db->quote( $data['phone_ext'] ) . ",
+            		  	  fax = " . $db->quote( $data['fax'] ) . ",
             		  	  website = " . $db->quote( $data['website'] ) . ",
             		  	  view = " . intval( $data['view'] ) . ",
-            		  	  edit_time = UNIX_TIMESTAMP() 
+            		  	  edit_time = UNIX_TIMESTAMP()
             		  WHERE organid = " . intval($id) . "";
-            
+
             if ( $db->query( $query ) )
             {
                 nv_insert_logs( NV_LANG_DATA, $module_name, 'log_edit_catalog', "id " . $id, $admin_info['userid'] );

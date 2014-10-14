@@ -4,13 +4,15 @@
  * @Author VINADES., JSC (contact@vinades.vn)
  * @Copyright (C) 2014 VINADES ., JSC. All rights reserved
  * @License GNU/GPL version 2 or any later version
- * @Createdate Dec 3, 2010  11:32:04 AM 
+ * @Createdate Dec 3, 2010  11:32:04 AM
  */
 
 if ( ! defined( 'NV_IS_MOD_ORGAN' ) ) die( 'Stop!!!' );
 $page_title = $module_info['custom_title'];
 $key_words = $module_info['keywords'];
-$per_page = 30;
+
+$per_page = $arr_config['per_page'];
+
 //get pages
 $page = 0;
 
@@ -19,8 +21,8 @@ $q = $nv_Request->get_string( 'q', 'get', '' );
 if ( !empty ($q)) $query .= " WHERE name like '%" . $db->dblikeescape( $q ) . "%' ";
 
 $oid = $nv_Request->get_int( 'oid', 'get', 0 );
-if ( $oid > 0 && empty ($q)) 
-{ 
+if ( $oid > 0 && empty ($q))
+{
 	$query .= " WHERE organid = " . intval( $oid ) . " ";
 }
 elseif( $oid > 0 && !empty ($q) )
@@ -41,7 +43,7 @@ while ( $row = $result->fetch() )
     if ( ! empty( $row['photo'] ) )
     {
         $urlimg = NV_ROOTDIR . '/' . NV_UPLOADS_DIR . '/' . $module_name . '/' . $row['photo'];
-        $imageinfo = nv_ImageInfo( $urlimg, 200, true, NV_UPLOADS_REAL_DIR . '/' . $module_name . '/thumb' );
+        $imageinfo = nv_ImageInfo( $urlimg, $arr_config['thumb_width'], true, NV_UPLOADS_REAL_DIR . '/' . $module_name . '/thumb' );
         $row['photo'] = $imageinfo['src'];
     }
     $row['link'] = NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=person/" . $global_organ_rows[$row['organid']]['alias'] . "-" . $row['organid'] . "/" . change_alias( $row['name'] ) . "-" . $row['personid'];

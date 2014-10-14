@@ -4,10 +4,11 @@
  * @Author VINADES., JSC (contact@vinades.vn)
  * @Copyright (C) 2014 VINADES ., JSC. All rights reserved
  * @License GNU/GPL version 2 or any later version
- * @Createdate Dec 3, 2010  11:32:04 AM 
+ * @Createdate Dec 3, 2010  11:32:04 AM
  */
 
 if ( ! defined( 'NV_IS_MOD_ORGAN' ) ) die( 'Stop!!!' );
+
 $page_title = $module_info['custom_title'];
 $key_words = $module_info['keywords'];
 $id = 0;
@@ -33,20 +34,21 @@ foreach ( $global_organ_rows as $organid => $organinfo )
             if ( ! empty( $row['photo'] ) )
             {
                 $urlimg = NV_ROOTDIR . '/' . NV_UPLOADS_DIR . '/' . $module_name . '/' . $row['photo'];
-                $imageinfo = nv_ImageInfo( $urlimg, 200, true, NV_UPLOADS_REAL_DIR . '/' . $module_name . '/thumb' );
+                $imageinfo = nv_ImageInfo( $urlimg, $arr_config['thumb_width'], true, NV_UPLOADS_REAL_DIR . '/' . $module_name . '/thumb' );
                 $row['photo'] = $imageinfo['src'];
             }
+
             $row['link'] = NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=person/" . $global_organ_rows[$organid]['alias'] . "-" . $organid . "/" . change_alias( $row['name'] ) . "-" . $row['personid'];
             $person_data[] = $row;
         }
-        $array_content[] = array( 
-            "id" => $organinfo['organid'], "data" => $person_data 
+        $array_content[] = array(
+            "id" => $organinfo['organid'], "data" => $person_data
         );
         unset( $person_data );
     }
 }
 
-$contents = vieworg_catelist( $array_content );	
+$contents = vieworg_catelist( $array_content );
 
 include NV_ROOTDIR . '/includes/header.php';
 echo nv_site_theme( $contents );

@@ -99,6 +99,11 @@ elseif ( $organs_data['numsub'] > 0 )
                     $imageinfo = nv_ImageInfo( $urlimg, $arr_config['thumb_width'], true, NV_UPLOADS_REAL_DIR . '/' . $module_name . '/thumb' );
                     $row['photo'] = $imageinfo['src'];
                 }
+				else
+				{
+					$row['photo'] = NV_BASE_SITEURL . 'themes/' . $global_config['site_theme'] . '/images/' . $module_file . '/no-avatar.jpg';
+				}
+
                 $row['link'] = NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=person/" . $global_organ_rows[$id]['alias'] . "-" . $id . "/" . change_alias( $row['name'] ) . "-" . $row['personid'];
                 $person_data[] = $row;
             }

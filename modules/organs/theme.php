@@ -51,11 +51,6 @@ function detail_per( $data_content )
 		$data_content['ofogran_url'] = NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=vieworg/" . $global_organ_rows[$data_content['organid']]['alias'] . "-" . $data_content['organid'];
 	}
 
-	if( !empty( $data_content['email'] ) )
-	{
-		$xtpl->parse( 'main.email' );
-	}
-
 	$xtpl->assign( 'DATA', $data_content );
 
 	if( $data_content['dayparty'] > 0 )
@@ -111,6 +106,11 @@ function detail_per( $data_content )
 	if( ! empty( $data_content['professional'] ) )
 	{
 		$xtpl->parse( 'main.professional' );
+	}
+
+	if( ! empty( $data_content['political'] ) )
+	{
+		$xtpl->parse( 'main.political' );
 	}
 
 	if( ! empty( $data_content['place_birth'] ) )

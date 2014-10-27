@@ -163,7 +163,7 @@ if( $nv_Request->get_int( 'save', 'post' ) == 1 )
 		{
 			$weight = $db->query( "SELECT max(weight) FROM " . $table_name . " WHERE organid=" . $db->quote( $data['organid'] ) . "" )->fetchColumn( );
 			$weight = intval( $weight ) + 1;
-			$sql = "INSERT INTO " . $table_name . " (personid, name, photo, email, position,position_other ,address, phone,phone_ext ,mobile, birthday, description, addtime, edittime, organid, weight, active,dayinto,marital_status,professional )
+			$sql = "INSERT INTO " . $table_name . " (personid, name, photo, email, position,position_other ,address, phone,phone_ext ,mobile, birthday, place_birth, description, addtime, edittime, organid, weight, active,dayinto,dayparty,marital_status,professional, political )
          			VALUES (
          				NULL,
          				" . $db->quote( $data['name'] ) . ",

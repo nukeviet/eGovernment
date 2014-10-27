@@ -56,9 +56,7 @@
 			<tr>
 				<td>{LANG.vieworg_email}</td>
 				<td>
-					<!-- BEGIN: mail -->
 					<a href="mailto:{DATA.email}" title="Mail to {DATA.email}">{DATA.email}</a>
-					<!-- END: mail -->
 				</td>
 			</tr>
 			<!-- END: email -->
@@ -104,6 +102,13 @@
 				<td>{DATA.professional}</td>
 			</tr>
 			<!-- END: professional -->
+
+			<!-- BEGIN: political -->
+			<tr>
+				<td>{LANG.vieworg_political}</td>
+				<td>{DATA.political}</td>
+			</tr>
+			<!-- END: political -->
 
 			<!-- BEGIN: description -->
 			<tr>

@@ -7,7 +7,8 @@
  * @Createdate Dec 3, 2010  11:23:15 AM
  */
 
-if( !defined( 'NV_IS_MOD_ORGAN' ) ) die( 'Stop!!!' );
+if( !defined( 'NV_IS_MOD_ORGAN' ) )
+	die( 'Stop!!!' );
 
 function detail_per( $data_content )
 {
@@ -35,10 +36,13 @@ function detail_per( $data_content )
 	}
 
 	if( $data_content['dayinto'] > 0 )
-		$data_content['dayinto'] = date( "d/m/Y", $data_content['dayinto'] );
-	else
 	{
-		$data_content['dayinto'] = "";
+		$data_content['dayinto'] = date( "d/m/Y", $data_content['dayinto'] );
+	}
+
+	if( $data_content['dayparty'] > 0 )
+	{
+		$data_content['dayparty'] = date( "d/m/Y", $data_content['dayparty'] );
 	}
 
 	if( !empty( $global_organ_rows[$data_content['organid']] ) )
@@ -47,16 +51,71 @@ function detail_per( $data_content )
 		$data_content['ofogran_url'] = NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=vieworg/" . $global_organ_rows[$data_content['organid']]['alias'] . "-" . $data_content['organid'];
 	}
 
-	if( ! empty( $data_content['email'] ) )
+	if( !empty( $data_content['email'] ) )
 	{
 		$xtpl->parse( 'main.email' );
 	}
 
 	$xtpl->assign( 'DATA', $data_content );
 
-	if( ! empty( $data_content['description'] ) )
+	if( $data_content['dayparty'] > 0 )
+	{
+		$xtpl->parse( 'main.dayparty' );
+	}
+
+	if( $data_content['dayinto'] > 0 )
+	{
+		$xtpl->parse( 'main.dayinto' );
+	}
+
+	if( !empty( $data_content['description'] ) )
 	{
 		$xtpl->parse( 'main.description' );
+	}
+
+	if( ! empty( $data_content['position_other'] ) )
+	{
+		$xtpl->parse( 'main.position_other' );
+	}
+
+	if( ! empty( $data_content['email'] ) )
+	{
+		$xtpl->parse( 'main.email' );
+	}
+
+	if( ! empty( $data_content['phone'] ) )
+	{
+		$xtpl->parse( 'main.phone' );
+	}
+
+	if( ! empty( $data_content['phone_ext'] ) )
+	{
+		$xtpl->parse( 'main.phone_ext' );
+	}
+
+	if( ! empty( $data_content['mobile'] ) )
+	{
+		$xtpl->parse( 'main.mobile' );
+	}
+
+	if( ! empty( $data_content['marital_status'] ) )
+	{
+		$xtpl->parse( 'main.marital_status' );
+	}
+
+	if( ! empty( $data_content['address'] ) )
+	{
+		$xtpl->parse( 'main.address' );
+	}
+
+	if( ! empty( $data_content['professional'] ) )
+	{
+		$xtpl->parse( 'main.professional' );
+	}
+
+	if( ! empty( $data_content['place_birth'] ) )
+	{
+		$xtpl->parse( 'main.place_birth' );
 	}
 
 	$admin_link = "";

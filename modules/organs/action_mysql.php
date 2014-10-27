@@ -54,6 +54,7 @@ $sql_create_module[] = "CREATE TABLE " . $db_config['prefix'] . "_" . $lang . "_
   address text NOT NULL,
   phone varchar(255) NOT NULL,
   birthday int(11) NOT NULL,
+  place_birth varchar(255) NOT NULL,
   description mediumtext NOT NULL,
   addtime int(11) NOT NULL,
   edittime int(11) NOT NULL,
@@ -61,8 +62,10 @@ $sql_create_module[] = "CREATE TABLE " . $db_config['prefix'] . "_" . $lang . "_
   weight int(8) NOT NULL DEFAULT '0',
   active tinyint(2) NOT NULL DEFAULT '0',
   dayinto int(11) NOT NULL DEFAULT '0',
+  dayparty int(11) NOT NULL DEFAULT '0',
   marital_status text NOT NULL,
   professional text NOT NULL,
+  political text NOT NULL,
   PRIMARY KEY (personid)
 ) ENGINE=MyISAM";
 

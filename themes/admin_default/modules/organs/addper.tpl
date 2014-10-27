@@ -25,13 +25,28 @@
 					</td>
 				</tr>
 				<tr class="form-inline">
-					<td><strong>{LANG.addper_birthday}</strong> <span class="red">(*)</span></td>
+					<td>
+						<strong>{LANG.addper_birthday}</strong> <span class="red">(*)</span>
+					</td>
 					<td>
 						<span class="text-middle">
 							<input class="form-control" name="birthday" id="birthday" value="{DATA.birthday}" style="width: 100px;" maxlength="10" type="text" readonly="readonly" />
-							&nbsp;&nbsp;&nbsp;&nbsp;<strong>{LANG.addper_dayinto} :</strong>
-							<input class="form-control" name="dayinto" id="dayinto" value="{DATA.dayinto}" style="width: 100px;" maxlength="10" type="text" readonly="readonly" />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>{LANG.addper_place_birth}</strong> <input class="form-control" style="width: 210px" name="place_birth" type="text" value="{DATA.place_birth}" maxlength="255" />
 						</span>
+					</td>
+				</tr>
+				<tr class="form-inline">
+					<td><strong>{LANG.addper_dayparty}: </strong></td>
+					<td>
+						<span class="text-middle">
+							<input class="form-control" name="dayparty" id="dayparty" value="{DATA.dayparty}" style="width: 100px;" maxlength="10" type="text" readonly="readonly" />
+						</span>
+					</td>
+				</tr>
+				<tr class="form-inline">
+					<td><strong>{LANG.addper_dayinto}: </strong></td>
+					<td>
+						<input class="form-control" name="dayinto" id="dayinto" value="{DATA.dayinto}" style="width: 100px;" maxlength="10" type="text" readonly="readonly" />
 					</td>
 				</tr>
 				<tr class="form-inline">
@@ -51,9 +66,8 @@
 				<tr class="form-inline">
 					<td><strong>{LANG.organ_phonehome_title}: </strong></td>
 					<td>
-					<input class="form-control" name="phone" type="text" value="{DATA.phone}" maxlength="255" />
-					&nbsp;&nbsp;<strong>{LANG.organ_mobile_title}: </strong>
-					<input class="form-control" name="mobile" type="text" value="{DATA.mobile}" maxlength="255" />
+					<input class="form-control" name="phone" type="text" value="{DATA.phone}" maxlength="255" placeholder="{LANG.organ_title}" />
+					<input class="form-control" name="mobile" type="text" value="{DATA.mobile}" maxlength="255" placeholder="{LANG.organ_mobile_title}" />
 					</td>
 				</tr>
 				<tr>
@@ -77,6 +91,10 @@
 				<tr>
 					<td><strong>{LANG.addper_professional} : </strong></td>
 					<td><textarea name="professional" class="form-control w400">{DATA.professional}</textarea></td>
+				</tr>
+				<tr>
+					<td><strong>{LANG.addper_political} : </strong></td>
+					<td><textarea name="political" class="form-control w400">{DATA.political}</textarea></td>
 				</tr>
 				<tr>
 					<td><strong>{LANG.addper_address_title} : </strong></td>
@@ -138,7 +156,7 @@
 <script type="text/javascript">
 	//<![CDATA[
 	$(document).ready(function() {
-		$("#birthday,#dayinto").datepicker({
+		$("#birthday,#dayinto,#dayparty").datepicker({
 			showOn : "both",
 			dateFormat : "dd/mm/yy",
 			changeMonth : true,
@@ -149,7 +167,7 @@
 			yearRange: "-90:+0"
 		});
 	});
-	
+
 	$("input[name=selectimg]").click(function() {
 		var area = "photo";
 		var path = "{NV_UPLOADS_DIR}/{module_name}";

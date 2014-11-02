@@ -26,7 +26,7 @@ foreach ( $global_organ_rows as $organid => $organinfo )
 		}
 
         $person_data = array();
-        $sql = "SELECT * FROM " . NV_PREFIXLANG . "_" . $module_data . "_person WHERE organid IN (" . $lid . ") AND active=1 ORDER BY weight LIMIT 5";
+        $sql = "SELECT * FROM " . NV_PREFIXLANG . "_" . $module_data . "_person WHERE organid IN (" . $lid . ") AND active=1 ORDER BY weight LIMIT 15";
         $result = $db->query( $sql );
         while ( $row = $result->fetch() )
         {

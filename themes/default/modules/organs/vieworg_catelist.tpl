@@ -5,6 +5,21 @@
 	<table class="table table-striped table-bordered table-hover">
 		<caption>
 			<a href="{CATE.link}">{CATE.title}</a>
+			<!-- BEGIN: suborgan -->
+			<!-- Single button -->
+			<div class="btn-group pull-right">
+				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu" role="menu">
+					<!-- BEGIN: loop -->
+					<li>
+						<a href="{SUBORGAN.link}">{SUBORGAN.title}</a>
+					</li>
+					<!-- END: loop -->
+				</ul>
+			</div>
+			<!-- END: suborgan -->
 		</caption>
 		<thead>
 			<tr>

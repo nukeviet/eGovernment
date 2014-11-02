@@ -3,7 +3,7 @@
  * @Author VINADES., JSC (contact@vinades.vn)
  * @Copyright (C) 2014 VINADES ., JSC. All rights reserved
  * @License GNU/GPL version 2 or any later version
- * @Createdate Dec 3, 2010  1:24:26 PM 
+ * @Createdate Dec 3, 2010  1:24:26 PM
  */
 
 /*Tabview*/
@@ -116,7 +116,7 @@ div.TabView div.Pages div.Page {
 
 /*list menu h*/
 .menucate_ograns{
-	
+
 }
 .menucate_ograns h2{
 	background:#027FB9;
@@ -146,20 +146,20 @@ div.TabView div.Pages div.Page {
 	width:100%;
 }
 /*list menu v*/
-.menuparent_ograns{ 
+.menuparent_ograns{
 	background:#027FB9;
 }
-.menuparent_ograns ul li{ 
+.menuparent_ograns ul li{
 	float:left;
 	padding:0px 5px;
 	border-left:1px solid #0195D9;
 	border-right:1px solid #034D70;
 	line-height:30px
 }
-.menuparent_ograns ul li a{ 
+.menuparent_ograns ul li a{
 	color:#FFFFFF;
 	text-transform:uppercase;
-	font-weight:bold;	
+	font-weight:bold;
 	font-size:13px
 }
 .search_ograns {
@@ -227,4 +227,8 @@ table.tabo thead {
 
 .nav-tabs{
 	margin-bottom: 15px
+}
+
+.suborgan span{
+	margin: 0 10px 0 10px
 }

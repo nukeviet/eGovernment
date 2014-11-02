@@ -278,6 +278,17 @@ function vieworg_catelist( $array_content )
 	{
 		foreach( $array_content as $content )
 		{
+			if( ! empty( $content['suborgan'] ) )
+			{
+				$suborganid = explode( ',', $content['suborgan'] );
+				foreach( $suborganid as $sid )
+				{
+					$xtpl->assign( 'SUBORGAN', $global_organ_rows[$sid] );
+					$xtpl->parse( 'main.cateloop.suborgan.loop' );
+				}
+				$xtpl->parse( 'main.cateloop.suborgan' );
+			}
+
 			if( !empty( $content['data'] ) )
 			{
 				$cate = $global_organ_rows[$content['id']];

@@ -46,6 +46,7 @@ if ( empty( $organs_data ) )
     nv_info_die( $lang_global['error_404_title'], $lang_global['error_404_title'], $lang_global['error_404_content'] . $redirect );
 }
 
+$contents = '';
 $base_url = NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=" . $op . "/" . $organs_data['alias'] . "-" . $organs_data['organid'];
 if ( $organs_data['numperson'] > 0 )
 {
@@ -74,14 +75,15 @@ if ( $organs_data['numperson'] > 0 )
     $html_pages = nv_alias_page( $page_title, $base_url, $all_page, $per_page, $page );
 	if( $arr_config['organ_view_type'] )
 	{
-		$contents = vieworg_list( $organs_data,$person_data, $html_pages );
+		$contents .= vieworg_list( $organs_data,$person_data, $html_pages );
 	}
 	else
 	{
-		$contents = vieworg_gird( $organs_data, $person_data, $html_pages );
+		$contents .= vieworg_gird( $organs_data, $person_data, $html_pages );
 	}
 }
-elseif ( $organs_data['numsub'] > 0 )
+
+if ( $organs_data['numsub'] > 0 )
 {
     $array_content = array();
     foreach ( $global_organ_rows as $organid => $organinfo )
@@ -111,12 +113,9 @@ elseif ( $organs_data['numsub'] > 0 )
             unset( $person_data );
         }
     }
-    $contents = vieworg_catelist( $array_content );
+    $contents .= vieworg_catelist( $array_content );
 }
-else
-{
-    $contents = "<center>" . $lang_module['vieworg_nodata'] . "</center>";
-}
+
 include NV_ROOTDIR . '/includes/header.php';
 echo nv_site_theme( $contents );
 include NV_ROOTDIR . '/includes/footer.php';

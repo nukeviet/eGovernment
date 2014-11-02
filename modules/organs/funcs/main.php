@@ -11,23 +11,22 @@ if ( ! defined( 'NV_IS_MOD_ORGAN' ) ) die( 'Stop!!!' );
 
 $page_title = $module_info['custom_title'];
 $key_words = $module_info['keywords'];
-$id = 0;
-
-foreach ( $global_organ_rows as $organid => $organinfo )
-{
-	if ( $organinfo['numsub'] > 0 )
-	{
-		$id = $organid; break;
-	}
-}
 
 $array_content = array();
 foreach ( $global_organ_rows as $organid => $organinfo )
 {
-    if ( $organinfo['parentid'] == $id )
+    if ( $organinfo['parentid'] == 0 )
     {
+    	$lid = '';
+		$lid .= $organid;
+
+		if( $organinfo['numsub'] > 0 )
+		{
+			$lid .= ',' . $organinfo['suborgan'];
+		}
+
         $person_data = array();
-        $sql = "SELECT * FROM " . NV_PREFIXLANG . "_" . $module_data . "_person WHERE organid=" . intval( $organinfo['organid'] ) . " AND active=1 ORDER BY weight LIMIT 5";
+        $sql = "SELECT * FROM " . NV_PREFIXLANG . "_" . $module_data . "_person WHERE organid IN (" . $lid . ") AND active=1 ORDER BY weight LIMIT 5";
         $result = $db->query( $sql );
         while ( $row = $result->fetch() )
         {
@@ -46,7 +45,7 @@ foreach ( $global_organ_rows as $organid => $organinfo )
             $person_data[] = $row;
         }
         $array_content[] = array(
-            "id" => $organinfo['organid'], "data" => $person_data
+            "id" => $organinfo['organid'], "suborgan" => $organinfo['suborgan'], "data" => $person_data
         );
         unset( $person_data );
     }

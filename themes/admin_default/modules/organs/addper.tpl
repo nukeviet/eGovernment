@@ -39,14 +39,14 @@
 					<td><strong>{LANG.addper_dayparty}: </strong></td>
 					<td>
 						<span class="text-middle">
-							<input class="form-control" name="dayparty" id="dayparty" value="{DATA.dayparty}" style="width: 100px;" maxlength="10" type="text" readonly="readonly" />
+							<input class="form-control" name="dayparty" id="dayparty" value="{DATA.dayparty}" style="width: 100px;" maxlength="10" type="text" />
 						</span>
 					</td>
 				</tr>
 				<tr class="form-inline">
 					<td><strong>{LANG.addper_dayinto}: </strong></td>
 					<td>
-						<input class="form-control" name="dayinto" id="dayinto" value="{DATA.dayinto}" style="width: 100px;" maxlength="10" type="text" readonly="readonly" />
+						<input class="form-control" name="dayinto" id="dayinto" value="{DATA.dayinto}" style="width: 100px;" maxlength="10" type="text" />
 					</td>
 				</tr>
 				<tr class="form-inline">

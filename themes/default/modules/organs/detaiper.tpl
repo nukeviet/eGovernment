@@ -34,7 +34,7 @@
 					{DATA.birthday}
 					<!-- BEGIN: place_birth -->
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<strong>{LANG.vieworg_place_birth}: </strong> {DATA.place_birth}
+					{LANG.vieworg_place_birth}: {DATA.place_birth}
 					<!-- END: place_birth -->
 				</td>
 			</tr>

@@ -1,12 +1,13 @@
 <?php
 
 /**
- * @Project NUKEVIET 3.x
- * @Author VINADES.,JSC (contact@vinades.vn)
- * @Copyright (C) 2012 VINADES.,JSC. All rights reserved
- * @Language Türkçe
+* @Project NUKEVIET 4.x
+* @Author VINADES.,JSC (contact@vinades.vn)
+* @Copyright (C) 2014 VINADES.,JSC. All rights reserved
+* @Language Türkçe
+* @License CC BY-SA (http://creativecommons.org/licenses/by-sa/4.0/)
  * @Createdate Oct 25, 2012, 03:11:41 PM
- */
+*/
 
 if( ! defined( 'NV_MAINFILE' ) ) die( 'Stop!!!' );
 
@@ -20,5 +21,3 @@ $lang_module['faq_welcome'] = 'Sıkça Sorulan Sorular';
 $lang_module['go_top'] = 'Üst';
 $lang_module['faq_question'] = 'Soru';
 $lang_module['faq_answer'] = 'Cevap';
-
-?>

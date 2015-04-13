@@ -1,12 +1,13 @@
 <?php
 
 /**
- * @Project NUKEVIET 3.x
- * @Author VINADES.,JSC (contact@vinades.vn)
- * @Copyright (C) 2012 VINADES.,JSC. All rights reserved
- * @Language česky
+* @Project NUKEVIET 4.x
+* @Author VINADES.,JSC (contact@vinades.vn)
+* @Copyright (C) 2014 VINADES.,JSC. All rights reserved
+* @Language česky
+* @License CC BY-SA (http://creativecommons.org/licenses/by-sa/4.0/)
  * @Createdate Oct 25, 2012, 03:11:34 PM
- */
+*/
 
 if( ! defined( 'NV_ADMIN' ) or ! defined( 'NV_MAINFILE' ) ) die( 'Stop!!!' );
 
@@ -60,5 +61,3 @@ $lang_module['config_type_main'] = 'Configurace hlavní stránka';
 $lang_module['config_type_main_0'] = 'Zobrazit témata';
 $lang_module['config_type_main_1'] = 'Nějnověší';
 $lang_module['config_type_main_2'] = 'Nějstarší';
-
-?>

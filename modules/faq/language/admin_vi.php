@@ -1,14 +1,15 @@
 <?php
 
 /**
- * @Project NUKEVIET 3.x
- * @Author VINADES.,JSC (contact@vinades.vn)
- * @Copyright (C) 2012 VINADES.,JSC. All rights reserved
- * @Language Tiếng Việt
+* @Project NUKEVIET 4.x
+* @Author VINADES.,JSC (contact@vinades.vn)
+* @Copyright (C) 2014 VINADES.,JSC. All rights reserved
+* @Language Tiếng Việt
+* @License CC BY-SA (http://creativecommons.org/licenses/by-sa/4.0/)
  * @Createdate Mar 04, 2010, 03:22:00 PM
- */
+*/
 
-if( ! defined( 'NV_ADMIN' ) or ! defined( 'NV_MAINFILE' ) ) die( 'Stop!!!' );
+if( ! defined( 'NV_ADMIN' ) or ! defined( 'NV_MAINFILE' ) )  die( 'Stop!!!' );
 
 $lang_translator['author'] = 'VINADES.,JSC (contact@vinades.vn)';
 $lang_translator['createdate'] = '04/03/2010, 15:22';
@@ -27,7 +28,7 @@ $lang_module['faq_category_cat_maincat'] = 'Là chủ đề chính';
 $lang_module['faq_category_cat_name'] = 'Tên chủ đề';
 $lang_module['faq_description'] = 'Mô tả chủ đề';
 $lang_module['faq_category_cat_parent'] = 'Thuộc chủ đề';
-$lang_module['faq_who_view'] = 'Ai được phép xem';
+$lang_module['faq_keywords'] = 'Từ khoá';
 $lang_module['faq_cat_save'] = 'Thực hiện';
 $lang_module['faq_editcat_cat'] = 'Sửa chủ đề';
 $lang_module['faq_table_caption1'] = 'Danh sách các chủ đề là chủ đề chính';
@@ -60,5 +61,3 @@ $lang_module['config_type_main'] = 'Cách thể hiện trên trang chủ';
 $lang_module['config_type_main_0'] = 'Hiển thị các chủ đề';
 $lang_module['config_type_main_1'] = 'Danh sách mới lên trên';
 $lang_module['config_type_main_2'] = 'Danh sách cũ lên trên';
-
-?>

@@ -1,12 +1,13 @@
 <?php
 
 /**
- * @Project NUKEVIET 3.x
- * @Author VINADES.,JSC (contact@vinades.vn)
- * @Copyright (C) 2012 VINADES.,JSC. All rights reserved
- * @Language Français
+* @Project NUKEVIET 4.x
+* @Author VINADES.,JSC (contact@vinades.vn)
+* @Copyright (C) 2014 VINADES.,JSC. All rights reserved
+* @Language Français
+* @License CC BY-SA (http://creativecommons.org/licenses/by-sa/4.0/)
  * @Createdate Sep 01, 2010, 05:00:00 PM
- */
+*/
 
 if( ! defined( 'NV_MAINFILE' ) ) die( 'Stop!!!' );
 
@@ -20,5 +21,3 @@ $lang_module['faq_welcome'] = 'Vous pouvez consulter cici les réponses aux ques
 $lang_module['go_top'] = 'En haut';
 $lang_module['faq_question'] = 'Question';
 $lang_module['faq_answer'] = 'Réponse';
-
-?>

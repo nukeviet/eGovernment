@@ -1,12 +1,13 @@
 <?php
 
 /**
- * @Project NUKEVIET 3.x
- * @Author VINADES.,JSC (contact@vinades.vn)
- * @Copyright (C) 2012 VINADES.,JSC. All rights reserved
- * @Language English
+* @Project NUKEVIET 4.x
+* @Author VINADES.,JSC (contact@vinades.vn)
+* @Copyright (C) 2014 VINADES.,JSC. All rights reserved
+* @Language English
+* @License CC BY-SA (http://creativecommons.org/licenses/by-sa/4.0/)
  * @Createdate Oct 25, 2012, 04:42:13 PM
- */
+*/
 
 if( ! defined( 'NV_ADMIN' ) or ! defined( 'NV_MAINFILE' ) ) die( 'Stop!!!' );
 
@@ -60,5 +61,3 @@ $lang_module['config_type_main'] = 'Ways to show on the home page';
 $lang_module['config_type_main_0'] = 'Displaying Topics';
 $lang_module['config_type_main_1'] = 'List, newer first';
 $lang_module['config_type_main_2'] = 'List, oldest First';
-
-?>

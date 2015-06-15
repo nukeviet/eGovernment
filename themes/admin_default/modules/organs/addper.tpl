@@ -26,11 +26,11 @@
 				</tr>
 				<tr class="form-inline">
 					<td>
-						<strong>{LANG.addper_birthday}</strong> <span class="red">(*)</span>
+						<strong>{LANG.addper_birthday}</strong> <span class="red"></span>
 					</td>
 					<td>
 						<span class="text-middle">
-							<input class="form-control" name="birthday" id="birthday" value="{DATA.birthday}" style="width: 100px;" maxlength="10" type="text" readonly="readonly" />
+							<input class="form-control" name="birthday" id="birthday" value="{DATA.birthday}" style="width: 100px;" maxlength="10" type="text" />
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>{LANG.addper_place_birth}</strong> <input class="form-control" style="width: 210px" name="place_birth" type="text" value="{DATA.place_birth}" maxlength="255" />
 						</span>
 					</td>

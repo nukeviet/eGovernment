@@ -14,14 +14,14 @@ define( 'NV_IS_MOD_ORGAN', true );
 global $global_organ_rows;
 $global_organ_rows = array();
 $link = NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=vieworg";
-$sql = "SELECT organid, parentid, title, alias, numsub, suborgan, numperson,view,lev FROM " . NV_PREFIXLANG . "_" . $module_data . "_rows" . " WHERE active=1 ORDER BY orders ASC";
+$sql = "SELECT organid, parentid, title, alias, description, numsub, suborgan, numperson,view,lev, email, phone, fax FROM " . NV_PREFIXLANG . "_" . $module_data . "_rows" . " WHERE active=1 ORDER BY orders ASC";
 $result = $db->query( $sql );
 $array_cat_list = array();
-while ( list( $organid_i, $parentid_i, $title_i, $alias_i, $numsub_i, $suborgan_i, $numperson_i, $view_i, $lev_i ) = $result->fetch( 3 ) )
+while ( list( $organid_i, $parentid_i, $title_i, $alias_i, $description, $numsub_i, $suborgan_i, $numperson_i, $view_i, $lev_i, $email, $phone, $fax ) = $result->fetch( 3 ) )
 {
     $link_i = $link . "/".$alias_i."-".$organid_i;
     $global_organ_rows[$organid_i] = array(
-        "organid" => $organid_i, "parentid" => $parentid_i, "title" => $title_i, "alias" => $alias_i, "link" => $link_i, "suborgan" => $suborgan_i , "numperson" => $numperson_i, "numsub" => $numsub_i,'view'=> $view_i, 'lev' =>$lev_i
+        "organid" => $organid_i, "parentid" => $parentid_i, "title" => $title_i, "alias" => $alias_i,  "description" => $description, "link" => $link_i, "suborgan" => $suborgan_i , "numperson" => $numperson_i, "numsub" => $numsub_i,'view'=> $view_i, 'lev' =>$lev_i, 'email' =>$email, 'phone' =>$phone, 'fax' =>$fax
     );
 }
 

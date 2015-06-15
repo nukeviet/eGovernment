@@ -10,6 +10,16 @@
 					<col class="w300" />
 				</colgroup>
 	            <tbody>
+	            	<tr>
+	                    <td>{LANG.config_organ_view_main}</td>
+	                    <td>
+	                    	<select name="organ_view_type_main" class="form-control w200">
+	                    		<!-- BEGIN: view_type_main -->
+	                    		<option value="{VIEW_TYPE_MAIN.key}" {VIEW_TYPE_MAIN.selected}>{VIEW_TYPE_MAIN.title}</option>
+	                    		<!-- END: view_type_main -->
+	                    	</select>
+	                    </td>
+	                </tr>
 	                <tr>
 	                    <td>{LANG.config_organ_view}</td>
 	                    <td>

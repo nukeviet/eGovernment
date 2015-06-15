@@ -11,7 +11,7 @@ if ( ! defined( 'NV_IS_FILE_ADMIN' ) ) die( 'Stop!!!' );
 
 $page_title = $lang_module['list_person'];
 $per_page = 20;
-$page = $nv_Request->get_int( 'page', 'get', 0 );
+$page = $nv_Request->get_int( 'page', 'get', 1 );
 $organid = $nv_Request->get_int( 'pid', 'get', 0 );
 
 $base_url = NV_BASE_ADMINURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=" . $op . "&pid=" . $organid;
@@ -43,14 +43,14 @@ if ( ! empty( $list_chid ) ) $list_chid_str = $list_chid_str . ',' . implode( ',
 $xtpl = new XTemplate( "listper.tpl", NV_ROOTDIR . "/themes/" . $global_config['module_theme'] . "/modules/" . $module_file );
 $xtpl->assign( 'LANG', $lang_module );
 
-$sql = "SELECT SQL_CALC_FOUND_ROWS * FROM " . NV_PREFIXLANG . "_" . $module_data . "_person WHERE organid IN (" . $list_chid_str . ") ORDER BY weight ASC LIMIT " . $page . "," . $per_page;
+$sql = "SELECT SQL_CALC_FOUND_ROWS t1.* FROM " . NV_PREFIXLANG . "_" . $module_data . "_person t1 inner join " . NV_PREFIXLANG . "_" . $module_data . "_rows t2 on t1.organid = t2.organid WHERE t1.organid IN (" . $list_chid_str . ") ORDER BY t2.orders,t1.weight LIMIT " . ( $page - 1 ) * $per_page . "," . $per_page;
 $result = $db->query( $sql );
 
 $result_all = $db->query( "SELECT FOUND_ROWS()" );
 $numf = $result_all->fetchColumn();
 $all_page = ( $numf ) ? $numf : 1;
 
-$i = $page + 1;
+$i = ( $page - 1 ) * $per_page + 1;
 while ( $row = $result->fetch() )
 {
     $ck_yes = "";
@@ -74,8 +74,16 @@ while ( $row = $result->fetch() )
     $enable = ( $row['organid'] != $organid ) ? "disabled=\"disabled\"" : "";
     $row['link_edit'] = NV_BASE_ADMINURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&amp;" . NV_OP_VARIABLE . "=addper&amp;id=" . $row['personid'];
     $row['link_del'] = NV_BASE_ADMINURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&amp;" . NV_OP_VARIABLE . "=delper&amp;id=" . $row['personid'] . "&amp;oid=" . $organid;
-    $row['select_weight'] = drawselect_number( $row['personid'], 1, $all_page + 1, $row['weight'], "nv_chang_person('" . $row['personid'] . "',this,url_change_weight,url_back);", $enable );
+    if ( empty( $list_chid ) ) 
+	{
+		$row['select_weight'] = drawselect_number( $row['personid'], 1, $all_page + 1, $row['weight'], "nv_chang_person('" . $row['personid'] . "',this,url_change_weight,url_back);", $enable );
+	}
+	else {
+		$row['select_weight'] = $i;
+	}
+    
     $xtpl->assign( 'ROW', $row );
+	
     $xtpl->parse( 'main.row' );
     $i ++;
 }

@@ -96,3 +96,7 @@ $lang_module['config_organ_view'] = "Kiểu hiển thị danh sách nhân sự k
 $lang_module['config_organ_view_0'] = "Hiển thị dạng lưới";
 $lang_module['config_organ_view_1'] = "Hiển thị dạng danh sách dọc";
 $lang_module['config_thumb_size'] = "Kích thước ảnh hồ sơ";
+
+$lang_module['config_organ_view_main'] = "Kiểu hiển thị danh sách tại trang chủ ";
+$lang_module['config_organ_view_main_0'] = "Hiển thị dạng danh sách có ảnh";
+$lang_module['config_organ_view_main_1'] = "Hiển thị dạng danh sách không ảnh";

@@ -129,10 +129,10 @@ if( $nv_Request->get_int( 'save', 'post' ) == 1 )
 	{
 		$error = $lang_module['error_person_title'];
 	}
-	elseif( empty( $data['birthday'] ) )
-	{
-		$error = $lang_module['error_organ_birthday'];
-	}
+	//elseif( empty( $data['birthday'] ) )
+	//{
+		//$error = $lang_module['error_organ_birthday'];
+	//}
 	elseif( empty( $data['position'] ) )
 	{
 		$error = $lang_module['error_organ_position'];

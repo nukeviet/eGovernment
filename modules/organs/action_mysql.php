@@ -78,6 +78,7 @@ $sql_create_module[] = "CREATE TABLE IF NOT EXISTS " . $db_config['prefix'] . "_
 $sql_create_module[] = "INSERT INTO " . $db_config['prefix'] . "_" . $lang . "_" . $module_data . "_config VALUES
 ('per_page', '10'),
 ('organ_view_type', '0'),
+('organ_view_type_main', '0'),
 ('thumb_width', '80'),
 ('thumb_height', '100')
 ";

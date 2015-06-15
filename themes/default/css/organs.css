@@ -232,3 +232,36 @@ table.tabo thead {
 .suborgan span{
 	margin: 0 10px 0 10px
 }
+
+
+a.name_org, a.org{
+	color: #0707CE;
+}
+
+a.org{
+	font-size: 16px;
+}
+
+a.name_org:hover, a.org:hover{
+	color: #386BD1;
+	text-decoration: underline;
+}
+
+.vieworg{
+	border: 1px solid #eee;
+	padding: 10px;
+	border-radius: 5px;
+	margin-bottom: 20px;
+}
+
+.vieworg .org{
+	font-size: 18px;
+	font-weight: 700;
+	text-align: center;
+	display: inline-block;
+	width: 100%;
+	color: #0707CE;
+}
+.table_org .table-responsive{
+	border: 1px solid #eee;
+}

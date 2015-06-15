@@ -52,3 +52,8 @@ $lang_module['vieworg_no'] = "STT";
 $lang_module['vieworg_search_result'] = "Kết quả tìm kiếm";
 $lang_module['vieworg_search_nodata'] = "Không tìm thấy nội dung nào theo yêu cầu!";
 $lang_module['vieworg_phone_ext'] = "Số máy lẻ";
+
+$lang_module['email'] = "Email";
+$lang_module['phone'] = "Điện thoại";
+$lang_module['photo'] = "Ảnh"; 
+$lang_module['description'] = "Mô tả"; 

@@ -26,7 +26,7 @@ foreach ( $global_organ_rows as $organid => $organinfo )
 		}
 
         $person_data = array();
-        $sql = "SELECT * FROM " . NV_PREFIXLANG . "_" . $module_data . "_person WHERE organid IN (" . $lid . ") AND active=1 ORDER BY weight LIMIT 15";
+        $sql = "SELECT t1.* FROM " . NV_PREFIXLANG . "_" . $module_data . "_person t1 inner join " . NV_PREFIXLANG . "_" . $module_data . "_rows t2 on t1.organid = t2.organid WHERE t1.organid IN (" . $lid . ") AND t1.active=1 ORDER BY t2.orders,t1.weight";
         $result = $db->query( $sql );
         while ( $row = $result->fetch() )
         {
@@ -50,7 +50,6 @@ foreach ( $global_organ_rows as $organid => $organinfo )
         unset( $person_data );
     }
 }
-
 $contents = vieworg_catelist( $array_content );
 
 include NV_ROOTDIR . '/includes/header.php';

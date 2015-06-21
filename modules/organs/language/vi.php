@@ -57,3 +57,5 @@ $lang_module['email'] = "Email";
 $lang_module['phone'] = "Điện thoại";
 $lang_module['photo'] = "Ảnh"; 
 $lang_module['description'] = "Mô tả"; 
+
+$lang_module['list_sub_org'] = "Danh sách các phòng ban trực thuộc "; 

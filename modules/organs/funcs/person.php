@@ -55,6 +55,20 @@ else
 	$data_content['photo'] = NV_BASE_SITEURL . 'themes/' . $global_config['site_theme'] . '/images/' . $module_file . '/no-avatar.jpg';
 }
 
+// thanh dieu huong
+$parentid = $data_content['organid'];
+while( $parentid > 0 )
+{
+	$array_cat_i = $global_organ_rows[$parentid];
+	$array_mod_title[] = array(
+		'catid' => $parentid,
+		'title' => $array_cat_i['title'],
+		'link' => $array_cat_i['link']
+	);
+	$parentid = $array_cat_i['parentid'];
+}
+sort( $array_mod_title, SORT_NUMERIC );
+
 $page_title = $data_content['name'];
 $contents = detail_per( $data_content );
 

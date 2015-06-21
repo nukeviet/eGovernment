@@ -67,8 +67,10 @@ function draw_sub ( $pid )
         {
             $organinfo['title0'] = nv_clean60($organinfo['title'],100);
             $link = ( $organinfo['view'] == 1 ) ? $organinfo['link'] : "#";
+			$num = 0;
+			$num =  $organinfo['numsub'] > 0 ? $organinfo['numsub'] : $organinfo['numperson'];
         	$html .= "<li>\n";
-            $html .= "	<span class=\"folder\"><a href=\"".$link."\" id=\"".$organid."\" title=\"".$organinfo['title']."\" onclick=\"openlink(this)\" >" . $organinfo['title0'] . " (" . $organinfo['numperson'] . ")" . "</a></span>\n";
+            $html .= "	<span class=\"folder\"><a href=\"".$link."\" id=\"".$organid."\" title=\"".$organinfo['title']."\" onclick=\"openlink(this)\" >" . $organinfo['title0'] . " (" . $num . ")" . "</a></span>\n";
         	if ( $organinfo['numsub'] > 0 )
             {
                 $html .= draw_sub( $organid );
@@ -201,3 +203,20 @@ function nv_ograns_page ( $base_url, $num_items, $per_page, $start_item, $add_pr
     }
     return $page_string;
 }
+
+function getall_numper_of_parent ($array_organs,$pid)
+{
+	$count = $array_organs[$pid]['numperson'];
+	foreach ( $array_organs as $organid => $info )
+	{
+		if ( $info['parentid'] == $pid )
+		{
+			$count = $count + $info['numperson'];
+			if ( $info['numsub'] > 0 ) 
+			{
+				$count = $count + getall_numper_of_parent ($array_organs,$organid);
+			}
+		}
+	}
+	return $count;
+} 

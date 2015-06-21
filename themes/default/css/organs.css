@@ -262,6 +262,16 @@ a.name_org:hover, a.org:hover{
 	width: 100%;
 	color: #0707CE;
 }
+.suborg{
+	border: 1px solid #eee;
+	padding: 10px;
+	border-radius: 5px;
+	margin-bottom: 20px;
+}
+.suborg ol li{
+list-style-type: decimal-leading-zero;
+}
+
 .table_org .table-responsive{
 	border: 1px solid #eee;
 }

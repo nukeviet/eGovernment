@@ -10,6 +10,18 @@
 </div>
 <!-- END: vieworg -->
 
+<!-- BEGIN: suborg -->
+<strong>{LANG.list_sub_org}:</strong><br />
+<div class="suborg"> <!--Cac phong ban truc thuoc-->
+	
+	<ol>
+	<!-- BEGIN: loop  -->
+	<li><a class="org" href="{suborg.link}">{suborg.title}</a></li>
+	<!-- END: loop -->
+	</ol>
+</div>
+<!-- END: suborg -->
+
 <!-- BEGIN: cateloop -->
 <div class="table-responsive">
 	<table class="table table-striped table-bordered table-hover">

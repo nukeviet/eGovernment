@@ -229,7 +229,7 @@ function vieworg_gird($organs_data, $person_data, $html_pages) {
 	return $xtpl -> text('main');
 }
 
-function vieworg_catelist($array_content) {
+function vieworg_catelist($array_content, $suborg) {
 	global $global_config, $module_name, $module_file, $lang_module, $module_config, $module_info, $global_organ_rows, $arr_config, $array_op;
 	
 	if ($arr_config['organ_view_type_main'] == 0) {
@@ -257,6 +257,15 @@ function vieworg_catelist($array_content) {
 
 				$xtpl -> parse('main.vieworg');
 			}
+			//print_r($suborg); die($html_suborg);
+			if (!empty($suborg))
+			{
+				foreach ($suborg as $key => $value) {
+					$xtpl -> assign('suborg', $value);
+					$xtpl -> parse('main.suborg.loop');
+				}
+				$xtpl -> parse('main.suborg');
+			}
 
 			foreach ($array_content as $content) {
 				if (!empty($content['suborgan'])) {
@@ -280,7 +289,7 @@ function vieworg_catelist($array_content) {
 					$i = 1;
 					$org_item = '';
 					foreach ($content['data'] as $person) {
-//print_r($person);die;
+
 						if ($person['organid'] != $org_item and empty($array_op[1])) {
 							$org_item = $person['organid'];
 							$cat = $global_organ_rows[$org_item];
@@ -301,9 +310,9 @@ function vieworg_catelist($array_content) {
 							$xtpl -> parse('main.cateloop.loop.email');
 						if (!empty($person['mobile']) or !empty($person['phone']) or !empty($person['phone_ext']))
 							$xtpl -> parse('main.cateloop.loop.phone');
-						if (!empty($person['phone_ext']) and !empty($person['mobile']))
+						if (!empty($person['phone_ext']))
 							$xtpl -> parse('main.cateloop.loop.br1');
-						if (!empty($person['phone']) and !empty($person['mobile']))
+						if (!empty($person['phone']))
 							$xtpl -> parse('main.cateloop.loop.br2');
 						$xtpl -> parse('main.cateloop.loop');
 						$i++;

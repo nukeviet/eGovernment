@@ -40,6 +40,20 @@ $sql = "SELECT * FROM " . NV_PREFIXLANG . "_" . $module_data . "_rows WHERE orga
 $result = $db->query( $sql );
 $organs_data = $result->fetch();
 
+// thanh dieu huong
+$parentid = $organs_data['parentid'];
+while( $parentid > 0 )
+{
+	$array_cat_i = $global_organ_rows[$parentid];
+	$array_mod_title[] = array(
+		'catid' => $parentid,
+		'title' => $array_cat_i['title'],
+		'link' => $array_cat_i['link']
+	);
+	$parentid = $array_cat_i['parentid'];
+}
+sort( $array_mod_title, SORT_NUMERIC );
+
 if ( empty( $organs_data ) )
 {
     $redirect = "<meta http-equiv=\"Refresh\" content=\"3;URL=" . nv_url_rewrite( NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name, true ) . "\" />";
@@ -86,11 +100,19 @@ if ( $organs_data['numperson'] > 0 )
 if ( $organs_data['numsub'] > 0 )
 {
     $array_content = array();
+	$i = 0;
     foreach ( $global_organ_rows as $organid => $organinfo )
     {
         if ( $organinfo['parentid'] == $id )
         {
             $person_data = array();
+			
+			// Hien thi phong ban truc thuoc
+			$i ++;
+			$suborg[$i]['link'] = $organinfo['link'];
+			$suborg[$i]['title'] = ucwords(mb_strtolower($organinfo['title']));
+			
+			//Hien thi danh sach nhan su
             $sql = "SELECT * FROM " . NV_PREFIXLANG . "_" . $module_data . "_person WHERE organid=" . intval( $organinfo['organid'] ) . " AND active=1 ORDER BY weight LIMIT 5";
             $result = $db->query( $sql );
             while ( $row = $result->fetch() )
@@ -113,7 +135,7 @@ if ( $organs_data['numsub'] > 0 )
             unset( $person_data );
         }
     }
-    $contents .= vieworg_catelist( $array_content );
+    $contents .= vieworg_catelist( $array_content, $suborg );
 }
 
 include NV_ROOTDIR . '/includes/header.php';

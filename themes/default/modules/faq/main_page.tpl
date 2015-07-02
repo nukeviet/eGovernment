@@ -1,7 +1,4 @@
 <!-- BEGIN: main -->
-<div class="page_title" style="margin-bottom:5px">
-    {PAGE_TITLE}
-</div>
 <!-- BEGIN: welcome -->
 <div class="welcome">
     {WELCOME}.

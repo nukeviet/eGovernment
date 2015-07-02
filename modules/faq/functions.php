@@ -59,17 +59,17 @@ function nv_list_cats( $is_link = false, $is_parentlink = true )
     $list = array();
     while ( $row = $result->fetch() )
     {
-        if ( nv_set_allow( $row['who_view'], $row['groups_view'] ) )
+        if( nv_user_in_groups( $row['groups_view'] ) )
         {
-            $list[$row['id']] = array( //
-                'id' => ( int )$row['id'], //
-                'title' => $row['title'], //
-                'alias' => $row['alias'], //
-                'description' => $row['description'], //
-                'parentid' => ( int )$row['parentid'], //
-                'subcats' => array(), //
-                'keywords' => $row['keywords'] //
-                );
+            $list[$row['id']] = array(
+                'id' => ( int )$row['id'],
+                'title' => $row['title'],
+                'alias' => $row['alias'],
+                'description' => $row['description'],
+                'parentid' => ( int )$row['parentid'],
+                'subcats' => array(),
+                'keywords' => $row['keywords']
+            );
         }
     }
 
@@ -111,11 +111,11 @@ function nv_list_cats( $is_link = false, $is_parentlink = true )
  * 
  * @return
  */
-function initial_config_data ()
+function initial_config_data()
 {
     global $module_data;
     
-    $sql = "SELECT config_name,config_value FROM " . NV_PREFIXLANG . "_" . $module_data . "_config";
+    $sql = "SELECT config_name, config_value FROM " . NV_PREFIXLANG . "_" . $module_data . "_config";
     
     $list = nv_db_cache( $sql );
     
@@ -128,7 +128,7 @@ function initial_config_data ()
     return $module_setting;
 }
 
-$module_setting = initial_config_data ();
+$module_setting = initial_config_data();
 
 /**
  * update_keywords()
@@ -177,7 +177,6 @@ foreach ( $list_cats as $c )
         break;
     }
 }
-//Het Xac dinh ID cua chu de
 
 //Xac dinh menu
 $nv_vertical_menu = array();
@@ -185,9 +184,9 @@ $nv_vertical_menu = array();
 //Xac dinh RSS
 if ($module_info['rss'])
 {
-	$rss[] = array( //
-	    'title' => $module_info['custom_title'], //
-	    'src' => NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&amp;" . NV_OP_VARIABLE . "=rss" //
+	$rss[] = array(
+	    'title' => $module_info['custom_title'],
+	    'src' => NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&amp;" . NV_OP_VARIABLE . "=rss"
 	);
 }
 
@@ -213,11 +212,25 @@ foreach ( $list_cats as $c )
     }
     if ($module_info['rss'])
 	{
-	    $rss[] = array( //
-	        'title' => $module_info['custom_title'] . ' - ' . $c['title'], //
-	        'src' => NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&amp;" . NV_OP_VARIABLE . "=rss/" . $c['alias'] //
+	    $rss[] = array(
+	        'title' => $module_info['custom_title'] . ' - ' . $c['title'],
+	        'src' => NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&amp;" . NV_OP_VARIABLE . "=rss/" . $c['alias']
 	    );
 	}
 }
-//Het Xac dinh menu
-//Het Xac dinh RSS
+
+if( $catid > 0 )
+{
+	$parentid = $catid;
+	while( $parentid > 0 )
+	{
+		$c = $list_cats[$parentid];
+		$array_mod_title[] = array(
+			'catid' => $parentid,
+			'title' => $c['title'],
+			'link' => NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&amp;" . NV_OP_VARIABLE . "=" . $c['alias']
+		);
+		$parentid = $c['parentid'];
+	}
+	sort( $array_mod_title, SORT_NUMERIC );
+}

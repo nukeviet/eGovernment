@@ -99,7 +99,7 @@ if( $nv_Request->isset_request( 'add', 'get' ) )
 
 			if( ! $is_error )
 			{
-				$sql = 'SELECT COUNT(*) AS count FROM ' . NV_PREFIXLANG . '_' . $module_data . '_categories WHERE alias=' . $db->quote( $alias );
+				$sql = 'SELECT COUNT(*) AS count FROM ' . NV_PREFIXLANG . '_' . $module_data . '_categories WHERE alias=' . $db->quote( $array['alias'] );
 				$result = $db->query( $sql );
 				$count = $result->fetchColumn();
 
@@ -239,7 +239,7 @@ if( $nv_Request->isset_request( 'edit', 'get' ) )
 		$_groups_post = $nv_Request->get_array( 'groups_view', 'post', array() );
 		$array['groups_view'] = ! empty( $_groups_post ) ? implode( ',', nv_groups_post( array_intersect( $_groups_post, array_keys( $groups_list ) ) ) ) : '';
 
-		$alias = change_alias( $array['title'] );
+		$array['alias'] = change_alias( $array['title'] );
 
 		if( empty( $array['title'] ) )
 		{
@@ -263,7 +263,7 @@ if( $nv_Request->isset_request( 'edit', 'get' ) )
 
 			if( ! $is_error )
 			{
-				$sql = 'SELECT COUNT(*) AS count FROM ' . NV_PREFIXLANG . '_' . $module_data . '_categories WHERE id!=' . $catid . ' AND alias=' . $db->quote( $alias ) . ' AND parentid=' . $array['parentid'];
+				$sql = 'SELECT COUNT(*) AS count FROM ' . NV_PREFIXLANG . '_' . $module_data . '_categories WHERE id!=' . $catid . ' AND alias=' . $db->quote( $array['alias'] ) . ' AND parentid=' . $array['parentid'];
 				$result = $db->query( $sql );
 				$count = $result->fetchColumn();
 

@@ -65,13 +65,6 @@ if ( $nv_Request->isset_request( 'add', 'get' ) or $nv_Request->isset_request( '
         $page_title = $lang_module['faq_addfaq'];
     }
 
-    $groups_list = nv_groups_list();
-    $array_who = array( $lang_global['who_view0'], $lang_global['who_view1'], $lang_global['who_view2'] );
-    if ( ! empty( $groups_list ) )
-    {
-        $array_who[] = $lang_global['who_view3'];
-    }
-
     $array = array();
     $is_error = false;
     $error = "";

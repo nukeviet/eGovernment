@@ -1,5 +1,6 @@
 .block_faq .title{background:url(../images/faq/faq.gif) no-repeat left -96px;padding-left:27px}
-.block_faq .title a{text-decoration:underline}
+.block_faq .title a{text-decoration:none}
+.block_faq .title a:hover{text-decoration:underline}
 .catlist{margin-bottom:15px;margin-top:5px;padding-left:20px}
 .catlist li.description{color:#666;font:normal 12px arial, verdana, sans-serif;padding-bottom:10px;padding-left:27px}
 .catlist li.main{background:url(../images/faq/faq.gif) no-repeat left -24px;font:bold 12px/24px arial, verdana, sans-serif;padding-left:27px}
@@ -10,5 +11,4 @@
 .show_detail .detail_faq .title .gotop{float:right;padding-top:4px}
 .show_row{padding-bottom:30px;padding-left:20px}
 .welcome{font:bold 13px arial, verdana, sans-serif;padding-bottom:10px;padding-top:5px}
-.block_faq .title a:hover{text-decoration:none}
 .catlist li.main:hover{background:url(../images/faq/faq.gif) no-repeat left 0;font:bold 12px/24px arial, verdana, sans-serif;padding-left:27px}

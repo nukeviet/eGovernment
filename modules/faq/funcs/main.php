@@ -14,8 +14,6 @@ $page_title = $mod_title = $module_info['custom_title'];
 $key_words = $module_info['keywords'];
 $description = $lang_module['faq_welcome'];
 
-$contents = "";
-
 if ( empty( $list_cats ) and ! $module_setting['type_main'] )
 {
     $page_title = $module_info['custom_title'];
@@ -40,12 +38,12 @@ if ( ! empty( $alias ) and $catid )
 
     while ( list( $fid, $ftitle, $fquestion, $fanswer ) = $result->fetch( 3 ) )
     {
-        $faq[$fid] = array( //
-            'id' => $fid, //
-            'title' => $ftitle, //
-            'question' => $fquestion, //
-            'answer' => $fanswer //
-            );
+        $faq[$fid] = array(
+            'id' => $fid,
+            'title' => $ftitle,
+            'question' => $fquestion,
+            'answer' => $fanswer
+        );
     }
 
     if ( ! empty( $list_cats[$catid]['keywords'] ) )
@@ -56,7 +54,7 @@ if ( ! empty( $alias ) and $catid )
         $key_words = update_keywords( $catid, $faq );
     }
 
-    $contents = theme_cat_faq( $list_cats, $catid, $faq, $mod_title );
+    $contents = theme_cat_faq( $list_cats, $catid, $faq );
 
     include NV_ROOTDIR . '/includes/header.php';
     echo nv_site_theme( $contents );
@@ -65,9 +63,9 @@ if ( ! empty( $alias ) and $catid )
 }
 elseif ( $module_setting['type_main'] == 0 )
 {
-	$contents = theme_main_faq( $list_cats, $mod_title );
+	$contents = theme_main_faq( $list_cats );
 }
-elseif ( $module_setting['type_main'] == 1 or  $module_setting['type_main'] == 2 )
+elseif ( $module_setting['type_main'] == 1 or $module_setting['type_main'] == 2 )
 {
 	$order = ( $module_setting['type_main'] == 1 ) ? "DESC" : "ASC";
 	
@@ -78,15 +76,15 @@ elseif ( $module_setting['type_main'] == 1 or  $module_setting['type_main'] == 2
 
     while ( list( $fid, $ftitle, $fquestion, $fanswer ) = $result->fetch( 3 ) )
     {
-        $faq[$fid] = array( //
-            'id' => $fid, //
-            'title' => $ftitle, //
-            'question' => $fquestion, //
-            'answer' => $fanswer //
+        $faq[$fid] = array(
+            'id' => $fid,
+            'title' => $ftitle,
+            'question' => $fquestion,
+            'answer' => $fanswer
         );
     }
 	
-    $contents = theme_cat_faq( array(), 0, $faq, $mod_title );
+    $contents = theme_cat_faq( array(), 0, $faq );
 }
 else
 {

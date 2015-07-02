@@ -76,7 +76,6 @@ function nv_listcats( $parentid, $m = 0 )
             'title' => $row['title'], 
             'alias' => $row['alias'], 
             'description' => $row['description'], 
-            'who_view' => ( int )$row['who_view'], 
             'groups_view' => ! empty( $row['groups_view'] ) ? explode( ",", $row['groups_view'] ) : array(), 
             'weight' => ( int )$row['weight'], 
             'status' => $row['weight'], 

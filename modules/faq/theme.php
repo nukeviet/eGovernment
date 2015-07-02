@@ -14,16 +14,14 @@ if ( ! defined( 'NV_IS_MOD_FAQ' ) ) die( 'Stop!!!' );
  * theme_main_faq()
  * 
  * @param mixed $list_cats
- * @param mixed $mod_title
  * @return
  */
-function theme_main_faq( $list_cats, $mod_title )
+function theme_main_faq( $list_cats )
 {
     global $global_config, $lang_module, $lang_global, $module_info, $module_name, $module_file;
 
     $xtpl = new XTemplate( "main_page.tpl", NV_ROOTDIR . "/themes/" . $module_info['template'] . "/modules/" . $module_file . "/" );
     $xtpl->assign( 'LANG', $lang_module );
-    $xtpl->assign( 'PAGE_TITLE', $mod_title );
     $xtpl->assign( 'WELCOME', $lang_module['faq_welcome'] );
     $xtpl->parse( 'main.welcome' );
 
@@ -53,16 +51,14 @@ function theme_main_faq( $list_cats, $mod_title )
  * @param mixed $list_cats
  * @param mixed $catid
  * @param mixed $faq
- * @param mixed $mod_title
  * @return
  */
-function theme_cat_faq( $list_cats, $catid, $faq, $mod_title )
+function theme_cat_faq( $list_cats, $catid, $faq )
 {
     global $global_config, $lang_module, $lang_global, $module_info, $module_name, $module_file;
 
     $xtpl = new XTemplate( "main_page.tpl", NV_ROOTDIR . "/themes/" . $module_info['template'] . "/modules/" . $module_file . "/" );
     $xtpl->assign( 'LANG', $lang_module );
-    $xtpl->assign( 'PAGE_TITLE', $mod_title );
 
     if ( ! empty( $list_cats[$catid]['description'] ) )
     {

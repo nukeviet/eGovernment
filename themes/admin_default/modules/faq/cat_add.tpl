@@ -1,13 +1,6 @@
 <!-- BEGIN: main -->
 <!-- BEGIN: error -->
-<div style="width: 780px;" class="quote">
-    <blockquote class="error">
-        <p>
-            <span>{ERROR}</span>
-        </p>
-    </blockquote>
-</div>
-<div class="clear"></div>
+<div class="alert alert-danger">{ERROR}</div>
 <!-- END: error -->
 <form class="form-inline" action="{FORM_ACTION}" method="post">
     <table class="table table-striped table-bordered table-hover">
@@ -53,7 +46,6 @@
                    {GLANG.groups_view}
                 </td>
                 <td>
- 
 					<!-- BEGIN: groups_views -->
 					<div class="row">
 						<label><input name="groups_view[]" type="checkbox" value="{groups_views.value}" {groups_views.checked} />{groups_views.title}</label>

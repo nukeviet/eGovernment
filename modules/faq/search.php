@@ -10,28 +10,6 @@
 if ( ! defined( 'NV_IS_MOD_SEARCH' ) ) die( 'Stop!!!' );
 
 /**
- * nv_set_allow()
- * 
- * @param mixed $who
- * @param mixed $groups
- * @return
- */
-function nv_faq_set_allow( $who, $groups )
-{
-    global $user_info;
-
-    if ( ! $who or ( $who == 1 and defined( 'NV_IS_USER' ) ) or ( $who == 2 and defined( 'NV_IS_ADMIN' ) ) )
-    {
-        return true;
-    } elseif ( $who == 3 and ! empty( $groups ) and defined( 'NV_IS_USER' ) and nv_is_in_groups( $user_info['in_groups'], $groups ) )
-    {
-        return true;
-    }
-
-    return false;
-}
-
-/**
  * nv_faq_list_cats()
  * 
  * @param mixed $module_data
@@ -41,19 +19,19 @@ function nv_faq_list_cats( $module_data )
 {
     global $db;
 
-    $sql = "SELECT id, title, alias, who_view, groups_view FROM " . NV_PREFIXLANG . "_" . $module_data . "_categories WHERE status=1";
+    $sql = "SELECT id, title, alias, groups_view FROM " . NV_PREFIXLANG . "_" . $module_data . "_categories WHERE status=1";
     $result = $db->query( $sql );
 
     $list = array();
     while ( $row = $result->fetch() )
     {
-        if ( nv_faq_set_allow( $row['who_view'], $row['groups_view'] ) )
+        if( nv_user_in_groups( $row['groups_view'] ) )
         {
             $list[$row['id']] = array( 
                 'id' => ( int )$row['id'], 
                 'title' => $row['title'], 
                 'alias' => $row['alias'] 
-                );
+            );
         }
     }
 
@@ -63,29 +41,32 @@ function nv_faq_list_cats( $module_data )
 $list_cats = nv_faq_list_cats( $m_values['module_data'] );
 $in = implode( ",", array_keys( $list_cats ) );
 
-$sql = "SELECT SQL_CALC_FOUND_ROWS id,question, answer, catid 
-FROM " . NV_PREFIXLANG . "_" . $m_values['module_data'] . " 
-WHERE catid IN (" . $in . ") 
-AND 
-(" . nv_like_logic( 'question', $dbkeyword, $logic ) . " 
-OR " . nv_like_logic( 'answer', $dbkeyword, $logic ) . ") 
-LIMIT " . $pages . "," . $limit;
+$db->sqlreset()
+	->select( 'COUNT(*)' )
+	->from( NV_PREFIXLANG . '_' . $m_values['module_data'] )
+	->where( "catid IN (" . $in . ") 
+	AND 
+	(" . nv_like_logic( 'question', $dbkeyword, $logic ) . " 
+	OR " . nv_like_logic( 'answer', $dbkeyword, $logic ) . ")" );
 
-$tmp_re = $db->query( $sql );
+$num_items = $db->query( $db->sql() )->fetchColumn();
 
-$result = $db->query( "SELECT FOUND_ROWS()" );
-$all_page = $result->fetchColumn();
-
-if ( $all_page )
+if( $num_items )
 {
-    $link = NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $m_values['module_name'] . '&amp;' . NV_OP_VARIABLE . '=';
-
-    while ( list( $id, $question, $answer, $catid ) = $tmp_re->fetch( 3 ) )
-    {
-        $result_array[] = array( 
-            'link' => $link . $list_cats[$catid]['alias'] . '#faq' . $id, 
-            'title' => BoldKeywordInStr( $question, $key, $logic ), 
-            'content' => BoldKeywordInStr( $answer, $key, $logic ) 
-            );
-    }
+	$db->select( 'id,question, answer, catid' )
+		->order( 'id DESC' )
+		->limit( $limit )
+		->offset( ( $page - 1 ) * $limit );
+			
+	$tmp_re = $db->query( $db->sql() );
+	$link = NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $m_values['module_name'] . '&amp;' . NV_OP_VARIABLE . '=';
+	
+	while( list( $id, $question, $answer, $catid ) = $tmp_re->fetch( 3 ) )
+	{
+	    $result_array[] = array( 
+	        'link' => $link . $list_cats[$catid]['alias'] . '#faq' . $id, 
+	        'title' => BoldKeywordInStr( $question, $key, $logic ), 
+	        'content' => BoldKeywordInStr( $answer, $key, $logic ) 
+	    );
+	}	
 }

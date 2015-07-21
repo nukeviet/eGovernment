@@ -47,12 +47,13 @@ if ( ! empty( $data_content['photo'] ) )
 {
     $urlimg = NV_ROOTDIR . '/' . NV_UPLOADS_DIR . '/' . $module_name . '/' . $data_content['photo'];
     $data_content['imgsrc'] = NV_BASE_SITEURL . NV_UPLOADS_DIR . '/' . $module_name . '/' . $data_content['photo'];
+	$data_content['imginfo'] = nv_is_image( $urlimg );
     $imageinfo = nv_ImageInfo( $urlimg, $arr_config['thumb_width'], true, NV_UPLOADS_REAL_DIR . '/' . $module_name . '/thumb' );
-    $data_content['photo'] = $imageinfo['src'];
+    $data_content['photo_thumb'] = $imageinfo['src'];
 }
 else
 {
-	$data_content['photo'] = NV_BASE_SITEURL . 'themes/' . $global_config['site_theme'] . '/images/' . $module_file . '/no-avatar.jpg';
+	$data_content['photo_thumb'] = NV_BASE_SITEURL . 'themes/' . $global_config['site_theme'] . '/images/' . $module_file . '/no-avatar.jpg';
 }
 
 // thanh dieu huong

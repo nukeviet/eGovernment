@@ -3,7 +3,7 @@
  * @Author VINADES., JSC (contact@vinades.vn)
  * @Copyright (C) 2014 VINADES ., JSC. All rights reserved
  * @License GNU/GPL version 2 or any later version
- * @Createdate Dec 3, 2010  12:48:35 PM 
+ * @Createdate Dec 3, 2010  12:48:35 PM
  */
 
 // function delete lay tu link cua the <a>
@@ -18,11 +18,11 @@ function delete_one(class_name,lang_confirm,url_back){
 		if (confirm(lang_confirm))
 		{
 			var href= $(this).attr('href');
-			$.ajax({	
+			$.ajax({
 				type: 'POST',
 				url: href,
 				data:'',
-				success: function(data){				
+				success: function(data){
 					alert(data);
 					if (url_back !='') {
 						window.location=url_back;
@@ -47,11 +47,11 @@ function delete_all(filelist,class_name,lang_confirm,lang_error,url_del,url_back
 		}
 		if (confirm(lang_confirm))
 		{
-			$.ajax({	
+			$.ajax({
 				type: 'POST',
 				url: url_del,
 				data:'listall='+listall,
-				success: function(data){	
+				success: function(data){
 					window.location=url_back;
 				}
 			});
@@ -63,7 +63,7 @@ function delete_all(filelist,class_name,lang_confirm,lang_error,url_del,url_back
 function ChangeActive(idobject,url_active){
 	var id = $(idobject).attr('id');
 	var value = $(idobject).val();
-	$.ajax({	
+	$.ajax({
 		type: 'POST',
 		url: url_active,
 		data:'id='+id + '&value='+value,
@@ -75,7 +75,7 @@ function ChangeActive(idobject,url_active){
 
 function nv_chang_organs(organid, object,url_change,url_back) {
 	var value = $(object).val();
-	$.ajax({	
+	$.ajax({
 		type: 'POST',
 		url: url_change,
 		data:'oid='+organid + '&w='+value,
@@ -87,7 +87,7 @@ function nv_chang_organs(organid, object,url_change,url_back) {
 }
 function nv_chang_person(personid, object,url_change,url_back) {
 	var value = $(object).val();
-	$.ajax({	
+	$.ajax({
 		type: 'POST',
 		url: url_change,
 		data:'personid='+personid + '&w='+value,
@@ -98,3 +98,21 @@ function nv_chang_person(personid, object,url_change,url_back) {
 	return;
 }
 //////
+
+$(document).ready(function() {
+	$("#birthday,#dayinto,#dayparty").datepicker({
+		showOn : "both",
+		dateFormat : "dd/mm/yy",
+		changeMonth : true,
+		changeYear : true,
+		showOtherMonths : true,
+		buttonImage : nv_siteroot + "images/calendar.gif",
+		buttonImageOnly : true,
+		yearRange: "-90:+0"
+	});
+
+	$("input[name=selectimg]").click(function() {
+		nv_open_browse(script_name + "?" + nv_name_variable + "=upload&popup=1&area=" + area + "&path=" + path + "&type=" + type + "&currentpath=" + currentpath, "NVImg", "850", "420", "resizable=no,scrollbars=no,toolbar=no,location=no,status=no");
+		return false;
+	});
+});

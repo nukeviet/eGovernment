@@ -1,7 +1,27 @@
 <!-- BEGIN: main -->
 
 <div class="text-center">
-	<a href="{DATA.imgsrc}" rel="shadowbox"><img src="{DATA.photo}" class="img-thumbnail" style="max-width: {WIDTH}px" /></a><br /><br />
+	<!-- BEGIN: photo -->
+	<a href="javascript:void(0)" id="photo" data-width="{DATA.imginfo.width}"><img src="{DATA.photo_thumb}" class="img-thumbnail" style="max-width: {WIDTH}px" /></a>
+	<div class="modal fade" id="idmodals" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="myModalLabel">{DATA.name}</h4>
+				</div>
+				<div class="modal-body">
+					<img src="{DATA.imgsrc}" alt="{DATA.name}" />
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- END: photo -->
+	<!-- BEGIN: no_photo -->
+	<img src="{DATA.photo}" class="img-thumbnail" style="max-width: {WIDTH}px" />
+	<!-- END: no_photo -->
+	<br />
+	<br />
 </div>
 
 <div class="table-responsive">
@@ -30,13 +50,8 @@
 			</tr>
 			<tr>
 				<td>{LANG.vieworg_birthday}</td>
-				<td>
-					{DATA.birthday}
-					<!-- BEGIN: place_birth -->
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					{LANG.vieworg_place_birth}: {DATA.place_birth}
-					<!-- END: place_birth -->
-				</td>
+				<td> {DATA.birthday} <!-- BEGIN: place_birth --> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				{LANG.vieworg_place_birth}: {DATA.place_birth} <!-- END: place_birth --></td>
 			</tr>
 			<!-- BEGIN: dayparty -->
 			<tr>
@@ -55,9 +70,7 @@
 			<!-- BEGIN: email -->
 			<tr>
 				<td>{LANG.vieworg_email}</td>
-				<td>
-					<a href="mailto:{DATA.email}" title="Mail to {DATA.email}">{DATA.email}</a>
-				</td>
+				<td><a href="mailto:{DATA.email}" title="Mail to {DATA.email}">{DATA.email}</a></td>
 			</tr>
 			<!-- END: email -->
 
@@ -119,6 +132,9 @@
 	</table>
 </div>
 
-<div class="text-center">{admin_link}</div><br />
+<div class="text-center">
+	{admin_link}
+</div>
+<br />
 
 <!-- END: main -->

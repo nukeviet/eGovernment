@@ -154,28 +154,11 @@
 <script type="text/javascript" src="{NV_BASE_SITEURL}js/ui/jquery.ui.datepicker.min.js"></script>
 <script type="text/javascript" src="{NV_BASE_SITEURL}js/language/jquery.ui.datepicker-{NV_LANG_INTERFACE}.js"></script>
 <script type="text/javascript">
-	//<![CDATA[
-	$(document).ready(function() {
-		$("#birthday,#dayinto,#dayparty").datepicker({
-			showOn : "both",
-			dateFormat : "dd/mm/yy",
-			changeMonth : true,
-			changeYear : true,
-			showOtherMonths : true,
-			buttonImage : nv_siteroot + "images/calendar.gif",
-			buttonImageOnly : true,
-			yearRange: "-90:+0"
-		});
-	});
-
-	$("input[name=selectimg]").click(function() {
-		var area = "photo";
-		var path = "{NV_UPLOADS_DIR}/{module_name}";
-		var currentpath = "{UPLOAD_CURRENT}";
-		var type = "image";
-		nv_open_browse(script_name + "?" + nv_name_variable + "=upload&popup=1&area=" + area + "&path=" + path + "&type=" + type + "&currentpath=" + currentpath, "NVImg", "850", "420", "resizable=no,scrollbars=no,toolbar=no,location=no,status=no");
-		return false;
-	});
-	//]]>
+//<![CDATA[
+var area = "photo";
+var path = "{NV_UPLOADS_DIR}/{module_name}";
+var currentpath = "{UPLOAD_CURRENT}";
+var type = "image";
+//]]>
 </script>
 <!-- END: main -->

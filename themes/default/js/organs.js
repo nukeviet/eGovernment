@@ -108,3 +108,8 @@ function search_submit_form(){
 	window.location = nv_siteroot + "index.php?" + nv_lang_variable + '=' + nv_sitelang  + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=viewsearch&oid='+oid+'&q='+rawurlencode(text);
 	return false;
 }
+
+$('#photo').click(function(){
+	$('#idmodals .modal-dialog').css({'width': $(this).data('width')+35});
+	$('#idmodals').modal('show');
+});

@@ -73,8 +73,8 @@ if ( $organs_data['numperson'] > 0 )
     {
         if ( ! empty( $row['photo'] ) )
         {
-            $urlimg = NV_ROOTDIR . '/' . NV_UPLOADS_DIR . '/' . $module_name . '/' . $row['photo'];
-            $imageinfo = nv_ImageInfo( $urlimg, $arr_config['thumb_width'], true, NV_UPLOADS_REAL_DIR . '/' . $module_name . '/thumb' );
+            $urlimg = NV_ROOTDIR . '/' . NV_UPLOADS_DIR . '/' . $module_upload . '/' . $row['photo'];
+            $imageinfo = nv_ImageInfo( $urlimg, $arr_config['thumb_width'], true, NV_UPLOADS_REAL_DIR . '/' . $module_upload . '/thumb' );
             $row['photo'] = $imageinfo['src'];
         }
 		else
@@ -106,12 +106,12 @@ if ( $organs_data['numsub'] > 0 )
         if ( $organinfo['parentid'] == $id )
         {
             $person_data = array();
-			
+
 			// Hien thi phong ban truc thuoc
 			$i ++;
 			$suborg[$i]['link'] = $organinfo['link'];
 			$suborg[$i]['title'] = ucwords(mb_strtolower($organinfo['title']));
-			
+
 			//Hien thi danh sach nhan su
             $sql = "SELECT * FROM " . NV_PREFIXLANG . "_" . $module_data . "_person WHERE organid=" . intval( $organinfo['organid'] ) . " AND active=1 ORDER BY weight LIMIT 5";
             $result = $db->query( $sql );
@@ -119,8 +119,8 @@ if ( $organs_data['numsub'] > 0 )
             {
                 if ( ! empty( $row['photo'] ) )
                 {
-                    $urlimg = NV_ROOTDIR . '/' . NV_UPLOADS_DIR . '/' . $module_name . '/' . $row['photo'];
-                    $imageinfo = nv_ImageInfo( $urlimg, $arr_config['thumb_width'], true, NV_UPLOADS_REAL_DIR . '/' . $module_name . '/thumb' );
+                    $urlimg = NV_ROOTDIR . '/' . NV_UPLOADS_DIR . '/' . $module_upload . '/' . $row['photo'];
+                    $imageinfo = nv_ImageInfo( $urlimg, $arr_config['thumb_width'], true, NV_UPLOADS_REAL_DIR . '/' . $module_upload . '/thumb' );
                     $row['photo'] = $imageinfo['src'];
                 }
 				else

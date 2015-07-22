@@ -11,7 +11,7 @@ if( !defined( 'NV_IS_FILE_ADMIN' ) )
 	die( 'Stop!!!' );
 
 $page_title = $lang_module['addper_title'];
-$month_dir_module = nv_mkdir( NV_UPLOADS_REAL_DIR . '/' . $module_name, date( "Y_m" ), true );
+$month_dir_module = nv_mkdir( NV_UPLOADS_REAL_DIR . '/' . $module_upload, date( "Y_m" ), true );
 
 $data = array(
 	"personid" => 0,
@@ -152,7 +152,7 @@ if( $nv_Request->get_int( 'save', 'post' ) == 1 )
 		// Xu ly anh minh ha
 		if( !nv_is_url( $data['photo'] ) and file_exists( NV_DOCUMENT_ROOT . $data['photo'] ) )
 		{
-			$lu = strlen( NV_BASE_SITEURL . NV_UPLOADS_DIR . "/" . $module_name . "/" );
+			$lu = strlen( NV_BASE_SITEURL . NV_UPLOADS_DIR . "/" . $module_upload . "/" );
 			$data['photo'] = substr( $data['photo'], $lu );
 		}
 		elseif( !nv_is_url( $data['photo'] ) )
@@ -267,9 +267,9 @@ if( $id > 0 && $nv_Request->get_int( 'save', 'post' ) == 0 )// insert data
 	if( !empty( $data['description'] ) )
 		$data['description'] = nv_htmlspecialchars( $data['description'] );
 
-	if( !empty( $data['photo'] ) and file_exists( NV_UPLOADS_REAL_DIR . "/" . $module_name . "/" . $data['photo'] ) )
+	if( !empty( $data['photo'] ) and file_exists( NV_UPLOADS_REAL_DIR . "/" . $module_upload . "/" . $data['photo'] ) )
 	{
-		$data['photo'] = NV_BASE_SITEURL . NV_UPLOADS_DIR . "/" . $module_name . "/" . $data['photo'];
+		$data['photo'] = NV_BASE_SITEURL . NV_UPLOADS_DIR . "/" . $module_upload . "/" . $data['photo'];
 	}
 	$data['birthday'] = (!empty( $data['birthday'] )) ? date( "d/m/Y", $data['birthday'] ) : "";
 	$data['dayinto'] = (!empty( $data['dayinto'] )) ? date( "d/m/Y", $data['dayinto'] ) : "";
@@ -285,7 +285,7 @@ $xtpl->assign( 'NV_NAME_VARIABLE', NV_NAME_VARIABLE );
 $xtpl->assign( 'NV_OP_VARIABLE', NV_OP_VARIABLE );
 $xtpl->assign( 'module_name', $module_name );
 $xtpl->assign( 'NV_UPLOADS_DIR', NV_UPLOADS_DIR );
-$xtpl->assign( 'UPLOAD_CURRENT', NV_UPLOADS_DIR . '/' . $module_name . '/' . date( "Y_m" ) );
+$xtpl->assign( 'UPLOAD_CURRENT', NV_UPLOADS_DIR . '/' . $module_upload . '/' . date( "Y_m" ) );
 /* begin set input select parentid */
 $sql = "SELECT organid, title, lev FROM " . NV_PREFIXLANG . "_" . $module_data . "_rows ORDER BY orders ASC";
 $result = $db->query( $sql );

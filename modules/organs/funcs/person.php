@@ -45,10 +45,10 @@ if ( empty( $data_content ) )
 
 if ( ! empty( $data_content['photo'] ) )
 {
-    $urlimg = NV_ROOTDIR . '/' . NV_UPLOADS_DIR . '/' . $module_name . '/' . $data_content['photo'];
-    $data_content['imgsrc'] = NV_BASE_SITEURL . NV_UPLOADS_DIR . '/' . $module_name . '/' . $data_content['photo'];
+    $urlimg = NV_ROOTDIR . '/' . NV_UPLOADS_DIR . '/' . $module_upload . '/' . $data_content['photo'];
+    $data_content['imgsrc'] = NV_BASE_SITEURL . NV_UPLOADS_DIR . '/' . $module_upload . '/' . $data_content['photo'];
 	$data_content['imginfo'] = nv_is_image( $urlimg );
-    $imageinfo = nv_ImageInfo( $urlimg, $arr_config['thumb_width'], true, NV_UPLOADS_REAL_DIR . '/' . $module_name . '/thumb' );
+    $imageinfo = nv_ImageInfo( $urlimg, $arr_config['thumb_width'], true, NV_UPLOADS_REAL_DIR . '/' . $module_upload . '/thumb' );
     $data_content['photo_thumb'] = $imageinfo['src'];
 }
 else

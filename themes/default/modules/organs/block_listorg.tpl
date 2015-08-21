@@ -1,7 +1,7 @@
 <!-- BEGIN: main -->
-<link rel="stylesheet" href="{NV_BASE_SITEURL}js/jquery/jquery.treeview.css" />
-<script src="{NV_BASE_SITEURL}js/jquery/jquery.cookie.js" type="text/javascript"></script>
-<script src="{NV_BASE_SITEURL}js/jquery/jquery.treeview.min.js" type="text/javascript"></script>
+<link rel="stylesheet" href="{NV_BASE_SITEURL}{NV_ASSETS_DIR}/js/jquery/jquery.treeview.css" />
+<script src="{NV_BASE_SITEURL}{NV_ASSETS_DIR}/js/jquery/jquery.cookie.js" type="text/javascript"></script>
+<script src="{NV_BASE_SITEURL}{NV_ASSETS_DIR}/js/jquery/jquery.treeview.min.js" type="text/javascript"></script>
 <div class="divscroll">
     <ul id="browser" class="filetree">
         {MENU}

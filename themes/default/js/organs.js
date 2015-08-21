@@ -80,7 +80,7 @@ function nv_del_org (id, base_adminurl,lang_confirm)
 			data:'',
 			success: function(data){
 				alert(data);
-				window.location = nv_siteroot + "index.php?" + nv_lang_variable + '=' + nv_sitelang  + '&' + nv_name_variable + '=' + nv_module_name;
+				window.location = nv_siteroot + "index.php?" + nv_lang_variable + '=' + nv_lang_data  + '&' + nv_name_variable + '=' + nv_module_name;
 			}
 		});
 	}
@@ -96,7 +96,7 @@ function nv_del_per (id, base_adminurl,lang_confirm)
 			data:'',
 			success: function(data){
 				alert(data);
-				window.location = nv_siteroot + "index.php?" + nv_lang_variable + '=' + nv_sitelang  + '&' + nv_name_variable + '=' + nv_module_name;
+				window.location = nv_siteroot + "index.php?" + nv_lang_variable + '=' + nv_lang_data  + '&' + nv_name_variable + '=' + nv_module_name;
 			}
 		});
 	}
@@ -105,7 +105,7 @@ function nv_del_per (id, base_adminurl,lang_confirm)
 function search_submit_form(){
 	var oid = $("#organid").val();
 	var text = $("#otextseach").val();
-	window.location = nv_siteroot + "index.php?" + nv_lang_variable + '=' + nv_sitelang  + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=viewsearch&oid='+oid+'&q='+rawurlencode(text);
+	window.location = nv_siteroot + "index.php?" + nv_lang_variable + '=' + nv_lang_data  + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=viewsearch&oid='+oid+'&q='+rawurlencode(text);
 	return false;
 }
 

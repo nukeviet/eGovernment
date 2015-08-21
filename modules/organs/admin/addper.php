@@ -285,7 +285,9 @@ $xtpl->assign( 'NV_NAME_VARIABLE', NV_NAME_VARIABLE );
 $xtpl->assign( 'NV_OP_VARIABLE', NV_OP_VARIABLE );
 $xtpl->assign( 'module_name', $module_name );
 $xtpl->assign( 'NV_UPLOADS_DIR', NV_UPLOADS_DIR );
+$xtpl->assign( 'NV_ASSETS_DIR', NV_ASSETS_DIR );
 $xtpl->assign( 'UPLOAD_CURRENT', NV_UPLOADS_DIR . '/' . $module_upload . '/' . date( "Y_m" ) );
+
 /* begin set input select parentid */
 $sql = "SELECT organid, title, lev FROM " . NV_PREFIXLANG . "_" . $module_data . "_rows ORDER BY orders ASC";
 $result = $db->query( $sql );

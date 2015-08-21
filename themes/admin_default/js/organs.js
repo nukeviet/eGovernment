@@ -6,12 +6,6 @@
  * @Createdate Dec 3, 2010  12:48:35 PM
  */
 
-// function delete lay tu link cua the <a>
-/*
-	class_name : ten class cua doi tuong <a>
-	lang_confirm : thong diep hoi (yes - no) truoc khi thuc hien
-	url_back : link reload khi thuc hien xong
-*/
 function delete_one(class_name,lang_confirm,url_back){
 	$('a.'+class_name).click(function(event){
 		event.preventDefault();
@@ -97,7 +91,6 @@ function nv_chang_person(personid, object,url_change,url_back) {
 	});
 	return;
 }
-//////
 
 $(document).ready(function() {
 	$("#birthday,#dayinto,#dayparty").datepicker({
@@ -106,7 +99,7 @@ $(document).ready(function() {
 		changeMonth : true,
 		changeYear : true,
 		showOtherMonths : true,
-		buttonImage : nv_siteroot + "images/calendar.gif",
+		buttonImage : nv_base_siteurl + "assets/images/calendar.gif",
 		buttonImageOnly : true,
 		yearRange: "-90:+0"
 	});

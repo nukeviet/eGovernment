@@ -35,8 +35,11 @@ $lang_module['edit'] = "Sửa";
 $lang_module['del'] = "Xóa";
 $lang_module['add'] = "Thêm mới";
 $lang_module['save'] = "Ghi lại nội dung";
+$lang_module['search'] = "Tìm kiếm";
+$lang_module['search_keywords'] = "Từ khóa tìm kiếm";
 
 $lang_module['organ_name'] = "Tên tổ chức, cơ sở";
+$lang_module['organ_c'] = "Chọn tổ chức, cơ sở";
 $lang_module['organ_about'] = "Giới thiệu";
 $lang_module['organ_persons'] = "Nhân sự";
 $lang_module['organ_active'] = "Hoạt động";
@@ -59,6 +62,7 @@ $lang_module['organ_nothing_title'] = "Không có tổ chức, cơ sở nào";
 $lang_module['organ_alias'] = "Liên kết tĩnh";
 $lang_module['organ_add_persons'] = "Thêm nhân sự";
 $lang_module['config'] = "Cấu hình module";
+$lang_module['per_page'] = "Số nhân sự hiển thị";
 
 $lang_module['error_organ_title'] = "Không có tên tổ chức, cơ sở";
 $lang_module['error_organ_emal'] = "Địa chỉ email nhập không đúng";

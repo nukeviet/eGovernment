@@ -1,5 +1,7 @@
 # Ignore some static files and directories.
 /.project
+/.settings/
+/.buildpath
 /.htaccess
 /config.php
 /CHANGELOG.txt
@@ -18,12 +20,12 @@
 /includes/
 /install/
 /uploads/
+/modules/*
+/themes/*
 
 # Ignore fix module files and directories.
-/modules/*
 !/modules/organs
 !/modules/organs/*
-/themes/*
 !/themes/admin_default/css/organs.css
 !/themes/admin_default/js/organs.js
 !/themes/admin_default/images/organs

@@ -10,15 +10,14 @@
 
 if( ! defined( 'NV_IS_FILE_ADMIN' ) ) die( 'Stop!!!' );
 
-$sql = 'SELECT * FROM ' . NV_PREFIXLANG . '_' . $mod_data . '_rows ORDER BY sort ASC';
+$sql = 'SELECT * FROM ' . NV_PREFIXLANG . '_' . $mod_data . '_rows ORDER BY weight ASC';
 $result = $db->query( $sql );
 While( $row = $result->fetch() )
 {
-	//print_r($row);die;
-	$array_item[$row['catid']] = array(
+	$array_item[$row['organid']] = array(
 		'parentid' => $row['parentid'],
 		'groups_view' => 6,
-		'key' => $row['catid'],
+		'key' => $row['organid'],
 		'title' => $row['title'],
 		'alias' => '/vieworg/'.$row['alias']
 	);

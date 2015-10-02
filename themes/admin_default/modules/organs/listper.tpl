@@ -69,7 +69,7 @@
 				<th class="text-center">
 				<input name="check_all[]" type="checkbox" value="yes" onclick="nv_checkAll(this.form, 'idcheck[]', 'check_all[]',this.checked);" />
 				</th>
-				<th class="text-center">{LANG.organ_person_posi}</th>
+				<th class="text-center">{LANG.num}</th>
 				<th>{LANG.organ_person_name}</th>
 				<th>{LANG.organ_address}</th>
 				<th>{LANG.organ_active}</th>
@@ -87,7 +87,7 @@
 				<input type="checkbox" onclick="nv_UncheckAll(this.form, 'idcheck[]', 'check_all[]', this.checked);" value="{ROW.personid}" name="idcheck[]" />
 			</td>
 			<td class="text-center"> {ROW.select_weight} </td>
-			<td>{ROW.name}</td>
+			<td> <a href="{ROW.link_view}" title="{ROW.name}">{ROW.name} </a></td>
 			<td>{ROW.address}</td>
 			<td class="text-center" width="80">
 			<select class="form-control" name="active" id="{ROW.personid}" onchange="ChangeActive(this,url_change)">

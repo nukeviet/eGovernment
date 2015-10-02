@@ -9,6 +9,25 @@
 
 if ( ! defined( 'NV_IS_FILE_ADMIN' ) ) die( 'Stop!!!' );
 
+if( $nv_Request->isset_request( 'get_alias_title', 'post' ) )
+{
+	$alias = $nv_Request->get_title( 'get_alias_title', 'post', '' );
+	$alias = change_alias( $alias );
+	
+	$stmt = $db->prepare( 'SELECT COUNT(*) FROM ' . NV_PREFIXLANG . '_' . $module_data . '_rows where alias = :alias' );
+	$stmt->bindParam( ':alias', $alias, PDO::PARAM_STR );
+	$stmt->execute( );
+	if( $stmt->fetchColumn( ) )
+	{
+		$weight = $db->query( 'SELECT MAX(organid) FROM ' . NV_PREFIXLANG . '_' . $module_data.'_rows' )->fetchColumn( );
+		$weight = intval( $weight ) + 1;
+		$alias = $alias . '-' . $weight;
+	}
+	
+	die( $alias );
+}
+
+
 $page_title = $lang_module['addrow_title'];
 $data = array(
     "organid" => 0, "parentid" => 0, "parentid_old" => 0, "title" => "", "alias" => "", "image" => "", "thumbnail" => "", "weight" => 0, "numsub" => 0, "suborgan" => 0, "lev" => 0, "active" => 1, "add_time" => 0, "edit_time" => 0, "address" => "", "email" => "", "phone" => "", "fax" => "", "website" => "", "numperson" => 0, "description" => "" , "view" => 1
@@ -45,7 +64,6 @@ if ( $nv_Request->get_int( 'save', 'post' ) == 1 )
     $data['fax'] = $nv_Request->get_title( 'fax', 'post', '', 1 );
     $data['website'] = $nv_Request->get_string( 'website', 'post', '', 1 );
     $data['website'] = str_replace("http://", "", $data['website']);
-    $data['active'] = $nv_Request->get_int( 'active', 'post', 0 );
     $data['view'] = $nv_Request->get_int( 'view', 'post', 0 );
     //* check error*//
     if ( empty( $data['title'] ) )
@@ -201,9 +219,6 @@ else
 $xtpl->assign( 'NV_EDITOR', $edits );
 /**end set NV_EDITOR**/
 
-/*begin set active*/
-$data['active_check'] = ( $data['active'] == 1 ) ? "checked=\"checked\"" : "";
-/*end set active*/
 $data['view_check'] = ( $data['view'] == 1 ) ? "checked=\"checked\"" : "";
 if ( ! empty( $error ) )
 {
@@ -211,6 +226,13 @@ if ( ! empty( $error ) )
     $xtpl->parse( 'main.error' );
 }
 $xtpl->assign( 'DATA', $data );
+
+if( $id == 0 )
+{
+	
+	$xtpl->parse( 'main.auto_get_alias' );
+}
+
 $xtpl->parse( 'main' );
 $contents = $xtpl->text( 'main' );
 

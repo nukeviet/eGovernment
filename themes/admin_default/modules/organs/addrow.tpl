@@ -19,7 +19,8 @@
 				<tr>
 					<td><strong>{LANG.organ_alias}</strong></td>
 					<td>
-					<input class="form-control w400" name="alias" type="text" value="{DATA.alias}" maxlength="255" />
+						<input class="form-control w400" title="{LANG.alias}" type="text" name="alias" value="{DATA.alias}" style="display: inline" maxlength="255" id="id_alias" disabled="disabled"/>
+						&nbsp;<i class="fa fa-refresh fa-lg icon-pointer" onclick="nv_get_alias('id_alias');">&nbsp;</i>
 					</td>
 				</tr>
 				<tr>
@@ -85,12 +86,6 @@
 					<input type="checkbox" name="view" value="1" {DATA.view_check}>
 					{LANG.view_active_title_note} </td>
 				</tr>
-				<tr>
-					<td><strong>{LANG.organ_active_title}</strong></td>
-					<td>
-					<input type="checkbox" name="active" value="1" {DATA.active_check}>
-					</td>
-				</tr>
 			</tbody>
 		</table>
 		<center>
@@ -99,4 +94,26 @@
 		<br>
 	</form>
 </div>
+
+<script type="text/javascript">
+//<![CDATA[
+function nv_get_alias(id) {
+	var title = strip_tags($("[name='title']").val());
+	if (title != '') {
+		$.post(script_name + '?' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=addrow&nocache=' + new Date().getTime(), 'get_alias_title=' + encodeURIComponent(title), function(res) {
+			$("#" + id).val(strip_tags(res));
+		});
+	}
+	return false;
+}
+//]]>
+</script>
+
+<!-- BEGIN: auto_get_alias -->
+<script type="text/javascript">
+	$("[name='title']").change(function() {
+		nv_get_alias('id_alias');
+	}); 
+</script>
+<!-- END: auto_get_alias -->
 <!-- END: main -->

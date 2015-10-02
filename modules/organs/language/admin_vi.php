@@ -104,3 +104,5 @@ $lang_module['config_thumb_size'] = "Kích thước ảnh hồ sơ";
 $lang_module['config_organ_view_main'] = "Kiểu hiển thị danh sách tại trang chủ ";
 $lang_module['config_organ_view_main_0'] = "Hiển thị dạng danh sách có ảnh";
 $lang_module['config_organ_view_main_1'] = "Hiển thị dạng danh sách không ảnh";
+
+$lang_module['num'] = "STT";

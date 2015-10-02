@@ -27,6 +27,21 @@
 	<table class="table table-striped table-bordered table-hover">
 		<caption>
 			<a class="org" href="{CATE.link}">{CATE.title}</a>
+			<!-- BEGIN: suborgan -->
+			<!-- Single button -->
+			<div class="btn-group pull-right">
+				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu" role="menu">
+					<!-- BEGIN: loop -->
+					<li>
+						<a href="{SUBORGAN.link}">{SUBORGAN.title}</a>
+					</li>
+					<!-- END: loop -->
+				</ul>
+			</div>
+			<!-- END: suborgan -->
 			<!-- BEGIN: email --></br><strong>{LANG.email}:</strong>{CATE.email}<!-- END: email -->
 			<!-- BEGIN: phone --></br><strong>{LANG.phone}:</strong>{CATE.phone}<!-- END: phone -->
 			<!-- BEGIN: fax --></br><strong>{LANG.vieworg_fax}:</strong>{CATE.fax}<!-- END: fax -->

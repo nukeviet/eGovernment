@@ -93,17 +93,6 @@ function nv_chang_person(personid, object,url_change,url_back) {
 }
 
 $(document).ready(function() {
-	$("#birthday,#dayinto,#dayparty").datepicker({
-		showOn : "both",
-		dateFormat : "dd/mm/yy",
-		changeMonth : true,
-		changeYear : true,
-		showOtherMonths : true,
-		buttonImage : nv_base_siteurl + "assets/images/calendar.gif",
-		buttonImageOnly : true,
-		yearRange: "-90:+0"
-	});
-
 	$("input[name=selectimg]").click(function() {
 		nv_open_browse(script_name + "?" + nv_name_variable + "=upload&popup=1&area=" + area + "&path=" + path + "&type=" + type + "&currentpath=" + currentpath, "NVImg", "850", "420", "resizable=no,scrollbars=no,toolbar=no,location=no,status=no");
 		return false;

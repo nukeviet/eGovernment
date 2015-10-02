@@ -127,20 +127,10 @@
 				</tr>
 			</tbody>
 		</table>
-		<table class="table table-striped table-bordered table-hover" style="margin:0; margin-top:2px">
-			<tbody>
-				<tr>
-					<td width="80"><strong>{LANG.organ_active_title}</strong></td>
-					<td>
-					<input type="checkbox" name="active" value="1" {DATA.active_check}>
-					</td>
-				</tr>
-			</tbody>
-		</table>
 		<table class="table table-striped table-bordered table-hover" style="margin-top:2px">
 			<tbody>
 				<tr>
-					<td>
+					<td class="text-center">
 						<input class="btn btn-primary" name="submit" type="submit" value="{LANG.save}"/>
 					</td>
 				</tr>
@@ -159,6 +149,17 @@
 	var path = "{NV_UPLOADS_DIR}/{module_name}";
 	var currentpath = "{UPLOAD_CURRENT}";
 	var type = "image";
+	
+	$("#birthday,#dayinto,#dayparty").datepicker({
+		showOn : "both",
+		dateFormat : "dd/mm/yy",
+		changeMonth : true,
+		changeYear : true,
+		showOtherMonths : true,
+		buttonImage : nv_base_siteurl + "assets/images/calendar.gif",
+		buttonImageOnly : true,
+		yearRange: "-90:+0"
+	});
 	//]]>
 </script>
 <!-- END: main -->

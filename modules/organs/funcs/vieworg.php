@@ -100,6 +100,7 @@ if ( $organs_data['numperson'] > 0 )
 if ( $organs_data['numsub'] > 0 )
 {
     $array_content = array();
+    $suborg = array();
 	$i = 0;
     foreach ( $global_organ_rows as $organid => $organinfo )
     {

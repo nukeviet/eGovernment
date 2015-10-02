@@ -122,8 +122,6 @@ if( $nv_Request->get_int( 'save', 'post' ) == 1 )
 		$data['dayparty'] = mktime( $phour, $pmin, 0, $m[2], $m[1], $m[3] );
 	}
 
-	$data['active'] = $nv_Request->get_int( 'active', 'post', 0 );
-
 	//* check error*//
 	if( empty( $data['name'] ) )
 	{
@@ -331,9 +329,6 @@ else
 $xtpl->assign( 'NV_EDITOR', $edits );
 /**end set NV_EDITOR**/
 
-/*begin set active*/
-$data['active_check'] = ($data['active'] == 1) ? "checked=\"checked\"" : "";
-/*end set active*/
 if( !empty( $error ) )
 {
 	$xtpl->assign( 'error', $error );

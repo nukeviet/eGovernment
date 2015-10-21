@@ -4,14 +4,14 @@
  * @Author VINADES., JSC (contact@vinades.vn)
  * @Copyright (C) 2014 VINADES ., JSC. All rights reserved
  * @License GNU/GPL version 2 or any later version
- * @Createdate Dec 3, 2010  11:11:28 AM 
+ * @Createdate Dec 3, 2010  11:11:28 AM
  */
 
 if ( ! defined( 'NV_ADMIN' ) or ! defined( 'NV_MAINFILE' ) or ! defined( 'NV_IS_MODADMIN' ) ) die( 'Stop!!!' );
 
 //$submenu['addrow'] = $lang_module['addrow_title'];
 //$submenu['addper'] = $lang_module['addper_title'];
-$allow_func = array( 
+$allow_func = array(
     'main', 'config', 'delrow', 'actrow', 'addrow', 'changeorgan', 'listper', 'actper', 'delper', 'changeper' , 'addper'
 );
 
@@ -66,7 +66,7 @@ function nv_fix_row_order ( $parentid = 0, $order = 0, $lev = 0 )
 
 ///////////////////////
 function drawselect_number ( $select_name = "", $number_start = 0, $number_end = 1, $number_curent = 0, $func_onchange = "", $enable ="" )
-{ 
+{
     $html = "<select class=\"form-control\" name=\"" . $select_name . "\" onchange=\"" . $func_onchange . "\" ".$enable.">";
     for ( $i = $number_start; $i < $number_end; $i ++ )
     {
@@ -112,7 +112,7 @@ function getall_organid_of_parent ($array_organs,$pid)
 		if ( $pid == $info['parentid'] )
 		{
 			$array_id[]= $organid;
-			if ( $info['numsub'] > 0 ) 
+			if ( $info['numsub'] > 0 )
 			{
 				$temp_array = getall_organid_of_parent ($array_organs,$organid);
 				$array_id = array_merge($array_id,$temp_array);
@@ -129,14 +129,14 @@ function getall_numper_of_parent ($array_organs,$pid)
 		if ( $info['parentid'] == $pid )
 		{
 			$count = $count + $info['numperson'];
-			if ( $info['numsub'] > 0 ) 
+			if ( $info['numsub'] > 0 )
 			{
 				$count = $count + getall_numper_of_parent ($array_organs,$organid);
 			}
 		}
 	}
 	return $count;
-} 
+}
 function getall_organid_parent ($array_organs,$oid)
 {
 	$array_id = array();

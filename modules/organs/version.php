@@ -4,10 +4,10 @@
  * @Author VINADES., JSC (contact@vinades.vn)
  * @Copyright (C) 2014 VINADES ., JSC. All rights reserved
  * @License GNU/GPL version 2 or any later version
- * @Createdate Dec 3, 2010  11:24:58 AM 
+ * @Createdate Dec 3, 2010  11:24:58 AM
  */
 
-$module_version = array( 
+$module_version = array(
     "name" => "Organs", //
     "modfuncs" => "main, vieworg, person, viewsearch", //
     "submenu" => "", //
@@ -16,8 +16,8 @@ $module_version = array(
     "version" => "3.0.01", //
     "date" => "Fri, 7 May 2010 09:47:15 GMT", //
     "author" => "VINADES (contact@vinades.vn)", //
-    "note" => "", 
-    "uploads_dir" => array( 
-        $module_name, $module_name . "/thumb", $module_name . "/" . date( "Y_m" ) 
-    ) 
+    "note" => "",
+    "uploads_dir" => array(
+        $module_name, $module_name . "/" . date( "Y_m" )
+    )
 );

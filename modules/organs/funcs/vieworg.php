@@ -71,12 +71,14 @@ if ( $organs_data['numperson'] > 0 )
     $all_page = ( $numf ) ? $numf : 1;
     while ( $row = $result->fetch() )
     {
-        if ( ! empty( $row['photo'] ) )
-        {
-            $urlimg = NV_ROOTDIR . '/' . NV_UPLOADS_DIR . '/' . $module_upload . '/' . $row['photo'];
-            $imageinfo = nv_ImageInfo( $urlimg, $arr_config['thumb_width'], true, NV_UPLOADS_REAL_DIR . '/' . $module_upload . '/thumb' );
-            $row['photo'] = $imageinfo['src'];
-        }
+    	if( file_exists( NV_ROOTDIR . NV_BASE_SITEURL . NV_ASSETS_DIR . '/' . $module_upload . '/' . $row['photo'] ) )
+		{
+			$row['photo'] = NV_BASE_SITEURL . NV_ASSETS_DIR . '/' . $module_upload . '/' . $row['photo'];
+		}
+		elseif( file_exists( NV_ROOTDIR . NV_BASE_SITEURL . NV_UPLOADS_DIR . '/' . $module_upload . '/' . $row['photo'] ) )
+		{
+			$row['photo'] = NV_BASE_SITEURL . NV_UPLOADS_DIR . '/' . $module_upload . '/' . $row['photo'];
+		}
 		else
 		{
 			$row['photo'] = NV_BASE_SITEURL . 'themes/' . $global_config['site_theme'] . '/images/' . $module_file . '/no-avatar.jpg';
@@ -118,12 +120,14 @@ if ( $organs_data['numsub'] > 0 )
             $result = $db->query( $sql );
             while ( $row = $result->fetch() )
             {
-                if ( ! empty( $row['photo'] ) )
-                {
-                    $urlimg = NV_ROOTDIR . '/' . NV_UPLOADS_DIR . '/' . $module_upload . '/' . $row['photo'];
-                    $imageinfo = nv_ImageInfo( $urlimg, $arr_config['thumb_width'], true, NV_UPLOADS_REAL_DIR . '/' . $module_upload . '/thumb' );
-                    $row['photo'] = $imageinfo['src'];
-                }
+		   		if( file_exists( NV_ROOTDIR . NV_BASE_SITEURL . NV_ASSETS_DIR . '/' . $module_upload . '/' . $row['photo'] ) )
+				{
+					$row['photo'] = NV_BASE_SITEURL . NV_ASSETS_DIR . '/' . $module_upload . '/' . $row['photo'];
+				}
+				elseif( file_exists( NV_ROOTDIR . NV_BASE_SITEURL . NV_UPLOADS_DIR . '/' . $module_upload . '/' . $row['photo'] ) )
+				{
+					$row['photo'] = NV_BASE_SITEURL . NV_UPLOADS_DIR . '/' . $module_upload . '/' . $row['photo'];
+				}
 				else
 				{
 					$row['photo'] = NV_BASE_SITEURL . 'themes/' . $global_config['site_theme'] . '/images/' . $module_file . '/no-avatar.jpg';

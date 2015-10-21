@@ -43,18 +43,19 @@ if ( empty( $data_content ) )
     nv_info_die( $lang_global['error_404_title'], $lang_global['error_404_title'], $lang_global['error_404_content'] . $redirect );
 }
 
-if ( ! empty( $data_content['photo'] ) )
+if( file_exists( NV_ROOTDIR . NV_BASE_SITEURL . NV_ASSETS_DIR . '/' . $module_upload . '/' . $data_content['photo'] ) )
 {
-    $urlimg = NV_ROOTDIR . '/' . NV_UPLOADS_DIR . '/' . $module_upload . '/' . $data_content['photo'];
-    $data_content['imgsrc'] = NV_BASE_SITEURL . NV_UPLOADS_DIR . '/' . $module_upload . '/' . $data_content['photo'];
-	$data_content['imginfo'] = nv_is_image( $urlimg );
-    $imageinfo = nv_ImageInfo( $urlimg, $arr_config['thumb_width'], true, NV_UPLOADS_REAL_DIR . '/' . $module_upload . '/thumb' );
-    $data_content['photo_thumb'] = $imageinfo['src'];
+	$data_content['photo_thumb'] = NV_BASE_SITEURL . NV_ASSETS_DIR . '/' . $module_upload . '/' . $data_content['photo'];
+}
+elseif( file_exists( NV_ROOTDIR . NV_BASE_SITEURL . NV_UPLOADS_DIR . '/' . $module_upload . '/' . $data_content['photo'] ) )
+{
+	$data_content['photo_thumb'] = NV_BASE_SITEURL . NV_UPLOADS_DIR . '/' . $module_upload . '/' . $data_content['photo'];
 }
 else
 {
 	$data_content['photo_thumb'] = NV_BASE_SITEURL . 'themes/' . $global_config['site_theme'] . '/images/' . $module_file . '/no-avatar.jpg';
 }
+$data_content['imgsrc'] = NV_BASE_SITEURL . NV_UPLOADS_DIR . '/' . $module_upload . '/' . $data_content['photo'];
 
 // thanh dieu huong
 $parentid = $data_content['organid'];

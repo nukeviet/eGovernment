@@ -43,11 +43,11 @@ if ( empty( $data_content ) )
     nv_info_die( $lang_global['error_404_title'], $lang_global['error_404_title'], $lang_global['error_404_content'] . $redirect );
 }
 
-if( file_exists( NV_ROOTDIR . NV_BASE_SITEURL . NV_ASSETS_DIR . '/' . $module_upload . '/' . $data_content['photo'] ) )
+if( !empty( $data_content['photo'] ) and file_exists( NV_ROOTDIR . NV_BASE_SITEURL . NV_ASSETS_DIR . '/' . $module_upload . '/' . $data_content['photo'] ) )
 {
 	$data_content['photo_thumb'] = NV_BASE_SITEURL . NV_ASSETS_DIR . '/' . $module_upload . '/' . $data_content['photo'];
 }
-elseif( file_exists( NV_ROOTDIR . NV_BASE_SITEURL . NV_UPLOADS_DIR . '/' . $module_upload . '/' . $data_content['photo'] ) )
+elseif( !empty( $data_content['photo'] ) and file_exists( NV_ROOTDIR . NV_BASE_SITEURL . NV_UPLOADS_DIR . '/' . $module_upload . '/' . $data_content['photo'] ) )
 {
 	$data_content['photo_thumb'] = NV_BASE_SITEURL . NV_UPLOADS_DIR . '/' . $module_upload . '/' . $data_content['photo'];
 }

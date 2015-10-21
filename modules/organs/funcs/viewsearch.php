@@ -40,11 +40,11 @@ $all_page = ( $numf ) ? $numf : 1;
 $person_data = array();
 while ( $row = $result->fetch() )
 {
-   	if( file_exists( NV_ROOTDIR . NV_BASE_SITEURL . NV_ASSETS_DIR . '/' . $module_upload . '/' . $row['photo'] ) )
+   	if( !empty( $row['photo'] ) and file_exists( NV_ROOTDIR . NV_BASE_SITEURL . NV_ASSETS_DIR . '/' . $module_upload . '/' . $row['photo'] ) )
 	{
 		$row['photo'] = NV_BASE_SITEURL . NV_ASSETS_DIR . '/' . $module_upload . '/' . $row['photo'];
 	}
-	elseif( file_exists( NV_ROOTDIR . NV_BASE_SITEURL . NV_UPLOADS_DIR . '/' . $module_upload . '/' . $row['photo'] ) )
+	elseif( !empty( $row['photo'] ) and file_exists( NV_ROOTDIR . NV_BASE_SITEURL . NV_UPLOADS_DIR . '/' . $module_upload . '/' . $row['photo'] ) )
 	{
 		$row['photo'] = NV_BASE_SITEURL . NV_UPLOADS_DIR . '/' . $module_upload . '/' . $row['photo'];
 	}

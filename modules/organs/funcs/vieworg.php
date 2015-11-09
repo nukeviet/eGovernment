@@ -36,7 +36,7 @@ if ( ! empty( $array_op[1] ) )
 }
 $person_data = $organs_data = array();
 
-$sql = "SELECT * FROM " . NV_PREFIXLANG . "_" . $module_data . "_rows WHERE organid=" . intval( $id );
+$sql = 'SELECT * FROM ' . NV_PREFIXLANG . '_' . $module_data . '_rows WHERE organid=' . intval( $id );
 $result = $db->query( $sql );
 $organs_data = $result->fetch();
 
@@ -64,18 +64,18 @@ $contents = '';
 $base_url = NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=" . $op . "/" . $organs_data['alias'] . "-" . $organs_data['organid'];
 if ( $organs_data['numperson'] > 0 )
 {
-    $sql = "SELECT SQL_CALC_FOUND_ROWS * FROM " . NV_PREFIXLANG . "_" . $module_data . "_person WHERE organid=" . intval( $id ) . " AND active=1 ORDER BY weight LIMIT " . $per_page . " OFFSET " . ( $page - 1 ) * $per_page . "";
+    $sql = 'SELECT SQL_CALC_FOUND_ROWS * FROM ' . NV_PREFIXLANG . '_' . $module_data . '_person WHERE organid=' . intval( $id ) . ' AND active=1 ORDER BY weight LIMIT ' . $per_page . ' OFFSET ' . ( $page - 1 ) * $per_page;
     $result = $db->query( $sql );
     $result_all = $db->query( "SELECT FOUND_ROWS()" );
     $numf = $result_all->fetchColumn();
     $all_page = ( $numf ) ? $numf : 1;
     while ( $row = $result->fetch() )
     {
-    	if( !empty( $row['photo'] ) and file_exists( NV_ROOTDIR . NV_BASE_SITEURL . NV_ASSETS_DIR . '/' . $module_upload . '/' . $row['photo'] ) )
+    	if( !empty( $row['photo'] ) and file_exists( NV_ROOTDIR . '/' . NV_FILES_DIR . '/' . $module_upload . '/' . $row['photo'] ) )
 		{
-			$row['photo'] = NV_BASE_SITEURL . NV_ASSETS_DIR . '/' . $module_upload . '/' . $row['photo'];
+			$row['photo'] = NV_BASE_SITEURL . NV_FILES_DIR . '/' . $module_upload . '/' . $row['photo'];
 		}
-		elseif( !empty( $row['photo'] ) and file_exists( NV_ROOTDIR . NV_BASE_SITEURL . NV_UPLOADS_DIR . '/' . $module_upload . '/' . $row['photo'] ) )
+		elseif( !empty( $row['photo'] ) and file_exists( NV_ROOTDIR . '/' . NV_UPLOADS_DIR . '/' . $module_upload . '/' . $row['photo'] ) )
 		{
 			$row['photo'] = NV_BASE_SITEURL . NV_UPLOADS_DIR . '/' . $module_upload . '/' . $row['photo'];
 		}
@@ -116,15 +116,15 @@ if ( $organs_data['numsub'] > 0 )
 			$suborg[$i]['title'] = ucwords(mb_strtolower($organinfo['title']));
 
 			//Hien thi danh sach nhan su
-            $sql = "SELECT * FROM " . NV_PREFIXLANG . "_" . $module_data . "_person WHERE organid=" . intval( $organinfo['organid'] ) . " AND active=1 ORDER BY weight LIMIT 5";
+            $sql = 'SELECT * FROM ' . NV_PREFIXLANG . '_' . $module_data . '_person WHERE organid=' . intval( $organinfo['organid'] ) . ' AND active=1 ORDER BY weight LIMIT 5';
             $result = $db->query( $sql );
             while ( $row = $result->fetch() )
             {
-		   		if( !empty( $row['photo'] ) and file_exists( NV_ROOTDIR . NV_BASE_SITEURL . NV_ASSETS_DIR . '/' . $module_upload . '/' . $row['photo'] ) )
+		   		if( !empty( $row['photo'] ) and file_exists( NV_ROOTDIR . '/' . NV_FILES_DIR . '/' . $module_upload . '/' . $row['photo'] ) )
 				{
-					$row['photo'] = NV_BASE_SITEURL . NV_ASSETS_DIR . '/' . $module_upload . '/' . $row['photo'];
+					$row['photo'] = NV_BASE_SITEURL . NV_FILES_DIR . '/' . $module_upload . '/' . $row['photo'];
 				}
-				elseif( !empty( $row['photo'] ) and file_exists( NV_ROOTDIR . NV_BASE_SITEURL . NV_UPLOADS_DIR . '/' . $module_upload . '/' . $row['photo'] ) )
+				elseif( !empty( $row['photo'] ) and file_exists( NV_ROOTDIR . '/' . NV_UPLOADS_DIR . '/' . $module_upload . '/' . $row['photo'] ) )
 				{
 					$row['photo'] = NV_BASE_SITEURL . NV_UPLOADS_DIR . '/' . $module_upload . '/' . $row['photo'];
 				}
@@ -133,10 +133,10 @@ if ( $organs_data['numsub'] > 0 )
 					$row['photo'] = NV_BASE_SITEURL . 'themes/' . $global_config['site_theme'] . '/images/' . $module_file . '/no-avatar.jpg';
 				}
 
-                $row['link'] = NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=person/" . $global_organ_rows[$id]['alias'] . "-" . $id . "/" . change_alias( $row['name'] ) . "-" . $row['personid'];
+                $row['link'] = NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name . '&' . NV_OP_VARIABLE . '=person/' . $global_organ_rows[$id]['alias'] . '-' . $id . '/' . change_alias( $row['name'] ) . '-' . $row['personid'];
                 $person_data[] = $row;
             }
-            $array_content[] = array( "id" => $organinfo['organid'], "data" => $person_data );
+            $array_content[] = array( 'id' => $organinfo['organid'], 'data' => $person_data );
             unset( $person_data );
         }
     }

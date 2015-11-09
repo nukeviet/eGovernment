@@ -33,7 +33,7 @@ if ( ! empty( $array_op[1] ) )
 }
 
 $data_content = array();
-$sql = "SELECT * FROM " . NV_PREFIXLANG . "_" . $module_data . "_person WHERE personid=" . intval( $pid ) . " AND active=1";
+$sql = 'SELECT * FROM ' . NV_PREFIXLANG . '_' . $module_data . '_person WHERE personid=' . intval( $pid ) . ' AND active=1';
 $result = $db->query( $sql );
 $data_content = $result->fetch();
 
@@ -43,11 +43,11 @@ if ( empty( $data_content ) )
     nv_info_die( $lang_global['error_404_title'], $lang_global['error_404_title'], $lang_global['error_404_content'] . $redirect );
 }
 
-if( !empty( $data_content['photo'] ) and file_exists( NV_ROOTDIR . NV_BASE_SITEURL . NV_ASSETS_DIR . '/' . $module_upload . '/' . $data_content['photo'] ) )
+if( !empty( $data_content['photo'] ) and file_exists( NV_ROOTDIR . '/' . NV_FILES_DIR . '/' . $module_upload . '/' . $data_content['photo'] ) )
 {
-	$data_content['photo_thumb'] = NV_BASE_SITEURL . NV_ASSETS_DIR . '/' . $module_upload . '/' . $data_content['photo'];
+	$data_content['photo_thumb'] = NV_BASE_SITEURL . NV_FILES_DIR . '/' . $module_upload . '/' . $data_content['photo'];
 }
-elseif( !empty( $data_content['photo'] ) and file_exists( NV_ROOTDIR . NV_BASE_SITEURL . NV_UPLOADS_DIR . '/' . $module_upload . '/' . $data_content['photo'] ) )
+elseif( !empty( $data_content['photo'] ) and file_exists( NV_ROOTDIR . '/' . NV_UPLOADS_DIR . '/' . $module_upload . '/' . $data_content['photo'] ) )
 {
 	$data_content['photo_thumb'] = NV_BASE_SITEURL . NV_UPLOADS_DIR . '/' . $module_upload . '/' . $data_content['photo'];
 }

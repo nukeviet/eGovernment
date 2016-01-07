@@ -4,7 +4,7 @@
  * @Author VINADES., JSC (contact@vinades.vn)
  * @Copyright (C) 2014 VINADES ., JSC. All rights reserved
  * @License GNU/GPL version 2 or any later version
- * @Createdate Dec 3, 2010  11:33:22 AM 
+ * @Createdate Dec 3, 2010  11:33:22 AM
  */
 
 if ( ! defined( 'NV_IS_FILE_ADMIN' ) ) die( 'Stop!!!' );
@@ -32,7 +32,7 @@ if (!empty($array_organs[$parentid])) {
 		$link = NV_BASE_ADMINURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&amp;" . NV_OP_VARIABLE . "=main&amp;pid=" . $id_i;
 		$temp_title .= "<a href=\"".$link."\">".$array_organs[$id_i]['title']."</a>"." -> ";
 	}
-	$page_title = $lang_module['main'] . $lang_module['main_sub'] . $temp_title . $array_organs[$parentid]['title']; 
+	$page_title = $lang_module['main'] . $lang_module['main_sub'] . $temp_title . $array_organs[$parentid]['title'];
 }
 
 $xtpl = new XTemplate( "main.tpl", NV_ROOTDIR . "/themes/" . $global_config['module_theme'] . "/modules/" . $module_file );
@@ -74,7 +74,7 @@ while ( $row = $result->fetch() )
     $xtpl->parse( 'main.row' );
     $i ++;
 }
-$xtpl->assign( 'URL_BACK', NV_BASE_ADMINURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=" . $op ."&amp;pid=" . $parentid );
+$xtpl->assign( 'URL_BACK', NV_BASE_ADMINURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=" . $op ."&pid=" . $parentid );
 $xtpl->assign( 'URL_DELALL', NV_BASE_ADMINURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=delrow" );
 $xtpl->assign( 'URL_CHANGE', NV_BASE_ADMINURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=actrow" );
 $xtpl->assign( 'URL_CHANGE_WEIGHT', NV_BASE_ADMINURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=changeorgan" );

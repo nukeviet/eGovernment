@@ -15,14 +15,15 @@ if( $nv_Request->isset_request( 'submit', 'post' ) )
 	$array_config['per_page'] = $nv_Request->get_int( 'per_page', 'post', 10 );
 	$array_config['organ_view_type'] = $nv_Request->get_int( 'organ_view_type', 'post', 0 );
 	$array_config['organ_view_type_main'] = $nv_Request->get_int( 'organ_view_type_main', 'post', 1 );
-	$array_config['thumb_width'] = $nv_Request->get_int( 'thumb_width', 'post', 80 );
-	$array_config['thumb_height'] = $nv_Request->get_int( 'thumb_height', 'post', 100 );
-//print_r($array_config);die;
+	$array_config['thumb_width'] = $nv_Request->get_int( 'thumb_width', 'post', 100 );
+	$array_config['thumb_height'] = $nv_Request->get_int( 'thumb_height', 'post', 150 );
+
 	foreach( $array_config as $config_name => $config_value )
 	{
-		$query = "REPLACE INTO " . NV_PREFIXLANG . "_" . $module_data . "_config VALUES (" . $db->quote( $config_name ) . "," . $db->quote( $config_value ) . ")";
-		$db->query( $query );//echo($query.'<br>');
-	}//die;
+		$query = "UPDATE " . NV_PREFIXLANG . "_" . $module_data . "_config SET config_value=" . $db->quote( $config_value ) . " WHERE config_name=" . $db->quote( $config_name );
+		$db->query( $query );
+	}
+
 	$nv_Cache->delMod( $module_name );
 
 	Header( "Location: " . NV_BASE_ADMINURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=" . $op );
@@ -50,9 +51,8 @@ foreach( $arr_organ_view as $id => $organ )
 }
 
 $arr_organ_view_main = array( $lang_module['config_organ_view_main_0'], $lang_module['config_organ_view_main_1'] );
-//print_r($array_config);die;
 foreach( $arr_organ_view_main as $id => $organ )
-{//die($array_config['organ_view_type_main'].'');
+{
 	$xtpl->assign( 'VIEW_TYPE_MAIN', array( 'key' => $id, 'title' => $organ, 'selected' => $id == $array_config['organ_view_type_main'] ? 'selected="selected"' : '' ) );
 	$xtpl->parse( 'main.view_type_main' );
 }

@@ -21,5 +21,5 @@ if ( $id > 0 )
         $contents = $lang_module['active_change_complete'];
     }
 }
-nv_del_moduleCache( $module_name );
+$nv_Cache->delMod( $module_name );
 echo $contents;

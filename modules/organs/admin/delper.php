@@ -36,7 +36,7 @@ else
 }
 nv_fix_organ ($oid);
 nv_fix_personweight ( $oid );
-nv_del_moduleCache( $module_name );
+$nv_Cache->delMod( $module_name );
 
 echo $contents;
 exit();

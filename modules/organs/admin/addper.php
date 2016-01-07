@@ -193,7 +193,7 @@ if( $nv_Request->get_int( 'save', 'post' ) == 1 )
 				nv_insert_logs( NV_LANG_DATA, $module_name, 'log_add_catalog', "id " . $newcatid, $admin_info['userid'] );
 				//$xxx->closeCursor();
 				nv_fix_organ( $data['organid'] );
-				nv_del_moduleCache( $module_name );
+				$nv_Cache->delMod( $module_name );
 				Header( "Location: " . NV_BASE_ADMINURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=listper&pid=" . $data['organid'] . "" );
 				die( );
 			}
@@ -242,7 +242,7 @@ if( $nv_Request->get_int( 'save', 'post' ) == 1 )
 					nv_fix_organ( $data['organid_old'] );
 				}
 				nv_fix_organ( $data['organid'] );
-				nv_del_moduleCache( $module_name );
+				$nv_Cache->delMod( $module_name );
 				Header( "Location: " . NV_BASE_ADMINURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=listper&pid=" . $data['organid'] . "" );
 				die( );
 			}

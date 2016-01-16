@@ -2,6 +2,8 @@
 /.settings
 /.project
 /.htaccess
+/.gitattributes
+/composer.json
 /config.php
 /CHANGELOG.txt
 /COPYRIGHT.txt
@@ -19,6 +21,7 @@
 /includes/
 /install/
 /uploads/
+/vendor/
 
 # Ignore fix module files and directories.
 /modules/*

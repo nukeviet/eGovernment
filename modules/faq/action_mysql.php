@@ -23,8 +23,8 @@ $sql_create_module = $sql_drop_module;
 $sql_create_module[] = "CREATE TABLE IF NOT EXISTS " . $db_config['prefix'] . "_" . $lang . "_" . $module_data . " (
   id mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
   catid mediumint(8) unsigned NOT NULL,
-  title varchar(255) NOT NULL,
-  alias varchar(255) NOT NULL,
+  title varchar(250) NOT NULL,
+  alias varchar(250) NOT NULL,
   question mediumtext NOT NULL,
   answer mediumtext NOT NULL,
   weight smallint(4) unsigned NOT NULL DEFAULT '0',
@@ -38,8 +38,8 @@ $sql_create_module[] = "CREATE TABLE IF NOT EXISTS " . $db_config['prefix'] . "_
 $sql_create_module[] = "CREATE TABLE IF NOT EXISTS " . $db_config['prefix'] . "_" . $lang . "_" . $module_data . "_categories (
   id mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
   parentid mediumint(8) unsigned NOT NULL,
-  title varchar(255) NOT NULL,
-  alias varchar(255) NOT NULL,
+  title varchar(250) NOT NULL,
+  alias varchar(250) NOT NULL,
   description mediumtext NOT NULL,
   groups_view varchar(255) NOT NULL,
   weight smallint(4) unsigned NOT NULL DEFAULT '0',

@@ -113,11 +113,11 @@ function nv_list_cats( $is_link = false, $is_parentlink = true )
  */
 function initial_config_data()
 {
-    global $module_data;
+    global $module_data, $nv_Cache, $module_name;
     
     $sql = "SELECT config_name, config_value FROM " . NV_PREFIXLANG . "_" . $module_data . "_config";
     
-    $list = nv_db_cache( $sql );
+    $list = $nv_Cache->db( $sql, '', $module_name );
     
     $module_setting = array();
     foreach ( $list as $values )

@@ -9,7 +9,9 @@
  * @Createdate Oct 25, 2012, 03:11:34 PM
 */
 
-if( ! defined( 'NV_MAINFILE' ) ) die( 'Stop!!!' );
+if (! defined('NV_MAINFILE')) {
+    die('Stop!!!');
+}
 
 $lang_translator['author'] = '';
 $lang_translator['createdate'] = '';

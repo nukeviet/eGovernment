@@ -8,7 +8,9 @@
  * @Createdate 28/8/2010, 23:11
  */
 
-if ( ! defined( 'NV_IS_FILE_MODULES' ) ) die( 'Stop!!!' );
+if (! defined('NV_IS_FILE_MODULES')) {
+    die('Stop!!!');
+}
 
 //ALTER TABLE`nv4_vi_faq_categories DROP who_view;
 

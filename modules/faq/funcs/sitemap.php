@@ -29,7 +29,7 @@ if (($cache = $nv_Cache->getItem($module_name, $cacheFile)) != false and filemti
         AND status=1 ORDER BY weight ASC LIMIT 1000';
     $result = $db->query($sql);
     
-    while (list ($id, $cid, $publtime) = $result->fetch(3)) {
+    while (list($id, $cid, $publtime) = $result->fetch(3)) {
         $url[] = array(
             'link' => NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&amp;' . NV_NAME_VARIABLE . '=' . $module_name . '&amp;' . NV_OP_VARIABLE . '=' . $list_cats[$cid]['alias'] . '#faq' . $id,
             'publtime' => $publtime

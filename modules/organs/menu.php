@@ -19,6 +19,6 @@ While( $row = $result->fetch() )
 		'groups_view' => 6,
 		'key' => $row['organid'],
 		'title' => $row['title'],
-		'alias' => '/vieworg/'.$row['alias']
+		'alias' => '/vieworg/'.$row['alias'] . '-' . $row['organid']
 	);
 }

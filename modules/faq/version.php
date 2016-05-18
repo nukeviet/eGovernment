@@ -17,8 +17,8 @@ $module_version = array(
     'modfuncs' => 'main',
     'is_sysmod' => 0,
     'virtual' => 1,
-    'version' => '4.0.28',
-    'date' => 'Wed, 20 Oct 2010 00:00:00 GMT',
+    'version' => '4.0.29',
+    'date' => 'Wed, 18 May 2016 17:00:00 GMT',
     'author' => 'VINADES (contact@vinades.vn)',
     'note' => ''
 );

@@ -40,31 +40,35 @@ function nv_faq_list_cats($module_data)
 
 $list_cats = nv_faq_list_cats($m_values['module_data']);
 $in = implode(",", array_keys($list_cats));
+$num_items = 0;
+$result_array = array();
 
-$db->sqlreset()
-    ->select('COUNT(*)')
-    ->from(NV_PREFIXLANG . '_' . $m_values['module_data'])
-    ->where("catid IN (" . $in . ") 
-	AND 
-	(" . nv_like_logic('question', $dbkeyword, $logic) . " 
-	OR " . nv_like_logic('answer', $dbkeyword, $logic) . ")");
-
-$num_items = $db->query($db->sql())->fetchColumn();
-
-if ($num_items) {
-    $db->select('id,question, answer, catid')
-        ->order('id DESC')
-        ->limit($limit)
-        ->offset(($page - 1) * $limit);
-            
-    $tmp_re = $db->query($db->sql());
-    $link = NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $m_values['module_name'] . '&amp;' . NV_OP_VARIABLE . '=';
+if (!empty($in)) {
+    $db->sqlreset()
+        ->select('COUNT(*)')
+        ->from(NV_PREFIXLANG . '_' . $m_values['module_data'])
+        ->where("catid IN (" . $in . ") 
+    	AND 
+    	(" . nv_like_logic('question', $dbkeyword, $logic) . " 
+    	OR " . nv_like_logic('answer', $dbkeyword, $logic) . ")");
     
-    while (list($id, $question, $answer, $catid) = $tmp_re->fetch(3)) {
-        $result_array[] = array(
-            'link' => $link . $list_cats[$catid]['alias'] . '#faq' . $id,
-            'title' => BoldKeywordInStr($question, $key, $logic),
-            'content' => BoldKeywordInStr($answer, $key, $logic)
-        );
+    $num_items = $db->query($db->sql())->fetchColumn();
+    
+    if ($num_items) {
+        $db->select('id, question, answer, catid')
+            ->order('id DESC')
+            ->limit($limit)
+            ->offset(($page - 1) * $limit);
+                
+        $tmp_re = $db->query($db->sql());
+        $link = NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $m_values['module_name'] . '&amp;' . NV_OP_VARIABLE . '=';
+        
+        while (list($id, $question, $answer, $catid) = $tmp_re->fetch(3)) {
+            $result_array[] = array(
+                'link' => $link . $list_cats[$catid]['alias'] . '#faq' . $id,
+                'title' => BoldKeywordInStr($question, $key, $logic),
+                'content' => BoldKeywordInStr($answer, $key, $logic)
+            );
+        }
     }
 }

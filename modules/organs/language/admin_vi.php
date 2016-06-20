@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @Project NUKEVIET 4.x
  * @Author VINADES., JSC (contact@vinades.vn)
@@ -8,9 +9,8 @@
  * @Createdate Dec 3, 2010  11:30:02 AM
  */
 
-if ( ! defined( 'NV_MAINFILE' ) )
-{
-    die( 'Stop!!!' );
+if (!defined('NV_MAINFILE')) {
+    die('Stop!!!');
 }
 
 $lang_translator['author'] = "VINADES.,JSC (contact@vinades.vn)";

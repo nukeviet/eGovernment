@@ -8,11 +8,11 @@
     </ul>
 </div>
 <script type="text/javascript">
-	$("#browser").treeview({
-		persist: "cookie",
-		collapsed: true,
-		animated:"normal",
-		unique: true
-	});
+    $("#browser").treeview({
+        persist: "cookie",
+        collapsed: true,
+        animated:"normal",
+        unique: true
+    });
 </script>
 <!-- END: main -->

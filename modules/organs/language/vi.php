@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @Project NUKEVIET 4.x
  * @Author VINADES., JSC (contact@vinades.vn)
@@ -8,9 +9,8 @@
  * @Createdate Dec 3, 2010  11:30:02 AM
  */
 
-if ( ! defined( 'NV_MAINFILE' ) )
-{
-    die( 'Stop!!!' );
+if (!defined('NV_MAINFILE')) {
+    die('Stop!!!');
 }
 
 $lang_translator['author'] = "VINADES.,JSC (contact@vinades.vn)";
@@ -55,9 +55,9 @@ $lang_module['vieworg_phone_ext'] = "Số máy lẻ";
 
 $lang_module['email'] = "Email";
 $lang_module['phone'] = "Điện thoại";
-$lang_module['photo'] = "Ảnh"; 
-$lang_module['description'] = "Mô tả"; 
+$lang_module['photo'] = "Ảnh";
+$lang_module['description'] = "Mô tả";
 
 $lang_module['list_sub_org'] = "Danh sách các phòng ban trực thuộc ";
 
-$lang_module['infor_person'] = "Thông tin nhân sự"; 
+$lang_module['infor_person'] = "Thông tin nhân sự";

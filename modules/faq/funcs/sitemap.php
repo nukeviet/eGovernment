@@ -15,9 +15,9 @@ if (!defined('NV_IS_MOD_FAQ')) {
 
 $url = array();
 $cacheFile = NV_LANG_DATA . '_Sitemap.cache';
-$pa = NV_CURRENTTIME - 7200;
+$cacheTTL = 7200;
 
-if (($cache = $nv_Cache->getItem($module_name, $cacheFile)) != false and filemtime(NV_ROOTDIR . '/' . NV_CACHEDIR . '/' . $module_name . '/' . $cacheFile) >= $pa) {
+if (($cache = $nv_Cache->getItem($module_name, $cacheFile, $cacheTTL)) != false) {
     $url = unserialize($cache);
 } else {
     $list_cats = nv_list_cats();
@@ -37,7 +37,7 @@ if (($cache = $nv_Cache->getItem($module_name, $cacheFile)) != false and filemti
     }
     
     $cache = serialize($url);
-    $nv_Cache->setItem($module_name, $cacheFile, $cache);
+    $nv_Cache->setItem($module_name, $cacheFile, $cache, $cacheTTL);
 }
 
 nv_xmlSitemap_generate($url);

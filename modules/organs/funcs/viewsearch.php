@@ -19,9 +19,9 @@ $per_page = $arr_config['per_page'];
 $page = 0;
 
 $query = '';
-$q = $nv_Request->get_string('q', 'get', '');
+$q = $nv_Request->get_title('q', 'get', '');
 if (!empty($q))
-    $query .= ' WHERE name like ' % ' . $db->dblikeescape( $q ) . ' % ' ';
+    $query .= ' WHERE name like \'%' . $db->dblikeescape($q) . '%\'';
 
 $oid = $nv_Request->get_int('oid', 'get', 0);
 if ($oid > 0 && empty($q)) {

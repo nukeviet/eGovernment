@@ -25,7 +25,7 @@ if (!nv_function_exists('nv_block_sbirthday')) {
         $return = array();
         $return['error'] = array();
         $return['config'] = array();
-        $return['config']['title_tip'] = $nv_Request->get_string('config_title_tip', 'post', '');
+        $return['config']['title_tip'] = $nv_Request->get_title('config_title_tip', 'post', '');
         return $return;
     }
 

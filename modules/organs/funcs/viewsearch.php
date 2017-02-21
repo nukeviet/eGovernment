@@ -8,8 +8,8 @@
  * @Createdate Dec 3, 2010  11:32:04 AM
  */
 
-if (!defined('NV_IS_MOD_ORGAN'))
-    die('Stop!!!');
+if (!defined('NV_IS_MOD_ORGAN')) die('Stop!!!');
+
 $page_title = $module_info['custom_title'];
 $key_words = $module_info['keywords'];
 
@@ -20,8 +20,7 @@ $page = 0;
 
 $query = '';
 $q = $nv_Request->get_title('q', 'get', '');
-if (!empty($q))
-    $query .= ' WHERE name like \'%' . $db->dblikeescape($q) . '%\'';
+if (!empty($q)) $query .= ' WHERE name like \'%' . $db->dblikeescape($q) . '%\'';
 
 $oid = $nv_Request->get_int('oid', 'get', 0);
 if ($oid > 0 && empty($q)) {
@@ -46,7 +45,7 @@ while ($row = $result->fetch()) {
     } else {
         $row['photo'] = NV_BASE_SITEURL . 'themes/' . $module_info['template'] . '/images/' . $module_file . '/no-avatar.jpg';
     }
-
+    
     $row['link'] = NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name . '&' . NV_OP_VARIABLE . '=person/' . $global_organ_rows[$row['organid']]['alias'] . '-' . $row['organid'] . '/' . change_alias($row['name']) . '-' . $row['personid'];
     $person_data[] = $row;
 }

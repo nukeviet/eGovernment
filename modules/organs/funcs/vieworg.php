@@ -9,6 +9,7 @@
  */
 
 if (!defined('NV_IS_MOD_ORGAN')) die('Stop!!!');
+
 $page_title = $module_info['custom_title'];
 $key_words = $module_info['keywords'];
 

@@ -8,31 +8,39 @@
  * @Createdate 2-10-2010 18:49
  */
 
-if (!defined('NV_IS_FILE_ADMIN'))
-    die('Stop!!!');
+if (!defined('NV_IS_FILE_ADMIN')) die('Stop!!!');
 
-$id = $nv_Request->get_int('id', 'post,get', 0);
-$oid = $nv_Request->get_int('oid', 'post,get', 0);
+$personid = $nv_Request->get_int('id', 'post,get', 0);
 $contents = $lang_module['del_lang_not_complete'];
-if ($id > 0) {
-    /////////////////////////////////////////////
-    $query = "DELETE FROM " . NV_PREFIXLANG . "_" . $module_data . "_person WHERE personid=" . intval($id) . "";
+$array_organid = array();
+if ($personid > 0) {
+    $array_organid[] = $db->query('SELECT organid FROM ' . NV_PREFIXLANG . '_' . $module_data . '_person WHERE personid=' . $personid)->fetchColumn();
+    $query = 'DELETE FROM ' . NV_PREFIXLANG . '_' . $module_data . '_person WHERE personid=' . $personid;
     if ($db->query($query)) {
-        //$xxx->closeCursor();
         nv_fix_row_order();
         $contents = $lang_module['del_lang_complete'];
     }
 } else {
     $listall = $nv_Request->get_string('listall', 'post,get');
     if (!empty($listall)) {
-        $sql = "DELETE FROM " . NV_PREFIXLANG . "_" . $module_data . "_person WHERE personid IN (" . $listall . ")";
+        $listall = implode(',', array_map('intval', explode(',', $listall)));
+        
+        $_query = $db->query('SELECT organid FROM ' . NV_PREFIXLANG . '_' . $module_data . '_person WHERE personid IN (' . $listall . ')');
+        while ($_organid = $_query->fetchColumn()) {
+            $array_organid[] = $_organid;
+        }
+        $sql = 'DELETE FROM ' . NV_PREFIXLANG . '_' . $module_data . '_person WHERE personid IN (' . $listall . ')';
         $result = $db->query($sql);
+        
         $contents = $lang_module['del_lang_complete'];
     }
 }
-nv_fix_organ($oid);
-nv_fix_personweight($oid);
-$nv_Cache->delMod($module_name);
+$array_organid = array_unique($array_organid);
+foreach ($array_organid as $_organid) {
+    nv_fix_organ($_organid);
+    nv_fix_personweight($_organid);
+}
 
+$nv_Cache->delMod($module_name);
 echo $contents;
 exit();

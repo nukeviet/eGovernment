@@ -8,8 +8,7 @@
  * @Createdate Dec 3, 2010  11:32:04 AM
  */
 
-if (!defined('NV_IS_MOD_ORGAN'))
-    die('Stop!!!');
+if (!defined('NV_IS_MOD_ORGAN')) die('Stop!!!');
 
 $key_words = $module_info['keywords'];
 

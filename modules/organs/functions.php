@@ -8,8 +8,7 @@
  * @Createdate Dec 3, 2010  11:12:21 AM
  */
 
-if (!defined('NV_SYSTEM'))
-    die('Stop!!!');
+if (!defined('NV_SYSTEM')) die('Stop!!!');
 
 define('NV_IS_MOD_ORGAN', true);
 
@@ -19,7 +18,7 @@ $link = NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA .
 $sql = "SELECT organid, parentid, title, alias, description, numsub, suborgan, numperson,view,lev, email, phone, fax FROM " . NV_PREFIXLANG . "_" . $module_data . "_rows" . " WHERE active=1 ORDER BY orders ASC";
 $result = $db->query($sql);
 $array_cat_list = array();
-while (list($organid_i, $parentid_i, $title_i, $alias_i, $description, $numsub_i, $suborgan_i, $numperson_i, $view_i, $lev_i, $email, $phone, $fax) = $result->fetch(3)) {
+while (list ($organid_i, $parentid_i, $title_i, $alias_i, $description, $numsub_i, $suborgan_i, $numperson_i, $view_i, $lev_i, $email, $phone, $fax) = $result->fetch(3)) {
     $link_i = $link . "/" . $alias_i . "-" . $organid_i;
     $global_organ_rows[$organid_i] = array(
         "organid" => $organid_i,
@@ -95,8 +94,7 @@ function nv_ograns_page($base_url, $num_items, $per_page, $start_item, $add_prev
 {
     global $lang_global;
     $total_pages = ceil($num_items / $per_page);
-    if ($total_pages == 1)
-        return '';
+    if ($total_pages == 1) return '';
     @$on_page = floor($start_item / $per_page) + 1;
     $page_string = "";
     if ($total_pages > 10) {
@@ -104,8 +102,7 @@ function nv_ograns_page($base_url, $num_items, $per_page, $start_item, $add_prev
         for ($i = 1; $i <= $init_page_max; $i++) {
             $href = "href=\"" . $base_url . "/page-" . (($i - 1) * $per_page) . "\"";
             $page_string .= ($i == $on_page) ? "<strong>" . $i . "</strong>" : "<a " . $href . ">" . $i . "</a>";
-            if ($i < $init_page_max)
-                $page_string .= ", ";
+            if ($i < $init_page_max) $page_string .= ", ";
         }
         if ($total_pages > 3) {
             if ($on_page > 1 && $on_page < $total_pages) {
@@ -123,7 +120,7 @@ function nv_ograns_page($base_url, $num_items, $per_page, $start_item, $add_prev
             } else {
                 $page_string .= " ... ";
             }
-
+            
             for ($i = $total_pages - 2; $i < $total_pages + 1; $i++) {
                 $href = "href=\"" . $base_url . "/page-" . (($i - 1) * $per_page) . "\"";
                 $page_string .= ($i == $on_page) ? "<strong>" . $i . "</strong>" : "<a " . $href . ">" . $i . "</a>";

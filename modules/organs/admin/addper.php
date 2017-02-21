@@ -8,8 +8,7 @@
  * @Createdate Dec 3, 2010  11:33:22 AM
  */
 
-if (!defined('NV_IS_FILE_ADMIN'))
-    die('Stop!!!');
+if (!defined('NV_IS_FILE_ADMIN')) die('Stop!!!');
 
 $page_title = $lang_module['addper_title'];
 $month_dir_module = nv_mkdir(NV_UPLOADS_REAL_DIR . '/' . $module_upload, date("Y_m"), true);
@@ -43,7 +42,6 @@ $table_name = NV_PREFIXLANG . "_" . $module_data . "_person";
 
 $base_url = NV_BASE_ADMINURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=" . $op;
 
-////////////////////////////
 $data['organid'] = $nv_Request->get_int('pid', 'get', 0);
 $sql = "SELECT * FROM " . NV_PREFIXLANG . "_" . $module_data . "_rows WHERE organid=" . intval($data['organid']);
 $result = $db->query($sql);
@@ -74,8 +72,7 @@ if ($nv_Request->get_int('save', 'post') == 1) {
     $data['political'] = $nv_Request->get_title('political', 'post', '', 1);
     $data['place_birth'] = $nv_Request->get_title('place_birth', 'post', '', 1);
     $birthday = $nv_Request->get_string('birthday', 'post', '');
-    if (!empty($birthday) and !preg_match("/^([0-9]{1,2})\\/([0-9]{1,2})\/([0-9]{4})$/", $birthday))
-        $birthday = "";
+    if (!empty($birthday) and !preg_match("/^([0-9]{1,2})\\/([0-9]{1,2})\/([0-9]{4})$/", $birthday)) $birthday = "";
     if (empty($birthday)) {
         $data['birthday'] = 0;
     } else {
@@ -85,10 +82,9 @@ if ($nv_Request->get_int('save', 'post') == 1) {
         preg_match("/^([0-9]{1,2})\\/([0-9]{1,2})\/([0-9]{4})$/", $birthday, $m);
         $data['birthday'] = mktime($phour, $pmin, 0, $m[2], $m[1], $m[3]);
     }
-
+    
     $dayinto = $nv_Request->get_string('dayinto', 'post', '');
-    if (!empty($dayinto) and !preg_match("/^([0-9]{1,2})\\/([0-9]{1,2})\/([0-9]{4})$/", $dayinto))
-        $dayinto = "";
+    if (!empty($dayinto) and !preg_match("/^([0-9]{1,2})\\/([0-9]{1,2})\/([0-9]{4})$/", $dayinto)) $dayinto = "";
     if (empty($dayinto)) {
         $data['dayinto'] = 0;
     } else {
@@ -98,10 +94,9 @@ if ($nv_Request->get_int('save', 'post') == 1) {
         preg_match("/^([0-9]{1,2})\\/([0-9]{1,2})\/([0-9]{4})$/", $dayinto, $m);
         $data['dayinto'] = mktime($phour, $pmin, 0, $m[2], $m[1], $m[3]);
     }
-
+    
     $dayparty = $nv_Request->get_string('dayparty', 'post', '');
-    if (!empty($dayparty) and !preg_match("/^([0-9]{1,2})\\/([0-9]{1,2})\/([0-9]{4})$/", $dayparty))
-        $dayparty = "";
+    if (!empty($dayparty) and !preg_match("/^([0-9]{1,2})\\/([0-9]{1,2})\/([0-9]{4})$/", $dayparty)) $dayparty = "";
     if (empty($dayparty)) {
         $data['dayparty'] = 0;
     } else {
@@ -111,12 +106,11 @@ if ($nv_Request->get_int('save', 'post') == 1) {
         preg_match("/^([0-9]{1,2})\\/([0-9]{1,2})\/([0-9]{4})$/", $dayparty, $m);
         $data['dayparty'] = mktime($phour, $pmin, 0, $m[2], $m[1], $m[3]);
     }
-
+    
     //* check error*//
     if (empty($data['name'])) {
         $error = $lang_module['error_person_title'];
-    }
-    //elseif( empty( $data['birthday'] ) )
+    } //elseif( empty( $data['birthday'] ) )
     //{
     //$error = $lang_module['error_organ_birthday'];
     //}
@@ -127,7 +121,7 @@ if ($nv_Request->get_int('save', 'post') == 1) {
             $error = $lang_module['error_organ_emal'];
         }
     }
-
+    
     /**action with none error**/
     if (empty($error)) {
         $id = $nv_Request->get_int('id', 'get', 0);
@@ -139,8 +133,9 @@ if ($nv_Request->get_int('save', 'post') == 1) {
             $data['photo'] = "";
         }
         if ($id == 0) // insert data
-            {
-            $weight = $db->query("SELECT max(weight) FROM " . $table_name . " WHERE organid=" . $db->quote($data['organid']) . "")->fetchColumn();
+{
+            $weight = $db->query("SELECT max(weight) FROM " . $table_name . " WHERE organid=" . $db->quote($data['organid']) . "")
+                ->fetchColumn();
             $weight = intval($weight) + 1;
             $sql = "INSERT INTO " . $table_name . " (personid, name, photo, email, position,position_other ,address, phone,phone_ext ,mobile, birthday, place_birth, description, addtime, edittime, organid, weight, active,dayinto,dayparty,marital_status,professional, political )
                      VALUES (
@@ -179,8 +174,8 @@ if ($nv_Request->get_int('save', 'post') == 1) {
             } else {
                 $error = $lang_module['errorsave'];
             }
-        } else // update data
-        {
+        } else {
+            // update data
             $query = "UPDATE " . $table_name . "
                       SET organid = " . $db->quote($data['organid']) . ",
                             name = " . $db->quote($data['name']) . ",
@@ -203,12 +198,12 @@ if ($nv_Request->get_int('save', 'post') == 1) {
                             political = " . $db->quote($data['political']) . ",
                             edittime = UNIX_TIMESTAMP()
                       WHERE personid = " . intval($id) . "";
-
+            
             if ($db->query($query)) {
                 nv_insert_logs(NV_LANG_DATA, $module_name, 'log_edit_catalog', "id " . $id, $admin_info['userid']);
-                //$xxx->closeCursor();
                 if ($data['organid'] != $data['organid_old']) {
-                    $weight = $db->query("SELECT max(weight) FROM " . $table_name . " WHERE organid=" . $db->quote($data['organid']) . "")->fetchColumn();
+                    $weight = $db->query("SELECT max(weight) FROM " . $table_name . " WHERE organid=" . $db->quote($data['organid']) . "")
+                        ->fetchColumn();
                     $weight = intval($weight) + 1;
                     $sql = "UPDATE " . $table_name . " SET weight=" . $weight . " WHERE organid=" . intval($id);
                     $db->query($sql);
@@ -223,21 +218,19 @@ if ($nv_Request->get_int('save', 'post') == 1) {
             } else {
                 $error = $lang_module['errorsave'];
             }
-            //$xxx->closeCursor();
         }
     }
 }
 /**end get data post**/
 $id = $nv_Request->get_int('id', 'get', 0);
 if ($id > 0 && $nv_Request->get_int('save', 'post') == 0) // insert data
-    {
+{
     $sql = "SELECT * FROM " . $table_name . " WHERE personid=" . intval($id);
     $result = $db->query($sql);
     $data = $result->fetch();
     $data['organid_old'] = $data['organid'];
-    if (!empty($data['description']))
-        $data['description'] = nv_htmlspecialchars($data['description']);
-
+    if (!empty($data['description'])) $data['description'] = nv_htmlspecialchars($data['description']);
+    
     if (!empty($data['photo']) and file_exists(NV_UPLOADS_REAL_DIR . "/" . $module_upload . "/" . $data['photo'])) {
         $data['photo'] = NV_BASE_SITEURL . NV_UPLOADS_DIR . "/" . $module_upload . "/" . $data['photo'];
     }

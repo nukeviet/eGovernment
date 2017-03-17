@@ -14,7 +14,7 @@ if (! defined('NV_IS_FILE_ADMIN')) {
 
 /**
  * nv_FixWeight()
- * 
+ *
  * @param mixed $catid
  * @return void
  */
@@ -107,13 +107,13 @@ if ($nv_Request->isset_request('add', 'get') or $nv_Request->isset_request('edit
                     $new_weight = $row['weight'];
                 }
 
-                $sql = "UPDATE " . NV_PREFIXLANG . "_" . $module_data . " SET 
-                catid=" . $array['catid'] . ", 
-                title=" . $db->quote($array['title']) . ", 
-                alias=" . $db->quote($alias) . ", 
-                question=" . $db->quote($array['question']) . ", 
-                answer=" . $db->quote($array['answer']) . ", 
-                weight=" . $new_weight . " 
+                $sql = "UPDATE " . NV_PREFIXLANG . "_" . $module_data . " SET
+                catid=" . $array['catid'] . ",
+                title=" . $db->quote($array['title']) . ",
+                alias=" . $db->quote($alias) . ",
+                question=" . $db->quote($array['question']) . ",
+                answer=" . $db->quote($array['answer']) . ",
+                weight=" . $new_weight . "
                 WHERE id=" . $id;
                 $result = $db->query($sql);
 
@@ -122,7 +122,7 @@ if ($nv_Request->isset_request('add', 'get') or $nv_Request->isset_request('edit
                     $error = $lang_module['faq_error_notResult'];
                 } else {
                     nv_update_keywords($array['catid']);
-                    
+
                     if ($array['catid'] != $row['catid']) {
                         nv_FixWeight($row['catid']);
                         nv_update_keywords($row['catid']);
@@ -138,22 +138,20 @@ if ($nv_Request->isset_request('add', 'get') or $nv_Request->isset_request('edit
                 $new_weight = ( int )$new_weight;
                 ++$new_weight;
 
-                $sql = "INSERT INTO " . NV_PREFIXLANG . "_" . $module_data . " VALUES (
-                NULL, 
-                " . $array['catid'] . ", 
-                " . $db->quote($array['title']) . ", 
-                " . $db->quote($alias) . ", 
-                " . $db->quote($array['question']) . ", 
-                " . $db->quote($array['answer']) . ", 
-                " . $new_weight . ", 
+                $sql = "INSERT INTO " . NV_PREFIXLANG . "_" . $module_data . "(catid,title,alias,question,answer,weight,status,addtime) VALUES (
+                " . $array['catid'] . ",
+                " . $db->quote($array['title']) . ",
+                " . $db->quote($alias) . ",
+                " . $db->quote($array['question']) . ",
+                " . $db->quote($array['answer']) . ",
+                " . $new_weight . ",
                 1, " . NV_CURRENTTIME . ")";
-
                 if (! $db->insert_id($sql)) {
                     $is_error = true;
                     $error = $lang_module['faq_error_notResult2'];
                 } else {
                     nv_update_keywords($array['catid']);
-                    
+
                     Header('Location: ' . NV_BASE_ADMINURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name);
                     exit();
                 }
@@ -291,9 +289,9 @@ if ($nv_Request->isset_request('changestatus', 'post')) {
 
     $sql = "UPDATE " . NV_PREFIXLANG . "_" . $module_data . " SET status=" . $status . " WHERE id=" . $id;
     $db->query($sql);
-    
+
     nv_update_keywords($catid);
-    
+
     die('OK');
 }
 
@@ -319,9 +317,9 @@ if ($nv_Request->isset_request('del', 'post')) {
 
     $sql = "DELETE FROM " . NV_PREFIXLANG . "_" . $module_data . " WHERE id=" . $id;
     $db->query($sql);
-    
+
     nv_update_keywords($catid);
-    
+
     nv_FixWeight($catid);
 
     die('OK');

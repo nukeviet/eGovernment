@@ -63,3 +63,7 @@ $lang_module['config_type_main'] = 'Cách thể hiện trên trang chủ';
 $lang_module['config_type_main_0'] = 'Hiển thị các chủ đề';
 $lang_module['config_type_main_1'] = 'Danh sách mới lên trên';
 $lang_module['config_type_main_2'] = 'Danh sách cũ lên trên';
+$lang_module['faq_accept_qa'] = 'Duyệt câu hỏi';
+$lang_module['faq_customer'] = 'Tên người đặt câu hỏi';
+$lang_module['faq_email_customer'] = 'Email';
+$lang_module['faq_date_customer'] = 'Thời gian gửi';

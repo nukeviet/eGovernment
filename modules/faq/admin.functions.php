@@ -13,15 +13,16 @@ if (! defined('NV_ADMIN') or ! defined('NV_MAINFILE') or ! defined('NV_IS_MODADM
 }
 
 $submenu['cat'] = $lang_module['faq_catmanager'];
+$submenu['acceptqa'] = $lang_module['faq_accept_qa'];
 $submenu['config'] = $lang_module['config'];
 
-$allow_func = array( 'main', 'cat', 'config' );
+$allow_func = array( 'main', 'cat', 'config','acceptqa' );
 
 define('NV_IS_FILE_ADMIN', true);
 
 /**
  * nv_setcats()
- * 
+ *
  * @param mixed $list2
  * @param mixed $id
  * @param mixed $list
@@ -53,7 +54,7 @@ function nv_setcats($list2, $id, $list, $m = 0, $num = 0)
 
 /**
  * nv_listcats()
- * 
+ *
  * @param mixed $parentid
  * @param integer $m
  * @return
@@ -99,7 +100,7 @@ function nv_listcats($parentid, $m = 0)
 
 /**
  * nv_update_keywords()
- * 
+ *
  * @param mixed $catid
  * @return
  */

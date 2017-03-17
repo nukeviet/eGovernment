@@ -1,4 +1,8 @@
 <!-- BEGIN: main -->
+<!-- BEGIN: isuser -->
+<a href="{LINKQA}"><button type="button" class="btn btn-primary">{LANG.faq_make_question}</button></a>
+<a href="{LINKLISTQA}"><button type="button" class="btn btn-primary">{LANG.faq_list_question}</button></a>
+<!-- END: isuser -->
 <!-- BEGIN: welcome -->
 <div class="welcome">
     {WELCOME}.

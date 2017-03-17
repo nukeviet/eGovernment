@@ -14,16 +14,23 @@ if (! defined('NV_IS_MOD_FAQ')) {
 
 /**
  * theme_main_faq()
- * 
+ *
  * @param mixed $list_cats
  * @return
  */
 function theme_main_faq($list_cats)
 {
-    global $global_config, $lang_module, $lang_global, $module_info, $module_name, $module_file;
+    global $global_config, $lang_module, $lang_global, $module_info, $module_name, $module_file,$user_info;
 
     $xtpl = new XTemplate("main_page.tpl", NV_ROOTDIR . "/themes/" . $module_info['template'] . "/modules/" . $module_file . "/");
     $xtpl->assign('LANG', $lang_module);
+	$link_qa=NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&amp;" . NV_OP_VARIABLE . "=insertqa";
+    $xtpl->assign('LINKQA', $link_qa);
+	$link_listqa=NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&amp;" . NV_OP_VARIABLE . "=viewlist&amp;userid=".$user_info['userid'];
+    $xtpl->assign('LINKLISTQA', $link_listqa);
+	if(!empty($user_info)) {
+		$xtpl->parse('main.isuser');
+	}
     $xtpl->assign('WELCOME', $lang_module['faq_welcome']);
     $xtpl->parse('main.welcome');
 
@@ -43,10 +50,99 @@ function theme_main_faq($list_cats)
     $xtpl->parse('main');
     return $xtpl->text('main');
 }
+/**
+ * theme_insert_faq()
+ *
+ * @param mixed $list_cats
+ * @param mixed $catid
+ * @param mixed $faq
+ * @return
+ */
+function theme_insert_faq($array,$error,$listcats,$id)
+{
+	global $global_config, $lang_module, $lang_global, $module_info, $module_name, $module_file;
+	$xtpl = new XTemplate("insertqa.tpl", NV_ROOTDIR . "/themes/" . $module_info['template'] . "/modules/" . $module_file . "/");
+    if (defined('IS_EDIT')) {
+        $xtpl->assign('FORM_ACTION', NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name ."&amp;". NV_OP_VARIABLE . "=insertqa&amp;edit=1&amp;id=" . $id);
+    } else {
+        $xtpl->assign('FORM_ACTION', NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name ."&amp;". NV_OP_VARIABLE . "=insertqa&amp;add=1");
+    }
 
+    $xtpl->assign('LANG', $lang_module);
+    $xtpl->assign('DATA', $array);
+
+    if (! empty($error)) {
+        $xtpl->assign('ERROR', $error);
+        $xtpl->parse('main.error');
+    }
+
+    foreach ($listcats as $cat) {
+        $xtpl->assign('LISTCATS', $cat);
+        $xtpl->parse('main.catid');
+    }
+	$xtpl->parse('main');
+    return $xtpl->text('main');
+
+}
+/**
+ * theme_insert_faq()
+ *
+ * @param mixed $list_cats
+ * @param mixed $catid
+ * @param mixed $faq
+ * @return
+ */
+function theme_viewlist_faq($array_accept,$generate_page_accept,$array_not_accept,$generate_page_not_accept)
+{
+	global $global_config, $lang_module, $lang_global, $module_info, $module_name, $module_file;
+	$xtpl = new XTemplate("viewlist.tpl", NV_ROOTDIR . "/themes/" . $module_info['template'] . "/modules/" . $module_file . "/");
+	$xtpl->assign('LANG', $lang_module);
+	$xtpl->assign('GLANG', $lang_global);
+
+	$xtpl->assign('ADD_NEW_FAQ', NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&amp;" . NV_OP_VARIABLE . "=insertqa");
+
+if (defined('NV_IS_CAT')) {
+    $xtpl->parse('main.is_cat1');
+}
+//view cau hoi chua duoc duyet
+if (! empty($array_not_accept)) {
+    $a = 0;
+    foreach ($array_not_accept as $row) {
+        $xtpl->assign('CLASS', $a % 2 == 1 ? " class=\"second\"" : "");
+        $xtpl->assign('ROW', $row);
+        $xtpl->assign('EDIT_URL', NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name ."&amp;". NV_OP_VARIABLE . "=insertqa&amp;edit=1&amp;id=" . $row['id']);
+        $xtpl->parse('main.main_not_accept.row_not_accept');
+        ++$a;
+    }
+	if (! empty($generate_page_not_accept)) {
+    $xtpl->assign('GENERATE_PAGE', $generate_page_not_accept);
+    $xtpl->parse('main.main_not_accept.generate_page_not_accept');
+	}
+	$xtpl->parse('main.main_not_accept');
+}
+//view cau hoi dc duoc duyet
+if (! empty($array_accept)) {
+    $a = 0;
+    foreach ($array_accept as $row) {
+        $xtpl->assign('CLASS', $a % 2 == 1 ? " class=\"second\"" : "");
+        $xtpl->assign('ROW', $row);
+        $xtpl->parse('main.main_accept.row_accept');
+        ++$a;
+    }
+	if (! empty($generate_page_accept)) {
+    $xtpl->assign('GENERATE_PAGE', $generate_page_accept);
+    $xtpl->parse('main.main_accept.generate_page_accept');
+	}
+	$xtpl->parse('main.main_accept');
+}
+
+
+	$xtpl->parse('main');
+    return $xtpl->text('main');
+}
 /**
  * theme_cat_faq()
- * 
+ *
  * @param mixed $list_cats
  * @param mixed $catid
  * @param mixed $faq
@@ -54,11 +150,17 @@ function theme_main_faq($list_cats)
  */
 function theme_cat_faq($list_cats, $catid, $faq)
 {
-    global $global_config, $lang_module, $lang_global, $module_info, $module_name, $module_file;
+    global $global_config, $lang_module, $lang_global, $module_info, $module_name, $module_file,$user_info;
 
     $xtpl = new XTemplate("main_page.tpl", NV_ROOTDIR . "/themes/" . $module_info['template'] . "/modules/" . $module_file . "/");
     $xtpl->assign('LANG', $lang_module);
-
+	$link_qa=NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&amp;" . NV_OP_VARIABLE . "=insertqa";
+    $xtpl->assign('LINKQA', $link_qa);
+   	$link_listqa=NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&amp;" . NV_OP_VARIABLE . "=viewlist&amp;userid=".$user_info['userid'];
+    $xtpl->assign('LINKLISTQA', $link_listqa);
+	if(!empty($user_info)) {
+		$xtpl->parse('main.isuser');
+	}
     if (! empty($list_cats[$catid]['description'])) {
         $xtpl->assign('WELCOME', $list_cats[$catid]['description']);
         $xtpl->parse('main.welcome');

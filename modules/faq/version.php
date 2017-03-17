@@ -14,7 +14,7 @@ if (! defined('NV_ADMIN') or ! defined('NV_MAINFILE')) {
 
 $module_version = array(
     'name' => 'Faq',
-    'modfuncs' => 'main',
+    'modfuncs' => 'main,insertqa,viewlist',
     'is_sysmod' => 0,
     'virtual' => 1,
     'version' => '4.1.00',

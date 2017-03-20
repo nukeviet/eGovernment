@@ -22,6 +22,33 @@ $listcats[0] = array(
 );
 $listcats = $listcats + nv_listcats(0);
 
+//Xoa
+if ($nv_Request->isset_request('del', 'post')) {
+    if (! defined('NV_IS_AJAX')) {
+        die('Wrong URL');
+    }
+
+    $id = $nv_Request->get_int('id', 'post', 0);
+
+    if (empty($id)) {
+        die('NO');
+    }
+
+    $sql = "SELECT COUNT(*) AS count, catid FROM " . NV_PREFIXLANG . "_" . $module_data . "_tmp WHERE id=" . $id;
+    $result = $db->query($sql);
+    list($count, $catid) = $result->fetch(3);
+
+    if ($count != 1) {
+        die('NO');
+    }
+
+    $sql = "DELETE FROM " . NV_PREFIXLANG . "_" . $module_data . "_tmp WHERE id=" . $id;
+    $db->query($sql);
+
+    nv_update_keywords($catid);
+
+    die('OK');
+}
 
 $page_title = $lang_module['faq_manager'];
 

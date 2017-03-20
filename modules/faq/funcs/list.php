@@ -69,8 +69,8 @@ $generate_page_accept='';
 
 if ($all_page) {
 	while ($row = $query->fetch()) {
-		if($module_setting['type_main'] == 0) $link='/vi/faq/'.$listcats[$row['catid']]['alias'];
-		else $link='/vi/faq';
+		if($module_setting['type_main'] == 0) $link='/'. NV_LANG_VARIABLE .'/faq/'.$listcats[$row['catid']]['alias'];
+		else $link='/'. NV_LANG_VARIABLE .'/faq';
 	    $array_accept[$row['id']] = array( //
 	        'id' => ( int )$row['id'], //
 	        'title' => $row['title'], //

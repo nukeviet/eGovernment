@@ -16,7 +16,13 @@
 	                {LANG.faq_catid_faq}
 	            </th>
 	            <th class="w200 text-center">
-	                {LANG.faq_status}
+	                {LANG.faq_customer}
+	            </th>
+	            <th class="text-center">
+	                {LANG.faq_email_customer}
+	            </th>
+	            <th class="text-center">
+	                {LANG.faq_date_customer}
 	            </th>
 	            <th class="w200 text-center">
 	                {LANG.faq_feature}
@@ -26,15 +32,6 @@
 	    <tbody>
 	    <!-- BEGIN: row -->
 	        <tr>
-	            <!-- BEGIN: is_cat2 -->
-	            <td>
-	                <select class="form-control" name="weight" id="weight{ROW.id}" onchange="nv_change_row_weight({ROW.id});">
-	                    <!-- BEGIN: weight -->
-	                    <option value="{WEIGHT.pos}"{WEIGHT.selected}>{WEIGHT.pos}</option>
-	                    <!-- END: weight -->
-	                </select>
-	            </td>
-	            <!-- END: is_cat2 -->
 	            <td>
 	                {ROW.title}
 	            </td>
@@ -42,11 +39,13 @@
 	                <a href="{ROW.catlink}">{ROW.cattitle}</a>
 	            </td>
 	            <td class="text-center">
-	                <select id="change_status_{ROW.id}" onchange="nv_chang_status('{ROW.id}');" class="form-control">
-					<!-- BEGIN: status -->
-					<option value="{STATUS.key}"{STATUS.selected}>{STATUS.val}</option>
-					<!-- END: status -->
-					</select>
+	                <a href="{ROW.catlink}">{ROW.username}</a>
+	            </td>
+	            <td class="text-center">
+	                <a href="{ROW.catlink}">{ROW.email}</a>
+	            </td>
+	            <td class="text-center">
+	                <a href="{ROW.catlink}">{ROW.addtime}</a>
 	            </td>
 	            <td class="text-center">
 	                <em class="fa fa-edit fa-lg">&nbsp;</em> <a href="{EDIT_URL}">{GLANG.edit}</a>

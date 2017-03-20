@@ -2,6 +2,7 @@
 <!-- BEGIN: error -->
 <div class="alert alert-danger">{ERROR}</div>
 <!-- END: error -->
+<h3>{LANG.faq_addfaq}</h3>
 <form class="form-inline" action="{FORM_ACTION}" method="post">
     <table class="table table-striped table-bordered table-hover">
     	<colgroup>
@@ -9,7 +10,7 @@
 		</colgroup>
         <tbody>
             <tr>
-                <td>
+                <td style="width:120px">
                     {LANG.faq_title_faq}
                 </td>
                 <td>
@@ -17,7 +18,7 @@
                 </td>
             </tr>
             <tr>
-                <td>
+                <td style="width:120px">
                     {LANG.faq_catid_faq}
                 </td>
                 <td>
@@ -29,13 +30,7 @@
                 </td>
             </tr>
             <tr>
-            	<td>{LANG.group_post}</td>
-				<td>
-					<label><input type="checkbox" value="1" name="hot_post"{HOST_POST}/> {LANG.hot_post}</label>
-				</td>
-            </tr>
-            <tr>
-                <td style="vertical-align:top">
+                <td style="vertical-align:top;width:120px">
                     {LANG.faq_question_faq}
                 </td>
                 <td><textarea name="question" id="question" class="form-control" rows="5" style="width:400px">{DATA.question}</textarea>

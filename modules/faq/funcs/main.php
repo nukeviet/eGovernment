@@ -31,7 +31,7 @@ if (! empty($alias) and $catid) {
     $description = $list_cats[$catid]['description'];
     $mod_title = $list_cats[$catid]['name'];
 
-    $query = "SELECT id,title, question, answer FROM " . NV_PREFIXLANG . "_" . $module_data . " WHERE catid=" . $catid . " AND status=1 ORDER BY weight ASC";
+    $query = "SELECT id,title, question, answer FROM " . NV_PREFIXLANG . "_" . $module_data . " WHERE catid=" . $catid . " AND status!=0 ORDER BY weight ASC";
     $result = $db->query($query);
 
     $faq = array();
@@ -61,8 +61,8 @@ if (! empty($alias) and $catid) {
     $contents = theme_main_faq($list_cats);
 } elseif ($module_setting['type_main'] == 1 or $module_setting['type_main'] == 2) {
     $order = ($module_setting['type_main'] == 1) ? "DESC" : "ASC";
-    
-    $query = "SELECT id,title, question, answer FROM " . NV_PREFIXLANG . "_" . $module_data . " WHERE status=1 ORDER BY addtime " . $order;
+
+    $query = "SELECT id,title, question, answer FROM " . NV_PREFIXLANG . "_" . $module_data . " WHERE status!=0 ORDER BY addtime " . $order;
     $result = $db->query($query);
 
     $faq = array();
@@ -75,7 +75,7 @@ if (! empty($alias) and $catid) {
             'answer' => $fanswer
         );
     }
-    
+
     $contents = theme_cat_faq(array(), 0, $faq);
 } else {
     nv_info_die($lang_global['error_404_title'], $lang_global['error_404_title'], $lang_global['error_404_content']);

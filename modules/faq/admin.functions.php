@@ -16,7 +16,7 @@ $submenu['cat'] = $lang_module['faq_catmanager'];
 $submenu['acceptqa'] = $lang_module['faq_accept_qa'];
 $submenu['config'] = $lang_module['config'];
 
-$allow_func = array( 'main', 'cat', 'config','acceptqa' );
+$allow_func = array( 'main', 'cat', 'config','acceptqa','editqa' );
 
 define('NV_IS_FILE_ADMIN', true);
 

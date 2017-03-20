@@ -21,7 +21,7 @@
 	    <!-- BEGIN: row_not_accept -->
 	        <tr>
 	            <td>
-	                {ROW.title}
+	               <a href="#">{ROW.title}</a>
 	            </td>
 	            <td>
 	                <span>{ROW.cattitle}</span>
@@ -63,7 +63,7 @@
 	    <!-- BEGIN: row_accept -->
 	        <tr>
 	            <td>
-	                {ROW.title}
+	                 <a href="{ROW.link}">{ROW.title}</a>
 	            </td>
 	            <td>
 	                <span>{ROW.cattitle}</span>

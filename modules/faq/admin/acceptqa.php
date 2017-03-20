@@ -21,19 +21,16 @@ $listcats[0] = array(
     'selected' => 0 == 0 ? " selected=\"selected\"" : "" //
 );
 $listcats = $listcats + nv_listcats(0);
-if (empty($listcats)) {
-    Header("Location: " . NV_BASE_ADMINURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=cat&add=1");
-    exit();
-}
+
 
 $page_title = $lang_module['faq_manager'];
 
 $page = $nv_Request->get_int('page', 'get', 1);
-$per_page = 1;
+$per_page = 20;
 
 $sql = "SELECT SQL_CALC_FOUND_ROWS * FROM " . NV_PREFIXLANG . "_" . $module_data . "_tmp";
 $base_url = NV_BASE_ADMINURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name. "&" . NV_OP_VARIABLE . "=acceptqa";
-$base_url .= "&amp;page=" . $page;
+//$base_url .= "&amp;page=" . $page;
 if ($nv_Request->isset_request("catid", "get")) {
     $catid = $nv_Request->get_int('catid', 'get', 0);
     if (! $catid or ! isset($listcats[$catid])) {
@@ -69,9 +66,6 @@ if (! $all_page) {
         echo nv_admin_theme($contents);
         include NV_ROOTDIR . '/includes/footer.php';
         exit();
-    } else {
-        Header("Location: " . NV_BASE_ADMINURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name . "&add=1");
-        exit();
     }
 }
 
@@ -90,7 +84,6 @@ while ($row = $query->fetch()) {
 		);
 
 }
-
 $generate_page = nv_generate_page($base_url, $all_page, $per_page, $page);
 
 
@@ -109,7 +102,7 @@ if (! empty($array)) {
     foreach ($array as $row) {
         $xtpl->assign('CLASS', $a % 2 == 1 ? " class=\"second\"" : "");
         $xtpl->assign('ROW', $row);
-        $xtpl->assign('EDIT_URL', NV_BASE_ADMINURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&amp;edit=1&amp;id=" . $row['id']);
+        $xtpl->assign('EDIT_URL', NV_BASE_ADMINURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name ."&amp;" .  NV_OP_VARIABLE . "=editqa&amp;id=" . $row['id']);
         $xtpl->parse('main.row');
         ++$a;
     }

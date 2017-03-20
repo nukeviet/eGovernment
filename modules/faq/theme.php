@@ -26,7 +26,7 @@ function theme_main_faq($list_cats)
     $xtpl->assign('LANG', $lang_module);
 	$link_qa=NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&amp;" . NV_OP_VARIABLE . "=insertqa";
     $xtpl->assign('LINKQA', $link_qa);
-	$link_listqa=NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&amp;" . NV_OP_VARIABLE . "=viewlist&amp;userid=".$user_info['userid'];
+	$link_listqa=NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&amp;" . NV_OP_VARIABLE . "=list";
     $xtpl->assign('LINKLISTQA', $link_listqa);
 	if(!empty($user_info)) {
 		$xtpl->parse('main.isuser');
@@ -156,7 +156,7 @@ function theme_cat_faq($list_cats, $catid, $faq)
     $xtpl->assign('LANG', $lang_module);
 	$link_qa=NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&amp;" . NV_OP_VARIABLE . "=insertqa";
     $xtpl->assign('LINKQA', $link_qa);
-   	$link_listqa=NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&amp;" . NV_OP_VARIABLE . "=viewlist&amp;userid=".$user_info['userid'];
+   	$link_listqa=NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&amp;" . NV_OP_VARIABLE . "=list";
     $xtpl->assign('LINKLISTQA', $link_listqa);
 	if(!empty($user_info)) {
 		$xtpl->parse('main.isuser');

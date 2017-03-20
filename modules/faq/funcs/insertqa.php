@@ -11,6 +11,7 @@
 if (! defined('NV_IS_MOD_FAQ')) {
     die('Stop!!!');
 }
+		$id='';
 		//Add, edit file
 		if ($nv_Request->isset_request('edit', 'get')) {
 	        $id = $nv_Request->get_int('id', 'get', 0);
@@ -91,7 +92,7 @@ if (! defined('NV_IS_MOD_FAQ')) {
                         nv_update_keywords($row['catid']);
                     }
 
-                    Header('Location: ' . NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name."&". NV_OP_VARIABLE . "=viewlist");
+                    Header('Location: ' . NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name."&". NV_OP_VARIABLE . "=list");
                     exit();
                 }
             } elseif (defined('IS_ADD')) {
@@ -108,7 +109,7 @@ if (! defined('NV_IS_MOD_FAQ')) {
                     $error = $lang_module['faq_error_notResult2'];
                 } else {
                     nv_update_keywords($array['catid']);
-                    Header('Location: ' . NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name."&". NV_OP_VARIABLE . "=viewlist");
+                    Header('Location: ' . NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name."&". NV_OP_VARIABLE . "=list");
                     exit();
                 }
             }

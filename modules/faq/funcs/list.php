@@ -22,20 +22,19 @@ $listcats[0] = array(
 $listcats = $listcats + nv_listcats(0);
 $page_title = $lang_module['faq_manager'];
 
-$page = $nv_Request->get_int('page', 'get', 0);
-$per_page = 30;
+$page = $nv_Request->get_int('page', 'get', 1);
+$per_page = 20;
 //List bài viết đã được duyệt
 $sql = "SELECT SQL_CALC_FOUND_ROWS * FROM " . NV_PREFIXLANG . "_" . $module_data . "";
-$base_url = NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name."&". NV_OP_VARIABLE . "=viewlist";
-$userid = $nv_Request->get_int('userid', 'get', 0);
+$base_url = NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name."&". NV_OP_VARIABLE . "=list";
 $where='';
-if($userid!=0) {
-	$where .="userid=".$userid;
+if($user_info['userid']!=0) {
+	$where .="userid=".$user_info['userid'];
 }
 if ($nv_Request->isset_request("catid", "get")) {
     $catid = $nv_Request->get_int('catid', 'get', 0);
     if (! $catid or ! isset($listcats[$catid])) {
-        Header('Location: ' . NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name."&". NV_OP_VARIABLE . "=viewlist");
+        Header('Location: ' . NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name."&". NV_OP_VARIABLE . "=list");
         exit();
     }
 
@@ -54,37 +53,44 @@ if ($nv_Request->isset_request("catid", "get")) {
     $sql .= " ORDER BY id DESC";
 }
 
-$sql .= " LIMIT " . $page . ", " . $per_page;
+if(!empty($page)) {
+	$sql .= " LIMIT "  . $per_page." OFFSET ".($page - 1) * $per_page;
+}
+else {
+	$sql .= " LIMIT "  . $per_page;
+}
 $query = $db->query($sql);
 
 $result = $db->query("SELECT FOUND_ROWS()");
 $all_page = $result->fetchColumn();
 $array_accept = array();
 $generate_page_accept='';
+//$module_setting['type_main'] == 0;'/vi/faq/#faq14'
+
 if ($all_page) {
 	while ($row = $query->fetch()) {
+		if($module_setting['type_main'] == 0) $link='/vi/faq/'.$listcats[$row['catid']]['alias'];
+		else $link='/vi/faq';
 	    $array_accept[$row['id']] = array( //
 	        'id' => ( int )$row['id'], //
 	        'title' => $row['title'], //
 	        'cattitle' => $listcats[$row['catid']]['title'], //
-	        'link' => $row['title'],
+	        'link' => $link.'/#faq'.( int )$row['id'],
 	        );
 	}
 	$generate_page_accept = nv_generate_page($base_url, $all_page, $per_page, $page);
 }
 //list bài viết chưa được duyệt
 $sql = "SELECT SQL_CALC_FOUND_ROWS * FROM " . NV_PREFIXLANG . "_" . $module_data . "_tmp";
-$base_url = NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name."&". NV_OP_VARIABLE . "=viewlist";
-$userid = $nv_Request->get_int('userid', 'get', 0);
-$where='';
-if($userid!=0) {
-	$where .="userid=".$userid;
+$base_url = NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name."&". NV_OP_VARIABLE . "=list";
+if($user_info['userid']!=0) {
+	$where .="userid=".$user_info['userid'];
 }
 
 if ($nv_Request->isset_request("catid", "get")) {
     $catid = $nv_Request->get_int('catid', 'get', 0);
     if (! $catid or ! isset($listcats[$catid])) {
-        Header('Location: ' . NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name."&". NV_OP_VARIABLE . "=viewlist");
+        Header('Location: ' . NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name."&". NV_OP_VARIABLE . "=list");
         exit();
     }
     $caption = sprintf($lang_module['faq_list_by_cat'], $listcats[$catid]['title']);
@@ -101,7 +107,12 @@ if ($nv_Request->isset_request("catid", "get")) {
     $caption = $lang_module['faq_manager'];
 }
 
-$sql .= " LIMIT " . $page . ", " . $per_page;
+if(!empty($page)) {
+	$sql .= " LIMIT "  . $per_page." OFFSET ".($page - 1) * $per_page;
+}
+else {
+	$sql .= " LIMIT "  . $per_page;
+}
 
 $query = $db->query($sql);
 

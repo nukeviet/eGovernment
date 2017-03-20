@@ -67,6 +67,7 @@ if ($nv_Request->isset_request('add', 'get') or $nv_Request->isset_request('edit
         $array['title'] = $nv_Request->get_title('title', 'post', '', 1);
         $array['question'] = $nv_Request->get_textarea('question', '', NV_ALLOWED_HTML_TAGS);
         $array['answer'] = $nv_Request->get_editor('answer', '', NV_ALLOWED_HTML_TAGS);
+		$array['hot_post'] = $nv_Request->get_int('hot_post', 'post', 0);
 
         $alias = change_alias($array['title']);
 
@@ -95,7 +96,6 @@ if ($nv_Request->isset_request('add', 'get') or $nv_Request->isset_request('edit
         } else {
             $array['question'] = nv_nl2br($array['question'], "<br />");
             $array['answer'] = nv_editor_nl2br($array['answer']);
-
             if (defined('IS_EDIT')) {
                 if ($array['catid'] != $row['catid']) {
                     $sql = "SELECT MAX(weight) AS new_weight FROM " . NV_PREFIXLANG . "_" . $module_data . " WHERE catid=" . $array['catid'];
@@ -106,14 +106,16 @@ if ($nv_Request->isset_request('add', 'get') or $nv_Request->isset_request('edit
                 } else {
                     $new_weight = $row['weight'];
                 }
-
+				if(!empty($array['hot_post'])) $status=2;
+				else $status=1;
                 $sql = "UPDATE " . NV_PREFIXLANG . "_" . $module_data . " SET
                 catid=" . $array['catid'] . ",
                 title=" . $db->quote($array['title']) . ",
                 alias=" . $db->quote($alias) . ",
                 question=" . $db->quote($array['question']) . ",
                 answer=" . $db->quote($array['answer']) . ",
-                weight=" . $new_weight . "
+                weight=" . $new_weight . ",
+                status=" . $status . "
                 WHERE id=" . $id;
                 $result = $db->query($sql);
 
@@ -137,7 +139,8 @@ if ($nv_Request->isset_request('add', 'get') or $nv_Request->isset_request('edit
                 $new_weight = $result->fetchColumn();
                 $new_weight = ( int )$new_weight;
                 ++$new_weight;
-
+				if(!empty($array['hot_post'])) $status=2;
+				else $status=1;
                 $sql = "INSERT INTO " . NV_PREFIXLANG . "_" . $module_data . "(catid,title,alias,question,answer,weight,status,addtime) VALUES (
                 " . $array['catid'] . ",
                 " . $db->quote($array['title']) . ",
@@ -145,7 +148,8 @@ if ($nv_Request->isset_request('add', 'get') or $nv_Request->isset_request('edit
                 " . $db->quote($array['question']) . ",
                 " . $db->quote($array['answer']) . ",
                 " . $new_weight . ",
-                1, " . NV_CURRENTTIME . ")";
+                " . $status . ",
+                 " . NV_CURRENTTIME . ")";
                 if (! $db->insert_id($sql)) {
                     $is_error = true;
                     $error = $lang_module['faq_error_notResult2'];
@@ -163,6 +167,7 @@ if ($nv_Request->isset_request('add', 'get') or $nv_Request->isset_request('edit
             $array['title'] = $row['title'];
             $array['answer'] = nv_editor_br2nl($row['answer']);
             $array['question'] = nv_br2nl($row['question']);
+            $array['hot_post']=$row['status'];
         } else {
             $array['catid'] = 0;
             $array['title'] = $array['answer'] = $array['question'] = "";
@@ -208,7 +213,9 @@ if ($nv_Request->isset_request('add', 'get') or $nv_Request->isset_request('edit
 
     $xtpl->assign('LANG', $lang_module);
     $xtpl->assign('DATA', $array);
-
+	if(!empty($array['hot_post']) and $array['hot_post']==2) {
+			$xtpl->assign('HOST_POST', ($array['hot_post']) ? ' checked="checked"' : '');
+		}
     if (! empty($error)) {
         $xtpl->assign('ERROR', $error);
         $xtpl->parse('main.error');
@@ -341,7 +348,7 @@ if (empty($listcats)) {
 
 $page_title = $lang_module['faq_manager'];
 
-$page = $nv_Request->get_int('page', 'get', 0);
+$page = $nv_Request->get_int('page', 'get', 1);
 $per_page = 30;
 
 $sql = "SELECT SQL_CALC_FOUND_ROWS * FROM " . NV_PREFIXLANG . "_" . $module_data . "";
@@ -364,7 +371,12 @@ if ($nv_Request->isset_request("catid", "get")) {
     $sql .= " ORDER BY id DESC";
 }
 
-$sql .= " LIMIT " . $page . ", " . $per_page;
+if(!empty($page)) {
+	$sql .= " LIMIT "  . $per_page." OFFSET ".($page - 1) * $per_page;
+}
+else {
+	$sql .= " LIMIT "  . $per_page;
+}
 
 $query = $db->query($sql);
 
@@ -392,7 +404,7 @@ while ($row = $query->fetch()) {
         'title' => $row['title'], //
         'cattitle' => $listcats[$row['catid']]['title'], //
         'catlink' => NV_BASE_ADMINURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&amp;catid=" . $row['catid'], //
-        'status' => $row['status'] ? " checked=\"checked\"" : "" //
+        'status' => $row['status'] //
         );
 
     if (defined('NV_IS_CAT')) {
@@ -409,6 +421,7 @@ while ($row = $query->fetch()) {
 
 $generate_page = nv_generate_page($base_url, $all_page, $per_page, $page);
 
+$array_status = array( $lang_module['faq_no_active'],$lang_module['faq_active'],$lang_module['hot_post'] );
 $xtpl = new XTemplate("main.tpl", NV_ROOTDIR . "/themes/" . $global_config['module_theme'] . "/modules/" . $module_file);
 $xtpl->assign('LANG', $lang_module);
 $xtpl->assign('GLANG', $lang_global);
@@ -432,8 +445,16 @@ if (! empty($array)) {
             }
             $xtpl->parse('main.row.is_cat2');
         }
-
         $xtpl->assign('EDIT_URL', NV_BASE_ADMINURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&amp;edit=1&amp;id=" . $row['id']);
+         foreach ($array_status as $key => $val) {
+        $xtpl->assign('STATUS', array(
+            'key' => $key,
+            'val' => $val,
+            'selected' => ($key == $row['status']) ? ' selected="selected"' : ''
+        ));
+
+        $xtpl->parse('main.row.status');
+    	}
         $xtpl->parse('main.row');
         ++$a;
     }

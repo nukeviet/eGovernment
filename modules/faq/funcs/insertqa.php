@@ -11,6 +11,10 @@
 if (! defined('NV_IS_MOD_FAQ')) {
     die('Stop!!!');
 }
+	if($module_setting['user_post']!=1) {
+		Header("Location:"  . NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name);
+	                exit();
+	}
 		$id='';
 		//Add, edit file
 		if ($nv_Request->isset_request('edit', 'get')) {

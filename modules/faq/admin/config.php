@@ -18,7 +18,7 @@ $array_config = array();
 
 if ($nv_Request->isset_request('submit', 'post')) {
     $array_config['type_main'] = $nv_Request->get_int('type_main', 'post', 0);
-
+	$array_config['user_post'] = $nv_Request->get_int('user_post', 'post', 0);
     foreach ($array_config as $config_name => $config_value) {
         $query = "REPLACE INTO " . NV_PREFIXLANG . "_" . $module_data . "_config VALUES (" . $db->quote($config_name) . "," . $db->quote($config_value) . ")";
         $db->query($query);
@@ -61,6 +61,8 @@ $xtpl = new XTemplate("config.tpl", NV_ROOTDIR . "/themes/" . $global_config['mo
 $xtpl->assign('FORM_ACTION', NV_BASE_ADMINURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&amp;" . NV_OP_VARIABLE . "=" . $op);
 $xtpl->assign('LANG', $lang_module);
 $xtpl->assign('DATA', $array_config);
+$xtpl->assign('DATA', $array_config);
+$xtpl->assign('USERPOST', $array_config['user_post'] ? ' checked="checked"' : '');
 
 //
 foreach ($array_config['type_main'] as $type_main) {

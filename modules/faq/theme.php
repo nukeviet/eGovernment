@@ -28,7 +28,7 @@ function theme_main_faq($list_cats)
     $xtpl->assign('LINKQA', $link_qa);
 	$link_listqa=NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&amp;" . NV_OP_VARIABLE . "=list";
     $xtpl->assign('LINKLISTQA', $link_listqa);
-	if(!empty($user_info)) {
+	if(!empty($user_info) and $module_setting['user_post']==1) {
 		$xtpl->parse('main.isuser');
 	}
     $xtpl->assign('WELCOME', $lang_module['faq_welcome']);
@@ -150,7 +150,7 @@ if (! empty($array_accept)) {
  */
 function theme_cat_faq($list_cats, $catid, $faq)
 {
-    global $global_config, $lang_module, $lang_global, $module_info, $module_name, $module_file,$user_info;
+    global $global_config, $lang_module, $lang_global, $module_info, $module_name, $module_file,$user_info,$module_setting;
 
     $xtpl = new XTemplate("main_page.tpl", NV_ROOTDIR . "/themes/" . $module_info['template'] . "/modules/" . $module_file . "/");
     $xtpl->assign('LANG', $lang_module);
@@ -158,7 +158,7 @@ function theme_cat_faq($list_cats, $catid, $faq)
     $xtpl->assign('LINKQA', $link_qa);
    	$link_listqa=NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&amp;" . NV_OP_VARIABLE . "=list";
     $xtpl->assign('LINKLISTQA', $link_listqa);
-	if(!empty($user_info)) {
+	if(!empty($user_info) and $module_setting['user_post']==1) {
 		$xtpl->parse('main.isuser');
 	}
     if (! empty($list_cats[$catid]['description'])) {

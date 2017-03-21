@@ -71,6 +71,7 @@ $lang_module['faq_customer'] = 'Tên người đặt câu hỏi';
 $lang_module['faq_email_customer'] = 'Email';
 $lang_module['faq_date_customer'] = 'Thời gian gửi';
 $lang_module['group_post'] = 'Bài viết thuộc nhóm';
+$lang_module['config_qa_site'] = 'Bật chức năng đặt câu hỏi ngoài site';
 $lang_module['hot_post'] = 'Nổi bật';
 $lang_module['faq_status'] = 'Trạng thái';
 $lang_module['email_titile']='NukeViet';

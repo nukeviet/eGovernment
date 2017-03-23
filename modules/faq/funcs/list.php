@@ -140,14 +140,15 @@ if ($nv_Request->isset_request('del', 'post')) {
     if (! defined('NV_IS_AJAX')) {
         die('Wrong URL');
     }
-
     $id = $nv_Request->get_int('id', 'post', 0);
-
+	$fcheckss = $nv_Request->get_string('checkss', 'get,post', '');
+	$checkss = md5($id  . NV_CHECK_SESSION);
     if (empty($id)) {
         die('NO');
     }
 
-    $sql = "SELECT COUNT(*) AS count, catid FROM " . NV_PREFIXLANG . "_" . $module_data .  "_tmp WHERE id=" . $id;
+	if($fcheckss == $checkss) {
+		$sql = "SELECT COUNT(*) AS count, catid FROM " . NV_PREFIXLANG . "_" . $module_data .  "_tmp WHERE id=" . $id;
     $result = $db->query($sql);
     list($count, $catid) = $result->fetch(3);
 
@@ -160,6 +161,7 @@ if ($nv_Request->isset_request('del', 'post')) {
 
     nv_update_keywords($catid);
     die('OK');
+	}
 }
 $contents=theme_viewlist_faq($array_accept,$generate_page_accept,$array_not_accept,$generate_page_not_accept);
 include NV_ROOTDIR . '/includes/header.php';

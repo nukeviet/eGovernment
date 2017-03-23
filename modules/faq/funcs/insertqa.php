@@ -52,6 +52,12 @@ if (! defined('NV_IS_MOD_FAQ')) {
         $array['question'] = $nv_Request->get_textarea('question', '', NV_ALLOWED_HTML_TAGS);
         $array['answer'] = $nv_Request->get_editor('answer', '', NV_ALLOWED_HTML_TAGS);
 
+		if ($global_config['captcha_type'] == 2) {
+            $fcode = $nv_Request->get_title('g-recaptcha-response', 'post', '');
+        } else {
+            $fcode = $nv_Request->get_title('fcode', 'post', '');
+        }
+
         $alias = change_alias($array['title']);
 
         if (defined('IS_ADD')) {
@@ -73,7 +79,12 @@ if (! defined('NV_IS_MOD_FAQ')) {
         } elseif (empty($array['question'])) {
             $is_error = true;
             $error = $lang_module['faq_error_question'];
-        } else {
+        }
+        elseif(! nv_capcha_txt($fcode)) {
+			$is_error = true;
+            $error = ($global_config['captcha_type'] == 2 ? $lang_global['securitycodeincorrect1'] : $lang_global['securitycodeincorrect']);
+		}
+		else {
             $array['question'] = nv_nl2br($array['question'], "<br />");
             $array['answer'] = nv_editor_nl2br($array['answer']);
 

@@ -50,7 +50,7 @@
 	            <td class="text-center">
 	                <em class="fa fa-edit fa-lg">&nbsp;</em> <a href="{EDIT_URL}">{GLANG.edit}</a>
 	                &nbsp;&nbsp;
-					<em class="fa fa-trash-o fa-lg">&nbsp;</em> <a href="javascript:void(0);" onclick="nv_row_del_acceptqa({ROW.id});">{GLANG.delete}</a>
+					<em class="fa fa-trash-o fa-lg">&nbsp;</em> <a href="javascript:void(0);" onclick="nv_row_del_acceptqa({ROW.id},'{ROW.email}');">{GLANG.delete}</a>
 	            </td>
 	        </tr>
 	    <!-- END: row -->

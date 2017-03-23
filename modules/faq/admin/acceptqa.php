@@ -11,7 +11,6 @@
 if (! defined('NV_IS_FILE_ADMIN')) {
     die('Stop!!!');
 }
-
 //List faq
 $listcats = array();
 $listcats[0] = array(
@@ -29,6 +28,7 @@ if ($nv_Request->isset_request('del', 'post')) {
     }
 
     $id = $nv_Request->get_int('id', 'post', 0);
+	$email = $nv_Request->get_string('email', 'post', '');
 
     if (empty($id)) {
         die('NO');
@@ -44,6 +44,12 @@ if ($nv_Request->isset_request('del', 'post')) {
 
     $sql = "DELETE FROM " . NV_PREFIXLANG . "_" . $module_data . "_tmp WHERE id=" . $id;
     $db->query($sql);
+	$link=NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name;
+	$link=NV_MY_DOMAIN.$link;
+	nv_sendmail( array(
+				$lang_module['email_titile'],
+				$global_config['smtp_username']
+			), $email, $lang_module['email_titile_accept'], "<strong>" . sprintf( $lang_module['email_body_error'], NV_SERVER_NAME, $link ) . "</strong>" );
 
     nv_update_keywords($catid);
 
@@ -99,7 +105,7 @@ if (! $all_page) {
 $array = array();
 
 while ($row = $query->fetch()) {
-	$user_info = $db->query('SELECT username, first_name, last_name, photo,email FROM ' . NV_USERS_GLOBALTABLE . ' WHERE userid = ' . $row['userid'])->fetch();
+	$user_info = $db->query('SELECT userid,username, first_name, last_name, photo,email FROM ' . NV_USERS_GLOBALTABLE . ' WHERE userid = ' . $row['userid'])->fetch();
     $array[$row['id']] = array( //
         'id' => ( int )$row['id'], //
         'title' => $row['title'], //
@@ -107,6 +113,7 @@ while ($row = $query->fetch()) {
         'catlink' => NV_BASE_ADMINURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&amp;catid=" . $row['catid'], //
         'username'=>$user_info['username'],
         'email'=>$user_info['email'],
+        'userid'=>$user_info['userid'],
         'addtime'=>date("h:i:s d/m/Y",$row['addtime'])
 		);
 
@@ -129,7 +136,7 @@ if (! empty($array)) {
     foreach ($array as $row) {
         $xtpl->assign('CLASS', $a % 2 == 1 ? " class=\"second\"" : "");
         $xtpl->assign('ROW', $row);
-        $xtpl->assign('EDIT_URL', NV_BASE_ADMINURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name ."&amp;" .  NV_OP_VARIABLE . "=editqa&amp;id=" . $row['id']);
+        $xtpl->assign('EDIT_URL', NV_BASE_ADMINURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name ."&amp;" .  NV_OP_VARIABLE . "=editqa&amp;id=" . $row['id']. "&amp;userid=" . $row['userid']. "&amp;email=" . $row['email']);
         $xtpl->parse('main.row');
         ++$a;
     }

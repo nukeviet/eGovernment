@@ -76,4 +76,5 @@ $lang_module['hot_post'] = 'Nổi bật';
 $lang_module['faq_status'] = 'Trạng thái';
 $lang_module['email_titile']='NukeViet';
 $lang_module['email_titile_accept']='Thông báo kết quả duyệt bài đăng hỏi đáp';
-$lang_module['email_body_accept']='Bài đăng hỏi đáp của bạn tại %s đã được duyệt mời bạn <a href="%s2">vào đây</a> để xem';
+$lang_module['email_body_accept']='Bài đăng hỏi đáp của bạn tại %s đã được duyệt mời bạn <a href="%s">vào đây</a> để xem';
+$lang_module['email_body_error']='Bài đăng hỏi đáp của bạn tại %s không hợp lệ nên đã bị xóa mời bạn <a href="%s">vào đây</a> để đăng bài viết mới ';

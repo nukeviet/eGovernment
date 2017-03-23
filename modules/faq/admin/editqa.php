@@ -11,8 +11,9 @@
 if (! defined('NV_IS_FILE_ADMIN')) {
     die('Stop!!!');
 }
-
 		$id = $nv_Request->get_int('id', 'get', 0);
+		$userid = $nv_Request->get_int('userid', 'get', 0);
+		$email = $nv_Request->get_string('email', 'get', '');
         if ($id) {
             $query = "SELECT * FROM " . NV_PREFIXLANG . "_" . $module_data . "_tmp WHERE id=" . $id;
             $result = $db->query($query);
@@ -72,7 +73,7 @@ if (! defined('NV_IS_FILE_ADMIN')) {
             ++$new_weight;
 			if(!empty($array['hot_post'])) $status=2;
 			else $status=1;
-            $sql = "INSERT INTO " . NV_PREFIXLANG . "_" . $module_data . "(catid,title,alias,question,answer,weight,status,addtime) VALUES (
+            $sql = "INSERT INTO " . NV_PREFIXLANG . "_" . $module_data . "(catid,title,alias,question,answer,weight,status,addtime,admin_id,userid,pubtime) VALUES (
                 " . $array['catid'] . ",
                 " . $db->quote($array['title']) . ",
                 " . $db->quote($alias) . ",
@@ -80,6 +81,9 @@ if (! defined('NV_IS_FILE_ADMIN')) {
                 " . $db->quote($array['answer']) . ",
                 " . $new_weight . ",
                 " . $status . ",
+                 " . NV_CURRENTTIME . ",
+                 " . $admin_info['admin_id'] . ",
+                 " . $userid . ",
                  " . NV_CURRENTTIME . ")";
                 if (! $db->insert_id($sql)) {
                     $is_error = true;
@@ -95,8 +99,8 @@ if (! defined('NV_IS_FILE_ADMIN')) {
 				nv_sendmail( array(
 				$lang_module['email_titile'],
 				$global_config['smtp_username']
-			), $global_config['site_email'], $lang_module['email_titile_accept'], "<strong>" . sprintf( $lang_module['email_body_accept'], NV_SERVER_NAME, $link ) . "</strong>" );
-                	 $sql = "DELETE FROM " . NV_PREFIXLANG . "_" . $module_data . "_tmp WHERE id=" . $id;
+			), $email, $lang_module['email_titile_accept'], "<strong>" . sprintf( $lang_module['email_body_accept'], NV_SERVER_NAME, $link ) . "</strong>" );
+                	$sql = "DELETE FROM " . NV_PREFIXLANG . "_" . $module_data . "_tmp WHERE id=" . $id;
     				$db->query($sql);
                     nv_update_keywords($array['catid']);
                     Header('Location: ' . NV_BASE_ADMINURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name);

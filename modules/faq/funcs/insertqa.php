@@ -11,7 +11,7 @@
 if (! defined('NV_IS_MOD_FAQ')) {
     die('Stop!!!');
 }
-	if($module_setting['user_post']!=1) {
+	if($module_setting['user_post']!=1 or empty($user_info['userid'])) {
 		Header("Location:"  . NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name);
 	                exit();
 	}
@@ -57,9 +57,6 @@ if (! defined('NV_IS_MOD_FAQ')) {
         } else {
             $fcode = $nv_Request->get_title('fcode', 'post', '');
         }
-
-        $alias = change_alias($array['title']);
-
         if (defined('IS_ADD')) {
             $sql = "SELECT COUNT(*) FROM " . NV_PREFIXLANG . "_" . $module_data . " WHERE alias=" . $db->quote($alias);
             $result = $db->query($sql);
@@ -98,7 +95,7 @@ if (! defined('NV_IS_MOD_FAQ')) {
                 title=" . $db->quote($array['title']) . ",
                 question=" . $db->quote($array['question']) . ",
                 answer=" . $db->quote($array['answer']) . "
-                WHERE id=" . $id;
+                WHERE id=" . $id." AND userid=".$user_info['userid'];
                 $result = $db->query($sql);
 
                 if (! $result) {

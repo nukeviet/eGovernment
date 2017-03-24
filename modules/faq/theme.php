@@ -111,7 +111,7 @@ function theme_viewlist_faq($array_accept,$generate_page_accept,$array_not_accep
 	$xtpl->assign('LANG', $lang_module);
 	$xtpl->assign('GLANG', $lang_global);
 
-	$xtpl->assign('ADD_NEW_FAQ', NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&amp;" . NV_OP_VARIABLE . "=".$op);
+	$xtpl->assign('ADD_NEW_FAQ', NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&amp;" . NV_OP_VARIABLE . "=insertqa");
 
 if (defined('NV_IS_CAT')) {
     $xtpl->parse('main.is_cat1');

@@ -141,7 +141,7 @@ if ($nv_Request->isset_request('del', 'post')) {
         die('Wrong URL');
     }
     $id = $nv_Request->get_int('id', 'post', 0);
-	$fcheckss = $nv_Request->get_string('checkss', 'get,post', '');
+	$fcheckss = $nv_Request->get_string('checkss', 'post', '');
 	$checkss = md5($id  . NV_CHECK_SESSION);
     if (empty($id)) {
         die('NO');

@@ -41,6 +41,7 @@ $lang_module['faq_error_question'] = 'Lỗi: Câu hỏi chưa được khai báo
 $lang_module['faq_error_answer'] = 'Lỗi: Câu trả lời chưa được khai báo';
 $lang_module['faq_error_notResult'] = 'Lỗi: Các thay đổi không được ghi nhận vì một lý do không xác định';
 $lang_module['faq_error_notResult2'] = 'Lỗi: Hỏi đáp mới không được ghi nhận vì một lý do không xác định';
+$lang_module['faq_error_cat'] ='Lỗi: Bạn chưa chọn chủ đề';
 $lang_module['nocat'] = 'Không thuộc chủ đề nào';
 $lang_module['faq_make_question'] = 'Đặt câu hỏi';
 $lang_module['faq_pos'] = 'Vị trí';

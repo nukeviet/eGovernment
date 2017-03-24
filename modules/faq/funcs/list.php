@@ -11,6 +11,10 @@
 if (! defined('NV_IS_MOD_FAQ')) {
     die('Stop!!!');
 }
+if($module_setting['user_post']!=1 or empty($user_info['userid'])) {
+		Header("Location:"  . NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name);
+	                exit();
+}
 //List faq
 $listcats = array();
 $listcats[0] = array(
@@ -27,10 +31,6 @@ $per_page = 20;
 //List bài viết đã được duyệt
 $sql = "SELECT SQL_CALC_FOUND_ROWS * FROM " . NV_PREFIXLANG . "_" . $module_data . "";
 $base_url = NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name."&". NV_OP_VARIABLE . "=list";
-$where='';
-if($user_info['userid']!=0) {
-	$where .="userid=".$user_info['userid'];
-}
 if ($nv_Request->isset_request("catid", "get")) {
     $catid = $nv_Request->get_int('catid', 'get', 0);
     if (! $catid or ! isset($listcats[$catid])) {
@@ -39,12 +39,7 @@ if ($nv_Request->isset_request("catid", "get")) {
     }
 
     $caption = sprintf($lang_module['faq_list_by_cat'], $listcats[$catid]['title']);
-	if($where!='') {
-		$sql .= " WHERE ".$where." AND catid=" . $catid . " ORDER BY weight ASC";
-	}
-	else {
-		$sql .= " WHERE catid=" . $catid . " ORDER BY weight ASC";
-	}
+	$sql .= " WHERE catid=" . $catid . " ORDER BY weight ASC";
     $base_url .= "&amp;catid=" . $catid;
 
     define('NV_IS_CAT', true);
@@ -65,17 +60,18 @@ $result = $db->query("SELECT FOUND_ROWS()");
 $all_page = $result->fetchColumn();
 $array_accept = array();
 $generate_page_accept='';
-//$module_setting['type_main'] == 0;'/vi/faq/#faq14'
-
+$link=NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name;
 if ($all_page) {
 	while ($row = $query->fetch()) {
-		if($module_setting['type_main'] == 0) $link='/vi/faq/'.$listcats[$row['catid']]['alias'];
-		else $link='/vi/faq';
+		if($module_setting['type_main'] == 0) {
+			$link.="&". NV_OP_VARIABLE ."=". $listcats[$row['catid']]['alias'];
+			$link= nv_url_rewrite($link, true);
+		}
 	    $array_accept[$row['id']] = array( //
 	        'id' => ( int )$row['id'], //
 	        'title' => $row['title'], //
 	        'cattitle' => $listcats[$row['catid']]['title'], //
-	        'link' => $link.'/#faq'.( int )$row['id'],
+	        'link' => $link.'#faq'.( int )$row['id'],
 	        );
 	}
 	$generate_page_accept = nv_generate_page($base_url, $all_page, $per_page, $page);
@@ -83,10 +79,6 @@ if ($all_page) {
 //list bài viết chưa được duyệt
 $sql = "SELECT SQL_CALC_FOUND_ROWS * FROM " . NV_PREFIXLANG . "_" . $module_data . "_tmp";
 $base_url = NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name."&". NV_OP_VARIABLE . "=list";
-if($user_info['userid']!=0) {
-	$where .="userid=".$user_info['userid'];
-}
-
 if ($nv_Request->isset_request("catid", "get")) {
     $catid = $nv_Request->get_int('catid', 'get', 0);
     if (! $catid or ! isset($listcats[$catid])) {
@@ -94,12 +86,7 @@ if ($nv_Request->isset_request("catid", "get")) {
         exit();
     }
     $caption = sprintf($lang_module['faq_list_by_cat'], $listcats[$catid]['title']);
-    if($where!='') {
-		$sql .= " WHERE ".$where." AND catid=" . $catid . " ORDER BY weight ASC";
-	}
-	else {
-		$sql .= " WHERE catid=" . $catid . " ORDER BY weight ASC";
-	}
+    $sql .= " WHERE catid=" . $catid . " ORDER BY weight ASC";
     $base_url .= "&amp;catid=" . $catid;
 
     define('NV_IS_CAT', true);
@@ -136,14 +123,15 @@ if ($nv_Request->isset_request('del', 'post')) {
     if (! defined('NV_IS_AJAX')) {
         die('Wrong URL');
     }
-
     $id = $nv_Request->get_int('id', 'post', 0);
-
+	$fcheckss = $nv_Request->get_string('checkss', 'post', '');
+	$checkss = md5($id  . NV_CHECK_SESSION);
     if (empty($id)) {
         die('NO');
     }
 
-    $sql = "SELECT COUNT(*) AS count, catid FROM " . NV_PREFIXLANG . "_" . $module_data .  "_tmp WHERE id=" . $id;
+	if($fcheckss == $checkss) {
+	$sql = "SELECT COUNT(*) AS count, catid FROM " . NV_PREFIXLANG . "_" . $module_data .  "_tmp WHERE id=" . $id;
     $result = $db->query($sql);
     list($count, $catid) = $result->fetch(3);
 
@@ -151,11 +139,12 @@ if ($nv_Request->isset_request('del', 'post')) {
         die('NO');
     }
 
-    $sql = "DELETE FROM " . NV_PREFIXLANG . "_" . $module_data . "_tmp WHERE id=" . $id;
+    $sql = "DELETE FROM " . NV_PREFIXLANG . "_" . $module_data . "_tmp WHERE id=" . $id ." AND userid=".$user_info['userid'];;
     $db->query($sql);
 
     nv_update_keywords($catid);
     die('OK');
+	}
 }
 $contents=theme_viewlist_faq($array_accept,$generate_page_accept,$array_not_accept,$generate_page_not_accept);
 include NV_ROOTDIR . '/includes/header.php';

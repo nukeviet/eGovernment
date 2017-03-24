@@ -115,7 +115,8 @@ if ($nv_Request->isset_request('add', 'get') or $nv_Request->isset_request('edit
                 question=" . $db->quote($array['question']) . ",
                 answer=" . $db->quote($array['answer']) . ",
                 weight=" . $new_weight . ",
-                status=" . $status . "
+                status=" . $status . ",
+                admin_id=". $admin_info['admin_id'] ."
                 WHERE id=" . $id;
                 $result = $db->query($sql);
 
@@ -141,7 +142,7 @@ if ($nv_Request->isset_request('add', 'get') or $nv_Request->isset_request('edit
                 ++$new_weight;
 				if(!empty($array['hot_post'])) $status=2;
 				else $status=1;
-                $sql = "INSERT INTO " . NV_PREFIXLANG . "_" . $module_data . "(catid,title,alias,question,answer,weight,status,addtime) VALUES (
+                $sql = "INSERT INTO " . NV_PREFIXLANG . "_" . $module_data . "(catid,title,alias,question,answer,weight,status,addtime,admin_id) VALUES (
                 " . $array['catid'] . ",
                 " . $db->quote($array['title']) . ",
                 " . $db->quote($alias) . ",
@@ -149,7 +150,8 @@ if ($nv_Request->isset_request('add', 'get') or $nv_Request->isset_request('edit
                 " . $db->quote($array['answer']) . ",
                 " . $new_weight . ",
                 " . $status . ",
-                 " . NV_CURRENTTIME . ")";
+                 " . NV_CURRENTTIME . ",
+                 " . $admin_info['admin_id'] . ")";
                 if (! $db->insert_id($sql)) {
                     $is_error = true;
                     $error = $lang_module['faq_error_notResult2'];

@@ -13,6 +13,10 @@
                         </select>
                     </td>
                 </tr>
+                <tr>
+					<td>{LANG.config_qa_site}</td>
+					<td><input type="checkbox" value="1" name="user_post"{USERPOST}/></td>
+				</tr>
             </tbody>
         </table>
         <div style="text-align:center;padding-top:15px">

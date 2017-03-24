@@ -29,7 +29,7 @@
 	            <td class="text-center">
 	                <em class="fa fa-edit fa-lg">&nbsp;</em> <a href="{EDIT_URL}">{GLANG.edit}</a>
 	                &nbsp;&nbsp;
-					<em class="fa fa-trash-o fa-lg">&nbsp;</em> <a href="javascript:void(0);" onclick="nv_row_del({ROW.id});">{GLANG.delete}</a>
+					<em class="fa fa-trash-o fa-lg">&nbsp;</em> <a href="javascript:void(0);" onclick="nv_row_del({ROW.id},'{CHECKSS}');">{GLANG.delete}</a>
 	            </td>
 	        </tr>
 	    <!-- END: row_not_accept -->
@@ -83,10 +83,11 @@
 <!-- END: main_accept -->
 <a class="btn btn-primary" href="{ADD_NEW_FAQ}">{LANG.faq_addfaq}</a>
 <script>
-	function nv_row_del( fid )
+	function nv_row_del( fid,checkss )
 {
 	if (confirm(nv_is_del_confirm[0])) {
-		$.post(script_name + '?' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=viewlist&nocache=' + new Date().getTime(), 'del=1&id=' + fid, function(res) {
+		$.post(script_name + '?' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=list&nocache=' + new Date().getTime(), 'del=1&id=' + fid+'&checkss='+checkss, function(res) {
+			alert(res);
 			if (res == 'OK') {
 				window.location.href = window.location.href;
 			} else {

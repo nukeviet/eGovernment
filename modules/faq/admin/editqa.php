@@ -12,6 +12,8 @@ if (! defined('NV_IS_FILE_ADMIN')) {
     die('Stop!!!');
 }
 		$id = $nv_Request->get_int('id', 'get', 0);
+		$userid = $nv_Request->get_int('userid', 'get', 0);
+		$email = $nv_Request->get_string('email', 'get', '');
         if ($id) {
             $query = "SELECT * FROM " . NV_PREFIXLANG . "_" . $module_data . "_tmp WHERE id=" . $id;
             $result = $db->query($query);
@@ -20,6 +22,17 @@ if (! defined('NV_IS_FILE_ADMIN')) {
             $row = $result->fetch();
         }
 
+		$listcats = array();
+	    $listcats[0] = array(
+	        'id' => 0, //
+	        'name' => $lang_module['nocat'], //
+	        'selected' => $row['catid'] == 0 ? " selected=\"selected\"" : "" //
+	    );
+	    $listcats = $listcats + nv_listcats($row['catid']);
+	    if (empty($listcats)) {
+	        Header("Location: " . NV_BASE_ADMINURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=cat&add=1");
+	        exit();
+	    }
 		$array = array();
 	    $is_error = false;
 	    $error = "";
@@ -51,6 +64,7 @@ if (! defined('NV_IS_FILE_ADMIN')) {
         } else {
             $array['question'] = nv_nl2br($array['question'], "<br />");
             $array['answer'] = nv_editor_nl2br($array['answer']);
+
 		if ($nv_Request->isset_request('accept', 'post')) {
             $sql = "SELECT MAX(weight) AS new_weight FROM " . NV_PREFIXLANG . "_" . $module_data . " WHERE catid=" . $array['catid'];
             $result = $db->query($sql);
@@ -59,7 +73,7 @@ if (! defined('NV_IS_FILE_ADMIN')) {
             ++$new_weight;
 			if(!empty($array['hot_post'])) $status=2;
 			else $status=1;
-            $sql = "INSERT INTO " . NV_PREFIXLANG . "_" . $module_data . "(catid,title,alias,question,answer,weight,status,addtime) VALUES (
+            $sql = "INSERT INTO " . NV_PREFIXLANG . "_" . $module_data . "(catid,title,alias,question,answer,weight,status,addtime,admin_id,userid,pubtime) VALUES (
                 " . $array['catid'] . ",
                 " . $db->quote($array['title']) . ",
                 " . $db->quote($alias) . ",
@@ -67,13 +81,27 @@ if (! defined('NV_IS_FILE_ADMIN')) {
                 " . $db->quote($array['answer']) . ",
                 " . $new_weight . ",
                 " . $status . ",
+                 " . NV_CURRENTTIME . ",
+                 " . $admin_info['admin_id'] . ",
+                 " . $userid . ",
                  " . NV_CURRENTTIME . ")";
                 if (! $db->insert_id($sql)) {
                     $is_error = true;
                     $error = $lang_module['faq_error_notResult2'];
                 } else {
-
-                	 $sql = "DELETE FROM " . NV_PREFIXLANG . "_" . $module_data . "_tmp WHERE id=" . $id;
+                $sql='SELECT id FROM '. NV_PREFIXLANG . "_" . $module_data .' ORDER BY `id` DESC LIMIT 1';
+				$result=$db->query($sql)->fetch();
+				$link=NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name;
+                if($module_setting['type_main'] == 0 and !empty($listcats[$array['catid']]['alias'])) {
+                	$link.="&". NV_OP_VARIABLE ."=". $listcats[$row['catid']]['alias'];
+                }
+				$link= nv_url_rewrite($link, true);
+				$link=NV_MAIN_DOMAIN.$link.'#faq'.$result['id'];
+				nv_sendmail( array(
+				$lang_module['email_titile'],
+				$global_config['smtp_username']
+			), $email, $lang_module['email_titile_accept'], "<strong>" . sprintf( $lang_module['email_body_accept'], NV_SERVER_NAME, $link ) . "</strong>" );
+                	$sql = "DELETE FROM " . NV_PREFIXLANG . "_" . $module_data . "_tmp WHERE id=" . $id;
     				$db->query($sql);
                     nv_update_keywords($array['catid']);
                     Header('Location: ' . NV_BASE_ADMINURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name);
@@ -112,17 +140,7 @@ if (! defined('NV_IS_FILE_ADMIN')) {
         $array['answer'] = nv_editor_br2nl($row['answer']);
         $array['question'] = nv_br2nl($row['question']);
 
-		$listcats = array();
-	    $listcats[0] = array(
-	        'id' => 0, //
-	        'name' => $lang_module['nocat'], //
-	        'selected' => $array['catid'] == 0 ? " selected=\"selected\"" : "" //
-	    );
-	    $listcats = $listcats + nv_listcats($array['catid']);
-	    if (empty($listcats)) {
-	        Header("Location: " . NV_BASE_ADMINURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=cat&add=1");
-	        exit();
-	    }
+
 
 	    if (defined('NV_EDITOR')) {
 	        require_once(NV_ROOTDIR . '/' . NV_EDITORSDIR . '/' . NV_EDITOR . '/nv.php');

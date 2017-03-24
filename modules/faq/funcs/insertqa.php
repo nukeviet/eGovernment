@@ -11,6 +11,10 @@
 if (! defined('NV_IS_MOD_FAQ')) {
     die('Stop!!!');
 }
+	if($module_setting['user_post']!=1 or empty($user_info['userid'])) {
+		Header("Location:"  . NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name);
+	                exit();
+	}
 		$id='';
 		//Add, edit file
 		if ($nv_Request->isset_request('edit', 'get')) {
@@ -48,8 +52,11 @@ if (! defined('NV_IS_MOD_FAQ')) {
         $array['question'] = $nv_Request->get_textarea('question', '', NV_ALLOWED_HTML_TAGS);
         $array['answer'] = $nv_Request->get_editor('answer', '', NV_ALLOWED_HTML_TAGS);
 
-        $alias = change_alias($array['title']);
-
+		if ($global_config['captcha_type'] == 2) {
+            $fcode = $nv_Request->get_title('g-recaptcha-response', 'post', '');
+        } else {
+            $fcode = $nv_Request->get_title('fcode', 'post', '');
+        }
         if (defined('IS_ADD')) {
             $sql = "SELECT COUNT(*) FROM " . NV_PREFIXLANG . "_" . $module_data . " WHERE alias=" . $db->quote($alias);
             $result = $db->query($sql);
@@ -63,13 +70,22 @@ if (! defined('NV_IS_MOD_FAQ')) {
         if (empty($array['title'])) {
             $is_error = true;
             $error = $lang_module['faq_error_title'];
-        } elseif ($is_exists) {
+        }elseif(empty($array['catid'] )) {
+        	$is_error = true;
+            $error = $lang_module['faq_error_cat'];
+        }
+		 elseif ($is_exists) {
             $is_error = true;
             $error = $lang_module['faq_title_exists'];
         } elseif (empty($array['question'])) {
             $is_error = true;
             $error = $lang_module['faq_error_question'];
-        } else {
+        }
+        elseif(! nv_capcha_txt($fcode)) {
+			$is_error = true;
+            $error = ($global_config['captcha_type'] == 2 ? $lang_global['securitycodeincorrect1'] : $lang_global['securitycodeincorrect']);
+		}
+		else {
             $array['question'] = nv_nl2br($array['question'], "<br />");
             $array['answer'] = nv_editor_nl2br($array['answer']);
 
@@ -79,7 +95,7 @@ if (! defined('NV_IS_MOD_FAQ')) {
                 title=" . $db->quote($array['title']) . ",
                 question=" . $db->quote($array['question']) . ",
                 answer=" . $db->quote($array['answer']) . "
-                WHERE id=" . $id;
+                WHERE id=" . $id." AND userid=".$user_info['userid'];
                 $result = $db->query($sql);
 
                 if (! $result) {

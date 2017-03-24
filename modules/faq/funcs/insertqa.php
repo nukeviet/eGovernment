@@ -73,7 +73,11 @@ if (! defined('NV_IS_MOD_FAQ')) {
         if (empty($array['title'])) {
             $is_error = true;
             $error = $lang_module['faq_error_title'];
-        } elseif ($is_exists) {
+        }elseif(empty($array['catid'] )) {
+        	$is_error = true;
+            $error = $lang_module['faq_error_cat'];
+        }
+		 elseif ($is_exists) {
             $is_error = true;
             $error = $lang_module['faq_title_exists'];
         } elseif (empty($array['question'])) {

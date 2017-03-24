@@ -92,10 +92,11 @@ if (! defined('NV_IS_FILE_ADMIN')) {
                 $sql='SELECT id FROM '. NV_PREFIXLANG . "_" . $module_data .' ORDER BY `id` DESC LIMIT 1';
 				$result=$db->query($sql)->fetch();
 				$link=NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name;
-	            $link= nv_url_rewrite($link, true);
-				$link=NV_MAIN_DOMAIN.$link;
-                if($module_setting['type_main'] == 0 and !empty($listcats[$array['catid']]['alias'])) $link.=$listcats[$array['catid']]['alias'].'/#faq'.$result['id'];
-				else $link.='#faq'.$result['id'];
+                if($module_setting['type_main'] == 0 and !empty($listcats[$array['catid']]['alias'])) {
+                	$link.="&". NV_OP_VARIABLE ."=". $listcats[$row['catid']]['alias'];
+                }
+				$link= nv_url_rewrite($link, true);
+				$link=NV_MAIN_DOMAIN.$link.'#faq'.$result['id'];
 				nv_sendmail( array(
 				$lang_module['email_titile'],
 				$global_config['smtp_username']

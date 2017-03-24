@@ -69,12 +69,13 @@ $result = $db->query("SELECT FOUND_ROWS()");
 $all_page = $result->fetchColumn();
 $array_accept = array();
 $generate_page_accept='';
-//$module_setting['type_main'] == 0;'/vi/faq/#faq14'
-
+$link=NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name;
 if ($all_page) {
 	while ($row = $query->fetch()) {
-		if($module_setting['type_main'] == 0) $link='/'. NV_LANG_VARIABLE .'/faq/'.$listcats[$row['catid']]['alias'];
-		else $link='/'. NV_LANG_VARIABLE .'/faq';
+		if($module_setting['type_main'] == 0) {
+			$link.="&". NV_OP_VARIABLE ."=". $listcats[$row['catid']]['alias'];
+			$link= nv_url_rewrite($link, true);
+		}
 	    $array_accept[$row['id']] = array( //
 	        'id' => ( int )$row['id'], //
 	        'title' => $row['title'], //
@@ -148,7 +149,7 @@ if ($nv_Request->isset_request('del', 'post')) {
     }
 
 	if($fcheckss == $checkss) {
-		$sql = "SELECT COUNT(*) AS count, catid FROM " . NV_PREFIXLANG . "_" . $module_data .  "_tmp WHERE id=" . $id;
+	$sql = "SELECT COUNT(*) AS count, catid FROM " . NV_PREFIXLANG . "_" . $module_data .  "_tmp WHERE id=" . $id;
     $result = $db->query($sql);
     list($count, $catid) = $result->fetch(3);
 

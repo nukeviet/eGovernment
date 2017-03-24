@@ -20,7 +20,7 @@ if (! defined('NV_IS_MOD_FAQ')) {
  */
 function theme_main_faq($list_cats)
 {
-    global $global_config, $lang_module, $lang_global, $module_info, $module_name, $module_file,$user_info;
+    global $global_config, $lang_module, $lang_global, $module_info, $module_name, $module_file,$user_info,$module_setting;
 
     $xtpl = new XTemplate("main_page.tpl", NV_ROOTDIR . "/themes/" . $module_info['template'] . "/modules/" . $module_file . "/");
     $xtpl->assign('LANG', $lang_module);

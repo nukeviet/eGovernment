@@ -21,6 +21,7 @@ $lang_translator['langtype'] = 'lang_module';
 
 $lang_module['faq_catmanager'] = 'Quản lý chủ đề';
 $lang_module['faq_addcat_titlebox'] = 'Thêm chủ đề';
+$lang_module['faq_error_cat'] = 'Lỗi: Bạn chưa chọn chủ đề';
 $lang_module['faq_error_cat1'] = 'Lỗi: Tên chủ đề mà bạn khai báo đã tồn tại. Hãy đặt một tên khác';
 $lang_module['faq_error_cat2'] = 'Lỗi: Bạn chưa khai báo tên chủ đề';
 $lang_module['faq_error_cat3'] = 'Lỗi: Chủ đề phụ thuộc mà bạn chọn không tồn tại';

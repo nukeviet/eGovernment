@@ -162,7 +162,7 @@ if (! empty($array_accept)) {
  * @param mixed $faq
  * @return
  */
-function theme_cat_faq($list_cats, $catid, $faq)
+function theme_cat_faq($list_cats, $catid, $faq,$generate_page)
 {
     global $global_config, $lang_module, $lang_global, $module_info, $module_name, $module_file,$user_info,$module_setting;
 
@@ -209,7 +209,8 @@ function theme_cat_faq($list_cats, $catid, $faq)
 
         $xtpl->parse('main.is_show_row');
     }
-
+	if(!empty($generate_page))
+	$xtpl->assign('NV_GENERATE_PAGE', $generate_page);
     $xtpl->parse('main');
     return $xtpl->text('main');
 }

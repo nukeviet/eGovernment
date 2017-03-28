@@ -93,6 +93,10 @@ if ($nv_Request->isset_request('add', 'get') or $nv_Request->isset_request('edit
         } elseif (empty($array['answer'])) {
             $is_error = true;
             $error = $lang_module['faq_error_answer'];
+        }
+		elseif (empty($array['catid'])) {
+            $is_error = true;
+            $error = $lang_module['faq_error_cat'];
         } else {
             $array['question'] = nv_nl2br($array['question'], "<br />");
             $array['answer'] = nv_editor_nl2br($array['answer']);

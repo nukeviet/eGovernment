@@ -26,6 +26,9 @@
     <!-- END: li -->
 </ul>
 <!-- END: subcats -->
+<div class="page">
+	{NV_GENERATE_PAGE}
+</div>
 <!-- BEGIN: is_show_row -->
 <div class="row show_row">
     <a name="faqlist"></a>

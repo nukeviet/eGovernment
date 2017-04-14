@@ -3,9 +3,9 @@
 /**
  * @Project NUKEVIET 4.x
  * @Author VINADES.,JSC (contact@vinades.vn)
- * @copyright 2009
+ * @Copyright (C) 2017 VINADES.,JSC. All rights reserved
  * @License GNU/GPL version 2 or any later version
- * @Createdate 12/31/2009 0:51
+ * @Createdate 04/14/2017 09:47
  */
 
 if (! defined('NV_SYSTEM')) {
@@ -160,7 +160,7 @@ function nv_list_cats($is_link = false, $is_parentlink = true)
                 }
 
                 if ($is_parentlink) {
-                    $list2[$row['id']]['name'] = "<a href=\"" . NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "\">" . $module_info['custom_title'] . "</a> &raquo; " . $list2[$row['id']]['name'];
+                    $list2[$row['id']]['name'] = "<a href=\"" . NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "\">" . $module_info['site_title'] . "</a> &raquo; " . $list2[$row['id']]['name'];
                 }
             }
         }
@@ -241,7 +241,7 @@ $nv_vertical_menu = array();
 //Xac dinh RSS
 if ($module_info['rss']) {
     $rss[] = array(
-        'title' => $module_info['custom_title'],
+        'title' => $module_info['site_title'],
         'src' => NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&amp;" . NV_OP_VARIABLE . "=rss"
     );
 }
@@ -264,7 +264,7 @@ foreach ($list_cats as $c) {
     }
     if ($module_info['rss']) {
         $rss[] = array(
-            'title' => $module_info['custom_title'] . ' - ' . $c['title'],
+            'title' => $module_info['site_title'] . ' - ' . $c['title'],
             'src' => NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&amp;" . NV_OP_VARIABLE . "=rss/" . $c['alias']
         );
     }

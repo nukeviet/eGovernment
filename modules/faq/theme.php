@@ -20,9 +20,9 @@ if (! defined('NV_IS_MOD_FAQ')) {
  */
 function theme_main_faq($list_cats)
 {
-    global $global_config, $lang_module, $lang_global, $module_info, $module_name, $module_file;
+    global $global_config, $lang_module, $lang_global, $module_info, $module_name;
 
-    $xtpl = new XTemplate("main_page.tpl", NV_ROOTDIR . "/themes/" . $module_info['template'] . "/modules/" . $module_file . "/");
+    $xtpl = new XTemplate("main_page.tpl", NV_ROOTDIR . "/themes/" . $module_info['template'] . "/modules/" . $module_info['module_theme']);
     $xtpl->assign('LANG', $lang_module);
     $xtpl->assign('WELCOME', $lang_module['faq_welcome']);
     $xtpl->parse('main.welcome');
@@ -54,9 +54,9 @@ function theme_main_faq($list_cats)
  */
 function theme_cat_faq($list_cats, $catid, $faq)
 {
-    global $global_config, $lang_module, $lang_global, $module_info, $module_name, $module_file;
+    global $global_config, $lang_module, $lang_global, $module_info, $module_name;
 
-    $xtpl = new XTemplate("main_page.tpl", NV_ROOTDIR . "/themes/" . $module_info['template'] . "/modules/" . $module_file . "/");
+    $xtpl = new XTemplate("main_page.tpl", NV_ROOTDIR . "/themes/" . $module_info['template'] . "/modules/" . $module_info['module_theme']);
     $xtpl->assign('LANG', $lang_module);
 
     if (! empty($list_cats[$catid]['description'])) {
@@ -84,7 +84,7 @@ function theme_cat_faq($list_cats, $catid, $faq)
             $xtpl->parse('main.is_show_row.row');
         }
 
-        $xtpl->assign('IMG_GO_TOP_SRC', NV_BASE_SITEURL . 'themes/' . $module_info['template'] . '/images/' . $module_name . '/');
+        $xtpl->assign('IMG_GO_TOP_SRC', NV_BASE_SITEURL . 'themes/' . $module_info['template'] . '/images/' . $module_info['module_theme'] . '/');
 
         foreach ($faq as $row) {
             $xtpl->assign('ROW', $row);

@@ -12,7 +12,7 @@ if (! defined('NV_IS_MOD_FAQ')) {
     die('Stop!!!');
 }
 
-$page_title = $mod_title = $module_info['custom_title'];
+$page_title = $mod_title = $module_info['site_title'];
 $key_words = $module_info['keywords'];
 $description = $lang_module['faq_welcome'];
 if(!empty($array_op[1]))
@@ -26,7 +26,7 @@ else {
 $per_page = 20;
 $base_url = NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name . '&' . NV_OP_VARIABLE . '=main';
 if (empty($list_cats) and ! $module_setting['type_main']) {
-    $page_title = $module_info['custom_title'];
+    $page_title = $module_info['site_title'];
 
     include NV_ROOTDIR . '/includes/header.php';
     echo nv_site_theme($contents);

@@ -160,7 +160,7 @@ function nv_list_cats($is_link = false, $is_parentlink = true)
                 }
 
                 if ($is_parentlink) {
-                    $list2[$row['id']]['name'] = "<a href=\"" . NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "\">" . $module_info['custom_title'] . "</a> &raquo; " . $list2[$row['id']]['name'];
+                    $list2[$row['id']]['name'] = "<a href=\"" . NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "\">" . $module_info['site_title'] . "</a> &raquo; " . $list2[$row['id']]['name'];
                 }
             }
         }
@@ -241,7 +241,7 @@ $nv_vertical_menu = array();
 //Xac dinh RSS
 if ($module_info['rss']) {
     $rss[] = array(
-        'title' => $module_info['custom_title'],
+        'title' => $module_info['site_title'],
         'src' => NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&amp;" . NV_OP_VARIABLE . "=rss"
     );
 }
@@ -264,7 +264,7 @@ foreach ($list_cats as $c) {
     }
     if ($module_info['rss']) {
         $rss[] = array(
-            'title' => $module_info['custom_title'] . ' - ' . $c['title'],
+            'title' => $module_info['site_title'] . ' - ' . $c['title'],
             'src' => NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&amp;" . NV_OP_VARIABLE . "=rss/" . $c['alias']
         );
     }

@@ -15,7 +15,7 @@ if (! defined('NV_IS_MOD_FAQ')) {
 $channel = array();
 $items = array();
 
-$channel['title'] = $module_info['custom_title'];
+$channel['title'] = $module_info['site_title'];
 $channel['link'] = NV_MY_DOMAIN . NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name;
 $channel['description'] = !empty($module_info['description']) ? $module_info['description'] : $global_config['site_description'];
 

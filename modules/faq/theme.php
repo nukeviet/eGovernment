@@ -20,9 +20,9 @@ if (! defined('NV_IS_MOD_FAQ')) {
  */
 function theme_main_faq($list_cats)
 {
-    global $global_config, $lang_module, $lang_global, $module_info, $module_name, $module_file,$user_info,$module_setting;
+    global $global_config, $lang_module, $lang_global, $module_info, $module_name, $user_info,$module_setting;
 
-    $xtpl = new XTemplate("main_page.tpl", NV_ROOTDIR . "/themes/" . $module_info['template'] . "/modules/" . $module_file . "/");
+    $xtpl = new XTemplate("main_page.tpl", NV_ROOTDIR . "/themes/" . $module_info['template'] . "/modules/" . $module_info['module_theme'] . "/");
     $xtpl->assign('LANG', $lang_module);
 	$link_qa=NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&amp;" . NV_OP_VARIABLE . "=insertqa";
     $xtpl->assign('LINKQA', $link_qa);
@@ -60,8 +60,8 @@ function theme_main_faq($list_cats)
  */
 function theme_insert_faq($array,$error,$listcats,$id)
 {
-	global $global_config, $lang_module, $lang_global, $module_info, $module_name, $module_file;
-	$xtpl = new XTemplate("insertqa.tpl", NV_ROOTDIR . "/themes/" . $module_info['template'] . "/modules/" . $module_file . "/");
+	global $global_config, $lang_module, $lang_global, $module_info, $module_name;
+	$xtpl = new XTemplate("insertqa.tpl", NV_ROOTDIR . "/themes/" . $module_info['template'] . "/modules/" . $module_info['module_theme'] . "/");
     if (defined('IS_EDIT')) {
         $xtpl->assign('FORM_ACTION', NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name ."&amp;". NV_OP_VARIABLE . "=insertqa&amp;edit=1&amp;id=" . $id);
     } else {
@@ -106,8 +106,8 @@ function theme_insert_faq($array,$error,$listcats,$id)
  */
 function theme_viewlist_faq($array_accept,$generate_page_accept,$array_not_accept,$generate_page_not_accept)
 {
-	global $global_config, $lang_module, $lang_global, $module_info, $module_name, $module_file,$op;
-	$xtpl = new XTemplate("viewlist.tpl", NV_ROOTDIR . "/themes/" . $module_info['template'] . "/modules/" . $module_file . "/");
+	global $global_config, $lang_module, $lang_global, $module_info, $module_name, $op;
+	$xtpl = new XTemplate("viewlist.tpl", NV_ROOTDIR . "/themes/" . $module_info['template'] . "/modules/" . $module_info['module_theme'] . "/");
 	$xtpl->assign('LANG', $lang_module);
 	$xtpl->assign('GLANG', $lang_global);
 
@@ -164,9 +164,9 @@ if (! empty($array_accept)) {
  */
 function theme_cat_faq($list_cats, $catid, $faq,$generate_page)
 {
-    global $global_config, $lang_module, $lang_global, $module_info, $module_name, $module_file,$user_info,$module_setting;
+    global $global_config, $lang_module, $lang_global, $module_info, $module_name, $user_info,$module_setting;
 
-    $xtpl = new XTemplate("main_page.tpl", NV_ROOTDIR . "/themes/" . $module_info['template'] . "/modules/" . $module_file . "/");
+    $xtpl = new XTemplate("main_page.tpl", NV_ROOTDIR . "/themes/" . $module_info['template'] . "/modules/" . $module_info['module_theme'] . "/");
     $xtpl->assign('LANG', $lang_module);
 	$link_qa=NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&amp;" . NV_OP_VARIABLE . "=insertqa";
     $xtpl->assign('LINKQA', $link_qa);

@@ -39,7 +39,7 @@ $per_page = 2;
 //List bài viết đã được duyệt
 $sql = 'SELECT SQL_CALC_FOUND_ROWS * FROM ' . NV_PREFIXLANG . '_' . $module_data . '';
 $base_url = NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name . '&' . NV_OP_VARIABLE . '=list';
-$sql .= ' WHERE userid ='.$user_info['userid'] ;
+$sql .= ' WHERE userid = ' . $user_info['userid'];
 if ($nv_Request->isset_request('catid', 'get')) {
     $catid = $nv_Request->get_int('catid', 'get', 0);
     if (!$catid or !isset($listcats[$catid])) {
@@ -88,7 +88,7 @@ if ($all_page) {
 //list bài viết chưa được duyệt
 $sql = 'SELECT SQL_CALC_FOUND_ROWS * FROM ' . NV_PREFIXLANG . '_' . $module_data . '_tmp';
 $base_url = NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name . '&' . NV_OP_VARIABLE . '=list';
-$sql .= ' WHERE userid ='.$user_info['userid'];
+$sql .= ' WHERE userid = ' . $user_info['userid'];
 if ($nv_Request->isset_request('catid', 'get')) {
     $catid = $nv_Request->get_int('catid', 'get', 0);
     if (!$catid or !isset($listcats[$catid])) {

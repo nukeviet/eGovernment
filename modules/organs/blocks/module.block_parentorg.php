@@ -14,10 +14,10 @@ if (!defined('NV_IS_MOD_ORGAN'))
 if (!function_exists('nv_block_parentorg')) {
     function nv_block_parentorg()
     {
-        global $lang_module, $module_name, $module_data, $module_file, $module_config, $module_info, $global_organ_rows;
+        global $lang_module, $module_name, $module_data, $module_config, $module_info, $global_organ_rows;
         $organid = 0;
         if (!empty($global_organ_rows)) {
-            $xtpl = new XTemplate("block_parent.tpl", NV_ROOTDIR . "/themes/" . $module_info['template'] . "/modules/" . $module_file);
+            $xtpl = new XTemplate("block_parent.tpl", NV_ROOTDIR . "/themes/" . $module_info['template'] . "/modules/" . $module_info['module_theme']);
             $xtpl->assign('NV_BASE_SITEURL', NV_BASE_SITEURL);
             $xtpl->assign('LANG', $lang_module);
             foreach ($global_organ_rows as $organid => $organinfo) {

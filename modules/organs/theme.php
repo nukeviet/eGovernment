@@ -12,9 +12,9 @@ if (!defined('NV_IS_MOD_ORGAN')) die('Stop!!!');
 
 function detail_per($data_content)
 {
-    global $global_config, $module_name, $module_file, $lang_module, $module_config, $module_info, $global_organ_rows, $my_head, $arr_config;
+    global $global_config, $module_name, $lang_module, $module_config, $module_info, $global_organ_rows, $my_head, $arr_config;
     
-    $xtpl = new XTemplate('detaiper.tpl', NV_ROOTDIR . '/themes/' . $module_info['template'] . '/modules/' . $module_file);
+    $xtpl = new XTemplate('detaiper.tpl', NV_ROOTDIR . '/themes/' . $module_info['template'] . '/modules/' . $module_info['module_theme']);
     $xtpl->assign('LANG', $lang_module);
     $xtpl->assign('NV_BASE_SITEURL', NV_BASE_SITEURL);
     $xtpl->assign('TEMPLATE', $global_config['site_theme']);
@@ -112,9 +112,9 @@ function detail_per($data_content)
 
 function vieworg_list($organs_data, $person_data, $html_pages)
 {
-    global $global_config, $module_name, $module_file, $lang_module, $module_config, $module_info, $arr_config;
+    global $global_config, $module_name, $lang_module, $module_config, $module_info, $arr_config;
     
-    $xtpl = new XTemplate('vieworg_list.tpl', NV_ROOTDIR . '/themes/' . $module_info['template'] . '/modules/' . $module_file);
+    $xtpl = new XTemplate('vieworg_list.tpl', NV_ROOTDIR . '/themes/' . $module_info['template'] . '/modules/' . $module_info['module_theme']);
     $xtpl->assign('LANG', $lang_module);
     $xtpl->assign('NV_BASE_SITEURL', NV_BASE_SITEURL);
     $xtpl->assign('TEMPLATE', $global_config['site_theme']);
@@ -170,9 +170,9 @@ function vieworg_list($organs_data, $person_data, $html_pages)
 
 function vieworg_gird($organs_data, $person_data, $html_pages)
 {
-    global $global_config, $module_name, $module_file, $lang_module, $module_config, $module_info, $arr_config;
+    global $global_config, $module_name, $lang_module, $module_config, $module_info, $arr_config;
     
-    $xtpl = new XTemplate('vieworg_gird.tpl', NV_ROOTDIR . '/themes/' . $module_info['template'] . '/modules/' . $module_file);
+    $xtpl = new XTemplate('vieworg_gird.tpl', NV_ROOTDIR . '/themes/' . $module_info['template'] . '/modules/' . $module_info['module_theme']);
     $xtpl->assign('LANG', $lang_module);
     $xtpl->assign('NV_BASE_SITEURL', NV_BASE_SITEURL);
     $xtpl->assign('TEMPLATE', $global_config['site_theme']);
@@ -225,10 +225,10 @@ function vieworg_gird($organs_data, $person_data, $html_pages)
 
 function vieworg_catelist($array_content, $suborg = array())
 {
-    global $global_config, $module_name, $module_file, $lang_module, $module_config, $module_info, $global_organ_rows, $arr_config, $array_op;
+    global $global_config, $module_name, $lang_module, $module_config, $module_info, $global_organ_rows, $arr_config, $array_op;
     
     if ($arr_config['organ_view_type_main'] == 0) {
-        $xtpl = new XTemplate('vieworg_catelist_full.tpl', NV_ROOTDIR . '/themes/' . $module_info['template'] . '/modules/' . $module_file);
+        $xtpl = new XTemplate('vieworg_catelist_full.tpl', NV_ROOTDIR . '/themes/' . $module_info['template'] . '/modules/' . $module_info['module_theme']);
         $xtpl->assign('LANG', $lang_module);
         $xtpl->assign('NV_BASE_SITEURL', NV_BASE_SITEURL);
         $xtpl->assign('WIDTH', $arr_config['thumb_width']);
@@ -303,7 +303,7 @@ function vieworg_catelist($array_content, $suborg = array())
         $xtpl->parse('main');
         return $xtpl->text('main');
     } else {
-        $xtpl = new XTemplate('vieworg_catelist.tpl', NV_ROOTDIR . '/themes/' . $module_info['template'] . '/modules/' . $module_file);
+        $xtpl = new XTemplate('vieworg_catelist.tpl', NV_ROOTDIR . '/themes/' . $module_info['template'] . '/modules/' . $module_info['module_theme']);
         $xtpl->assign('LANG', $lang_module);
         $xtpl->assign('NV_BASE_SITEURL', NV_BASE_SITEURL);
         $xtpl->assign('TEMPLATE', $global_config['site_theme']);
@@ -342,8 +342,8 @@ function vieworg_catelist($array_content, $suborg = array())
 
 function searchresult($person_data, $html_pages)
 {
-    global $global_config, $module_name, $arr_config, $module_file, $lang_module, $module_config, $module_info;
-    $xtpl = new XTemplate('viewsearch.tpl', NV_ROOTDIR . '/themes/' . $module_info['template'] . '/modules/' . $module_file);
+    global $global_config, $module_name, $arr_config, $lang_module, $module_config, $module_info;
+    $xtpl = new XTemplate('viewsearch.tpl', NV_ROOTDIR . '/themes/' . $module_info['template'] . '/modules/' . $module_info['module_theme']);
     $xtpl->assign('LANG', $lang_module);
     $xtpl->assign('NV_BASE_SITEURL', NV_BASE_SITEURL);
     $xtpl->assign('TEMPLATE', $global_config['site_theme']);

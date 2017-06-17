@@ -2,7 +2,7 @@
 <h2>{LANG.vieworg_search_result}</h2>
 <div class="row">
     <!-- BEGIN: loop -->
-    <div class="col-sm-6 col-md-4">
+    <div class="col-sm-8 col-md-6">
         <div class="thumbnail">
             <div style="height: {HEIGHT}px">
                 <a href="{ROW.link}" title="{ROW.name}"><img src="{ROW.photo}" style="max-height: {HEIGHT}px" alt="{ROW.name}"></a>

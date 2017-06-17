@@ -14,7 +14,7 @@ if (!defined('NV_IS_MOD_ORGAN'))
 if (!function_exists('nv_block_cateorg')) {
     function nv_block_cateorg()
     {
-        global $module_name, $module_data, $module_file, $module_config, $module_info, $global_organ_rows, $array_op;
+        global $module_name, $module_data, $module_config, $module_info, $global_organ_rows, $array_op;
         $pid = 0;
         if (!empty($array_op[1])) {
             $temp = explode('-', $array_op[1]);
@@ -32,7 +32,7 @@ if (!function_exists('nv_block_cateorg')) {
         }
         $pid = getparentid($pid);
         if (!empty($global_organ_rows) && !empty($global_organ_rows[$pid])) {
-            $xtpl = new XTemplate("block_cateorg.tpl", NV_ROOTDIR . "/themes/" . $module_info['template'] . "/modules/" . $module_file);
+            $xtpl = new XTemplate("block_cateorg.tpl", NV_ROOTDIR . "/themes/" . $module_info['template'] . "/modules/" . $module_info['module_theme']);
             $xtpl->assign('NV_BASE_SITEURL', NV_BASE_SITEURL);
             $xtpl->assign('title', $global_organ_rows[$pid]['title']);
             foreach ($global_organ_rows as $organid => $organinfo) {

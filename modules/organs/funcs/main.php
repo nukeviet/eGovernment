@@ -10,7 +10,7 @@
 
 if (!defined('NV_IS_MOD_ORGAN')) die('Stop!!!');
 
-$page_title = $module_info['custom_title'];
+$page_title = $module_info['site_title'];
 $key_words = $module_info['keywords'];
 
 $array_content = array();
@@ -32,7 +32,7 @@ foreach ($global_organ_rows as $organid => $organinfo) {
             } elseif (!empty($row['photo']) and file_exists(NV_ROOTDIR . '/' . NV_UPLOADS_DIR . '/' . $module_upload . '/' . $row['photo'])) {
                 $row['photo'] = NV_BASE_SITEURL . NV_UPLOADS_DIR . '/' . $module_upload . '/' . $row['photo'];
             } else {
-                $row['photo'] = NV_BASE_SITEURL . 'themes/' . $module_info['template'] . '/images/' . $module_file . '/no-avatar.jpg';
+                $row['photo'] = NV_BASE_SITEURL . 'themes/' . $module_info['template'] . '/images/' . $module_info['module_theme'] . '/no-avatar.jpg';
             }
             
             $row['link'] = NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name . '&' . NV_OP_VARIABLE . '=person/' . $global_organ_rows[$organid]['alias'] . '-' . $organid . '/' . change_alias($row['name']) . '-' . $row['personid'];

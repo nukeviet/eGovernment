@@ -3,6 +3,7 @@
 /.buildpath
 /.settings
 /config.php
+/.htaccess
 /data/config/config_global.php
 /data/cache/
 /data/config/diagnostic-*.xml

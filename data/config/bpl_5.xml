@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <plan>
-  <id>2</id>
+  <id>5</id>
   <lang></lang>
-  <title>Quang cao trai</title>
+  <title>Bản đồ hành chính</title>
   <form>sequential</form>
-  <width>212</width>
-  <height>800</height>
+  <width>255</width>
+  <height>380</height>
   <banners>
     <banners_item>
-      <id>2</id>
-      <title>vinades</title>
+      <id>5</id>
+      <title>hc1</title>
       <clid>0</clid>
-      <file_name>vinades.jpg</file_name>
+      <file_name>bandohc.jpg</file_name>
       <imageforswf></imageforswf>
       <file_ext>jpg</file_ext>
       <file_mime>image/jpeg</file_mime>
-      <file_width>212</file_width>
-      <file_height>400</file_height>
+      <file_width>223</file_width>
+      <file_height>284</file_height>
       <file_alt></file_alt>
-      <file_click>http://vinades.vn</file_click>
+      <file_click></file_click>
       <target>_blank</target>
       <bannerhtml></bannerhtml>
-      <publ_time>1498555144</publ_time>
+      <publ_time>1498725937</publ_time>
       <exp_time>0</exp_time>
     </banners_item>
   </banners>

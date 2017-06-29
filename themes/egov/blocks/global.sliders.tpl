@@ -36,7 +36,7 @@ var jssor_1_slider = new $JssorSlider$("jssor_2", jssor_1_options);
 function ScaleSlider() {
 var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
 if (refSize) {
-refSize = Math.min(refSize, 800);
+refSize = Math.min(refSize, 1366);
 jssor_1_slider.$ScaleWidth(refSize);
 }
 else {
@@ -55,13 +55,13 @@ $(window).bind("orientationchange", ScaleSlider);
 <div class="slider fix-slider-body">
 	<div class="slider_botton">
 		<div class="">
-			<div id="jssor_2" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 790px; height: 440px; visibility: hidden;">
+			<div id="jssor_2" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 1070px; height: 395px; visibility: hidden;">
 				<!-- Loading Screen -->
 				<div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
 					<div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
 					<div style="position:absolute;display:block;background:url('{NV_BASE_SITEURL}themes/{TEMPLATE}/images/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
 				</div>
-				<div data-u="slides" class="sliders" style="cursor: default; position: relative; top: 0px; left: 0px; width: 789px; height: 440px; overflow: hidden;text-align: center">
+				<div data-u="slides" class="sliders" style="cursor: default; position: relative; top: 0px; left: 0px; width: 1070px; height: 395px; overflow: hidden;text-align: center">
 					<!-- BEGIN: loop -->
 					<div data-p="112.50" class="sliders" style="display: none;">
 						<!-- BEGIN: type_swf -->

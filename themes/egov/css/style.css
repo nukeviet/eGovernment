@@ -786,7 +786,7 @@ a.btn {
     left:0;
     min-width:100%;
     min-height:100%;
-    background-color: #ffffff;
+    background: #eeeeee url("../images/bgtrongdong_1.png") top center no-repeat;
     background-size:100%,auto;
 }
 
@@ -1064,8 +1064,8 @@ a.btn {
 /* Bootstrap Menu */
 
 #menusite .navbar-default {
-    background-color:#428BCA;
-    border-bottom-color:#428BCA;
+    background-color:#ea4800;
+    border-bottom-color:#ea4800;
     border-bottom-width: 1px;
     border-bottom-style: solid;
 }

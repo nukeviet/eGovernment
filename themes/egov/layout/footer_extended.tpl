@@ -1,6 +1,6 @@
                 </div>
             </section>
-        </div>
+        
         <footer id="footer">
             <div class="wraper">
                 <div class="container">
@@ -38,6 +38,7 @@
                 </div>
             </div>
         </nav>
+        </div>
         {ADMINTOOLBAR}
     </div>
     <!-- SiteModal Required!!! -->

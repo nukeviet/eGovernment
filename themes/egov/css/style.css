@@ -7,6 +7,13 @@
  */
 
 /* NUKEVIET ICONS */
+.bg-shadow-body {
+	border-color:#dcdcdc;
+    border-style:solid;
+    border-width:0 1px 0 1px;
+    box-shadow:0 0 4px rgba(0,0,0,0.15);
+    -webkit-box-shadow:0 0 4px rgba(0,0,0,0.15);
+}
 
 @font-face {
     font-family:'NukeVietIcons';
@@ -780,9 +787,6 @@ a.btn {
     min-width:100%;
     min-height:100%;
     background-color: #ffffff;
-    background-image:url(../images/header.png),linear-gradient(to bottom,#428bca 0,#245682 51px,rgba(255,255,255,1) 51px,rgba(255,255,255,1) 100%);
-    background-repeat:no-repeat,repeat-x;
-    background-position:left 51px,left top;
     background-size:100%,auto;
 }
 
@@ -790,7 +794,7 @@ a.btn {
 
 #header {
     position:relative;
-    background:transparent;
+    background:#fff url("../images/banner.jpg");
     margin-top:51px;
     display: -webkit-flex;
     -webkit-align-items: center;
@@ -1199,7 +1203,7 @@ a.btn {
     height:51px;
     width:100%;
     color:#dcdcdc;
-    background-color:transparent;
+    background-color: #f7a41e;
 }
 
 .header-nav a {
@@ -1469,11 +1473,6 @@ a.btn {
 
 #body {
     background-color:#fff;
-    border-color:#dcdcdc;
-    border-style:solid;
-    border-width:0 1px 0 1px;
-    box-shadow:0 0 4px rgba(0,0,0,0.15);
-    -webkit-box-shadow:0 0 4px rgba(0,0,0,0.15);
 }
 
 /* Footer-NAV2 */
@@ -1566,8 +1565,6 @@ a.btn {
     border-bottom-width:1px;
     border-bottom-style: solid;
     border-bottom-color: #245682;
-    background-color:#245682;
-    background-image:linear-gradient(to bottom,rgba(0,0,0,.1) 0,rgba(0,0,0,0) 100%);
     padding:20px 0;
     font-size:13px
 }

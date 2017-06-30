@@ -2,7 +2,7 @@
 		<div class="alert alert-danger">{LANG.nojs}</div>
 	</noscript>
     <div class="body-bg">
-	<div class="wraper">
+	<div class="wraper bg-shadow-body">
 		<header>
 			<div class="container">
 				<div id="header" class="row">

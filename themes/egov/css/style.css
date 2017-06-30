@@ -1068,10 +1068,6 @@ a.btn {
     border-bottom-color:#428BCA;
     border-bottom-width: 1px;
     border-bottom-style: solid;
-    -webkit-border-top-left-radius:5px;
-    -webkit-border-top-right-radius:5px;
-    border-top-left-radius:5px;
-    border-top-right-radius:5px;
 }
 
 #menusite .navbar-default .navbar-nav > li {

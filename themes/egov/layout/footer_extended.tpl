@@ -5,29 +5,13 @@
             <div class="wraper">
                 <div class="container">
                     <div class="row">
-                        <div class="col-xs-24 col-sm-24 col-md-6">
+                        <div class="col-xs-24 col-sm-24 col-md-24">
                             [MENU_FOOTER]
-                        </div>
-                        <div class="col-xs-24 col-sm-24 col-md-10">
-                            [FEATURED_PRODUCT]
-                        </div>
-                        <div class="col-xs-24 col-sm-24 col-md-8">
-                            [COMPANY_INFO]
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-xs-24 col-sm-24 col-md-8">
-                            <div class="panel-body">
-                                [QR_CODE]
-                            </div>
-                            <div id="ftip" data-content="">
-                                <div class="bg"></div>
-                            </div>
-                        </div>
-                        <div class="col-xs-24 col-sm-24 col-md-16">
-                            <div class="panel-body">
+                        <div class="col-xs-24 col-sm-24 col-md-24">
                             	[FOOTER_SITE]
-                            </div>
                         </div>
                     </div>
                 </div>

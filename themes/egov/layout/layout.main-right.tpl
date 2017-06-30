@@ -18,11 +18,13 @@
 	<div class="col-sm-16 col-md-18">
 		{MODULE_CONTENT}
 		[BOTTOM]
-		<div class="col-sm-12 col-md-12">
-			[NEWS_1]
+		<div class="row">
+			<div class="col-sm-12 col-md-12">[NEWS_1]</div>
+			<div class="col-sm-12 col-md-12">[NEWS_2]</div>
 		</div>
-		<div class="col-sm-12 col-md-12">
-			[NEWS_2]
+		<div class="row">
+			<div class="col-sm-12 col-md-12">[NEWS_3]</div>
+			<div class="col-sm-12 col-md-12">[NEWS_4]</div>
 		</div>
 	</div>
 	<div class="col-sm-8 col-md-6">
@@ -31,6 +33,9 @@
 </div>
 <div class="row">
 		[FOOTER]
+</div>
+<div class="row">
+		[FOOTER_2]
 </div>
 {FILE "footer_extended.tpl"}
 {FILE "footer_only.tpl"}

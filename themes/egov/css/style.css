@@ -992,12 +992,7 @@ a.btn {
     z-index:3
 }
 .second-nav .bg {
-    background:#cccccc;
-    background-image:linear-gradient(to bottom,rgba(0,0,0,0.05) 0%,rgba(0,0,0,0) 100%) !important;
-    -webkit-border-top-left-radius:5px;
-    -webkit-border-top-right-radius:5px;
-    border-top-left-radius:5px;
-    border-top-right-radius:5px;
+    background:#ea4800;
 }
 
 /* THIRD NAV */
@@ -1063,8 +1058,8 @@ a.btn {
 /* Bootstrap Menu */
 
 #menusite .navbar-default {
-    background-color:#ea4800;
-    border-bottom-color:#ea4800;
+    background-color: transparent;
+    border-bottom-color:transparent;
     border-bottom-width: 1px;
     border-bottom-style: solid;
 }

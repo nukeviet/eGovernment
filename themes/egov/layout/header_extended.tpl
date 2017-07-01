@@ -1,3 +1,5 @@
+<script type="text/javascript" src="{NV_BASE_SITEURL}themes/{TEMPLATE}/js/search.js"></script>
+<link rel="stylesheet" type="text/css" media="screen" href="{NV_BASE_SITEURL}themes/{TEMPLATE}/css/search.css" />
 	<noscript>
 		<div class="alert alert-danger">{LANG.nojs}</div>
 	</noscript>
@@ -49,10 +51,27 @@
 		</header>
 		<nav class="second-nav" id="menusite">
 			<div class="container">
-				<div class="row">
-                    <div class="bg box-shadow">
-					[MENU_SITE]
+				<div class="row box-shadow bg">
+                    <div class="  col-xs-24 col-sm-20 col-md-20">
+						[MENU_SITE]
                     </div>
+                     <div class="headerSearch col-xs-24 col-sm-4 col-md-4">
+
+						<div class="bootsnipp-search animate">
+							<div class="container">
+							<ul>
+								<li><button class=" hidden-xs btn btn-danger" type="reset" data-url="{THEME_SEARCH_URL}" data-minlength="{NV_MIN_SEARCH_LENGTH}" data-click="y"><a href="#toggle-search" class="animate"><span class="fa fa-search fa-lg"></span></button></li>
+							</ul>
+								<form action="http://bootsnipp.com/search" method="GET" role="search">
+									<div class="input-group">
+										<input type="text" class="form-control" maxlength="{NV_MAX_SEARCH_LENGTH} name="q" placeholder="{LANG.search}..."> <span class="input-group-btn">
+										</span>
+									</div>
+								</form>
+							</div>
+						</div>
+
+					</div>
 				</div>
 			</div>
 		</nav>
@@ -94,11 +113,7 @@
                                 <!-- END: breadcrumbs -->
                                 <!-- BEGIN: currenttime --><span class="current-time">{NV_CURRENTTIME}</span><!-- END: currenttime -->
                             </div>
-                            <div class="headerSearch col-xs-24 col-sm-6 col-md-6">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" maxlength="{NV_MAX_SEARCH_LENGTH}" placeholder="{LANG.search}..."><span class="input-group-btn"><button type="button" class="btn btn-info" data-url="{THEME_SEARCH_URL}" data-minlength="{NV_MIN_SEARCH_LENGTH}" data-click="y"><em class="fa fa-search fa-lg"></em></button></span>
-                                </div>
-                            </div>
+                           
                         </div>
                         </div>
                     </div>

@@ -75,13 +75,13 @@
 				</div>
 			</div>
 		</nav>
-        <nav class="header-nav">
+		<nav class="header-nav">
 			<div class="container">
 				<div class="float-right">
-					<div class="user-fix">[USER]</div>
-					<div class="rss-fix">[RSS]</div>
-					<div class="menutop-fix">[MENU_TOP]</div>
 					<div class="language">[LANGUAGE]</div>
+					<div class="menutop-fix">[MENU_TOP]</div>
+					<div class="rss-fix">[RSS]</div>
+					<div class="user-fix">[USER]</div>
 					<div id="tip" data-content="">
 						<div class="bg"></div>
 					</div>

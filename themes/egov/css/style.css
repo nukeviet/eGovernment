@@ -1209,17 +1209,11 @@ a.btn {
     padding:8px;
     color:#dcdcdc;
     line-height:1;
-    background-color:#428BCA;
-    border-width:2px;
-    border-color:transparent transparent #428BCA #428BCA;
-    border-style:solid;
-    border-radius:5px;
-    -webkit-border-radius:5px;
 }
 
 .header-nav a.button:hover,
 .header-nav a.active {
-    background-color:#245682 !important;
+   /*  background-color:#245682 !important; */
     color:#ffffff !important;
 }
 
@@ -1335,7 +1329,6 @@ a.btn {
 .language {
     line-height:32px;
     float:right;
-    witdh:25%;
 }
 .float-right {
 	float: right;
@@ -1438,7 +1431,6 @@ a.btn {
     width:28px;
     height:28px;
     line-height:28px;
-    background-color:#428BCA;
     color:#dcdcdc;
     text-align:center;
     font-size:16px;
@@ -1447,7 +1439,7 @@ a.btn {
     -webkit-transition:all 0.4s ease;
     transition:all 0.4s ease;
 }
-
+/* 
 .socialList li a[href*="facebook"]:hover {
     background-color:#3D5D8C;
 }
@@ -1459,12 +1451,12 @@ a.btn {
 
 .socialList li a[href*="twitter"]:hover {
     background-color:#50A0D7;
-}
+} */
 
-.socialList li a[href*="feeds"]:hover {
+/* .socialList li a[href*="feeds"]:hover {
     background-color:#FF9900;
 }
-
+ */
 .socialList li .fa {
     margin-right:-4px;
 }
@@ -2286,4 +2278,7 @@ button.close {
 }
 .sum-voting {
 	margin-top:5px;
+}
+.ui-sortable {
+	padding-right: 10px
 }

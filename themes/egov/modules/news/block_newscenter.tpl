@@ -1,7 +1,7 @@
 <!-- BEGIN: main -->
 <div id="hot-news">
-	<div class="panel panel-default news_column">
-        <div class="panel-body">
+	<div class="panel panel-default news_column fix-pad-panel-default">
+        <div class="panel-body fix-pad-panel-body">
             <div class="row">
                 <div class="col-md-14 margin-bottom-lg">
                     <div class="margin-bottom text-center"><a href="{main.link}" title="{main.link}" {main.target_blank}><img src="{main.imgsource}" alt="{main.title}" width="{main.width}" class="img-thumbnail"/></a></div>

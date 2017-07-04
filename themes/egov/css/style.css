@@ -2299,3 +2299,9 @@ button.close {
 .fix-more-padding {
 	padding: 10px 20px;
 }
+.fix-pad-panel-body {
+	padding: 0px;
+}
+.fix-pad-panel-default {
+	border: 0px;
+}

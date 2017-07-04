@@ -7,15 +7,15 @@
 	</div>
 </div>
 <div class="row">
-	<div class="col-sm-16 col-md-18">
+	<div class="col-sm-16 col-md-18 fix-more-padding">
 		[TOP]
 	</div>
-	<div class="col-sm-8 col-md-6">
+	<div class="col-sm-8 col-md-6 fix-more-padding">
 		[RIGHT]
 	</div>
 </div>
 <div class="row">
-	<div class="col-sm-16 col-md-18">
+	<div class="col-sm-16 col-md-18 fix-more-padding">
 		{MODULE_CONTENT}
 		[BOTTOM]
 		<div class="row">
@@ -27,7 +27,7 @@
 			<div class="col-sm-12 col-md-12">[NEWS_4]</div>
 		</div>
 	</div>
-	<div class="col-sm-8 col-md-6">
+	<div class="col-sm-8 col-md-6 fix-more-padding">
 		[RIGHT_1]
 	</div>
 </div>

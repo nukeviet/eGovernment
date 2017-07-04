@@ -10,7 +10,8 @@
                     <p class="text-right"><a href="{main.link}"><em class="fa fa-sign-out"></em>{lang.more}</a></p>
                 </div>
                 <div class="col-md-10 margin-bottom-lg">
-                    <ul class="column-margin-left">
+                    <ul class="column-margin-left fix-sub-news">
+                    	<h3>Tin Nổi Bật</h3>
                         <!-- BEGIN: othernews -->
                         <li class="icon_list clearfix">
                             <a class="show black h4" href="{othernews.link}" {othernews.target_blank} <!-- BEGIN: tooltip -->data-placement="{TOOLTIP_POSITION}" data-content="{othernews.hometext_clean}" data-img="{othernews.imgsource}" data-rel="tooltip"<!-- END: tooltip --> title="{othernews.title}" ><img src="{othernews.imgsource}" alt="{othernews.title}" class="img-thumbnail pull-right margin-left-sm" style="width:65px;"/>{othernews.titleclean60}</a>

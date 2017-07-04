@@ -804,7 +804,7 @@ a.btn {
 #header .logo {
     position:relative;
     margin:0;
-    padding:20px 10px;
+    padding:12px 10px;
 }
 
 #header .logo h1, #header .logo .site_name {
@@ -1325,11 +1325,21 @@ a.btn {
 
 .social-icons,
 .personalArea {
-    line-height:51px;
+    line-height:32px;
     float:right;
     margin:0 10px;
 }
-
+.menutop-fix,
+.rss-fix,
+.user-fix,
+.language {
+    line-height:32px;
+    float:right;
+    witdh:25%;
+}
+.float-right {
+	float: right;
+}
 .contactDefault {
     position: absolute;
     top:0;
@@ -1337,10 +1347,10 @@ a.btn {
     line-height:51px;
     margin:0 10px;
 }
-
+/* 
 .personalArea {
     margin-left:50px;
-}
+} */
 
 .personalArea a.button.user,
 .personalArea a.button.user:hover {

@@ -76,21 +76,18 @@
 			</div>
 		</nav>
         <nav class="header-nav">
-            <div class="container">
-                <div class="personalArea">
-                [PERSONALAREA]
-                </div>
-                <div class="social-icons">
-                [SOCIAL_ICONS]
-                </div>
-                <div class="contactDefault">
-                [CONTACT_DEFAULT]
-                </div>
-                <div id="tip" data-content="">
-                    <div class="bg"></div>
-                </div>
-            </div>
-        </nav>
+			<div class="container">
+				<div class="float-right">
+					<div class="user-fix">[USER]</div>
+					<div class="rss-fix">[RSS]</div>
+					<div class="menutop-fix">[MENU_TOP]</div>
+					<div class="language">[LANGUAGE]</div>
+					<div id="tip" data-content="">
+						<div class="bg"></div>
+					</div>
+				</div>
+			</div>
+		</nav>
 		<section>
 			<div class="container" id="body">
                 <nav class="third-nav">

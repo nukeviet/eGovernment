@@ -2010,7 +2010,7 @@ input[type=radio]:checked:before {
 }
 
 .panel-heading {
-    background-image:linear-gradient(to bottom,rgba(0,0,0,0.05) 0%,rgba(0,0,0,0) 100%) !important;
+    background-image:linear-gradient(to bottom,rgba(0,0,0,0.05) 0%,rgba(0,0,0,0) 100%);
     border-bottom-width: 1px;
     border-bottom-style: solid;
     border-bottom-color: rgba(0,0,0,0);
@@ -2336,4 +2336,20 @@ button.close {
 .shadow-bg {
     border-radius: 10px;
     margin-bottom: 5px;
+}
+.fix-tintuc-thongtinkt {
+	padding: 10px 0px;
+}
+.fix-head-tintuc-thongtinkt {
+	background-image: none;
+	padding: 0px 0px;
+}
+.fix-body-tintuc-thongtinkt {
+	padding: 10px 0px;
+}
+.padding-left-tintuc-thongtinkt {
+	padding-left: 10px
+}
+.padding-right-tintuc-thongtinkt {
+	padding-right: 10px
 }

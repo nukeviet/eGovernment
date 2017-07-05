@@ -2353,3 +2353,9 @@ button.close {
 .padding-right-tintuc-thongtinkt {
 	padding-right: 10px
 }
+.border-bottom-news {
+	border-bottom: #999 1px solid;
+}
+.padding-news-tintuc-thongtinkt {
+	padding: 20px 0px;
+}

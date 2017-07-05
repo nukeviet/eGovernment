@@ -14,15 +14,19 @@
 </div>
 <div class="row shadow-bg bg-body-new">
 	<div class="col-sm-16 col-md-18 fix-more-padding">
-		{MODULE_CONTENT}
-		[BOTTOM]
+		<div class=" border-bottom-news">
+			{MODULE_CONTENT}
+			[BOTTOM]
+		</div>
+		<div class="padding-news-tintuc-thongtinkt">
 		<div class="row">
 			<div class="col-sm-12 col-md-12 padding-right-tintuc-thongtinkt">[NEWS_1]</div>
 			<div class="col-sm-12 col-md-12 padding-left-tintuc-thongtinkt">[NEWS_2]</div>
 		</div>
-		<div class="row">
+		<div class="row border-bottom-news">
 			<div class="col-sm-12 col-md-12 padding-right-tintuc-thongtinkt">[NEWS_3]</div>
 			<div class="col-sm-12 col-md-12 padding-left-tintuc-thongtinkt">[NEWS_4]</div>
+		</div>
 		</div>
 		<div class="row">
 			<div class="col-sm-12 col-md-12 padding-right-tintuc-thongtinkt">[NEWS_5]</div>

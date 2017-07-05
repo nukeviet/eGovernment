@@ -2293,7 +2293,15 @@ button.close {
 /* chỉnh sửa layout map */
 
 .fix-title-map {
-	
+	margin: 10px 0px;
+}
+
+.fix-title-map h2 {
+	padding-left: 25px;
+	background: url("../images/bg-tittle-map.png") center left no-repeat;
+	font-size: 16px;
+	color: #666;
+	vertical-align: middle;
 }
 
 .fix-more-padding {

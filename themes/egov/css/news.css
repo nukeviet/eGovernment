@@ -138,6 +138,7 @@ ul.other-news {
 #hot-news li{
     display: block;
     padding-bottom:10px;
+    padding-top:10px;
     border-bottom:1px solid #dadada;
 }
 

@@ -13,7 +13,8 @@
     border-width:0 1px 0 1px;
     box-shadow:0 0 4px rgba(0,0,0,0.15);
     -webkit-box-shadow:0 0 20px rgba(0,0,0,0.3);
-}
+    background: rgba(0,0,0,0.3);
+} 
 
 @font-face {
     font-family:'NukeVietIcons';
@@ -999,7 +1000,7 @@ a.btn {
 
 .third-nav {
     position:relative;
-    margin-bottom:6px;
+   /*  margin-bottom:6px; */
 }
 
 .third-nav .row{
@@ -1463,8 +1464,12 @@ a.btn {
 
 /* Body */
 
-#body {
+/* #body {
     background-color:#fff;
+} */
+
+.bg-body-new {
+	 background-color:#fff
 }
 
 /* Footer-NAV2 */
@@ -1978,9 +1983,9 @@ input[type=radio]:checked:before {
 .img-thumbnail {
     background-color: #cccccc;
     border: none;
-    border-radius: 3px;
+    border-radius: 0px;
     max-width: 100%;
-    padding: 1px;
+    padding: 0px;
 }
 
 .fb-like {
@@ -2317,4 +2322,12 @@ button.close {
 .fix-pad-panel-default {
 	border: 0px;
 	box-shadow: none;
+}
+.shadow-bg-1 {
+    border-radius: 0px 0px 10px 10px;
+    margin-bottom: 5px;
+}
+.shadow-bg {
+    border-radius: 10px;
+    margin-bottom: 5px;
 }

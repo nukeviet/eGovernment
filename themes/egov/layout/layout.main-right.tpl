@@ -1,10 +1,10 @@
 <!-- BEGIN: main -->
 {FILE "header_only.tpl"}
 {FILE "header_extended.tpl"}
-<div class="row">
+<div class="row bg-body-new">
 		[HEADER]
 </div>
-<div class="row">
+<div class="row shadow-bg-1 bg-body-new">
 	<div class="col-sm-16 col-md-18 fix-more-padding">
 		[TOP]
 	</div>
@@ -12,7 +12,7 @@
 		[RIGHT]
 	</div>
 </div>
-<div class="row">
+<div class="row shadow-bg bg-body-new">
 	<div class="col-sm-16 col-md-18 fix-more-padding">
 		{MODULE_CONTENT}
 		[BOTTOM]
@@ -29,10 +29,10 @@
 		[RIGHT_1]
 	</div>
 </div>
-<div class="row">
+<div class="row shadow-bg bg-body-new">
 		[FOOTER]
 </div>
-<div class="row">
+<div class="row shadow-bg bg-body-new">
 		[FOOTER_2]
 </div>
 {FILE "footer_extended.tpl"}

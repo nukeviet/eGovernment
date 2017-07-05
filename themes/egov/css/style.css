@@ -2304,6 +2304,10 @@ button.close {
 	vertical-align: middle;
 }
 
+.fix-img-thumb-map img {
+	padding: 10px 0px;
+}
+
 .fix-more-padding {
 	padding: 20px;
 }

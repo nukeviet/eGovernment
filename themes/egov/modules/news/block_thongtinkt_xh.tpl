@@ -4,9 +4,9 @@
 	<li class="clearfix">
 	<div class="row">
 		<!-- BEGIN: img -->
-		<div class="col-md-10"> 
+		<div class="col-md-10 fix-img-thongtinkt-xh"> 
 			<a href="{ROW.link}" title="{ROW.title}" {ROW.target_blank} ><img src="{ROW.thumb}" alt="{ROW.title}" width="{ROW.blockwidth}" class="img-thumbnail pull-left"/></a>
-			<div class="more-news"><a>Xem tiếp</a></div>
+			<div class="more-news"><a>Xem tiếp <i class="fa fa-caret-right" aria-hidden="true"></i></a></div>
 		</div>
 		<!-- END: img -->
 		<div class="col-md-14"> 

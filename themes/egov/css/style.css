@@ -2459,3 +2459,9 @@ button.close {
 .fix-lanhdao-chidao .panel-heading a {
 	color: #fff;
 }
+.fix-thongke-truycap .panel-heading {
+	background: none !important;
+	background-color: transparent !important;
+	border-color: none;
+	margin: 0px 10px
+}

@@ -1,11 +1,18 @@
 <!-- BEGIN: main -->
-<ul class="block_groups">
+<ul class="block_groups fix-block-groups">
 	<!-- BEGIN: loop -->
 	<li class="clearfix">
+		<div class="row">
+		<div class="col-md-24  fix-img-block-groups">
 		<!-- BEGIN: img -->
 		<a href="{ROW.link}" title="{ROW.title}" {ROW.target_blank} ><img src="{ROW.thumb}" alt="{ROW.title}" width="{ROW.blockwidth}" class="img-thumbnail pull-left"/></a>
 		<!-- END: img -->
+		</div>
+		<div class="clearfix col-md-24 fix-text-block-groups">
 		<a {TITLE} class="show" href="{ROW.link}" {ROW.target_blank} data-content="{ROW.hometext_clean}" data-img="{ROW.thumb}" data-rel="block_tooltip">{ROW.title_clean}</a>
+		<div class="more-news" style="float:right"><a>Xem tiếp <i class="fa fa-caret-right" aria-hidden="true"></i></a></div>
+		</div>
+		</div>
 	</li>
 	<!-- END: loop -->
 </ul>

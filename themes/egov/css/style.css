@@ -2010,12 +2010,6 @@ input[type=radio]:checked:before {
 }
 
 .panel-heading {
-    background-image:linear-gradient(to bottom,rgba(0,0,0,0.05) 0%,rgba(0,0,0,0) 100%);
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
-    border-bottom-color: rgba(0,0,0,0);
-    border-top-left-radius:3px;
-    border-top-right-radius:3px;
     padding:10px;
 }
 
@@ -2453,4 +2447,15 @@ button.close {
 }
 .fix-text-block-groups {
 	padding: 20px;
+}
+.padding-lanhdao-chidao {
+	padding: 10px 0px;
+}
+
+.fix-lanhdao-chidao .panel-heading {
+	background-color: #f7a41e !important;
+	border-radius: 3px 3px 0px 0px;
+}
+.fix-lanhdao-chidao .panel-heading a {
+	color: #fff;
 }

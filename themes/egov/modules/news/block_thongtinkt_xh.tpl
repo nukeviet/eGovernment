@@ -6,7 +6,7 @@
 		<!-- BEGIN: img -->
 		<div class="col-md-10"> 
 			<a href="{ROW.link}" title="{ROW.title}" {ROW.target_blank} ><img src="{ROW.thumb}" alt="{ROW.title}" width="{ROW.blockwidth}" class="img-thumbnail pull-left"/></a>
-			<a>Xem tiếp</a>
+			<div class="more-news"><a>Xem tiếp</a></div>
 		</div>
 		<!-- END: img -->
 		<div class="col-md-14"> 

@@ -1,5 +1,6 @@
 <script type="text/javascript" src="{NV_BASE_SITEURL}themes/{TEMPLATE}/js/search.js"></script>
 <link rel="stylesheet" type="text/css" media="screen" href="{NV_BASE_SITEURL}themes/{TEMPLATE}/css/search.css" />
+<link href="//fonts.googleapis.com/css?family=Roboto|Roboto+Condensed" rel="stylesheet">
 	<noscript>
 		<div class="alert alert-danger">{LANG.nojs}</div>
 	</noscript>

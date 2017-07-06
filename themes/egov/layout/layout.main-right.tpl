@@ -23,7 +23,7 @@
 			<div class="col-sm-12 col-md-12 padding-right-tintuc-thongtinkt">[NEWS_1]</div>
 			<div class="col-sm-12 col-md-12 padding-left-tintuc-thongtinkt">[NEWS_2]</div>
 		</div>
-		<div class="row border-bottom-news">
+		<div class="row">
 			<div class="col-sm-12 col-md-12 padding-right-tintuc-thongtinkt">[NEWS_3]</div>
 			<div class="col-sm-12 col-md-12 padding-left-tintuc-thongtinkt">[NEWS_4]</div>
 		</div>

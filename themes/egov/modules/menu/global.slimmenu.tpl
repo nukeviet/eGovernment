@@ -15,14 +15,18 @@
 <link rel="stylesheet" type="text/css" media="screen" href="{NV_BASE_SITEURL}themes/{BLOCK_THEME}/css/slimmenu.css" />
 
 <ul class="slimmenu">
+<div class="row">
 	<!-- BEGIN: loopcat1 -->
+	<div class="col-md-8">
 	<li {CAT1.class}>
 		<!-- BEGIN: icon -->
         <img src="{CAT1.icon}" />&nbsp;
         <!-- END: icon -->
 		<a title="{CAT1.note}" href="{CAT1.link}" {CAT1.target}>{CAT1.title_trim}</a>
 	</li>
+	</div>
 	<!-- END: loopcat1 -->
+	</div>
 </ul>
 <script	type="text/javascript" src="{NV_BASE_SITEURL}themes/{BLOCK_THEME}/js/jquery.slimmenu.js"></script>
 <script src="{NV_BASE_SITEURL}{NV_ASSETS_DIR}/js/jquery-ui/jquery-ui.min.js"></script>

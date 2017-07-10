@@ -9,11 +9,10 @@
               </div>
             </div>
           </div>
-            <div class="wraper">
+           <div class="wraper">
                 <div class="container">
-                  
                     <div class="row">
-                        <div class="col-xs-24 col-sm-24 col-md-24">
+                        <div class="col-xs-24 col-sm-24 col-md-24 color-text-footer margin-footer-site">
                             	[FOOTER_SITE]
                         </div>
                     </div>

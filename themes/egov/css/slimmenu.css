@@ -69,6 +69,7 @@ ul.slimmenu li {
 
 ul.slimmenu li a{
     padding: 15px 26px;
+    background: #10bcff;
 }
 ul.slimmenu li ul li a, ul.slimmenu.collapsed li a {
 	padding: 10px;
@@ -105,10 +106,10 @@ ul.slimmenu > li > a {
 	font-size: 13px;
 	font-weight: 400;
 	text-shadow: 0 1px 0 rgba(255,255,255,0.2);
-	background: none;
+	background-color: #10bcff;
 }
 ul.slimmenu li a:hover, ul.slimmenu li a:focus, ul.slimmenu li.current {
-	background-color: #063b70;
+	background-color: #10bcff;
 	text-decoration: none;
 }
 
@@ -230,4 +231,8 @@ ul.slimmenu.collapsed li > ul {
 		margin-left: -5px !important ;
 		margin-right: -5px !important ;
 	}
+}
+
+.slimmenu img {
+	float: left
 }

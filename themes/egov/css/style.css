@@ -1477,7 +1477,7 @@ a.btn {
 .footerNav2 {
     position:relative;
     width:100%;
-    background-color:#193c5a;
+    background-color: #777676;
     padding:10px 0;
     color:#dcdcdc;
 }
@@ -1496,8 +1496,8 @@ a.btn {
     margin-right:10px;
     line-height:30px;
     width:30px;
-    background-color:#245682;
-    color:#428BCA;
+    background-color:#fba919;
+    color:#fff;
     text-align:center;
     border-radius:15px;
     -webkit-border-radius:15px;
@@ -1505,13 +1505,13 @@ a.btn {
 
 .footerNav2 .theme-change span {
     color:#dcdcdc;
-    background-color:#428BCA;
+    background-color:#fba919;
 }
 
 .footerNav2 .theme-change a:hover,
 .footerNav2 .theme-change span:hover {
     color:#fff;
-    background-color:#428BCA;
+    background-color:#f9e81c;
 }
 
 .footerNav2 .theme-change .fa-lg {
@@ -1533,8 +1533,8 @@ a.btn {
 .footerNav2 .bttop a {
     display:block;
     line-height:40px;
-    background-color:#245682;
-    color:#428BCA;
+    background-color:#fba919;
+    color:#fff;
     font-size:14px;
     text-align:center;
     border-radius:20px;
@@ -1543,7 +1543,7 @@ a.btn {
 
 .footerNav2 .bttop a:hover {
     color:#fff;
-    background-color:#428BCA;
+    background-color: #f9e81c;
 }
 
 .footerNav2 .bttop em {
@@ -1553,16 +1553,15 @@ a.btn {
 /* Footer */
 
 #footer {
-	background: #d5d5d5 url("../images/bg-footer.jpg") center center no-repeat;
+	background: #d5d5d5 url("../images/bg-footer.jpg") center top no-repeat;
     position:relative;
-    min-height:412px;
     width:100%;
     font-size:13px
 }
 
 #footer,
 #footer a {
-    color:#333;
+    color:#dcdcdc;
 }
 
 #footer h3 {
@@ -2461,4 +2460,38 @@ button.close {
 	background-color: transparent !important;
 	border-color: none;
 	margin: 0px 10px
+}
+.color-text-footer {
+	color: #464d66;
+}
+}
+.color-text-footer a, .color-text-footer p, .color-text-footer strong, .color-text-footer h3  {
+	color: #464d66;
+}
+.fix-superfish-menu a {
+	color: #464d66 !important;
+}
+.fix-title-superfish-menu {
+	line-height: 42px;
+	font-size: 20px;
+}
+.fix-superfish-menu ul {
+	padding: 0px;
+}
+.fix-superfish-menu ul li a {
+	color: #464d66  !important;
+}
+.fix-sub-superfish-menu {
+	margin-top: 50px;
+}
+.fix-sub-superfish-menu li {
+	line-height: 26px;
+}
+.fix-sub-superfish-menu li a strong {
+	font-weight: normal;
+}
+.margin-footer-site {
+	margin-top: 50px;
+	margin-bottom: 10px;
+	vertical-align: bottom;
 }

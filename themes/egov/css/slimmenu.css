@@ -68,8 +68,12 @@ ul.slimmenu li {
 }
 
 ul.slimmenu li a{
-    padding: 15px 26px;
+    padding: 10px 26px;
     background: #10bcff;
+    position: relative;
+    left: -20px;
+    border-radius: 5px;
+    color: #fff;
 }
 ul.slimmenu li ul li a, ul.slimmenu.collapsed li a {
 	padding: 10px;
@@ -234,5 +238,6 @@ ul.slimmenu.collapsed li > ul {
 }
 
 .slimmenu img {
-	float: left
+	position: relative;
+	z-index: 1;
 }

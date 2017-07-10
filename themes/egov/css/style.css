@@ -1553,22 +1553,16 @@ a.btn {
 /* Footer */
 
 #footer {
+	background: #d5d5d5 url("../images/bg-footer.jpg") center center no-repeat;
     position:relative;
-    min-height:300px;
+    min-height:412px;
     width:100%;
-    border-top-width: 1px;
-    border-top-style: solid;
-    border-top-color: #428BCA;
-    border-bottom-width:1px;
-    border-bottom-style: solid;
-    border-bottom-color: #245682;
-    padding:20px 0;
     font-size:13px
 }
 
 #footer,
 #footer a {
-    color:#dcdcdc;
+    color:#333;
 }
 
 #footer h3 {
@@ -2326,6 +2320,9 @@ button.close {
 .shadow-bg-1 {
     border-radius: 0px 0px 10px 10px;
     margin-bottom: 5px;
+}
+.shadow-bg-2 {
+	border-radius: 10px 10px 0px 0px;
 }
 .shadow-bg {
     border-radius: 10px;

@@ -40,7 +40,7 @@
 <div class="row shadow-bg bg-body-new">
 		[FOOTER]
 </div>
-<div class="row shadow-bg bg-body-new">
+<div class="row shadow-bg-2 bg-body-new">
 		[FOOTER_2]
 </div>
 {FILE "footer_extended.tpl"}

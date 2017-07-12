@@ -11,12 +11,17 @@ body {
 /* Đồng bộ màu sắc */
 .header-nav a:hover,
 .user-fix > span > .user:hover,
-.header-nav a.button:hover, .header-nav a.active {
+.header-nav a.button:hover, .header-nav a.active,
+.sitebannertext {
     color: #ea4800!important;
     -moz-transition: all .2s ease-in;
     -o-transition: all .2s ease-in;
     -webkit-transition: all .2s ease-in;
     transition: all .2s ease-in;
+}
+
+.sitemenu-bg {
+    background-color: #ea4800;
 }
 
 /* Thanh bar header */
@@ -58,7 +63,8 @@ ul.menutop li:last-child {
     font-size: 15px;
 }
 
-.user-fix > span > .user {
+.user-fix > span > .user,
+.user-fix > span > .button {
     background-image: none!important;
     display: inline-block;
     font-family: FontAwesome;
@@ -71,6 +77,11 @@ ul.menutop li:last-child {
     padding: 0 7px;
 }
 
+.user-fix > span > .button > .fa-lg {
+    font-size: 14px;
+    vertical-align: 0
+}
+
 .user-fix > span > .user:before {
     content: "\f007";
 }
@@ -78,7 +89,8 @@ ul.menutop li:last-child {
 ul.menutop,
 ul.menutop a,
 .socialList li a,
-.user-fix > span > .user {
+.user-fix > span > .user,
+.user-fix > span > .button {
     color: #fff;
 }
 
@@ -91,6 +103,174 @@ ul.menutop a,
 /* Phần header */
 #header {
     margin-top: 30px;
+}
+
+#header > .logo {
+    position: relative;
+}
+
+.sitebannertext {
+    position: absolute;
+    width: 100%;
+    padding-right: 125px;
+    height: 70px;
+    left: 125px;
+    top: 33px;
+    text-transform: uppercase;
+}
+
+.sitebannertext .sn {
+    font-size: 21px;
+    margin-bottom: 5px;
+}
+
+.sitebannertext .sd {
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.sitemenu-bg {
+    position: absolute;
+    top: 175px;
+    left: 0;
+    height: 40px;
+    width: 100%;
+    border: 1px #ef7640 solid;
+    border-left: 0;
+    border-right: 0;
+}
+
+.sitemenu-ct {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.sitemenu-ctl {
+    position: absolute;
+    right: 50%;
+    left: 0;
+    top: -1px;
+    bottom: -1px;
+    margin-right: 540px;
+    height: 40px;
+    background: -moz-linear-gradient(left, rgba(0,0,0,0) 1%, rgba(1,0,0,0) 49%, rgba(2,1,1,0.1) 80%, rgba(2,1,1,0.2) 100%);
+    background: -webkit-linear-gradient(left, rgba(0,0,0,0) 1%,rgba(1,0,0,0) 49%,rgba(2,1,1,0.1) 80%,rgba(2,1,1,0.2) 100%);
+    background: linear-gradient(to right, rgba(0,0,0,0) 1%,rgba(1,0,0,0) 49%,rgba(2,1,1,0.1) 80%,rgba(2,1,1,0.2) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#33020101',GradientType=1 );
+}
+
+.sitemenu-ctr {
+    position: absolute;
+    left: 50%;
+    right: 0;
+    top: -1px;
+    bottom: -1px;
+    margin-left: 540px;
+    height: 40px;
+    background: -moz-linear-gradient(left, rgba(2,1,1,0.2) 0%, rgba(2,1,1,0.1) 20%, rgba(1,1,1,0) 51%, rgba(0,0,0,0) 99%);
+    background: -webkit-linear-gradient(left, rgba(2,1,1,0.2) 0%,rgba(2,1,1,0.1) 20%,rgba(1,1,1,0) 51%,rgba(0,0,0,0) 99%);
+    background: linear-gradient(to right, rgba(2,1,1,0.2) 0%,rgba(2,1,1,0.1) 20%,rgba(1,1,1,0) 51%,rgba(0,0,0,0) 99%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#33020101', endColorstr='#00000000',GradientType=1 );
+}
+
+/* Thanh menu chính */
+#menusite .navbar-default {
+    border-bottom: 1px #ef7640 solid;
+    min-height: 44px;
+}
+
+#menusite .menuctwrap {
+    border-bottom: 1px #ffdcd2 solid;
+}
+
+#menusite .navbar-default .navbar-nav > li > a:hover,
+#menusite .navbar-default .navbar-nav > li > a:focus,
+#menusite .navbar-default .navbar-nav > .active > a,
+#menusite .navbar-default .navbar-nav > .active > a:hover,
+#menusite .navbar-default .navbar-nav > .active > a:focus,
+#menusite .navbar-default .navbar-nav > .open > a,
+#menusite .navbar-default .navbar-nav > .open > a:hover,
+#menusite .navbar-default .navbar-nav > .open > a:focus {
+    background: #b03600!important;
+}
+
+#menu-site-default > ul > li > a {
+    line-height: 14px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+#menusite .dropdown-menu {
+    border: 0!important;
+    border-radius: 0!important;
+    background-color: #fff!important;
+    padding: 0!important;
+}
+
+#menusite .dropdown-menu > li {
+    border: 0!important;
+}
+
+#menusite .dropdown-menu > li > a {
+    line-height: 21px !important;
+    padding: 3px 15px !important;
+    font-family: Tahoma;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #5f5f5f!important;
+}
+
+#menusite .dropdown-menu > li > a:hover,
+#menusite .dropdown-menu > li > a:focus,
+#menusite .dropdown-menu > .active > a,
+#menusite .dropdown-menu > .active > a:hover,
+#menusite .dropdown-menu > .active > a:focus,
+#menusite .navbar .navbar-nav .open .dropdown-menu > li > a:hover,
+#menusite .navbar .navbar-nav .open .dropdown-menu > li > a:focus,
+#menusite .navbar .navbar-nav .open .dropdown-menu > .active > a,
+#menusite .navbar .navbar-nav .open .dropdown-menu > .active > a:hover,
+#menusite .navbar .navbar-nav .open .dropdown-menu > .active > a:focus {
+    background-color: #ffbd0d!important;
+    background-image: none!important;
+    color: #fff!important;
+    font-weight: 700;
+}
+
+#menu-site-default {
+    position: relative;
+}
+
+#menu-site-default .conner-left {
+    position: absolute;
+    width: 12px;
+    height: 53px;
+    top: 0;
+    left: -12px;
+    background-image: url(../images/menu-left.png);
+}
+
+#menu-site-default .conner-right {
+    position: absolute;
+    width: 12px;
+    height: 53px;
+    top: 0;
+    right: -12px;
+    background-image: url(../images/menu-right.png);
+}
+
+#toggleearch {
+    position: absolute;
+    right: 0;
+    top: 44px;
+    width: 300px;
+    background: #fff;
+    padding: 10px;
 }
 
 /* Block ngôn ngữ */

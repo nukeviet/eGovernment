@@ -40,8 +40,23 @@
                 <!-- END: sub -->
 			</li>
 			<!-- END: top_menu -->
-         </ul>
-	</div>
+        </ul>
+        <div class="pull-right">
+            <a data-toggle="collapse" href="#toggleearch" aria-expanded="false" aria-controls="toggleearch"><i class="fa fa-search"></i></a>
+        </div>
+        <div class="collapse" id="toggleearch">
+            <form method="get" action="">
+                <div class="input-group">
+                    <input type="text" class="form-control"/>
+                    <div class="input-group-btn">
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="conner-left">&nbsp;</div>
+        <div class="conner-right">&nbsp;</div>
+    </div>
 </div>
 <script type="text/javascript" data-show="after">
 $(function(){

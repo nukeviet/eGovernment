@@ -1,12 +1,18 @@
-	<noscript>
+    <noscript>
 		<div class="alert alert-danger">{LANG.nojs}</div>
 	</noscript>
     <div class="body-bg">
+	<div class="sitemenu-bg">
+        <div class="sitemenu-ct">
+            <div class="sitemenu-ctl">&nbsp;</div>
+            <div class="sitemenu-ctr">&nbsp;</div>
+        </div>
+    </div>
 	<div class="wraper bg-shadow-body">
 		<header>
 			<div class="container">
 				<div id="header" class="row">
-				    <div class="logo col-xs-24 col-sm-24 col-md-8">
+				    <div class="logo col-xs-24 col-sm-24 col-md-16">
                         <!-- BEGIN: image -->
                         <a title="{SITE_NAME}" href="{THEME_SITE_HREF}"><img src="{LOGO_SRC}" width="{LOGO_WIDTH}" height="{LOGO_HEIGHT}" alt="{SITE_NAME}" /></a>
                         <!-- END: image -->
@@ -40,37 +46,21 @@
                         <span class="site_name">{SITE_NAME}</span>
                         <span class="site_description">{SITE_DESCRIPTION}</span>
                         <!-- END: site_name_span -->
+                        <div class="sitebannertext">
+                            [TEXT_BANNER]
+                        </div>
                     </div>
-                    <div class="col-xs-24 col-sm-24 col-md-16">
-                    [HEAD_RIGHT]
+                    <div class="col-xs-24 col-sm-24 col-md-8">
+                        [HEAD_RIGHT]
                     </div>
 				</div>
 			</div>
 		</header>
 		<nav class="second-nav" id="menusite">
-			<div class="container">
-				<div class="row box-shadow bg">
-                    <div class="  col-xs-24 col-sm-20 col-md-20">
-						[MENU_SITE]
-                    </div>
-                     <div class="headerSearch col-xs-24 col-sm-4 col-md-4">
-
-						<div class="bootsnipp-search animate">
-							<div class="container">
-							<ul>
-								<li><button class=" hidden-xs btn btn-danger" type="reset" data-url="{THEME_SEARCH_URL}" data-minlength="{NV_MIN_SEARCH_LENGTH}" data-click="y"><a href="#toggle-search" class="animate"><span class="fa fa-search fa-lg"></span></a></button></li>
-							</ul>
-								<form action="http://bootsnipp.com/search" method="GET" role="search">
-									<div class="input-group">
-										<input type="text" class="form-control" maxlength="{NV_MAX_SEARCH_LENGTH} name="q" placeholder="{LANG.search}..."> <span class="input-group-btn">
-										</span>
-									</div>
-								</form>
-							</div>
-						</div>
-
-					</div>
-				</div>
+			<div class="bg clearfix">
+				<div class="menuctwrap">
+                    [MENU_SITE]
+                </div>
 			</div>
 		</nav>
 		<nav class="header-nav">

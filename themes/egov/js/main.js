@@ -617,12 +617,14 @@ $(function() {
         locationReplace($(this).data("location"))
     });
     //Add preload: link rel="prefetch", link rel="prerender"
+    /*
     $(document).bind("mousemove", function(e) {
     	if (!e.target.href || e.target.href.indexOf(location.host) == -1 || e.target.hintAdded) return;
         add_hint("prefetch", e.target.href);
     	add_hint("prerender", e.target.href);
     	e.target.hintAdded = true
     });
+    */
 });
 // Fix bootstrap multiple modal
 $(document).on({

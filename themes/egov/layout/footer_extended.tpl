@@ -1,15 +1,15 @@
                 </div>
             </section>
- </div>     
+        </div>
         <footer id="footer">
-         <div class="row">
-            <div class="col-xs-24 col-sm-24 col-md-24">
-              <div class="wraper">
-              [MENU_FOOTER]
-              </div>
-            </div>
-          </div>
-           <div class="wraper">
+            <div class="wraper">
+                <div class="row">
+                    <div class="col-xs-24 col-sm-24 col-md-24">
+                        <div class="wraper">
+                        [MENU_FOOTER]
+                        </div>
+                    </div>
+                </div>
                 <div class="container">
                     <div class="row">
                         <div class="col-xs-24 col-sm-24 col-md-24 color-text-footer margin-footer-site">

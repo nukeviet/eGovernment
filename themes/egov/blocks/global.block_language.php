@@ -28,19 +28,20 @@ if (! nv_function_exists('nv_block_language')) {
         $xtpl = new XTemplate('global.block_language.tpl', NV_ROOTDIR . '/themes/' . $block_theme . '/blocks');
         $xtpl->assign('NV_BASE_SITEURL', NV_BASE_SITEURL);
         $xtpl->assign('BLOCK_THEME', $block_theme);
-        $xtpl->assign('SELECT_LANGUAGE', $lang_global['langsite']);
 
         // Multiple languages
         if ($global_config['lang_multi'] and sizeof($global_config['allow_sitelangs']) > 1) {
             foreach ($global_config['allow_sitelangs'] as $lang_i) {
                 $xtpl->assign('LANGSITENAME', $language_array[$lang_i]['name']);
                 $xtpl->assign('LANGSITEURL', NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . $lang_i);
+                $xtpl->assign('LANGSITEKEY', $lang_i);
 
                 if (NV_LANG_DATA != $lang_i) {
-                    $xtpl->parse('main.language.langitem');
+                    $xtpl->parse('main.language.loop.link');
                 } else {
-                    $xtpl->parse('main.language.langcuritem');
+                    $xtpl->parse('main.language.loop.text');
                 }
+                $xtpl->parse('main.language.loop');
             }
 
             $xtpl->parse('main.language');

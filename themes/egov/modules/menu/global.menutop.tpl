@@ -12,8 +12,6 @@
 </li>
 <!-- END: tree -->
 <!-- BEGIN: main -->
-<link rel="stylesheet" type="text/css" media="screen" href="{NV_BASE_SITEURL}themes/{BLOCK_THEME}/css/menutop.css" />
-
 <ul class="menutop">
 	<!-- BEGIN: loopcat1 -->
 	<li {CAT1.class}>

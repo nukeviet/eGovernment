@@ -1,6 +1,3 @@
-<script type="text/javascript" src="{NV_BASE_SITEURL}themes/{TEMPLATE}/js/search.js"></script>
-<link rel="stylesheet" type="text/css" media="screen" href="{NV_BASE_SITEURL}themes/{TEMPLATE}/css/search.css" />
-<link href="//fonts.googleapis.com/css?family=Roboto|Roboto+Condensed" rel="stylesheet">
 	<noscript>
 		<div class="alert alert-danger">{LANG.nojs}</div>
 	</noscript>
@@ -61,7 +58,7 @@
 						<div class="bootsnipp-search animate">
 							<div class="container">
 							<ul>
-								<li><button class=" hidden-xs btn btn-danger" type="reset" data-url="{THEME_SEARCH_URL}" data-minlength="{NV_MIN_SEARCH_LENGTH}" data-click="y"><a href="#toggle-search" class="animate"><span class="fa fa-search fa-lg"></span></button></li>
+								<li><button class=" hidden-xs btn btn-danger" type="reset" data-url="{THEME_SEARCH_URL}" data-minlength="{NV_MIN_SEARCH_LENGTH}" data-click="y"><a href="#toggle-search" class="animate"><span class="fa fa-search fa-lg"></span></a></button></li>
 							</ul>
 								<form action="http://bootsnipp.com/search" method="GET" role="search">
 									<div class="input-group">
@@ -111,7 +108,7 @@
                                 <!-- END: breadcrumbs -->
                                 <!-- BEGIN: currenttime --><span class="current-time">{NV_CURRENTTIME}</span><!-- END: currenttime -->
                             </div>
-                           
+
                         </div>
                         </div>
                     </div>

@@ -1,0 +1,107 @@
+/**
+ * Các tùy chỉnh riêng cho giao diện sẽ được viết tại đây
+ */
+
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700|Roboto:400,700&subset=vietnamese');
+
+body {
+    font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* Đồng bộ màu sắc */
+.header-nav a:hover,
+.user-fix > span > .user:hover,
+.header-nav a.button:hover, .header-nav a.active {
+    color: #ea4800!important;
+    -moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
+}
+
+/* Thanh bar header */
+.header-nav {
+    height: 30px;
+}
+
+.menutop-fix, .rss-fix, .user-fix, .language {
+    line-height: 30px;
+}
+
+ul.menutop {
+    margin: 0 10px;
+    padding: 7px 0px;
+    line-height: 16px;
+    font-size: 12px;
+}
+
+ul.menutop li {
+    display: inline-block;
+    margin: 0;
+    padding: 0 5px;
+}
+
+ul.menutop li:first-child {
+    border-left: 1px #fff solid;
+    padding-left: 10px;
+}
+
+ul.menutop li:last-child {
+    border-right: 1px #fff solid;
+    padding-right: 10px;
+}
+
+.socialList li a {
+    width: auto;
+    height: auto;
+    line-height: 30px;
+    font-size: 15px;
+}
+
+.user-fix > span > .user {
+    background-image: none!important;
+    display: inline-block;
+    font-family: FontAwesome;
+    font-size: 14px;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    position: relative;
+    line-height: 29px;
+    padding: 0 7px;
+}
+
+.user-fix > span > .user:before {
+    content: "\f007";
+}
+
+ul.menutop,
+ul.menutop a,
+.socialList li a,
+.user-fix > span > .user {
+    color: #fff;
+}
+
+#tip {
+    top: 30px;
+    right: 100px;
+    margin-right: 0;
+}
+
+/* Phần header */
+#header {
+    margin-top: 30px;
+}
+
+/* Block ngôn ngữ */
+ul.sitelanguage {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul.sitelanguage li {
+    display: inline-block;
+    padding: 0 0 0 5px;
+    margin: 0;
+}

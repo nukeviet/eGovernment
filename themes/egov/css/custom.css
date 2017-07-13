@@ -8,6 +8,16 @@ body {
     font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
+h1, h2, h3,
+.h1, .h2, .h3 {
+    font-family: 'Roboto Condensed';
+}
+
+.padding-news-tintuc-thongtinkt,
+.border-bottom-news {
+    border-bottom-color: #c1c1c1;
+}
+
 /* Đồng bộ màu sắc */
 .header-nav a:hover,
 .user-fix > span > .user:hover,

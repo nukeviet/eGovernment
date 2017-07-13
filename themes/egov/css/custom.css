@@ -196,14 +196,20 @@ ul.menutop a,
 }
 
 #menu-site-default > ul > li > a {
-    line-height: 14px;
-    padding-top: 14px;
-    padding-bottom: 14px;
+    line-height: 44px!important;
+    padding-top: 0!important;
+    padding-bottom: 0!important;
     padding-left: 10px;
     padding-right: 10px;
     font-size: 12px;
     text-transform: uppercase;
     font-weight: 700;
+    height: 44px;
+}
+
+#menu-site-default > ul > li > a > .caret {
+    position: relative;
+    top: -2px;
 }
 
 #menusite .dropdown-menu {
@@ -267,10 +273,19 @@ ul.menutop a,
 #toggleearch {
     position: absolute;
     right: 0;
-    top: 44px;
+    top: 45px;
     width: 300px;
     background: #fff;
     padding: 10px;
+}
+
+#toggleearchbtn {
+    display: inline-block;
+    color: #fff;
+    line-height: 45px;
+    padding: 0 10px 0 13px;
+    border-left: 3px #d60303 solid;
+    margin-bottom: -1px;
 }
 
 /* Block ngôn ngữ */
@@ -284,4 +299,61 @@ ul.sitelanguage li {
     display: inline-block;
     padding: 0 0 0 5px;
     margin: 0;
+}
+
+ul.sitelanguage img {
+    position: relative;
+    top: -1px;
+}
+
+/* Các block menu xanh */
+.menunavgreen {
+    margin-bottom: 15px;
+}
+
+.menunavgreen > div > div > img {
+    float: left;
+}
+
+.menunavgreen > .imgonright > div > img {
+    float: right;
+}
+
+.menunavgreen > div > div > a {
+    font-family: 'Roboto Condensed';
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 36px;
+    background-color: #10bcff;
+    border-radius: 5px;
+    display: block;
+    color: #fff;
+    text-align: center;
+    margin-top: 4px;
+    margin-left: 20px;
+    text-transform: uppercase;
+}
+
+.menunavgreen > .imgonright > div > a {
+    margin-left: 0;
+    margin-right: 20px;
+}
+
+.menunavgreen > div > div > a span {
+    display: none;
+}
+
+.menunavgreen > .hasnote > div > a {
+    line-height: 14px;
+    padding-top: 8px;
+}
+
+.menunavgreen > .hasnote > div > a span {
+    display: block;
+    font-family: 'Roboto';
+    font-size: 9px;
+    line-height: 9px;
+    font-weight: normal;
+    padding-bottom: 4px;
+    padding-top: 2px;
 }

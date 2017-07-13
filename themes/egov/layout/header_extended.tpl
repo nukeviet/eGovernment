@@ -78,12 +78,12 @@
 		</nav>
 		<section>
 			<div class="container" id="body">
+                <!-- BEGIN: breadcrumbs -->
                 <nav class="third-nav">
     				<div class="row">
                         <div class="bg">
                         <div class="clearfix">
                             <div class="col-xs-24 col-sm-18 col-md-18">
-                                <!-- BEGIN: breadcrumbs -->
                                 <div class="breadcrumbs-wrap">
                                 	<div class="display">
                                 		<a class="show-subs-breadcrumbs hidden" href="#" onclick="showSubBreadcrumbs(this, event);"><em class="fa fa-lg fa-angle-right"></em></a>
@@ -95,12 +95,10 @@
 	                                    <!-- BEGIN: loop --><li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="{BREADCRUMBS.link}" itemprop="url" title="{BREADCRUMBS.title}"><span class="txt" itemprop="title">{BREADCRUMBS.title}</span></a></li><!-- END: loop -->
 	                                </ul>
 								</div>
-                                <!-- END: breadcrumbs -->
-                                <!-- BEGIN: currenttime --><span class="current-time">{NV_CURRENTTIME}</span><!-- END: currenttime -->
                             </div>
-
                         </div>
                         </div>
                     </div>
                 </nav>
+                <!-- END: breadcrumbs -->
                 [THEME_ERROR_INFO]

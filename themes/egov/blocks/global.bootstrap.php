@@ -109,6 +109,20 @@ if (! nv_function_exists('nv_menu_bootstrapegov')) {
         $xtpl->assign('BLOCK_THEME', $block_theme);
         $xtpl->assign('THEME_SITE_HREF', NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA);
 
+        // Search form variables
+        $xtpl->assign('NV_MAX_SEARCH_LENGTH', NV_MAX_SEARCH_LENGTH);
+        $xtpl->assign('NV_MIN_SEARCH_LENGTH', NV_MIN_SEARCH_LENGTH);
+
+        if (!$global_config['rewrite_enable']) {
+            $xtpl->assign('NV_LANG_VARIABLE', NV_LANG_VARIABLE);
+            $xtpl->assign('NV_LANG_DATA', NV_LANG_DATA);
+            $xtpl->assign('NV_NAME_VARIABLE', NV_NAME_VARIABLE);
+            $xtpl->assign('THEME_SEARCH_URL', NV_BASE_SITEURL . 'index.php');
+            $xtpl->parse('main.no_rewrite');
+        } else {
+            $xtpl->assign('THEME_SEARCH_URL', nv_url_rewrite(NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&amp;' . NV_NAME_VARIABLE . '=seek', true));
+        }
+
         if (!empty($array_menu)) {
             foreach ($array_menu[0] as $id => $item) {
                 $classcurrent = array();

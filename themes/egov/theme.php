@@ -206,7 +206,7 @@ function nv_site_theme($contents, $full = true)
         }
 
         // Breadcrumbs
-        if (! $home) {
+        if (!$home) {
             $array_mod_title_copy = $array_mod_title;
             if ($global_config['rewrite_op_mod'] != $module_name) {
                 $arr_cat_title_i = array(
@@ -222,9 +222,6 @@ function nv_site_theme($contents, $full = true)
                 }
             }
             $xtpl->parse('main.breadcrumbs');
-        }
-        elseif (empty($array_mod_title_copy)) {
-            $xtpl->parse('main.currenttime');
         }
 
         // Statistics image

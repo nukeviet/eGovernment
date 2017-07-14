@@ -25,7 +25,7 @@ CREATE TABLE `nv4_authors` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 INSERT INTO `nv4_authors` (`admin_id`, `editor`, `lev`, `files_level`, `position`, `addtime`, `edittime`, `is_suspend`, `susp_reason`, `check_num`, `last_login`, `last_ip`, `last_agent`) VALUES
-(1, 'ckeditor', 1, 'adobe,archives,audio,documents,flash,images,real,video|1|1|1', 'Administrator', 0, 0, 0, '', '9132694d6a764e80f55eca0627035d21', 1499906882, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36');
+(1, 'ckeditor', 1, 'adobe,archives,audio,documents,flash,images,real,video|1|1|1', 'Administrator', 0, 0, 0, '', 'dbee606f0175a2db0e2efcb64c4cc371', 1499996707, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36');
 
 DROP TABLE IF EXISTS `nv4_authors_config`;
 CREATE TABLE `nv4_authors_config` (
@@ -245,7 +245,7 @@ INSERT INTO `nv4_config` (`lang`, `module`, `config_name`, `config_value`) VALUE
 ('sys', 'global', 'gzip_method', '1'),
 ('sys', 'global', 'authors_detail_main', '0'),
 ('sys', 'global', 'spadmin_add_admin', '1'),
-('sys', 'global', 'timestamp', '18'),
+('sys', 'global', 'timestamp', '23'),
 ('sys', 'global', 'captcha_type', '1'),
 ('sys', 'global', 'version', '4.1.02'),
 ('sys', 'global', 'facebook_client_id', ''),
@@ -299,7 +299,7 @@ INSERT INTO `nv4_config` (`lang`, `module`, `config_name`, `config_value`) VALUE
 ('vi', 'global', 'autologosize3', '30'),
 ('vi', 'global', 'autologomod', ''),
 ('vi', 'global', 'name_show', '0'),
-('vi', 'global', 'cronjobs_next_time', '1499928978'),
+('vi', 'global', 'cronjobs_next_time', '1500027895'),
 ('vi', 'global', 'disable_site_content', 'Vì lý do kỹ thuật website tạm ngưng hoạt động. Thành thật xin lỗi các bạn vì sự bất tiện này!'),
 ('vi', 'global', 'ssl_https_modules', ''),
 ('vi', 'seotools', 'prcservice', ''),
@@ -512,7 +512,57 @@ INSERT INTO `nv4_config` (`lang`, `module`, `config_name`, `config_value`) VALUE
 ('en', 'siteterms', 'captcha', '1'),
 ('en', 'siteterms', 'perpagecomm', '5'),
 ('en', 'siteterms', 'timeoutcomm', '360'),
-('en', 'freecontent', 'next_execute', '0');
+('en', 'freecontent', 'next_execute', '0'),
+('vi', 'opinion', 'indexfile', 'viewcat_main_right'),
+('vi', 'opinion', 'per_page', '20'),
+('vi', 'opinion', 'st_links', '10'),
+('vi', 'opinion', 'homewidth', '100'),
+('vi', 'opinion', 'homeheight', '150'),
+('vi', 'opinion', 'blockwidth', '70'),
+('vi', 'opinion', 'blockheight', '75'),
+('vi', 'opinion', 'imagefull', '460'),
+('vi', 'opinion', 'copyright', ''),
+('vi', 'opinion', 'showtooltip', '1'),
+('vi', 'opinion', 'tooltip_position', 'bottom'),
+('vi', 'opinion', 'tooltip_length', '150'),
+('vi', 'opinion', 'showhometext', '1'),
+('vi', 'opinion', 'timecheckstatus', '0'),
+('vi', 'opinion', 'config_source', '0'),
+('vi', 'opinion', 'show_no_image', ''),
+('vi', 'opinion', 'allowed_rating_point', '1'),
+('vi', 'opinion', 'facebookappid', ''),
+('vi', 'opinion', 'socialbutton', '1'),
+('vi', 'opinion', 'alias_lower', '1'),
+('vi', 'opinion', 'tags_alias', '0'),
+('vi', 'opinion', 'auto_tags', '0'),
+('vi', 'opinion', 'tags_remind', '1'),
+('vi', 'opinion', 'copy_news', '0'),
+('vi', 'opinion', 'structure_upload', 'Ym'),
+('vi', 'opinion', 'imgposition', '2'),
+('vi', 'opinion', 'htmlhometext', '0'),
+('vi', 'opinion', 'elas_use', '0'),
+('vi', 'opinion', 'elas_host', ''),
+('vi', 'opinion', 'elas_port', '9200'),
+('vi', 'opinion', 'elas_index', ''),
+('vi', 'opinion', 'instant_articles_active', '0'),
+('vi', 'opinion', 'instant_articles_template', 'default'),
+('vi', 'opinion', 'instant_articles_httpauth', '0'),
+('vi', 'opinion', 'instant_articles_username', ''),
+('vi', 'opinion', 'instant_articles_password', ''),
+('vi', 'opinion', 'instant_articles_livetime', '60'),
+('vi', 'opinion', 'instant_articles_gettime', '120'),
+('vi', 'opinion', 'instant_articles_auto', '1'),
+('vi', 'opinion', 'auto_postcomm', '1'),
+('vi', 'opinion', 'allowed_comm', '-1'),
+('vi', 'opinion', 'view_comm', '6'),
+('vi', 'opinion', 'setcomm', '4'),
+('vi', 'opinion', 'activecomm', '1'),
+('vi', 'opinion', 'emailcomm', '0'),
+('vi', 'opinion', 'adminscomm', ''),
+('vi', 'opinion', 'sortcomm', '0'),
+('vi', 'opinion', 'captcha', '1'),
+('vi', 'opinion', 'perpagecomm', '5'),
+('vi', 'opinion', 'timeoutcomm', '360');
 
 DROP TABLE IF EXISTS `nv4_cookies`;
 CREATE TABLE `nv4_cookies` (
@@ -536,9 +586,9 @@ CREATE TABLE `nv4_counter` (
 
 INSERT INTO `nv4_counter` (`c_type`, `c_val`, `last_update`, `c_count`, `vi_count`, `en_count`) VALUES
 ('c_time', 'start', 0, 0, 0, 0),
-('c_time', 'last', 0, 1499929960, 0, 0),
-('total', 'hits', 1499929960, 194, 192, 2),
-('year', '2017', 1499929960, 194, 192, 2),
+('c_time', 'last', 0, 1500027204, 0, 0),
+('total', 'hits', 1500027204, 211, 209, 2),
+('year', '2017', 1500027204, 211, 209, 2),
 ('year', '2018', 0, 0, 0, 0),
 ('year', '2019', 0, 0, 0, 0),
 ('year', '2020', 0, 0, 0, 0),
@@ -553,7 +603,7 @@ INSERT INTO `nv4_counter` (`c_type`, `c_val`, `last_update`, `c_count`, `vi_coun
 ('month', 'Apr', 0, 0, 0, 0),
 ('month', 'May', 0, 0, 0, 0),
 ('month', 'Jun', 1498818412, 49, 49, 0),
-('month', 'Jul', 1499929960, 145, 143, 2),
+('month', 'Jul', 1500027204, 162, 160, 2),
 ('month', 'Aug', 0, 0, 0, 0),
 ('month', 'Sep', 0, 0, 0, 0),
 ('month', 'Oct', 0, 0, 0, 0),
@@ -571,8 +621,8 @@ INSERT INTO `nv4_counter` (`c_type`, `c_val`, `last_update`, `c_count`, `vi_coun
 ('day', '10', 1499681375, 17, 17, 0),
 ('day', '11', 1499755361, 5, 5, 0),
 ('day', '12', 1499854340, 17, 15, 2),
-('day', '13', 1499929960, 12, 12, 0),
-('day', '14', 0, 0, 0, 0),
+('day', '13', 1499934696, 13, 13, 0),
+('day', '14', 1500027204, 16, 16, 0),
 ('day', '15', 0, 0, 0, 0),
 ('day', '16', 0, 0, 0, 0),
 ('day', '17', 0, 0, 0, 0),
@@ -594,8 +644,8 @@ INSERT INTO `nv4_counter` (`c_type`, `c_val`, `last_update`, `c_count`, `vi_coun
 ('dayofweek', 'Monday', 1499681375, 17, 17, 0),
 ('dayofweek', 'Tuesday', 1499755361, 25, 25, 0),
 ('dayofweek', 'Wednesday', 1499854340, 52, 50, 2),
-('dayofweek', 'Thursday', 1499929960, 54, 54, 0),
-('dayofweek', 'Friday', 1498818412, 20, 20, 0),
+('dayofweek', 'Thursday', 1499934696, 55, 55, 0),
+('dayofweek', 'Friday', 1500027204, 36, 36, 0),
 ('dayofweek', 'Saturday', 1498902301, 13, 13, 0),
 ('hour', '00', 0, 0, 0, 0),
 ('hour', '01', 0, 0, 0, 0),
@@ -604,17 +654,17 @@ INSERT INTO `nv4_counter` (`c_type`, `c_val`, `last_update`, `c_count`, `vi_coun
 ('hour', '04', 0, 0, 0, 0),
 ('hour', '05', 0, 0, 0, 0),
 ('hour', '06', 0, 0, 0, 0),
-('hour', '07', 1499906883, 1, 1, 0),
-('hour', '08', 1499909337, 1, 1, 0),
-('hour', '09', 1499913207, 2, 2, 0),
-('hour', '10', 1499917189, 2, 2, 1),
-('hour', '11', 1499921913, 2, 2, 1),
-('hour', '12', 1499925513, 2, 2, 0),
-('hour', '13', 1499927314, 1, 1, 0),
-('hour', '14', 1499929960, 1, 1, 0),
-('hour', '15', 1499848394, 0, 0, 0),
-('hour', '16', 1499852087, 0, 0, 0),
-('hour', '17', 1499854340, 0, 0, 0),
+('hour', '07', 1499906883, 0, 0, 0),
+('hour', '08', 1499996345, 1, 1, 0),
+('hour', '09', 1500000341, 2, 2, 0),
+('hour', '10', 1500004517, 2, 2, 1),
+('hour', '11', 1500006572, 1, 1, 1),
+('hour', '12', 1500010997, 2, 2, 0),
+('hour', '13', 1500015100, 2, 2, 0),
+('hour', '14', 1500019157, 2, 2, 0),
+('hour', '15', 1500021210, 1, 1, 0),
+('hour', '16', 1500025390, 2, 2, 0),
+('hour', '17', 1500027204, 1, 1, 0),
 ('hour', '18', 0, 0, 0, 0),
 ('hour', '19', 1499602508, 0, 0, 0),
 ('hour', '20', 1499608141, 0, 0, 0),
@@ -646,7 +696,7 @@ INSERT INTO `nv4_counter` (`c_type`, `c_val`, `last_update`, `c_count`, `vi_coun
 ('browser', 'iphone', 0, 0, 0, 0),
 ('browser', 'ipod', 0, 0, 0, 0),
 ('browser', 'ipad', 0, 0, 0, 0),
-('browser', 'chrome', 1499929960, 28, 26, 2),
+('browser', 'chrome', 1500027204, 45, 43, 2),
 ('browser', 'cococ', 0, 0, 0, 0),
 ('browser', 'android', 0, 0, 0, 0),
 ('browser', 'googlebot', 0, 0, 0, 0),
@@ -668,7 +718,7 @@ INSERT INTO `nv4_counter` (`c_type`, `c_val`, `last_update`, `c_count`, `vi_coun
 ('browser', 'Unknown', 0, 0, 0, 0),
 ('os', 'unknown', 0, 0, 0, 0),
 ('os', 'win', 0, 0, 0, 0),
-('os', 'win10', 1499929960, 193, 191, 2),
+('os', 'win10', 1500027204, 210, 208, 2),
 ('os', 'win8', 0, 0, 0, 0),
 ('os', 'win7', 0, 0, 0, 0),
 ('os', 'win2003', 0, 0, 0, 0),
@@ -920,7 +970,7 @@ INSERT INTO `nv4_counter` (`c_type`, `c_val`, `last_update`, `c_count`, `vi_coun
 ('country', 'ZA', 0, 0, 0, 0),
 ('country', 'ZM', 0, 0, 0, 0),
 ('country', 'ZW', 0, 0, 0, 0),
-('country', 'ZZ', 1499929960, 194, 192, 2),
+('country', 'ZZ', 1500027204, 211, 209, 2),
 ('country', 'unkown', 0, 0, 0, 0);
 
 DROP TABLE IF EXISTS `nv4_cronjobs`;
@@ -941,15 +991,15 @@ CREATE TABLE `nv4_cronjobs` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 INSERT INTO `nv4_cronjobs` (`id`, `start_time`, `inter_val`, `run_file`, `run_func`, `params`, `del`, `is_sys`, `act`, `last_time`, `last_result`, `vi_cron_name`, `en_cron_name`) VALUES
-(1, 1498555144, 5, 'online_expired_del.php', 'cron_online_expired_del', '', 0, 1, 1, 1499928678, 1, 'Xóa các dòng ghi trạng thái online đã cũ trong CSDL', 'Delete expired online status'),
-(2, 1498555144, 1440, 'dump_autobackup.php', 'cron_dump_autobackup', '', 0, 1, 1, 1499928375, 1, 'Tự động lưu CSDL', 'Automatic backup database'),
-(3, 1498555144, 60, 'temp_download_destroy.php', 'cron_auto_del_temp_download', '', 0, 1, 1, 1499927314, 1, 'Xóa các file tạm trong thư mục tmp', 'Empty temporary files'),
-(4, 1498555144, 30, 'ip_logs_destroy.php', 'cron_del_ip_logs', '', 0, 1, 1, 1499928039, 1, 'Xóa IP log files, Xóa các file nhật ký truy cập', 'Delete IP log files'),
-(5, 1498555144, 1440, 'error_log_destroy.php', 'cron_auto_del_error_log', '', 0, 1, 1, 1499928375, 1, 'Xóa các file error_log quá hạn', 'Delete expired error_log log files'),
+(1, 1498555144, 5, 'online_expired_del.php', 'cron_online_expired_del', '', 0, 1, 1, 1500027595, 1, 'Xóa các dòng ghi trạng thái online đã cũ trong CSDL', 'Delete expired online status'),
+(2, 1498555144, 1440, 'dump_autobackup.php', 'cron_dump_autobackup', '', 0, 1, 1, 1500015133, 1, 'Tự động lưu CSDL', 'Automatic backup database'),
+(3, 1498555144, 60, 'temp_download_destroy.php', 'cron_auto_del_temp_download', '', 0, 1, 1, 1500024707, 1, 'Xóa các file tạm trong thư mục tmp', 'Empty temporary files'),
+(4, 1498555144, 30, 'ip_logs_destroy.php', 'cron_del_ip_logs', '', 0, 1, 1, 1500027204, 1, 'Xóa IP log files, Xóa các file nhật ký truy cập', 'Delete IP log files'),
+(5, 1498555144, 1440, 'error_log_destroy.php', 'cron_auto_del_error_log', '', 0, 1, 1, 1500015133, 1, 'Xóa các file error_log quá hạn', 'Delete expired error_log log files'),
 (6, 1498555144, 360, 'error_log_sendmail.php', 'cron_auto_sendmail_error_log', '', 0, 1, 0, 0, 0, 'Gửi email các thông báo lỗi cho admin', 'Send error logs to admin'),
-(7, 1498555144, 60, 'ref_expired_del.php', 'cron_ref_expired_del', '', 0, 1, 1, 1499927314, 1, 'Xóa các referer quá hạn', 'Delete expired referer'),
-(8, 1498555144, 60, 'check_version.php', 'cron_auto_check_version', '', 0, 1, 1, 1499927314, 1, 'Kiểm tra phiên bản NukeViet', 'Check NukeViet version'),
-(9, 1498555144, 1440, 'notification_autodel.php', 'cron_notification_autodel', '', 0, 1, 1, 1499928375, 1, 'Xóa thông báo cũ', 'Delete old notification');
+(7, 1498555144, 60, 'ref_expired_del.php', 'cron_ref_expired_del', '', 0, 1, 1, 1500024707, 1, 'Xóa các referer quá hạn', 'Delete expired referer'),
+(8, 1498555144, 60, 'check_version.php', 'cron_auto_check_version', '', 0, 1, 1, 1500024707, 1, 'Kiểm tra phiên bản NukeViet', 'Check NukeViet version'),
+(9, 1498555144, 1440, 'notification_autodel.php', 'cron_notification_autodel', '', 0, 1, 1, 1500015133, 1, 'Xóa thông báo cũ', 'Delete old notification');
 
 DROP TABLE IF EXISTS `nv4_en_about`;
 CREATE TABLE `nv4_en_about` (
@@ -8407,7 +8457,41 @@ INSERT INTO `nv4_logs` (`id`, `lang`, `module_name`, `name_key`, `note_action`, 
 (428, 'vi', 'upload', 'Upload file', 'uploads/menu/chi-dan-thu-tuc.png', '', 1, 1499916021),
 (429, 'vi', 'upload', 'Upload file', 'uploads/menu/duong-day-nong.png', '', 1, 1499916021),
 (430, 'vi', 'upload', 'Upload file', 'uploads/menu/y-kien-du-thao.png', '', 1, 1499916021),
-(431, 'vi', 'themes', 'Sửa block', 'Name : global slimmenu', '', 1, 1499916902);
+(431, 'vi', 'themes', 'Sửa block', 'Name : global slimmenu', '', 1, 1499916902),
+(432, 'vi', 'login', '[admin] Đăng nhập', ' Client IP:127.0.0.1', '', 0, 1499996707),
+(433, 'vi', 'modules', 'Xóa module \"nvtools\"', '', '', 1, 1499996832),
+(434, 'vi', 'modules', 'Xóa module \"lay-y-kien-nguoi-dan\"', '', '', 1, 1499996835),
+(435, 'vi', 'modules', 'Thêm module ảo opinion', '', '', 1, 1499996844),
+(436, 'vi', 'modules', 'Thiết lập module mới opinion', '', '', 1, 1499996849),
+(437, 'vi', 'modules', 'Sửa module &ldquo;opinion&rdquo;', '', '', 1, 1499996855),
+(438, 'vi', 'themes', 'Sửa block', 'Name : Hỏi đáp', '', 1, 1500004516),
+(439, 'vi', 'themes', 'Sửa block', 'Name : Hỏi đáp', '', 1, 1500004649),
+(440, 'vi', 'themes', 'Sửa block', 'Name : Hỏi đáp', '', 1, 1500005654),
+(441, 'vi', 'webtools', 'Dọn dẹp hệ thống', 'clearcache, clearfiletemp, clearerrorlogs, clearip_logs', '', 1, 1500005664),
+(442, 'vi', 'themes', 'Sửa block', 'Name : Hỏi đáp', '', 1, 1500010062),
+(443, 'vi', 'webtools', 'Dọn dẹp hệ thống', 'clearcache, clearfiletemp, clearerrorlogs, clearip_logs', '', 1, 1500016174),
+(444, 'vi', 'opinion', 'Thêm chuyên mục', 'Ý kiến công dân', '', 1, 1500016946),
+(445, 'vi', 'upload', 'Upload file', 'uploads/opinion/2017_07/loa.jpg', '', 1, 1500017000),
+(446, 'vi', 'opinion', 'Thêm bài viết', 'Thành phố Hà Nội lấy ý kiến người dân về vấn đề loa phường', '', 1, 1500017104),
+(447, 'vi', 'webtools', 'Dọn dẹp hệ thống', 'clearcache, clearfiletemp, clearerrorlogs, clearip_logs', '', 1, 1500017641),
+(448, 'vi', 'webtools', 'Dọn dẹp hệ thống', 'clearcache, clearfiletemp, clearerrorlogs, clearip_logs', '', 1, 1500017670),
+(449, 'vi', 'upload', 'Tạo lại ảnh thumb', 'uploads/news', '', 1, 1500018748),
+(450, 'vi', 'upload', 'Tạo lại ảnh thumb', 'uploads/news', '', 1, 1500018749),
+(451, 'vi', 'upload', 'Tạo lại ảnh thumb', 'uploads/news', '', 1, 1500018751),
+(452, 'vi', 'upload', 'Tạo lại ảnh thumb', 'uploads/news', '', 1, 1500018752),
+(453, 'vi', 'upload', 'Tạo lại ảnh thumb', 'uploads/opinion', '', 1, 1500018759),
+(454, 'vi', 'upload', 'Tạo lại ảnh thumb', 'uploads/opinion', '', 1, 1500018760),
+(455, 'vi', 'upload', 'Tạo lại ảnh thumb', 'uploads/opinion', '', 1, 1500018761),
+(456, 'vi', 'themes', 'Sửa block', 'Name : Feedback', '', 1, 1500021560),
+(457, 'vi', 'webtools', 'Dọn dẹp hệ thống', 'clearcache, clearfiletemp, clearerrorlogs, clearip_logs', '', 1, 1500022713),
+(458, 'vi', 'news', 'Sửa bài viết', 'Hơn 7.600 tỷ đồng đầu tư thiết bị dự án đường sắt Nhổn-Ga Hà Nội', '', 1, 1500023483),
+(459, 'vi', 'news', 'Sửa bài viết', 'Hà Nội&#x3A; Kiểm tra phản ánh về bất cập của thiết kế nhà ga ngầm', '', 1, 1500023501),
+(460, 'vi', 'news', 'Sửa bài viết', 'Hà Nội triển khai các giải pháp cấp bách bảo vệ môi trường', '', 1, 1500023525),
+(461, 'vi', 'themes', 'Sửa block', 'Name : CHIẾN LƯỢC - QUY HOẠCH', '', 1, 1500023825),
+(462, 'vi', 'themes', 'Sửa block', 'Name : THÔNG TIN KINH TẾ - XÃ HỘI', '', 1, 1500024073),
+(463, 'vi', 'themes', 'Sửa block', 'Name : CHIẾN LƯỢC - QUY HOẠCH', '', 1, 1500024080),
+(464, 'vi', 'themes', 'Sửa block', 'Name : MUA SẮM - MỜI THẦU', '', 1, 1500024089),
+(465, 'vi', 'themes', 'Sửa block', 'Name : CÔNG TRÌNH - ĐỀ TÀI', '', 1, 1500024094);
 
 DROP TABLE IF EXISTS `nv4_notification`;
 CREATE TABLE `nv4_notification` (
@@ -8445,7 +8529,7 @@ CREATE TABLE `nv4_sessions` (
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8;
 
 INSERT INTO `nv4_sessions` (`session_id`, `userid`, `username`, `onl_time`) VALUES
-('fsjj6klmnk2ju5es82l3lpmdr3', 1, 'admin', 1499929962);
+('q5v413oqelg145mgut2vlpsfg2', 1, 'admin', 1500027594);
 
 DROP TABLE IF EXISTS `nv4_setup_extensions`;
 CREATE TABLE `nv4_setup_extensions` (
@@ -8483,7 +8567,7 @@ INSERT INTO `nv4_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual
 (0, 'module', 'laws', 0, 1, 'laws', 'laws', '4.1.02 1491810212', 1498555548, 'VINADES (contact@vinades.vn)', 'Modules văn bản pháp luật'),
 (0, 'module', 'videoclips', 0, 1, 'videoclips', 'videoclips', '4.1.02 1497560120', 1498555548, 'VINADES (contact@vinades.vn)', 'Module playback of video-clips'),
 (0, 'theme', 'egov', 0, 0, 'egov', 'egov', '4.0.0 1498555740', 1498555740, 'VINADES (contact@vinades.vn)', 'egov'),
-(0, 'module', 'lay-y-kien-nguoi-dan', 0, 0, 'laws', 'lay_y_kien_nguoi_dan', '', 1498701479, '', '');
+(0, 'module', 'opinion', 0, 0, 'news', 'opinion', '', 1499996844, '', '');
 
 DROP TABLE IF EXISTS `nv4_setup_language`;
 CREATE TABLE `nv4_setup_language` (
@@ -8513,10 +8597,10 @@ INSERT INTO `nv4_upload_dir` (`did`, `dirname`, `time`, `thumb_type`, `thumb_wid
 (3, 'uploads/banners', 1499681919, 0, 0, 0, 0),
 (4, 'uploads/contact', 1499681920, 0, 0, 0, 0),
 (6, 'uploads/menu', 1499669767, 0, 0, 0, 0),
-(7, 'uploads/news', 0, 0, 0, 0, 0),
-(8, 'uploads/news/source', 0, 0, 0, 0, 0),
-(9, 'uploads/news/temp_pic', 0, 0, 0, 0, 0),
-(10, 'uploads/news/topics', 0, 0, 0, 0, 0),
+(7, 'uploads/news', 1500023450, 4, 230, 180, 90),
+(8, 'uploads/news/source', 1500023465, 0, 0, 0, 0),
+(9, 'uploads/news/temp_pic', 1500023465, 0, 0, 0, 0),
+(10, 'uploads/news/topics', 1500023466, 0, 0, 0, 0),
 (11, 'uploads/page', 0, 0, 0, 0, 0),
 (12, 'uploads/siteterms', 0, 0, 0, 0, 0),
 (13, 'uploads/users', 0, 0, 0, 0, 0),
@@ -8526,12 +8610,14 @@ INSERT INTO `nv4_upload_dir` (`did`, `dirname`, `time`, `thumb_type`, `thumb_wid
 (17, 'uploads/videoclips/icons', 0, 0, 0, 0, 0),
 (18, 'uploads/videoclips/images', 0, 0, 0, 0, 0),
 (19, 'uploads/videoclips/video', 0, 0, 0, 0, 0),
-(20, 'uploads/nvtools', 0, 0, 0, 0, 0),
-(21, 'uploads/nvtools/compiler', 0, 0, 0, 0, 0),
+(28, 'uploads/opinion/temp_pic', 0, 0, 0, 0, 0),
+(27, 'uploads/opinion/source', 0, 0, 0, 0, 0),
 (22, 'uploads/news/2017_06', 1498615696, 0, 0, 0, 0),
-(23, 'uploads/lay-y-kien-nguoi-dan', 1499681922, 0, 0, 0, 0),
+(26, 'uploads/opinion', 0, 4, 230, 180, 90),
 (24, 'uploads/freecontent', 1499681921, 0, 0, 0, 0),
-(25, 'uploads/news/2017_07', 0, 0, 0, 0, 0);
+(25, 'uploads/news/2017_07', 1500023464, 0, 0, 0, 0),
+(29, 'uploads/opinion/topics', 0, 0, 0, 0, 0),
+(30, 'uploads/opinion/2017_07', 1500016991, 0, 0, 0, 0);
 
 DROP TABLE IF EXISTS `nv4_upload_file`;
 CREATE TABLE `nv4_upload_file` (
@@ -8606,7 +8692,19 @@ INSERT INTO `nv4_upload_file` (`name`, `ext`, `type`, `filesize`, `src`, `srcwid
 ('lay-y-kien.png', 'png', 'image', 2160, 'assets/menu/lay-y-kien.png', 49, 42, '49|42', 1, 1499915364, 6, 'lay-y-kien.png', 'lay y kien'),
 ('chi-dan-th...png', 'png', 'image', 2041, 'assets/menu/chi-dan-thu-tuc.png', 49, 42, '49|42', 1, 1499916021, 6, 'chi-dan-thu-tuc.png', 'chi dan thu tuc'),
 ('duong-day-...png', 'png', 'image', 2290, 'assets/menu/duong-day-nong.png', 49, 42, '49|42', 1, 1499916021, 6, 'duong-day-nong.png', 'duong day nong'),
-('y-kien-du-...png', 'png', 'image', 2188, 'assets/menu/y-kien-du-thao.png', 48, 42, '48|42', 1, 1499916021, 6, 'y-kien-du-thao.png', 'y kien du thao');
+('y-kien-du-...png', 'png', 'image', 2188, 'assets/menu/y-kien-du-thao.png', 48, 42, '48|42', 1, 1499916021, 6, 'y-kien-du-thao.png', 'y kien du thao'),
+('loa.jpg', 'jpg', 'image', 100752, 'assets/opinion/2017_07/loa.jpg', 80, 54, '660|440', 1, 1500017002, 30, 'loa.jpg', 'loa'),
+('chuc-mung-...jpg', 'jpg', 'image', 130708, 'assets/news/chuc-mung-nukeviet-thong-tu-20-bo-tttt.jpg', 80, 63, '461|360', 1, 1499826396, 7, 'chuc-mung-nukeviet-thong-tu-20-bo-tttt.jpg', 'chuc mung nukeviet thong tu 20 bo tttt'),
+('hoc-viec-t...jpg', 'jpg', 'image', 167193, 'assets/news/hoc-viec-tai-cong-ty-vinades.jpg', 80, 63, '460|360', 1, 1499826396, 7, 'hoc-viec-tai-cong-ty-vinades.jpg', 'hoc viec tai cong ty vinades'),
+('hoptac 6.jpg', 'jpg', 'image', 12871, 'uploads/news/hoptac 6.jpg', 80, 66, '382|314', 1, 1499826396, 7, 'hoptac 6.jpg', 'hoptac 6'),
+('hoptac.jpg', 'jpg', 'image', 12871, 'assets/news/hoptac.jpg', 80, 63, '382|314', 1, 1499826396, 7, 'hoptac.jpg', 'hoptac'),
+('nangly.jpg', 'jpg', 'image', 34802, 'assets/news/nangly.jpg', 80, 63, '500|332', 1, 1499826396, 7, 'nangly.jpg', 'nangly'),
+('nukeviet-cms.jpg', 'jpg', 'image', 83489, 'assets/news/nukeviet-cms.jpg', 80, 63, '500|345', 1, 1499826396, 7, 'nukeviet-cms.jpg', 'nukeviet cms'),
+('nukeviet-n...jpg', 'jpg', 'image', 18611, 'assets/news/nukeviet-nhantaidatviet2011.jpg', 80, 63, '400|268', 1, 1499826396, 7, 'nukeviet-nhantaidatviet2011.jpg', 'nukeviet nhantaidatviet2011'),
+('tap-huan-p...jpg', 'jpg', 'image', 132379, 'assets/news/tap-huan-pgd-ha-dong-2015.jpg', 80, 63, '460|295', 1, 1499826396, 7, 'tap-huan-pgd-ha-dong-2015.jpg', 'tap huan pgd ha dong 2015'),
+('thuc-tap-sinh.jpg', 'jpg', 'image', 71135, 'assets/news/thuc-tap-sinh.jpg', 80, 63, '460|360', 1, 1499826396, 7, 'thuc-tap-sinh.jpg', 'thuc tap sinh'),
+('tuyen-dung...png', 'png', 'image', 118910, 'assets/news/tuyen-dung-nvkd.png', 80, 63, '400|279', 1, 1499826396, 7, 'tuyen-dung-nvkd.png', 'tuyen dung nvkd'),
+('tuyendung-...jpg', 'jpg', 'image', 83783, 'assets/news/tuyendung-kythuat.jpg', 80, 63, '300|300', 1, 1499826396, 7, 'tuyendung-kythuat.jpg', 'tuyendung kythuat');
 
 DROP TABLE IF EXISTS `nv4_users`;
 CREATE TABLE `nv4_users` (
@@ -8864,7 +8962,7 @@ INSERT INTO `nv4_vi_blocks_groups` (`bid`, `theme`, `module`, `file_name`, `titl
 (28, 'mobile_default', 'theme', 'global.copyright.php', 'Copyright', '', 'no_title', '[FOOTER_SITE]', 0, '1', 1, '6', 1, 1, 'a:5:{s:12:\"copyright_by\";s:0:\"\";s:13:\"copyright_url\";s:0:\"\";s:9:\"design_by\";s:12:\"VINADES.,JSC\";s:10:\"design_url\";s:18:\"http://vinades.vn/\";s:13:\"siteterms_url\";s:39:\"/index.php?language=vi&amp;nv=siteterms\";}'),
 (29, 'mobile_default', 'theme', 'global.menu_footer.php', 'Các chuyên mục chính', '', 'primary', '[MENU_FOOTER]', 0, '1', 1, '6', 1, 1, 'a:1:{s:14:\"module_in_menu\";a:9:{i:0;s:5:\"about\";i:1;s:4:\"news\";i:2;s:5:\"users\";i:3;s:7:\"contact\";i:4;s:6:\"voting\";i:5;s:7:\"banners\";i:6;s:4:\"seek\";i:7;s:5:\"feeds\";i:8;s:9:\"siteterms\";}}'),
 (30, 'mobile_default', 'theme', 'global.company_info.php', 'Công ty chủ quản', '', 'primary', '[COMPANY_INFO]', 0, '1', 1, '6', 1, 1, 'a:17:{s:12:\"company_name\";s:58:\"Công ty cổ phần phát triển nguồn mở Việt Nam\";s:15:\"company_address\";s:72:\"Phòng 1706 - Tòa nhà CT2 Nàng Hương, 583 Nguyễn Trãi, Hà Nội\";s:16:\"company_sortname\";s:12:\"VINADES.,JSC\";s:15:\"company_regcode\";s:0:\"\";s:16:\"company_regplace\";s:0:\"\";s:21:\"company_licensenumber\";s:0:\"\";s:22:\"company_responsibility\";s:0:\"\";s:15:\"company_showmap\";i:1;s:20:\"company_mapcenterlat\";d:20.984516000000013;s:20:\"company_mapcenterlng\";d:105.795475;s:14:\"company_maplat\";d:20.984515999999999;s:14:\"company_maplng\";d:105.79547500000001;s:15:\"company_mapzoom\";i:17;s:13:\"company_phone\";s:56:\"+84-4-85872007[+84485872007]|+84-904762534[+84904762534]\";s:11:\"company_fax\";s:14:\"+84-4-35500914\";s:13:\"company_email\";s:18:\"contact@vinades.vn\";s:15:\"company_website\";s:17:\"http://vinades.vn\";}'),
-(34, 'egov', 'page', 'global.html.php', 'Feedback', '', 'no_title', '[FOOTER_SITE]', 0, '1', 1, '6', 1, 1, 'a:1:{s:11:\"htmlcontent\";s:576:\"<div style=\"text-align: center;\"><span style=\"font-size:20px;\"><strong>CỔNG THÔNG TIN ĐIỆN TỬ CHÍNH PHỦ</strong></span></div><p style=\"text-align: center;\">Địa chỉ: Số 185 Giảng Võ, Đống Đa, Hà Nội<br  />Điện thoại: (04)35123123/ 35121395 - Fax : (04)35121395;<br  />Email: conggiaotiepdientu@hanoi.gov.vn.</p><p style=\"text-align: center;\">© Bản quyền thuộc về Nước cộng hòa xã hội chủ nghĩa Việt Nam. &nbsp;Mã nguồn NukeViet CMS. &nbsp;Thiết kế bởi VINADES.,JSC. &nbsp; | &nbsp;Điều khoản sử dụng</p>\";}'),
+(34, 'egov', 'page', 'global.html.php', 'Feedback', '', 'no_title', '[FOOTER_SITE]', 0, '1', 1, '6', 1, 1, 'a:1:{s:11:\"htmlcontent\";s:691:\"<div style=\"text-align: center;\"><span style=\"font-size:20px;\"><strong>CỔNG THÔNG TIN ĐIỆN TỬ UBND THÀNH PHỐ&nbsp;HÀ NỘI</strong></span></div><p style=\"text-align: center;\">Địa chỉ: Số 185 Giảng Võ, Đống Đa, Hà Nội<br  />Điện thoại: (04)35123123/ 35121395 - Fax : (04)35121395;<br  />Email: conggiaotiepdientu@hanoi.gov.vn.</p><p style=\"text-align: center;\">© Bản quyền thuộc về UBND Thành phố Hà Nội. &nbsp;Mã nguồn <a href=\"https://nukeviet.vn/\">NukeViet CMS</a>. &nbsp;Thiết kế bởi <a href=\"http://vinades.vn\">VINADES.,JSC</a>. &nbsp; | &nbsp;<a href=\"/vi/siteterms/terms-and-conditions.html\">Điều khoản sử dụng</a></p>\";}'),
 (35, 'egov', 'news', 'global.block_category.php', 'Chủ đề', '', 'no_title', '[LEFT]', 0, '1', 1, '6', 0, 1, 'a:2:{s:5:\"catid\";i:0;s:12:\"title_length\";i:25;}'),
 (36, 'egov', 'theme', 'global.module_menu.php', 'Module Menu', '', 'no_title', '[LEFT]', 0, '1', 1, '6', 0, 2, ''),
 (37, 'egov', 'banners', 'global.banners.php', 'Quảng cáo cột trái', '', 'no_title', '[LEFT]', 0, '1', 1, '6', 1, 3, 'a:1:{s:12:\"idplanbanner\";i:2;}'),
@@ -8881,17 +8979,17 @@ INSERT INTO `nv4_vi_blocks_groups` (`bid`, `theme`, `module`, `file_name`, `titl
 (53, 'egov', 'news', 'global.block_news_cat.php', 'Thông tin kinh tế', '/vi/news/thong-tin-kinh-te/', 'no_title', '[RIGHT_1]', 0, '1', 1, '6', 0, 1, 'a:6:{s:5:\"catid\";a:4:{i:0;s:2:\"14\";i:1;s:2:\"15\";i:2;s:2:\"16\";i:3;s:2:\"17\";}s:6:\"numrow\";i:1;s:12:\"title_length\";i:0;s:11:\"showtooltip\";i:1;s:16:\"tooltip_position\";s:6:\"bottom\";s:14:\"tooltip_length\";s:3:\"150\";}'),
 (54, 'egov', 'menu', 'global.slimmenu.php', 'global superfish', '', 'no_title', '[BOTTOM]', 0, '1', 1, '6', 0, 1, 'a:2:{s:6:\"menuid\";i:3;s:12:\"title_length\";i:0;}'),
 (55, 'egov', 'page', 'global.html.php', 'global html', '', '', '[BOTTOM]', 0, '1', 1, '6', 0, 2, 'a:1:{s:11:\"htmlcontent\";s:18:\"Tin hoạt động\";}'),
-(56, 'egov', 'news', 'global.block_news_cat_2.php', 'THÔNG TIN KINH TẾ - XÃ HỘI', '', 'tintuc_thongtinkt', '[NEWS_1]', 0, '1', 1, '6', 0, 1, 'a:6:{s:5:\"catid\";a:1:{i:0;s:2:\"14\";}s:6:\"numrow\";i:1;s:12:\"title_length\";i:0;s:11:\"showtooltip\";i:0;s:16:\"tooltip_position\";s:6:\"bottom\";s:14:\"tooltip_length\";s:3:\"150\";}'),
-(57, 'egov', 'news', 'global.block_news_cat_2.php', 'CHIẾN LƯỢC - QUY HOẠCH', '', 'tintuc_thongtinkt', '[NEWS_2]', 0, '1', 1, '6', 0, 1, 'a:6:{s:5:\"catid\";a:1:{i:0;s:2:\"15\";}s:6:\"numrow\";i:1;s:12:\"title_length\";i:0;s:11:\"showtooltip\";i:1;s:16:\"tooltip_position\";s:6:\"bottom\";s:14:\"tooltip_length\";s:3:\"150\";}'),
-(58, 'egov', 'news', 'global.block_news_cat_2.php', 'MUA SẮM - MỜI THẦU', '', 'tintuc_thongtinkt', '[NEWS_3]', 0, '1', 1, '6', 0, 2, 'a:6:{s:5:\"catid\";a:1:{i:0;s:2:\"16\";}s:6:\"numrow\";i:1;s:12:\"title_length\";i:0;s:11:\"showtooltip\";i:0;s:16:\"tooltip_position\";s:6:\"bottom\";s:14:\"tooltip_length\";s:3:\"150\";}'),
-(59, 'egov', 'news', 'global.block_news_cat_2.php', 'CÔNG TRÌNH - ĐỀ TÀI', '', 'tintuc_thongtinkt', '[NEWS_4]', 0, '1', 1, '6', 0, 2, 'a:6:{s:5:\"catid\";a:1:{i:0;s:2:\"17\";}s:6:\"numrow\";i:1;s:12:\"title_length\";i:0;s:11:\"showtooltip\";i:0;s:16:\"tooltip_position\";s:6:\"bottom\";s:14:\"tooltip_length\";s:3:\"150\";}'),
+(56, 'egov', 'news', 'global.block_news_cat_2.php', 'THÔNG TIN KINH TẾ - XÃ HỘI', '', 'tintuc_thongtinkt', '[NEWS_1]', 0, '1', 1, '6', 0, 1, 'a:6:{s:5:\"catid\";a:1:{i:0;s:2:\"14\";}s:6:\"numrow\";i:1;s:12:\"title_length\";i:0;s:11:\"showtooltip\";i:0;s:16:\"tooltip_position\";s:6:\"bottom\";s:14:\"tooltip_length\";s:3:\"100\";}'),
+(57, 'egov', 'news', 'global.block_news_cat_2.php', 'CHIẾN LƯỢC - QUY HOẠCH', '', 'tintuc_thongtinkt', '[NEWS_2]', 0, '1', 1, '6', 0, 1, 'a:6:{s:5:\"catid\";a:1:{i:0;s:2:\"15\";}s:6:\"numrow\";i:1;s:12:\"title_length\";i:0;s:11:\"showtooltip\";i:0;s:16:\"tooltip_position\";s:6:\"bottom\";s:14:\"tooltip_length\";s:3:\"100\";}'),
+(58, 'egov', 'news', 'global.block_news_cat_2.php', 'MUA SẮM - MỜI THẦU', '', 'tintuc_thongtinkt', '[NEWS_3]', 0, '1', 1, '6', 0, 2, 'a:6:{s:5:\"catid\";a:1:{i:0;s:2:\"16\";}s:6:\"numrow\";i:1;s:12:\"title_length\";i:0;s:11:\"showtooltip\";i:0;s:16:\"tooltip_position\";s:6:\"bottom\";s:14:\"tooltip_length\";s:3:\"100\";}'),
+(59, 'egov', 'news', 'global.block_news_cat_2.php', 'CÔNG TRÌNH - ĐỀ TÀI', '', 'tintuc_thongtinkt', '[NEWS_4]', 0, '1', 1, '6', 0, 2, 'a:6:{s:5:\"catid\";a:1:{i:0;s:2:\"17\";}s:6:\"numrow\";i:1;s:12:\"title_length\";i:0;s:11:\"showtooltip\";i:0;s:16:\"tooltip_position\";s:6:\"bottom\";s:14:\"tooltip_length\";s:3:\"100\";}'),
 (60, 'egov', 'news', 'global.block_tophits.php', 'CHỈ ĐẠO THÀNH ỦY', '/vi/news/groups/Tin-tieu-diem/', 'chi_dao', '[NEWS_5]', 0, '1', 1, '6', 0, 1, 'a:6:{s:10:\"number_day\";i:365;s:6:\"numrow\";i:3;s:11:\"showtooltip\";i:1;s:16:\"tooltip_position\";s:6:\"bottom\";s:14:\"tooltip_length\";s:3:\"150\";s:7:\"nocatid\";a:0:{}}'),
 (61, 'egov', 'laws', 'global.block_new_law.php', 'VĂN BẢN', '', 'van_ban', '[NEWS_6]', 0, '1', 1, '6', 0, 1, 'a:8:{s:6:\"numrow\";i:3;s:12:\"title_length\";i:0;s:9:\"show_code\";i:1;s:9:\"direction\";s:2:\"up\";s:8:\"duration\";i:3000;s:12:\"pauseOnHover\";i:1;s:10:\"duplicated\";i:1;s:5:\"order\";i:1;}'),
 (62, 'egov', 'news', 'global.block_lanhdao_chidao.php', 'LÃNH ĐẠO - CHỈ ĐẠO', '/vi/news/groups/Tin-moi-nhat/', 'lanhdao_chidao', '[RIGHT_1]', 0, '1', 1, '6', 0, 2, 'a:6:{s:7:\"blockid\";i:2;s:6:\"numrow\";i:2;s:12:\"title_length\";i:0;s:11:\"showtooltip\";i:1;s:16:\"tooltip_position\";s:6:\"bottom\";s:14:\"tooltip_length\";s:3:\"150\";}'),
 (63, 'egov', 'banners', 'global.banners.php', 'global banners', '', 'no_title', '[RIGHT_1]', 0, '1', 1, '6', 0, 3, 'a:1:{s:12:\"idplanbanner\";i:6;}'),
 (64, 'egov', 'statistics', 'global.counter.php', 'THÔNG TIN THỐNG KÊ', '', 'thongke_truycap', '[RIGHT_1]', 0, '1', 1, '6', 0, 4, ''),
 (67, 'egov', 'menu', 'global.slimmenu.php', 'global slimmenu', '', 'no_title_box', '[FOOTER_2]', 0, '1', 1, '6', 0, 1, 'a:2:{s:6:\"menuid\";i:4;s:12:\"title_length\";i:0;}'),
-(68, 'egov', 'page', 'global.html.php', 'Hỏi đáp', '', '', '[FOOTER]', 0, '1', 1, '6', 0, 1, 'a:1:{s:11:\"htmlcontent\";s:11:\"Hỏi đáp\";}'),
+(68, 'egov', 'theme', 'global.faq_opinion.php', 'Hỏi đáp', '', 'no_title', '[FOOTER]', 0, '1', 1, '6', 0, 1, 'a:3:{s:6:\"modfaq\";s:3:\"faq\";s:6:\"catfaq\";i:1;s:10:\"modopinion\";s:7:\"opinion\";}'),
 (69, 'egov', 'theme', 'global.block_language.php', 'global block language', '', 'no_title', '[PERSONALAREA]', 0, '1', 1, '6', 1, 1, ''),
 (71, 'egov', 'menu', 'global.menutop.php', 'global menutop', '', 'no_title', '[SOCIAL_ICONS]', 0, '1', 1, '6', 0, 1, 'a:2:{s:6:\"menuid\";i:7;s:12:\"title_length\";i:20;}'),
 (73, 'egov', 'theme', 'global.block_language.php', 'global block language', '', 'no_title', '[LANGUAGE]', 0, '1', 1, '6', 0, 1, ''),
@@ -10815,6 +10913,7 @@ INSERT INTO `nv4_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES
 (38, 78, 2),
 (38, 61, 2),
 (39, 4, 1),
+(18, 118, 1),
 (40, 38, 1),
 (40, 39, 1),
 (40, 40, 1),
@@ -10844,6 +10943,17 @@ INSERT INTO `nv4_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES
 (40, 10, 1),
 (40, 11, 1),
 (40, 12, 1),
+(16, 107, 1),
+(16, 118, 1),
+(16, 114, 1),
+(18, 109, 1),
+(18, 119, 1),
+(16, 106, 1),
+(16, 112, 1),
+(16, 119, 1),
+(16, 109, 1),
+(16, 117, 1),
+(16, 105, 1),
 (40, 51, 1),
 (40, 62, 1),
 (40, 54, 1),
@@ -11119,13 +11229,6 @@ INSERT INTO `nv4_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES
 (19, 97, 1),
 (19, 104, 1),
 (19, 102, 1),
-(34, 99, 1),
-(34, 98, 1),
-(34, 101, 1),
-(34, 96, 1),
-(34, 97, 1),
-(34, 104, 1),
-(34, 102, 1),
 (37, 99, 1),
 (37, 98, 1),
 (37, 101, 1),
@@ -11231,7 +11334,7 @@ INSERT INTO `nv4_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES
 (55, 4, 2),
 (56, 4, 1),
 (57, 4, 1),
-(58, 4, 2),
+(58, 4, 1),
 (59, 4, 2),
 (60, 4, 1),
 (61, 4, 1),
@@ -11374,7 +11477,283 @@ INSERT INTO `nv4_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES
 (78, 96, 1),
 (78, 97, 1),
 (78, 104, 1),
-(78, 102, 1);
+(78, 102, 1),
+(18, 107, 1),
+(18, 106, 1),
+(18, 114, 1),
+(18, 105, 1),
+(18, 117, 1),
+(18, 112, 1),
+(11, 109, 1),
+(11, 119, 1),
+(11, 118, 1),
+(11, 107, 1),
+(11, 106, 1),
+(11, 114, 1),
+(11, 105, 1),
+(11, 117, 1),
+(11, 112, 1),
+(12, 109, 2),
+(12, 119, 2),
+(12, 118, 2),
+(12, 107, 2),
+(12, 106, 2),
+(12, 114, 2),
+(12, 105, 2),
+(12, 117, 2),
+(12, 112, 2),
+(5, 109, 1),
+(5, 119, 1),
+(5, 118, 1),
+(5, 107, 1),
+(5, 106, 1),
+(5, 114, 1),
+(5, 105, 1),
+(5, 117, 1),
+(5, 112, 1),
+(6, 109, 2),
+(6, 119, 2),
+(6, 118, 2),
+(6, 107, 2),
+(6, 106, 2),
+(6, 114, 2),
+(6, 105, 2),
+(6, 117, 2),
+(6, 112, 2),
+(20, 109, 1),
+(20, 119, 1),
+(20, 118, 1),
+(20, 107, 1),
+(20, 106, 1),
+(20, 114, 1),
+(20, 105, 1),
+(20, 117, 1),
+(20, 112, 1),
+(17, 109, 1),
+(17, 119, 1),
+(17, 118, 1),
+(17, 107, 1),
+(17, 106, 1),
+(17, 114, 1),
+(17, 105, 1),
+(17, 117, 1),
+(17, 112, 1),
+(15, 109, 1),
+(15, 119, 1),
+(15, 118, 1),
+(15, 107, 1),
+(15, 106, 1),
+(15, 114, 1),
+(15, 105, 1),
+(15, 117, 1),
+(15, 112, 1),
+(13, 109, 1),
+(13, 119, 1),
+(13, 118, 1),
+(13, 107, 1),
+(13, 106, 1),
+(13, 114, 1),
+(13, 105, 1),
+(13, 117, 1),
+(13, 112, 1),
+(14, 109, 2),
+(14, 119, 2),
+(14, 118, 2),
+(14, 107, 2),
+(14, 106, 2),
+(14, 114, 2),
+(14, 105, 2),
+(14, 117, 2),
+(14, 112, 2),
+(8, 109, 1),
+(8, 119, 1),
+(8, 118, 1),
+(8, 107, 1),
+(8, 106, 1),
+(8, 114, 1),
+(8, 105, 1),
+(8, 117, 1),
+(8, 112, 1),
+(9, 109, 2),
+(9, 119, 2),
+(9, 118, 2),
+(9, 107, 2),
+(9, 106, 2),
+(9, 114, 2),
+(9, 105, 2),
+(9, 117, 2),
+(9, 112, 2),
+(10, 109, 3),
+(10, 119, 3),
+(10, 118, 3),
+(10, 107, 3),
+(10, 106, 3),
+(10, 114, 3),
+(10, 105, 3),
+(10, 117, 3),
+(10, 112, 3),
+(19, 109, 1),
+(19, 119, 1),
+(19, 118, 1),
+(19, 107, 1),
+(19, 106, 1),
+(19, 114, 1),
+(19, 105, 1),
+(19, 117, 1),
+(19, 112, 1),
+(34, 109, 1),
+(34, 119, 1),
+(34, 118, 1),
+(34, 107, 1),
+(34, 106, 1),
+(34, 114, 1),
+(34, 105, 1),
+(34, 117, 1),
+(34, 112, 1),
+(37, 109, 1),
+(37, 119, 1),
+(37, 118, 1),
+(37, 107, 1),
+(37, 106, 1),
+(37, 114, 1),
+(37, 105, 1),
+(37, 117, 1),
+(37, 112, 1),
+(38, 109, 2),
+(38, 119, 2),
+(38, 118, 2),
+(38, 107, 2),
+(38, 106, 2),
+(38, 114, 2),
+(38, 105, 2),
+(38, 117, 2),
+(38, 112, 2),
+(40, 109, 1),
+(40, 119, 1),
+(40, 118, 1),
+(40, 107, 1),
+(40, 106, 1),
+(40, 114, 1),
+(40, 105, 1),
+(40, 117, 1),
+(40, 112, 1),
+(69, 109, 1),
+(69, 119, 1),
+(69, 118, 1),
+(69, 107, 1),
+(69, 106, 1),
+(69, 114, 1),
+(69, 105, 1),
+(69, 117, 1),
+(69, 112, 1),
+(42, 109, 1),
+(42, 119, 1),
+(42, 118, 1),
+(42, 107, 1),
+(42, 106, 1),
+(42, 114, 1),
+(42, 105, 1),
+(42, 117, 1),
+(42, 112, 1),
+(43, 109, 2),
+(43, 119, 2),
+(43, 118, 2),
+(43, 107, 2),
+(43, 106, 2),
+(43, 114, 2),
+(43, 105, 2),
+(43, 117, 2),
+(43, 112, 2),
+(78, 109, 1),
+(78, 119, 1),
+(78, 118, 1),
+(78, 107, 1),
+(78, 106, 1),
+(78, 114, 1),
+(78, 105, 1),
+(78, 117, 1),
+(78, 112, 1),
+(30, 109, 1),
+(30, 119, 1),
+(30, 118, 1),
+(30, 107, 1),
+(30, 106, 1),
+(30, 114, 1),
+(30, 105, 1),
+(30, 117, 1),
+(30, 112, 1),
+(28, 109, 1),
+(28, 119, 1),
+(28, 118, 1),
+(28, 107, 1),
+(28, 106, 1),
+(28, 114, 1),
+(28, 105, 1),
+(28, 117, 1),
+(28, 112, 1),
+(29, 109, 1),
+(29, 119, 1),
+(29, 118, 1),
+(29, 107, 1),
+(29, 106, 1),
+(29, 114, 1),
+(29, 105, 1),
+(29, 117, 1),
+(29, 112, 1),
+(22, 109, 1),
+(22, 119, 1),
+(22, 118, 1),
+(22, 107, 1),
+(22, 106, 1),
+(22, 114, 1),
+(22, 105, 1),
+(22, 117, 1),
+(22, 112, 1),
+(23, 109, 2),
+(23, 119, 2),
+(23, 118, 2),
+(23, 107, 2),
+(23, 106, 2),
+(23, 114, 2),
+(23, 105, 2),
+(23, 117, 2),
+(23, 112, 2),
+(24, 109, 1),
+(24, 119, 1),
+(24, 118, 1),
+(24, 107, 1),
+(24, 106, 1),
+(24, 114, 1),
+(24, 105, 1),
+(24, 117, 1),
+(24, 112, 1),
+(25, 109, 2),
+(25, 119, 2),
+(25, 118, 2),
+(25, 107, 2),
+(25, 106, 2),
+(25, 114, 2),
+(25, 105, 2),
+(25, 117, 2),
+(25, 112, 2),
+(26, 109, 3),
+(26, 119, 3),
+(26, 118, 3),
+(26, 107, 3),
+(26, 106, 3),
+(26, 114, 3),
+(26, 105, 3),
+(26, 117, 3),
+(26, 112, 3),
+(27, 109, 4),
+(27, 119, 4),
+(27, 118, 4),
+(27, 107, 4),
+(27, 106, 4),
+(27, 114, 4),
+(27, 105, 4),
+(27, 117, 4),
+(27, 112, 4);
 
 DROP TABLE IF EXISTS `nv4_vi_comment`;
 CREATE TABLE `nv4_vi_comment` (
@@ -11726,119 +12105,6 @@ INSERT INTO `nv4_vi_laws_subject` (`id`, `alias`, `title`, `introduction`, `keyw
 (12, 'Thu-tuong-Chinh-phu', 'Thủ tướng Chính phủ', '', '', 1, 5, 1498637493, 9),
 (13, 'UBND-TP-Ho-Chi-Minh', 'UBND TP Hồ Chí Minh', '', '', 1, 5, 1498637844, 10);
 
-DROP TABLE IF EXISTS `nv4_vi_lay_y_kien_nguoi_dan_area`;
-CREATE TABLE `nv4_vi_lay_y_kien_nguoi_dan_area` (
-  `id` smallint(4) UNSIGNED NOT NULL,
-  `parentid` smallint(4) UNSIGNED NOT NULL DEFAULT '0',
-  `alias` varchar(249) NOT NULL,
-  `title` varchar(249) NOT NULL,
-  `introduction` mediumtext NOT NULL,
-  `keywords` varchar(255) NOT NULL,
-  `addtime` int(11) UNSIGNED NOT NULL DEFAULT '0',
-  `weight` smallint(4) UNSIGNED NOT NULL DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
-DROP TABLE IF EXISTS `nv4_vi_lay_y_kien_nguoi_dan_cat`;
-CREATE TABLE `nv4_vi_lay_y_kien_nguoi_dan_cat` (
-  `id` smallint(4) UNSIGNED NOT NULL,
-  `parentid` smallint(4) UNSIGNED NOT NULL DEFAULT '0',
-  `alias` varchar(249) NOT NULL,
-  `title` varchar(249) NOT NULL,
-  `introduction` mediumtext NOT NULL,
-  `keywords` varchar(255) NOT NULL,
-  `newday` tinyint(2) UNSIGNED NOT NULL DEFAULT '5',
-  `addtime` int(11) UNSIGNED NOT NULL DEFAULT '0',
-  `weight` smallint(4) UNSIGNED NOT NULL DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
-INSERT INTO `nv4_vi_lay_y_kien_nguoi_dan_cat` (`id`, `parentid`, `alias`, `title`, `introduction`, `keywords`, `newday`, `addtime`, `weight`) VALUES
-(1, 0, 'Lay-y-kien-nguoi-dan', 'Lấy ý kiến người dân', '', '', 5, 1498702560, 1);
-
-DROP TABLE IF EXISTS `nv4_vi_lay_y_kien_nguoi_dan_config`;
-CREATE TABLE `nv4_vi_lay_y_kien_nguoi_dan_config` (
-  `config_name` varchar(30) NOT NULL,
-  `config_value` varchar(255) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
-INSERT INTO `nv4_vi_lay_y_kien_nguoi_dan_config` (`config_name`, `config_value`) VALUES
-('nummain', '50'),
-('numsub', '50'),
-('typeview', '0'),
-('down_in_home', '1'),
-('detail_other', 'a:1:{i:0;s:3:\"cat\";}'),
-('detail_hide_empty_field', '1'),
-('detail_show_link_cat', '1'),
-('detail_show_link_area', '1'),
-('detail_show_link_subject', '1'),
-('detail_show_link_signer', '1'),
-('detail_pdf_quick_view', '1'),
-('other_numlinks', '5');
-
-DROP TABLE IF EXISTS `nv4_vi_lay_y_kien_nguoi_dan_row`;
-CREATE TABLE `nv4_vi_lay_y_kien_nguoi_dan_row` (
-  `id` int(10) NOT NULL,
-  `replacement` varchar(255) NOT NULL DEFAULT '',
-  `relatement` varchar(255) NOT NULL DEFAULT '',
-  `title` varchar(255) NOT NULL,
-  `alias` varchar(255) NOT NULL,
-  `code` varchar(50) NOT NULL,
-  `cid` smallint(4) UNSIGNED NOT NULL DEFAULT '0',
-  `sid` smallint(4) UNSIGNED NOT NULL DEFAULT '0',
-  `sgid` smallint(4) UNSIGNED NOT NULL DEFAULT '0',
-  `note` text NOT NULL,
-  `introtext` text NOT NULL,
-  `bodytext` text NOT NULL,
-  `keywords` varchar(255) NOT NULL,
-  `groups_view` varchar(255) NOT NULL,
-  `groups_download` varchar(255) NOT NULL,
-  `files` mediumtext NOT NULL,
-  `status` tinyint(1) NOT NULL,
-  `addtime` int(11) NOT NULL,
-  `edittime` int(11) NOT NULL,
-  `publtime` int(11) NOT NULL DEFAULT '0',
-  `startvalid` int(11) NOT NULL DEFAULT '0',
-  `exptime` int(11) NOT NULL DEFAULT '0',
-  `view_hits` mediumint(8) UNSIGNED NOT NULL DEFAULT '0',
-  `download_hits` mediumint(8) UNSIGNED NOT NULL DEFAULT '0',
-  `admin_add` mediumint(8) UNSIGNED NOT NULL DEFAULT '0',
-  `admin_edit` mediumint(8) UNSIGNED NOT NULL DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
-DROP TABLE IF EXISTS `nv4_vi_lay_y_kien_nguoi_dan_row_area`;
-CREATE TABLE `nv4_vi_lay_y_kien_nguoi_dan_row_area` (
-  `row_id` int(10) UNSIGNED NOT NULL,
-  `area_id` smallint(4) UNSIGNED NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
-DROP TABLE IF EXISTS `nv4_vi_lay_y_kien_nguoi_dan_set_replace`;
-CREATE TABLE `nv4_vi_lay_y_kien_nguoi_dan_set_replace` (
-  `id` mediumint(8) UNSIGNED NOT NULL,
-  `oid` mediumint(8) UNSIGNED NOT NULL DEFAULT '0',
-  `nid` mediumint(8) UNSIGNED NOT NULL DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
-DROP TABLE IF EXISTS `nv4_vi_lay_y_kien_nguoi_dan_signer`;
-CREATE TABLE `nv4_vi_lay_y_kien_nguoi_dan_signer` (
-  `id` smallint(4) UNSIGNED NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `offices` varchar(255) NOT NULL,
-  `positions` varchar(255) NOT NULL,
-  `addtime` int(11) UNSIGNED NOT NULL DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
-DROP TABLE IF EXISTS `nv4_vi_lay_y_kien_nguoi_dan_subject`;
-CREATE TABLE `nv4_vi_lay_y_kien_nguoi_dan_subject` (
-  `id` smallint(4) UNSIGNED NOT NULL,
-  `alias` varchar(250) NOT NULL,
-  `title` varchar(250) NOT NULL,
-  `introduction` mediumtext NOT NULL,
-  `keywords` varchar(255) NOT NULL,
-  `numcount` int(10) NOT NULL DEFAULT '0',
-  `numlink` tinyint(2) NOT NULL DEFAULT '5',
-  `addtime` int(11) UNSIGNED NOT NULL DEFAULT '0',
-  `weight` smallint(4) UNSIGNED NOT NULL DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
 DROP TABLE IF EXISTS `nv4_vi_menu`;
 CREATE TABLE `nv4_vi_menu` (
   `id` smallint(5) UNSIGNED NOT NULL,
@@ -12028,28 +12294,21 @@ INSERT INTO `nv4_vi_modfuncs` (`func_id`, `func_name`, `alias`, `func_custom_nam
 (80, 'rss', 'rss', 'Rss', '', 'videoclips', 0, 0, 0, ''),
 (81, 'sitemap', 'sitemap', 'Sitemap', '', 'videoclips', 0, 0, 0, ''),
 (82, 'topic', 'topic', 'Topic', '', 'videoclips', 1, 0, 2, ''),
-(83, 'action', 'action', 'Action', '', 'nvtools', 1, 1, 5, ''),
-(84, 'addfun', 'addfun', 'Addfun', '', 'nvtools', 1, 1, 4, ''),
-(85, 'block', 'block', 'Block', '', 'nvtools', 1, 1, 7, ''),
-(86, 'checktable', 'checktable', 'Checktable', '', 'nvtools', 0, 0, 0, ''),
-(87, 'compiler', 'compiler', 'Compiler', '', 'nvtools', 1, 1, 10, ''),
-(88, 'copylang', 'copylang', 'Copylang', '', 'nvtools', 1, 1, 11, ''),
-(89, 'data', 'data', 'Data', '', 'nvtools', 1, 1, 3, ''),
-(90, 'export_excel', 'export_excel', 'Export_excel', '', 'nvtools', 1, 1, 6, ''),
-(91, 'js', 'js', 'Js', '', 'nvtools', 0, 0, 0, ''),
-(92, 'main', 'main', 'Main', '', 'nvtools', 1, 1, 1, ''),
-(93, 'theme', 'theme', 'Theme', '', 'nvtools', 1, 1, 2, ''),
-(94, 'themecopy', 'themecopy', 'Themecopy', '', 'nvtools', 1, 1, 8, ''),
-(95, 'thememodulecp', 'thememodulecp', 'Thememodulecp', '', 'nvtools', 1, 1, 9, ''),
-(96, 'area', 'area', 'Area', '', 'lay-y-kien-nguoi-dan', 1, 1, 4, ''),
-(97, 'cat', 'cat', 'Cat', '', 'lay-y-kien-nguoi-dan', 1, 1, 5, ''),
-(98, 'detail', 'detail', 'Detail', '', 'lay-y-kien-nguoi-dan', 1, 1, 2, ''),
-(99, 'main', 'main', 'Main', '', 'lay-y-kien-nguoi-dan', 1, 1, 1, ''),
-(100, 'rss', 'rss', 'Rss', '', 'lay-y-kien-nguoi-dan', 0, 0, 0, ''),
-(101, 'search', 'search', 'Search', '', 'lay-y-kien-nguoi-dan', 1, 1, 3, ''),
-(102, 'signer', 'signer', 'Signer', '', 'lay-y-kien-nguoi-dan', 1, 1, 7, ''),
-(103, 'sitemap', 'sitemap', 'Sitemap', '', 'lay-y-kien-nguoi-dan', 0, 0, 0, ''),
-(104, 'subject', 'subject', 'Subject', '', 'lay-y-kien-nguoi-dan', 1, 1, 6, '');
+(119, 'viewcat', 'viewcat', 'Viewcat', '', 'opinion', 1, 0, 2, ''),
+(118, 'topic', 'topic', 'Topic', '', 'opinion', 1, 0, 3, ''),
+(117, 'tag', 'tag', 'Tag', '', 'opinion', 1, 0, 8, ''),
+(116, 'sitemap', 'sitemap', 'Sitemap', '', 'opinion', 0, 0, 0, ''),
+(115, 'sendmail', 'sendmail', 'Sendmail', '', 'opinion', 0, 0, 0, ''),
+(114, 'search', 'search', 'Search', '', 'opinion', 1, 1, 6, ''),
+(113, 'savefile', 'savefile', 'Savefile', '', 'opinion', 0, 0, 0, ''),
+(112, 'rss', 'rss', 'Rss', '', 'opinion', 1, 1, 9, ''),
+(111, 'rating', 'rating', 'Rating', '', 'opinion', 0, 0, 0, ''),
+(110, 'print', 'print', 'Print', '', 'opinion', 0, 0, 0, ''),
+(109, 'main', 'main', 'Main', '', 'opinion', 1, 0, 1, ''),
+(108, 'instant-rss', 'instant-rss', 'Instant-rss', '', 'opinion', 0, 0, 0, ''),
+(107, 'groups', 'groups', 'Groups', '', 'opinion', 1, 0, 4, ''),
+(106, 'detail', 'detail', 'Detail', '', 'opinion', 1, 0, 5, ''),
+(105, 'content', 'content', 'Content', '', 'opinion', 1, 1, 7, '');
 
 DROP TABLE IF EXISTS `nv4_vi_modthemes`;
 CREATE TABLE `nv4_vi_modthemes` (
@@ -12240,64 +12499,39 @@ INSERT INTO `nv4_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES
 (82, 'left-main-right', 'default'),
 (82, 'main', 'mobile_default'),
 (82, 'main-right', 'egov'),
-(83, 'left-main-right', 'default'),
-(83, 'main', 'mobile_default'),
-(83, 'main-right', 'egov'),
-(84, 'left-main-right', 'default'),
-(84, 'main', 'mobile_default'),
-(84, 'main-right', 'egov'),
-(85, 'left-main-right', 'default'),
-(85, 'main', 'mobile_default'),
-(85, 'main-right', 'egov'),
-(86, 'left-main-right', 'default'),
-(87, 'left-main-right', 'default'),
-(87, 'main', 'mobile_default'),
-(87, 'main-right', 'egov'),
-(88, 'left-main-right', 'default'),
-(88, 'main', 'mobile_default'),
-(88, 'main-right', 'egov'),
-(89, 'left-main-right', 'default'),
-(89, 'main', 'mobile_default'),
-(89, 'main-right', 'egov'),
-(90, 'left-main-right', 'default'),
-(90, 'main', 'mobile_default'),
-(90, 'main-right', 'egov'),
-(91, 'left-main-right', 'default'),
-(92, 'left-main-right', 'default'),
-(92, 'main', 'mobile_default'),
-(92, 'main-right', 'egov'),
-(93, 'left-main-right', 'default'),
-(93, 'main', 'mobile_default'),
-(93, 'main-right', 'egov'),
-(94, 'left-main-right', 'default'),
-(94, 'main', 'mobile_default'),
-(94, 'main-right', 'egov'),
-(95, 'left-main-right', 'default'),
-(95, 'main', 'mobile_default'),
-(95, 'main-right', 'egov'),
-(96, 'left-main-right', 'default'),
-(96, 'main', 'mobile_default'),
-(96, 'main-right', 'egov'),
-(97, 'left-main-right', 'default'),
-(97, 'main', 'mobile_default'),
-(97, 'main-right', 'egov'),
-(98, 'left-main-right', 'default'),
-(98, 'main', 'mobile_default'),
-(98, 'main-right', 'egov'),
-(99, 'left-main-right', 'default'),
-(99, 'main', 'mobile_default'),
-(99, 'main-right', 'egov'),
-(100, 'main-right', 'egov'),
-(101, 'left-main-right', 'default'),
-(101, 'main', 'mobile_default'),
-(101, 'main-right', 'egov'),
-(102, 'left-main-right', 'default'),
-(102, 'main', 'mobile_default'),
-(102, 'main-right', 'egov'),
-(103, 'main-right', 'egov'),
-(104, 'left-main-right', 'default'),
-(104, 'main', 'mobile_default'),
-(104, 'main-right', 'egov');
+(105, 'left-main-right', 'default'),
+(105, 'main', 'mobile_default'),
+(105, 'main-right', 'egov'),
+(106, 'left-main-right', 'default'),
+(106, 'main', 'mobile_default'),
+(106, 'main-right', 'egov'),
+(107, 'left-main-right', 'default'),
+(107, 'main', 'mobile_default'),
+(107, 'main-right', 'egov'),
+(108, 'main-right', 'egov'),
+(109, 'left-main-right', 'default'),
+(109, 'main', 'mobile_default'),
+(109, 'main-right', 'egov'),
+(110, 'main-right', 'egov'),
+(111, 'main-right', 'egov'),
+(112, 'left-main-right', 'default'),
+(112, 'main', 'mobile_default'),
+(112, 'main-right', 'egov'),
+(113, 'main-right', 'egov'),
+(114, 'left-main-right', 'default'),
+(114, 'main', 'mobile_default'),
+(114, 'main-right', 'egov'),
+(115, 'main-right', 'egov'),
+(116, 'main-right', 'egov'),
+(117, 'left-main-right', 'default'),
+(117, 'main', 'mobile_default'),
+(117, 'main-right', 'egov'),
+(118, 'left-main-right', 'default'),
+(118, 'main', 'mobile_default'),
+(118, 'main-right', 'egov'),
+(119, 'left-main-right', 'default'),
+(119, 'main', 'mobile_default'),
+(119, 'main-right', 'egov');
 
 DROP TABLE IF EXISTS `nv4_vi_modules`;
 CREATE TABLE `nv4_vi_modules` (
@@ -12342,8 +12576,7 @@ INSERT INTO `nv4_vi_modules` (`title`, `module_file`, `module_data`, `module_upl
 ('faq', 'faq', 'faq', 'faq', 'faq', 'Hỏi đáp', '', '', 1498555557, 1, 1, '', '', '', '', '6', 4, 1, '', 1, 1, 0),
 ('laws', 'laws', 'laws', 'laws', 'laws', 'Văn bản', '', '', 1498555574, 1, 1, '', '', '', '', '6', 2, 1, '', 1, 1, 0),
 ('videoclips', 'videoclips', 'videoclips', 'videoclips', 'videoclips', 'Videoclips', '', '', 1498555586, 1, 1, '', '', '', '', '6', 3, 1, '', 1, 1, 0),
-('nvtools', 'nvtools', 'nvtools', 'nvtools', 'nvtools', 'nvtools', '', '', 1498555596, 1, 0, '', '', '', '', '6', 17, 2, '', 0, 0, 0),
-('lay-y-kien-nguoi-dan', 'laws', 'lay_y_kien_nguoi_dan', 'lay-y-kien-nguoi-dan', 'laws', 'Lấy ý kiến người dân', '', '', 1498701488, 1, 1, '', '', '', '', '6', 18, 1, '', 1, 1, 0);
+('opinion', 'news', 'opinion', 'opinion', 'news', 'Lấy ý kiến người dân', '', '', 1499996849, 1, 1, '', '', '', '', '6', 17, 1, '', 1, 1, 0);
 
 DROP TABLE IF EXISTS `nv4_vi_news_14`;
 CREATE TABLE `nv4_vi_news_14` (
@@ -12383,7 +12616,7 @@ INSERT INTO `nv4_vi_news_14` (`id`, `catid`, `listcatid`, `topicid`, `admin_id`,
 (22, 14, '14', 0, 1, 'Đức Tuân', 5, 1498616564, 1498698116, 1, 1498616220, 0, 2, 'Thủ tướng hoan nghênh định hướng hợp tác giữa Hà Nội và Vientiane, Lào', 'thu-tuong-hoan-nghenh-dinh-huong-hop-tac-giua-ha-noi-va-vientiane-lao', 'Chiều 27/3, tại Trụ sở Chính phủ, Thủ tướng Nguyễn Xuân Phúc đã tiếp Ủy viên Bộ Chính trị Đảng Nhân dân cách mạng Lào, Bí thư Thành ủy, Đô trưởng Thủ đô Vientiane Sinlavong Khoutphaythoune.', '2017_06/nqh_1356.jpg', 'NQH 1356', 1, 1, '4', 1, 0, 3, 0, 0, 0, 0, '', 0),
 (23, 14, '14', 0, 1, 'BP', 5, 1498616847, 1498698123, 1, 1498616580, 0, 2, 'Tăng 30 chuyến tàu phục vụ đợt cao điểm nghỉ lễ', 'tang-30-chuyen-tau-phuc-vu-dot-cao-diem-nghi-le', 'Nhằm đáp ứng nhu cầu đi lại của người dân trong dịp nghỉ lễ Giỗ Tổ Hùng Vương và dịp lễ 30/4, 1/5, ngành đường sắt dự kiến sẽ tăng thêm hơn 30 chuyến tàu từ Bắc vào Nam để phục vụ đợt cao điểm này', '2017_06/ch-mc.jpg', 'chỉ mục', 1, 1, '4', 1, 0, 5, 0, 0, 0, 0, '', 0),
 (33, 14, '14', 0, 1, '', 5, 1498619763, 1498699951, 1, 1498619700, 0, 2, 'Bảo tồn Hoàng thành Thăng Long&#x3A; Không làm nhỏ lẻ', 'bao-ton-hoang-thanh-thang-long-khong-lam-nho-le', 'Chủ tịch UBND TP. Hà Nội khẳng định Hà Nội đã chuẩn bị sẵn nguồn vốn cho dự án quan trọng này, phấn đấu đến năm 2020, Hoàng thành Thăng Long cơ bản được đầu tư bảo tồn.', '2017_06/hoang-thanh-thang-long-2.jpg', '', 1, 1, '4', 1, 0, 3, 0, 0, 0, 0, '', 0),
-(35, 14, '14', 0, 1, '', 5, 1498619875, 1498699968, 1, 1498619820, 0, 2, 'Hơn 7.600 tỷ đồng đầu tư thiết bị dự án đường sắt Nhổn-Ga Hà Nội', 'hon-7-600-ty-dong-dau-tu-thiet-bi-du-an-duong-sat-nhon-ga-ha-noi', 'Dự án đường sắt Nhổn-Ga Hà Nội sẽ có 10 đoàn tàu, mỗi đoàn 4 toa với sức chứa khoảng 900 khách, tốc độ tối đa là 80 km/h.', '', '', 0, 1, '4', 1, 0, 16, 0, 0, 0, 0, '', 0),
+(35, 14, '14', 0, 1, '', 5, 1498619875, 1500023483, 1, 1498619820, 0, 2, 'Hơn 7.600 tỷ đồng đầu tư thiết bị dự án đường sắt Nhổn-Ga Hà Nội', 'hon-7-600-ty-dong-dau-tu-thiet-bi-du-an-duong-sat-nhon-ga-ha-noi', 'Dự án đường sắt Nhổn-Ga Hà Nội sẽ có 10 đoàn tàu, mỗi đoàn 4 toa với sức chứa khoảng 900 khách, tốc độ tối đa là 80 km/h.', '2017_06/thanhphovensonghong-f53ef-copy.jpg', 'thanhphovensonghong f53ef Copy', 1, 1, '4', 1, 0, 17, 0, 0, 0, 0, '', 0),
 (34, 14, '14', 0, 1, 'Thanh Hằng', 5, 1498619831, 1498699956, 1, 1498619760, 0, 2, 'Xử nghiêm vụ lạm quyền tại quản lý thị trường Hà Nội', 'xu-nghiem-vu-lam-quyen-tai-quan-ly-thi-truong-ha-noi', 'Thủ tướng Chính phủ Nguyễn Xuân Phúc vừa yêu cầu xử lý nghiêm các đơn vị, cá nhân có sai phạm trong vụ việc kiểm tra sản phẩm xúc xích nhãn hiệu Viet Foods.', '', '', 0, 1, '4', 1, 0, 4, 0, 0, 0, 0, '', 0);
 
 DROP TABLE IF EXISTS `nv4_vi_news_15`;
@@ -12426,7 +12659,7 @@ INSERT INTO `nv4_vi_news_15` (`id`, `catid`, `listcatid`, `topicid`, `admin_id`,
 (27, 15, '15', 0, 1, 'Phan Trang', 5, 1498617732, 1498699785, 1, 1498617660, 0, 2, 'Loại bỏ xe máy cũ nát&#x3A; Cần thiết nhưng phải có lộ trình', 'loai-bo-xe-may-cu-nat-can-thiet-nhung-phai-co-lo-trinh', 'Thực tế, việc thu hồi xe máy cũ, nát đã được các bộ, ngành, đặc biệt là Bộ GTVT xúc tiến với &quot;Đề án kiểm soát khí thải xe gắn máy&quot; từ khá lâu nhưng đến nay vẫn chưa thể thành hiện thực do chưa thống nhất được phương án, lộ trình triển khai cụ thể', '', '', 0, 1, '4', 1, 0, 2, 0, 0, 0, 0, '', 0),
 (24, 15, '15', 0, 1, '', 5, 1498617454, 1498698130, 1, 1498617420, 0, 2, 'Thông tin chỉ đạo, điều hành của Chính phủ, Thủ tướng Chính phủ', 'thong-tin-chi-dao-dieu-hanh-cua-chinh-phu-thu-tuong-chinh-phu', 'Thông cáo báo chí của VPCP về thông tin chỉ đạo, điều hành của Chính phủ, Thủ tướng Chính phủ ngày 27/2/2017', '', '', 0, 1, '4', 1, 0, 2, 0, 0, 0, 0, '', 0),
 (30, 15, '15', 0, 1, 'Phan Trang', 5, 1498619405, 1498699911, 1, 1498619340, 0, 2, 'Giao thông Thủ đô&#x3A; Kết nối tốt sẽ tạo ra động lực mới', 'giao-thong-thu-do-ket-noi-tot-se-tao-ra-dong-luc-moi', 'Cần chú ý kết nối giao thông đô thị trung tâm Hà Nội với các đô thị vệ tinh. Kết nối tốt sẽ tạo ra động lực mới, khu vực nào chưa phát triển thì cần giao thông kết nối để hấp dẫn nhà đầu tư hơn và giảm áp lực cho nội đô', '', '', 0, 1, '4', 1, 0, 2, 0, 0, 0, 0, '', 0),
-(32, 15, '15', 0, 1, '', 5, 1498619689, 1498699932, 1, 1498619640, 0, 2, 'Hà Nội sẽ đầu tư nhiều bệnh viện ngang tầm quốc tế', 'ha-noi-se-dau-tu-nhieu-benh-vien-ngang-tam-quoc-te', 'Hà Nội sẽ đầu tư nguồn ngân sách lớn để phát triển ngành y tế. Đến năm 2019 sẽ đưa Bệnh viện (BV) Saint Paul đạt tiêu chuẩn quốc tế.', '2017_06/1_92972.jpg', '', 1, 1, '4', 1, 0, 16, 0, 0, 0, 0, '', 0);
+(32, 15, '15', 0, 1, '', 5, 1498619689, 1498699932, 1, 1498619640, 0, 2, 'Hà Nội sẽ đầu tư nhiều bệnh viện ngang tầm quốc tế', 'ha-noi-se-dau-tu-nhieu-benh-vien-ngang-tam-quoc-te', 'Hà Nội sẽ đầu tư nguồn ngân sách lớn để phát triển ngành y tế. Đến năm 2019 sẽ đưa Bệnh viện (BV) Saint Paul đạt tiêu chuẩn quốc tế.', '2017_06/1_92972.jpg', '', 1, 1, '4', 1, 0, 17, 0, 0, 0, 0, '', 0);
 
 DROP TABLE IF EXISTS `nv4_vi_news_16`;
 CREATE TABLE `nv4_vi_news_16` (
@@ -12506,10 +12739,10 @@ INSERT INTO `nv4_vi_news_17` (`id`, `catid`, `listcatid`, `topicid`, `admin_id`,
 (20, 17, '17', 0, 1, 'Bích Phương', 5, 1498616118, 1498698104, 1, 1498616040, 0, 2, 'Tiết kiệm điện nhờ pin năng lượng mặt trời', 'tiet-kiem-dien-nho-pin-nang-luong-mat-troi', 'Kết quả sau thời gian thử nghiệm lắp đặt hệ thống pin mặt trời cho Trung tâm sửa chữa điện nóng Yên Nghĩa (thuộc Công ty Lưới điện cao thế Hà Nội) cho thấy lượng điện năng tiết kiệm được đáng kể, khoảng hơn 2.000 kWh/tháng', '2017_06/nlmt.jpg', '', 1, 1, '4', 1, 0, 2, 0, 0, 0, 0, '', 0),
 (40, 17, '17', 0, 1, 'Nguyễn Hoàng', 5, 1498643260, 1498709455, 1, 1498643160, 0, 2, 'Tạo cơ chế tài chính mới góp phần thúc đẩy phát triển Thủ đô', 'tao-co-che-tai-chinh-moi-gop-phan-thuc-day-phat-trien-thu-do', 'Chiều 20/12, Ủy ban Thường vụ Quốc hội (UBTVQH) đã xem xét, cho ý kiến về dự thảo Nghị định của Chính phủ quy định về một số cơ chế, chính sách tài chính-ngân sách đặc thù đối với Hà Nội.', '2017_06/110246baoxaydung_t4_2.jpg', '', 1, 1, '4', 1, 0, 22, 0, 0, 0, 0, '', 0),
 (41, 17, '17', 0, 1, 'PV', 5, 1498643588, 1498698095, 1, 1482217320, 0, 2, 'Hà Nội quy hoạch công viên cây xanh kết hợp đô thị ven sông Hồng', 'ha-noi-quy-hoach-cong-vien-cay-xanh-ket-hop-do-thi-ven-song-hong', 'Thực hiện ý kiến chỉ đạo của UBND TP. Hà Nội về việc lập quy hoạch hai bên sông Hồng theo định hướng xây dựng công viên kết hợp với đô thị, Sở Quy hoạch-Kiến trúc Hà Nội sẽ thực hiện theo hướng mời tư vấn quốc tế nghiên cứu quy hoạch hai bên sông Hồng.', '2017_06/thanhphovensonghong-f53ef-copy.jpg', 'thanhphovensonghong f53ef Copy', 1, 1, '4', 1, 0, 10, 0, 0, 0, 0, '', 0),
-(38, 17, '17', 0, 1, '', 5, 1498642911, 1498699993, 1, 1498642860, 0, 2, 'Hà Nội&#x3A; Kiểm tra phản ánh về bất cập của thiết kế nhà ga ngầm', 'ha-noi-kiem-tra-phan-anh-ve-bat-cap-cua-thiet-ke-nha-ga-ngam', 'Qua Cổng TTĐT Chính phủ, ông Trần Dũng Sơn (TP. Hà Nội) phản ánh bất hợp lý trong thiết kế Nhà ga ngầm S9 thuộc Dự án Đường sắt đô thị Nhổn – ga Hà Nội đoạn qua phường Ngọc Khánh, quận Ba Đình và đề nghị cơ quan có thẩm quyền xem xét điều chỉnh.', '', '', 0, 1, '4', 1, 0, 13, 0, 0, 0, 0, '', 0),
+(38, 17, '17', 0, 1, '', 5, 1498642911, 1500023501, 1, 1498642860, 0, 2, 'Hà Nội&#x3A; Kiểm tra phản ánh về bất cập của thiết kế nhà ga ngầm', 'ha-noi-kiem-tra-phan-anh-ve-bat-cap-cua-thiet-ke-nha-ga-ngam', 'Qua Cổng TTĐT Chính phủ, ông Trần Dũng Sơn (TP. Hà Nội) phản ánh bất hợp lý trong thiết kế Nhà ga ngầm S9 thuộc Dự án Đường sắt đô thị Nhổn – ga Hà Nội đoạn qua phường Ngọc Khánh, quận Ba Đình và đề nghị cơ quan có thẩm quyền xem xét điều chỉnh.', '2017_06/5j3a0202.jpg', '5J3A0202', 1, 1, '4', 1, 0, 14, 0, 0, 0, 0, '', 0),
 (21, 17, '17', 0, 1, '', 5, 1498616238, 1498698109, 1, 1498616160, 0, 2, 'Quy hoạch sông Hồng&#x3A; Hà Nội đề nghị đính chính', 'quy-hoach-song-hong-ha-noi-de-nghi-dinh-chinh', 'Chánh văn phòng kiêm Người phát ngôn của UBND thành phố Hà Nội đề nghị các cơ quan báo chí đính chính thông tin; đăng tải bài viết trên cơ sở được kiểm chứng từ người có trách nhiệm phát ngôn của UBND Thành phố Hà Nội, tránh việc giật tít để dư luận hiểu sai, làm ảnh hưởng đến tình hình an ninh chính trị của thành phố Hà Nội nói riêng và cả nước nói chung.', '', '', 0, 1, '4', 1, 0, 2, 0, 0, 0, 0, '', 0),
 (39, 17, '17', 0, 1, 'Minh Hiển', 5, 1498643148, 1498699996, 1, 1498643100, 0, 2, 'Hà Nội phải bố trí đủ quỹ đất xây dựng nhà ở xã hội', 'ha-noi-phai-bo-tri-du-quy-dat-xay-dung-nha-o-xa-hoi', 'Phó Thủ tướng Trịnh Đình Dũng vừa có ý kiến chỉ đạo về chủ trương nộp bằng tiền theo giá đất đối với quỹ nhà ở xã hội thuộc Dự án khu đô thị mới Tây Mỗ - Đại Mỗ tại các phường Tây Mỗ, Đại Mỗ, quận Nam Từ Liêm, Hà Nội và Dự án khu chức năng đô thị tại 233 - 233B - 235 Nguyễn Trãi, quận Thanh Xuân, Hà Nội.', '2017_06/resize-of-bat-dong-san-ha-noi.jpg', 'Resize of bat dong san ha noi', 1, 1, '4', 1, 0, 12, 0, 0, 0, 0, '', 0),
-(37, 17, '17', 0, 1, 'PV', 5, 1498642855, 1498699975, 1, 1498642800, 0, 2, 'Hà Nội triển khai các giải pháp cấp bách bảo vệ môi trường', 'ha-noi-trien-khai-cac-giai-phap-cap-bach-bao-ve-moi-truong', 'Với mục tiêu tạo chuyển biến căn bản trong công tác bảo vệ môi trường đến năm 2020, UBND TP. Hà Nội đã đưa ra những nhiệm vụ và giải pháp cấp bách.', '', '', 0, 1, '4', 1, 0, 12, 0, 0, 0, 0, '', 0);
+(37, 17, '17', 0, 1, 'PV', 5, 1498642855, 1500023525, 1, 1498642800, 0, 2, 'Hà Nội triển khai các giải pháp cấp bách bảo vệ môi trường', 'ha-noi-trien-khai-cac-giai-phap-cap-bach-bao-ve-moi-truong', 'Với mục tiêu tạo chuyển biến căn bản trong công tác bảo vệ môi trường đến năm 2020, UBND TP. Hà Nội đã đưa ra những nhiệm vụ và giải pháp cấp bách.', '2017_06/nlmt.jpg', '', 1, 1, '4', 1, 0, 13, 0, 0, 0, 0, '', 0);
 
 DROP TABLE IF EXISTS `nv4_vi_news_admins`;
 CREATE TABLE `nv4_vi_news_admins` (
@@ -12645,17 +12878,17 @@ CREATE TABLE `nv4_vi_news_detail` (
 
 INSERT INTO `nv4_vi_news_detail` (`id`, `titlesite`, `description`, `bodyhtml`, `sourcetext`, `imgposition`, `copyright`, `allowed_send`, `allowed_print`, `allowed_save`, `gid`) VALUES
 (41, '', '', 'Để thực hiện được quy hoạch, Sở Quy hoạch-Kiến trúc sẽ tham mưu, đề xuất UBND TP. Hà Nội ban hành quyết định thành lập Ban chỉ đạo tổ chức lập quy hoạch dọc hai bên sông Hồng.&nbsp;<br  /><br  />Đồng thời, phối hợp với Viện Quy hoạch xây dựng Hà Nội chủ trì, phối hợp với các đơn vị tư vấn nước ngoài có năng lực, kinh nghiệm, đã nghiên cứu lập quy hoạch đô thị hai bên bờ sông để thực hiện đồ án quy hoạch, trình thẩm định, phê duyệt theo quy định.&nbsp;<br  /><br  />Sở cũng cho biết, phương án lựa chọn phải có tính khả thi cao nhất khi triển khai đầu tư xây dựng; bảo đảm hiệu quả giữa khai thác đô thị, tạo nguồn lực tài chính để đầu tư trị thủy; nghiên cứu khai thác bãi giữa, xây dựng công viên cây xanh kết hợp đô thị hai bên sông...&nbsp;<br  /><br  />Trước đó, UBND TP. Hà Nội đã phối hợp với Thủ đô Seoul của Hàn Quốc thực hiện ý tưởng quy hoạch thành phố ven sông Hồng.&nbsp;<br  /><br  />Theo ý tưởng quy hoạch, thành phố ven sông Hồng giai đoạn 1 sẽ trở thành trục không gian chính của Hà Nội với những cao ốc tài chính quốc tế, chung cư cao cấp, công viên đô thị ven bờ sông.&nbsp;<br  /><br  />Ý tưởng quy hoạch do phía Hàn Quốc đưa ra có phạm vi 4.200 ha đất và mặt nước, trải dài 40 km sông Hồng đoạn qua Hà Nội. Dự kiến, vốn đầu tư dự án trên 7 tỷ USD.', 'http://baochinhphu.vn', 2, 0, 1, 1, 1, 0),
-(38, '', '', '<p>Theo phản ánh của ông Sơn, trong thiết kế Nhà ga ngầm S9, Dự án Đường sắt đô thị Nhổn – ga Hà Nội đoạn qua phường Ngọc Khánh, quận Ba Đình, hệ thống thông gió, thông hơi của Nhà ga được đặt xen kẽ trong khu dân cư. Ông Sơn cho rằng thiết kế như vậy là bất hợp lý, ảnh hưởng lớn đến sinh hoạt, sức khỏe của người dân.</p><p>Đại diện các hộ dân tổ 20 và 22 phường Ngọc Khánh, ông Sơn đề nghị cơ quan có thẩm quyền xem xét, có phương án điều chỉnh thiết kế hệ thống thông gió, thông hơi nêu trên.</p><p>Về vấn đề này, UBND TP. Hà Nội&nbsp;giao&nbsp;Sở Quy hoạch - Kiến trúc chủ trì, phối hợp với Ban quản lý Đường sắt đô thị Hà Nội và UBND quận Ba Đình làm rõ nội dung đơn thư, xem xét, giải quyết theo thẩm quyền quy định của pháp luật.</p><p><em>Cổng TTĐT Chính phủ sẽ tiếp tục thông tin về vấn đề này khi nhận được kết quả giải quyết của cơ quan chức năng.</em></p>', 'http://baochinhphu.vn', 2, 0, 1, 1, 1, 0),
+(38, '', '', '<p>Theo phản ánh của ông Sơn, trong thiết kế Nhà ga ngầm S9, Dự án Đường sắt đô thị Nhổn – ga Hà Nội đoạn qua phường Ngọc Khánh, quận Ba Đình, hệ thống thông gió, thông hơi của Nhà ga được đặt xen kẽ trong khu dân cư. Ông Sơn cho rằng thiết kế như vậy là bất hợp lý, ảnh hưởng lớn đến sinh hoạt, sức khỏe của người dân.</p>\r\n\r\n<p>Đại diện các hộ dân tổ 20 và 22 phường Ngọc Khánh, ông Sơn đề nghị cơ quan có thẩm quyền xem xét, có phương án điều chỉnh thiết kế hệ thống thông gió, thông hơi nêu trên.</p>\r\n\r\n<p>Về vấn đề này, UBND TP. Hà Nội&nbsp;giao&nbsp;Sở Quy hoạch - Kiến trúc chủ trì, phối hợp với Ban quản lý Đường sắt đô thị Hà Nội và UBND quận Ba Đình làm rõ nội dung đơn thư, xem xét, giải quyết theo thẩm quyền quy định của pháp luật.</p>\r\n\r\n<p><em>Cổng TTĐT Chính phủ sẽ tiếp tục thông tin về vấn đề này khi nhận được kết quả giải quyết của cơ quan chức năng.</em></p>', 'http://baochinhphu.vn', 2, 0, 1, 1, 1, 0),
 (39, '', '', '<p>Phó Thủ tướng yêu cầu UBND thành phố Hà Nội phải quy hoạch, bố trí đủ quỹ đất tương ứng tại khu vực lân cận của Dự án khu đô thị mới Tây Mỗ - Đại Mỗ tại các phường Tây Mỗ, Đại Mỗ và khu vực lân cận thuộc quận Nam Từ Liêm và các khu vực khác trên địa bàn Thành phố để xây dựng nhà ở xã hội, tổ chức lập dự án để đầu tư hoặc huy động các nhà đầu tư thực hiện theo quy hoạch trên, đồng thời phải sử dụng khoản tiền thu được từ quỹ đất xây dựng nhà ở xã hội để đầu tư xây dựng nhà ở xã hội trên địa bàn, đáp ứng nhu cầu về nhà ở xã hội trong khu vực và trên địa bàn Thành phố.</p><p>Phó Thủ tướng đồng ý đề nghị của UBND thành phố Hà Nội và Bộ Xây dựng, Bộ Tài nguyên và Môi trường, Bộ Kế hoạch và Đầu tư về việc cho phép Nhà đầu tư được nộp bằng tiền theo giá đất đối với quỹ nhà ở xã hội tại Dự án khu đô thị mới Tây Mỗ - Đại Mỗ tại các phường Tây Mỗ, Đại Mỗ, quận Nam Từ Liêm, thành phố Hà Nội và Dự án khu chức năng đô thị tại 233 - 233B - 235 Nguyễn Trãi, quận Thanh Xuân, thành phố Hà Nội.</p><p>Việc nộp tiền sử dụng đất thực hiện theo quy định tại Nghị định số&nbsp;<a href=\"http://vanban.chinhphu.vn/portal/page/portal/chinhphu/hethongvanban?class_id=1&amp;_page=1&amp;mode=detail&amp;document_id=174348\">45/2014/NĐ-CP</a>&nbsp;ngày 15/5/2014 của Chính phủ (giá đất được xác định theo cơ chế thị trường trên cơ sở mục đích sử dụng đất của Dự án được cấp có thẩm quyền phê duyệt tại thời điểm nộp tiền theo quy định của pháp luật về đất đai).</p><p>Phó Thủ tướng giao UBND thành phố Hà Nội làm rõ về quy hoạch và bố trí quỹ đất cho các Dự án trước đây chưa bố trí 20% quỹ đất xây dựng nhà ở xã hội theo quy định của Luật Nhà ở trên địa bàn Thành phố, báo cáo Thủ tướng Chính phủ trong tháng 1/2017.</p>', 'http://baochinhphu.vn', 1, 0, 1, 1, 1, 0),
 (40, '', '', 'Tờ trình xin ý kiến về dự thảo Nghị định của Chính phủ quy định về một số cơ chế, chính sách tài chính-ngân sách đặc thù đối với Thủ đô Hà Nội của Chính phủ cho biết: Thực hiện Nghị quyết số 15-NQ/TW ngày 15/12/2000 của Bộ Chính trị khoá VIII về nhiệm vụ, phương hướng phát triển Thủ đô Hà Nội trong thời kỳ 2001-2010&nbsp;và quy định tại Điều 75 của Luật Ngân sách Nhà nước năm 2002: ‘‘Chính phủ quy định cơ chế đặc thù đối với Thủ đô Hà Nội, TPHCM, báo cáo UBTVQH cho ý kiến trước khi thực hiện và báo cáo Quốc hội tại kỳ họp gần nhất’’, Bộ Tài chính đã phối hợp với các bộ, cơ quan Trung ương và UBND TP. Hà Nội trình Chính phủ, xin ý kiến UBTVQH ban hành Nghị định số 123/2004/NĐ-CP ngày 18/5/2004 quy định về một số cơ chế tài chính-ngân sách đặc thù đối với Thủ đô Hà Nội và Nghị định số 112/2015/NĐ-CP ngày 3/11/2015 sửa đổi, bổ sung Điều 5 Nghị định số 123/2004/NĐ-CP.<p>Qua hơn 10 năm tổ chức thực hiện, dưới sự giám sát của Quốc hội, HĐND TP. Hà Nội, sự chỉ đạo sát sao của Chính phủ, sự nỗ lực của các bộ, ngành và UBND Thành phố, cơ chế tài chính-ngân sách đặc thù đối với Thủ đô Hà Nội đã đi vào cuộc sống và đạt được nhiều kết quả quan trọng, góp phần huy động mọi nguồn lực tạo bước đột phá về tăng cường đầu tư đồng bộ kết cấu hạ tầng, nhất là giao thông và hạ tầng kỹ thuật khung, làm cơ sở để đẩy nhanh tiến trình xây dựng Thủ đô văn minh, hiện đại, tạo động lực thúc đẩy tăng trưởng kinh tế, đáp ứng yêu cầu phát triển kinh tế-xã hội, ổn định chính trị, nâng cao đời sống nhân dân, bảo đảm quốc phòng, an ninh, trật tự an toàn xã hội.</p><p>Theo Tờ trình, căn cứ Nghị quyết số 11-NQ/TW ngày 6/1/2012 của Bộ Chính trị về phương hướng, nhiệm vụ phát triển Thủ đô Hà Nội giai đoạn 2011-2020: &quot;Huy động tối đa mọi nguồn lực tạo bước đột phá về tăng cường đầu tư đồng bộ kết cấu hạ tầng, nhất là giao thông và hạ tầng kỹ thuật khung làm cơ sở để đẩy nhanh tiến trình xây dựng Thủ đô văn minh, hiện đại”; trên cơ sở Luật Thủ đô và Khoản 2 Điều 74 Luật Ngân sách Nhà nước năm 2015: ‘‘Thành phố Hà Nội thực hiện một số cơ chế, chính sách tài chính-ngân sách đặc thù theo quy định của Luật Thủ đô”, để khắc phục những hạn chế và đáp ứng các yêu cầu mới đặt ra trong quá trình tiếp tục đổi mới cơ chế quản lý kinh tế, cải cách hành chính cần thiết phải ban hành Nghị định mới thay thế Nghị định 123 và Nghị định 112 một cách căn bản, toàn diện và phù hợp với Luật Ngân sách Nhà nước năm 2015 và Luật Thủ đô.</p><p>Mục tiêu xây dựng Nghị định là: Bảo đảm tuân thủ Luật Ngân sách Nhà nước năm 2015, Luật Thủ đô, phù hợp với chủ trương, chính sách của Đảng, Nhà nước và thống nhất với các luật hiện hành. Kế thừa và phát huy những mặt tích cực của Nghị định 123 và Nghị định 112; đẩy mạnh cải cách hành chính; tăng cường giám sát việc huy động, phân bổ, sử dụng vốn vay, trả nợ, quản lý rủi ro; bảo đảm an toàn nợ công; góp phần thúc đẩy kinh tế phát triển bền vững.</p><p>Các mục tiêu cụ thể là: Tăng cường quyền hạn và trách nhiệm của HĐND, UBND Thành phố trong lĩnh vực quản lý ngân sách Nhà nước.</p><p>Đáp ứng yêu cầu đổi mới cơ chế quản lý kinh tế, phù hợp với cơ chế kinh tế thị trường định hướng xã hội chủ nghĩa, có sự điều tiết của Nhà nước.</p><p>Nâng cao hiệu quả quản lý ngân sách Nhà nước, tạo động lực phát triển các nguồn lực, phân bổ ngân sách tập trung, hợp lý phục vụ mục tiêu phát triển kinh tế-xã hội Thủ đô Hà Nội, khắc phục những tồn tại của Nghị định số 123/2004/NĐ-CP và Nghị định số 112/2015/NĐ-CP.</p><p>Dự thảo Nghị định bao gồm 4 chương, với 12 điều, quy định cụ thể về phạm vi điều chỉnh; đối tượng áp dụng; quản lý ngân sách Thủ đô Hà Nội; huy động các nguồn tài chính cho đầu tư phát triển Thủ đô Hà Nội;...</p><p>Báo cáo thẩm tra của Ủy ban Tài chính-Ngân sách của Quốc hội đối với dự thảo Nghị quyết nhấn mạnh, trong quá trình thực hiện Nghị định 123, Nghị định 112 , Hà Nội đã đạt được một số kết quả trong việc thu hút nguồn lực đầu tư phát triển kinh tế-xã hội; kết cấu hạ tầng, nhiều dự án, công trình lớn đã được xây dựng...</p><p>Tuy nhiên, so với nhu cầu vốn đầu tư phát triển kinh tế-xã hội của Hà Nội giai đoạn 2016-2020 thì cơ chế đặc thù về tài chính-ngân sách hiện hành tạo nguồn lực cho Thành phố khá thấp. Mặc dù Hà Nội đã được Trung ương bổ sung và hỗ trợ khác khá cao, nhưng vẫn chưa đáp ứng được nhu cầu của Thành phố. Mặt khác, một số quy định về cơ chế tài chính cho Hà Nội trong Luật Thủ đô có hiệu lực từ năm 2013 và Luật Ngân sách Nhà nước năm 2015 có hiệu lực từ 1/1/2017 nhưng đến nay chưa được Chính phủ hướng dẫn.</p><p>Vì vậy, để hướng dẫn chi tiết quy định về cơ chế tài chính-ngân sách đặc thù cho Thủ đô Hà Nội theo quy định của hai Luật này, Ủy ban Tài chính-Ngân sách nhất trí với đề nghị của Chính phủ về sự cần thiết ban hành nghị định thay thế Nghị định 123 và Nghị định 112 đối với Hà Nội nhằm tạo cơ chế tài chính-ngân sách mới, góp phần động viên nguồn lực, bảo đảm sự phát triển của Thành phố.</p><p>Khẳng định sự cần thiết xây dựng và ban hành Nghị định, trong thảo luận tại phiên họp, các ủy viên UBTVQH đã tập trung đóng góp nhiều ý kiến đối với các vấn đề liên quan trong dự thảo Nghị định về định mức chi và bội chi ngân sách của Hà Nội; mức dư nợ; về bổ sung có mục tiêu từ tăng thu ngân sách Trung ương; công tác quản lý ngân sách Thủ đô; quy định huy động các nguồn vốn khác cho đầu tư phát triển;…</p><p>Phát biểu kết thúc thảo luận về nội dung này, Phó Chủ tịch Quốc hội Phùng Quốc Hiển nhấn mạnh, UBTVQH thống nhất đề nghị Chính phủ ban hành Nghị định của Chính phủ quy định về một số cơ chế, chính sách tài chính-ngân sách đặc thù đối với Thủ đô Hà Nội, song phải bảo đảm bám sát Điều 74 của Luật Ngân sách Nhà nước và Điều 21 của Luật Thủ đô cho đúng thẩm quyền và cần có đột phá, tạo lợi thế hơn so với các quy định trước đây.</p><p>“Tinh thần là Nghị định của Chính phủ phải ở mức độ nổi trội hơn, đột phá hơn và có lợi thế hơn cho Hà Nội. Nếu Nghị định mà ban hành ra lại thành ra khó hơn, không bảo đảm các nguồn lực cho phát triển Thành phố thì chúng ta không bảo đảm thực hiện được đúng tinh thần chỉ đạo của Bộ Chính trị trong chỉ đạo phát triển Thủ đô cũng như vùng Thủ đô”, Phó Chủ tịch Quốc hội Phùng Quốc Hiển phát biểu, đồng thời cho biết, sau phiên họp này, trên cơ sở các ý kiến phát biểu, thống nhất, UBTVQH sẽ có văn bản thông báo ý kiến gửi tới Chính phủ về dự thảo Nghị quyết.</p>', 'http://baochinhphu.vn', 2, 0, 1, 1, 1, 0),
-(37, '', '', 'y cảm cần được bảo vệ. Các quy định về bảo vệ môi trường sẽ được sửa đổi, bổ sung theo hướng ngăn chặn các dự án đầu tư sử dụng công nghệ lạc hậu, loại hình sản xuất có nguy cơ gây ô nhiễm môi trường cao; hoàn thiện các cơ chế, chính sách liên quan đến sản xuất sạch hơn… Cùng với đó là đẩy mạnh thanh kiểm tra, xử lý vi phạm; tăng cường điều tra, kiểm kê nguồn thải, kiểm soát các hoạt động nhập khẩu phế liệu làm nguyên liệu sản xuất, hoạt động vận chuyển và xử lý chất thải…&nbsp;<br  /><br  />Hà Nội yêu cầu tất cả các đối tượng có quy mô xả thải lưu lượng lớn theo quy định của pháp luật phải lắp đặt các thiết bị kiểm soát, giám sát hoạt động xả thải và truyền số liệu trực tiếp về Sở Tài nguyên và Môi trường Hà Nội. Dự kiến, trong năm 2017, Trung tâm điều hành và quản lý dữ liệu môi trường sẽ hoàn thành, đưa vào vận hành để truyền số liệu quan trắc tự động trực tiếp về Sở nhằm kiểm soát, giám sát các hoạt động xả thải theo quy định của pháp luật.<br  /><br  />Bên cạnh đó, Hà Nội tập trung xử lý triệt để, di dời các cơ sở gây ô nhiễm môi trường nghiêm trọng ra khỏi khu dân cư, chuyển vào các khu công nghiệp; không để phát sinh thêm cơ sở gây ô nhiễm môi trường nghiêm trọng trên địa bàn. Thành phố xác định rõ cơ chế, chính sách, các nhiệm vụ, giải pháp cụ thể có tính khả thi cao, phù hợp với nguồn lực, khả năng thực tế.&nbsp;<br  /><br  />Theo kế hoạch, Thành phố sẽ tổ chức rà soát, điều chỉnh trình Thủ tướng Chính phủ phê duyệt lại Quy hoạch quản lý chất thải rắn Thủ đô Hà Nội đến năm 2030, tầm nhìn đến năm 2050, bảo đảm phù hợp với tình hình thực tế phát triển kinh tế-xã hội; rà soát quy mô, công suất xử lý đối với khu xử lý tập trung áp dụng công nghệ hiện đại, đảm bảo hiệu quả kinh tế. Đồng thời, giảm dần tỷ lệ rác thải chôn lấp sau xử lý xuống còn khoảng 30% (năm 2020), khoảng 10-15% (năm 2050)…&nbsp;<br  /><br  />Bảo vệ môi trường trên địa bàn Hà Nội được xác định là một trong những nhiệm vụ bức thiết, được chỉ đạo thực hiện quyết liệt. Tuy nhiên, từ thực tiễn quản lý, triển khai cho thấy, TP. Hà Nội còn thiếu tư duy quy hoạch môi trường; quản lý môi trường đô thị còn chưa đồng bộ; lực lượng và năng lực chuyên môn của cán bộ quản lý về môi trường tại nhiều đơn vị còn yếu; nhận thức, ý thức bảo vệ môi trường của cộng đồng còn hạn chế, nhất là doanh nghiệp và người dân. Vì vậy, tình trạng ô nhiễm môi trường trên địa bàn có xu hướng gia tăng, trong khi Hà Nội vẫn chưa có các quy định riêng về công cụ và chế tài xử lý các vi phạm môi trường, dù đã có Luật Thủ đô.&nbsp;<br  /><br  />Báo động về tình trạng ô nhiễm môi trường hiện nay của Hà Nội là ô nhiễm không khí (bụi và khí độc khu vực nội thành, các công trường xây dựng, khu vực làng nghề, khu công nghiệp, đốt rơm sau thu hoạch); ô nhiễm nước mặt trong các hồ đô thị, các sông và kênh thoát nước, ô nhiễm nước ngầm; ô nhiễm chất thải rắn, rác thải sinh hoạt không phân loại tại các đô thị; ô nhiễm môi trường tại các bãi rác; ô nhiễm rác thải sinh hoạt tại các khu vực dân cư nông thôn...', 'http://baochinhphu.vn', 2, 0, 1, 1, 1, 0),
+(37, '', '', 'y cảm cần được bảo vệ. Các quy định về bảo vệ môi trường sẽ được sửa đổi, bổ sung theo hướng ngăn chặn các dự án đầu tư sử dụng công nghệ lạc hậu, loại hình sản xuất có nguy cơ gây ô nhiễm môi trường cao; hoàn thiện các cơ chế, chính sách liên quan đến sản xuất sạch hơn… Cùng với đó là đẩy mạnh thanh kiểm tra, xử lý vi phạm; tăng cường điều tra, kiểm kê nguồn thải, kiểm soát các hoạt động nhập khẩu phế liệu làm nguyên liệu sản xuất, hoạt động vận chuyển và xử lý chất thải…&nbsp;<br  />\r\n<br  />\r\nHà Nội yêu cầu tất cả các đối tượng có quy mô xả thải lưu lượng lớn theo quy định của pháp luật phải lắp đặt các thiết bị kiểm soát, giám sát hoạt động xả thải và truyền số liệu trực tiếp về Sở Tài nguyên và Môi trường Hà Nội. Dự kiến, trong năm 2017, Trung tâm điều hành và quản lý dữ liệu môi trường sẽ hoàn thành, đưa vào vận hành để truyền số liệu quan trắc tự động trực tiếp về Sở nhằm kiểm soát, giám sát các hoạt động xả thải theo quy định của pháp luật.<br  />\r\n<br  />\r\nBên cạnh đó, Hà Nội tập trung xử lý triệt để, di dời các cơ sở gây ô nhiễm môi trường nghiêm trọng ra khỏi khu dân cư, chuyển vào các khu công nghiệp; không để phát sinh thêm cơ sở gây ô nhiễm môi trường nghiêm trọng trên địa bàn. Thành phố xác định rõ cơ chế, chính sách, các nhiệm vụ, giải pháp cụ thể có tính khả thi cao, phù hợp với nguồn lực, khả năng thực tế.&nbsp;<br  />\r\n<br  />\r\nTheo kế hoạch, Thành phố sẽ tổ chức rà soát, điều chỉnh trình Thủ tướng Chính phủ phê duyệt lại Quy hoạch quản lý chất thải rắn Thủ đô Hà Nội đến năm 2030, tầm nhìn đến năm 2050, bảo đảm phù hợp với tình hình thực tế phát triển kinh tế-xã hội; rà soát quy mô, công suất xử lý đối với khu xử lý tập trung áp dụng công nghệ hiện đại, đảm bảo hiệu quả kinh tế. Đồng thời, giảm dần tỷ lệ rác thải chôn lấp sau xử lý xuống còn khoảng 30% (năm 2020), khoảng 10-15% (năm 2050)…&nbsp;<br  />\r\n<br  />\r\nBảo vệ môi trường trên địa bàn Hà Nội được xác định là một trong những nhiệm vụ bức thiết, được chỉ đạo thực hiện quyết liệt. Tuy nhiên, từ thực tiễn quản lý, triển khai cho thấy, TP. Hà Nội còn thiếu tư duy quy hoạch môi trường; quản lý môi trường đô thị còn chưa đồng bộ; lực lượng và năng lực chuyên môn của cán bộ quản lý về môi trường tại nhiều đơn vị còn yếu; nhận thức, ý thức bảo vệ môi trường của cộng đồng còn hạn chế, nhất là doanh nghiệp và người dân. Vì vậy, tình trạng ô nhiễm môi trường trên địa bàn có xu hướng gia tăng, trong khi Hà Nội vẫn chưa có các quy định riêng về công cụ và chế tài xử lý các vi phạm môi trường, dù đã có Luật Thủ đô.&nbsp;<br  />\r\n<br  />\r\nBáo động về tình trạng ô nhiễm môi trường hiện nay của Hà Nội là ô nhiễm không khí (bụi và khí độc khu vực nội thành, các công trường xây dựng, khu vực làng nghề, khu công nghiệp, đốt rơm sau thu hoạch); ô nhiễm nước mặt trong các hồ đô thị, các sông và kênh thoát nước, ô nhiễm nước ngầm; ô nhiễm chất thải rắn, rác thải sinh hoạt không phân loại tại các đô thị; ô nhiễm môi trường tại các bãi rác; ô nhiễm rác thải sinh hoạt tại các khu vực dân cư nông thôn...', 'http://baochinhphu.vn', 2, 0, 1, 1, 1, 0),
 (29, '', '', '<p>Phó Thủ tướng yêu cầu UBND thành phố Hà Nội cập nhật Dự án đầu tư xây dựng mở rộng nhà máy nước Bắc Thăng Long - Vân Trì và Dự án đầu tư xây dựng Trạm cấp nước Dương Nội - Hà Đông vào Đồ án điều chỉnh Quy hoạch cấp nước Hà Nội; đồng thời thực hiện việc lập, thẩm định và trình duyệt đồ án Điều chỉnh Quy hoạch cấp nước Hà Nội theo đúng quy định pháp luật về quy hoạch xây dựng, đáp ứng nhu cầu cấp nước trước mắt và lâu dài cho Thủ đô Hà Nội.</p><p>Thành phố Hà Nội phấn đấu đến năm 2020, 100% nhân dân Thủ đô được sử dụng nước sạch đạt tiêu chuẩn của Bộ Y tế; đẩy mạnh công tác đầu tư cấp nước sạch theo hình thức xã hội hóa; áp dụng công nghệ cao trong lĩnh vực đầu tư cấp nước sạch; đầu tư xây dựng hệ thống cấp nước sạch (bao gồm các nhà máy và hệ thống mạng cấp nước) đồng bộ, phù hợp với Quy hoạch chung, các Quy hoạch ngành và Quy hoạch phân khu đô thị của Thành phố.</p><p>Để thực hiện thắng lợi các mục tiêu trên, UBND thành phố đã đề xuất điều chỉnh Quy hoạch cấp nước Thủ đô Hà Nội đến năm 2030, tầm nhìn đến năm 2050.</p>', 'http://baochinhphu.vn', 1, 0, 1, 1, 1, 0),
 (30, '', '', '<p>g đoạn Vành đai 3 đi bằng cầu qua hồ Linh Đàm để khép kín.</p><p>Vành đai 3,5 (Nam sông Hồng) chiều dài khoảng 44 km đến nay đã cơ bản hoàn thiện. Năm 2017 tiếp tục thực hiện đoạn nối từ Đại lộ Thăng Long-Quốc lộ 32 và đoạn từ Phúc La-Văn Phú đến cao tốc Pháp Vân-Cầu Giẽ; đoạn từ Quốc lộ 32-cầu Thượng Cát-Đường 5 kéo dài đầu tư theo hình thức PPP.</p><p>“Như vậy, đến năm 2020 sẽ đầu từ đồng bộ đoạn đường từ Đường 5 kéo dài đến Quốc lộ 6”, ông Nguyễn Đức Chung, Chủ tịch UBND TP. Hà Nội cho biết.</p><p>Vành đai 4 triển khai đầu tư&nbsp;đoạn từ Phúc La-Văn Phú&nbsp;đến cao tốc Pháp Vân-Cầu Giẽ và từ cao tốc Hà Nội-Lào Cai (Km3+650) đến Quốc lộ 32 (Km19+500)</p><p>Về các công trình đường sắt đô thị, thành phố hiện đang tập trung xây dựng hoàn thành tuyến đường sắt đô thị đoạn Nhổn-ga Hà Nội và tiếp tục triển khai các tuyến gồm: Dự án tuyến đường sắt đô thị (tuyến 2) đoạn Nam Thăng Long-Trần Hưng Đạo, đoạn Trần Hưng Đạo-Thượng Đình; tuyến đường sắt đô thị Hà Nội (tuyến 3) đoạn Ga Hà Nội-Hoàng Mai; tuyến đường sắt đô thị đoạn Nam Thăng Long-Nội Bài.</p><p>Khẳng định đầu tư kết cấu hạ tầng là một trong 3 khâu đột phá, ông Nguyễn Đức Chung cho biết Hà Nội đã và đang nỗ lực lựa chọn các các dự án trọng điểm để đầu tư cũng như huy động nguồn vốn xã hội hoá mạnh mẽ để thực hiện các dự án quan trọng này.</p><p>Phấu đấu đến cuối năm 2017, Hà Nội sẽ hoàn thành tuyến đường vành đai 3; đến năm 2019 là các tuyến vành đai 1, 2. Đối với các dự án xây thêm 5 cây cầu mới để kết nối với các tỉnh thành, vùng kinh tế khác, Hà Nội hiện đã có đủ các nhà đầu tư BT và thành phố đã bố trí đủ đất đối ứng. Khi hoàn thành các tuyến này sẽ cơ bản kết nối đồng bộ hệ thống giao thông, tạo động lực phát triển.</p><p>“Tuy nhiên, nếu không có cơ chế đặc thù thì các dự án này khó thực hiện bởi vốn đầu tư rất lớn... Thành phố đã nhận được đề xuất của 3 tập đoàn lớn trong nước tham gia xây dựng tuyến metro. Cụ thể là Tổng công ty Xây dựng Lũng Lô, Tập đoàn Vingroup và Tập đoàn Xuân Thành...”, ông Chung cho biết.</p><p>Chủ tịch UBND TP. Hà Nội cũng chia sẻ, vấn đề&nbsp;mấu chốt hiện nay là cơ chế, “nếu Chính phủ cho phép cơ chế đặc thù, Hà Nội sẽ bảo đảm đúng tiến độ đề ra. Bên cạnh đó, nếu thi công nhanh và quản lý tốt thì sẽ không có tình trạng tăng vốn, hiệu quả dự án sẽ cao hơn”.</p><p>Lắng nghe các đề xuất, kiến nghị của TP. Hà Nội, Phó Thủ tướng Chính phủ Trịnh Đình Dũng đánh giá, Thủ đô đang thay đổi hàng ngày, các công trình hạ tầng cấp bách được đầu tư và nhiều công trình được đưa vào khai thác sử dụng đã góp phần hạn chế ùn tắc giao thông...</p><p>“Cần chú ý kết nối giao thông đô thị trung tâm Hà Nội với các đô thị vệ tinh. Kết nối tốt sẽ tạo ra động lực mới, khu vực nào chưa phát triển thì cần giao thông kết nối để hấp dẫn nhà đầu tư hơn và giảm áp lực cho nội đô”, Phó Thủ tướng nói.</p><p>Bên cạnh đó, Phó Thủ tướng yêu cầu đẩy nhanh thi công 2 tuyến Nhổn-Ga Hà Nội, Cát Linh-Hà Đông đồng thời nghiên cứu kết nối 2 tuyến đường sắt quốc gia để tạo ra kết nối đồng bộ song hành với tìm nguồn vốn để thực hiện các tuyến đường sắt đô thị còn lại.</p><p>“Hà Nội chủ động tìm nguồn vốn để thực hiện 6 tuyến đường sắt đô thị còn lại là cách làm chủ động, đáng biểu dương. Tuy nhiên, nếu nhà đầu tư nội tham gia phải bảo đảm được an toàn khi thi công theo đúng tiêu chí nhanh, rẻ và an toàn”, Phó Thủ tướng nhấn mạnh.</p>', 'http://baochinhphu.vn', 2, 0, 1, 1, 1, 0),
 (31, '', '', 'Theo Phó Thủ tướng Trịnh Đình Dũng, thời gian ngắn vừa qua, Thủ&nbsp;đô Hà Nội đã có thay đổi rất tích cực cả về cảnh quan và cơ sở hạ tầng. Thành phố cũng đã có nhiều giải pháp, đưa vào sử dụng nhiều công trình quan trọng góp phần giảm ùn tắc giao thông. Cùng với đó là việc đưa vào sử dụng những công trình cấp nước, điện, xử lý chất thải… đã cải thiện môi trường, nâng cao chất lượng đời sống người dân.<p>“Hà Nội đang thay đổi hàng ngày”, Phó Thủ tướng nói với góc nhìn của một công dân Thủ đô.</p><p>Tuy nhiên theo Phó Thủ tướng, sự&nbsp;“hấp dẫn” của Hà Nội càng thu hút nhiều người đến sinh sống và làm việc, do đó càng khiến trách nhiệm của các nhà quản lý&nbsp;đô thị nặng nề hơn. Theo Phó Thủ tướng, xu hướng dịch chuyển dân cư từ vùng nông thôn, từ các đô thị nhỏ hơn về Hà Nội ngày càng gia tăng, tạo ra thách thức lớn về hệ thống hạ tầng. Do đó, mặc dù&nbsp;đã&nbsp;được quan tâm, ưu tiên đầu tư cải thiện hệ thống hạ tầng, nhưng vẫn không đáp ứng được đòi hỏi của người dân.</p><p>“Đây là một thách thức lớn, do đó một mặt phải có giải pháp để kiểm soát phát triển đô thị theo đúng quy hoạch, kế hoạch thực hiện, đáp ứng được sự phát triển của Thủ đô. Mặt khác, phải có giải pháp để quản lý, xây dựng đô thị trong đó trọng tâm là quản lý, đầu tư, phát triển hệ thống hạ tầng nói chung để bảo đảm chất lượng của đô thị tốt hơn”, Phó Thủ tướng nói.</p><p>Bên cạnh đó, Phó Thủ tướng Trịnh Đình Dũng cũng “điểm danh” những mặt còn hạn chế trong phát triển kết cấu hạ tầng kinh tế - xã hội tại Thủ đô. Cụ thể như ách tắc giao thông ngày càng nghiêm trọng hơn; ngay tại Thủ đô vẫn còn tình trạng thiếu nước sạch cho sinh hoạt, còn phải dùng nước giếng ngầm; ô nhiễm môi trường ngày càng có xu hướng gia tăng; tỉ lệ nước thải sinh hoạt qua xử lý còn rất ít; việc đầu tư xây dựng các công trình xử lý chất thải rắn còn chậm; xử lý ô nhiễm môi trường còn hạn chế; còn nhiều lúng túng trong đầu tư xây dựng nghĩa trang, chưa đáp ứng đòi hỏi của người dân…&nbsp;<br  />&nbsp;</p><div style=\"text-align:center\"><img alt=\"5J3A0064\" height=\"300\" src=\"/uploads/news/2017_06/5j3a0064.jpg\" width=\"451\" /></div><div style=\"text-align: center;\">Kiểm tra thực địa Dự án Cầu vượt đường An Dương và đường Nghi Tàm sau khi điều chỉnh kết cấu đê, Phó Thủ tướng Trịnh đình Dũng nêu 4 yêu cầu: Tuyệt đối an toàn, giúp giảm ùn tắc, đảm bảo thẩm mỹ, nâng cao chất lượng cuộc sống người dân. Ảnh: VGP/Xuân Tuyến</div>&nbsp;<p>“Tất cả những vấn đề này ảnh hưởng rất lớn đến phát triển kinh tế - xã hội của Thủ đô, làm giảm chất lượng cuộc sống của người dân, đòi hỏi chúng ta phải tập trung tháo gỡ”, Phó Thủ tướng nói.</p><p>Phó Thủ tướng cho rằng, tuy Hà Nội đã rất tích cực, quyết liệt, nhưng rõ ràng cần có sự vào cuộc của Chính phủ, các Bộ, ngành, thậm chí cả các địa phương để cùng phối hợp.</p><p>“Quy hoạch vùng Thủ đô để phân công hợp tác, gánh vác trách nhiệm cho nhau. Bản thân các địa phương cũng phải có khả năng giúp Hà Nội chia sẻ trách nhiệm, chẳng hạn như giảm tải nghĩa trang, công viên. Đây là trách nhiệm chung”, Phó Thủ tướng nói.</p><p><strong>Đồng bộ từ xây dựng quy hoạch, lên kế hoạch thực hiện</strong></p><p>Theo Phó Thủ tướng Trịnh Đình Dũng, cái “gốc” của vấn đề phát triển hạ tầng của Hà Nội hiện nay là phải giải quyết đồng bộ từ quy hoạch phát triển đô thị đến tổ chức thực hiện quy hoạch đó.</p><p>Phó Thủ tướng Trịnh Đình Dũng cho rằng, quy hoạch chung xây dựng đô thị, quy hoạch phân khu đô thị đã có nhưng cần rà soát, điều chỉnh lại cho phù hợp.</p><p>“Tập trung rà soát lại tất cả các quy hoạch hạ tầng kĩ thuật, không chủ quan. Một số quy hoạch phân khu vẫn còn tình trạng chồng lấn. Những vùng nông thôn mới được đô thị hoá cần cố gắng giữ những công viên, khoảng đệm để giữ lại những giá trị văn hoá, tập quán sinh hoạt của khu vực đó, nếu không người dân nông thôn sẽ vô cùng khó khăn khi quá trình đô thị hóa xảy ra”, Phó Thủ tướng nói.</p><p>Phó Thủ tướng phân tích thêm: Quy hoạch là một quá trình, sau một thời gian, trình độ, nhận thức xã hội phát triển, do đó cần rà soát điều chỉnh bổ sung cho phù hợp. Điều chỉnh quy hoạch không phải là “xấu”, mà sẽ là tích cực nếu mục tiêu nhằm đáp ứng lợi ích của quốc gia, của người dân. Không ngại điều chỉnh quy hoạch nếu đó là vì lợi ích của người dân.</p><p>Phó Thủ tướng Trịnh Đình Dũng yêu cầu cần hết sức chú ý kết nối giao thông đô thị trung tâm Hà Nội với các đô thị vệ tinh bởi kết nối tốt sẽ tạo ra động lực mới ở các đô thị vệ tinh như Bắc sông Hồng, Nam Hà Nội. Khu vực nào chưa phát triển thì cần ưu tiên kết nối giao thông để tạo ra những vùng động lực mới, hấp dẫn hơn, giảm áp lực cho đô thị chính.</p><p>Trong đầu tư, cần chọn ra các dự án trọng điểm cấp bách (51 dự án), nếu cần thiết có thể xem xét bổ sung thêm, từ đó có kế hoạch đầu tư, xây dựng cơ chế huy động nguồn lực cho đầu tư phát triển. Phó Thủ tướng Trịnh Đình Dũng nhất trí với Hà Nội về việc cần ưu tiên đầu tư các công trình cấp bách, các nút kết nối giao thông nội thành lẫn kết nối giao thông đối ngoại, các tuyến giao thông đồng mức, các tuyến đường vành đai, đường xuyên tâm.</p><p>Phó Thủ tướng Trịnh Đình Dũng cũng đề nghị cần kiểm soát chặt chẽ quá trình đầu tư xây dựng, không vì làm nhanh mà thiếu kiểm soát. “Tiến độ phải nhanh, nhưng chất lượng công trình phải tốt, tránh thất thoát, lãng phí. Không phải cứ đấu thầu là tốt, nếu đấu thầu mà thông thầu thì hậu quả còn lớn hơn nhiều. Chọn thầu nhưng kiểm soát chặt chẽ thì vẫn nâng cao hiệu quả sử dụng vốn đầu tư”, Phó Thủ tướng nói.</p><p><strong>4 yêu cầu đối với việc “hạ” cốt đê đoạn An Dương</strong></p><p>Về việc thay đổi kết cấu đê tả sông Hồng đoạn An Dương, Phó Thủ tướng Trịnh Đình Dũng nhấn mạnh 4 yêu cầu tiên quyết. Đó là yêu cầu phải đảm bảo an toàn chống lũ cho Thủ đô Hà Nội, góp phần giảm ùn tắc giao thông, tạo ra một công trình kiến trúc đẹp, đồng thời góp phần nâng cao đời sống cho người dân trong khu vực.</p><p>“Yêu cầu Hà Nội, Bộ NN&amp;PTNT thành lập cơ quan thẩm định, mời các nhà khoa học uy tín nhất tham gia. Sau khi đã được thẩm định, phải công bố để người dân đồng tình”, Phó Thủ tướng nhấn mạnh.</p><p>Về hệ thống đường sắt, Phó Thủ tướng đề nghị TP. Hà Nội cần phối hợp chặt chẽ với Bộ GTVT để quản lý tốt 6 tuyến đường hiện có, đồng thời nghiên cứu đầu tư, nâng cấp, cải tạo. Đối với đường sắt đô thị, cần đẩy nhanh thi công hai tuyến đang đầu tư, đồng thời nghiên cứu để kết nối với hệ thống đường sắt quốc gia. Bên cạnh đó, cần tích cực tìm nguồn vốn để triển khai các dự án còn lại của hệ thống đường sắt đô thị. “Nếu giải quyết được đồng bộ hệ thống đường sắt đô thị thì sẽ vô cùng khó khăn, do đó việc làm sao giảm đầu tư, huy động nội lực để làm là nhiệm vụ quan trọng. Cần kêu gọi các nhà đầu tư lớn đầu tư công nghệ mới, bảo đảm nhanh, rẻ, an toàn”, Phó Thủ tướng đồng tình với đề xuất của Chủ tịch UBND TP. Hà Nội Nguyễn Đức Chung.</p><p>Về giao thông đường thuỷ, Phó Thủ tướng lưu ý Hà Nội cần chú ý kết hợp với phát triển du lịch, phát triển du lịch nhưng vẫn đảm bảo thoát lũ.</p><p>Phó Thủ tướng Trịnh Đình Dũng nhấn mạnh yêu cầu phải cung cấp đủ điện cho sản xuất và sinh hoạt;&nbsp; bảo đảm an toàn; bảo đảm mỹ quan. Những khu đô thị mới bắt buộc phải hạ ngầm đường điện một cách khoa học để có thể quản lý, vận hành an toàn, đảm bảo mỹ quan.</p><div style=\"text-align:center\"><img alt=\"5J3A0104\" height=\"300\" src=\"/uploads/news/2017_06/5j3a0104.jpg\" width=\"452\" /></div><div style=\"text-align: center;\"><br  />Giải quyết những kiến nghị của Hà Nội, Phó Thủ tướng Trịnh Đình Dũng nhấn mạnh nguyên tắc: Thủ tướng Chính phủ đã rất đồng tình việc phải tạo cho Hà Nội có cơ chế chính sách tốt nhất để phát triển đô thị, đáp ứng nhu cầu của người dân, giải quyết hiệu quả những vấn đề cấp bách đang đòi hỏi. Ảnh: VGP/Xuân Tuyến</div>&nbsp;<p>Về hạ tầng cấp nước, yêu cầu đặt ra là có đủ nước sạch, bảo đảm nước sạch đảm bảo vệ sinh, giá hợp lý ở mức người dân chấp nhận được. “Khuyến khích đầu tư xã hội nhưng phải đảm bảo kiểm soát chặt về giá. Muốn vậy, phải rà soát, điều chỉnh, bổ sung quy hoạch cấp nước”, Phó Thủ tướng nói.</p><p>Về&nbsp;quy hoạch thoát nước, Phó Thủ tướng đề nghị phải tăng thêm diện tích hồ chứa cục bộ tại các khu đô thị mới, các khu vực sản xuất. Vừa kết hợp cảnh quan môi trường, vừa điều tiết nước khi có mưa lớn chắc chắn sẽ hạn chế rất nhiều tình trạng ngập úng.</p><p>Phó Thủ tướng cũng nêu yêu cầu trong xử lý chất thải rắn cần phải sử dụng công nghệ mới, đảm bảo hiệu quả nhưng phù hợp với điều kiện Việt Nam. Các Bộ TN&amp;MT, KH&amp;CN, Xây dựng cần phối hợp chặt chẽ với Thành phố. Đề nghị sớm xây dựng định mức cơ chế để huy động đầu tư trong lĩnh vực này, làm tốt công tác bồi thường, giải phóng mặt bằng.</p><p>Phó Thủ tướng yêu cầu phải rà soát quy hoạch để vừa có nghĩa trang tập trung, vừa có nghĩa trang phân tán, phù hợp với đặc thù của Hà Nội. Cần phải quy hoạch một cách rất thực tế, đảm bảo yêu cầu đa dạng của người dân.</p><p>Phó Thủ tướng cũng đề nghị phải quan tâm đến việc xây dựng công viên, cây xanh ở các khu đô thị mới, trồng thêm cây xanh tại các khu đô thị hiện hữu.</p><p>Giải quyết những kiến nghị của Hà Nội, Phó Thủ tướng Trịnh Đình Dũng nhấn mạnh nguyên tắc: Thủ tướng Chính phủ đã rất đồng tình việc phải tạo cho Hà Nội có cơ chế chính sách tốt nhất để phát triển đô thị, đáp ứng nhu cầu của người dân, giải quyết hiệu quả những vấn đề cấp bách đang đòi hỏi. Trên cơ sở đó, Phó Thủ tướng đã đồng ý xử lý nhiều kiến nghị của Thành phố, đồng thời giao các Bộ, ngành cùng phối hợp chặt chẽ, rà soát để xử lý hiệu quả những vấn đề còn vướng mắc.</p>', 'http://baochinhphu.vn', 2, 0, 1, 1, 1, 0),
 (32, '', '', 'Ngoài ra, Thành phố sẽ tập trung xây dựng BV Tim, Phụ sản, Nhi Hà Nội theo tiêu chuẩn châu Âu. Các BV tuyến huyện Sơn Tây, Ba Vì, Thường Tín cũng được đầu tư đồng bộ, đáp ứng nhu cầu khám chữa bệnh ngày càng cao của người dân Thủ đô.<p>Đây là thông tin được Chủ tịch UBND TP. Hà Nội Nguyễn Đức Chung cho biết tại lễ mít tinh kỷ niệm 62 năm Ngày Thầy thuốc Việt Nam, do Sở Y tế Hà Nội tổ chức ngày 23/2.</p><p>Cùng với việc đầu tư từ nguồn ngân sách, kêu gọi xã hội hóa để phát triển cơ sở vật chất, trang thiết bị, Hà Nội cũng sẽ tạo điều kiện cho ngành y tế trong việc phát triển nguồn nhân lực chất lượng cao thông qua đào tạo chuyên môn cho các bác sĩ bằng nhiều loại hình đào tạo ở trong nước, nước ngoài, mời chuyên gia, đào tạo tại chỗ, liên kết... đáp ứng yêu cầu trong tình hình mới.</p><p>Cũng theo ông Nguyễn Đức Chung, thời gian tới ngành y tế Hà Nội và các ngành chức năng của Thành phố phải tập trung thực hiện nghiên cứu điều chỉnh lại Quy hoạch phát triển ngành y tế Thủ đô đến năm 2025, tầm nhìn đến 2030. Mục tiêu là phải bảo đảm phân bố các BV thuận lợi cho người dân tiếp cận dịch vụ y tế.</p><p>Đánh giá cao những thành tích mà ngành y tế Hà Nội đã đạt được trong thời gian qua, tại buổi lễ, Bộ trưởng Bộ Y tế Nguyễn Thị Kim Tiến cũng lưu ý nhiệm vụ trong thời gian tới của ngành còn rất nặng nề. Bộ trưởng đề nghị ngành y tế cả nước nói chung, của Hà Nội nói riêng cần tiếp tục quyết liệt đổi mới toàn diện hơn nữa.</p><p>Bộ trưởng nhấn mạnh, Hà Nội phải hướng về y tế cơ sở và chăm sóc sức khỏe ban đầu cho nhân dân. Bên cạnh đó, phải đổi mới thái độ, phong cách phục vụ của nhân viên y tế hướng tới hài lòng người bệnh gắn với chất lượng dịch vụ khám chữa bệnh. Đổi mới cơ chế tài chính cũng là nhiệm vụ thời gian tới của ngành y…</p>', 'http://baochinhphu.vn', 2, 0, 1, 1, 1, 0),
 (33, '', '', 'Ngày 17/1&nbsp; Hội đồng Tư vấn khoa học nghiên cứu bảo tồn khu di tích Cổ Loa - Thành cổ Hà Nội tổ chức hội nghị tổng kết công tác năm 2016 và bàn bạc nhiệm vụ năm 2017.<br  /><br  />Năm 2017, Hội đồng sẽ tiếp tục tập trung vào công tác tư vấn trong việc thực hiện những cam kết của Thủ tướng Chính phủ với UNESCO đối với di sản Hoàng thành Thăng Long-Hà Nội, trong đó chú trọng công tác nhất thể hóa quản lý khu di sản và tư vấn nội dung Báo cáo theo yêu cầu của Trung tâm Di sản Thế giới (Báo cáo 6 năm về việc áp dụng Công ước Di sản thế giới).<br  /><br  />Đặc biệt, Hội đồng sẽ triển khai các hoạt động để tư vấn các đề án nghiên cứu, bảo tồn và phát huy giá trị khu di sản Hoàng thành Thăng Long và khu di tích Cổ Loa như: Đề án nghiên cứu phương án khôi phục không gian điện Kính Thiên; đề cương nhiệm vụ nghiên cứu, thể nghiệm tổ chức lễ hội Đèn Quảng Chiếu; các hoạt động tuyên truyền, giới thiệu, tổ chức trưng bày chuyên đề, triển lãm... và các hoạt động văn hóa phi vật thể như thể nghiệm tổ chức các lễ hội, các nghi lễ tại Hoàng thành Thăng Long.<br  /><br  />Tại hội nghị, ông Nguyễn Đức Chung, Chủ tịch UBND TP. Hà Nội nhấn mạnh về phương án bảo tồn Hoàng thành Thăng Long. Theo đó, cần xây dựng một dự án đầu tư tổng thể, không làm các dự án nhỏ lẻ. Bên cạnh đó, Thành phố sẽ làm việc với Bộ Quốc phòng để Bộ sớm bàn giao nốt mặt bằng và làm việc với Viện Hàn lâm Khoa học xã hội để chuẩn bị bàn giao các hiện vật đã được khai quật.<br  /><br  />Ông Nguyễn Đức Chung khẳng định Hà Nội đã chuẩn bị sẵn nguồn vốn cho dự án quan trọng này, phấn đấu đến năm 2020, Hoàng thành Thăng Long cơ bản được đầu tư bảo tồn; trở thành điểm nhấn văn hoá, du lịch, nơi ý nghĩa để tổ chức các hoạt động chính trị xã hội của Thủ đô.<br  /><br  />Các giáo sư thành viên Hội đồng đều bày tỏ đồng tình với cách làm mà Chủ tịch UBND TP. Hà Nội đưa ra và đánh giá cách làm này sẽ sớm đẩy nhanh tiến độ các dự án bảo tồn di sản.&nbsp;<br  /><br  />Theo Giáo sư Sử học Phan Huy Lê, các nhà khảo cổ nổi tiếng thế giới đều đánh giá Hoàng thành Thăng Long là di sản văn hoá của thế giới rất đặc biệt. Bên cạnh đó, di tích Cổ Loa cũng là kinh đô lớn bậc nhất ở Đông Nam Á thời cổ đại... “Đầu tư tổng thể là cách làm khoa học và sẽ phải bắt tay ngay vào việc mới bảo đảm được tiến độ, chất lượng công việc”, Giáo sư Phan Huy Lê nói.<br  />&nbsp;', 'http://baochinhphu.vn', 2, 0, 1, 1, 1, 0),
 (34, '', '', 'Trước đó, ngày 19/5/2016, Thủ tướng Chính phủ nhận được đơn kêu cứu khẩn cấp của Vietfoods về việc Đội quản lý thị trường số 14 Hà Nội lạm quyền, tùy tiện kiểm tra, tạm giữ và thông tin cho các cơ quan báo chí sản phẩm mang nhãn hiệu Viet Foods chứa chất cấm, gây ung thư không có căn cứ pháp luật, gây tổn hại đến thương hiệu và thiệt hại cho nhà sản xuất.<p>Đến đầu tháng 6, Thủ tướng Chính phủ Nguyễn Xuân Phúc đã giao Bộ Công Thương chủ trì, cùng Bộ Y tế và UBND thành phố Hà Nội khẩn trương kiểm tra, xem xét, giải quyết nội dung phản ánh, kiến nghị của Viet Foods.</p><p>Nay, sau khi xem xét báo cáo của Bộ Công Thương và Bộ Y tế, Thủ tướng yêu cầu UBND thành phố Hà Nội chỉ đạo các cơ quan chức năng xử lý nghiêm các đơn vị, cá nhân có sai phạm trong vụ việc kiểm tra sản phẩm xúc xích nhãn hiệu Viet Foods xảy ra tại Đội quản lý thị trường số 14 thuộc Chi cục Quản lý thị trường Hà Nội theo đúng quy định của pháp luật.</p><p>Đồng thời, Thủ tướng yêu cầu Bộ Công Thương chỉ đạo tăng cường bồi dưỡng kiến thức pháp luật, hướng dẫn nghiệp vụ cho cán bộ, công chức quản lý thị trường, tránh xảy ra sai phạm trong thực thi nhiệm vụ.</p><p>Được biết, sau khi có ý kiến chỉ đạo của Thủ tướng hồi tháng 6, Đội quản lý thị trường số 14 Hà Nội đã có công văn về việc hủy bỏ biên bản vi phạm hành chính và không xử lý vi phạm hành chính đối với lô hàng xúc xích nhãn hiệu Viet Foods.</p><p>Tuy nhiên Viet Foods cho biết hậu quả từ thông tin xuất phát từ Chi cục Quản lý thị trường Hà Nội đã ảnh hưởng hết sức nghiêm trọng đến hoạt động sản xuất kinh doanh của Công ty. Nhiều doanh nghiệp khác cũng bị ảnh hưởng.&nbsp;</p>', 'http://baochinhphu.vn', 2, 0, 1, 1, 1, 0),
-(35, '', '', 'Sáng 17/1, Ban Quản lý đường sắt đô thị Hà Nội cùng liên danh nhà thầu của Pháp đã ký hợp đồng gói thầu CP06 thuộc dự án tuyến đường sắt đô thị thí điểm TP. Hà Nội (Nhổn-Ga Hà Nội).<p>Hợp đồng này giá trị khoảng 7.667 tỷ đồng (bao gồm các loại thuế, phí) do Chính phủ Pháp tài trợ, thời gian thực hiện trong 47 tháng.</p><p>Gói thầu CP06 gồm 6 hạng mục, trong đó gần 3.000 tỷ đồng để tư vấn, thiết kế, sản xuất và lắp đặt 10 đoàn tàu, mỗi đoàn tàu 4 toa với sức chứa khoảng 900 khách, tốc độ tối đa là 80 km/h. Ngoài ra, gói thầu còn có các hạng mục như khu depot, thiết bị đầu vào, vé, đường ray...</p><p>Khi gói thầu CP06 được hoàn thành, cùng với các gói thầu khác của dự án, Hà Nội sẽ có một phương thức vận tải công cộng hoàn toàn mới, theo tiêu chuẩn tiên tiến; đáp ứng nhu cầu đi lại dọc theo hành lang Đông Tây, từ vùng ngoại vi vào trung tâm Thành phố; góp phần nâng cao năng lực vận tải hành khách công cộng.</p><p>Phát biểu tại lễ ký kết, Chủ tịch UBND TP. Hà Nội Nguyễn Đức Chung cho biết, tuyến đường sắt đô thị Nhổn-Ga Hà Nội là một dự án giao thông rất quan trọng của Thủ đô: “Khi dự án hoàn thành sẽ giúp giảm tải áp lực, cải thiện tình hình ùn tắc và thay đổi diện mạo giao thông Hà Nội”.</p><p>Tuyến đường sắt đô thị thí điểm TP. Hà Nội đi qua quận Bắc Từ Liêm, Nam Từ Liêm, Cầu Giấy, Ba Đình, Đống Đa, Hoàn Kiếm, có chiều dài 12,5 km, với 8,5 km đi trên cao, 4 km đi ngầm; 8 ga trên cao, 4 ga ngầm và 1 khu depot tại Nhổn. Dự án bao gồm 9 gói thầu chính, trong đó có 5 gói thầu xây lắp và 4 gói thầu hệ thống thiết bị đường sắt đô thị.</p><p>Được khởi công xây dựng từ tháng 9/2010 và dự kiến hoàn thành vào tháng 9/2017, tuy nhiên, thời gian hoàn thành có thể phải lùi đến năm 2021. Đến nay dự án có tổng mức đầu tư gần 36.000 tỷ đồng.</p>', 'http://baochinhphu.vn', 2, 0, 1, 1, 1, 0),
+(35, '', '', 'Sáng 17/1, Ban Quản lý đường sắt đô thị Hà Nội cùng liên danh nhà thầu của Pháp đã ký hợp đồng gói thầu CP06 thuộc dự án tuyến đường sắt đô thị thí điểm TP. Hà Nội (Nhổn-Ga Hà Nội).\r\n<p>Hợp đồng này giá trị khoảng 7.667 tỷ đồng (bao gồm các loại thuế, phí) do Chính phủ Pháp tài trợ, thời gian thực hiện trong 47 tháng.</p>\r\n\r\n<p>Gói thầu CP06 gồm 6 hạng mục, trong đó gần 3.000 tỷ đồng để tư vấn, thiết kế, sản xuất và lắp đặt 10 đoàn tàu, mỗi đoàn tàu 4 toa với sức chứa khoảng 900 khách, tốc độ tối đa là 80 km/h. Ngoài ra, gói thầu còn có các hạng mục như khu depot, thiết bị đầu vào, vé, đường ray...</p>\r\n\r\n<p>Khi gói thầu CP06 được hoàn thành, cùng với các gói thầu khác của dự án, Hà Nội sẽ có một phương thức vận tải công cộng hoàn toàn mới, theo tiêu chuẩn tiên tiến; đáp ứng nhu cầu đi lại dọc theo hành lang Đông Tây, từ vùng ngoại vi vào trung tâm Thành phố; góp phần nâng cao năng lực vận tải hành khách công cộng.</p>\r\n\r\n<p>Phát biểu tại lễ ký kết, Chủ tịch UBND TP. Hà Nội Nguyễn Đức Chung cho biết, tuyến đường sắt đô thị Nhổn-Ga Hà Nội là một dự án giao thông rất quan trọng của Thủ đô: “Khi dự án hoàn thành sẽ giúp giảm tải áp lực, cải thiện tình hình ùn tắc và thay đổi diện mạo giao thông Hà Nội”.</p>\r\n\r\n<p>Tuyến đường sắt đô thị thí điểm TP. Hà Nội đi qua quận Bắc Từ Liêm, Nam Từ Liêm, Cầu Giấy, Ba Đình, Đống Đa, Hoàn Kiếm, có chiều dài 12,5 km, với 8,5 km đi trên cao, 4 km đi ngầm; 8 ga trên cao, 4 ga ngầm và 1 khu depot tại Nhổn. Dự án bao gồm 9 gói thầu chính, trong đó có 5 gói thầu xây lắp và 4 gói thầu hệ thống thiết bị đường sắt đô thị.</p>\r\n\r\n<p>Được khởi công xây dựng từ tháng 9/2010 và dự kiến hoàn thành vào tháng 9/2017, tuy nhiên, thời gian hoàn thành có thể phải lùi đến năm 2021. Đến nay dự án có tổng mức đầu tư gần 36.000 tỷ đồng.</p>', 'http://baochinhphu.vn', 2, 0, 1, 1, 1, 0),
 (28, '', '', '<p>Trên địa bàn Hà Nội, hiện đang thi công Dự án đường sắt đô thị Hà Nội, tuyến số 2A, đoạn Cát Linh - Hà Đông, Dự án đường sắt đô thị Hà Nội, tuyến số 3, đoạn Nhổn - ga Hà Nội. Đây là hai dự án đường sắt đô thị đầu tiên được triển khai, là hai công trình quan trọng của Hà Nội và cả nước, luôn được Chính phủ, Thủ tướng Chính phủ hết sức quan tâm tháo gỡ khó khăn, vướng mắc để sớm được hoàn thành, đưa vào khai thác, sử dụng, góp phần giảm ùn tắc giao thông tại Thủ đô.</p><p>Qua kiểm tra, Dự án đường sắt đô thị Hà Nội, tuyến số 2A, đoạn Cát Linh - Hà Đông đã hoàn thành 90% khối lượng xây lắp. Dự án đường sắt đô thị Hà Nội, tuyến số 3, đoạn Nhổn - ga Hà Nội đến nay đã hoàn thành khoảng 30% khối lượng xây lắp. Về tiến độ, dù đã nhiều lần được điều chỉnh nhưng cả hai dự án đều chậm so với yêu cầu nên ảnh hưởng đến việc giảm ùn tắc giao thông tại Thủ đô Hà Nội.</p><p>&nbsp;</p><p><strong><strong>Vận hành thử nghiệm tuyến Cát Linh - Hà Đông vào ngày 30/9/2017</strong></strong></p><p>&nbsp;</p><p>Để bảo đảm chất lượng, an toàn và tiến độ triển khai dự án, sớm đưa hai tuyến đường sắt đô thị Cát Linh - Hà Đông và Nhổn - ga Hà Nội vào hoạt động, góp phần giảm ùn tắc giao thông trên địa bàn Thành phố, Phó Thủ tướng yêu cầu các Bộ, cơ quan, đơn vị khẩn trương thực hiện một số nhiệm vụ.&nbsp;<br  /><br  />Đối với đoạn Cát Linh - Hà Đông, Bộ Giao thông vận tải tiếp tục chỉ đạo Ban Quản lý dự án Đường sắt và các nhà thầu đẩy nhanh tiến độ thực hiện dự án; bảo đảm: phần xây lắp, trang trí kiến trúc khu Depot hoàn thành trước ngày 31/3/2017; phần lắp đặt thiết bị hoàn thành trước ngày 31/7/2017; đóng điện toàn tuyến trước ngày 1/9/2017; vận hành thử nghiệm toàn tuyến Cát Linh - Hà Đông theo đúng kế hoạch vào ngày 30/9/2017.<br  /><br  />Bộ Giao thông vận tải chỉ đạo tuyển chọn tư vấn nước ngoài độc lập, có đủ năng lực đánh giá an toàn hệ thống trước và trong quá trình vận hành chạy thử. Thực hiện tổng kiểm tra toàn bộ công trình trước khi chạy thử để bảo đảm tuyệt đối an toàn.<br  /><br  />Còn đối với đoạn Nhổn - ga Hà Nội, UBND thành phố Hà Nội chỉ đạo quyết liệt, xử lý dứt điểm các khó khăn trong công tác giải phóng mặt bằng, đấu thầu... Đặc biệt, đối với 4 km đường ngầm, cần tập trung giải quyết triệt để các vướng mắc để sớm hoàn thành công tác giải phóng mặt bằng tại 4 ga ngầm; chỉ đạo sát sao các cơ quan, đơn vị liên quan phối hợp chặt chẽ trong quá trình thi công, bảo đảm chất lượng, tuyệt đối an toàn và tiến độ theo đúng kế hoạch.&nbsp;<br  /><br  /><strong>Thực hiện nghiêm ngặt về an toàn lao động</strong><br  /><br  />Phó Thủ tướng yêu cầu các đơn vị phải bảo đảm tuyệt đối an toàn cho người lao động; đặc biệt bảo đảm an toàn cho người và các phương tiện tham gia giao thông. Trong quá trình thi công, Bộ Giao thông vận tải và UBND thành phố Hà Nội chỉ đạo thực hiện nghiêm ngặt quy định về an toàn lao động, an toàn giao thông, vệ sinh môi trường và phòng cháy, chữa cháy gắn với bảo đảm chất lượng công trình.</p><p>Về bảo đảm chất lượng công trình, Phó Thủ tướng yêu cầu Bộ Xây dựng tiếp tục rà soát, hoàn thiện các tiêu chuẩn, quy chuẩn kỹ thuật, định mức dự toán xây dựng phù hợp với tính chất đặc thù của các dự án đường sắt đô thị. Hội đồng nghiệm thu Nhà nước các công trình xây dựng tăng cường hướng dẫn, kiểm tra chất lượng và công tác quản lý chất lượng, đảm bảo công trình được thi công đáp ứng yêu cầu thiết kế; thực hiện nghiệm thu và kiểm tra công tác nghiệm thu của chủ đầu tư, các nhà thầu theo đúng quy định pháp luật.</p><p>Về kiến trúc công trình, Bộ Giao thông vận tải và UBND thành phố Hà Nội lưu ý chất lượng kiến trúc công trình; đặc biệt, phải coi công trình nhà ga đường sắt đô thị là công trình văn hóa, cần bảo đảm thẩm mỹ, văn hóa và tiện lợi nhất cho hành khách.</p><p>Phó Thủ tướng yêu cầu các Bộ, ngành và Ủy ban nhân dân thành phố Hà Nội cần chủ động nghiên cứu cơ chế huy động nguồn lực xã hội trong nước hoặc nước ngoài thông qua các hình thức đối tác công - tư để triển khai đầu tư xây dựng các tuyến đường sắt đô thị còn lại theo quy hoạch; tạo điều kiện cho doanh nghiệp Việt Nam tham gia triển khai dự án, nhằm nâng cao tỷ lệ nội địa hóa, giảm chi phí xây dựng, phát triển năng lực doanh nghiệp trong nước.</p>', 'http://baochinhphu.vn', 1, 0, 1, 1, 1, 0),
 (27, '', '', 'Ông Nguyễn Hữu Trí, Phó Cục trưởng Cục Đăng kiểm Việt Nam (Bộ GTVT) thông tin, Đề án kiểm soát khí thải xe mô tô, xe gắn máy được Thủ tướng Chính phủ phê duyệt năm 2010. Cục Đăng kiểm đã nghiên cứu, thử nghiệm, tiến hành các công việc chuẩn bị.<br  /><br  />Tuy nhiên đây là một Đề án lớn mang tính xã hội phức tạp. Các tổ chức, cá nhân đều thống nhất chủ trương phải kiểm soát khí thải xe mô tô, xe gắn máy nhưng chưa thống nhất được phương án, lộ trình triển khai cụ thể. Do có ảnh hưởng xã hội lớn, đặc biệt là người lao động có thu nhập thấp sử dụng xe máy cũ có chất lượng thấp, ông Nguyễn Hữu Trí cho hay.<p>Trong khi đó, giao thông công cộng chưa đáp ứng được nhu cầu đi lại, số lượng xe mô tô, xe gắn máy tham gia giao thông tiếp tục tăng lên nhanh chóng càng gây khó khăn cho công tác triển khai thực hiện.</p><p>Bên cạnh đó, quy định kiểm soát khí thải xe mô tô, xe gắn máy cũng chưa được quy định bắt buộc trong Luật Giao thông đường bộ. Do tính phức tạp đó, cần tiếp tục nghiên cứu khả thi quy định về áp dụng tiêu chuẩn khí thải và kiểm định khí thải đối với xe mô tô trong quá trình xây dựng Luật Giao thông đường bộ sửa đổi tới đây.</p><p>Nhìn nhận vấn đề &nbsp;này, Bộ GTVT cho rằng, mô tô, xe gắn máy vẫn đang là phương tiện giao thông chủ yếu của người dân, đáp ứng gần 90% nhu cầu đi lại trong thành phố khi giao thông công cộng mới chỉ đáp ứng được không quá 10% nhu cầu. Bên cạnh đó, đa số người sử dụng chưa nhận thức rõ mức độ ảnh hưởng, tác hại của khí thải mô tô, xe gắn máy và tác dụng, sự cần thiết phải kiểm tra khí thải, bảo dưỡng, sửa chữa để bảo đảm độ bền, hiệu quả hoạt động, giảm khí thải độc hại, tiết kiệm nhiên liệu.</p><p>Ngay cơ quan chức năng cũng còn nhiều ý kiến chưa đồng thuận với chủ trương về giá kiểm tra khí thải trực tiếp từ người sử dụng mô tô, xe gắn máy. Mặc dù mức giá kiểm tra khí thải theo đánh giá của Bộ GTVT là rất nhỏ so với chi phí nhiên liệu.</p><p><strong>Hà Nội nghiên cứu phương án thu hồi</strong><strong>&nbsp;xe cũ nát</strong></p><p>Mới đây, Chủ tịch UBND TP. Hà Nội Nguyễn Đức Chung cho biết Hà Nội sẽ nghiên cứu phương án để thu hồi xe máy quá cũ nát, tiềm ẩn nguy cơ cao gây mất ATGT và ô nhiễm môi trường.</p><p>Ông Nguyễn Đức Chung cho hay Thành phố dự kiến đến kỳ họp HĐND vào tháng 6/2017 sẽ trình chương trình liên quan đến hạn chế xe máy, sau đó sẽ trình Chính phủ. Tinh thần đề xuất theo hướng sẽ bỏ ra một khoản tiền hỗ trợ và có biện pháp thu hồi các xe máy, ô tô đã quá hạn sử dụng, ông Nguyễn Đức chung khẳng định.</p><p>Về đề xuất của Hà Nội, ông Nguyễn Hữu Trí (Phó Cục trưởng Cục Đăng kiểm Việt Nam ) nhìn nhận, đây là đề xuất tốt để bảo vệ môi trường và ATGT. Tuy nhiên, đề xuất này chỉ có thể thực hiện được khi sửa Luật Giao thông đường bộ.</p><p>Theo ông Trí, trong quá trình bàn thảo về sửa đổi Luật Giao thông đường bộ, đã có những ý kiến đề xuất cần phân cấp cho địa phương quy định điều kiện hoạt động của môtô, xe máy tùy theo đặc thù của từng địa phương, thay vì quy định chung cho cả nước. Số lượng xe máy ở Hà Nội nhiều hơn hẳn so với các tỉnh miền núi, nguy cơ ô nhiễm do xe máy gây ra tại Hà Nội nhiều hơn thì Hà Nội phải chủ động xây dựng quy định về điều kiện hoạt động của xe máy. Còn tại những tỉnh ít xe máy và xe máy là phương tiện chính của người dân, nhất là người nghèo, trong khi vận tải công cộng chưa đủ khả năng đáp ứng, thì có thể xem xét quy định về điều kiện hoạt động của xe máy khác với Hà Nội.</p><p>Hiện nay, cả nước có khoảng 40 triệu xe máy, trong số này, có những xe được đưa vào hoạt động từ những năm 80-90 của thế kỷ trước nhưng hiện vẫn đang lưu thông. Những xe này nếu không được bảo dưỡng tốt sẽ ảnh hưởng lớn đến ATGT và môi trường đô thị.</p><p>“Quyết định số 16/2015/QĐ-TTg ngày 22/5/2015 của Thủ tướng Chính phủ về thu hồi, xử lý sản phẩm thải bỏ, quy định, từ 1/1/2018, xe mô tô, xe máy hết thời hạn sử dụng sẽ phải thu hồi, thải bỏ. Tuy nhiên đến nay lại chưa có quy định nào về niên hạn sử dụng của xe gắn máy nên cũng sẽ chưa thể triển khai được Quyết định nói trên. Đồng thời, nếu quy định niên hạn cho xe máy nên áp dụng theo lộ trình để không ảnh hưởng đến việc đi lại của người dân”, ông Trí cho hay.</p><p>PGS.TS Bùi Xuân Cậy (Đại học GTVT Hà Nội) cũng đồng tình với đề xuất thu hồi xe máy cũ nát của Hà Nội để giảm ô nhiễm môi trường, tai nạn giao thông. Tuy nhiên, ông Bùi Xuân Cậy cũng băn khoăn về việc ô tô còn có thể đăng kiểm nhưng với xe máy cũ, hết niên hạn sử dụng có thu hồi được hay không lại là vấn đề khó.</p>', 'http://baochinhphu.vn', 2, 0, 1, 1, 1, 0),
 (25, '', '', '<p>Văn phòng UBND TP. Hà Nội vừa ban hành Thông báo số 112 về kết luận của tập thể lãnh đạo Thành phố tại cuộc họp về tiến độ triển khai các dự án bãi đỗ xe ngầm trên địa bàn.</p><p>Theo đó, lãnh đạo Hà Nội nhất trí quy mô dự án bãi xe ngầm tại công viên Thống Nhất, rộng 10.000 m2, gồm tầng hầm một có chức năng thương mại, dịch vụ; 4 tầng còn lại để xe. Lãnh đạo Thành phố cũng chỉ đạo việc “nghiên cứu thêm để xe ngầm từ cổng chính công viên đến hồ”.</p><p>Ngoài dự án bãi xe ngầm tại công viên Thống Nhất, lãnh đạo Hà Nội cũng thống nhất quy mô 5 tầng tương tự đối với dự án bãi xe ngầm ở Nhà thi đấu Quần Ngựa, Công viên Nhân Chính.</p><p>Riêng với bãi xe ngầm trước Quảng trường Cách mạng 19/8 và vườn hoa Cổ Tân, Thành phố giao Sở Quy hoạch và Kiến trúc làm việc với Sở Văn hóa, Thể thao và Du Lịch xác định ranh giới bảo vệ di tích lịch sử được xếp hạng, tổng hợp phương án quy hoạch, đầu tư, báo cáo xin ý kiến lãnh đạo Thành ủy.<br  /><br  />Sở Kế hoạch và Đầu tư chủ trì, phối hợp với Sở Tài chính, Sở Tài nguyên và Môi trường, Sở Xây dựng, Cục Thuế Hà Nội nghiên cứu xây dựng cơ chế đặc thù khuyến khích các nhà đầu tư thực hiện dự án xây dựng bãi xe ngầm: giá trông giữ xe, kết hợp giữ bãi đỗ xe và trung tâm thương mại, tiền sử dụng đất, nghiên cứu phương án cho phép Nhà đầu tư bán tối đa 30% số lượng chỗ đỗ xe; đề xuất, báo cáo UBND Thành phố trước ngày 31/3.</p>', 'http://baochinhphu.vn', 2, 0, 1, 1, 1, 0);
@@ -12713,7 +12946,7 @@ CREATE TABLE `nv4_vi_news_rows` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 INSERT INTO `nv4_vi_news_rows` (`id`, `catid`, `listcatid`, `topicid`, `admin_id`, `author`, `sourceid`, `addtime`, `edittime`, `status`, `publtime`, `exptime`, `archive`, `title`, `alias`, `hometext`, `homeimgfile`, `homeimgalt`, `homeimgthumb`, `inhome`, `allowed_comm`, `allowed_rating`, `external_link`, `hitstotal`, `hitscm`, `total_rating`, `click_rating`, `instant_active`, `instant_template`, `instant_creatauto`) VALUES
-(32, 15, '15', 0, 1, '', 5, 1498619689, 1498699932, 1, 1498619640, 0, 2, 'Hà Nội sẽ đầu tư nhiều bệnh viện ngang tầm quốc tế', 'ha-noi-se-dau-tu-nhieu-benh-vien-ngang-tam-quoc-te', 'Hà Nội sẽ đầu tư nguồn ngân sách lớn để phát triển ngành y tế. Đến năm 2019 sẽ đưa Bệnh viện (BV) Saint Paul đạt tiêu chuẩn quốc tế.', '2017_06/1_92972.jpg', '', 1, 1, '4', 1, 0, 16, 0, 0, 0, 0, '', 0),
+(32, 15, '15', 0, 1, '', 5, 1498619689, 1498699932, 1, 1498619640, 0, 2, 'Hà Nội sẽ đầu tư nhiều bệnh viện ngang tầm quốc tế', 'ha-noi-se-dau-tu-nhieu-benh-vien-ngang-tam-quoc-te', 'Hà Nội sẽ đầu tư nguồn ngân sách lớn để phát triển ngành y tế. Đến năm 2019 sẽ đưa Bệnh viện (BV) Saint Paul đạt tiêu chuẩn quốc tế.', '2017_06/1_92972.jpg', '', 1, 1, '4', 1, 0, 17, 0, 0, 0, 0, '', 0),
 (33, 14, '14', 0, 1, '', 5, 1498619763, 1498699951, 1, 1498619700, 0, 2, 'Bảo tồn Hoàng thành Thăng Long&#x3A; Không làm nhỏ lẻ', 'bao-ton-hoang-thanh-thang-long-khong-lam-nho-le', 'Chủ tịch UBND TP. Hà Nội khẳng định Hà Nội đã chuẩn bị sẵn nguồn vốn cho dự án quan trọng này, phấn đấu đến năm 2020, Hoàng thành Thăng Long cơ bản được đầu tư bảo tồn.', '2017_06/hoang-thanh-thang-long-2.jpg', '', 1, 1, '4', 1, 0, 3, 0, 0, 0, 0, '', 0),
 (31, 16, '16', 0, 1, 'Xuân Tuyến', 5, 1498619568, 1498699926, 1, 1498619400, 0, 2, 'Rà soát, thực hiện nghiêm quy hoạch để có một Hà Nội đẹp hơn', 'ra-soat-thuc-hien-nghiem-quy-hoach-de-co-mot-ha-noi-dep-hon', 'Kết luận cuộc làm việc với lãnh đạo các Bộ, ngành và UBND TP. Hà Nội về quy hoạch phát triển kết cấu hạ tầng kinh tế kỹ thuật của Thủ đô, Phó Thủ tướng Trịnh Đình Dũng yêu cầu Hà Nội, các Bộ, ngành cần rà soát lại quy hoạch để điều chỉnh, hoàn thiện, đồng thời nghiêm túc thực hiện theo quy hoạch để có một Thủ đô giàu đẹp, văn minh.', '2017_06/5j3a0202.jpg', '5J3A0202', 1, 1, '4', 1, 0, 13, 0, 0, 0, 0, '', 0),
 (30, 15, '15', 0, 1, 'Phan Trang', 5, 1498619405, 1498699911, 1, 1498619340, 0, 2, 'Giao thông Thủ đô&#x3A; Kết nối tốt sẽ tạo ra động lực mới', 'giao-thong-thu-do-ket-noi-tot-se-tao-ra-dong-luc-moi', 'Cần chú ý kết nối giao thông đô thị trung tâm Hà Nội với các đô thị vệ tinh. Kết nối tốt sẽ tạo ra động lực mới, khu vực nào chưa phát triển thì cần giao thông kết nối để hấp dẫn nhà đầu tư hơn và giảm áp lực cho nội đô', '', '', 0, 1, '4', 1, 0, 2, 0, 0, 0, 0, '', 0),
@@ -12729,10 +12962,10 @@ INSERT INTO `nv4_vi_news_rows` (`id`, `catid`, `listcatid`, `topicid`, `admin_id
 (21, 17, '17', 0, 1, '', 5, 1498616238, 1498698109, 1, 1498616160, 0, 2, 'Quy hoạch sông Hồng&#x3A; Hà Nội đề nghị đính chính', 'quy-hoach-song-hong-ha-noi-de-nghi-dinh-chinh', 'Chánh văn phòng kiêm Người phát ngôn của UBND thành phố Hà Nội đề nghị các cơ quan báo chí đính chính thông tin; đăng tải bài viết trên cơ sở được kiểm chứng từ người có trách nhiệm phát ngôn của UBND Thành phố Hà Nội, tránh việc giật tít để dư luận hiểu sai, làm ảnh hưởng đến tình hình an ninh chính trị của thành phố Hà Nội nói riêng và cả nước nói chung.', '', '', 0, 1, '4', 1, 0, 2, 0, 0, 0, 0, '', 0),
 (19, 16, '16', 0, 1, 'Minh Hiển', 5, 1498615731, 1498698100, 1, 1498615620, 0, 2, 'Phó Thủ tướng chỉ đạo xử lý vụ &quot;biến đất công thành tư&#039;', 'pho-thu-tuong-chi-dao-xu-ly-vu-bien-dat-cong-thanh-tu', 'Phó Thủ tướng Thường trực Trương Hòa Bình vừa có ý kiến chỉ đạo về việc xử lý vi phạm trong lĩnh vực đất đai tại xã Tiên Dương, huyện Đông Anh, thành phố Hà Nội theo nội dung phản ánh của báo Thanh tra số 53 ra ngày 1/7/2016 với bài &quot;Biến đất công thành tư, Chủ tịch huyện thoát tội&quot;.', '2017_06/resize-of-dat.jpg', 'Resize of dat', 1, 1, '4', 1, 0, 4, 0, 0, 0, 0, '', 0),
 (34, 14, '14', 0, 1, 'Thanh Hằng', 5, 1498619831, 1498699956, 1, 1498619760, 0, 2, 'Xử nghiêm vụ lạm quyền tại quản lý thị trường Hà Nội', 'xu-nghiem-vu-lam-quyen-tai-quan-ly-thi-truong-ha-noi', 'Thủ tướng Chính phủ Nguyễn Xuân Phúc vừa yêu cầu xử lý nghiêm các đơn vị, cá nhân có sai phạm trong vụ việc kiểm tra sản phẩm xúc xích nhãn hiệu Viet Foods.', '', '', 0, 1, '4', 1, 0, 4, 0, 0, 0, 0, '', 0),
-(35, 14, '14', 0, 1, '', 5, 1498619875, 1498699968, 1, 1498619820, 0, 2, 'Hơn 7.600 tỷ đồng đầu tư thiết bị dự án đường sắt Nhổn-Ga Hà Nội', 'hon-7-600-ty-dong-dau-tu-thiet-bi-du-an-duong-sat-nhon-ga-ha-noi', 'Dự án đường sắt Nhổn-Ga Hà Nội sẽ có 10 đoàn tàu, mỗi đoàn 4 toa với sức chứa khoảng 900 khách, tốc độ tối đa là 80 km/h.', '', '', 0, 1, '4', 1, 0, 16, 0, 0, 0, 0, '', 0),
+(35, 14, '14', 0, 1, '', 5, 1498619875, 1500023483, 1, 1498619820, 0, 2, 'Hơn 7.600 tỷ đồng đầu tư thiết bị dự án đường sắt Nhổn-Ga Hà Nội', 'hon-7-600-ty-dong-dau-tu-thiet-bi-du-an-duong-sat-nhon-ga-ha-noi', 'Dự án đường sắt Nhổn-Ga Hà Nội sẽ có 10 đoàn tàu, mỗi đoàn 4 toa với sức chứa khoảng 900 khách, tốc độ tối đa là 80 km/h.', '2017_06/thanhphovensonghong-f53ef-copy.jpg', 'thanhphovensonghong f53ef Copy', 1, 1, '4', 1, 0, 17, 0, 0, 0, 0, '', 0),
 (39, 17, '17', 0, 1, 'Minh Hiển', 5, 1498643148, 1498699996, 1, 1498643100, 0, 2, 'Hà Nội phải bố trí đủ quỹ đất xây dựng nhà ở xã hội', 'ha-noi-phai-bo-tri-du-quy-dat-xay-dung-nha-o-xa-hoi', 'Phó Thủ tướng Trịnh Đình Dũng vừa có ý kiến chỉ đạo về chủ trương nộp bằng tiền theo giá đất đối với quỹ nhà ở xã hội thuộc Dự án khu đô thị mới Tây Mỗ - Đại Mỗ tại các phường Tây Mỗ, Đại Mỗ, quận Nam Từ Liêm, Hà Nội và Dự án khu chức năng đô thị tại 233 - 233B - 235 Nguyễn Trãi, quận Thanh Xuân, Hà Nội.', '2017_06/resize-of-bat-dong-san-ha-noi.jpg', 'Resize of bat dong san ha noi', 1, 1, '4', 1, 0, 12, 0, 0, 0, 0, '', 0),
-(37, 17, '17', 0, 1, 'PV', 5, 1498642855, 1498699975, 1, 1498642800, 0, 2, 'Hà Nội triển khai các giải pháp cấp bách bảo vệ môi trường', 'ha-noi-trien-khai-cac-giai-phap-cap-bach-bao-ve-moi-truong', 'Với mục tiêu tạo chuyển biến căn bản trong công tác bảo vệ môi trường đến năm 2020, UBND TP. Hà Nội đã đưa ra những nhiệm vụ và giải pháp cấp bách.', '', '', 0, 1, '4', 1, 0, 12, 0, 0, 0, 0, '', 0),
-(38, 17, '17', 0, 1, '', 5, 1498642911, 1498699993, 1, 1498642860, 0, 2, 'Hà Nội&#x3A; Kiểm tra phản ánh về bất cập của thiết kế nhà ga ngầm', 'ha-noi-kiem-tra-phan-anh-ve-bat-cap-cua-thiet-ke-nha-ga-ngam', 'Qua Cổng TTĐT Chính phủ, ông Trần Dũng Sơn (TP. Hà Nội) phản ánh bất hợp lý trong thiết kế Nhà ga ngầm S9 thuộc Dự án Đường sắt đô thị Nhổn – ga Hà Nội đoạn qua phường Ngọc Khánh, quận Ba Đình và đề nghị cơ quan có thẩm quyền xem xét điều chỉnh.', '', '', 0, 1, '4', 1, 0, 13, 0, 0, 0, 0, '', 0),
+(37, 17, '17', 0, 1, 'PV', 5, 1498642855, 1500023525, 1, 1498642800, 0, 2, 'Hà Nội triển khai các giải pháp cấp bách bảo vệ môi trường', 'ha-noi-trien-khai-cac-giai-phap-cap-bach-bao-ve-moi-truong', 'Với mục tiêu tạo chuyển biến căn bản trong công tác bảo vệ môi trường đến năm 2020, UBND TP. Hà Nội đã đưa ra những nhiệm vụ và giải pháp cấp bách.', '2017_06/nlmt.jpg', '', 1, 1, '4', 1, 0, 13, 0, 0, 0, 0, '', 0),
+(38, 17, '17', 0, 1, '', 5, 1498642911, 1500023501, 1, 1498642860, 0, 2, 'Hà Nội&#x3A; Kiểm tra phản ánh về bất cập của thiết kế nhà ga ngầm', 'ha-noi-kiem-tra-phan-anh-ve-bat-cap-cua-thiet-ke-nha-ga-ngam', 'Qua Cổng TTĐT Chính phủ, ông Trần Dũng Sơn (TP. Hà Nội) phản ánh bất hợp lý trong thiết kế Nhà ga ngầm S9 thuộc Dự án Đường sắt đô thị Nhổn – ga Hà Nội đoạn qua phường Ngọc Khánh, quận Ba Đình và đề nghị cơ quan có thẩm quyền xem xét điều chỉnh.', '2017_06/5j3a0202.jpg', '5J3A0202', 1, 1, '4', 1, 0, 14, 0, 0, 0, 0, '', 0),
 (40, 17, '17', 0, 1, 'Nguyễn Hoàng', 5, 1498643260, 1498709455, 1, 1498643160, 0, 2, 'Tạo cơ chế tài chính mới góp phần thúc đẩy phát triển Thủ đô', 'tao-co-che-tai-chinh-moi-gop-phan-thuc-day-phat-trien-thu-do', 'Chiều 20/12, Ủy ban Thường vụ Quốc hội (UBTVQH) đã xem xét, cho ý kiến về dự thảo Nghị định của Chính phủ quy định về một số cơ chế, chính sách tài chính-ngân sách đặc thù đối với Hà Nội.', '2017_06/110246baoxaydung_t4_2.jpg', '', 1, 1, '4', 1, 0, 22, 0, 0, 0, 0, '', 0),
 (41, 17, '17', 0, 1, 'PV', 5, 1498643588, 1498698095, 1, 1482217320, 0, 2, 'Hà Nội quy hoạch công viên cây xanh kết hợp đô thị ven sông Hồng', 'ha-noi-quy-hoach-cong-vien-cay-xanh-ket-hop-do-thi-ven-song-hong', 'Thực hiện ý kiến chỉ đạo của UBND TP. Hà Nội về việc lập quy hoạch hai bên sông Hồng theo định hướng xây dựng công viên kết hợp với đô thị, Sở Quy hoạch-Kiến trúc Hà Nội sẽ thực hiện theo hướng mời tư vấn quốc tế nghiên cứu quy hoạch hai bên sông Hồng.', '2017_06/thanhphovensonghong-f53ef-copy.jpg', 'thanhphovensonghong f53ef Copy', 1, 1, '4', 1, 0, 10, 0, 0, 0, 0, '', 0);
 
@@ -12862,7 +13095,7 @@ CREATE TABLE `nv4_vi_news_tmp` (
 
 INSERT INTO `nv4_vi_news_tmp` (`id`, `admin_id`, `time_edit`, `time_late`, `ip`) VALUES
 (31, 1, 1498700203, 1498700629, '127.0.0.1'),
-(35, 1, 1498709748, 1498726542, '127.0.0.1'),
+(35, 1, 1500024714, 1500024714, '127.0.0.1'),
 (42, 1, 1499218970, 1499218970, '127.0.0.1');
 
 DROP TABLE IF EXISTS `nv4_vi_news_topics`;
@@ -12880,6 +13113,239 @@ CREATE TABLE `nv4_vi_news_topics` (
 
 INSERT INTO `nv4_vi_news_topics` (`topicid`, `title`, `alias`, `image`, `description`, `weight`, `keywords`, `add_time`, `edit_time`) VALUES
 (1, 'NukeViet 4', 'NukeViet-4', '', 'NukeViet 4', 1, 'NukeViet 4', 1445396011, 1445396011);
+
+DROP TABLE IF EXISTS `nv4_vi_opinion_1`;
+CREATE TABLE `nv4_vi_opinion_1` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `catid` smallint(5) UNSIGNED NOT NULL DEFAULT '0',
+  `listcatid` varchar(255) NOT NULL DEFAULT '',
+  `topicid` smallint(5) UNSIGNED NOT NULL DEFAULT '0',
+  `admin_id` mediumint(8) UNSIGNED NOT NULL DEFAULT '0',
+  `author` varchar(250) DEFAULT '',
+  `sourceid` mediumint(8) NOT NULL DEFAULT '0',
+  `addtime` int(11) UNSIGNED NOT NULL DEFAULT '0',
+  `edittime` int(11) UNSIGNED NOT NULL DEFAULT '0',
+  `status` tinyint(4) NOT NULL DEFAULT '1',
+  `publtime` int(11) UNSIGNED NOT NULL DEFAULT '0',
+  `exptime` int(11) UNSIGNED NOT NULL DEFAULT '0',
+  `archive` tinyint(1) UNSIGNED NOT NULL DEFAULT '0',
+  `title` varchar(250) NOT NULL DEFAULT '',
+  `alias` varchar(250) NOT NULL DEFAULT '',
+  `hometext` text NOT NULL,
+  `homeimgfile` varchar(255) DEFAULT '',
+  `homeimgalt` varchar(255) DEFAULT '',
+  `homeimgthumb` tinyint(4) NOT NULL DEFAULT '0',
+  `inhome` tinyint(1) UNSIGNED NOT NULL DEFAULT '0',
+  `allowed_comm` varchar(255) DEFAULT '',
+  `allowed_rating` tinyint(1) UNSIGNED NOT NULL DEFAULT '0',
+  `external_link` tinyint(1) UNSIGNED NOT NULL DEFAULT '0',
+  `hitstotal` mediumint(8) UNSIGNED NOT NULL DEFAULT '0',
+  `hitscm` mediumint(8) UNSIGNED NOT NULL DEFAULT '0',
+  `total_rating` int(11) NOT NULL DEFAULT '0',
+  `click_rating` int(11) NOT NULL DEFAULT '0',
+  `instant_active` tinyint(1) NOT NULL DEFAULT '0',
+  `instant_template` varchar(100) NOT NULL DEFAULT '',
+  `instant_creatauto` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+INSERT INTO `nv4_vi_opinion_1` (`id`, `catid`, `listcatid`, `topicid`, `admin_id`, `author`, `sourceid`, `addtime`, `edittime`, `status`, `publtime`, `exptime`, `archive`, `title`, `alias`, `hometext`, `homeimgfile`, `homeimgalt`, `homeimgthumb`, `inhome`, `allowed_comm`, `allowed_rating`, `external_link`, `hitstotal`, `hitscm`, `total_rating`, `click_rating`, `instant_active`, `instant_template`, `instant_creatauto`) VALUES
+(1, 1, '1', 0, 1, '', 1, 1500017104, 1500017104, 1, 1500016920, 0, 2, 'Thành phố Hà Nội lấy ý kiến người dân về vấn đề loa phường', 'thanh-pho-ha-noi-lay-y-kien-nguoi-dan-ve-van-de-loa-phuong', 'Sở Thông tin và Truyền thông Hà Nội đang thăm dò, lấy ý kiến đóng góp của người dân về 4 nội dung chính liên quan đến hoạt động của hệ thống đài truyền thanh cơ sở trên địa bàn Hà Nội', '2017_07/loa.jpg', 'Ảnh chỉ có tính chất minh họa', 1, 1, '4', 1, 0, 1, 0, 0, 0, 0, '', 0);
+
+DROP TABLE IF EXISTS `nv4_vi_opinion_admins`;
+CREATE TABLE `nv4_vi_opinion_admins` (
+  `userid` mediumint(8) UNSIGNED NOT NULL DEFAULT '0',
+  `catid` smallint(5) NOT NULL DEFAULT '0',
+  `admin` tinyint(4) NOT NULL DEFAULT '0',
+  `add_content` tinyint(4) NOT NULL DEFAULT '0',
+  `pub_content` tinyint(4) NOT NULL DEFAULT '0',
+  `edit_content` tinyint(4) NOT NULL DEFAULT '0',
+  `del_content` tinyint(4) NOT NULL DEFAULT '0',
+  `app_content` tinyint(4) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `nv4_vi_opinion_block`;
+CREATE TABLE `nv4_vi_opinion_block` (
+  `bid` smallint(5) UNSIGNED NOT NULL,
+  `id` int(11) UNSIGNED NOT NULL,
+  `weight` int(11) UNSIGNED NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `nv4_vi_opinion_block_cat`;
+CREATE TABLE `nv4_vi_opinion_block_cat` (
+  `bid` smallint(5) UNSIGNED NOT NULL,
+  `adddefault` tinyint(4) NOT NULL DEFAULT '0',
+  `numbers` smallint(5) NOT NULL DEFAULT '10',
+  `title` varchar(250) NOT NULL DEFAULT '',
+  `alias` varchar(250) NOT NULL DEFAULT '',
+  `image` varchar(255) DEFAULT '',
+  `description` varchar(255) DEFAULT '',
+  `weight` smallint(5) NOT NULL DEFAULT '0',
+  `keywords` text,
+  `add_time` int(11) NOT NULL DEFAULT '0',
+  `edit_time` int(11) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `nv4_vi_opinion_cat`;
+CREATE TABLE `nv4_vi_opinion_cat` (
+  `catid` smallint(5) UNSIGNED NOT NULL,
+  `parentid` smallint(5) UNSIGNED NOT NULL DEFAULT '0',
+  `title` varchar(250) NOT NULL,
+  `titlesite` varchar(250) DEFAULT '',
+  `alias` varchar(250) NOT NULL DEFAULT '',
+  `description` text,
+  `descriptionhtml` text,
+  `image` varchar(255) DEFAULT '',
+  `viewdescription` tinyint(2) NOT NULL DEFAULT '0',
+  `weight` smallint(5) UNSIGNED NOT NULL DEFAULT '0',
+  `sort` smallint(5) NOT NULL DEFAULT '0',
+  `lev` smallint(5) NOT NULL DEFAULT '0',
+  `viewcat` varchar(50) NOT NULL DEFAULT 'viewcat_page_new',
+  `numsubcat` smallint(5) NOT NULL DEFAULT '0',
+  `subcatid` varchar(255) DEFAULT '',
+  `inhome` tinyint(1) UNSIGNED NOT NULL DEFAULT '0',
+  `numlinks` tinyint(2) UNSIGNED NOT NULL DEFAULT '3',
+  `newday` tinyint(2) UNSIGNED NOT NULL DEFAULT '2',
+  `featured` int(11) NOT NULL DEFAULT '0',
+  `ad_block_cat` varchar(255) NOT NULL DEFAULT '',
+  `keywords` text,
+  `admins` text,
+  `add_time` int(11) UNSIGNED NOT NULL DEFAULT '0',
+  `edit_time` int(11) UNSIGNED NOT NULL DEFAULT '0',
+  `groups_view` varchar(255) DEFAULT ''
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+INSERT INTO `nv4_vi_opinion_cat` (`catid`, `parentid`, `title`, `titlesite`, `alias`, `description`, `descriptionhtml`, `image`, `viewdescription`, `weight`, `sort`, `lev`, `viewcat`, `numsubcat`, `subcatid`, `inhome`, `numlinks`, `newday`, `featured`, `ad_block_cat`, `keywords`, `admins`, `add_time`, `edit_time`, `groups_view`) VALUES
+(1, 0, 'Ý kiến công dân', '', 'y-kien-cong-dan', '', '', '', 0, 1, 1, 0, 'viewcat_page_new', 0, '', 1, 3, 2, 0, '', '', '', 1500016946, 1500016946, '6');
+
+DROP TABLE IF EXISTS `nv4_vi_opinion_config_post`;
+CREATE TABLE `nv4_vi_opinion_config_post` (
+  `group_id` smallint(5) NOT NULL,
+  `addcontent` tinyint(4) NOT NULL,
+  `postcontent` tinyint(4) NOT NULL,
+  `editcontent` tinyint(4) NOT NULL,
+  `delcontent` tinyint(4) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `nv4_vi_opinion_detail`;
+CREATE TABLE `nv4_vi_opinion_detail` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `titlesite` varchar(255) NOT NULL DEFAULT '',
+  `description` text NOT NULL,
+  `bodyhtml` longtext NOT NULL,
+  `sourcetext` varchar(255) DEFAULT '',
+  `imgposition` tinyint(1) NOT NULL DEFAULT '1',
+  `copyright` tinyint(1) NOT NULL DEFAULT '0',
+  `allowed_send` tinyint(1) NOT NULL DEFAULT '0',
+  `allowed_print` tinyint(1) NOT NULL DEFAULT '0',
+  `allowed_save` tinyint(1) NOT NULL DEFAULT '0',
+  `gid` mediumint(8) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+INSERT INTO `nv4_vi_opinion_detail` (`id`, `titlesite`, `description`, `bodyhtml`, `sourcetext`, `imgposition`, `copyright`, `allowed_send`, `allowed_print`, `allowed_save`, `gid`) VALUES
+(1, '', '', '<div style=\"text-align: justify;\">Ngày 3/2, Giám đốc Sở Thông tin và Truyền thông Hà Nội Phan Lan Tú cho biết, với mục đích đánh giá chính xác hiệu quả hệ thống phát thanh cơ sở, Hà Nội đang tổ chức lấy ý kiến người dân về loa phường tại chuyên mục “Lấy ý kiến về hệ thống thông tin cơ sở trên địa bàn Hà Nội” trên Cổng giao tiếp điện tử thành phố (https://hanoi.gov.vn), cổng thông tin điện tử, trang Facebook của Sở Thông tin và Truyền thông.<br  />\r\n<br  />\r\nSở Thông tin và Truyền thông Hà Nội đang thăm dò, lấy ý kiến đóng góp của người dân về 4 nội dung chính liên quan đến hoạt động của hệ thống đài truyền thanh cơ sở trên địa bàn Hà Nội gồm các hình thức cập nhật thông tin của người dân Hà Nội; nội dung thông tin trên đài truyền thanh cơ sở có thiết thực hữu ích hay không; thời gian người dân thường nghe đài truyền thanh cơ sở; ý kiến của người dân về hoạt động của đài truyền thanh cơ sở.&nbsp;<br  />\r\n<br  />\r\nBà Phan Lan Tú cho biết thêm, trước khi tổ chức lấy ý kiến rộng rãi của người dân, Sở Thông tin và Truyền thông Hà Nội đã tổng hợp xong báo cáo của các phòng Văn hóa-Thông tin các quận, huyện, thị xã về hệ thống đài truyền thanh cơ sở.<br  />\r\n<br  />\r\nĐặc biệt, trong quá trình khảo sát, đánh giá; tham gia ý kiến về hoạt động chuyên môn đối với hệ thống đài truyền thanh cơ sở, Sở tiếp tục phối hợp chặt chẽ với Ủy ban Nhân dân các quận, huyện, thị xã và các cơ quan liên quan để có kết quả đánh giá khách quan, tạo sự đồng thuận cao nhất.<br  />\r\n<br  />\r\nTrên cơ sở đó, Sở Thông tin và Truyền thông Hà Nội sẽ tham mưu Ủy ban Nhân dân thành phố Hà Nội ban hành quy chế, định hướng phù hợp với từng loại hình thông tin cơ sở, củng cố hoạt động của hệ thống đài phát thanh cơ sở, góp phần nâng cao chất lượng thông tin tuyên truyền trên địa bàn thành phố.&nbsp;<br  />\r\n<br  />\r\nDự kiến đợt lấy ý kiến nhân dân về vấn đề loa phường diễn ra đến hết ngày 10/3/2017./.</div>', 'http://www.vietnamplus.vn/thanh-pho-ha-noi-lay-y-kien-nguoi-dan-ve-van-de-loa-phuong/428583.vnp', 2, 0, 1, 1, 1, 0);
+
+DROP TABLE IF EXISTS `nv4_vi_opinion_logs`;
+CREATE TABLE `nv4_vi_opinion_logs` (
+  `id` mediumint(8) UNSIGNED NOT NULL,
+  `sid` mediumint(8) NOT NULL DEFAULT '0',
+  `userid` mediumint(8) UNSIGNED NOT NULL DEFAULT '0',
+  `status` tinyint(4) NOT NULL DEFAULT '0',
+  `note` varchar(255) NOT NULL,
+  `set_time` int(11) UNSIGNED NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `nv4_vi_opinion_rows`;
+CREATE TABLE `nv4_vi_opinion_rows` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `catid` smallint(5) UNSIGNED NOT NULL DEFAULT '0',
+  `listcatid` varchar(255) NOT NULL DEFAULT '',
+  `topicid` smallint(5) UNSIGNED NOT NULL DEFAULT '0',
+  `admin_id` mediumint(8) UNSIGNED NOT NULL DEFAULT '0',
+  `author` varchar(250) DEFAULT '',
+  `sourceid` mediumint(8) NOT NULL DEFAULT '0',
+  `addtime` int(11) UNSIGNED NOT NULL DEFAULT '0',
+  `edittime` int(11) UNSIGNED NOT NULL DEFAULT '0',
+  `status` tinyint(4) NOT NULL DEFAULT '1',
+  `publtime` int(11) UNSIGNED NOT NULL DEFAULT '0',
+  `exptime` int(11) UNSIGNED NOT NULL DEFAULT '0',
+  `archive` tinyint(1) UNSIGNED NOT NULL DEFAULT '0',
+  `title` varchar(250) NOT NULL DEFAULT '',
+  `alias` varchar(250) NOT NULL DEFAULT '',
+  `hometext` text NOT NULL,
+  `homeimgfile` varchar(255) DEFAULT '',
+  `homeimgalt` varchar(255) DEFAULT '',
+  `homeimgthumb` tinyint(4) NOT NULL DEFAULT '0',
+  `inhome` tinyint(1) UNSIGNED NOT NULL DEFAULT '0',
+  `allowed_comm` varchar(255) DEFAULT '',
+  `allowed_rating` tinyint(1) UNSIGNED NOT NULL DEFAULT '0',
+  `external_link` tinyint(1) UNSIGNED NOT NULL DEFAULT '0',
+  `hitstotal` mediumint(8) UNSIGNED NOT NULL DEFAULT '0',
+  `hitscm` mediumint(8) UNSIGNED NOT NULL DEFAULT '0',
+  `total_rating` int(11) NOT NULL DEFAULT '0',
+  `click_rating` int(11) NOT NULL DEFAULT '0',
+  `instant_active` tinyint(1) NOT NULL DEFAULT '0',
+  `instant_template` varchar(100) NOT NULL DEFAULT '',
+  `instant_creatauto` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+INSERT INTO `nv4_vi_opinion_rows` (`id`, `catid`, `listcatid`, `topicid`, `admin_id`, `author`, `sourceid`, `addtime`, `edittime`, `status`, `publtime`, `exptime`, `archive`, `title`, `alias`, `hometext`, `homeimgfile`, `homeimgalt`, `homeimgthumb`, `inhome`, `allowed_comm`, `allowed_rating`, `external_link`, `hitstotal`, `hitscm`, `total_rating`, `click_rating`, `instant_active`, `instant_template`, `instant_creatauto`) VALUES
+(1, 1, '1', 0, 1, '', 1, 1500017104, 1500017104, 1, 1500016920, 0, 2, 'Thành phố Hà Nội lấy ý kiến người dân về vấn đề loa phường', 'thanh-pho-ha-noi-lay-y-kien-nguoi-dan-ve-van-de-loa-phuong', 'Sở Thông tin và Truyền thông Hà Nội đang thăm dò, lấy ý kiến đóng góp của người dân về 4 nội dung chính liên quan đến hoạt động của hệ thống đài truyền thanh cơ sở trên địa bàn Hà Nội', '2017_07/loa.jpg', 'Ảnh chỉ có tính chất minh họa', 1, 1, '4', 1, 0, 1, 0, 0, 0, 0, '', 0);
+
+DROP TABLE IF EXISTS `nv4_vi_opinion_sources`;
+CREATE TABLE `nv4_vi_opinion_sources` (
+  `sourceid` mediumint(8) UNSIGNED NOT NULL,
+  `title` varchar(250) NOT NULL DEFAULT '',
+  `link` varchar(255) DEFAULT '',
+  `logo` varchar(255) DEFAULT '',
+  `weight` mediumint(8) UNSIGNED NOT NULL DEFAULT '0',
+  `add_time` int(11) UNSIGNED NOT NULL,
+  `edit_time` int(11) UNSIGNED NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+INSERT INTO `nv4_vi_opinion_sources` (`sourceid`, `title`, `link`, `logo`, `weight`, `add_time`, `edit_time`) VALUES
+(1, 'www.vietnamplus.vn', 'http://www.vietnamplus.vn', '', 1, 1500017104, 1500017104);
+
+DROP TABLE IF EXISTS `nv4_vi_opinion_tags`;
+CREATE TABLE `nv4_vi_opinion_tags` (
+  `tid` mediumint(8) UNSIGNED NOT NULL,
+  `numnews` mediumint(8) NOT NULL DEFAULT '0',
+  `alias` varchar(250) NOT NULL DEFAULT '',
+  `image` varchar(255) DEFAULT '',
+  `description` text,
+  `keywords` varchar(255) DEFAULT ''
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `nv4_vi_opinion_tags_id`;
+CREATE TABLE `nv4_vi_opinion_tags_id` (
+  `id` int(11) NOT NULL,
+  `tid` mediumint(9) NOT NULL,
+  `keyword` varchar(65) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `nv4_vi_opinion_tmp`;
+CREATE TABLE `nv4_vi_opinion_tmp` (
+  `id` mediumint(8) UNSIGNED NOT NULL,
+  `admin_id` int(11) NOT NULL DEFAULT '0',
+  `time_edit` int(11) NOT NULL,
+  `time_late` int(11) NOT NULL,
+  `ip` varchar(50) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+INSERT INTO `nv4_vi_opinion_tmp` (`id`, `admin_id`, `time_edit`, `time_late`, `ip`) VALUES
+(1, 1, 1500019253, 1500019406, '127.0.0.1');
+
+DROP TABLE IF EXISTS `nv4_vi_opinion_topics`;
+CREATE TABLE `nv4_vi_opinion_topics` (
+  `topicid` smallint(5) UNSIGNED NOT NULL,
+  `title` varchar(250) NOT NULL DEFAULT '',
+  `alias` varchar(250) NOT NULL DEFAULT '',
+  `image` varchar(255) DEFAULT '',
+  `description` varchar(255) DEFAULT '',
+  `weight` smallint(5) NOT NULL DEFAULT '0',
+  `keywords` text,
+  `add_time` int(11) NOT NULL DEFAULT '0',
+  `edit_time` int(11) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS `nv4_vi_page`;
 CREATE TABLE `nv4_vi_page` (
@@ -12972,7 +13438,7 @@ CREATE TABLE `nv4_vi_siteterms` (
 
 INSERT INTO `nv4_vi_siteterms` (`id`, `title`, `alias`, `image`, `imagealt`, `imageposition`, `description`, `bodytext`, `keywords`, `socialbutton`, `activecomm`, `layout_func`, `gid`, `weight`, `admin_id`, `add_time`, `edit_time`, `status`, `hitstotal`, `hot_post`) VALUES
 (1, 'Chính sách bảo mật (Quyền riêng tư)', 'privacy', '', '', 0, 'Tài liệu này cung cấp cho bạn (người truy cập và sử dụng website) chính sách liên quan đến bảo mật và quyền riêng tư của bạn', '<strong><a id=\"index\" name=\"index\"></a>Danh mục</strong><br /> <a href=\"#1\">Điều 1: Thu thập thông tin</a><br /> <a href=\"#2\">Điều 2: Lưu trữ &amp; Bảo vệ thông tin</a><br /> <a href=\"#3\">Điều 3: Sử dụng thông tin </a><br /> <a href=\"#4\">Điều 4: Tiếp nhận thông tin từ các đối tác </a><br /> <a href=\"#5\">Điều 5: Chia sẻ thông tin với bên thứ ba</a><br /> <a href=\"#6\">Điều 6: Thay đổi chính sách bảo mật</a>  <hr  /> <h2 style=\"text-align: justify;\"><a id=\"1\" name=\"1\"></a>Điều 1: Thu thập thông tin</h2>  <h3 style=\"text-align: justify;\">1.1. Thu thập tự động:</h3>  <div style=\"text-align: justify;\">Hệ thống này được xây dựng bằng mã nguồn NukeViet. Như mọi website hiện đại khác, chúng tôi sẽ thu thập địa chỉ IP và các thông tin web tiêu chuẩn khác của bạn như: loại trình duyệt, các trang bạn truy cập trong quá trình sử dụng dịch vụ, thông tin về máy tính &amp; thiết bị mạng v.v… cho mục đích phân tích thông tin phục vụ việc bảo mật và giữ an toàn cho hệ thống.</div>  <h3 style=\"text-align: justify;\">1.2. Thu thập từ các khai báo của chính bạn:</h3>  <div style=\"text-align: justify;\">Các thông tin do bạn khai báo cho chúng tôi trong quá trình làm việc như: đăng ký tài khoản, liên hệ với chúng tôi... cũng sẽ được chúng tôi lưu trữ phục vụ công việc chăm sóc khách hàng sau này.</div>  <h3 style=\"text-align: justify;\">1.3. Thu thập thông tin thông qua việc đặt cookies:</h3>  <p style=\"text-align: justify;\">Như mọi website hiện đại khác, khi bạn truy cập website, chúng tôi (hoặc các công cụ theo dõi hoặc thống kê hoạt động của website do các đối tác cung cấp) sẽ đặt một số File dữ liệu gọi là Cookies lên đĩa cứng hoặc bộ nhớ máy tính của bạn.</p>  <p style=\"text-align: justify;\">Một trong số những Cookies này có thể tồn tại lâu để thuận tiện cho bạn trong quá trình sử dụng, ví dụ như: lưu Email của bạn trong trang đăng nhập để bạn không phải nhập lại v.v…</p>  <h3 style=\"text-align: justify;\">1.4. Thu thập và lưu trữ thông tin trong quá khứ:</h3>  <p style=\"text-align: justify;\">Bạn có thể thay đổi thông tin cá nhân của mình bất kỳ lúc nào bằng cách sử dụng chức năng tương ứng. Tuy nhiên chúng tôi sẽ lưu lại những thông tin bị thay đổi để chống các hành vi xóa dấu vết gian lận.</p>  <p style=\"text-align: right;\"><a href=\"#index\">Trở lại danh mục</a></p>  <h2 style=\"text-align: justify;\"><a id=\"2\" name=\"2\"></a>Điều 2: Lưu trữ &amp; Bảo vệ thông tin</h2>  <div style=\"text-align: justify;\">Hầu hết các thông tin được thu thập sẽ được lưu trữ tại cơ sở dữ liệu của chúng tôi.<br /> <br /> Chúng tôi bảo vệ dữ liệu cá nhân của các bạn bằng các hình thức như: mật khẩu, tường lửa, mã hóa cùng các hình thức thích hợp khác và chỉ cấp phép việc truy cập và xử lý dữ liệu cho các đối tượng phù hợp, ví dụ chính bạn hoặc các nhân viên có trách nhiệm xử thông tin với bạn thông qua các bước xác định danh tính phù hợp.<br /> <br /> Mật khẩu của bạn được lưu trữ và bảo vệ bằng phương pháp mã hoá trong cơ sở dữ liệu của hệ thống, vì thế nó rất an toàn. Tuy nhiên, chúng tôi khuyên bạn không nên dùng lại mật khẩu này trên các website khác. Mật khẩu của bạn là cách duy nhất để bạn đăng nhập vào tài khoản thành viên của mình trong website này, vì thế hãy cất giữ nó cẩn thận. Trong mọi trường hợp bạn không nên cung cấp thông tin mật khẩu cho bất kỳ người nào dù là người của chúng tôi, người của NukeViet hay bất kỳ người thứ ba nào khác trừ khi bạn hiểu rõ các rủi ro khi để lộ mật khẩu. Nếu quên mật khẩu, bạn có thể sử dụng chức năng “<a href=\"/users/lostpass/\">Quên mật khẩu</a>” trên website. Để thực hiện việc này, bạn cần phải cung cấp cho hệ thống biết tên thành viên hoặc địa chỉ Email đang sử dụng của mình trong tài khoản, sau đó hệ thống sẽ tạo ra cho bạn mật khẩu mới và gửi đến cho bạn để bạn vẫn có thể đăng nhập vào tài khoản thành viên của mình.  <p style=\"text-align: right;\"><a href=\"#index\">Trở lại danh mục</a></p> </div>  <h2 style=\"text-align: justify;\"><a id=\"3\" name=\"3\"></a>Điều 3: Sử dụng thông tin</h2>  <p style=\"text-align: justify;\">Thông tin thu thập được sẽ được chúng tôi sử dụng để:</p>  <div style=\"text-align: justify;\">- Cung cấp các dịch vụ hỗ trợ &amp; chăm sóc khách hàng.</div>  <div style=\"text-align: justify;\">- Thực hiện giao dịch thanh toán &amp; gửi các thông báo trong quá trình giao dịch.</div>  <div style=\"text-align: justify;\">- Xử lý khiếu nại, thu phí &amp; giải quyết sự cố.</div>  <div style=\"text-align: justify;\">- Ngăn chặn các hành vi có nguy cơ rủi ro, bị cấm hoặc bất hợp pháp và đảm bảo tuân thủ đúng chính sách “Thỏa thuận người dùng”.</div>  <div style=\"text-align: justify;\">- Đo đạc, tùy biến &amp; cải tiến dịch vụ, nội dung và hình thức của website.</div>  <div style=\"text-align: justify;\">- Gửi bạn các thông tin về chương trình Marketing, các thông báo &amp; chương trình khuyến mại.</div>  <div style=\"text-align: justify;\">- So sánh độ chính xác của thông tin cá nhân của bạn trong quá trình kiểm tra với bên thứ ba.</div>  <p style=\"text-align: right;\"><a href=\"#index\">Trở lại danh mục</a></p>  <h2 style=\"text-align: justify;\"><a id=\"4\" name=\"4\"></a>Điều 4: Tiếp nhận thông tin từ các đối tác</h2>  <div style=\"text-align: justify;\">Khi sử dụng các công cụ giao dịch và thanh toán thông qua internet, chúng tôi có thể tiếp nhận thêm các thông tin về bạn như địa chỉ username, Email, số tài khoản ngân hàng... Chúng tôi kiểm tra những thông tin này với cơ sở dữ liệu người dùng của mình nhằm xác nhận rằng bạn có phải là khách hàng của chúng tôi hay không nhằm giúp việc thực hiện các dịch vụ cho bạn được thuận lợi.<br /> <br /> Các thông tin tiếp nhận được sẽ được chúng tôi bảo mật như những thông tin mà chúng tôi thu thập được trực tiếp từ bạn.</div>  <p style=\"text-align: right;\"><a href=\"#index\">Trở lại danh mục</a></p>  <h2><a id=\"5\" name=\"5\"></a>Điều 5: Chia sẻ thông tin với bên thứ ba</h2>  <p style=\"text-align: justify;\">Chúng tôi sẽ không chia sẻ thông tin cá nhân, thông tin tài chính... của bạn cho các bên thứ 3 trừ khi được sự đồng ý của chính bạn hoặc khi chúng tôi buộc phải tuân thủ theo các quy định pháp luật hoặc khi có yêu cầu từ cơ quan công quyền có thẩm quyền.</p>  <p style=\"text-align: right;\"><a href=\"#index\">Trở lại danh mục</a></p>  <h2><a id=\"6\" name=\"6\"></a>Điều 6: Thay đổi chính sách bảo mật</h2>  <p style=\"text-align: justify;\">Chính sách Bảo mật này có thể thay đổi theo thời gian. Chúng tôi sẽ không giảm quyền của bạn theo Chính sách Bảo mật này mà không có sự đồng ý rõ ràng của bạn. Chúng tôi sẽ đăng bất kỳ thay đổi Chính sách Bảo mật nào trên trang này và, nếu những thay đổi này quan trọng, chúng tôi sẽ cung cấp thông báo nổi bật hơn (bao gồm, đối với một số dịch vụ nhất định, thông báo bằng email về các thay đổi của Chính sách Bảo mật).</p>  <p style=\"text-align: right;\"><a href=\"#index\">Trở lại danh mục</a></p>  <p style=\"text-align: right;\">Chính sách bảo mật mặc định này được xây dựng cho <a href=\"http://nukeviet.vn\" target=\"_blank\">NukeViet CMS</a>, được tham khảo từ website <a href=\"http://webnhanh.vn/vi/thiet-ke-web/detail/Chinh-sach-bao-mat-Quyen-rieng-tu-Privacy-Policy-2147/\">webnhanh.vn</a></p>', '', 0, '4', '', 0, 1, 1, 1498555144, 1498555144, 1, 0, 0),
-(2, 'Điều khoản và điều kiện sử dụng', 'terms-and-conditions', '', '', 0, 'Đây là các điều khoản và điều kiện áp dụng cho website này. Truy cập và sử dụng website tức là bạn đã đồng ý với các quy định này.', '<div style=\"text-align: justify;\">Cảm ơn bạn đã sử dụng. Xin vui lòng đọc các Điều khoản một cách cẩn thận, và <a href=\"/contact/\">liên hệ</a> với chúng tôi nếu bạn có bất kỳ câu hỏi. Bằng việc truy cập hoặc sử dụng website của chúng tôi, bạn đồng ý bị ràng buộc bởi các <a href=\"/siteterms/terms-and-conditions.html\">Điều khoản và điều kiện</a> sử dụng cũng như <a href=\"/siteterms/privacy.html\">Chính sách bảo mật</a> của chúng tôi. Nếu không đồng ý với các quy định này, bạn vui lòng ngưng sử dụng website.<br /> <br /> <strong><a id=\"index\" name=\"index\"></a>Danh mục</strong><br /> <a href=\"#1\">Điều 1: Điều khoản liên quan đến phần mềm vận hành website</a><br /> <a href=\"#2\">Điều 2: Giới hạn cho việc sử dụng Website và các tài liệu trên website</a><br /> <a href=\"#3\">Điều 3: Sử dụng thương hiệu</a><br /> <a href=\"#4\">Điều 4: Các hành vi bị nghiêm cấm</a><br /> <a href=\"#5\">Điều 5: Các đường liên kết đến các website khác</a><br /> <a href=\"#6\">Điều 6: Từ chối bảo đảm</a><br /> <a href=\"#7\">Điều 7: Luật áp dụng và cơ quan giải quyết tranh chấp</a><br /> <a href=\"#8\">Điều 8: Thay đổi điều khoản và điều kiện sử dụng</a></div>  <hr  /> <h2 style=\"text-align: justify;\"><a id=\"1\" name=\"1\"></a>Điều khoản liên quan đến phần mềm vận hành website</h2>  <p style=\"text-align: justify;\">- Website của chúng tôi sử dụng hệ thống NukeViet, là giải pháp về website/ cổng thông tin nguồn mở được phát hành theo giấy phép bản quyền phần mềm tự do nguồn mở “<a href=\"http://www.gnu.org/licenses/old-licenses/gpl-2.0.html\" target=\"_blank\">GNU General Public License</a>” (viết tắt là GNU/GPL hay GPL) và có thể tải về miễn phí tại trang web <a href=\"http://www.nukeviet.vn\" target=\"_blank\">www.nukeviet.vn</a>.<br /> - Website này do chúng tôi sở hữu, điều hành và duy trì. NukeViet (hiểu ở đây là “hệ thống NukeViet” (bao gồm nhân hệ thống NukeViet và các sản phẩm phái sinh như NukeViet CMS, NukeViet Portal, <a href=\"http://edu.nukeviet.vn\" target=\"_blank\">NukeViet Edu Gate</a>...), “www.nukeviet.vn”, “tổ chức NukeViet”, “ban điều hành NukeViet”, &quot;Ban Quản Trị NukeViet&quot; và nói chung là những gì liên quan đến NukeViet...) không liên quan gì đến việc chúng tôi điều hành website cũng như quy định bạn được phép làm và không được phép làm gì trên website này.<br /> - Hệ thống NukeViet là bộ mã nguồn được phát triển để xây dựng các website/ cổng thông tin trên mạng. Chúng tôi (chủ sở hữu, điều hành và duy trì website này) không hỗ trợ và khẳng định hay ngụ ý về việc có liên quan đến NukeViet. Để biết thêm nhiều thông tin về NukeViet, hãy ghé thăm website của NukeViet tại địa chỉ: <a href=\"http://nukeviet.vn\" target=\"_blank\">http://nukeviet.vn</a>.</p>  <p style=\"text-align: right;\"><a href=\"#index\">Trở lại danh mục</a></p>  <h2 style=\"text-align: justify;\"><a id=\"2\" name=\"2\"></a>Giới hạn cho việc sử dụng Website và các tài liệu trên website</h2>  <p style=\"text-align: justify;\">- Tất cả các quyền liên quan đến tất cả tài liệu và thông tin được hiển thị và/ hoặc được tạo ra sẵn cho Website này (ví dụ như những tài liệu được cung cấp để tải về) được quản lý, sở hữu hoặc được cho phép sử dụng bởi chúng tôi hoặc chủ sở hữu tương ứng với giấy phép tương ứng. Việc sử dụng các tài liệu và thông tin phải được tuân thủ theo giấy phép tương ứng được áp dụng cho chúng.<br /> - Ngoại trừ các tài liệu được cấp phép rõ ràng dưới dạng giấy phép tư liệu mở&nbsp;Creative Commons (gọi là giấy phép CC) cho phép bạn khai thác và chia sẻ theo quy định của giấy phép tư liệu mở, đối với các loại tài liệu không ghi giấy phép rõ ràng thì bạn không được phép sử dụng (bao gồm nhưng không giới hạn việc sao chép, chỉnh sửa toàn bộ hay một phần, đăng tải, phân phối, cấp phép, bán và xuất bản) bất cứ tài liệu nào mà không có sự cho phép trước bằng văn bản của chúng tôi ngoại trừ việc sử dụng cho mục đích cá nhân, nội bộ, phi thương mại.<br /> - Một số tài liệu hoặc thông tin có những điều khoản và điều kiện áp dụng riêng cho chúng không phải là giấy phép tư liệu mở, trong trường hợp như vậy, bạn được yêu cầu phải chấp nhận các điều khoản và điều kiện đó khi truy cập vào các tài liệu và thông tin này.</p>  <p style=\"text-align: right;\"><a href=\"#index\">Trở lại danh mục</a></p>  <h2 style=\"text-align: justify;\"><a id=\"3\" name=\"3\"></a>Sử dụng thương hiệu</h2>  <p style=\"text-align: justify;\">- VINADES.,JSC, NukeViet và thương hiệu gắn với NukeViet (ví dụ NukeViet CMS, NukeViet Portal, NukeViet Edu Gate...), logo công ty VINADES thuộc sở hữu của Công ty cổ phần phát triển nguồn mở Việt Nam.<br /> - Những tên sản phẩm, tên dịch vụ khác, logo và/ hoặc những tên công ty được sử dụng trong Website này là những tài sản đã được đăng ký độc quyền và được giữ bản quyền bởi những người sở hữu và/ hoặc người cấp phép tương ứng.</p>  <p style=\"text-align: right;\"><a href=\"#index\">Trở lại danh mục</a></p>  <h2 style=\"text-align: justify;\"><a id=\"4\" name=\"4\"></a>Các hành vi bị nghiêm cấm</h2>  <p style=\"text-align: justify;\">Người truy cập website này không được thực hiện những hành vi dưới đây khi sử dụng website:<br /> - Xâm phạm các quyền hợp pháp (bao gồm nhưng không giới hạn đối với các quyền riêng tư và chung) của người khác.<br /> - Gây ra sự thiệt hại hoặc bất lợi cho người khác.<br /> - Làm xáo trộn trật tự công cộng.<br /> - Hành vi liên quan đến tội phạm.<br /> - Tải lên hoặc phát tán thông tin riêng tư của tổ chức, cá nhân khác mà không được sự chấp thuận của họ.<br /> - Sử dụng Website này vào mục đích thương mại mà chưa được sự cho phép của chúng tôi.<br /> - Nói xấu, làm nhục, phỉ báng người khác.<br /> - Tải lên các tập tin chứa virus hoặc các tập tin bị hư mà có thể gây thiệt hại đến sự vận hành của máy tính khác.<br /> - Những hoạt động có khả năng ảnh hưởng đến hoạt động bình thường của website.<br /> - Những hoạt động mà chúng tôi cho là không thích hợp.<br /> - Những hoạt động bất hợp pháp hoặc bị cấm bởi pháp luật hiện hành.</p>  <p style=\"text-align: right;\"><a href=\"#index\">Trở lại danh mục</a></p>  <h2 style=\"text-align: justify;\"><a id=\"5\" name=\"5\"></a>Các đường liên kết đến các website khác</h2>  <p style=\"text-align: justify;\">- Các website của các bên thứ ba (không phải các trang do chúng tôi quản lý) được liên kết đến hoặc từ website này (&quot;Các website khác&quot;) được điều hành và duy trì hoàn toàn độc lập bởi các bên thứ ba đó và không nằm trong quyền điều khiển và/hoặc giám sát của chúng tôi. Việc truy cập các website khác phải được tuân thủ theo các điều khoản và điều kiện quy định bởi ban điều hành của website đó.<br /> - Chúng tôi không chịu trách nhiệm cho sự mất mát hoặc thiệt hại do việc truy cập và sử dụng các website bên ngoài, và bạn phải chịu mọi rủi ro khi truy cập các website đó.<br /> - Không có nội dung nào trong Website này thể hiện như một sự đảm bảo của chúng tôi về nội dung của các website khác và các sản phẩm và/ hoặc các dịch vụ xuất hiện và/ hoặc được cung cấp tại các website khác.</p>  <p style=\"text-align: right;\"><a href=\"#index\">Trở lại danh mục</a></p>  <h2 style=\"text-align: justify;\"><a id=\"6\" name=\"6\"></a>Từ chối bảo đảm</h2>  <p style=\"text-align: justify;\">NGOẠI TRỪ PHẠM VI BỊ CẤM THEO LUẬT PHÁP HIỆN HÀNH, CHÚNG TÔI SẼ:<br /> - KHÔNG CHỊU TRÁCH NHIỆM HAY BẢO ĐẢM, MỘT CÁCH RÕ RÀNG HAY NGỤ Ý, BAO GỒM SỰ BẢO ĐẢM VỀ TÍNH CHÍNH XÁC, MỨC ĐỘ TIN CẬY, HOÀN THIỆN, PHÙ HỢP CHO MỤC ĐÍCH CỤ THỂ, SỰ KHÔNG XÂM PHẠM QUYỀN CỦA BÊN THỨ 3 VÀ/HOẶC TÍNH AN TOÀN CỦA NỘI DỤNG WEBSITE NÀY, VÀ NHỮNG TUYÊN BỐ, ĐẢM BẢO CÓ LIÊN QUAN.<br /> - KHÔNG CHỊU TRÁCH NHIỆM CHO BẤT KỲ SỰ THIỆT HẠI HAY MẤT MÁT PHÁT SINH TỪ VIỆC TRUY CẬP VÀ SỬ DỤNG WEBSITE HAY VIỆC KHÔNG THỂ SỬ DỤNG WEBSITE.<br /> - CHÚNG TÔI CÓ THỂ THAY ĐỔI VÀ/HOẶC THAY THẾ NỘI DUNG CỦA WEBSITE NÀY, HOẶC TẠM HOÃN HOẶC NGƯNG CUNG CẤP CÁC DỊCH VỤ QUA WEBSITE NÀY VÀO BẤT KỲ THỜI ĐIỂM NÀO MÀ KHÔNG CẦN THÔNG BÁO TRƯỚC. CHÚNG TÔI SẼ KHÔNG CHỊU TRÁCH NHIỆM CHO BẤT CỨ THIỆT HẠI NÀO PHÁT SINH DO SỰ THAY ĐỔI HOẶC THAY THẾ NỘI DUNG CỦA WEBSITE.</p>  <p style=\"text-align: right;\"><a href=\"#index\">Trở lại danh mục</a></p>  <h2 style=\"text-align: justify;\"><a id=\"7\" name=\"7\"></a>Luật áp dụng và cơ quan giải quyết tranh chấp</h2>  <p style=\"text-align: justify;\">- Các Điều Khoản và Điều Kiện này được điều chỉnh và giải thích theo luật của Việt Nam trừ khi có điều khoản khác được cung cấp thêm. Tất cả tranh chấp phát sinh liên quan đến website này và các Điều Khoản và Điều Kiện sử dụng này sẽ được giải quyết tại các tòa án ở Việt Nam.<br /> - Nếu một phần nào đó của các Điều Khoản và Điều Kiện bị xem là không có giá trị, vô hiệu, hoặc không áp dụng được vì lý do nào đó, phần đó được xem như là phần riêng biệt và không ảnh hưởng đến tính hiệu lực của phần còn lại.<br /> - Trong trường hợp có sự mâu thuẫn giữa bản Tiếng Anh và bản Tiếng Việt của bản Điều Khoản và Điều Kiện này, bản Tiếng Việt sẽ được ưu tiên áp dụng.</p>  <p style=\"text-align: right;\"><a href=\"#index\">Trở lại danh mục</a></p>  <h2 style=\"text-align: justify;\"><a id=\"8\" name=\"8\"></a>Thay đổi điều khoản và điều kiện sử dụng</h2>  <div style=\"text-align: justify;\">Điều khoản và điều kiện sử dụng có thể thay đổi theo thời gian. Chúng tôi bảo lưu quyền thay đổi hoặc sửa đổi bất kỳ điều khoản và điều kiện cũng như các quy định khác, bất cứ lúc nào và theo ý mình. Chúng tôi sẽ có thông báo trên website khi có sự thay đổi. Tiếp tục sử dụng trang web này sau khi đăng các thay đổi tức là bạn đã chấp nhận các thay đổi đó. <p style=\"text-align: right;\"><a href=\"#index\">Trở lại danh mục</a></p> </div>', '', 0, '4', '', 0, 2, 1, 1498555144, 1498555144, 1, 0, 0);
+(2, 'Điều khoản và điều kiện sử dụng', 'terms-and-conditions', '', '', 0, 'Đây là các điều khoản và điều kiện áp dụng cho website này. Truy cập và sử dụng website tức là bạn đã đồng ý với các quy định này.', '<div style=\"text-align: justify;\">Cảm ơn bạn đã sử dụng. Xin vui lòng đọc các Điều khoản một cách cẩn thận, và <a href=\"/contact/\">liên hệ</a> với chúng tôi nếu bạn có bất kỳ câu hỏi. Bằng việc truy cập hoặc sử dụng website của chúng tôi, bạn đồng ý bị ràng buộc bởi các <a href=\"/siteterms/terms-and-conditions.html\">Điều khoản và điều kiện</a> sử dụng cũng như <a href=\"/siteterms/privacy.html\">Chính sách bảo mật</a> của chúng tôi. Nếu không đồng ý với các quy định này, bạn vui lòng ngưng sử dụng website.<br /> <br /> <strong><a id=\"index\" name=\"index\"></a>Danh mục</strong><br /> <a href=\"#1\">Điều 1: Điều khoản liên quan đến phần mềm vận hành website</a><br /> <a href=\"#2\">Điều 2: Giới hạn cho việc sử dụng Website và các tài liệu trên website</a><br /> <a href=\"#3\">Điều 3: Sử dụng thương hiệu</a><br /> <a href=\"#4\">Điều 4: Các hành vi bị nghiêm cấm</a><br /> <a href=\"#5\">Điều 5: Các đường liên kết đến các website khác</a><br /> <a href=\"#6\">Điều 6: Từ chối bảo đảm</a><br /> <a href=\"#7\">Điều 7: Luật áp dụng và cơ quan giải quyết tranh chấp</a><br /> <a href=\"#8\">Điều 8: Thay đổi điều khoản và điều kiện sử dụng</a></div>  <hr  /> <h2 style=\"text-align: justify;\"><a id=\"1\" name=\"1\"></a>Điều khoản liên quan đến phần mềm vận hành website</h2>  <p style=\"text-align: justify;\">- Website của chúng tôi sử dụng hệ thống NukeViet, là giải pháp về website/ cổng thông tin nguồn mở được phát hành theo giấy phép bản quyền phần mềm tự do nguồn mở “<a href=\"http://www.gnu.org/licenses/old-licenses/gpl-2.0.html\" target=\"_blank\">GNU General Public License</a>” (viết tắt là GNU/GPL hay GPL) và có thể tải về miễn phí tại trang web <a href=\"http://www.nukeviet.vn\" target=\"_blank\">www.nukeviet.vn</a>.<br /> - Website này do chúng tôi sở hữu, điều hành và duy trì. NukeViet (hiểu ở đây là “hệ thống NukeViet” (bao gồm nhân hệ thống NukeViet và các sản phẩm phái sinh như NukeViet CMS, NukeViet Portal, <a href=\"http://edu.nukeviet.vn\" target=\"_blank\">NukeViet Edu Gate</a>...), “www.nukeviet.vn”, “tổ chức NukeViet”, “ban điều hành NukeViet”, &quot;Ban Quản Trị NukeViet&quot; và nói chung là những gì liên quan đến NukeViet...) không liên quan gì đến việc chúng tôi điều hành website cũng như quy định bạn được phép làm và không được phép làm gì trên website này.<br /> - Hệ thống NukeViet là bộ mã nguồn được phát triển để xây dựng các website/ cổng thông tin trên mạng. Chúng tôi (chủ sở hữu, điều hành và duy trì website này) không hỗ trợ và khẳng định hay ngụ ý về việc có liên quan đến NukeViet. Để biết thêm nhiều thông tin về NukeViet, hãy ghé thăm website của NukeViet tại địa chỉ: <a href=\"http://nukeviet.vn\" target=\"_blank\">http://nukeviet.vn</a>.</p>  <p style=\"text-align: right;\"><a href=\"#index\">Trở lại danh mục</a></p>  <h2 style=\"text-align: justify;\"><a id=\"2\" name=\"2\"></a>Giới hạn cho việc sử dụng Website và các tài liệu trên website</h2>  <p style=\"text-align: justify;\">- Tất cả các quyền liên quan đến tất cả tài liệu và thông tin được hiển thị và/ hoặc được tạo ra sẵn cho Website này (ví dụ như những tài liệu được cung cấp để tải về) được quản lý, sở hữu hoặc được cho phép sử dụng bởi chúng tôi hoặc chủ sở hữu tương ứng với giấy phép tương ứng. Việc sử dụng các tài liệu và thông tin phải được tuân thủ theo giấy phép tương ứng được áp dụng cho chúng.<br /> - Ngoại trừ các tài liệu được cấp phép rõ ràng dưới dạng giấy phép tư liệu mở&nbsp;Creative Commons (gọi là giấy phép CC) cho phép bạn khai thác và chia sẻ theo quy định của giấy phép tư liệu mở, đối với các loại tài liệu không ghi giấy phép rõ ràng thì bạn không được phép sử dụng (bao gồm nhưng không giới hạn việc sao chép, chỉnh sửa toàn bộ hay một phần, đăng tải, phân phối, cấp phép, bán và xuất bản) bất cứ tài liệu nào mà không có sự cho phép trước bằng văn bản của chúng tôi ngoại trừ việc sử dụng cho mục đích cá nhân, nội bộ, phi thương mại.<br /> - Một số tài liệu hoặc thông tin có những điều khoản và điều kiện áp dụng riêng cho chúng không phải là giấy phép tư liệu mở, trong trường hợp như vậy, bạn được yêu cầu phải chấp nhận các điều khoản và điều kiện đó khi truy cập vào các tài liệu và thông tin này.</p>  <p style=\"text-align: right;\"><a href=\"#index\">Trở lại danh mục</a></p>  <h2 style=\"text-align: justify;\"><a id=\"3\" name=\"3\"></a>Sử dụng thương hiệu</h2>  <p style=\"text-align: justify;\">- VINADES.,JSC, NukeViet và thương hiệu gắn với NukeViet (ví dụ NukeViet CMS, NukeViet Portal, NukeViet Edu Gate...), logo công ty VINADES thuộc sở hữu của Công ty cổ phần phát triển nguồn mở Việt Nam.<br /> - Những tên sản phẩm, tên dịch vụ khác, logo và/ hoặc những tên công ty được sử dụng trong Website này là những tài sản đã được đăng ký độc quyền và được giữ bản quyền bởi những người sở hữu và/ hoặc người cấp phép tương ứng.</p>  <p style=\"text-align: right;\"><a href=\"#index\">Trở lại danh mục</a></p>  <h2 style=\"text-align: justify;\"><a id=\"4\" name=\"4\"></a>Các hành vi bị nghiêm cấm</h2>  <p style=\"text-align: justify;\">Người truy cập website này không được thực hiện những hành vi dưới đây khi sử dụng website:<br /> - Xâm phạm các quyền hợp pháp (bao gồm nhưng không giới hạn đối với các quyền riêng tư và chung) của người khác.<br /> - Gây ra sự thiệt hại hoặc bất lợi cho người khác.<br /> - Làm xáo trộn trật tự công cộng.<br /> - Hành vi liên quan đến tội phạm.<br /> - Tải lên hoặc phát tán thông tin riêng tư của tổ chức, cá nhân khác mà không được sự chấp thuận của họ.<br /> - Sử dụng Website này vào mục đích thương mại mà chưa được sự cho phép của chúng tôi.<br /> - Nói xấu, làm nhục, phỉ báng người khác.<br /> - Tải lên các tập tin chứa virus hoặc các tập tin bị hư mà có thể gây thiệt hại đến sự vận hành của máy tính khác.<br /> - Những hoạt động có khả năng ảnh hưởng đến hoạt động bình thường của website.<br /> - Những hoạt động mà chúng tôi cho là không thích hợp.<br /> - Những hoạt động bất hợp pháp hoặc bị cấm bởi pháp luật hiện hành.</p>  <p style=\"text-align: right;\"><a href=\"#index\">Trở lại danh mục</a></p>  <h2 style=\"text-align: justify;\"><a id=\"5\" name=\"5\"></a>Các đường liên kết đến các website khác</h2>  <p style=\"text-align: justify;\">- Các website của các bên thứ ba (không phải các trang do chúng tôi quản lý) được liên kết đến hoặc từ website này (&quot;Các website khác&quot;) được điều hành và duy trì hoàn toàn độc lập bởi các bên thứ ba đó và không nằm trong quyền điều khiển và/hoặc giám sát của chúng tôi. Việc truy cập các website khác phải được tuân thủ theo các điều khoản và điều kiện quy định bởi ban điều hành của website đó.<br /> - Chúng tôi không chịu trách nhiệm cho sự mất mát hoặc thiệt hại do việc truy cập và sử dụng các website bên ngoài, và bạn phải chịu mọi rủi ro khi truy cập các website đó.<br /> - Không có nội dung nào trong Website này thể hiện như một sự đảm bảo của chúng tôi về nội dung của các website khác và các sản phẩm và/ hoặc các dịch vụ xuất hiện và/ hoặc được cung cấp tại các website khác.</p>  <p style=\"text-align: right;\"><a href=\"#index\">Trở lại danh mục</a></p>  <h2 style=\"text-align: justify;\"><a id=\"6\" name=\"6\"></a>Từ chối bảo đảm</h2>  <p style=\"text-align: justify;\">NGOẠI TRỪ PHẠM VI BỊ CẤM THEO LUẬT PHÁP HIỆN HÀNH, CHÚNG TÔI SẼ:<br /> - KHÔNG CHỊU TRÁCH NHIỆM HAY BẢO ĐẢM, MỘT CÁCH RÕ RÀNG HAY NGỤ Ý, BAO GỒM SỰ BẢO ĐẢM VỀ TÍNH CHÍNH XÁC, MỨC ĐỘ TIN CẬY, HOÀN THIỆN, PHÙ HỢP CHO MỤC ĐÍCH CỤ THỂ, SỰ KHÔNG XÂM PHẠM QUYỀN CỦA BÊN THỨ 3 VÀ/HOẶC TÍNH AN TOÀN CỦA NỘI DỤNG WEBSITE NÀY, VÀ NHỮNG TUYÊN BỐ, ĐẢM BẢO CÓ LIÊN QUAN.<br /> - KHÔNG CHỊU TRÁCH NHIỆM CHO BẤT KỲ SỰ THIỆT HẠI HAY MẤT MÁT PHÁT SINH TỪ VIỆC TRUY CẬP VÀ SỬ DỤNG WEBSITE HAY VIỆC KHÔNG THỂ SỬ DỤNG WEBSITE.<br /> - CHÚNG TÔI CÓ THỂ THAY ĐỔI VÀ/HOẶC THAY THẾ NỘI DUNG CỦA WEBSITE NÀY, HOẶC TẠM HOÃN HOẶC NGƯNG CUNG CẤP CÁC DỊCH VỤ QUA WEBSITE NÀY VÀO BẤT KỲ THỜI ĐIỂM NÀO MÀ KHÔNG CẦN THÔNG BÁO TRƯỚC. CHÚNG TÔI SẼ KHÔNG CHỊU TRÁCH NHIỆM CHO BẤT CỨ THIỆT HẠI NÀO PHÁT SINH DO SỰ THAY ĐỔI HOẶC THAY THẾ NỘI DUNG CỦA WEBSITE.</p>  <p style=\"text-align: right;\"><a href=\"#index\">Trở lại danh mục</a></p>  <h2 style=\"text-align: justify;\"><a id=\"7\" name=\"7\"></a>Luật áp dụng và cơ quan giải quyết tranh chấp</h2>  <p style=\"text-align: justify;\">- Các Điều Khoản và Điều Kiện này được điều chỉnh và giải thích theo luật của Việt Nam trừ khi có điều khoản khác được cung cấp thêm. Tất cả tranh chấp phát sinh liên quan đến website này và các Điều Khoản và Điều Kiện sử dụng này sẽ được giải quyết tại các tòa án ở Việt Nam.<br /> - Nếu một phần nào đó của các Điều Khoản và Điều Kiện bị xem là không có giá trị, vô hiệu, hoặc không áp dụng được vì lý do nào đó, phần đó được xem như là phần riêng biệt và không ảnh hưởng đến tính hiệu lực của phần còn lại.<br /> - Trong trường hợp có sự mâu thuẫn giữa bản Tiếng Anh và bản Tiếng Việt của bản Điều Khoản và Điều Kiện này, bản Tiếng Việt sẽ được ưu tiên áp dụng.</p>  <p style=\"text-align: right;\"><a href=\"#index\">Trở lại danh mục</a></p>  <h2 style=\"text-align: justify;\"><a id=\"8\" name=\"8\"></a>Thay đổi điều khoản và điều kiện sử dụng</h2>  <div style=\"text-align: justify;\">Điều khoản và điều kiện sử dụng có thể thay đổi theo thời gian. Chúng tôi bảo lưu quyền thay đổi hoặc sửa đổi bất kỳ điều khoản và điều kiện cũng như các quy định khác, bất cứ lúc nào và theo ý mình. Chúng tôi sẽ có thông báo trên website khi có sự thay đổi. Tiếp tục sử dụng trang web này sau khi đăng các thay đổi tức là bạn đã chấp nhận các thay đổi đó. <p style=\"text-align: right;\"><a href=\"#index\">Trở lại danh mục</a></p> </div>', '', 0, '4', '', 0, 2, 1, 1498555144, 1498555144, 1, 1, 0);
 
 DROP TABLE IF EXISTS `nv4_vi_siteterms_config`;
 CREATE TABLE `nv4_vi_siteterms_config` (
@@ -13663,36 +14129,6 @@ ALTER TABLE `nv4_vi_laws_subject`
   ADD UNIQUE KEY `alias` (`alias`),
   ADD KEY `weight` (`weight`);
 
-ALTER TABLE `nv4_vi_lay_y_kien_nguoi_dan_area`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `alias` (`alias`,`parentid`),
-  ADD KEY `weight` (`weight`);
-
-ALTER TABLE `nv4_vi_lay_y_kien_nguoi_dan_cat`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `alias` (`alias`,`parentid`),
-  ADD KEY `weight` (`weight`);
-
-ALTER TABLE `nv4_vi_lay_y_kien_nguoi_dan_config`
-  ADD UNIQUE KEY `config_name` (`config_name`);
-
-ALTER TABLE `nv4_vi_lay_y_kien_nguoi_dan_row`
-  ADD PRIMARY KEY (`id`);
-
-ALTER TABLE `nv4_vi_lay_y_kien_nguoi_dan_row_area`
-  ADD UNIQUE KEY `alias` (`row_id`,`area_id`);
-
-ALTER TABLE `nv4_vi_lay_y_kien_nguoi_dan_set_replace`
-  ADD PRIMARY KEY (`id`);
-
-ALTER TABLE `nv4_vi_lay_y_kien_nguoi_dan_signer`
-  ADD PRIMARY KEY (`id`);
-
-ALTER TABLE `nv4_vi_lay_y_kien_nguoi_dan_subject`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `alias` (`alias`),
-  ADD KEY `weight` (`weight`);
-
 ALTER TABLE `nv4_vi_menu`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `title` (`title`);
@@ -13830,6 +14266,83 @@ ALTER TABLE `nv4_vi_news_tmp`
   ADD PRIMARY KEY (`id`);
 
 ALTER TABLE `nv4_vi_news_topics`
+  ADD PRIMARY KEY (`topicid`),
+  ADD UNIQUE KEY `title` (`title`),
+  ADD UNIQUE KEY `alias` (`alias`);
+
+ALTER TABLE `nv4_vi_opinion_1`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `catid` (`catid`),
+  ADD KEY `topicid` (`topicid`),
+  ADD KEY `admin_id` (`admin_id`),
+  ADD KEY `author` (`author`),
+  ADD KEY `title` (`title`),
+  ADD KEY `addtime` (`addtime`),
+  ADD KEY `edittime` (`edittime`),
+  ADD KEY `publtime` (`publtime`),
+  ADD KEY `exptime` (`exptime`),
+  ADD KEY `status` (`status`),
+  ADD KEY `instant_active` (`instant_active`),
+  ADD KEY `instant_creatauto` (`instant_creatauto`);
+
+ALTER TABLE `nv4_vi_opinion_admins`
+  ADD UNIQUE KEY `userid` (`userid`,`catid`);
+
+ALTER TABLE `nv4_vi_opinion_block`
+  ADD UNIQUE KEY `bid` (`bid`,`id`);
+
+ALTER TABLE `nv4_vi_opinion_block_cat`
+  ADD PRIMARY KEY (`bid`),
+  ADD UNIQUE KEY `title` (`title`),
+  ADD UNIQUE KEY `alias` (`alias`);
+
+ALTER TABLE `nv4_vi_opinion_cat`
+  ADD PRIMARY KEY (`catid`),
+  ADD UNIQUE KEY `alias` (`alias`),
+  ADD KEY `parentid` (`parentid`);
+
+ALTER TABLE `nv4_vi_opinion_config_post`
+  ADD PRIMARY KEY (`group_id`);
+
+ALTER TABLE `nv4_vi_opinion_detail`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `nv4_vi_opinion_logs`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `sid` (`sid`),
+  ADD KEY `userid` (`userid`);
+
+ALTER TABLE `nv4_vi_opinion_rows`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `catid` (`catid`),
+  ADD KEY `topicid` (`topicid`),
+  ADD KEY `admin_id` (`admin_id`),
+  ADD KEY `author` (`author`),
+  ADD KEY `title` (`title`),
+  ADD KEY `addtime` (`addtime`),
+  ADD KEY `edittime` (`edittime`),
+  ADD KEY `publtime` (`publtime`),
+  ADD KEY `exptime` (`exptime`),
+  ADD KEY `status` (`status`),
+  ADD KEY `instant_active` (`instant_active`),
+  ADD KEY `instant_creatauto` (`instant_creatauto`);
+
+ALTER TABLE `nv4_vi_opinion_sources`
+  ADD PRIMARY KEY (`sourceid`),
+  ADD UNIQUE KEY `title` (`title`);
+
+ALTER TABLE `nv4_vi_opinion_tags`
+  ADD PRIMARY KEY (`tid`),
+  ADD UNIQUE KEY `alias` (`alias`);
+
+ALTER TABLE `nv4_vi_opinion_tags_id`
+  ADD UNIQUE KEY `id_tid` (`id`,`tid`),
+  ADD KEY `tid` (`tid`);
+
+ALTER TABLE `nv4_vi_opinion_tmp`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `nv4_vi_opinion_topics`
   ADD PRIMARY KEY (`topicid`),
   ADD UNIQUE KEY `title` (`title`),
   ADD UNIQUE KEY `alias` (`alias`);
@@ -13978,13 +14491,13 @@ ALTER TABLE `nv4_language`
 ALTER TABLE `nv4_language_file`
   MODIFY `idfile` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 ALTER TABLE `nv4_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=432;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=466;
 ALTER TABLE `nv4_notification`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 ALTER TABLE `nv4_plugin`
   MODIFY `pid` tinyint(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 ALTER TABLE `nv4_upload_dir`
-  MODIFY `did` mediumint(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `did` mediumint(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 ALTER TABLE `nv4_users`
   MODIFY `userid` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 ALTER TABLE `nv4_users_backupcodes`
@@ -14027,24 +14540,12 @@ ALTER TABLE `nv4_vi_laws_signer`
   MODIFY `id` smallint(4) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 ALTER TABLE `nv4_vi_laws_subject`
   MODIFY `id` smallint(4) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-ALTER TABLE `nv4_vi_lay_y_kien_nguoi_dan_area`
-  MODIFY `id` smallint(4) UNSIGNED NOT NULL AUTO_INCREMENT;
-ALTER TABLE `nv4_vi_lay_y_kien_nguoi_dan_cat`
-  MODIFY `id` smallint(4) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-ALTER TABLE `nv4_vi_lay_y_kien_nguoi_dan_row`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
-ALTER TABLE `nv4_vi_lay_y_kien_nguoi_dan_set_replace`
-  MODIFY `id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT;
-ALTER TABLE `nv4_vi_lay_y_kien_nguoi_dan_signer`
-  MODIFY `id` smallint(4) UNSIGNED NOT NULL AUTO_INCREMENT;
-ALTER TABLE `nv4_vi_lay_y_kien_nguoi_dan_subject`
-  MODIFY `id` smallint(4) UNSIGNED NOT NULL AUTO_INCREMENT;
 ALTER TABLE `nv4_vi_menu`
   MODIFY `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 ALTER TABLE `nv4_vi_menu_rows`
   MODIFY `id` mediumint(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 ALTER TABLE `nv4_vi_modfuncs`
-  MODIFY `func_id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
+  MODIFY `func_id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=120;
 ALTER TABLE `nv4_vi_news_14`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 ALTER TABLE `nv4_vi_news_15`
@@ -14067,6 +14568,22 @@ ALTER TABLE `nv4_vi_news_tags`
   MODIFY `tid` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 ALTER TABLE `nv4_vi_news_topics`
   MODIFY `topicid` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `nv4_vi_opinion_1`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `nv4_vi_opinion_block_cat`
+  MODIFY `bid` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT;
+ALTER TABLE `nv4_vi_opinion_cat`
+  MODIFY `catid` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `nv4_vi_opinion_logs`
+  MODIFY `id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT;
+ALTER TABLE `nv4_vi_opinion_rows`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `nv4_vi_opinion_sources`
+  MODIFY `sourceid` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `nv4_vi_opinion_tags`
+  MODIFY `tid` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT;
+ALTER TABLE `nv4_vi_opinion_topics`
+  MODIFY `topicid` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT;
 ALTER TABLE `nv4_vi_page`
   MODIFY `id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT;
 ALTER TABLE `nv4_vi_siteterms`

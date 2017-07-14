@@ -50,12 +50,8 @@
                 <input type="hidden" name="{NV_LANG_VARIABLE}" value="{NV_LANG_DATA}"/>
                 <input type="hidden" name="{NV_NAME_VARIABLE}" value="seek"/>
                 <!-- END: no_rewrite -->
-                <div class="input-group">
-                    <input type="text" class="form-control" name="q"/>
-                    <div class="input-group-btn">
-                        <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
-                    </div>
-                </div>
+                <input type="text" class="form-control" name="q"/>
+                <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
             </form>
         </div>
         <div class="conner-left">&nbsp;</div>

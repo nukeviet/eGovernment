@@ -9,8 +9,21 @@ body {
 }
 
 h1, h2, h3,
-.h1, .h2, .h3 {
+.h1, .h2, .h3,
+.faqopinion a.faqitem, .faqopinion .tptabtitle {
     font-family: 'Roboto Condensed';
+}
+
+h2, .h2 {
+    font-size: 20px;
+}
+
+h3, .h3 {
+    font-size: 16px;
+}
+
+h4, .h4 {
+    font-size: 14px;
 }
 
 .padding-news-tintuc-thongtinkt,
@@ -19,10 +32,20 @@ h1, h2, h3,
 }
 
 /* Đồng bộ màu sắc */
+a, a:link, a:active, a:visited,
+#footer a {
+    color: #494949;
+}
+
+.more-news a {
+    color: #f7a41e;
+}
+
 .header-nav a:hover,
 .user-fix > span > .user:hover,
 .header-nav a.button:hover, .header-nav a.active,
-.sitebannertext {
+.sitebannertext,
+#toggleearch > form > button {
     color: #ea4800!important;
     -moz-transition: all .2s ease-in;
     -o-transition: all .2s ease-in;
@@ -32,6 +55,11 @@ h1, h2, h3,
 
 .sitemenu-bg {
     background-color: #ea4800;
+}
+
+.faqopinion .sendfaq a,
+.faqopinion a.faqitem span {
+    background-color: #fba919;
 }
 
 /* Thanh bar header */
@@ -284,9 +312,30 @@ ul.menutop a,
     position: absolute;
     right: 0;
     top: 45px;
-    width: 300px;
+    width: 400px;
     background: #fff;
     padding: 10px;
+}
+
+#toggleearch > form {
+    position: relative;
+}
+
+#toggleearch > form > button {
+    background-image: none;
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    margin: 0;
+    line-height: 20px;
+    text-align: center;
+    top: 50%;
+    margin-top: -10px;
+    right: 10px;
 }
 
 #toggleearchbtn {
@@ -314,6 +363,123 @@ ul.sitelanguage li {
 ul.sitelanguage img {
     position: relative;
     top: -1px;
+}
+
+/* Breadcrumb */
+.third-nav .bg {
+    background-color: #fff;
+    border-bottom: 1px #b1b1b8 solid;
+    padding: 15px 0 0 0;
+}
+
+.third-nav > .row {
+    border-bottom: 1px #d9d9dd solid;
+}
+
+.breadcrumbs-wrap {
+    margin-left: -5px;
+}
+
+div.breadcrumbs-bg {
+    padding-right: 21px;
+    background-image: url(../images/breadcrumb.png);
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 38px;
+}
+
+.third-nav ul.breadcrumbs {
+    background-color: #ededef;
+}
+
+.breadcrumbs a, .show-subs-breadcrumbs {
+    background-color: transparent;
+    color: #515050;
+    height: 38px;
+    padding-top: 0;
+    padding-bottom: 0;
+    line-height: 38px;
+}
+
+.show-subs-breadcrumbs {
+    background-color: #ededef;
+    margin-right: 0;
+    width: 40px;
+    text-align: center;
+    text-indent: -4px;
+    border-right: 1px #b1b1b8 solid;
+}
+
+.show-subs-breadcrumbs:after {
+    display: none;
+}
+
+.breadcrumbs a:before {
+    display: none;
+}
+
+.breadcrumbs a:after {
+    display: none;
+}
+
+.breadcrumbs a:hover, .show-subs-breadcrumbs:hover {
+    background-color: transparent;
+    color: #000;
+}
+
+.breadcrumbs > li {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.breadcrumbs > li:first-child {
+    margin-left: 20px;
+    margin-right: 10px;
+}
+
+.breadcrumbs > li:first-child a span {
+    display: none;
+}
+
+.breadcrumbs > li:first-child a {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.breadcrumbs > li:first-child a:after {
+    display: inline-block;
+    content: "\f015";
+    font-family: 'FontAwesome';
+    border: 0;
+    margin: 0;
+    padding: 0;
+    top: 0px;
+}
+
+.breadcrumbs > li:nth-child(n+3) a:before {
+    display: inline-block;
+    content: "\f0da";
+    font-family: 'FontAwesome';
+    border: 0;
+    position: relative;
+    top: 0px;
+}
+
+.subs-breadcrumbs {
+    background-image: none;
+    background-color: #fff;
+}
+
+/* Footer */
+#footer {
+    font-size: 16px;
+}
+
+#footer .sf-menu > li > a {
+    text-transform: uppercase;
 }
 
 /* Các block menu xanh */
@@ -366,4 +532,104 @@ ul.sitelanguage img {
     font-weight: normal;
     padding-bottom: 4px;
     padding-top: 2px;
+}
+
+/* BLOCK hỏi đáp lấy ý kiến */
+.faqopinion .sendfaq {
+    margin-bottom: 30px;
+}
+
+.faqopinion .sendfaq a {
+    text-transform: uppercase;
+    font-weight: 700;
+    line-height: 28px;
+    text-align: center;
+    padding: 0 10px;
+    color: #fff;
+    display: block;
+}
+
+.faqopinion a.faqitem {
+    display: block;
+    padding: 4px;
+    text-align: center;
+    border: 1px #96a6bc solid;
+    border-radius: 3px;
+    text-transform: uppercase;
+    color: #5e5e5e;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 24px;
+}
+
+.faqopinion a.faqitem span {
+    display: block;
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 5px auto;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 20px;
+    line-height: 50px;
+}
+
+.faqopinion a.faqitem.answerfaq {
+    font-size: 9px;
+    line-height: 12px;
+}
+
+.faqopinion .tptabtitle {
+    padding-left: 50px;
+    height: 32px;
+    overflow: hidden;
+    background: url(../images/bg-chidao.png) no-repeat left center;
+    margin-bottom: 20px;
+}
+
+.faqopinion .tptabtitle ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    line-height: 20px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+.faqopinion .tptabtitle ul li {
+    display: inline-block;
+}
+
+.faqopinion .tptabtitle ul li a {
+    font-size: 20px;
+    color: #a5a5a5;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.faqopinion .tptabtitle ul li a.active {
+    color: #383838;
+}
+
+.faqopinion .tptabtitle ul li:first-child {
+    border-right: 1px #6a6a6a solid;
+    padding-right: 10px;
+    margin-right: 10px;
+}
+
+.faqopinion .tptabcontent > div {
+    display: none;
+}
+
+.faqopinion .tptabcontent > div:nth-child(2) {
+    display: block;
+}
+
+.faqopinion .tptabcontent img {
+    position: relative;
+    top: 5px;
+}
+
+/* News */
+.bg-hot-news-title {
+    padding: 6px;
 }

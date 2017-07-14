@@ -16,3 +16,9 @@ $lang_block['cominfo_map_guide_title'] = 'Hướng dẫn xây dựng bản đồ
 $lang_block['cominfo_map_guide_content'] = '<ul><li>Nhập địa chỉ vào ô, tại danh sách các địa chỉ đổ xuống chọn một địa chỉ hợp lệ với Google MAP.</li><li>Bạn cũng có thể nhấp chuột trái vào bản đồ để tự đánh dấu địa chỉ tùy thích</li><li>Kéo thả chuột trên điểm đánh dấu để di chuyển nó phù hợp với tọa độ địa chỉ công ty của bạn</li><li>Kéo thả chuột trái để di chuyển bản đồ, lăn chuột giữa để có tỷ lệ bản đồ theo ý muốn</li></ul>';
 $lang_block['cominfo_map_yes'] = 'Bật Google MAP';
 $lang_block['cominfo_map_no'] = 'Tắt Google MAP';
+
+$lang_block['sendfaq'] = 'Gửi ý kiến đóng góp';
+$lang_block['listfaq'] = 'Bạn đọc hỏi';
+$lang_block['answerfaq'] = 'Cơ quan chức năng trả lời';
+
+$lang_module['new_viewnext'] = 'Xem tiếp';

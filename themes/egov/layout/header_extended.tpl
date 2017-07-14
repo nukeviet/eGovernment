@@ -83,11 +83,13 @@
     				<div class="row">
                         <div class="bg">
                         <div class="clearfix">
-                            <div class="col-xs-24 col-sm-18 col-md-18">
+                            <div class="col-xs-24 col-sm-24 col-md-24">
                                 <div class="breadcrumbs-wrap">
                                 	<div class="display">
                                 		<a class="show-subs-breadcrumbs hidden" href="#" onclick="showSubBreadcrumbs(this, event);"><em class="fa fa-lg fa-angle-right"></em></a>
-		                                <ul class="breadcrumbs list-none"></ul>
+		                                <div class="breadcrumbs-bg">
+                                            <ul class="breadcrumbs list-none"></ul>
+                                        </div>
 									</div>
 									<ul class="subs-breadcrumbs"></ul>
 	                                <ul class="temp-breadcrumbs hidden">

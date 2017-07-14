@@ -30,23 +30,36 @@ if (!nv_function_exists('nv_block_global_faq_opinion')) {
         $html .= '<td>';
         $html .= '<select name="config_modfaq" class="form-control w300">';
 
-        foreach ($site_mods as $mod) {
+        foreach ($site_mods as $title => $mod) {
             if ($mod['module_file'] == 'faq') {
-                $html .= '<option value="' . $mod['module_file'] . '"' . ($mod['module_file'] == $data_block['site_description'] ? ' selected="selected"' : '') . '>' . $mod['module_file'] . '</option>';
+                $html .= '<option value="' . $title . '"' . ($title == $data_block['modfaq'] ? ' selected="selected"' : '') . '>' . $mod['custom_title'] . '</option>';
             }
         }
 
         $html .= '</select>';
         $html .= '</td>';
         $html .= '</tr>';
+
         $html .= '<tr>';
-        $html .= '<td>' . $lang_block['site_description'] . '</td>';
-        $html .= '<td><input type="text" name="config_site_description" class="form-control w300" value="' . $data_block['site_description'] . '"/></td>';
+        $html .= '<td>' . $lang_block['catfaq'] . '</td>';
+        $html .= '<td><input type="text" name="config_catfaq" value="' . $data_block['catfaq'] . '" class="form-control w100"/></td>';
         $html .= '</tr>';
+
         $html .= '<tr>';
-        $html .= '<td>&nbsp;</td>';
-        $html .= '<td><label><input type="checkbox" name="config_use_sitename" value="1"' . ($data_block['use_sitename'] ? ' checked="checked"' : '') . '/> ' . $lang_block['use_sitename'] . '</label></td>';
+        $html .= '<td>' . $lang_block['modopinion'] . '</td>';
+        $html .= '<td>';
+        $html .= '<select name="config_modopinion" class="form-control w300">';
+
+        foreach ($site_mods as $title => $mod) {
+            if ($mod['module_file'] == 'news') {
+                $html .= '<option value="' . $title . '"' . ($title == $data_block['modopinion'] ? ' selected="selected"' : '') . '>' . $mod['custom_title'] . '</option>';
+            }
+        }
+
+        $html .= '</select>';
+        $html .= '</td>';
         $html .= '</tr>';
+
         return $html;
     }
 
@@ -63,9 +76,9 @@ if (!nv_function_exists('nv_block_global_faq_opinion')) {
         $return = array();
         $return['error'] = array();
         $return['config'] = array();
-        $return['config']['site_title'] = $nv_Request->get_title('config_site_title', 'post', '');
-        $return['config']['site_description'] = $nv_Request->get_title('config_site_description', 'post', '');
-        $return['config']['use_sitename'] = $nv_Request->get_int('config_use_sitename', 'post', 0);
+        $return['config']['modfaq'] = $nv_Request->get_title('config_modfaq', 'post', '');
+        $return['config']['catfaq'] = $nv_Request->get_int('config_catfaq', 'post', 0);
+        $return['config']['modopinion'] = $nv_Request->get_title('config_modopinion', 'post', '');
         return $return;
     }
 
@@ -77,26 +90,94 @@ if (!nv_function_exists('nv_block_global_faq_opinion')) {
      */
     function nv_block_global_faq_opinion($block_config)
     {
-        global $global_config;
+        global $global_config, $site_mods, $nv_Cache, $db_config, $module_config;
 
-        if (!empty($block_config['use_sitename'])) {
-            $block_config['site_description'] = $global_config['site_name'];
+        if (isset($site_mods[$block_config['modfaq']]) and isset($site_mods[$block_config['modopinion']]) and !empty($block_config['catfaq'])) {
+            if (file_exists(NV_ROOTDIR . '/themes/' . $global_config['module_theme'] . '/blocks/global.faq_opinion.tpl')) {
+                $block_theme = $global_config['module_theme'];
+            } elseif (file_exists(NV_ROOTDIR . '/themes/' . $global_config['site_theme'] . '/blocks/global.faq_opinion.tpl')) {
+                $block_theme = $global_config['site_theme'];
+            } else {
+                $block_theme = 'default';
+            }
+
+            include NV_ROOTDIR . '/themes/' . $block_theme . '/language/' . NV_LANG_INTERFACE . '.php';
+
+            $xtpl = new XTemplate('global.faq_opinion.tpl', NV_ROOTDIR . '/themes/' . $block_theme . '/blocks');
+            $xtpl->assign('TEMPLATE', $block_theme);
+            $xtpl->assign('CONFIG', $block_config);
+            $xtpl->assign('LANG', $lang_block);
+
+            $xtpl->assign('LINK_SENDFAQ', NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&amp;' . NV_NAME_VARIABLE . '=' . $block_config['modfaq'] . '&amp;' . NV_OP_VARIABLE . '=insertqa');
+            $xtpl->assign('LINK_LISTFAQ', NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&amp;' . NV_NAME_VARIABLE . '=' . $block_config['modfaq'] . '&amp;' . NV_OP_VARIABLE . '=list');
+            $xtpl->assign('LINK_MAINFAQ', NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&amp;' . NV_NAME_VARIABLE . '=' . $block_config['modfaq']);
+
+            $xtpl->assign('TAB1_TITLE', $site_mods[$block_config['modfaq']]['custom_title']);
+            $xtpl->assign('TAB2_TITLE', $site_mods[$block_config['modopinion']]['custom_title']);
+
+            // Link cat FAQ
+            $faqAlias = '';
+            $sql = "SELECT alias FROM " . NV_PREFIXLANG . "_" . $site_mods[$block_config['modfaq']]['module_data'] . "_categories WHERE id=" . $block_config['catfaq'] . " AND status=1";
+            $list = $nv_Cache->db($sql, '', $block_config['modfaq']);
+            if (!empty($list)) {
+                $faqAlias = $list[0]['alias'];
+            }
+            if ($faqAlias) {
+                $xtpl->assign('LINK_ANSWERFAQ', NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&amp;' . NV_NAME_VARIABLE . '=' . $block_config['modfaq'] . '&amp;' . NV_OP_VARIABLE . '=' . $faqAlias);
+            } else {
+                $xtpl->assign('LINK_ANSWERFAQ', '');
+            }
+
+            // Lấy ý kiến người dân
+            $show_no_image = $module_config[$block_config['modopinion']]['show_no_image'];
+            $blockwidth = $module_config[$block_config['modopinion']]['blockwidth'];
+
+            $module_array_cat = array();
+            $sql = 'SELECT catid, parentid, title, alias, viewcat, subcatid, numlinks, description, inhome, keywords, groups_view FROM ' . NV_PREFIXLANG . '_' . $site_mods[$block_config['modopinion']]['module_data'] . '_cat ORDER BY sort ASC';
+            $list = $nv_Cache->db($sql, 'catid', $block_config['modopinion']);
+            if (!empty($list)) {
+                foreach ($list as $l) {
+                    $module_array_cat[$l['catid']] = $l;
+                    $module_array_cat[$l['catid']]['link'] = NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&amp;' . NV_NAME_VARIABLE . '=' . $block_config['modopinion'] . '&amp;' . NV_OP_VARIABLE . '=' . $l['alias'];
+                }
+            }
+
+            if (!empty($module_array_cat)) {
+                // Bài mới nhất
+                $sql = "SELECT id, catid, title, alias, homeimgfile, homeimgthumb, hometext, publtime, external_link FROM
+                " . NV_PREFIXLANG . "_" . $site_mods[$block_config['modopinion']]['module_data'] . "_rows WHERE status=1 ORDER BY publtime DESC LIMIT 0,1";
+                $list = $nv_Cache->db($sql, '', $block_config['modopinion']);
+                if (!empty($list)) {
+                    $row = $list[0];
+
+                    $row['link'] = NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&amp;' . NV_NAME_VARIABLE . '=' . $block_config['modopinion'] . '&amp;' . NV_OP_VARIABLE . '=' . $module_array_cat[$row['catid']]['alias'] . '/' . $row['alias'] . '-' . $row['id'] . $global_config['rewrite_exturl'];
+                    if ($row['homeimgthumb'] == 1) {
+                        $row['thumb'] = NV_BASE_SITEURL . NV_FILES_DIR . '/' . $site_mods[$block_config['modopinion']]['module_upload'] . '/' . $row['homeimgfile'];
+                    } elseif ($row['homeimgthumb'] == 2) {
+                        $row['thumb'] = NV_BASE_SITEURL . NV_UPLOADS_DIR . '/' . $site_mods[$block_config['modopinion']]['module_upload'] . '/' . $row['homeimgfile'];
+                    } elseif ($row['homeimgthumb'] == 3) {
+                        $row['thumb'] = $row['homeimgfile'];
+                    } elseif (! empty($show_no_image)) {
+                        $row['thumb'] = NV_BASE_SITEURL . $show_no_image;
+                    } else {
+                        $row['thumb'] = '';
+                    }
+
+                    $row['blockwidth'] = $blockwidth;
+
+                    $xtpl->assign('OPINION', $row);
+
+                    if (!empty($row['thumb'])) {
+                        $xtpl->parse('main.opinion.thumb');
+                    }
+
+                    $xtpl->parse('main.opinion');
+                }
+            }
+
+            $xtpl->parse('main');
+            return $xtpl->text('main');
         }
-
-        if (file_exists(NV_ROOTDIR . '/themes/' . $global_config['module_theme'] . '/blocks/global.faq_opinion.tpl')) {
-            $block_theme = $global_config['module_theme'];
-        } elseif (file_exists(NV_ROOTDIR . '/themes/' . $global_config['site_theme'] . '/blocks/global.faq_opinion.tpl')) {
-            $block_theme = $global_config['site_theme'];
-        } else {
-            $block_theme = 'default';
-        }
-
-        $xtpl = new XTemplate('global.faq_opinion.tpl', NV_ROOTDIR . '/themes/' . $block_theme . '/blocks');
-        $xtpl->assign('TEMPLATE', $block_theme);
-        $xtpl->assign('CONFIG', $block_config);
-
-        $xtpl->parse('main');
-        return $xtpl->text('main');
     }
 }
 

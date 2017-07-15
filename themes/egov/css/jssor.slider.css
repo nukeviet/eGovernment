@@ -45,7 +45,7 @@
 
 }
 .jssora22l {
-	background: url(../images/al-new.png) center center no-repeat;
+	-background: url(../images/al-new.png) center center no-repeat;
 	top:0px;
 	left:20px;
 	z-index: 9999;
@@ -55,7 +55,7 @@
 	opacity: 0.8;
 }
 .jssora22r {
-	background: url(../images/ar-new.png) center center no-repeat;
+	-background: url(../images/ar-new.png) center center no-repeat;
 	top:0px;
 	right:20px;
 	z-index: 9999;

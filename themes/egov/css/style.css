@@ -14,7 +14,7 @@
     box-shadow:0 0 4px rgba(0,0,0,0.15);
     -webkit-box-shadow:0 0 20px rgba(0,0,0,0.3);
     background: rgba(0,0,0,0.3);
-} 
+}
 
 @font-face {
     font-family:'NukeVietIcons';
@@ -1341,7 +1341,7 @@ a.btn {
     line-height:51px;
     margin:0 10px;
 }
-/* 
+/*
 .personalArea {
     margin-left:50px;
 } */
@@ -1440,7 +1440,7 @@ a.btn {
     -webkit-transition:all 0.4s ease;
     transition:all 0.4s ease;
 }
-/* 
+/*
 .socialList li a[href*="facebook"]:hover {
     background-color:#3D5D8C;
 }
@@ -2288,8 +2288,7 @@ button.close {
 	font-size: 16px;
 }
 
-/* chỉnh sửa layout map */
-
+/* Chỉnh sửa layout map */
 .fix-title-map {
 	margin: 10px 0px;
 }
@@ -2309,131 +2308,42 @@ button.close {
 .fix-more-padding {
 	padding: 20px;
 }
+
 .fix-pad-panel-body {
 	padding: 0px;
 }
+
 .fix-pad-panel-default {
 	border: 0px;
 	box-shadow: none;
 }
+
 .shadow-bg-1 {
     border-radius: 0px 0px 10px 10px;
     margin-bottom: 5px;
 }
+
 .shadow-bg-2 {
 	border-radius: 10px 10px 0px 0px;
 }
+
 .shadow-bg {
     border-radius: 10px;
     margin-bottom: 5px;
 }
-.fix-tintuc-thongtinkt {
-	padding: 10px 0px;
-}
-.fix-head-tintuc-thongtinkt {
-	background-image: none;
-	padding: 0px 0px;
-}
-.fix-head-tintuc-thongtinkt h3 {
-	font-family: 'Roboto Condensed', sans-serif;
-	font-weight: bold;
-	font-size: 18px;
-}
 
-.fix-body-tintuc-thongtinkt {
-	padding: 10px 0px;
-}
-.fix-body-tintuc-thongtinkt a {
-	font-weight: bold;
-}
 .more-news a {
 	color: #f7a41e;
 	font-size: 11px;
 }
-.fix-img-thongtinkt-xh img {
-	margin-bottom: 5px;
-}
-.padding-left-tintuc-thongtinkt {
-	padding-left: 10px
-}
-.padding-right-tintuc-thongtinkt {
-	padding-right: 10px
-}
+
 .border-bottom-news {
 	border-bottom: #999 1px solid;
 }
+
 .padding-news-tintuc-thongtinkt {
 	padding: 20px 0px;
 	border-bottom: #999 1px solid;
-}
-
-.fix-chi-dao {
-	border: none;
-	margin: 20px 0px;
-	box-shadow: none;
-}
-.fix-chi-dao .fix-header-chi-dao h3 {
-	background: url("../images/bg-chidao.png") center left no-repeat;
-	line-height: 32px;
-	padding-left: 40px;
-	font-family: 'Roboto Condensed', sans-serif;
-	font-weight: bold;
-	font-size: 18px;
-	
-}
-.fix-chi-dao .fix-header-chi-dao {
-	background: none;
-	border: 0px;
-	padding: 10px 0px;
-}
-.fix-chi-dao .fix-header-chi-dao h3 {
-	margin-bottom: 20px;
-}
-.fix-chi-dao .fix-header-chi-dao .fix-title-chi-dao a {
-	background: #f7a41e;
-	padding: 10px 20px;
-	display: block;
-	border-radius: 5px;
-	color: #fff;
-	font-weight: bold;
-	font-size: 14px;
-}
-.fix-body-chi-dao {
-	padding: 15px 0px;
-}
-
-.fix-van-ban {
-	border: none;
-	margin: 20px 0px;
-	box-shadow: none;
-}
-.fix-van-ban .fix-header-van-ban {
-	background: none;
-	border: 0px;
-	padding: 10px 0px;
-}
-.fix-van-ban .fix-header-van-ban h3 {
-	margin-bottom: 20px;
-}
-.fix-van-ban .fix-header-van-ban h3 {
-	background: url("../images/bg-chidao.png") center left no-repeat;
-	line-height: 32px;
-	padding-left: 40px;
-	font-family: 'Roboto Condensed', sans-serif;
-	font-weight: bold;
-	font-size: 18px
-}
-.fix-van-ban .fix-header-van-ban .fix-title-van-ban {
-	background: #f7a41e;
-	padding: 10px 20px;
-	display: block;
-	border-radius: 5px;
-	color: #fff;
-	font-weight: bold;
-	font-size: 14px;
-}
-.fix-body-van-ban {
-	padding: 15px 0px;
 }
 
 .fix-block-groups {
@@ -2441,9 +2351,11 @@ button.close {
 	border: #ccc 1px solid;
 	border-radius: 3px;
 }
+
 .fix-text-block-groups {
 	padding: 20px;
 }
+
 .padding-lanhdao-chidao {
 	padding: 10px 0px;
 }
@@ -2452,44 +2364,48 @@ button.close {
 	background-color: #f7a41e !important;
 	border-radius: 3px 3px 0px 0px;
 }
+
 .fix-lanhdao-chidao .panel-heading a {
 	color: #fff;
 }
-.fix-thongke-truycap .panel-heading {
-	background: none !important;
-	background-color: transparent !important;
-	border-color: none;
-	margin: 0px 10px
-}
+
 .color-text-footer {
 	color: #464d66;
 }
-}
+
 .color-text-footer a, .color-text-footer p, .color-text-footer strong, .color-text-footer h3  {
 	color: #464d66;
 }
+
 .fix-superfish-menu a {
 	color: #464d66 !important;
 }
+
 .fix-title-superfish-menu {
 	line-height: 42px;
 	font-size: 20px;
 }
+
 .fix-superfish-menu ul {
 	padding: 0px;
 }
+
 .fix-superfish-menu ul li a {
 	color: #464d66  !important;
 }
+
 .fix-sub-superfish-menu {
 	margin-top: 50px;
 }
+
 .fix-sub-superfish-menu li {
 	line-height: 26px;
 }
+
 .fix-sub-superfish-menu li a strong {
 	font-weight: normal;
 }
+
 .margin-footer-site {
 	margin-top: 50px;
 	margin-bottom: 10px;

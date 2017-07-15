@@ -1,7 +1,7 @@
 <!-- BEGIN: mainblock -->
-<div class="panel panel-default fix-lanhdao-chidao">
+<div class="panel panel-border-title">
 	<div class="panel-heading">
-		{BLOCK_TITLE}
+		<div>{BLOCK_TITLE}</div>
 	</div>
 	<div class="panel-body">
 		{BLOCK_CONTENT}

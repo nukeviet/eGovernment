@@ -1,5 +1,5 @@
 <!-- BEGIN: mainblock -->
-<div class="panel panel-default fix-thongke-truycap">
+<div class="panel panel-primary">
 	<div class="panel-heading">
 		{BLOCK_TITLE}
 	</div>

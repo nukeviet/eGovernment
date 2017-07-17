@@ -4,6 +4,15 @@
 <div id="mobilePage">
     <header class="first-child">
         <div id="header" class="clearfix">
+            <div class="site-buttons">
+                <div class="list-none">
+                    [MENU_SITE]
+                </div>
+            </div>
+            <div class="site-name-gov">
+            	<h1 class="">{SITE_NAME}</h1>
+                <h2 class="">{SITE_DESCRIPTION}</h2>
+            </div>
             <div class="logo">
                 <!-- BEGIN: image -->
                 <a title="{SITE_NAME} - {SITE_DESCRIPTION}" href="{THEME_SITE_HREF}"><img src="{LOGO_SRC}" width="{LOGO_WIDTH}" height="{LOGO_HEIGHT}" alt="{SITE_NAME}" /></a>
@@ -30,13 +39,7 @@
                     <!--> <![endif]-->
                 </object>
                 <!-- END: swf -->
-                <h1 class="hidden">{SITE_NAME}</h1>
-                <h2 class="hidden">{SITE_DESCRIPTION}</h2>
-            </div>
-            <div class="site-buttons">
-                <div class="list-none">
-                    [MENU_SITE]
-                </div>
+                
             </div>
 		</div>
 	</header>
@@ -54,7 +57,7 @@
 					<ol class="breadcrumb"></ol>
     			</div>
 	    		<ol class="sub-breadcrumbs"></ol>
-	    		<ol class="temp-breadcrumbs hidden">
+	    		<ol class="temp-breadcrumbs">
     	    		<!-- BEGIN: loop --><li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="{BREADCRUMBS.link}" itemprop="url" title="{BREADCRUMBS.title}"><span itemprop="title">{BREADCRUMBS.title}</span></a></li><!-- END: loop -->
 				</ol>
     			<!-- END: breadcrumbs -->

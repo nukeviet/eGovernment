@@ -27,4 +27,22 @@ $(function() {
         $($(this).attr('href')).show();
         $(this).addClass('active');
     });
+    // Tab tin tức
+    $('[data-toggle="newtabslide"]').click(function(e) {
+        e.preventDefault();
+        var tabarea = $(this).parent().parent().parent().parent().parent();
+        $('.newstabhomejcarousel-ctn', tabarea).hide();
+        $('[data-toggle="newtabslide"]').removeClass('active');
+        $($(this).attr('href')).show();
+        $(this).addClass('active');
+        $('.newstabhomejcarousel', $(this).attr('href')).jcarousel('scroll', 0);
+        $('.newstabhomejcarousel', $(this).attr('href')).jcarousel('destroy');
+        $('.newstabhomejcarousel', $(this).attr('href')).jcarousel({
+            wrap: 'circular',
+        }).jcarouselAutoscroll({
+            interval: 5000,
+            target: '+=1',
+            autostart: true
+        });
+    });
 });

@@ -60,3 +60,4 @@
 	<div class="fix_banner_right">
 		[FIX_BANNER_RIGHT]
 	</div>
+    <div class="site-btn-tool">[SITE_BTN_TOOL]</div>

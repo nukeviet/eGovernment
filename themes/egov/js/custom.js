@@ -5,6 +5,11 @@ $(function() {
     if (themecolor != 'default') {
         $('#' + themecolor).prop('disabled', false);
     }
+    $('[data-toggle="changethemcolor"]').each(function() {
+        if ($(this).data('color') == themecolor) {
+            $(this).addClass('active');
+        }
+    });
     // Phần tìm kiếm trên thanh menu
     $('[data-toggle="mycollapse"]').click(function(e) {
         e.preventDefault();
@@ -73,5 +78,17 @@ $(function() {
     $('[data-toggle="showhide"]').click(function(e) {
         e.preventDefault();
         $($(this).data('target')).toggleClass('hidden');
+    });
+    // Đổi màu giao diện
+    $('[data-toggle="changethemcolor"]').click(function(e) {
+        e.preventDefault();
+        var color = $(this).data('color');
+        $.cookie('egovthemecolor', color);
+        $('.linkcolorsite').prop('disabled', true);
+        if (color != 'default') {
+            $('#' + color).prop('disabled', false);
+        }
+        $('[data-toggle="changethemcolor"]').removeClass('active');
+        $(this).addClass('active');
     });
 });

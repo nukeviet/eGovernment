@@ -1,10 +1,10 @@
 <!-- BEGIN: main -->
 <div class="sitebtntool haveitem{NUMITEMS}">
-    <div class="sitethemechange" id="sitethemechange">
+    <div class="sitethemechange hidden" id="sitethemechange">
         <div class="panel-body">
             <div class="tl">{MLANG.egov_select_themecolor}</div>
             <ul class="row">
-                <li class="col-xs-8 col-sm-8 col-md-8"><a href="#" class="active color_default" data-toggle="changethemcolor" data-color="default"></a></li>
+                <li class="col-xs-8 col-sm-8 col-md-8"><a href="#" class="color_default" data-toggle="changethemcolor" data-color="default"></a></li>
                 <li class="col-xs-8 col-sm-8 col-md-8"><a href="#" class="color1" data-toggle="changethemcolor" data-color="linkcolorsite1"></a></li>
                 <li class="col-xs-8 col-sm-8 col-md-8"><a href="#" class="color2" data-toggle="changethemcolor" data-color="linkcolorsite2"></a></li>
             </ul>

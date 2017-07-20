@@ -610,7 +610,6 @@ body {
     font-size: 14px;
     font-weight: 400;
     line-height: 1.42857;
-    background:#ddd;
 }
 
 a,
@@ -1018,10 +1017,11 @@ div.breadcrumbs-bg {
 	position: relative;
     height: 35px;
     line-height: 1;
-    padding: 0 10px 0 50px;
+    padding: 0 10px 0 40px;
     margin: 0;
     background: transparent;
     overflow: hidden;
+    margin-top: 3px;
 }
 
 .breadcrumbs .home-icon {
@@ -1039,6 +1039,7 @@ div.breadcrumbs-bg {
     display: block;
     border-right: 1px solid rgba(0,0,0,0.1);
     color: red;
+    background: #ededef
 }
 
 .breadcrumbs .toggle{
@@ -1049,11 +1050,11 @@ div.breadcrumbs-bg {
 }
 
 .breadcrumb{
-	padding: 0;
+	padding: 0 10px;
 	margin: 0;
 	line-height: 35px;
 	display: inline-block;
-	background-color: #ddd;
+	background-color: #ededef;
 	border-radius: 0px;
 }
 

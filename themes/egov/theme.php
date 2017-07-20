@@ -49,6 +49,7 @@ function nv_site_theme($contents, $full = true)
     $xtpl = new XTemplate($layout_file, NV_ROOTDIR . '/themes/' . $global_config['module_theme'] . '/layout');
     $xtpl->assign('LANG', $lang_global);
     $xtpl->assign('TEMPLATE', $global_config['module_theme']);
+    $xtpl->assign('GTEMPLATE', $global_config['site_theme']);
     $xtpl->assign('NV_BASE_SITEURL', NV_BASE_SITEURL);
 
     $xtpl->assign('NV_SITE_COPYRIGHT', $global_config['site_name'] . ' [' . $global_config['site_email'] . '] ');
@@ -148,6 +149,7 @@ function nv_site_theme($contents, $full = true)
     }
 
     $html_js = nv_html_site_js(false);
+    $html_js[] = array( 'ext' => 1, 'content' => NV_BASE_SITEURL . NV_ASSETS_DIR . '/js/jquery/jquery.cookie.js' );
     $html_js[] = array( 'ext' => 1, 'content' => NV_BASE_SITEURL . 'themes/' . $global_config['module_theme'] . '/js/main.js' );
     $html_js[] = array( 'ext' => 1, 'content' => NV_BASE_SITEURL . 'themes/' . $global_config['module_theme'] . '/js/custom.js' );
 
@@ -222,6 +224,13 @@ function nv_site_theme($contents, $full = true)
                 }
             }
             $xtpl->parse('main.breadcrumbs');
+        }
+
+        if ($home or ($module_name == $global_config['site_home_module'] and $op == 'main')) {
+            $xtpl->parse('main.home');
+            $xtpl->parse('main.home_bottom');
+        } else {
+            $xtpl->parse('main.nothome');
         }
 
         // Statistics image

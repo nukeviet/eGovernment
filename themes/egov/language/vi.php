@@ -22,3 +22,6 @@ $lang_block['listfaq'] = 'Bạn đọc hỏi';
 $lang_block['answerfaq'] = 'Cơ quan chức năng trả lời';
 
 $lang_module['new_viewnext'] = 'Xem tiếp';
+$lang_module['new_viewdetail'] = 'Chi tiết';
+
+$lang_module['egov_select_themecolor'] = 'Chọn màu giao diện';

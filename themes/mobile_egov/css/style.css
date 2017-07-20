@@ -604,7 +604,7 @@ html {
 
 body {
     margin:0;
-    padding:48px 0 40px 0;
+    padding:48px 0 0 0;
     color: #333;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 14px;
@@ -1005,6 +1005,14 @@ header.header-up {
     border-width:0;
     position: relative;
 }
+div.breadcrumbs-bg {
+    padding-right: 21px;
+    background-image: url(../images/breadcrumb.png);
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 38px;
+}
 
 .breadcrumbs {
 	position: relative;
@@ -1014,7 +1022,6 @@ header.header-up {
     margin: 0;
     background: transparent;
     overflow: hidden;
-	background: rgba(0,0,0,0.05);
 }
 
 .breadcrumbs .home-icon {
@@ -1031,7 +1038,7 @@ header.header-up {
     text-align: center;
     display: block;
     border-right: 1px solid rgba(0,0,0,0.1);
-    color: #666;
+    color: red;
 }
 
 .breadcrumbs .toggle{
@@ -1046,6 +1053,8 @@ header.header-up {
 	margin: 0;
 	line-height: 35px;
 	display: inline-block;
+	background-color: #ddd;
+	border-radius: 0px;
 }
 
 .sub-breadcrumbs {
@@ -1100,16 +1109,33 @@ header.header-up {
 
 /* Footer */
 
+.margin-footer-site {
+	padding: 20px
+}
+.color-text-footer {
+	color: #373f56
+}
+.footer2 {
+	padding: 10px 20px;
+	background: #787777;
+	color: #ffffff;
+}
+.footer2 p, .footer2 a {
+	color: #ffffff;
+}
 #footer {
-    position:fixed;
+	background: #d5d5d5 url("../images/bg-footer.jpg") center top no-repeat;
+    position:relative;
     bottom:0;
     left:0;
     right:0;
     z-index:10;
-    width:100%;
-    min-height:40px;
+    min-height:100px;
     -webkit-transition: top 0.08s ease-in-out;
     transition: top 0.08s ease-in-out;
+    width:100%;
+    font-size:13px;
+    background-size: 100%;
 }
 
 #footer.footer-down {

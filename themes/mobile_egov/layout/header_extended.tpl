@@ -51,13 +51,15 @@
     		<div id="body">
                 <!-- BEGIN: breadcrumbs -->
      		   <div class="breadcrumbs clearfix">
-     		   		<span class="home-icon" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="{THEME_SITE_HREF}" itemprop="url" title="{LANG.Home}"><span itemprop="title"><em class="fa fa-home fa-lg"></em></span></a></span>
-    	    		<!--span class="load-bar"></span-->
-    	    		<a class="toggle" onclick="showSubBreadcrumbs(this,event);"><em class="fa fa-angle-right"></em></a>
-					<ol class="breadcrumb"></ol>
+     		    	<div class="breadcrumbs-bg">
+     		   			<span class="home-icon" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="{THEME_SITE_HREF}" itemprop="url" title="{LANG.Home}"><span itemprop="title"><em class="fa fa-home fa-lg"></em></span></a></span>
+    	    			<!--span class="load-bar"></span-->
+    	    			<a class="toggle" onclick="showSubBreadcrumbs(this,event);"><em class="fa fa-angle-right"></em></a>
+						<ol class="breadcrumb"></ol>
+					</div>
     			</div>
 	    		<ol class="sub-breadcrumbs"></ol>
-	    		<ol class="temp-breadcrumbs">
+	    		<ol class="temp-breadcrumbs hidden">
     	    		<!-- BEGIN: loop --><li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="{BREADCRUMBS.link}" itemprop="url" title="{BREADCRUMBS.title}"><span itemprop="title">{BREADCRUMBS.title}</span></a></li><!-- END: loop -->
 				</ol>
     			<!-- END: breadcrumbs -->

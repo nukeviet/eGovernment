@@ -4,9 +4,14 @@
 <div id="mobilePage">
     <header class="first-child">
         <div id="header" class="clearfix">
-            <div class="site-buttons">
-                <div class="list-none">
-                    [MENU_SITE]
+            <div class="display-table fl">
+                <div>
+                    <div>
+                        <span data-toggle="winHelp"><em class="fa fa-bars fa-lg pointer mbt"></em></span>
+                    </div>
+                </div>
+                <div class="ftip">
+                    <div id="ftip" data-content=""></div>
                 </div>
             </div>
             <div class="site-name-gov">

@@ -1037,7 +1037,6 @@ div.breadcrumbs-bg {
     line-height: 35px;
     text-align: center;
     display: block;
-    border-right: 1px solid rgba(0,0,0,0.1);
     color: red;
     background: #ededef
 }
@@ -1057,7 +1056,9 @@ div.breadcrumbs-bg {
 	background-color: #ededef;
 	border-radius: 0px;
 }
-
+.breadcrumb li a {
+	color: red;
+}
 .sub-breadcrumbs {
     margin: 0;
     padding: 0;

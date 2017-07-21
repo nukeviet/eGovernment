@@ -818,10 +818,13 @@ header.header-up {
 }
 
 .headerSearch .btn-info {
-    background-color:#428bca;
-    border-color:#428bca;
+    background-color: #fff;
+    border-color:#d0d0d0;
+    border-left: transparent;
 }
-
+.btn-info {
+	color: #e20b0f;
+}
 /*socialList,contactList,personalArea*/
 
 .contactList {

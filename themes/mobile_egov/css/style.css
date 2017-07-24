@@ -1208,14 +1208,14 @@ div.breadcrumbs-bg {
     overflow-y: auto;
 }
 
-#winHelp .winHelp a {
+/* #winHelp .winHelp a {
     color:#333
 }
 
 #winHelp .winHelp a:hover {
     color:#205FA0;
 }
-
+ */
 #winHelp .panel{
     margin-bottom:0
 }
@@ -1715,20 +1715,7 @@ hr {
     text-transform: uppercase;
     color: #fff;
 }
-.menutop {
-	padding: 10px 0px;
-}
-.menutop li {
-	line-height: 18px;
-	padding: 10px 30px;
-	
-}
-.menutop li:hover {
-	background: #f9a819;
-}
-.menutop li a {
-	text-transform: uppercase;
-}
+
 .title-menu {
     margin-top: 20px;
     border-bottom: #999 1px solid;

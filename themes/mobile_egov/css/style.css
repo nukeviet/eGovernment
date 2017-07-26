@@ -1731,12 +1731,27 @@ hr {
     box-shadow: 0 0 0;
     -webkit-box-shadow: 0 0 0;
     border: 0;
+    padding: 0px 10px;
 }
 .panel-red .panel-heading{
     background-image: url("../images/icons/national.png");
     background-repeat: no-repeat;
     background-color: #f9a81a;
     background-size: contain;
-    font-size: 30px;
+    font-size: 20px;
     font-family: Roboto;
+    color: #fff;
+    text-transform: uppercase;
+    padding-left: 60px;
+    border-bottom: 0px;
+}
+
+/* === font face === */
+@font-face {
+    font-family: 'Roboto';
+    src:url('../fonts/Roboto-Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Roboto Bold';
+    src:url('../fonts/Roboto-Bold.ttf') format('truetype');
 }

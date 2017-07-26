@@ -1727,5 +1727,16 @@ hr {
 .title-menu h2 em  {
 	margin-right: 10px;
 }
-
-
+.panel-red{
+    box-shadow: 0 0 0;
+    -webkit-box-shadow: 0 0 0;
+    border: 0;
+}
+.panel-red .panel-heading{
+    background-image: url("../images/icons/national.png");
+    background-repeat: no-repeat;
+    background-color: #f9a81a;
+    background-size: contain;
+    font-size: 30px;
+    font-family: Roboto;
+}

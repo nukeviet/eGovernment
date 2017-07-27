@@ -1,25 +1,25 @@
 <!-- BEGIN: main -->
+<link media="screen" type="text/css" rel="stylesheet" href="{NV_BASE_SITEURL}themes/{TEMPLATE}/css/news_center.css" />
 <div id="hot-news">
-	<div class="panel panel-default news_column fix-pad-panel-default">
-        <div class="panel-body fix-pad-panel-body">
-            <div class="row">
-                <div class="col-md-14 margin-bottom-lg">
-                    <div class="margin-bottom text-center"><a href="{main.link}" title="{main.link}" {main.target_blank}><img src="{main.imgsource}" alt="{main.title}" width="{main.width}" class="img-thumbnail"/></a></div>
-                    <h2 class="margin-bottom-sm"><a href="{main.link}" title="{main.title}" {main.target_blank}>{main.titleclean60}</a></h2>
-                    {main.hometext}
-                </div>
-                <div class="col-md-10 margin-bottom-lg">
-                    <ul class="column-margin-left fix-sub-news">
-                    	<div class="bg-hot-news-title"><h3>TIN NỔI BẬT</h3></div>
-                        <!-- BEGIN: othernews -->
-                        <li class="clearfix">
-                            <a class="show black h4" href="{othernews.link}" {othernews.target_blank} <!-- BEGIN: tooltip -->data-placement="{TOOLTIP_POSITION}" data-content="{othernews.hometext_clean}" data-img="{othernews.imgsource}" data-rel="tooltip"<!-- END: tooltip --> title="{othernews.title}" ><img src="{othernews.imgsource}" alt="{othernews.title}" class="img-thumbnail pull-right margin-left-sm" style="width:100px;"/>{othernews.titleclean60}</a>
-                        </li>
-                        <!-- END: othernews -->
-                    </ul>
-                </div>
-            </div>
+    <div class="margin-bottom">
+        <a href="{main.link}" title="{main.link}" {main.target_blank}>
+            <img src="{main.imgsource}" alt="{main.title}" width="{main.width}" class="img-thumbnail"/>
+        </a>        
+        <h2 class="margin-bottom-sm"><a href="{main.link}" title="{main.title}" {main.target_blank}>{main.titleclean60}</a></h2>
+        <div class="hometexthot">
+            <p>{main.hometext}</p>
         </div>
-	</div>
+    </div>
+    <div class="panel-body">
+        <ul>
+            <!-- BEGIN: othernews -->
+            <li class="clearfix">
+                <a class="show black h4" href="{othernews.link}" {othernews.target_blank}  title="{othernews.title}" >
+                    {othernews.titleclean60}
+                </a>
+            </li>
+            <!-- END: othernews -->
+        </ul>
+    </div>
 </div>
 <!-- END: main -->

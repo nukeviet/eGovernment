@@ -16,3 +16,15 @@
     float: left;
     margin-right: 10px;
 }
+#category_news_primary ul li.listcatnews{
+    margin-bottom: 6px;
+}
+#category_news_primary ul li.listcatnews i{
+    margin-right: 5px;
+    font-size: 8px;
+    position: relative;
+    top: -3px;
+}
+#category_news_primary ul li.listcatnews a{
+    color: #515150;
+}

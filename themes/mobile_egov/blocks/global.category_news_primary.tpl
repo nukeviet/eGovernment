@@ -12,8 +12,8 @@
         </li>
         <!--  END: looptop -->
         <!-- BEGIN: loop -->
-        <li class="clearfix">
-            <h5><a href="{ROW.link}">{ROW.title_clean}</a></h5>
+        <li class="clearfix listcatnews">
+            <i class="fa fa-stop" aria-hidden="true"></i><a href="{ROW.link}">{ROW.title_clean}</a>
         </li>
         <!-- END: loop -->
     </ul>

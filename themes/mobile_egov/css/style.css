@@ -1745,13 +1745,25 @@ hr {
     padding-left: 60px;
     border-bottom: 0px;
 }
+.panel-red .panel-heading a{
+    color: #fff;
+    display: block;
+    background-image: url("../images/icons/viewcat.png");
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size: contain;
+}
+.panel-red .panel-body{
+    padding: 10px 0;
+}
 
 /* === font face === */
-@font-face {
+@import url('//fonts.googleapis.com/css?family=Roboto');
+/*@font-face {
     font-family: 'Roboto';
     src:url('../fonts/Roboto-Regular.ttf') format('truetype');
 }
 @font-face {
     font-family: 'Roboto Bold';
     src:url('../fonts/Roboto-Bold.ttf') format('truetype');
-}
+}*/

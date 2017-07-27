@@ -1,0 +1,18 @@
+#category_news_primary ul{
+    padding: 0;
+}
+#category_news_primary ul li h2{
+    line-height: normal;
+}
+#category_news_primary ul li h2 a{
+    color: #484848;
+    font-family: "roboto";
+}
+#category_news_primary ul li p{
+    font-family: "Roboto";
+}
+#category_news_primary ul li a img{
+    width: 50%;
+    float: left;
+    margin-right: 10px;
+}

@@ -17,7 +17,7 @@ if (! nv_function_exists('nv_block_block_news_category_primary')) {
     {
 		global $db_config, $nv_Cache, $site_mods;
 
-		$html = $block = '';
+		$html = $block = $html_input = '';
 
 		$html .= "<tr>";
 		$html .= "	<td>" . $lang_block['module'] . "</td>";
@@ -71,24 +71,37 @@ if (! nv_function_exists('nv_block_block_news_category_primary')) {
 	{
 		global $site_mods, $data_block, $nv_Cache, $lang_block, $block_config;
 
-		$html = '';
-		$html .= '<div id="select_' . $module . '">';
+		$html = $html_input = '';
+		$html .='<div id="select_' . $module . '">';
+
+		$html .= '<select name="config_catid" class="form-control w200">';
 
 		$sql = 'SELECT * FROM ' . NV_PREFIXLANG . '_' . $site_mods[$module]['module_data'] . '_cat ORDER BY sort ASC';
-        $list = $nv_Cache->db($sql, '', $module);
+		$list = $nv_Cache->db($sql, '', $module);
 
-        foreach ($list as $l) {
-            $xtitle_i = '';
+		foreach ($list as $l) {
+		    $xtitle_i = '';
 
-            if ($l['lev'] > 0) {
-                for ($i = 1; $i <= $l['lev']; ++$i) {
-                    $xtitle_i .= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-                }
-            }
-            $html .= $xtitle_i . '<label><input type="radio" name="config_catid" value="' . $l['catid'] . '" ' . (($l['catid'] == $data_block['catid']) ? ' checked="checked"' : '') . '</input>' . $l['title'] . '</label><br />';
-        }
+		    if ($l['lev'] > 0) {
+		        for ($i = 1; $i <= $l['lev']; ++$i) {
+		            $xtitle_i .= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+		        }
+		    }
+		    $html_input .= '<input type="hidden" id="config_catid_' . $l['catid'] . '" value="' . NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&amp;' . NV_NAME_VARIABLE . '=' . $module . '&amp;' . NV_OP_VARIABLE . '=' . $l['alias'] . '" />';
+		    $html .= '<option value="' . $l['catid'] . '" ' . (($data_block['catid'] == $l['catid']) ? ' selected="selected"' : '') . '>' . $xtitle_i . $l['title'] . '</option>';
+		}
+		$html .= '</select>';
+		$html .= $html_input;
+
+		$html .= '<script type="text/javascript">';
+		$html .= '	$("select[name=config_catid]").change(function() {';
+		$html .= '		$("input[name=title]").val(trim($("select[name=config_catid]:visible option:selected").text()));';
+		$html .= '		$("input[name=link]").val($("#config_catid_" + $("select[name=config_catid]:visible").val()).val());';
+		$html .= '	});';
+		$html .= '</script>';
+
+
 		$html .= '</div>';
-
 		return $html;
 	}
 
@@ -130,19 +143,47 @@ if (! nv_function_exists('nv_block_block_news_category_primary')) {
             $xtpl = new XTemplate('global.category_news_primary.tpl', NV_ROOTDIR . '/themes/' . $block_theme . '/blocks');
             $xtpl->assign('NV_BASE_SITEURL', NV_BASE_SITEURL);
             $xtpl->assign('TEMPLATE', $block_theme);
-
+            $i = 0;
 			foreach ($list as $l) {
-				$l['link'] = NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&amp;' . NV_NAME_VARIABLE . '=' . $module . '&amp;' . NV_OP_VARIABLE . '=' . $module_array_cat[$l['catid']]['alias'] . '/' . $l['alias'] . '-' . $l['id'] . $global_config['rewrite_exturl'];
+			    $i++;
+			    if($i==1){
+			        $l['link'] = NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&amp;' . NV_NAME_VARIABLE . '=' . $module . '&amp;' . NV_OP_VARIABLE . '=' . $module_array_cat[$l['catid']]['alias'] . '/' . $l['alias'] . '-' . $l['id'] . $global_config['rewrite_exturl'];
 
-                $l['blockwidth'] = $blockwidth;
+			        if ($l['homeimgthumb'] == 1) {
+			            $l['thumb'] = NV_BASE_SITEURL . NV_FILES_DIR . '/' . $site_mods[$module]['module_upload'] . '/' . $l['homeimgfile'];
+			        } elseif ($l['homeimgthumb'] == 2) {
+			            $l['thumb'] = NV_BASE_SITEURL . NV_UPLOADS_DIR . '/' . $site_mods[$module]['module_upload'] . '/' . $l['homeimgfile'];
+			        } elseif ($l['homeimgthumb'] == 3) {
+			            $l['thumb'] = $l['homeimgfile'];
+			        } elseif (! empty($show_no_image)) {
+			            $l['thumb'] = NV_BASE_SITEURL . $show_no_image;
+			        } else {
+			            $l['thumb'] = '';
+			        }
 
-                $l['hometext_clean'] = strip_tags($l['hometext']);
-                $l['hometext_clean'] = nv_clean60($l['hometext_clean'], $block_config['content_length']);
+			        $l['blockwidth'] = $blockwidth;
 
-                $l['title_clean'] = nv_clean60($l['title'], $block_config['title_length']);
+			        $l['hometext_clean'] = strip_tags($l['hometext']);
+			        $l['hometext_clean'] = nv_clean60($l['hometext_clean'], $block_config['content_length']);
 
-				$xtpl->assign('ROW', $l);
-				$xtpl->parse('main.loop');
+			        $l['title_clean'] = nv_clean60($l['title'], $block_config['title_length']);
+
+			        $xtpl->assign('ROW', $l);
+			        if (! empty($l['thumb'])) {
+			            $xtpl->parse('main.looptop.img');
+			        }
+			        $xtpl->parse('main.looptop');
+			    }else{
+			        $l['link'] = NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&amp;' . NV_NAME_VARIABLE . '=' . $module . '&amp;' . NV_OP_VARIABLE . '=' . $module_array_cat[$l['catid']]['alias'] . '/' . $l['alias'] . '-' . $l['id'] . $global_config['rewrite_exturl'];
+
+			        $l['hometext_clean'] = strip_tags($l['hometext']);
+			        $l['hometext_clean'] = nv_clean60($l['hometext_clean'], $block_config['content_length']);
+
+			        $l['title_clean'] = nv_clean60($l['title'], $block_config['title_length']);
+
+			        $xtpl->assign('ROW', $l);
+			        $xtpl->parse('main.loop');
+			    }
 			}
 
             $xtpl->parse('main');

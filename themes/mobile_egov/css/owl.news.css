@@ -1,0 +1,29 @@
+#tabs .mtab {
+    margin: 20px 0;
+    line-height: 32px;
+    font-size: 20px;
+    font-weight: 700;
+    padding-left: 40px;
+    background: url(../images/icons/bg-national-emblem.png) no-repeat left center;
+}
+#tabs .mtab ul{
+    padding: 0px;
+}
+#tabs .mtab ul li {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+#tabs .mtab ul li a {
+    color: #a5a5a5;
+    margin: 5px 0;
+    display: block;
+    line-height: 22px;
+}
+#tabs .mtab ul li.active a{
+    color: #383838;
+}
+#tabs .mtab ul li h2 {
+    text-transform: uppercase;
+    margin: 0;
+}

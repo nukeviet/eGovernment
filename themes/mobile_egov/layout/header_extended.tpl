@@ -15,8 +15,9 @@
                 </div>
             </div>
             <div class="site-name-gov">
-            	<h1 class="">{SITE_NAME}</h1>
-                <h2 class="">{SITE_DESCRIPTION}</h2>
+                [TEXT_BANNER]
+            	<h1 class="hidden">{SITE_NAME}</h1>
+                <h2 class="hidden">{SITE_DESCRIPTION}</h2>
             </div>
             <div class="logo">
                 <!-- BEGIN: image -->
@@ -54,18 +55,27 @@
     <div class="wrap">
     	<section>
     		<div id="body">
-                <!-- BEGIN: breadcrumbs -->
-     		   <div class="breadcrumbs clearfix">
-     		    	<div class="breadcrumbs-bg">
-     		   			<span class="home-icon" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="{THEME_SITE_HREF}" itemprop="url" title="{LANG.Home}"><span itemprop="title"><em class="fa fa-home fa-lg"></em></span></a></span>
-    	    			<!--span class="load-bar"></span-->
-    	    			<a class="toggle" onclick="showSubBreadcrumbs(this,event);"><em class="fa fa-angle-right"></em></a>
-						<ol class="breadcrumb"></ol>
-					</div>
-    			</div>
-	    		<ol class="sub-breadcrumbs"></ol>
-	    		<ol class="temp-breadcrumbs hidden">
-    	    		<!-- BEGIN: loop --><li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="{BREADCRUMBS.link}" itemprop="url" title="{BREADCRUMBS.title}"><span itemprop="title">{BREADCRUMBS.title}</span></a></li><!-- END: loop -->
-				</ol>
-    			<!-- END: breadcrumbs -->
+	           <div class="col-xs-12">
+                    <!-- BEGIN: breadcrumbs -->
+         		   <div class="breadcrumbs clearfix">
+         		    	<div class="breadcrumbs-bg">
+         		   			<span class="home-icon" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="{THEME_SITE_HREF}" itemprop="url" title="{LANG.Home}"><span itemprop="title"><em class="fa fa-home fa-lg"></em></span></a></span>
+        	    			<!--span class="load-bar"></span-->
+        	    			<a class="toggle" onclick="showSubBreadcrumbs(this,event);"><em class="fa fa-angle-right"></em></a>
+    						<ol class="breadcrumb"></ol>
+    					</div>
+        			</div>
+    	    		<ol class="sub-breadcrumbs"></ol>
+    	    		<ol class="temp-breadcrumbs hidden">
+        	    		<!-- BEGIN: loop --><li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="{BREADCRUMBS.link}" itemprop="url" title="{BREADCRUMBS.title}"><span itemprop="title">{BREADCRUMBS.title}</span></a></li><!-- END: loop -->
+    				</ol>
+        			<!-- END: breadcrumbs -->
+                </div>
+                <div class="col-xs-12">
+                    <div class="headerSearch">
+                        <div class="input-group">
+                            <input type="text" class="form-control" maxlength="{NV_MAX_SEARCH_LENGTH}" placeholder="{LANG.search}..."><span class="input-group-btn"><button type="button" class="btn btn-info" data-url="{THEME_SEARCH_URL}" data-minlength="{NV_MIN_SEARCH_LENGTH}" data-click="y"><em class="fa fa-search fa-lg"></em></button></span>
+                        </div>
+                    </div>
+                </div>
     			[THEME_ERROR_INFO]

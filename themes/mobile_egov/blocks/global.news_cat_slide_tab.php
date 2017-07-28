@@ -173,7 +173,6 @@ if (! nv_function_exists('nv_block_news_cat_slide_tab')) {
             $xtpl = new XTemplate('global.news_cat_slide_tab.tpl', NV_ROOTDIR . '/themes/' . $block_theme . '/blocks');
             $xtpl->assign('NV_BASE_SITEURL', NV_BASE_SITEURL);
             $xtpl->assign('TEMPLATE', $block_theme);
-            $xtpl->assign('LANG', $lang_module);
 
             $cat_offset = 0;
             foreach ($block_config['catid'] as $catid) {

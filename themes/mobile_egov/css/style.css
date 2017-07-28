@@ -1058,8 +1058,8 @@ div.breadcrumbs-bg {
 }
 .breadcrumb li a {
 	color: red;
-	font-size: 12px;
-	font-weight: bold;
+	font-size: 14px;
+	font-weight: 400;
 }
 .sub-breadcrumbs {
     margin: 0;
@@ -1116,6 +1116,9 @@ div.breadcrumbs-bg {
 .margin-footer-site {
 	padding: 20px
 }
+.margin-footer-site a{
+    color: #333;
+}
 .color-text-footer {
 	color: #373f56
 }
@@ -1168,15 +1171,52 @@ div.breadcrumbs-bg {
 
 /* theme-change */
 .theme-change{
-    padding: 10px 0;
+    padding: 0;
     font-size: 11px;
-    border-bottom: 1px solid #bbb
+    float: left;
+    height: 40px;
+    margin: 0px;
 }
 .theme-change span + span:before {
     content: "|";
     display:inline-block;
     margin-left: 5px;
     margin-right:5px
+}
+.theme-change a{
+    display: inline-block;
+    margin-top: 5px;
+    margin-right: 10px;
+    line-height: 30px;
+    width: 30px;
+    background-color: #fba919;
+    color: #fff;
+    text-align: center;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+}
+.theme-change .fa-lg {
+    font-size: 14px;
+}
+.bttop{
+    float: right;
+    width: 40px;
+    height: 40px;
+}
+
+.bttop a:hover {
+    color: #fff;
+    background-color: #f9e81c;
+}
+.bttop a {
+    display: block;
+    line-height: 40px;
+    background-color: #fba919;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
 }
 
 /* WinHelp */
@@ -1702,7 +1742,7 @@ hr {
     }
 }
 .site-name-gov {
-	padding-top: 10px;
+	padding-top: 4px;
 }
 .site-name-gov h1 {
 	font-size: 8px;
@@ -1767,3 +1807,34 @@ hr {
     font-family: 'Roboto Bold';
     src:url('../fonts/Roboto-Bold.ttf') format('truetype');
 }*/
+.site-name-gov{
+    color: #fff;
+}
+.site-name-gov div{
+    font-family: 'Roboto';
+    text-transform: uppercase;
+}
+.site-name-gov div.sn{
+    font-size: 14px;
+}
+.site-name-gov div.sd{
+    font-size: 16px;
+    font-weight: bold;
+}
+.headerSearch{
+    margin: 4px 0px 0px;
+}
+.headerSearch .input-group span.input-group-btn button.btn-info{
+    background-color: #fff;
+    border-color: #d0d0d0;
+    color: #e20b0f;
+    -webkit-box-shadow: inset 0 0px 0px rgba(0,0,0,0.125);
+    box-shadow: inset 0 0px 0px rgba(0,0,0,0.125)
+}
+.headerSearch .input-group span.input-group-btn button.btn-info:active:focus{
+    background-color: #fff;
+    border-color: #d0d0d0;    
+    color: #e20b0f;
+    -webkit-box-shadow: inset 0 0px 0px rgba(0,0,0,0.125);
+    box-shadow: inset 0 0px 0px rgba(0,0,0,0.125)
+}

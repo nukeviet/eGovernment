@@ -7,8 +7,21 @@
           	<div class="color-text-footer margin-footer-site">
             	[FOOTER_SITE]
             </div>
-            <div class="footer2">
+            <div class="footer2 clearfix">
             	[FOOTER_SITE_2]
+                
+                <!-- BEGIN: theme_type -->
+                <div class="theme-change margin-bottom-lg">
+                    <!-- BEGIN: loop -->
+                        <!-- BEGIN: other -->
+                        <a href="{STHEME_TYPE}" rel="nofollow" title="{STHEME_INFO}"><em class="fa fa-{STHEME_ICON} fa-lg"></em></a>
+                        <!-- END: other -->
+                    <!-- END: loop -->
+                </div>
+                <!-- END: theme_type -->
+                <div class="bttop">
+                    <a class="pointer"><em class="fa fa-eject fa-lg"></em></a>
+                </div>
             </div>
         </footer>
         
@@ -32,18 +45,6 @@
 				<h2><em class="fa fa-bars fa-lg"></em>Danh mục</h2>
 			</div>
 			[MENU_SITE]
-            <div class="padding margin-bottom-lg">
-                <!-- BEGIN: theme_type -->
-                <div class="theme-change margin-bottom-lg">
-                    {LANG.theme_type_chose2}:
-                    <!-- BEGIN: loop -->
-                        <!-- BEGIN: other -->
-                        <span><a href="{STHEME_TYPE}" rel="nofollow" title="{STHEME_INFO}">{STHEME_TITLE}</a></span>
-                        <!-- END: other -->
-                    <!-- END: loop -->
-                </div>
-                <!-- END: theme_type -->
-            </div>
         </div>
     </div>
 </div>

@@ -17,6 +17,11 @@
     padding: 0;
     margin: 0;
 }
+#tabs .mtab ul li:FIRST-CHILD h2 a{
+    border-right: 1px solid #999999;
+    padding-right: 10px;
+    margin-right: 10px;
+}
 #tabs .mtab ul li a {
     color: #a5a5a5;
     margin: 5px 0;

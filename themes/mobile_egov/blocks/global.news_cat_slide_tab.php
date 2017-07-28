@@ -191,43 +191,54 @@ if (! nv_function_exists('nv_block_news_cat_slide_tab')) {
                     $item_offset = 0;
                     $num_items = sizeof($list);
                     $xtpl->assign('CATINFO', $module_array_cat[$catid]);
-
+                    $i=0;
                     foreach ($list as $l) {
+                        $i++;
                         $item_offset++;
-                        $l['link'] = NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&amp;' . NV_NAME_VARIABLE . '=' . $module . '&amp;' . NV_OP_VARIABLE . '=' . $module_array_cat[$l['catid']]['alias'] . '/' . $l['alias'] . '-' . $l['id'] . $global_config['rewrite_exturl'];
-                        if ($l['homeimgthumb'] == 1) {
-                            $l['thumb'] = NV_BASE_SITEURL . NV_FILES_DIR . '/' . $site_mods[$module]['module_upload'] . '/' . $l['homeimgfile'];
-                        } elseif ($l['homeimgthumb'] == 2) {
-                            $l['thumb'] = NV_BASE_SITEURL . NV_UPLOADS_DIR . '/' . $site_mods[$module]['module_upload'] . '/' . $l['homeimgfile'];
-                        } elseif ($l['homeimgthumb'] == 3) {
-                            $l['thumb'] = $l['homeimgfile'];
-                        } elseif (! empty($show_no_image)) {
-                            $l['thumb'] = NV_BASE_SITEURL . $show_no_image;
-                        } else {
-                            $l['thumb'] = '';
+                        if($i % 2 == 0){
+                            $l['link'] = NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&amp;' . NV_NAME_VARIABLE . '=' . $module . '&amp;' . NV_OP_VARIABLE . '=' . $module_array_cat[$l['catid']]['alias'] . '/' . $l['alias'] . '-' . $l['id'] . $global_config['rewrite_exturl'];
+                            if ($l['homeimgthumb'] == 1) {
+                                $l['thumb'] = NV_BASE_SITEURL . NV_FILES_DIR . '/' . $site_mods[$module]['module_upload'] . '/' . $l['homeimgfile'];
+                            } elseif ($l['homeimgthumb'] == 2) {
+                                $l['thumb'] = NV_BASE_SITEURL . NV_UPLOADS_DIR . '/' . $site_mods[$module]['module_upload'] . '/' . $l['homeimgfile'];
+                            } elseif ($l['homeimgthumb'] == 3) {
+                                $l['thumb'] = $l['homeimgfile'];
+                            } elseif (! empty($show_no_image)) {
+                                $l['thumb'] = NV_BASE_SITEURL . $show_no_image;
+                            } else {
+                                $l['thumb'] = '';
+                            }
+
+                            $l['blockwidth'] = $blockwidth;
+
+                            $l['hometext_clean'] = strip_tags($l['hometext']);
+                            $l['hometext_clean'] = nv_clean60($l['hometext_clean'], $block_config['tooltip_length'], true);
+                            $l['publtime'] = nv_date('d/m/Y H:i', $l['publtime']);
+
+                            $l['title_clean'] = nv_clean60($l['title'], $block_config['title_length']);
+
+                            if ($l['external_link']) {
+                                $l['target_blank'] = 'target="_blank"';
+                            }
+
+                            $xtpl->assign('ROW', $l);
+                            if (! empty($l['thumb'])) {
+                                $xtpl->parse('main.loopcat.item.loop.img');
+                            }
+                            $xtpl->parse('main.loopcat.item.loop');
+                        }else{
+                            $l['link'] = NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&amp;' . NV_NAME_VARIABLE . '=' . $module . '&amp;' . NV_OP_VARIABLE . '=' . $module_array_cat[$l['catid']]['alias'] . '/' . $l['alias'] . '-' . $l['id'] . $global_config['rewrite_exturl'];
+
+                            $l['publtime'] = nv_date('d/m/Y H:i', $l['publtime']);
+
+                            $l['title_clean'] = nv_clean60($l['title'], $block_config['title_length']);
+
+                            if ($l['external_link']) {
+                                $l['target_blank'] = 'target="_blank"';
+                            }
+                            $xtpl->parse('main.loopcat.item.loop2');
                         }
 
-                        $l['blockwidth'] = $blockwidth;
-
-                        $l['hometext_clean'] = strip_tags($l['hometext']);
-                        $l['hometext_clean'] = nv_clean60($l['hometext_clean'], $block_config['tooltip_length'], true);
-                        $l['publtime'] = nv_date('d/m/Y H:i', $l['publtime']);
-
-                        if (! $block_config['showtooltip']) {
-                            $xtpl->assign('TITLE', 'title="' . $l['title'] . '"');
-                        }
-
-                        $l['title_clean'] = nv_clean60($l['title'], $block_config['title_length']);
-
-                        if ($l['external_link']) {
-                            $l['target_blank'] = 'target="_blank"';
-                        }
-
-                        $xtpl->assign('ROW', $l);
-                        if (! empty($l['thumb'])) {
-                            $xtpl->parse('main.loopcat.item.loop.img');
-                        }
-                        $xtpl->parse('main.loopcat.item.loop');
 
                         if ($item_offset == $num_items or ($item_offset % 2) == 0) {
                             $xtpl->parse('main.loopcat.item');
@@ -242,11 +253,6 @@ if (! nv_function_exists('nv_block_news_cat_slide_tab')) {
 
                     $xtpl->parse('main.loopcat_tab');
                 }
-            }
-
-            if ($block_config['showtooltip']) {
-                $xtpl->assign('TOOLTIP_POSITION', $block_config['tooltip_position']);
-                $xtpl->parse('main.tooltip');
             }
 
             $xtpl->parse('main');

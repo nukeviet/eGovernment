@@ -28,6 +28,10 @@
     display: block;
     line-height: 22px;
 }
+#tabs .mtab ul li a:FOCUS{
+    outline: 0px auto -webkit-focus-ring-color;
+    outline-offset: 0px;
+}
 #tabs .mtab ul li.ui-tabs-active a{
     color: #383838;
 }

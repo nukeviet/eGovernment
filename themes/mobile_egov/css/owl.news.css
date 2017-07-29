@@ -38,6 +38,7 @@
 #tabs .mtab ul li h2 {
     text-transform: uppercase;
     margin: 0;
+    font-size: 16px;
 }
 .content_cat_slider_tab img{
     width: 40%;

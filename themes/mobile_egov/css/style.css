@@ -1239,7 +1239,7 @@ div.breadcrumbs-bg {
     left:0;
     bottom:0;
     width:240px;
-    background:#fff;
+    background:#ff350d;
     border-right:1px solid #bbb;
     border-top:1px solid #bbb;
     z-index:12;
@@ -1257,7 +1257,8 @@ div.breadcrumbs-bg {
 }
  */
 #winHelp .panel{
-    margin-bottom:0
+    margin-bottom:0;
+    background-color: #ff350d;
 }
 
 #winHelp .panel-heading{
@@ -1763,6 +1764,7 @@ hr {
     margin-top: 20px;
     border-bottom: #999 1px solid;
     padding: 10px 10px 0px 20px;
+    color: #fff;
 }
 .title-menu em {
 	float: left

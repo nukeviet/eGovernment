@@ -37,7 +37,7 @@
 				<hr />
 			</div>
 			<!-- END: imgthumb -->
-			<div class="h2">{DETAIL.hometext}</div>
+			<p>{DETAIL.hometext}</p>
 		</div>
 		<!-- BEGIN: imgfull -->
 		<div style="max-width:{DETAIL.image.width}px;margin: 10px auto 10px auto">
@@ -156,13 +156,13 @@
 	<!-- END: comment -->
 
 	<!-- BEGIN: topic -->
-	<p>
+	<p class="sociss">
 		<strong>{LANG.topic}</strong>
 	</p>
 	<ul class="related">
 		<!-- BEGIN: loop -->
 		<li>
-			<em class="fa fa-angle-right">&nbsp;</em>
+			<em class="fa fa-stop">&nbsp;</em>
 			<a href="{TOPIC.link}" title="{TOPIC.title}">{TOPIC.title}</a>
 			<em>({TOPIC.time})</em>
 			<!-- BEGIN: newday -->
@@ -177,13 +177,13 @@
 	</p>
 	<!-- END: topic -->
 	<!-- BEGIN: related_new -->
-	<p>
+	<p class="sociss">
 		<strong>{LANG.related_new}</strong>
 	</p>
 	<ul class="related">
 		<!-- BEGIN: loop -->
 		<li>
-			<em class="fa fa-angle-right">&nbsp;</em>
+			<em class="fa fa-stop">&nbsp;</em>
 			<a href="{RELATED_NEW.link}" title="{RELATED_NEW.title}">{RELATED_NEW.title}</a>
 			<em>({RELATED_NEW.time})</em>
 			<!-- BEGIN: newday -->
@@ -195,13 +195,13 @@
 	<!-- END: related_new -->
 	<!-- BEGIN: related -->
 	<div class="clear">&nbsp;</div>
-	<p>
+	<p class="sociss">
 		<strong>{LANG.related}</strong>
 	</p>
 	<ul class="related">
 		<!-- BEGIN: loop -->
 		<li>
-			<em class="fa fa-angle-right">&nbsp;</em>
+			<em class="fa fa-stop">&nbsp;</em>
 			<a class="list-inline" href="{RELATED.link}" title="{RELATED.title}">{RELATED.title}</a>
 			<em>({RELATED.time})</em>
 			<!-- BEGIN: newday -->

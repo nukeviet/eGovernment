@@ -16,7 +16,7 @@
 	<div class="panel panel-default">
 		<div class="panel-body featured">
 			<!-- BEGIN: image -->
-			<a href="{CONTENT.link}" title="{CONTENT.title}"><img  alt="{HOMEIMGALT1}" src="{HOMEIMG1}" width="60" class="img-thumbnail pull-left imghome" /></a>
+			<a href="{CONTENT.link}" title="{CONTENT.title}"><img  alt="{HOMEIMGALT1}" src="{HOMEIMG1}" width="100" class="img-thumbnail pull-left imghome" /></a>
 			<!-- END: image -->
 			<h2>
 				<a href="{CONTENT.link}" title="{CONTENT.title}">{CONTENT.title}</a>
@@ -48,7 +48,7 @@
 	<div class="panel panel-default">
 		<div class="panel-body">
 			<!-- BEGIN: image -->
-			<a href="{CONTENT.link}" title="{CONTENT.title}"><img  alt="{HOMEIMGALT1}" src="{HOMEIMG1}" width="60" class="img-thumbnail pull-left imghome" /></a>
+			<a href="{CONTENT.link}" title="{CONTENT.title}"><img  alt="{HOMEIMGALT1}" src="{HOMEIMG1}" width="100" class="img-thumbnail pull-left imghome" /></a>
 			<!-- END: image -->
 			<h3>
 				<a href="{CONTENT.link}" title="{CONTENT.title}">{CONTENT.title}</a>

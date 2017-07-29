@@ -1778,7 +1778,7 @@ hr {
     background-repeat: no-repeat;
     background-color: #f9a81a;
     background-size: contain;
-    font-size: 20px;
+    font-size: 18px;
     font-family: Roboto;
     color: #fff;
     text-transform: uppercase;
@@ -1799,14 +1799,6 @@ hr {
 
 /* === font face === */
 @import url('//fonts.googleapis.com/css?family=Roboto');
-/*@font-face {
-    font-family: 'Roboto';
-    src:url('../fonts/Roboto-Regular.ttf') format('truetype');
-}
-@font-face {
-    font-family: 'Roboto Bold';
-    src:url('../fonts/Roboto-Bold.ttf') format('truetype');
-}*/
 .site-name-gov{
     color: #fff;
 }

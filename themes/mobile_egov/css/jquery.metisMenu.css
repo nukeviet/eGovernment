@@ -10,14 +10,14 @@
     float:right;
     margin-top:-33px;
     margin-right:6px;
-    color:#333;
+    color:#FFF;
     cursor:pointer;
     text-align:center;
     width:28px;
     line-height:28px;
     text-align:center;
-    border-radius:14px;
-    -webkit-border-radius:14px;
+    border-radius:0px;
+    -webkit-border-radius:0px;
     font-size:15px;
 }
 
@@ -25,11 +25,11 @@
 }
 
 .metismenu .fa.arrow:before {
-    content:" \f107 ";
+    content:"\f0da";
 }
 
 .metismenu .active > .fa.arrow:before {
-    content:" \f106 ";
+    content:"\f0d7";
 }
 
 .metismenu .plus-times {

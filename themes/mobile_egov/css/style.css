@@ -808,8 +808,10 @@ header.header-up {
 
 .headerSearch input {
     border-color:#d0d0d0;
-    height:32.4px;
+    height:30.4px;
     background:#fff !important;
+    border: 0px;
+    border-radius: 0px;
 }
 
 .headerSearch input:hover,
@@ -818,6 +820,24 @@ header.header-up {
 }
 
 .headerSearch .btn-info {
+    background-color: #fff;
+    border-color:#d0d0d0;
+    border-left: transparent;
+    border: 0px;
+    border-radius: 0;
+}
+.headerSearchs input {
+    border-color:#d0d0d0;
+    height:32.4px;
+    background:#fff !important;
+}
+
+.headerSearchs input:hover,
+.headerSearchs input:focus {
+    background:#fff !important;
+}
+
+.headerSearchs .btn-info {
     background-color: #fff;
     border-color:#d0d0d0;
     border-left: transparent;
@@ -1762,7 +1782,7 @@ hr {
 
 .title-menu {
     margin-top: 20px;
-    border-bottom: #999 1px solid;
+    border-bottom: #FFF 2px solid;
     padding: 10px 10px 0px 20px;
     color: #fff;
 }

@@ -445,6 +445,23 @@ function headerSearchKeypress(a) {
     return !1
 }
 
+function headerSearchSubmit(a) {
+    if ("n" == $(a).attr("data-click")) return !1;
+    $(a).attr("data-click", "n");
+    var b = $(".headerSearchs input"),
+        c = b.attr("maxlength"),
+        d = strip_tags(b.val()),
+        e = $(a).attr("data-minlength");
+    b.parent().removeClass("has-error");
+    "" == d || d.length < e || d.length > c ? (b.parent().addClass("has-error"), b.val(d).focus(), $(a).attr("data-click", "y")) : window.location.href = $(a).attr("data-url") + rawurlencode(d);
+    return !1
+}
+
+function headerSearchKeypress(a) {
+    13 != a.which || a.shiftKey || (a.preventDefault(), $("#tip .headerSearchs button").trigger("click"));
+    return !1
+}
+
 function showSubBreadcrumbs(a, b) {
   b.preventDefault();
   b.stopPropagation();

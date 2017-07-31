@@ -988,10 +988,6 @@ function topic_theme($topic_array, $topic_other_array, $generate_page, $page_tit
         foreach ($topic_other_array as $topic_other_array_i) {
             $topic_other_array_i['publtime'] = nv_date('H:i d/m/Y', $topic_other_array_i['publtime']);
 
-            if ($topic_other_array_i['external_link']) {
-                $topic_other_array_i['target_blank'] = 'target="_blank"';
-            }
-
             $xtpl->assign('TOPIC_OTHER', $topic_other_array_i);
             $xtpl->parse('main.other.loop');
         }

@@ -819,6 +819,8 @@ header.header-up {
 .headerSearch input:hover,
 .headerSearch input:focus {
     background:#fff !important;
+    -webkit-box-shadow: inset 0 0px 0px rgba(0,0,0,.075), 0 0 0px rgba(102, 175, 233, 0.6);
+    box-shadow: inset 0 0px 0px rgba(0,0,0,.075), 0 0 0px rgba(102, 175, 233, 0.6);
 }
 
 .headerSearch .btn-info {
@@ -860,6 +862,9 @@ header.header-up {
 .headerSearchs input:hover,
 .headerSearchs input:focus {
     background:#fff !important;
+    -webkit-box-shadow: inset 0 0px 0px rgba(0,0,0,.075), 0 0 0px rgba(102, 175, 233, 0.6);
+    box-shadow: inset 0 0px 0px rgba(0,0,0,.075), 0 0 0px rgba(102, 175, 233, 0.6);
+    border-color: #d0d0d0;
 }
 
 .headerSearchs .btn-info {
@@ -1845,6 +1850,7 @@ hr {
     -webkit-box-shadow: 0 0 0;
     border: 0;
     padding: 0px 10px;
+    margin-bottom: 10px;
 }
 .panel-red .panel-heading{
     background-image: url("../images/icons/national.png");
@@ -1908,7 +1914,8 @@ hr {
     border-color: #d0d0d0;
     color: #e20b0f;
     -webkit-box-shadow: inset 0 0px 0px rgba(0,0,0,0.125);
-    box-shadow: inset 0 0px 0px rgba(0,0,0,0.125)
+    box-shadow: inset 0 0px 0px rgba(0,0,0,0.125);
+    outline: 0;
 }
 .headerSearchs .input-group span.input-group-btn button.btn-info:active:focus{
     background-color: #fff;
@@ -1921,4 +1928,7 @@ hr {
     border: 0px;
     box-shadow: 0 0 0;
     -webkit-box-shadow: 0 0 0;
+}
+.bottomheader .col-xs-16{
+    padding-left: 0;
 }

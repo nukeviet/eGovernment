@@ -55,7 +55,7 @@
     <div class="wrap">
     	<section>
     		<div id="body">
-               <div class="row">
+               <div class="row bottomheader">
     	           <div class="col-xs-16">
                         <!-- BEGIN: breadcrumbs -->
              		   <div class="breadcrumbs clearfix">

@@ -1091,6 +1091,8 @@ div.breadcrumbs-bg {
 	display: inline-block;
 	text-align: center;
 	cursor: pointer;
+	background-color: #ededef;
+	padding: 10px 0px 11px;
 }
 
 .breadcrumb{
@@ -1873,6 +1875,13 @@ hr {
 .panel-primary .panel-heading{
     background-color: #f9a81a;
     border-color: #f9a81a;
+}
+
+/* page */
+#page-bodyhtml img{
+    width: 100%;
+    height: auto;
+    margin: 0;
 }
 
 /* === font face === */

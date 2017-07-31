@@ -105,7 +105,7 @@
 		<div class="text-center form-group">
 			<input type="hidden" name="checkss" value="{CHECKSS}" />
 			<input type="button" value="{LANG.reset}" class="btn btn-default" onclick="nv_validReset(this.form);return!1;" />
-			<input type="submit" value="{LANG.sendcontact}" name="btsend" class="btn btn-primary" />
+			<input type="submit" value="{LANG.sendcontact}" name="btsend" class="btn btn-danger" />
 		</div>
 	</form>
 </div>

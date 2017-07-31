@@ -1867,6 +1867,13 @@ hr {
 .panel-red .panel-body{
     padding: 10px 0;
 }
+.panel-primary{
+    border-color: #f9a81a;
+}
+.panel-primary .panel-heading{
+    background-color: #f9a81a;
+    border-color: #f9a81a;
+}
 
 /* === font face === */
 @import url('//fonts.googleapis.com/css?family=Roboto');

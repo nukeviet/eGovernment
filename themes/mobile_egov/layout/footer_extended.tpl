@@ -31,7 +31,6 @@
 <div id="winHelp">
     <div class="winHelp">
         <div class="clearfix">
-            <div class="padding"></div>
             <!-- Search form -->
 			<div id="headerSearch" class="">
 			<div class="headerSearch container-fluid margin-bottom">

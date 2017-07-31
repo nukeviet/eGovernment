@@ -805,7 +805,9 @@ header.header-up {
 }
 
 /* Search form */
-
+#headerSearch{
+    padding-top: 7px;
+}
 .headerSearch input {
     border-color:#d0d0d0;
     height:30.4px;
@@ -826,6 +828,29 @@ header.header-up {
     border: 0px;
     border-radius: 0;
 }
+
+.headerSearch .input-group span.input-group-btn button.btn-info{
+    background-color: #fff;
+    border-color: #d0d0d0;
+    color: #e20b0f;
+    -webkit-box-shadow: inset 0 0px 0px rgba(0,0,0,0.125);
+    box-shadow: inset 0 0px 0px rgba(0,0,0,0.125);
+    outline: 0px auto -webkit-focus-ring-color;
+    outline-offset: 0px;
+}
+.headerSearch .input-group span.input-group-btn button.btn-info:active:focus{
+    background-color: #fff;
+    border-color: #d0d0d0;    
+    color: #e20b0f;
+    -webkit-box-shadow: inset 0 0px 0px rgba(0,0,0,0.125);
+    box-shadow: inset 0 0px 0px rgba(0,0,0,0.125)
+}
+.has-error .form-control:focus {
+    border-color: #843534;
+    -webkit-box-shadow: inset 0 0px 0px rgba(0,0,0,0.075), 0 0 0px #ce8483;
+    box-shadow: inset 0 0px 0px rgba(0,0,0,0.075), 0 0 0px #ce8483;
+}
+
 .headerSearchs input {
     border-color:#d0d0d0;
     height:32.4px;
@@ -1781,7 +1806,7 @@ hr {
 }
 
 .title-menu {
-    margin-top: 20px;
+    margin-top: 5px;
     border-bottom: #FFF 2px solid;
     padding: 10px 10px 0px 20px;
     color: #fff;
@@ -1789,8 +1814,29 @@ hr {
 .title-menu em {
 	float: left
 }
+.title-menu h2{
+    font-weight: 400;
+    text-transform: uppercase;
+}
 .title-menu h2 em  {
 	margin-right: 10px;
+	position: relative;
+    top: 2px;
+}
+.metismenu .sidebar-nav ul ul{
+    background-color: #fff;
+}
+.metismenu .sidebar-nav ul ul li a{
+    color: #333;
+}
+.metismenu .sidebar-nav ul li.active{
+    background-color: #f9a819;
+}
+.metismenu .sidebar-nav ul li.active a{    
+    border-bottom: 2px solid #ff350d;
+}
+.metismenu .sidebar-nav ul li.active ul li a{
+    border-bottom: 0;
 }
 .panel-red{
     box-shadow: 0 0 0;
@@ -1838,17 +1884,17 @@ hr {
     font-size: 16px;
     font-weight: bold;
 }
-.headerSearch{
+.headerSearchs{
     margin: 4px 0px 0px;
 }
-.headerSearch .input-group span.input-group-btn button.btn-info{
+.headerSearchs .input-group span.input-group-btn button.btn-info{
     background-color: #fff;
     border-color: #d0d0d0;
     color: #e20b0f;
     -webkit-box-shadow: inset 0 0px 0px rgba(0,0,0,0.125);
     box-shadow: inset 0 0px 0px rgba(0,0,0,0.125)
 }
-.headerSearch .input-group span.input-group-btn button.btn-info:active:focus{
+.headerSearchs .input-group span.input-group-btn button.btn-info:active:focus{
     background-color: #fff;
     border-color: #d0d0d0;    
     color: #e20b0f;

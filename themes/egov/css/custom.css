@@ -93,8 +93,10 @@ a, a:link, a:active, a:visited,
 }
 
 /* Màu xanh tơi */
-.newstabhomejcarousel > ul > li > div .ibg .ct a.more {
+.newstabhomejcarousel > ul > li > div .ibg .backgroup-viewdetail a.more {
     background-color: #10bcff;
+    margin-top: 10px;
+    margin-left: 40%
 }
 
 /* Màu xanh đậm link tin tức */
@@ -1207,7 +1209,7 @@ div.breadcrumbs-bg {
     top: -4px;
 }
 
-.newstabhomejcarousel > ul > li > div .ibg .ct a.more {
+.newstabhomejcarousel > ul > li > div .ibg .backgroup-viewdetail a.more {
     font-size: 12px;
     display: inline-block;
     line-height: 12px;

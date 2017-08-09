@@ -2411,3 +2411,7 @@ button.close {
 	margin-bottom: 10px;
 	vertical-align: bottom;
 }
+.height-tabs{
+    height: 145px;
+    overflow: hidden;
+}

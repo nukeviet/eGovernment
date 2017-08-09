@@ -26,19 +26,21 @@
                                     <!-- BEGIN: loop -->
                                     <div class="col-xs-12 col-sm-12 col-md-12">
                                         <div class="ibg clearfix">
-                                    		<!-- BEGIN: img -->
-                                            <div class="img pull-left">
-                                        		<a href="{ROW.link}" title="{ROW.title}" {ROW.target_blank} ><img src="{ROW.thumb}" alt="{ROW.title}"/></a>
-                                                <div class="text-muted">
-                                                    <i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;{ROW.publtime}
+                                           <div class="height-tabs">
+                                                <!-- BEGIN: img -->
+                                                <div class="img pull-left">
+                                                    <a href="{ROW.link}" title="{ROW.title}" {ROW.target_blank} ><img src="{ROW.thumb}" alt="{ROW.title}"/></a>
+                                                    <div class="text-muted">
+                                                        <i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;{ROW.publtime}
+                                                    </div>
+                                                </div>
+                                                <!-- END: img -->
+                                                <div class="ct">
+                                                    <h3><a {TITLE} class="show" href="{ROW.link}" {ROW.target_blank} data-content="{ROW.hometext_clean}" data-img="{ROW.thumb}" data-rel="cattitlebox">{ROW.title_clean}</a></h3>
+                                                    <div class="htext">{ROW.hometext_clean}</div>
                                                 </div>
                                             </div>
-                                    		<!-- END: img -->
-                                            <div class="ct">
-                                        		<h3><a {TITLE} class="show" href="{ROW.link}" {ROW.target_blank} data-content="{ROW.hometext_clean}" data-img="{ROW.thumb}" data-rel="cattitlebox">{ROW.title_clean}</a></h3>
-                                                <div class="htext">{ROW.hometext_clean}</div>
-                                                <a href="{ROW.link}" class="more">{LANG.new_viewdetail}</a>
-                                            </div>
+                                            <div class="backgroup-viewdetail"><a href="{ROW.link}" class="more">{LANG.new_viewdetail}</a></div>
                                         </div>
                                     </div>
                             	   <!-- END: loop -->

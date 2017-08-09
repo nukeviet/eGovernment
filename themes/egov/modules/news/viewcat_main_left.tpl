@@ -1,10 +1,10 @@
 <!-- BEGIN: main -->
 <!-- BEGIN: listcat -->
 <div class="news_column">
-	<div class="panel panel-default clearfix">
-		<div class="panel-heading">
-			<ul class="list-inline sub-list-icon" style="margin: 0">
-				<li><h4><a title="{CAT.title}" href="{CAT.link}"><span>{CAT.title}</span></a></h4></li>
+	<div class="panel clearfix">
+		<div class="news-catbox-single clearfix">
+			<ul class="list-inline" style="margin: 0">
+				<li><h2><a title="{CAT.title}" href="{CAT.link}"><span>{CAT.title}</span></a></h2></li>
 				<!-- BEGIN: subcatloop -->
 				<li class="hidden-xs"><h4><a class="dimgray" title="{SUBCAT.title}" href="{SUBCAT.link}">{SUBCAT.title}</a></h4></li>
 				<!-- END: subcatloop -->
@@ -18,7 +18,7 @@
 			{BLOCK_TOPCAT}
 		</div>
 		<!-- END: block_topcat -->
-		<div class="panel-body">
+		<div class="panel-body panel-body-left">
 			<div class="row">
 				<!-- BEGIN: related -->
 				<div class="col-md-8">

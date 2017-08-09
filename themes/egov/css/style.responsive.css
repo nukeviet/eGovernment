@@ -25,6 +25,9 @@
     .container {
         width:100%;
     }
+     #header .logo {
+        text-align:center;
+    }
     .box-shadow {
         box-shadow:none;
         -webkit-box-shadow:none;
@@ -52,7 +55,6 @@
     .breadcrumbs-wrap{
         display:none
     }
-    .hidden-ss-block,
     .hidden-ss-inline,
     .hidden-ss-inline-block {
         display:none !important;
@@ -62,14 +64,17 @@
         left:-10px;
         top:0;
     }
-
+    .sitemenu-bg{
+        display: none;
+    }
     .second-nav .bg {
         -webkit-border-top-left-radius:0;
         -webkit-border-top-right-radius:0;
-        -webkit-border-bottom-right-radius:5px;
+        -webkit-border-bottom-right-radius:0px;
         border-top-left-radius:0;
         border-top-right-radius:0;
-        border-bottom-right-radius:10px;
+        border-bottom-right-radius:0px;
+        background: transparent;
     }
     .third-nav .bg{
         padding: 10px 5px;
@@ -78,15 +83,24 @@
         display:none
     }
     #menusite .navbar-default {
-        background-color: #428BCA !important;
-        border-color:#428BCA !important;
+        background-color: transparent;
+        border-color:transparent;
         -webkit-border-top-left-radius:0;
         -webkit-border-top-right-radius:0;
         -webkit-border-bottom-right-radius:5px;
         border-top-left-radius:0;
         border-top-right-radius:0;
         border-bottom-right-radius:10px;
-        padding-left:10px
+        padding-left:10px;
+    }
+    .navbar-toggle .icon-bar{
+        height: 3px;
+    }
+    #menu-site-default .conner-left, #menu-site-default .conner-right{
+        display: none;
+    }
+    #menusite .menuctwrap,#menusite .navbar-default{
+        border-bottom: none !important;
     }
     #menusite .navbar-default .navbar-nav > li {
         margin-left:0 !important;
@@ -99,7 +113,7 @@
         margin-right:0 !important;
     }
     #menusite .navbar-default .navbar-nav > li > a {
-        background-color:#428BCA !important;
+        background-color:#ea4800 !important;
         color:#ffffff !important;
     }
     #menusite .navbar-default .navbar-nav > li > a:hover,
@@ -123,25 +137,32 @@
     #menusite .navbar-collapse {
         padding-left:0 !important;
         padding-right:0 !important;
-        margin-top: -51px !important
+        margin-top: 0px !important;
+        border-color: #FFF;
     }
 
     #menusite .navbar-toggle {
         margin-left:0 !important;
-        margin-right:-55px;
+        margin-right:0px;
         color:#dcdcdc !important;
-        border-color:transparent transparent #428BCA #428BCA !important;
-        background-color:#428BCA !important;
+        border-color:transparent !important;
+        background-color:transparent;
+        margin-top: -5px;
+        padding-bottom: 0px;
+        margin-bottom: 3px
+    }
+    .reponsive-pull{
+        display: none;
     }
     #menusite .navbar-toggle:hover,
     #menusite .navbar-toggle:focus {
         color:#ffffff !important;
-        background-color:#245682 !important;
+        background-color:transparent !important;
     }
     #menusite .navbar-nav .dropdown-mobile {
         border-top-width:1px !important;
         border-top-style: solid !important;
-        border-top-color: #82b2dc !important;
+        border-top-color: #fff !important;
     }
     #menusite .dropdown-submenu {
         margin:0;
@@ -152,7 +173,7 @@
     }
     #menusite .dropdown-submenu a {
         line-height:33px;
-        background-color:#82b2dc;
+        background-color:#fff;
         border-top-width: 1px !important;
         border-top-style: solid !important;
         border-top-color: #a6c8e6 !important;
@@ -170,9 +191,6 @@
     .nv-infodie {
         width:100%;
     }
-    #header .logo {
-        text-align:center;
-    }
     .visible-ss-block {
         display:block !important;
     }
@@ -182,7 +200,6 @@
     .visible-ss-inline-block {
         display:inline-block !important;
     }
-    .hidden-ss-block,
     .hidden-ss-inline,
     .hidden-ss-inline-block {
         display:none !important;

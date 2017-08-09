@@ -794,7 +794,6 @@ a.btn {
 
 #header {
     position:relative;
-    background:#fff url("../images/banner.jpg");
     margin-top:51px;
     display: -webkit-flex;
     -webkit-align-items: center;
@@ -990,7 +989,8 @@ a.btn {
 
 /* SECOND NAV */
 .second-nav{
-    z-index:3
+    z-index:3;
+    padding-top: 2px
 }
 .second-nav .bg {
     background:#ea4800;
@@ -2395,7 +2395,7 @@ button.close {
 }
 
 .fix-sub-superfish-menu {
-	margin-top: 50px;
+	margin-top: 35px;
 }
 
 .fix-sub-superfish-menu li {

@@ -41,7 +41,7 @@
 			</li>
 			<!-- END: top_menu -->
         </ul>
-        <div class="pull-right">
+        <div class="pull-right reponsive-pull">
             <a data-toggle="mycollapse" href="#toggleearch" id="toggleearchbtn"><i class="fa fa-search"></i></a>
         </div>
         <div class="collapse" id="toggleearch">

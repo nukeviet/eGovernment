@@ -96,7 +96,7 @@ a, a:link, a:active, a:visited,
 .newstabhomejcarousel > ul > li > div .ibg .backgroup-viewdetail a.more {
     background-color: #10bcff;
     margin-top: 10px;
-    margin-left: 40%
+    margin-left: 120px
 }
 
 /* Màu xanh đậm link tin tức */
@@ -111,9 +111,9 @@ a, a:link, a:active, a:visited,
     border-top-right-radius: 0;
 }
 
-#body.dissmisshome > div:nth-child(2) > div:nth-child(2) {
+/*#body.dissmisshome > div:nth-child(2) > div:nth-child(2) {
     padding-left: 0;
-}
+}*/
 
 .site-btn-tool {
     position: fixed;
@@ -350,27 +350,23 @@ ul.menutop a,
 /* Phần header */
 #header {
     margin-top: 30px;
+    background-color: #e1eff5
 }
 
 #header > .logo {
     position: relative;
 }
 
-.sitebannertext {
-    position: absolute;
-    width: 100%;
-    padding-right: 125px;
-    height: 70px;
-    left: 125px;
-    top: 33px;
-    text-transform: uppercase;
-}
-
 .sitebannertext .sn {
     font-size: 21px;
     margin-bottom: 5px;
 }
-
+.banner{
+    position: absolute;
+}
+.banner img{
+    width: 100%
+}
 .sitebannertext .sd {
     font-size: 25px;
     font-weight: 700;
@@ -1402,6 +1398,9 @@ div.breadcrumbs-bg {
     font-size: 12px;
     font-weight: bold;
 }
+#footer .style_nav #sample-menu-4{
+    padding-left: 15px
+}
 @media (max-width:499px) {
     .sitebannertext{
         position: relative;
@@ -1412,5 +1411,119 @@ div.breadcrumbs-bg {
     }
     .sitebannertext .sd{
         font-size: 24px
+    }
+}
+@media (max-width:767px) {
+    .box-icon-title{
+        background: transparent;
+        padding-left: 0px
+    }
+    #footer{
+        background: #bcbcbc
+    }
+    .newstab-slide .box-icon-title ul.mtab h2{
+        font-size: 15px;
+    }
+    .site-btn-tool{
+        display: none;
+    }
+    .related.related-square li {
+        display: inline-flex;
+    }
+    .newstabhomejcarousel > ul > li > div .ibg{
+        padding: 10px 30px 12px 10px;
+    }
+    .newstabhomejcarousel > ul > li > div .row > div:last-child{
+        padding-left: 0px;
+        margin-top: 3px
+    }
+    .newstabhomejcarousel > ul > li > div .row > div:first-child{
+        padding-right: 0px
+    }
+    .newstabhomejcarousel > ul > li > div .ibg .ct{
+        margin-left: 0px
+    }
+    .banner img{
+        display: none;
+    }
+    .sitebannertext{
+        text-align: center;
+    }
+    .fix-sub-superfish-menu{
+        margin-top: 10px
+    }
+}
+@media (max-width:320px) {
+    .newstabhomejcarousel > ul > li > div{
+        width: 300px
+    }
+}
+
+@media (min-width:321px) and (max-width:360px) {
+    .newstabhomejcarousel > ul > li > div{
+        width: 340px
+    }
+}
+@media (min-width:361px) and (max-width:399px){
+    .newstabhomejcarousel > ul > li > div{
+        width: 361px
+    }
+}
+@media (min-width:400px) and (max-width:450px){
+    .newstabhomejcarousel > ul > li > div{
+        width: 400px
+    }
+}
+@media (min-width:451px) and (max-width:495px){
+    .newstabhomejcarousel > ul > li > div{
+        width: 451px
+    }
+}
+@media (min-width:500px) and (max-width:599px){
+    .newstabhomejcarousel > ul > li > div{
+        width: 525px
+    }
+}
+@media (min-width:600px) and (max-width:699px){
+    .newstabhomejcarousel > ul > li > div{
+        width: 620px
+    }
+}
+@media (min-width:700px) and (max-width:750px){
+    .newstabhomejcarousel > ul > li > div{
+        width: 720px
+    }
+}
+@media (min-width:768px) and (max-width:1023px) {
+    #menu-site-default > ul > li > a{
+        padding-left: 6px;
+        padding-right: 6px;
+        font-size: 10px;
+        height: auto;
+    }
+    .newstabhomejcarousel > ul > li > div .row > div:last-child{
+        padding-left: 0px
+    }
+    .sitemenu-bg, .conner-right, .conner-left{
+        display: none;
+    }
+    .menunavgreen > div > div > a{
+        font-size: 13px;
+    }
+    .newstab-slide .box-icon-title h2{
+        font-size: 14px
+    }
+    .newstab-slide .box-icon-title ul.mtab li:nth-child(n+2) a{
+        margin-left: 8px;
+        padding-left: 8px;
+    }
+    .newstabhomejcarousel-items ul.mnav{
+        top: -25px
+    }
+
+}
+@media (min-width:1024px) and (max-width:1100px) {
+    .sitemenu-bg, .conner-right, .conner-left{
+        display: none;
     }
 }

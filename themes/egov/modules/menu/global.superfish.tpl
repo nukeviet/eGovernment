@@ -12,7 +12,7 @@
 <div class="style_nav">
 	<ul id="sample-menu-4" class="sf-menu sf-navbar sf-js-enabled sf-shadow">
 		<!-- BEGIN: loopcat1 -->
-		<li {CAT1.class} class="col-md-6 fix-superfish-menu">
+		<li {CAT1.class} class="col-md-6 col-sm-6 col-xs-24 fix-superfish-menu">
 			<a title="{CAT1.note}" class="sf-with-ul fix-title-superfish-menu" href="{CAT1.link}"{CAT1.target}><strong>{CAT1.title}</strong></a>
 			<!-- BEGIN: cat2 -->
 			<ul class="fix-sub-superfish-menu">

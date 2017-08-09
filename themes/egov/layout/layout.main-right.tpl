@@ -16,7 +16,7 @@
 <!-- END: home -->
 <div class="row shadow-bg bg-body-new">
 	<div class="col-sm-16 col-md-18 fix-more-padding">
-        <div>[NEWS_1]</div>
+        <div class="border-bottom-news">[NEWS_1]</div>
 		<div class="border-bottom-news">
 			{MODULE_CONTENT}
 			[BOTTOM]

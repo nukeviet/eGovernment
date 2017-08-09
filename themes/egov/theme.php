@@ -189,6 +189,17 @@ function nv_site_theme($contents, $full = true)
         $xtpl->parse('main.image');
     }
 
+    $size_banner = @getimagesize(NV_ROOTDIR . '/' . $global_config['site_banner']);
+    if (!empty($global_config['site_banner']) and file_exists(NV_ROOTDIR . NV_BASE_SITEURL . $global_config['site_banner'])) {
+        $site_banner = NV_BASE_SITEURL . $global_config['site_banner'];
+    }
+    $xtpl->assign('SITE_BANNER', $site_banner);
+    if (isset($size_banner['mime']) and $size_banner['mime'] == 'application/x-shockwave-flash') {
+        $xtpl->parse('main.site_banner_swf');
+    } else {
+        $xtpl->parse('main.site_banner_image');
+    }
+    
     if (preg_match("/<h1[^\>]*\>/i", $contents)) {
         $xtpl->parse('main.site_name_span');
     } else {

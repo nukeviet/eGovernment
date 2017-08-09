@@ -24,7 +24,7 @@
                             <div class="clearfix">
                                 <div class="row">
                                     <!-- BEGIN: loop -->
-                                    <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="col-xs-24 col-sm-15 col-md-12">
                                         <div class="ibg clearfix">
                                            <div class="height-tabs">
                                                 <!-- BEGIN: img -->

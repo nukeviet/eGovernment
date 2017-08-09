@@ -12,7 +12,38 @@
 		<header>
 			<div class="container">
 				<div id="header" class="row">
-				    <div class="logo col-xs-24 col-sm-24 col-md-16">
+                    <div class="banner">
+                            <!-- BEGIN: site_banner_image -->
+                            <img alt="{SITE_NAME}" src="{SITE_BANNER}" />
+                            <!-- END: site_banner_image -->
+                            <!-- BEGIN: site_banner_swf -->
+                            <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+                                codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0"
+                                width="590px" height="149px">
+                                <param name="wmode" value="transparent" />
+                                <param name="movie" value="{SITE_BANNER}" />
+                                <param name="quality" value="high" />
+                                <param name="menu" value="false" />
+                                <param name="seamlesstabbing" value="false" />
+                                <param name="allowscriptaccess" value="samedomain" />
+                                <param name="loop" value="true" />
+                                <!--[if !IE]> <-->
+                                <object type="application/x-shockwave-flash" width="590px"
+                                    height="149px" data="{SITE_BANNER}">
+                                    <param name="wmode" value="transparent" />
+                                    <param name="pluginurl"
+                                        value="http://www.adobe.com/go/getflashplayer" />
+                                    <param name="loop" value="true" />
+                                    <param name="quality" value="high" />
+                                    <param name="menu" value="false" />
+                                    <param name="seamlesstabbing" value="false" />
+                                    <param name="allowscriptaccess" value="samedomain" />
+                                </object>
+                                <!--> <![endif]-->
+                            </object>
+                            <!-- END: site_banner_swf -->
+                    </div>
+				    <div class="logo col-xs-24 col-sm-4 col-md-3">
                         <!-- BEGIN: image -->
                         <a title="{SITE_NAME}" href="{THEME_SITE_HREF}"><img src="{LOGO_SRC}" width="{LOGO_WIDTH}" height="{LOGO_HEIGHT}" alt="{SITE_NAME}" /></a>
                         <!-- END: image -->
@@ -46,12 +77,11 @@
                         <span class="site_name">{SITE_NAME}</span>
                         <span class="site_description">{SITE_DESCRIPTION}</span>
                         <!-- END: site_name_span -->
+                    </div>
+                    <div class="col-xs-24 col-sm-20 col-md-21">
                         <div class="sitebannertext">
                             [TEXT_BANNER]
                         </div>
-                    </div>
-                    <div class="col-xs-24 col-sm-24 col-md-8">
-                        [HEAD_RIGHT]
                     </div>
 				</div>
 			</div>

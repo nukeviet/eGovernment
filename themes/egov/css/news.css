@@ -38,7 +38,7 @@ div.news_column .socialicon {
 }
 
 div.news_column .imghome {
-    margin:4px 10px 0 0;
+    margin:4px 15px 0 0;
 }
 
 div.news_column .text-muted {
@@ -299,7 +299,22 @@ p {
 ul.related h4{
      display: inline-block;
 }
-
+.color-view a{
+    color: #ff6903;
+}
+.color-view a:hover {
+    color: #494949;
+}
+.panel-body-left{
+    padding-left: 0px
+}
+.height-hometext{
+    height: 165px;
+    overflow: hidden;
+}
+.color-view{
+    margin-top: 7px !important;
+}
 /* Responsive news */
 @media (max-width:499px) {
     div.news_column ul.related {

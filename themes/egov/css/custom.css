@@ -969,7 +969,7 @@ div.breadcrumbs-bg {
 
 .news-catbox-single h2 {
     text-transform: uppercase;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
 }
 
 .news-catbox-single ul {
@@ -1399,4 +1399,16 @@ div.breadcrumbs-bg {
 .news_column.newsdetailbox a.more {
     font-size: 12px;
     font-weight: bold;
+}
+@media (max-width:499px) {
+    .sitebannertext{
+        position: relative;
+        padding-right: 0px;
+        height: auto;
+        left: 0px;
+        top: 0px;
+    }
+    .sitebannertext .sd{
+        font-size: 24px
+    }
 }

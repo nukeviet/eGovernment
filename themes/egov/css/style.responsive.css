@@ -173,10 +173,6 @@
     #header .logo {
         text-align:center;
     }
-    #header .logo img {
-        max-height:40px;
-        width:auto;
-    }
     .visible-ss-block {
         display:block !important;
     }

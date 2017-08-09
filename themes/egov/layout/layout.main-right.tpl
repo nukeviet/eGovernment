@@ -16,21 +16,12 @@
 <!-- END: home -->
 <div class="row shadow-bg bg-body-new">
 	<div class="col-sm-16 col-md-18 fix-more-padding">
+        <div>[NEWS_1]</div>
 		<div class="border-bottom-news">
 			{MODULE_CONTENT}
 			[BOTTOM]
 		</div>
         <!-- BEGIN: home_bottom -->
-		<div class="padding-news-tintuc-thongtinkt">
-    		<div class="row">
-    			<div class="col-sm-12 col-md-12 padding-right-tintuc-thongtinkt">[NEWS_1]</div>
-    			<div class="col-sm-12 col-md-12 padding-left-tintuc-thongtinkt">[NEWS_2]</div>
-    		</div>
-    		<div class="row">
-    			<div class="col-sm-12 col-md-12 padding-right-tintuc-thongtinkt">[NEWS_3]</div>
-    			<div class="col-sm-12 col-md-12 padding-left-tintuc-thongtinkt">[NEWS_4]</div>
-    		</div>
-		</div>
 		<div class="row">
 			<div class="col-sm-12 col-md-12 padding-right-tintuc-thongtinkt">[NEWS_5]</div>
 			<div class="col-sm-12 col-md-12 padding-left-tintuc-thongtinkt">[NEWS_6]</div>

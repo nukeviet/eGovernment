@@ -16,10 +16,10 @@
     <div class="panel panel-default clearfix">
         <div class="panel-body">
             <!-- BEGIN: image -->
-            <a href="{NEWSTOP.link}" title="{NEWSTOP.title}" {NEWSTOP.target_blank}><img alt="{HOMEIMGALT0}" src="{HOMEIMG0}" width="{IMGWIDTH0}" class="img-thumbnail pull-left imghome" /></a>
+            <a href="{NEWSTOP.link}" title="{NEWSTOP.title}"{NEWSTOP.target_blank}><img alt="{HOMEIMGALT0}" src="{HOMEIMG0}" width="{IMGWIDTH0}" class="img-thumbnail pull-left imghome" /></a>
             <!-- END: image -->
             <h3>
-                <a href="{NEWSTOP.link}" title="{NEWSTOP.title}" {NEWSTOP.target_blank}>{NEWSTOP.title}</a>
+                <a href="{NEWSTOP.link}" title="{NEWSTOP.title}"{NEWSTOP.target_blank}>{NEWSTOP.title}</a>
                 <!-- BEGIN: newday -->
                 <span class="icon_new">&nbsp;</span>
                 <!-- END: newday -->
@@ -33,21 +33,16 @@
                     <!-- END: comment -->
                 </ul>
             </div>
-            <div class="text-justify">
-                {NEWSTOP.hometext}
-            </div>
+            <div class="text-justify">{NEWSTOP.hometext}</div>
             <!-- BEGIN: adminlink -->
-            <p class="text-right">
-                {ADMINLINK}
-            </p>
+            <p class="text-right">{ADMINLINK}</p>
             <!-- END: adminlink -->
         </div>
         <!-- END: content -->
         <ul class="related">
             <!-- BEGIN: other -->
-            <li>
-                <a class="show h4" href="{NEWSTOP.link}" {NEWSTOP.target_blank} <!-- BEGIN: tooltip -->data-content="{NEWSTOP.hometext_clean}" data-img="{NEWSTOP.imghome}" data-placement="{TOOLTIP_POSITION}" data-rel="tooltip"<!-- END: tooltip --> title="{NEWSTOP.title}">{NEWSTOP.title}</a>
-            </li>
+            <li><a class="show h4" href="{NEWSTOP.link}"{NEWSTOP.target_blank} 
+                    <!-- BEGIN: tooltip -->data-content="{NEWSTOP.hometext_clean}" data-img="{NEWSTOP.imghome}" data-placement="{TOOLTIP_POSITION}" data-rel="tooltip"<!-- END: tooltip --> title="{NEWSTOP.title}">{NEWSTOP.title}</a></li>
             <!-- END: other -->
         </ul>
     </div>
@@ -56,43 +51,37 @@
 <div class="row">
     <!-- BEGIN: loopcat -->
     <div class="news_column two_column col-md-12">
-        <div class="panel panel-default clearfix">
-            <div class="panel-heading">
-                <h4 class="cat-icon"><a title="{CAT.title}" href="{CAT.link}"><span>{CAT.title}</span></a></h4>
+        <div class="clearfix">
+            <div class="news-catbox-single clearfix">
+                <h2>
+                    <a title="{CAT.title}" href="{CAT.link}"><span>{CAT.title}</span></a>
+                </h2>
             </div>
-
-            <div class="panel-body">
-                <!-- BEGIN: content -->
-                <h3>
-                    <a href="{CONTENT.link}" title="{CONTENT.title}" {CONTENT.target_blank}>{CONTENT.title}</a>
-                    <!-- BEGIN: newday -->
-                    <span class="icon_new">&nbsp;</span>
-                    <!-- END: newday -->
-                </h3>
-                <div class="text-muted">
-                    <ul class="list-unstyled list-inline">
-                        <li><em class="fa fa-clock-o">&nbsp;</em> {CONTENT.publtime}</li>
-                        <li><em class="fa fa-eye">&nbsp;</em> {CONTENT.hitstotal}</li>
-                        <!-- BEGIN: comment -->
-                        <li><em class="fa fa-comment-o">&nbsp;</em> {CONTENT.hitscm}</li>
-                        <!-- END: comment -->
-                    </ul>
+            <div class="panel-body panel-body-left">
+                <div class="height-hometext">
+                    <!-- BEGIN: content -->
+                    <!-- BEGIN: image -->
+                    <a href="{CONTENT.link}" title="{CONTENT.title}"{CONTENT.target_blank}><img alt="{HOMEIMGALT01}" src="{HOMEIMG01}" width="{IMGWIDTH0}" class="img-thumbnail pull-left imghome" /></a>
+                    <!-- END: image -->
+                    <h3>
+                        <a href="{CONTENT.link}" title="{CONTENT.title}"{CONTENT.target_blank}>{CONTENT.title}</a>
+                        <!-- BEGIN: newday -->
+                        <span class="icon_new">&nbsp;</span>
+                        <!-- END: newday -->
+                    </h3>
+                    <p>{CONTENT.hometext}</p>
                 </div>
-                <!-- BEGIN: image -->
-                <a href="{CONTENT.link}" title="{CONTENT.title}" {CONTENT.target_blank}><img alt="{HOMEIMGALT01}" src="{HOMEIMG01}" width="{IMGWIDTH0}" class="img-thumbnail pull-left imghome" /></a>
-                <!-- END: image -->
-                <p>{CONTENT.hometext}</p>
-                <!-- BEGIN: adminlink -->
-                <p class="text-right">
-                    {ADMINLINK}
+                <p class="color-view clearfix">
+                    <a href="{CONTENT.link}" class="more pull-right">{LANG.new_viewnext}&nbsp;<i class="fa fa-caret-right" aria-hidden="true"></i></a>
                 </p>
+                <!-- BEGIN: adminlink -->
+                <p class="text-right">{ADMINLINK}</p>
                 <!-- END: adminlink -->
                 <!-- END: content -->
                 <ul class="related">
                     <!-- BEGIN: other -->
                     <li class="{CLASS}">
-                        <a class="show h4" href="{CONTENT.link}" {CONTENT.target_blank} <!-- BEGIN: tooltip -->data-content="{CONTENT.hometext_clean}" data-img="{CONTENT.imghome}" data-rel="tooltip" data-placement="{TOOLTIP_POSITION}"<!-- END: tooltip --> title="{CONTENT.title}">{CONTENT.title}</a>
-                    </li>
+                    <a class="show h4" href="{CONTENT.link}"{CONTENT.target_blank}<!-- BEGIN: tooltip -->data-content="{CONTENT.hometext_clean}" data-img="{CONTENT.imghome}" data-rel="tooltip" data-placement="{TOOLTIP_POSITION}"<!-- END: tooltip --> title="{CONTENT.title}">{CONTENT.title}</a></li>
                     <!-- END: other -->
                 </ul>
             </div>

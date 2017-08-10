@@ -13,7 +13,7 @@ if (!defined('NV_IS_FILE_ADMIN')) die('Stop!!!');
 if ($nv_Request->isset_request('get_alias_title', 'post')) {
     $alias = $nv_Request->get_title('get_alias_title', 'post', '');
     $alias = change_alias($alias);
-    
+
     $stmt = $db->prepare('SELECT COUNT(*) FROM ' . NV_PREFIXLANG . '_' . $module_data . '_rows where alias = :alias');
     $stmt->bindParam(':alias', $alias, PDO::PARAM_STR);
     $stmt->execute();
@@ -22,7 +22,7 @@ if ($nv_Request->isset_request('get_alias_title', 'post')) {
         $weight = intval($weight) + 1;
         $alias = $alias . '-' . $weight;
     }
-    
+
     die($alias);
 }
 
@@ -128,8 +128,7 @@ if ($nv_Request->get_int('save', 'post') == 1) {
                 nv_insert_logs(NV_LANG_DATA, $module_name, 'log_add_catalog', 'id ' . $organid, $admin_info['userid']);
                 nv_fix_row_order();
                 $nv_Cache->delMod($module_name);
-                Header('Location: ' . NV_BASE_ADMINURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name . '&' . NV_OP_VARIABLE . '=main&pid=' . $data['parentid']);
-                die();
+                nv_redirect_location(NV_BASE_ADMINURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name . '&' . NV_OP_VARIABLE . '=main&pid=' . $data['parentid']);
             } else {
                 $error = $lang_module['errorsave'];
             }
@@ -150,7 +149,7 @@ if ($nv_Request->get_int('save', 'post') == 1) {
                             view = " . intval($data['view']) . ",
                             edit_time = UNIX_TIMESTAMP()
                       WHERE organid = " . $organid . "";
-            
+
             if ($db->query($query)) {
                 nv_insert_logs(NV_LANG_DATA, $module_name, 'log_edit_catalog', 'id ' . $organid, $admin_info['userid']);
                 if ($data['parentid'] != $data['parentid_old']) {
@@ -163,8 +162,7 @@ if ($nv_Request->get_int('save', 'post') == 1) {
                 }
                 nv_fix_organ($organid);
                 $nv_Cache->delMod($module_name);
-                Header('Location: ' . NV_BASE_ADMINURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name . '&' . NV_OP_VARIABLE . '=main&pid=' . $data['parentid']);
-                die();
+                nv_redirect_location(NV_BASE_ADMINURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name . '&' . NV_OP_VARIABLE . '=main&pid=' . $data['parentid']);
             } else {
                 $error = $lang_module['errorsave'];
             }
@@ -223,7 +221,7 @@ if (!empty($error)) {
 $xtpl->assign('DATA', $data);
 
 if ($organid == 0) {
-    
+
     $xtpl->parse('main.auto_get_alias');
 }
 

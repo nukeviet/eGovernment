@@ -16,16 +16,15 @@ if ($nv_Request->isset_request('submit', 'post')) {
     $array_config['organ_view_type_main'] = $nv_Request->get_int('organ_view_type_main', 'post', 1);
     $array_config['thumb_width'] = $nv_Request->get_int('thumb_width', 'post', 100);
     $array_config['thumb_height'] = $nv_Request->get_int('thumb_height', 'post', 150);
-    
+
     foreach ($array_config as $config_name => $config_value) {
         $query = 'UPDATE ' . NV_PREFIXLANG . '_' . $module_data . '_config SET config_value=' . $db->quote($config_value) . ' WHERE config_name=' . $db->quote($config_name);
         $db->query($query);
     }
-    
+
     $nv_Cache->delMod($module_name);
-    
-    Header('Location: ' . NV_BASE_ADMINURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name . '&' . NV_OP_VARIABLE . '=' . $op);
-    die();
+
+    nv_redirect_location(NV_BASE_ADMINURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name . '&' . NV_OP_VARIABLE . '=' . $op);
 }
 
 $sql = 'SELECT config_name, config_value FROM ' . NV_PREFIXLANG . '_' . $module_data . '_config';

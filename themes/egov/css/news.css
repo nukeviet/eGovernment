@@ -139,6 +139,7 @@ ul.other-news {
     display: block;
     padding-bottom:10px;
     border-bottom:1px solid #dadada;
+    min-height: 100px;
 }
 
 #hot-news li:last-child{
@@ -146,7 +147,9 @@ ul.other-news {
 }
 
 #hot-news li a{
-    text-indent:6px
+    text-indent:6px;
+    height: 85px;
+    overflow: hidden;
 }
 
 #print {

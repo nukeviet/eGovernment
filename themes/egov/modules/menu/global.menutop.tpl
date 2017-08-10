@@ -15,10 +15,7 @@
 <ul class="menutop">
 	<!-- BEGIN: loopcat1 -->
 	<li {CAT1.class}>
-		<!-- BEGIN: icon -->
-        <img src="{CAT1.icon}" />&nbsp;
-        <!-- END: icon -->
-		<a title="{CAT1.note}" href="{CAT1.link}" {CAT1.target}>{CAT1.title_trim}</a>
+		<a title="{CAT1.note}" href="{CAT1.link}" {CAT1.target}><!-- BEGIN: icon --><img src="{CAT1.icon}" />&nbsp;<!-- END: icon --><span>{CAT1.title_trim}</span></a>
 	</li>
 	<!-- END: loopcat1 -->
 </ul>
@@ -26,7 +23,7 @@
 <script src="{NV_BASE_SITEURL}{NV_ASSETS_DIR}/js/jquery-ui/jquery-ui.min.js"></script>
 <script type="text/javascript">
 	$('ul.menutop').slimmenu({
-	    resizeWidth: (theme_responsive == '1') ? 768 : 0,
+	    resizeWidth: (theme_responsive == '1') ? 300 : 0,
 		collapserTitle: '',
 		easingEffect:'easeInOutQuint',
 		animSpeed: 'medium',

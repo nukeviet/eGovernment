@@ -14,6 +14,7 @@
                     <div class="row">
                         <div class="col-xs-24 col-sm-24 col-md-24 color-text-footer margin-footer-site">
                             	[FOOTER_SITE]
+                                <p class="text-center">© Bản quyền thuộc về VINADES.,JSC.  Mã nguồn <a href="https://nukeviet.vn/">NukeViet CMS</a>.  Thiết kế bởi <a href="https://vinades.vn/">VINADES.,JSC</a>.   |  <a href="/siteterms/terms-and-conditions.html">Điều khoản sử dụng</a></p>
                         </div>
                     </div>
                 </div>

@@ -98,8 +98,6 @@
 				<div class="float-right">
 					<div class="language">[LANGUAGE]</div>
 					<div class="menutop-fix">[MENU_TOP]</div>
-					<div class="rss-fix">[RSS]</div>
-					<div class="user-fix">[USER]</div>
 					<div id="tip" data-content="">
 						<div class="bg"></div>
 					</div>

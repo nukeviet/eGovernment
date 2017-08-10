@@ -2,7 +2,7 @@
 <script type="text/javascript" src="{NV_BASE_SITEURL}themes/{TEMPLATE}/js/jquery.jcarousel.min.js"></script>
 
 <div class="newstab-slide">
-    <div class="box-icon-title">
+    <div class="box-icon-title box-icon-titles" id="style-3">
         <ul class="mtab">
             <!-- BEGIN: loopcat_tab -->
             <li><h2><a href="#newstabhomejcarousel-{CATINFO.catid}"<!-- BEGIN: active --> class="active"<!-- END: active --> data-toggle="newtabslide">{CATINFO.title}</a></h2></li>

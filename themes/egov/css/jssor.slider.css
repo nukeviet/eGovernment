@@ -37,30 +37,27 @@
 	display: block !important;
 	position: absolute;
 	/* size of arrow element */
-	width: 70px;
-	height: 120px;
+	width: 36px;
+	height: 36px;
 	cursor: pointer;
 	overflow: hidden;
 	opacity: 1
 
 }
 .jssora22l {
-	-background: url(../images/al-new.png) center center no-repeat;
+	background: url(../images/arr-pew.png) center center no-repeat;
 	top:0px;
 	left:20px;
 	z-index: 9999;
-	opacity: 0.3;
 }
 .jssora22l:hover, .jssora22r:hover{
 	opacity: 0.8;
 }
 .jssora22r {
-	-background: url(../images/ar-new.png) center center no-repeat;
+	background: url(../images/arr-next.png) center center no-repeat;
 	top:0px;
 	right:20px;
 	z-index: 9999;
-	opacity: 0.3;
-
 }
 @media only screen and (max-width: 767px){
 	.jssora22l{

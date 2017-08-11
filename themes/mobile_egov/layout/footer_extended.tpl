@@ -9,7 +9,7 @@
             </div>
             <div class="footer2 clearfix">
             	[FOOTER_SITE_2]
-                
+                <p class="text-center">© Bản quyền thuộc về VINADES.,JSC.  Mã nguồn <a href="https://nukeviet.vn/">NukeViet CMS</a>.  Thiết kế bởi <a href="https://vinades.vn/">VINADES.,JSC</a>.   |  <a href="/siteterms/terms-and-conditions.html">Điều khoản sử dụng</a></p>
                 <!-- BEGIN: theme_type -->
                 <div class="theme-change margin-bottom-lg">
                     <!-- BEGIN: loop -->

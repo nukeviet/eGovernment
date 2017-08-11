@@ -9,7 +9,7 @@
   <banners>
     <banners_item>
       <id>6</id>
-      <title>lk1</title>
+      <title>Văn bản chỉ đạo điều hành</title>
       <clid>0</clid>
       <file_name>qc1.jpg</file_name>
       <imageforswf></imageforswf>
@@ -18,7 +18,7 @@
       <file_width>249</file_width>
       <file_height>102</file_height>
       <file_alt></file_alt>
-      <file_click></file_click>
+      <file_click>http://egov.nukeviet.dev/laws/</file_click>
       <target>_blank</target>
       <bannerhtml></bannerhtml>
       <publ_time>1498791748</publ_time>
@@ -26,7 +26,7 @@
     </banners_item>
     <banners_item>
       <id>7</id>
-      <title>lk2</title>
+      <title>Dịch vụ công trực tuyến</title>
       <clid>0</clid>
       <file_name>qc2.jpg</file_name>
       <imageforswf></imageforswf>
@@ -35,7 +35,7 @@
       <file_width>249</file_width>
       <file_height>102</file_height>
       <file_alt></file_alt>
-      <file_click></file_click>
+      <file_click>http://www.chinhphu.vn/portal/page/portal/chinhphu/congdan/dichvucong</file_click>
       <target>_blank</target>
       <bannerhtml></bannerhtml>
       <publ_time>1498791768</publ_time>
@@ -43,7 +43,7 @@
     </banners_item>
     <banners_item>
       <id>8</id>
-      <title>lk3</title>
+      <title>Thủ tục hành chính</title>
       <clid>0</clid>
       <file_name>qc3.jpg</file_name>
       <imageforswf></imageforswf>
@@ -52,7 +52,7 @@
       <file_width>250</file_width>
       <file_height>93</file_height>
       <file_alt></file_alt>
-      <file_click></file_click>
+      <file_click>http://csdl.thutuchanhchinh.vn/Pages/trang-chu.aspx</file_click>
       <target>_blank</target>
       <bannerhtml></bannerhtml>
       <publ_time>1498791775</publ_time>
@@ -60,7 +60,7 @@
     </banners_item>
     <banners_item>
       <id>9</id>
-      <title>lk4</title>
+      <title>Trả lời cử chi</title>
       <clid>0</clid>
       <file_name>qc4.jpg</file_name>
       <imageforswf></imageforswf>
@@ -69,7 +69,7 @@
       <file_width>249</file_width>
       <file_height>95</file_height>
       <file_alt></file_alt>
-      <file_click></file_click>
+      <file_click>http://media.chinhphu.vn/video/chuyen-muc-dan-hoi--bo-truong-tra-loi-4</file_click>
       <target>_blank</target>
       <bannerhtml></bannerhtml>
       <publ_time>1498791789</publ_time>

@@ -962,3 +962,6 @@ input[type=text].required, input[type=password].required, input[type=email].requ
     background-position: right center;
     background-repeat: no-repeat;
 }
+.btn-xs, .btn-group-xs>.btn, button, html input[type="button"], input[type="reset"], input[type="submit"]{
+    margin-right: 5px
+}

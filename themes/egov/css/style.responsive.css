@@ -25,6 +25,9 @@
     .container {
         width:100%;
     }
+    .padding-right-col{
+        padding-right: 5px
+    }
      #header .logo {
         text-align:center;
     }

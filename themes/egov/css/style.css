@@ -2462,3 +2462,6 @@ button, html input[type="button"], input[type="reset"], input[type="submit"]{
     background: linear-gradient(left, rgba(255,255,255,0.3) 0%,rgba(255,255,255,0.3) 100%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=1 );
 }
+.padding-right-col{
+    padding-right: 25px
+}

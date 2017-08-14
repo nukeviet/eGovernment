@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
+-- version 4.7.3
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Aug 14, 2017 at 03:39 AM
--- Server version: 10.1.21-MariaDB
--- PHP Version: 7.1.1
+-- Host: localhost
+-- Generation Time: Aug 14, 2017 at 11:59 AM
+-- Server version: 10.1.26-MariaDB
+-- PHP Version: 5.6.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -17,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `egov_nukeviet`
+-- Database: `egovnuke_db`
 --
 
 -- --------------------------------------------------------
@@ -48,7 +50,7 @@ CREATE TABLE `nv4_authors` (
 --
 
 INSERT INTO `nv4_authors` (`admin_id`, `editor`, `lev`, `files_level`, `position`, `addtime`, `edittime`, `is_suspend`, `susp_reason`, `check_num`, `last_login`, `last_ip`, `last_agent`) VALUES
-(1, 'ckeditor', 1, 'adobe,archives,audio,documents,flash,images,real,video|1|1|1', 'Administrator', 0, 0, 0, '', '73be266f9f3942b314fb75a89f04ae80', 1502447494, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36'),
+(1, 'ckeditor', 1, 'adobe,archives,audio,documents,flash,images,real,video|1|1|1', 'Administrator', 0, 0, 0, '', 'a6361907be3105761634229bdf62e40b', 1502685678, '123.25.21.13', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36'),
 (2, 'ckeditor', 2, 'adobe,archives,audio,documents,flash,images,real,video|1|1|1', 'Quản trị', 0, 0, 0, '', 'd0e14a5db2e429cf825652b3d571e5cf', 1500623025, '123.25.21.13', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) coc_coc_browser/64.4.142 Chrome/58.4.3029.142 Safari/537.36'),
 (3, 'ckeditor', 2, 'adobe,archives,audio,documents,flash,images,real,video|1|1|1', 'Quản trị', 0, 0, 0, '', '3f0b3162f4b3894c30d4523b0c3b6ccd', 1501680348, '14.171.20.82', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36'),
 (5, 'ckeditor', 1, 'adobe,archives,audio,documents,flash,images,real,video|1|1|1', 'Quản trị', 0, 0, 0, '', '7d1dcf5a0c1c8aab0337837c4911b404', 1502186821, '123.25.21.13', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:54.0) Gecko/20100101 Firefox/54.0'),
@@ -198,7 +200,7 @@ INSERT INTO `nv4_banners_plans` (`id`, `blang`, `title`, `description`, `form`, 
 (2, '', 'Quang cao trai', '', 'sequential', 212, 800, 1, 1),
 (3, '', 'Quang cao Phai', '', 'random', 250, 500, 1, 1),
 (4, '', 'Slider', '', 'sequential', 1080, 395, 1, 0),
-(5, '', 'Bản đồ hành chính', '', 'sequential', 255, 380, 1, 0),
+(5, '', 'Bản đồ hành chính', '', 'sequential', 255, 450, 1, 0),
 (6, '', 'Liên kết', '', 'sequential', 250, 350, 1, 0);
 
 -- --------------------------------------------------------
@@ -244,7 +246,7 @@ INSERT INTO `nv4_banners_rows` (`id`, `title`, `pid`, `clid`, `file_name`, `file
 (7, 'Dịch vụ công trực tuyến', 6, 0, 'qc2.jpg', 'jpg', 'image/jpeg', 249, 102, '', '', 'http://www.chinhphu.vn/portal/page/portal/chinhphu/congdan/dichvucong', '_blank', '', 1498791768, 1498791768, 0, 0, 1, 2),
 (8, 'Thủ tục hành chính', 6, 0, 'qc3.jpg', 'jpg', 'image/jpeg', 250, 93, '', '', 'http://csdl.thutuchanhchinh.vn/Pages/trang-chu.aspx', '_blank', '', 1498791775, 1498791775, 0, 0, 1, 3),
 (9, 'Trả lời cử chi', 6, 0, 'qc4.jpg', 'jpg', 'image/jpeg', 249, 95, '', '', 'http://media.chinhphu.vn/video/chuyen-muc-dan-hoi--bo-truong-tra-loi-4', '_blank', '', 1498791789, 1498791789, 0, 0, 1, 4),
-(10, 'Slider 2', 4, 0, 'slider2.jpg', 'jpg', 'image/jpeg', 1080, 395, '', '', '', '_blank', '', 1500953093, 1500953093, 0, 0, 1, 2);
+(10, 'Slider 2', 4, 0, 'slider1_1.jpg', 'jpg', 'image/jpeg', 1080, 395, '', '', '', '_blank', '', 1500953093, 1500953093, 0, 0, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -337,7 +339,7 @@ INSERT INTO `nv4_config` (`lang`, `module`, `config_name`, `config_value`) VALUE
 ('sys', 'global', 'gzip_method', '1'),
 ('sys', 'global', 'authors_detail_main', '0'),
 ('sys', 'global', 'spadmin_add_admin', '1'),
-('sys', 'global', 'timestamp', '30'),
+('sys', 'global', 'timestamp', '31'),
 ('sys', 'global', 'captcha_type', '1'),
 ('sys', 'global', 'version', '4.1.02'),
 ('sys', 'global', 'facebook_client_id', ''),
@@ -391,7 +393,7 @@ INSERT INTO `nv4_config` (`lang`, `module`, `config_name`, `config_value`) VALUE
 ('vi', 'global', 'autologosize3', '30'),
 ('vi', 'global', 'autologomod', ''),
 ('vi', 'global', 'name_show', '0'),
-('vi', 'global', 'cronjobs_next_time', '1502501820'),
+('vi', 'global', 'cronjobs_next_time', '1502686844'),
 ('vi', 'global', 'disable_site_content', 'Vì lý do kỹ thuật website tạm ngưng hoạt động. Thành thật xin lỗi các bạn vì sự bất tiện này!'),
 ('vi', 'global', 'ssl_https_modules', ''),
 ('vi', 'seotools', 'prcservice', ''),
@@ -619,9 +621,9 @@ CREATE TABLE `nv4_counter` (
 
 INSERT INTO `nv4_counter` (`c_type`, `c_val`, `last_update`, `c_count`, `vi_count`) VALUES
 ('c_time', 'start', 0, 0, 0),
-('c_time', 'last', 0, 1502501517, 0),
-('total', 'hits', 1502501517, 443, 438),
-('year', '2017', 1502501517, 443, 438),
+('c_time', 'last', 0, 1502685630, 0),
+('total', 'hits', 1502685630, 461, 456),
+('year', '2017', 1502685630, 461, 456),
 ('year', '2018', 0, 0, 0),
 ('year', '2019', 0, 0, 0),
 ('year', '2020', 0, 0, 0),
@@ -637,7 +639,7 @@ INSERT INTO `nv4_counter` (`c_type`, `c_val`, `last_update`, `c_count`, `vi_coun
 ('month', 'May', 0, 0, 0),
 ('month', 'Jun', 1498818412, 49, 49),
 ('month', 'Jul', 1501494810, 304, 301),
-('month', 'Aug', 1502501517, 90, 88),
+('month', 'Aug', 1502685630, 108, 106),
 ('month', 'Sep', 0, 0, 0),
 ('month', 'Oct', 0, 0, 0),
 ('month', 'Nov', 0, 0, 0),
@@ -655,7 +657,7 @@ INSERT INTO `nv4_counter` (`c_type`, `c_val`, `last_update`, `c_count`, `vi_coun
 ('day', '11', 1502446185, 12, 12),
 ('day', '12', 1502501517, 1, 1),
 ('day', '13', 1499934696, 0, 0),
-('day', '14', 1500027204, 0, 0),
+('day', '14', 1502685630, 18, 18),
 ('day', '15', 1500112379, 0, 0),
 ('day', '16', 0, 0, 0),
 ('day', '17', 1500278155, 0, 0),
@@ -674,7 +676,7 @@ INSERT INTO `nv4_counter` (`c_type`, `c_val`, `last_update`, `c_count`, `vi_coun
 ('day', '30', 1498818412, 0, 0),
 ('day', '31', 1501494810, 0, 0),
 ('dayofweek', 'Sunday', 1499608141, 13, 13),
-('dayofweek', 'Monday', 1501494810, 69, 69),
+('dayofweek', 'Monday', 1502685630, 87, 87),
 ('dayofweek', 'Tuesday', 1502189624, 107, 105),
 ('dayofweek', 'Wednesday', 1502271075, 83, 81),
 ('dayofweek', 'Thursday', 1502359997, 65, 65),
@@ -688,10 +690,10 @@ INSERT INTO `nv4_counter` (`c_type`, `c_val`, `last_update`, `c_count`, `vi_coun
 ('hour', '05', 0, 0, 0),
 ('hour', '06', 0, 0, 0),
 ('hour', '07', 1500942381, 0, 0),
-('hour', '08', 1502501517, 1, 1),
-('hour', '09', 1502418747, 0, 0),
-('hour', '10', 1502423696, 0, 0),
-('hour', '11', 1502427415, 0, 0),
+('hour', '08', 1502675720, 1, 1),
+('hour', '09', 1502679118, 11, 11),
+('hour', '10', 1502682287, 2, 2),
+('hour', '11', 1502685630, 4, 4),
 ('hour', '12', 1501652573, 0, 0),
 ('hour', '13', 1501654374, 0, 0),
 ('hour', '14', 1502435488, 0, 0),
@@ -709,8 +711,8 @@ INSERT INTO `nv4_counter` (`c_type`, `c_val`, `last_update`, `c_count`, `vi_coun
 ('bot', 'bingbot', 0, 0, 0),
 ('bot', 'yahooslurp', 0, 0, 0),
 ('bot', 'w3cvalidator', 0, 0, 0),
-('browser', 'opera', 0, 0, 0),
-('browser', 'operamini', 0, 0, 0),
+('browser', 'opera', 1502677974, 1, 1),
+('browser', 'operamini', 1502677907, 1, 1),
 ('browser', 'webtv', 0, 0, 0),
 ('browser', 'explorer', 0, 0, 0),
 ('browser', 'edge', 1502177839, 1, 1),
@@ -719,7 +721,7 @@ INSERT INTO `nv4_counter` (`c_type`, `c_val`, `last_update`, `c_count`, `vi_coun
 ('browser', 'icab', 0, 0, 0),
 ('browser', 'omniweb', 0, 0, 0),
 ('browser', 'firebird', 0, 0, 0),
-('browser', 'firefox', 1502265579, 39, 38),
+('browser', 'firefox', 1502682287, 44, 43),
 ('browser', 'iceweasel', 0, 0, 0),
 ('browser', 'shiretoko', 0, 0, 0),
 ('browser', 'mozilla', 1500888181, 1, 1),
@@ -729,7 +731,7 @@ INSERT INTO `nv4_counter` (`c_type`, `c_val`, `last_update`, `c_count`, `vi_coun
 ('browser', 'iphone', 1502446185, 6, 6),
 ('browser', 'ipod', 0, 0, 0),
 ('browser', 'ipad', 0, 0, 0),
-('browser', 'chrome', 1502501517, 220, 216),
+('browser', 'chrome', 1502685630, 229, 225),
 ('browser', 'cococ', 0, 0, 0),
 ('browser', 'android', 0, 0, 0),
 ('browser', 'googlebot', 0, 0, 0),
@@ -748,10 +750,10 @@ INSERT INTO `nv4_counter` (`c_type`, `c_val`, `last_update`, `c_count`, `vi_coun
 ('browser', 'phoenix', 0, 0, 0),
 ('browser', 'Mobile', 0, 0, 0),
 ('browser', 'bots', 0, 0, 0),
-('browser', 'Unknown', 1502265572, 3, 3),
-('os', 'unknown', 1502265572, 3, 3),
+('browser', 'Unknown', 1502685551, 5, 5),
+('os', 'unknown', 1502685551, 5, 5),
 ('os', 'win', 0, 0, 0),
-('os', 'win10', 1502501517, 413, 408),
+('os', 'win10', 1502685630, 420, 415),
 ('os', 'win8', 0, 0, 0),
 ('os', 'win7', 0, 0, 0),
 ('os', 'win2003', 0, 0, 0),
@@ -760,7 +762,7 @@ INSERT INTO `nv4_counter` (`c_type`, `c_val`, `last_update`, `c_count`, `vi_coun
 ('os', 'winxp', 0, 0, 0),
 ('os', 'win2000', 0, 0, 0),
 ('os', 'apple', 0, 0, 0),
-('os', 'linux', 1501488857, 12, 12),
+('os', 'linux', 1502678021, 14, 14),
 ('os', 'os2', 0, 0, 0),
 ('os', 'beos', 0, 0, 0),
 ('os', 'iphone', 1502446185, 6, 6),
@@ -773,7 +775,7 @@ INSERT INTO `nv4_counter` (`c_type`, `c_val`, `last_update`, `c_count`, `vi_coun
 ('os', 'netbsd', 0, 0, 0),
 ('os', 'sunos', 0, 0, 0),
 ('os', 'opensolaris', 0, 0, 0),
-('os', 'android', 1502265579, 9, 9),
+('os', 'android', 1502679092, 16, 16),
 ('os', 'irix', 0, 0, 0),
 ('os', 'palm', 0, 0, 0),
 ('country', 'AD', 0, 0, 0),
@@ -986,7 +988,7 @@ INSERT INTO `nv4_counter` (`c_type`, `c_val`, `last_update`, `c_count`, `vi_coun
 ('country', 'TZ', 0, 0, 0),
 ('country', 'UA', 0, 0, 0),
 ('country', 'UG', 0, 0, 0),
-('country', 'US', 1502265572, 3, 3),
+('country', 'US', 1502685551, 5, 5),
 ('country', 'UY', 0, 0, 0),
 ('country', 'UZ', 0, 0, 0),
 ('country', 'VA', 0, 0, 0),
@@ -994,7 +996,7 @@ INSERT INTO `nv4_counter` (`c_type`, `c_val`, `last_update`, `c_count`, `vi_coun
 ('country', 'VE', 0, 0, 0),
 ('country', 'VG', 0, 0, 0),
 ('country', 'VI', 0, 0, 0),
-('country', 'VN', 1502339051, 164, 162),
+('country', 'VN', 1502685630, 176, 174),
 ('country', 'VU', 0, 0, 0),
 ('country', 'WS', 0, 0, 0),
 ('country', 'YE', 0, 0, 0),
@@ -1003,7 +1005,7 @@ INSERT INTO `nv4_counter` (`c_type`, `c_val`, `last_update`, `c_count`, `vi_coun
 ('country', 'ZA', 0, 0, 0),
 ('country', 'ZM', 0, 0, 0),
 ('country', 'ZW', 0, 0, 0),
-('country', 'ZZ', 1502501517, 275, 272),
+('country', 'ZZ', 1502678021, 279, 276),
 ('country', 'unkown', 0, 0, 0);
 
 -- --------------------------------------------------------
@@ -1033,15 +1035,15 @@ CREATE TABLE `nv4_cronjobs` (
 --
 
 INSERT INTO `nv4_cronjobs` (`id`, `start_time`, `inter_val`, `run_file`, `run_func`, `params`, `del`, `is_sys`, `act`, `last_time`, `last_result`, `vi_cron_name`) VALUES
-(1, 1498555144, 5, 'online_expired_del.php', 'cron_online_expired_del', '', 0, 1, 1, 1502501520, 1, 'Xóa các dòng ghi trạng thái online đã cũ trong CSDL'),
-(2, 1498555144, 1440, 'dump_autobackup.php', 'cron_dump_autobackup', '', 0, 1, 1, 1502421889, 1, 'Tự động lưu CSDL'),
-(3, 1498555144, 60, 'temp_download_destroy.php', 'cron_auto_del_temp_download', '', 0, 1, 1, 1502501520, 1, 'Xóa các file tạm trong thư mục tmp'),
-(4, 1498555144, 30, 'ip_logs_destroy.php', 'cron_del_ip_logs', '', 0, 1, 1, 1502501520, 1, 'Xóa IP log files, Xóa các file nhật ký truy cập'),
-(5, 1498555144, 1440, 'error_log_destroy.php', 'cron_auto_del_error_log', '', 0, 1, 1, 1502421889, 1, 'Xóa các file error_log quá hạn'),
+(1, 1498555144, 5, 'online_expired_del.php', 'cron_online_expired_del', '', 0, 1, 1, 1502686544, 1, 'Xóa các dòng ghi trạng thái online đã cũ trong CSDL'),
+(2, 1498555144, 1440, 'dump_autobackup.php', 'cron_dump_autobackup', '', 0, 1, 1, 1502675037, 1, 'Tự động lưu CSDL'),
+(3, 1498555144, 60, 'temp_download_destroy.php', 'cron_auto_del_temp_download', '', 0, 1, 1, 1502686544, 1, 'Xóa các file tạm trong thư mục tmp'),
+(4, 1498555144, 30, 'ip_logs_destroy.php', 'cron_del_ip_logs', '', 0, 1, 1, 1502685560, 1, 'Xóa IP log files, Xóa các file nhật ký truy cập'),
+(5, 1498555144, 1440, 'error_log_destroy.php', 'cron_auto_del_error_log', '', 0, 1, 1, 1502675037, 1, 'Xóa các file error_log quá hạn'),
 (6, 1498555144, 360, 'error_log_sendmail.php', 'cron_auto_sendmail_error_log', '', 0, 1, 0, 0, 0, 'Gửi email các thông báo lỗi cho admin'),
-(7, 1498555144, 60, 'ref_expired_del.php', 'cron_ref_expired_del', '', 0, 1, 1, 1502501520, 1, 'Xóa các referer quá hạn'),
-(8, 1498555144, 60, 'check_version.php', 'cron_auto_check_version', '', 0, 1, 1, 1502501520, 1, 'Kiểm tra phiên bản NukeViet'),
-(9, 1498555144, 1440, 'notification_autodel.php', 'cron_notification_autodel', '', 0, 1, 1, 1502421889, 1, 'Xóa thông báo cũ');
+(7, 1498555144, 60, 'ref_expired_del.php', 'cron_ref_expired_del', '', 0, 1, 1, 1502686544, 1, 'Xóa các referer quá hạn'),
+(8, 1498555144, 60, 'check_version.php', 'cron_auto_check_version', '', 0, 1, 1, 1502686544, 1, 'Kiểm tra phiên bản NukeViet'),
+(9, 1498555144, 1440, 'notification_autodel.php', 'cron_notification_autodel', '', 0, 1, 1, 1502675037, 1, 'Xóa thông báo cũ');
 
 -- --------------------------------------------------------
 
@@ -6560,7 +6562,20 @@ INSERT INTO `nv4_logs` (`id`, `lang`, `module_name`, `name_key`, `note_action`, 
 (996, 'vi', 'login', '[admin] Đăng nhập', ' Client IP:127.0.0.1', '', 0, 1502447320),
 (997, 'vi', 'login', '[admin] Thoát khỏi tài khoản Quản trị', ' Client IP:127.0.0.1', '', 0, 1502447446),
 (998, 'vi', 'login', '[admin] Đăng nhập', ' Client IP:127.0.0.1', '', 0, 1502447494),
-(999, 'vi', 'themes', 'Sửa block', 'Name : global slimmenu', '', 1, 1502447503);
+(999, 'vi', 'themes', 'Sửa block', 'Name : global slimmenu', '', 1, 1502447503),
+(1000, 'vi', 'login', '[egovnuke] Đăng nhập Thất bại', ' Client IP:123.25.21.13', '', 0, 1502675061),
+(1001, 'vi', 'login', '[admin] Đăng nhập', ' Client IP:123.25.21.13', '', 0, 1502675075),
+(1002, 'vi', 'webtools', 'Dọn dẹp hệ thống', 'clearcache, clearfiletemp, clearerrorlogs, clearip_logs', '', 1, 1502675079),
+(1003, 'vi', 'banners', 'log_edit_banner', 'bannerid 10', '', 1, 1502675200),
+(1004, 'vi', 'login', '[admin] Thoát khỏi tài khoản Quản trị', ' Client IP:123.25.21.13', '', 0, 1502675654),
+(1005, 'vi', 'login', '[admin] Đăng nhập', ' Client IP:123.25.21.13', '', 0, 1502685678),
+(1006, 'vi', 'banners', 'log_edit_plan', 'planid 5', '', 1, 1502685691),
+(1007, 'vi', 'themes', 'Sửa block', 'Name : global news center', '', 1, 1502685762),
+(1008, 'vi', 'themes', 'Sửa block', 'Name : global news center', '', 1, 1502685848),
+(1009, 'vi', 'themes', 'Sửa block', 'Name : global news center', '', 1, 1502685942),
+(1010, 'vi', 'themes', 'Sửa block', 'Name : global news center', '', 1, 1502685954),
+(1011, 'vi', 'themes', 'Sửa block', 'Name : global news center', '', 1, 1502685996),
+(1012, 'vi', 'webtools', 'Dọn dẹp hệ thống', 'clearcache, clearfiletemp, clearerrorlogs, clearip_logs', '', 1, 1502686675);
 
 -- --------------------------------------------------------
 
@@ -6618,6 +6633,14 @@ CREATE TABLE `nv4_sessions` (
   `username` varchar(100) NOT NULL,
   `onl_time` int(11) UNSIGNED NOT NULL DEFAULT '0'
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `nv4_sessions`
+--
+
+INSERT INTO `nv4_sessions` (`session_id`, `userid`, `username`, `onl_time`) VALUES
+('mhql2a1kd2hk189lboppipfk46', 1, 'admin', 1502686675),
+('3l3ak1n4c66h28bo7gv172a152', 0, 'guest', 1502686762);
 
 -- --------------------------------------------------------
 
@@ -6714,7 +6737,7 @@ CREATE TABLE `nv4_upload_dir` (
 
 INSERT INTO `nv4_upload_dir` (`did`, `dirname`, `time`, `thumb_type`, `thumb_width`, `thumb_height`, `thumb_quality`) VALUES
 (0, '', 0, 3, 100, 150, 90),
-(1, 'uploads', 1499142765, 0, 0, 0, 0),
+(1, 'uploads', 1502675131, 0, 0, 0, 0),
 (3, 'uploads/banners', 1499681919, 0, 0, 0, 0),
 (4, 'uploads/contact', 1499681920, 0, 0, 0, 0),
 (6, 'uploads/menu', 1499669767, 0, 0, 0, 0),
@@ -6731,13 +6754,13 @@ INSERT INTO `nv4_upload_dir` (`did`, `dirname`, `time`, `thumb_type`, `thumb_wid
 (37, 'uploads/lich-lam-viec', 0, 0, 0, 0, 0),
 (28, 'uploads/opinion/temp_pic', 0, 0, 0, 0, 0),
 (27, 'uploads/opinion/source', 0, 0, 0, 0, 0),
-(22, 'uploads/news/2017_06', 1498615696, 0, 0, 0, 0),
+(22, 'uploads/news/2017_06', 1502675125, 0, 0, 0, 0),
 (26, 'uploads/opinion', 0, 4, 230, 180, 90),
 (31, 'uploads/about', 1500862936, 0, 0, 0, 0),
-(25, 'uploads/news/2017_07', 1500023464, 0, 0, 0, 0),
+(25, 'uploads/news/2017_07', 1502675123, 0, 0, 0, 0),
 (29, 'uploads/opinion/topics', 0, 0, 0, 0, 0),
 (30, 'uploads/opinion/2017_07', 1500016991, 0, 0, 0, 0),
-(33, 'uploads/news/2017_08', 1502357111, 0, 0, 0, 0),
+(33, 'uploads/news/2017_08', 1502675120, 0, 0, 0, 0),
 (36, 'uploads/co-cau-to-chuc', 1502359066, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
@@ -6777,7 +6800,7 @@ INSERT INTO `nv4_upload_file` (`name`, `ext`, `type`, `filesize`, `src`, `srcwid
 ('loa.jpg', 'jpg', 'image', 100752, 'assets/opinion/2017_08/loa.jpg', 80, 63, '660|440', 1, 1502417731, 38, 'loa.jpg', 'loa'),
 ('hsdt_01.rar', 'rar', 'file', 134616, 'assets/images/zip.gif', 32, 32, '|', 1, 1502418597, 38, 'hsdt_01.rar', 'HSDT 01'),
 ('105584_tt1...doc', 'doc', 'file', 138752, 'assets/images/msword.png', 32, 32, '|', 1, 1502416121, 15, '105584_tt1btttt1.doc', '105584 TT1BTTTT1'),
-('banner_1.jpg', 'jpg', 'image', 97161, 'assets/banner_1.jpg', 80, 10, '1078|134', 1, 1502360945, 1, 'banner_1.jpg', 'banner'),
+('banner_1.jpg', 'jpg', 'image', 97161, 'assets/banner_1.jpg', 80, 10, '1078|134', 1, 1502674837, 1, 'banner_1.jpg', 'banner'),
 ('huongdanbo...doc', 'doc', 'file', 291328, 'assets/images/msword.png', 32, 32, '|', 1, 1502414669, 15, 'huongdanbotieuchiportal.doc', 'HuongdanBotieuchiPortal'),
 ('tt202014.doc', 'doc', 'file', 103936, 'assets/images/msword.png', 32, 32, '|', 1, 1502414792, 15, 'tt202014.doc', 'TT202014'),
 ('71135554.doc', 'doc', 'file', 190464, 'assets/images/msword.png', 32, 32, '|', 1, 1502415175, 15, '71135554.doc', '71135554'),
@@ -6786,8 +6809,8 @@ INSERT INTO `nv4_upload_file` (`name`, `ext`, `type`, `filesize`, `src`, `srcwid
 ('456.doc', 'doc', 'file', 355840, 'assets/images/msword.png', 32, 32, '|', 1, 1502418671, 38, '456.doc', '456'),
 ('user_1.png', 'png', 'image', 2950, 'assets/menu/user_1.png', 14, 15, '14|15', 1, 1502436319, 6, 'user_1.png', 'user'),
 ('rss_1.png', 'png', 'image', 2997, 'assets/menu/rss_1.png', 16, 16, '16|16', 1, 1502436355, 6, 'rss_1.png', 'rss'),
-('logo_69dd9...png', 'png', 'image', 5337, 'assets/logo_69dd94abb7337935e0826657949ab71c.png', 80, 22, '144|38', 1, 1498618759, 1, 'logo_69dd94abb7337935e0826657949ab71c.png', 'logo 69dd94abb7337935e0826657949ab71c'),
-('logo.png', 'png', 'image', 35045, 'assets/logo.png', 80, 80, '107|107', 1, 1499142793, 1, 'logo.png', 'logo'),
+('logo_69dd9...png', 'png', 'image', 5337, 'assets/logo_69dd94abb7337935e0826657949ab71c.png', 80, 22, '144|38', 1, 1502674837, 1, 'logo_69dd94abb7337935e0826657949ab71c.png', 'logo 69dd94abb7337935e0826657949ab71c'),
+('logo.png', 'png', 'image', 35045, 'assets/logo.png', 80, 80, '107|107', 1, 1502674837, 1, 'logo.png', 'logo'),
 ('icon1.png', 'png', 'image', 19873, 'assets/menu/icon1.png', 50, 44, '50|44', 1, 1499676247, 6, 'icon1.png', 'icon1'),
 ('icon2.png', 'png', 'image', 20316, 'assets/menu/icon2.png', 50, 44, '50|44', 1, 1499676248, 6, 'icon2.png', 'icon2'),
 ('icon3.png', 'png', 'image', 19713, 'assets/menu/icon3.png', 50, 44, '50|44', 1, 1499681935, 6, 'icon3.png', 'icon3'),
@@ -6815,7 +6838,7 @@ INSERT INTO `nv4_upload_file` (`name`, `ext`, `type`, `filesize`, `src`, `srcwid
 ('thuc-tap-sinh.jpg', 'jpg', 'image', 71135, 'assets/news/thuc-tap-sinh.jpg', 80, 63, '460|360', 1, 1499826396, 7, 'thuc-tap-sinh.jpg', 'thuc tap sinh'),
 ('tuyen-dung...png', 'png', 'image', 118910, 'assets/news/tuyen-dung-nvkd.png', 80, 63, '400|279', 1, 1499826396, 7, 'tuyen-dung-nvkd.png', 'tuyen dung nvkd'),
 ('tuyendung-...jpg', 'jpg', 'image', 83783, 'assets/news/tuyendung-kythuat.jpg', 80, 63, '300|300', 1, 1499826396, 7, 'tuyendung-kythuat.jpg', 'tuyendung kythuat'),
-('no-image.jpg', 'jpg', 'image', 11947, 'assets/no-image.jpg', 80, 63, '230|180', 1, 1500278089, 1, 'no-image.jpg', 'no image'),
+('no-image.jpg', 'jpg', 'image', 11947, 'assets/no-image.jpg', 80, 63, '230|180', 1, 1502674837, 1, 'no-image.jpg', 'no image'),
 ('nukevietcm...png', 'png', 'image', 13125, 'assets/about/nukevietcms_laco_180x57.png', 80, 26, '180|57', 3, 1500602165, 31, 'nukevietcms_laco_180x57.png', 'nukevietcms laco 180x57'),
 ('chinhphudi...jpg', 'jpg', 'image', 38744, 'assets/about/chinhphudientu-large.jpg', 80, 47, '500|292', 3, 1500862934, 31, 'chinhphudientu-large.jpg', 'chinhphudientu large'),
 ('10330.png', 'png', 'image', 61388, 'assets/about/10330.png', 80, 30, '500|189', 3, 1500862950, 31, '10330.png', '10330'),
@@ -6850,19 +6873,20 @@ INSERT INTO `nv4_upload_file` (`name`, `ext`, `type`, `filesize`, `src`, `srcwid
 ('vuongdinhhue.jpg', 'jpg', 'image', 47926, 'assets/page/vuongdinhhue.jpg', 60, 80, '235|314', 3, 1500869449, 11, 'vuongdinhhue.jpg', 'VuongDinhHue'),
 ('untitled-1.png', 'png', 'image', 493950, 'assets/page/untitled-1.png', 26, 80, '479|1497', 3, 1500884977, 11, 'untitled-1.png', 'Untitled 1'),
 ('image_gall...jpg', 'jpg', 'image', 974400, 'assets/page/image_gallery_500.jpg', 67, 80, '1246|1500', 3, 1501572403, 11, 'image_gallery_500.jpg', 'image gallery 500'),
-('cntt.jpg', 'jpg', 'image', 75650, 'assets/news/2017_08/cntt.jpg', 80, 63, '650|446', 1, 1502358474, 33, 'cntt.jpg', 'CNTT'),
-('sang-tao-tre.jpg', 'jpg', 'image', 218738, 'assets/news/2017_08/sang-tao-tre.jpg', 80, 63, '600|373', 1, 1502358758, 33, 'sang-tao-tre.jpg', 'sang tao tre'),
+('cntt.jpg', 'jpg', 'image', 75650, 'assets/news/2017_08/cntt.jpg', 80, 63, '650|446', 1, 1502674848, 33, 'cntt.jpg', 'CNTT'),
+('sang-tao-tre.jpg', 'jpg', 'image', 218738, 'assets/news/2017_08/sang-tao-tre.jpg', 80, 63, '600|373', 1, 1502674849, 33, 'sang-tao-tre.jpg', 'sang tao tre'),
 ('nukeviet4a...jpg', 'jpg', 'image', 55108, 'assets/co-cau-to-chuc/nukeviet4adminconfig-0module-page.jpg', 80, 45, '747|419', 1, 1502359013, 36, 'nukeviet4adminconfig-0module-page.jpg', 'nukeviet4adminconfig 0module page'),
 ('nukeviet4a...jpg', 'jpg', 'image', 107403, 'assets/co-cau-to-chuc/nukeviet4adminadd-content-module-page.jpg', 80, 54, '1047|698', 1, 1502359014, 36, 'nukeviet4adminadd-content-module-page.jpg', 'nukeviet4adminadd content module page'),
 ('nukeviet4a...jpg', 'jpg', 'image', 108395, 'assets/co-cau-to-chuc/nukeviet4adminmodule-page.jpg', 80, 33, '1249|513', 1, 1502359014, 36, 'nukeviet4adminmodule-page.jpg', 'nukeviet4adminmodule page'),
 ('minh-hoa-1.png', 'png', 'image', 36138, 'assets/co-cau-to-chuc/minh-hoa-1.png', 80, 38, '1359|652', 1, 1502359073, 36, 'minh-hoa-1.png', 'minh hoa 1'),
-('hinh-minh-hoa.jpg', 'jpg', 'image', 13531, 'assets/news/2017_08/hinh-minh-hoa.jpg', 80, 63, '400|266', 1, 1502357126, 33, 'hinh-minh-hoa.jpg', 'Hình minh họa'),
-('ptt1.jpg', 'jpg', 'image', 59248, 'assets/news/2017_08/ptt1.jpg', 80, 63, '400|254', 1, 1502357496, 33, 'ptt1.jpg', 'PTT1'),
-('ptt.jpg', 'jpg', 'image', 68188, 'assets/news/2017_08/ptt.jpg', 80, 63, '400|235', 1, 1502357559, 33, 'ptt.jpg', 'PTT'),
-('chuc-mung-...jpg', 'jpg', 'image', 130708, 'assets/news/2017_08/chuc-mung-nukeviet-thong-tu-20-bo-tttt.jpg', 80, 63, '461|360', 1, 1502357890, 33, 'chuc-mung-nukeviet-thong-tu-20-bo-tttt.jpg', 'chuc mung nukeviet thong tu 20 bo tttt'),
-('image002.jpg', 'jpg', 'image', 30441, 'assets/news/2017_08/image002.jpg', 80, 63, '360|269', 1, 1502358015, 33, 'image002.jpg', 'image002'),
-('phan_mem_n...jpg', 'jpg', 'image', 35048, 'assets/news/2017_08/phan_mem_nguon_mo.jpg', 80, 63, '550|415', 1, 1502358128, 33, 'phan_mem_nguon_mo.jpg', 'phan mem nguon mo'),
-('cach-mang-4.0.jpg', 'jpg', 'image', 65571, 'assets/news/2017_08/cach-mang-4.0.jpg', 80, 63, '500|312', 1, 1502358371, 33, 'cach-mang-4.0.jpg', 'Cach mang 4 0');
+('hinh-minh-hoa.jpg', 'jpg', 'image', 13531, 'assets/news/2017_08/hinh-minh-hoa.jpg', 80, 63, '400|266', 1, 1502674848, 33, 'hinh-minh-hoa.jpg', 'Hình minh họa'),
+('ptt1.jpg', 'jpg', 'image', 59248, 'assets/news/2017_08/ptt1.jpg', 80, 63, '400|254', 1, 1502674849, 33, 'ptt1.jpg', 'PTT1'),
+('ptt.jpg', 'jpg', 'image', 68188, 'assets/news/2017_08/ptt.jpg', 80, 63, '400|235', 1, 1502674849, 33, 'ptt.jpg', 'PTT'),
+('chuc-mung-...jpg', 'jpg', 'image', 130708, 'assets/news/2017_08/chuc-mung-nukeviet-thong-tu-20-bo-tttt.jpg', 80, 63, '461|360', 1, 1502674848, 33, 'chuc-mung-nukeviet-thong-tu-20-bo-tttt.jpg', 'chuc mung nukeviet thong tu 20 bo tttt'),
+('image002.jpg', 'jpg', 'image', 30441, 'assets/news/2017_08/image002.jpg', 80, 63, '360|269', 1, 1502674848, 33, 'image002.jpg', 'image002'),
+('phan_mem_n...jpg', 'jpg', 'image', 35048, 'assets/news/2017_08/phan_mem_nguon_mo.jpg', 80, 63, '550|415', 1, 1502674848, 33, 'phan_mem_nguon_mo.jpg', 'phan mem nguon mo'),
+('cach-mang-4.0.jpg', 'jpg', 'image', 65571, 'assets/news/2017_08/cach-mang-4.0.jpg', 80, 63, '500|312', 1, 1502674848, 33, 'cach-mang-4.0.jpg', 'Cach mang 4 0'),
+('banner.jpg', 'jpg', 'image', 97161, 'assets/banner.jpg', 80, 10, '1078|134', 1, 1502674837, 1, 'banner.jpg', 'banner');
 
 -- --------------------------------------------------------
 
@@ -7199,7 +7223,7 @@ CREATE TABLE `nv4_vi_about` (
 --
 
 INSERT INTO `nv4_vi_about` (`id`, `title`, `alias`, `image`, `imagealt`, `imageposition`, `description`, `bodytext`, `keywords`, `socialbutton`, `activecomm`, `layout_func`, `gid`, `weight`, `admin_id`, `add_time`, `edit_time`, `status`, `hitstotal`, `hot_post`) VALUES
-(1, 'Giới thiệu chung', 'Gioi-thieu-chung', '', '', 0, '', '<style type=\"text/css\">\r\n</style>\r\n&quot;Giới thiệu thông tin chung về đơn vị ở đây&quot;.', 'giới thiệu', 1, '4', '', 0, 1, 1, 1502358889, 1502358889, 1, 1, 0),
+(1, 'Giới thiệu chung', 'Gioi-thieu-chung', '', '', 0, '', '<style type=\"text/css\">\r\n</style>\r\n&quot;Giới thiệu thông tin chung về đơn vị ở đây&quot;.', 'giới thiệu', 1, '4', '', 0, 1, 1, 1502358889, 1502358889, 1, 2, 0),
 (2, 'Sự hình thành và phát triển', 'Su-hinh-thanh-va-phat-trien', '', '', 0, '', '<style type=\"text/css\">\r\n</style>\r\n&quot;Lịch sử hình thành và phát triển của đơn vị&quot;.', '', 1, '4', '', 0, 2, 1, 1502358901, 1502358901, 1, 0, 0);
 
 -- --------------------------------------------------------
@@ -7288,7 +7312,7 @@ INSERT INTO `nv4_vi_blocks_groups` (`bid`, `theme`, `module`, `file_name`, `titl
 (101, 'egov', 'menu', 'global.menutop.php', 'global menutop', '', 'no_title', '[MENU_TOP]', 0, '1', 1, '6', 1, 1, 'a:2:{s:6:\"menuid\";i:7;s:12:\"title_length\";i:0;}'),
 (102, 'egov', 'theme', 'global.text_banner.php', 'global text banner', '', 'no_title', '[TEXT_BANNER]', 0, '1', 1, '6', 1, 1, 'a:3:{s:10:\"site_title\";s:30:\"Cổng thông tin điện tử\";s:16:\"site_description\";s:17:\"UBND Thành Phố\";s:12:\"use_sitename\";i:0;}'),
 (103, 'egov', 'theme', 'global.sliders.php', 'global sliders', '', 'no_title', '[HEADER]', 0, '1', 1, '6', 0, 1, 'a:1:{s:12:\"idplanbanner\";i:4;}'),
-(104, 'egov', 'theme', 'global.news_center.php', 'global news center', '', 'no_title', '[TOP]', 0, '1', 1, '6', 0, 1, 'a:11:{s:9:\"selectmod\";s:4:\"news\";s:6:\"numrow\";i:4;s:11:\"showtooltip\";i:0;s:16:\"tooltip_position\";s:6:\"bottom\";s:14:\"tooltip_length\";s:3:\"150\";s:12:\"length_title\";i:0;s:15:\"length_hometext\";i:0;s:17:\"length_othertitle\";i:0;s:5:\"width\";i:400;s:6:\"height\";i:0;s:7:\"nocatid\";a:0:{}}'),
+(104, 'egov', 'theme', 'global.news_center.php', 'global news center', '', 'no_title', '[TOP]', 0, '1', 1, '6', 0, 1, 'a:11:{s:9:\"selectmod\";s:4:\"news\";s:6:\"numrow\";i:4;s:11:\"showtooltip\";i:0;s:16:\"tooltip_position\";s:6:\"bottom\";s:14:\"tooltip_length\";s:3:\"150\";s:12:\"length_title\";i:0;s:15:\"length_hometext\";i:0;s:17:\"length_othertitle\";i:0;s:5:\"width\";i:320;s:6:\"height\";i:0;s:7:\"nocatid\";a:0:{}}'),
 (105, 'egov', 'banners', 'global.banners.php', 'BẢN ĐỒ HÀNH CHÍNH', '', 'map_title', '[RIGHT]', 0, '1', 1, '6', 0, 1, 'a:1:{s:12:\"idplanbanner\";i:5;}'),
 (106, 'egov', 'menu', 'global.slimmenu.php', 'global slimmenu', '', 'no_title', '[NEWS_1]', 0, '1', 1, '6', 0, 1, 'a:2:{s:6:\"menuid\";i:3;s:12:\"title_length\";i:0;}'),
 (107, 'egov', 'theme', 'global.news_cat_slide_tab.php', 'global news cat slide tab', '', 'no_title', '[NEWS_1]', 0, '1', 1, '6', 0, 2, 'a:7:{s:9:\"selectmod\";s:4:\"news\";s:5:\"catid\";a:3:{i:0;s:1:\"3\";i:1;s:1:\"4\";i:2;s:1:\"6\";}s:6:\"numrow\";i:8;s:12:\"title_length\";i:0;s:11:\"showtooltip\";i:0;s:16:\"tooltip_position\";s:6:\"bottom\";s:14:\"tooltip_length\";s:3:\"150\";}'),
@@ -10536,7 +10560,7 @@ CREATE TABLE `nv4_vi_co_cau_to_chuc` (
 --
 
 INSERT INTO `nv4_vi_co_cau_to_chuc` (`id`, `title`, `alias`, `image`, `imagealt`, `imageposition`, `description`, `bodytext`, `keywords`, `socialbutton`, `activecomm`, `layout_func`, `gid`, `weight`, `admin_id`, `add_time`, `edit_time`, `status`, `hitstotal`, `hot_post`) VALUES
-(1, 'Hướng dẫn khởi tạo module và nhập dữ liệu cơ cấu tổ chức', 'Huong-dan-khoi-tao-module-va-nhap-du-lieu-co-cau-to-chuc', '', '', 0, '&quot;Cơ cấu tổ chức&quot; là nơi dùng để trình bày cơ cấu phòng ban, bộ máy lãnh đạo của tổ chức.', 'Tùy theo nhu cầu sử dụng mà website có thể sử dụng module chuyên biệt để trình bày cơ cấu tổ chức (dạng phức tạp) hoặc sử dụng dạng đơn giản (bảng biểu, sơ đồ chèn vào bài viết).<br  />\r\n<br  />\r\n<strong>Cách 1</strong>: Hướng dẫn tạo sơ đồ tổ chức dạng bảng biểu sơ đồ.<br  />\r\n<br  />\r\nModule cơ cấu tổ chức là module dùng để biên soạn nội dung dành cho phần giới thiệu website, đơn vị, tổ chức<br  />\r\n&nbsp;\r\n<div style=\"text-align:center\"><img alt=\"minh hoa 1\" height=\"288\" src=\"/uploads/co-cau-to-chuc/minh-hoa-1.png\" width=\"600\" /></div>\r\n\r\n<ul>\r\n	<li>Hiển thị danh sách các bài viết</li>\r\n	<li>Thay đổi trạng thái hiển thị ngoài site</li>\r\n	<li>Nút chức năng sửa và xóa</li>\r\n	<li>Sắp xếp lại thứ tự bài viết</li>\r\n</ul>\r\n\r\n<p id=\"them_bai_mới\"><strong>Thêm bài mới</strong></p>\r\n\r\n<p>Tại đay tiến hành thêm nội dung cho bài viết</p>\r\n\r\n<div style=\"text-align:center\"><img alt=\"nukeviet4adminadd content module page\" height=\"400\" src=\"http://egov-demo.nukeviet.vn/uploads/co-cau-to-chuc/nukeviet4adminadd-content-module-page.jpg\" width=\"600\" /></div>\r\n\r\n<p>Lưu ý: các phần có đánh đấu * màu đỏ là bắt buộc bạn phải điền và các tùy chọn khác</p>\r\n\r\n<p id=\"cấu_hinh\"><strong>Cấu hình</strong></p>\r\n\r\n<p>Thiết lập cấu hình hiển thị trình bày module ngoài site và tích hợp&nbsp;API&nbsp;của Facebook</p>\r\n\r\n<div style=\"text-align:center\"><a href=\"https://wiki.nukeviet.vn/_detail/nukeviet4:admin:config-0module-page.jpg?id=nukeviet4%3Aadmin%3Aabout\" title=\"nukeviet4:admin:config-0module-page.jpg\"><img alt=\"nukeviet4adminconfig 0module page\" height=\"337\" src=\"http://egov-demo.nukeviet.vn/uploads/co-cau-to-chuc/nukeviet4adminconfig-0module-page.jpg\" width=\"600\" /></a></div>\r\n<br  />\r\n&nbsp;<br  />\r\n<br  />\r\n<strong>Cách 2</strong>: Sử dụng module &quot;Cơ cấu tổ chức &amp; danh sách cán bộ&quot; chuyên dụng<br  />\r\n<br  />\r\nVới module dạng này có thể trình bày thông tin chi tiết danh sách cán bộ và các phòng ban chức năng của đơn vị....<br  />\r\n<br  />\r\nTìm và tải về tại NukeViet Store: (dẫn link sau).', 'hướng dẫn', 1, '4', '', 0, 1, 1, 1502359033, 1502359088, 1, 1, 0);
+(1, 'Hướng dẫn khởi tạo module và nhập dữ liệu cơ cấu tổ chức', 'Huong-dan-khoi-tao-module-va-nhap-du-lieu-co-cau-to-chuc', '', '', 0, '&quot;Cơ cấu tổ chức&quot; là nơi dùng để trình bày cơ cấu phòng ban, bộ máy lãnh đạo của tổ chức.', 'Tùy theo nhu cầu sử dụng mà website có thể sử dụng module chuyên biệt để trình bày cơ cấu tổ chức (dạng phức tạp) hoặc sử dụng dạng đơn giản (bảng biểu, sơ đồ chèn vào bài viết).<br  />\r\n<br  />\r\n<strong>Cách 1</strong>: Hướng dẫn tạo sơ đồ tổ chức dạng bảng biểu sơ đồ.<br  />\r\n<br  />\r\nModule cơ cấu tổ chức là module dùng để biên soạn nội dung dành cho phần giới thiệu website, đơn vị, tổ chức<br  />\r\n&nbsp;\r\n<div style=\"text-align:center\"><img alt=\"minh hoa 1\" height=\"288\" src=\"/uploads/co-cau-to-chuc/minh-hoa-1.png\" width=\"600\" /></div>\r\n\r\n<ul>\r\n	<li>Hiển thị danh sách các bài viết</li>\r\n	<li>Thay đổi trạng thái hiển thị ngoài site</li>\r\n	<li>Nút chức năng sửa và xóa</li>\r\n	<li>Sắp xếp lại thứ tự bài viết</li>\r\n</ul>\r\n\r\n<p id=\"them_bai_mới\"><strong>Thêm bài mới</strong></p>\r\n\r\n<p>Tại đay tiến hành thêm nội dung cho bài viết</p>\r\n\r\n<div style=\"text-align:center\"><img alt=\"nukeviet4adminadd content module page\" height=\"400\" src=\"http://egov-demo.nukeviet.vn/uploads/co-cau-to-chuc/nukeviet4adminadd-content-module-page.jpg\" width=\"600\" /></div>\r\n\r\n<p>Lưu ý: các phần có đánh đấu * màu đỏ là bắt buộc bạn phải điền và các tùy chọn khác</p>\r\n\r\n<p id=\"cấu_hinh\"><strong>Cấu hình</strong></p>\r\n\r\n<p>Thiết lập cấu hình hiển thị trình bày module ngoài site và tích hợp&nbsp;API&nbsp;của Facebook</p>\r\n\r\n<div style=\"text-align:center\"><a href=\"https://wiki.nukeviet.vn/_detail/nukeviet4:admin:config-0module-page.jpg?id=nukeviet4%3Aadmin%3Aabout\" title=\"nukeviet4:admin:config-0module-page.jpg\"><img alt=\"nukeviet4adminconfig 0module page\" height=\"337\" src=\"http://egov-demo.nukeviet.vn/uploads/co-cau-to-chuc/nukeviet4adminconfig-0module-page.jpg\" width=\"600\" /></a></div>\r\n<br  />\r\n&nbsp;<br  />\r\n<br  />\r\n<strong>Cách 2</strong>: Sử dụng module &quot;Cơ cấu tổ chức &amp; danh sách cán bộ&quot; chuyên dụng<br  />\r\n<br  />\r\nVới module dạng này có thể trình bày thông tin chi tiết danh sách cán bộ và các phòng ban chức năng của đơn vị....<br  />\r\n<br  />\r\nTìm và tải về tại NukeViet Store: (dẫn link sau).', 'hướng dẫn', 1, '4', '', 0, 1, 1, 1502359033, 1502359088, 1, 4, 0);
 
 -- --------------------------------------------------------
 
@@ -11013,10 +11037,10 @@ INSERT INTO `nv4_vi_menu_rows` (`id`, `parentid`, `mid`, `title`, `link`, `icon`
 (43, 0, 1, 'Lấy ý kiến người dân', '/index.php?language=vi&nv=opinion', '', '', '', 7, 22, 0, '135,136,139', '6', 'opinion', '', 1, '', 0, 1),
 (44, 0, 1, 'Hỏi đáp', '/index.php?language=vi&nv=opinion&op=gop-y-cua-dan', '', '', '', 8, 26, 0, '137,138', '6', 'opinion', 'gop-y-cua-dan', 1, '', 0, 1),
 (45, 0, 1, 'Liên hệ', '/index.php?language=vi&nv=contact', '', '', '', 9, 29, 0, '', '6', 'contact', '', 1, '', 0, 1),
-(46, 0, 4, 'Góp ý của dân', '/index.php?language=vi&nv=opinion&op=gop-y-cua-dan', 'lay-y-kien.png', '', '', 1, 1, 0, '', '6', 'opinion', '', 1, 'col-sm-5 col-md-5', 0, 1),
-(47, 0, 4, 'Lấy ý kiến dự thảo văn bản', '/index.php?language=vi&nv=opinion&op=du-thao-van-ban-phap-luat', 'y-kien-du-thao.png', '', '', 2, 2, 0, '', '6', 'opinion', '', 1, 'col-sm-7 col-md-7 imgonright', 0, 1),
-(48, 0, 4, 'Đường dây nóng', '/index.php?language=vi&nv=page&op=thongbao.html', 'duong-day-nong.png', '', 'Sở&#x002F; Ban ngành&#x002F; Quận&#x002F; Huyện', 3, 3, 0, '', '6', 'page', '', 1, 'col-sm-5 col-md-5 hasnote', 0, 1),
-(49, 0, 4, 'Chỉ dẫn thủ tục hành chính', '/index.php?language=vi&nv=page&op=thongbao.html', 'chi-dan-thu-tuc.png', '', 'Hỗ trợ trực tuyến qua điện thoại', 4, 4, 0, '', '6', 'page', '', 1, 'col-sm-7 col-md-7 imgonright hasnote', 0, 1),
+(46, 0, 4, 'Góp ý của dân', '/index.php?language=vi&nv=opinion&op=gop-y-cua-dan', 'lay-y-kien.png', '', '', 1, 1, 0, '', '6', 'opinion', '', 1, 'col-sm-12 col-md-5', 0, 1),
+(47, 0, 4, 'Lấy ý kiến dự thảo văn bản', '/index.php?language=vi&nv=opinion&op=du-thao-van-ban-phap-luat', 'y-kien-du-thao.png', '', '', 2, 2, 0, '', '6', 'opinion', '', 1, 'col-sm-12 col-md-7 imgonright', 0, 1),
+(48, 0, 4, 'Đường dây nóng', '/index.php?language=vi&nv=page&op=thongbao.html', 'duong-day-nong.png', '', 'Sở&#x002F; Ban ngành&#x002F; Quận&#x002F; Huyện', 3, 3, 0, '', '6', 'page', '', 1, 'col-sm-12 col-md-5 hasnote', 0, 1),
+(49, 0, 4, 'Chỉ dẫn thủ tục hành chính', '/index.php?language=vi&nv=page&op=thongbao.html', 'chi-dan-thu-tuc.png', '', 'Hỗ trợ trực tuyến qua điện thoại', 4, 4, 0, '', '6', 'page', '', 1, 'col-sm-12 col-md-7 imgonright hasnote', 0, 1),
 (50, 0, 6, 'Sở &#x002F; Ban ngành', '#', '', '', '', 1, 1, 0, '54,55,56,57', '6', '0', '', 1, '', 0, 1),
 (52, 0, 6, 'Bộ &#x002F; ngành', '#', '', '', '', 2, 6, 0, '63,64,65,66,67', '6', '0', '', 1, '', 0, 1),
 (53, 0, 6, 'Đoàn hội', '#', '', '', '', 3, 12, 0, '72,71,70,68,69', '6', '0', '', 1, '', 0, 1),
@@ -11039,9 +11063,9 @@ INSERT INTO `nv4_vi_menu_rows` (`id`, `parentid`, `mid`, `title`, `link`, `icon`
 (141, 0, 7, 'RSS', '/index.php?language=vi&nv=feeds', 'rss_1.png', '', '', 2, 2, 0, '', '6', 'feeds', '', 1, 'li-second-display', 0, 1),
 (140, 0, 7, 'Thành viên', '/index.php?language=vi&nv=users', 'user_1.png', '', '', 1, 1, 0, '', '6', 'users', '', 1, 'li-first-menu', 0, 1),
 (135, 43, 1, 'Dự thảo văn bản pháp luật', '/index.php?language=vi&nv=opinion&op=du-thao-van-ban-phap-luat', '', '', '', 1, 23, 1, '', '6', 'opinion', '', 1, '', 0, 1),
-(34, 0, 3, 'CÔNG BÁO CHÍNH PHỦ', '/index.php?language=vi&nv=laws&op=Cong-van', 'icon1.png', '', '', 1, 1, 0, '', '6', 'laws', 'Cong-van', 1, 'col-sm-8 col-md-8', 0, 1),
-(35, 0, 3, 'LỊCH LÀM VIỆC', '/index.php?language=vi&nv=lich-lam-viec', 'icon2.png', '', '', 2, 2, 0, '', '6', 'lich-lam-viec', '', 1, 'col-sm-8 col-md-8', 0, 1),
-(36, 0, 3, 'VĂN BẢN - CHỈ ĐẠO ĐIỀU HÀNH', '/index.php?language=vi&nv=laws', 'icon3.png', '', '', 3, 3, 0, '', '6', 'laws', '', 1, 'col-sm-8 col-md-8', 0, 1),
+(34, 0, 3, 'CÔNG BÁO CHÍNH PHỦ', '/index.php?language=vi&nv=laws&op=Cong-van', 'icon1.png', '', '', 1, 1, 0, '', '6', 'laws', 'Cong-van', 1, 'col-sm-12 col-md-8', 0, 1),
+(35, 0, 3, 'LỊCH LÀM VIỆC', '/index.php?language=vi&nv=lich-lam-viec', 'icon2.png', '', '', 2, 2, 0, '', '6', 'lich-lam-viec', '', 1, 'col-sm-12 col-md-8', 0, 1),
+(36, 0, 3, 'VĂN BẢN - CHỈ ĐẠO ĐIỀU HÀNH', '/index.php?language=vi&nv=laws', 'icon3.png', '', '', 3, 3, 0, '', '6', 'laws', '', 1, 'col-sm-12 col-md-8', 0, 1),
 (118, 39, 1, 'Mua sắm - mời thầu', '/index.php?language=vi&nv=news&amp;op=mua-sam-moi-thau', '', '', '', 7, 12, 1, '', '6', 'news', 'mua-sam-moi-thau', 1, '', 1, 1),
 (117, 39, 1, 'Kế hoạch', '/index.php?language=vi&nv=news&amp;op=ke-hoach', '', '', '', 6, 11, 1, '', '6', 'news', 'ke-hoach', 1, '', 1, 1),
 (116, 39, 1, 'Chiến lược - Quy hoạch', '/index.php?language=vi&nv=news&amp;op=chien-luoc-quy-hoach', '', '', '', 5, 10, 1, '', '6', 'news', 'chien-luoc-quy-hoach', 1, '', 1, 1),
@@ -11595,7 +11619,7 @@ CREATE TABLE `nv4_vi_news_1` (
 --
 
 INSERT INTO `nv4_vi_news_1` (`id`, `catid`, `listcatid`, `topicid`, `admin_id`, `author`, `sourceid`, `addtime`, `edittime`, `status`, `publtime`, `exptime`, `archive`, `title`, `alias`, `hometext`, `homeimgfile`, `homeimgalt`, `homeimgthumb`, `inhome`, `allowed_comm`, `allowed_rating`, `external_link`, `hitstotal`, `hitscm`, `total_rating`, `click_rating`, `instant_active`, `instant_template`, `instant_creatauto`) VALUES
-(1, 1, '1', 0, 1, 'Lưu Thủy', 1, 1502357163, 1502357163, 1, 1494840180, 0, 2, 'Nghiên cứu, phát triển sản phẩm CNTT phục vụ Chính phủ điện tử', 'nghien-cuu-phat-trien-san-pham-cntt-phuc-vu-chinh-phu-dien-tu', 'Bộ Khoa học và Công nghệ đã ban hành Quyết định số 1090/QĐ-BKHCN và 1100/QĐ-BKHCN phê duyệt Danh mục nhiệm vụ khoa học và công nghệ đặt hàng thuộc Chương trình khoa học và công nghệ trọng điểm cấp quốc gia giai đoạn 2016 - 2020: &quot;Nghiên cứu công nghệ và phát triển sản phẩm công nghệ thông tin phục vụ Chính phủ điện tử&quot;', '2017_08/hinh-minh-hoa.jpg', 'Hình minh họa', 1, 1, '4', 1, 0, 0, 0, 0, 0, 0, '', 0);
+(1, 1, '1', 0, 1, 'Lưu Thủy', 1, 1502357163, 1502357163, 1, 1494840180, 0, 2, 'Nghiên cứu, phát triển sản phẩm CNTT phục vụ Chính phủ điện tử', 'nghien-cuu-phat-trien-san-pham-cntt-phuc-vu-chinh-phu-dien-tu', 'Bộ Khoa học và Công nghệ đã ban hành Quyết định số 1090/QĐ-BKHCN và 1100/QĐ-BKHCN phê duyệt Danh mục nhiệm vụ khoa học và công nghệ đặt hàng thuộc Chương trình khoa học và công nghệ trọng điểm cấp quốc gia giai đoạn 2016 - 2020: &quot;Nghiên cứu công nghệ và phát triển sản phẩm công nghệ thông tin phục vụ Chính phủ điện tử&quot;', '2017_08/hinh-minh-hoa.jpg', 'Hình minh họa', 1, 1, '4', 1, 0, 1, 0, 0, 0, 0, '', 0);
 
 -- --------------------------------------------------------
 
@@ -11642,7 +11666,7 @@ CREATE TABLE `nv4_vi_news_2` (
 --
 
 INSERT INTO `nv4_vi_news_2` (`id`, `catid`, `listcatid`, `topicid`, `admin_id`, `author`, `sourceid`, `addtime`, `edittime`, `status`, `publtime`, `exptime`, `archive`, `title`, `alias`, `hometext`, `homeimgfile`, `homeimgalt`, `homeimgthumb`, `inhome`, `allowed_comm`, `allowed_rating`, `external_link`, `hitstotal`, `hitscm`, `total_rating`, `click_rating`, `instant_active`, `instant_template`, `instant_creatauto`) VALUES
-(2, 2, '2', 0, 1, 'Lê Sơn', 1, 1502357608, 1502444887, 1, 1496136540, 0, 2, 'Quyết tâm cao để đẩy mạnh CCHC thực chất, hiệu quả hơn', 'quyet-tam-cao-de-day-manh-cchc-thuc-chat-hieu-qua-hon', 'Đây là chỉ đạo của Ủy viên Bộ Chính trị, Phó Thủ tướng Thường trực Trương Hòa Bình, Trưởng Ban Chỉ đạo Cải cách hành chính (CCHC) của Chính phủ tại Hội nghị trực tuyến toàn quốc sơ kết công tác 6 tháng đầu năm 2017 của Ban Chỉ đạo, tại Trụ sở Chính phủ, chiều 30/5.', '2017_08/ptt1.jpg', 'Phó Thủ tướng Thường trực Trương Hòa Bình phát biểu chỉ đạo tại hội nghị. Ảnh&#x3A; VGP&#x002F;Lê Sơn', 1, 1, '4', 1, 0, 2, 0, 0, 0, 0, '', 0),
+(2, 2, '2', 0, 1, 'Lê Sơn', 1, 1502357608, 1502444887, 1, 1496136540, 0, 2, 'Quyết tâm cao để đẩy mạnh CCHC thực chất, hiệu quả hơn', 'quyet-tam-cao-de-day-manh-cchc-thuc-chat-hieu-qua-hon', 'Đây là chỉ đạo của Ủy viên Bộ Chính trị, Phó Thủ tướng Thường trực Trương Hòa Bình, Trưởng Ban Chỉ đạo Cải cách hành chính (CCHC) của Chính phủ tại Hội nghị trực tuyến toàn quốc sơ kết công tác 6 tháng đầu năm 2017 của Ban Chỉ đạo, tại Trụ sở Chính phủ, chiều 30/5.', '2017_08/ptt1.jpg', 'Phó Thủ tướng Thường trực Trương Hòa Bình phát biểu chỉ đạo tại hội nghị. Ảnh&#x3A; VGP&#x002F;Lê Sơn', 1, 1, '4', 1, 0, 3, 0, 0, 0, 0, '', 0),
 (3, 2, '2', 0, 1, '', 2, 1502357918, 1502358065, 1, 1419327360, 0, 2, 'NukeViet được ưu tiên mua sắm, sử dụng trong cơ quan, tổ chức nhà nước', 'nukeviet-duoc-uu-tien-mua-sam-su-dung-trong-co-quan-to-chuc-nha-nuoc', 'Ngày 5/12/2014, Bộ trưởng Bộ TT&TT Nguyễn Bắc Son đã ký ban hành Thông tư 20/2014/TT-BTTTT (Thông tư 20) quy định về các sản phẩm phần mềm nguồn mở (PMNM) được ưu tiên mua sắm, sử dụng trong cơ quan, tổ chức nhà nước. NukeViet (phiên bản 3.4.02 trở lên) là phần mềm được nằm trong danh sách này.', '2017_08/chuc-mung-nukeviet-thong-tu-20-bo-tttt.jpg', '', 1, 1, '4', 1, 0, 0, 0, 0, 0, 0, '', 0),
 (4, 2, '2', 0, 1, 'Phương Nhi', 1, 1502358021, 1502444881, 1, 1494495540, 0, 2, '11 lĩnh vực quan trọng cần ưu tiên bảo đảm an toàn thông tin mạng', '11-linh-vuc-quan-trong-can-uu-tien-bao-dam-an-toan-thong-tin-mang', 'Theo Quyết định số 632/QĐ-TTg của Thủ tướng Chính phủ, có 11 lĩnh vực quan trọng cần ưu tiên bảo đảm an toàn thông tin mạng.', '2017_08/image002.jpg', '', 1, 1, '4', 1, 0, 1, 0, 0, 0, 0, '', 0);
 
@@ -11740,7 +11764,7 @@ CREATE TABLE `nv4_vi_news_4` (
 
 INSERT INTO `nv4_vi_news_4` (`id`, `catid`, `listcatid`, `topicid`, `admin_id`, `author`, `sourceid`, `addtime`, `edittime`, `status`, `publtime`, `exptime`, `archive`, `title`, `alias`, `hometext`, `homeimgfile`, `homeimgalt`, `homeimgthumb`, `inhome`, `allowed_comm`, `allowed_rating`, `external_link`, `hitstotal`, `hitscm`, `total_rating`, `click_rating`, `instant_active`, `instant_template`, `instant_creatauto`) VALUES
 (7, 4, '4', 0, 1, 'Thành Đạt', 1, 1502358418, 1502444898, 1, 1491644700, 0, 2, 'Cách mạng 4.0 và bàn tay Chính phủ', 'cach-mang-4-0-va-ban-tay-chinh-phu', '“Để bắt kịp cách mạng công nghiệp lần thứ 4 cần phải có bàn tay mạnh mẽ từ Chính phủ”, quan điểm được nhiều chuyên gia đưa ra tại diễn đàn &quot;Cuộc cách mạng công nghiệp 4.0 - Được và mất&quot; vừa được tổ chức chiều 7/4.', '2017_08/cach-mang-4.0.jpg', 'Diễn đàn &quot;Cuộc cách mạng công nghiệp 4.0 - Được và mất&quot;', 1, 1, '4', 1, 0, 0, 0, 0, 0, 0, '', 0),
-(9, 6, '4,6', 0, 1, 'Hà Chính', 1, 1502358576, 1502359301, 1, 1497606480, 0, 2, 'Hậu TPP&#x3A; Việt Nam có tới 6 kế hoạch phòng xa', 'hau-tpp-viet-nam-co-toi-6-ke-hoach-phong-xa', 'Theo các nhà quan sát nước ngoài, “Việt Nam đã khôn khoan không bỏ hết trứng vào giỏ TPP” và Việt Nam không chỉ có “kế hoạch B” mà còn có cả kế hoạch C, D, E, F và G sau khi Hoa Kỳ rút khỏi Hiệp định này.', '', '', 0, 1, '4', 1, 0, 0, 0, 0, 0, 0, '', 0);
+(9, 6, '4,6', 0, 1, 'Hà Chính', 1, 1502358576, 1502359301, 1, 1497606480, 0, 2, 'Hậu TPP&#x3A; Việt Nam có tới 6 kế hoạch phòng xa', 'hau-tpp-viet-nam-co-toi-6-ke-hoach-phong-xa', 'Theo các nhà quan sát nước ngoài, “Việt Nam đã khôn khoan không bỏ hết trứng vào giỏ TPP” và Việt Nam không chỉ có “kế hoạch B” mà còn có cả kế hoạch C, D, E, F và G sau khi Hoa Kỳ rút khỏi Hiệp định này.', '', '', 0, 1, '4', 1, 0, 2, 0, 0, 0, 0, '', 0);
 
 -- --------------------------------------------------------
 
@@ -11787,7 +11811,7 @@ CREATE TABLE `nv4_vi_news_5` (
 --
 
 INSERT INTO `nv4_vi_news_5` (`id`, `catid`, `listcatid`, `topicid`, `admin_id`, `author`, `sourceid`, `addtime`, `edittime`, `status`, `publtime`, `exptime`, `archive`, `title`, `alias`, `hometext`, `homeimgfile`, `homeimgalt`, `homeimgthumb`, `inhome`, `allowed_comm`, `allowed_rating`, `external_link`, `hitstotal`, `hitscm`, `total_rating`, `click_rating`, `instant_active`, `instant_template`, `instant_creatauto`) VALUES
-(8, 5, '5', 0, 1, 'Minh Hiển', 1, 1502358510, 1502444892, 1, 1493977620, 0, 2, 'Thủ tướng chỉ thị tăng cường năng lực tiếp cận cuộc Cách mạng CN lần thứ 4', 'thu-tuong-chi-thi-tang-cuong-nang-luc-tiep-can-cuoc-cach-mang-cn-lan-thu-4', 'Thủ tướng Chính phủ Nguyễn Xuân Phúc vừa ký Chỉ thị 16/CT-TTg về việc tăng cường năng lực tiếp cận cuộc Cách mạng công nghiệp lần thứ 4', '2017_08/cntt.jpg', 'Ảnh minh họa', 1, 1, '4', 1, 0, 0, 0, 0, 0, 0, '', 0);
+(8, 5, '5', 0, 1, 'Minh Hiển', 1, 1502358510, 1502444892, 1, 1493977620, 0, 2, 'Thủ tướng chỉ thị tăng cường năng lực tiếp cận cuộc Cách mạng CN lần thứ 4', 'thu-tuong-chi-thi-tang-cuong-nang-luc-tiep-can-cuoc-cach-mang-cn-lan-thu-4', 'Thủ tướng Chính phủ Nguyễn Xuân Phúc vừa ký Chỉ thị 16/CT-TTg về việc tăng cường năng lực tiếp cận cuộc Cách mạng công nghiệp lần thứ 4', '2017_08/cntt.jpg', 'Ảnh minh họa', 1, 1, '4', 1, 0, 1, 0, 0, 0, 0, '', 0);
 
 -- --------------------------------------------------------
 
@@ -11834,7 +11858,7 @@ CREATE TABLE `nv4_vi_news_6` (
 --
 
 INSERT INTO `nv4_vi_news_6` (`id`, `catid`, `listcatid`, `topicid`, `admin_id`, `author`, `sourceid`, `addtime`, `edittime`, `status`, `publtime`, `exptime`, `archive`, `title`, `alias`, `hometext`, `homeimgfile`, `homeimgalt`, `homeimgthumb`, `inhome`, `allowed_comm`, `allowed_rating`, `external_link`, `hitstotal`, `hitscm`, `total_rating`, `click_rating`, `instant_active`, `instant_template`, `instant_creatauto`) VALUES
-(9, 6, '4,6', 0, 1, 'Hà Chính', 1, 1502358576, 1502359301, 1, 1497606480, 0, 2, 'Hậu TPP&#x3A; Việt Nam có tới 6 kế hoạch phòng xa', 'hau-tpp-viet-nam-co-toi-6-ke-hoach-phong-xa', 'Theo các nhà quan sát nước ngoài, “Việt Nam đã khôn khoan không bỏ hết trứng vào giỏ TPP” và Việt Nam không chỉ có “kế hoạch B” mà còn có cả kế hoạch C, D, E, F và G sau khi Hoa Kỳ rút khỏi Hiệp định này.', '', '', 0, 1, '4', 1, 0, 0, 0, 0, 0, 0, '', 0);
+(9, 6, '4,6', 0, 1, 'Hà Chính', 1, 1502358576, 1502359301, 1, 1497606480, 0, 2, 'Hậu TPP&#x3A; Việt Nam có tới 6 kế hoạch phòng xa', 'hau-tpp-viet-nam-co-toi-6-ke-hoach-phong-xa', 'Theo các nhà quan sát nước ngoài, “Việt Nam đã khôn khoan không bỏ hết trứng vào giỏ TPP” và Việt Nam không chỉ có “kế hoạch B” mà còn có cả kế hoạch C, D, E, F và G sau khi Hoa Kỳ rút khỏi Hiệp định này.', '', '', 0, 1, '4', 1, 0, 2, 0, 0, 0, 0, '', 0);
 
 -- --------------------------------------------------------
 
@@ -11881,7 +11905,7 @@ CREATE TABLE `nv4_vi_news_7` (
 --
 
 INSERT INTO `nv4_vi_news_7` (`id`, `catid`, `listcatid`, `topicid`, `admin_id`, `author`, `sourceid`, `addtime`, `edittime`, `status`, `publtime`, `exptime`, `archive`, `title`, `alias`, `hometext`, `homeimgfile`, `homeimgalt`, `homeimgthumb`, `inhome`, `allowed_comm`, `allowed_rating`, `external_link`, `hitstotal`, `hitscm`, `total_rating`, `click_rating`, `instant_active`, `instant_template`, `instant_creatauto`) VALUES
-(10, 7, '7', 0, 1, 'Chinhphu.vn', 1, 1502358714, 1502358714, 1, 1499680260, 0, 2, 'Thời gian đánh giá hồ sơ dự thầu theo nghị định hay thông tư?', 'thoi-gian-danh-gia-ho-so-du-thau-theo-nghi-dinh-hay-thong-tu', 'Trường hợp gói thầu có quy mô nhỏ thì thời gian đánh giá hồ sơ dự thầu tối đa là 25 ngày, kể từ ngày mở thầu đến khi bên mời thầu có tờ trình đề nghị phê duyệt kết quả lựa chọn nhà thầu.', '', '', 0, 1, '4', 1, 0, 1, 0, 0, 0, 0, '', 0);
+(10, 7, '7', 0, 1, 'Chinhphu.vn', 1, 1502358714, 1502358714, 1, 1499680260, 0, 2, 'Thời gian đánh giá hồ sơ dự thầu theo nghị định hay thông tư?', 'thoi-gian-danh-gia-ho-so-du-thau-theo-nghi-dinh-hay-thong-tu', 'Trường hợp gói thầu có quy mô nhỏ thì thời gian đánh giá hồ sơ dự thầu tối đa là 25 ngày, kể từ ngày mở thầu đến khi bên mời thầu có tờ trình đề nghị phê duyệt kết quả lựa chọn nhà thầu.', '', '', 0, 1, '4', 1, 0, 3, 0, 0, 0, 0, '', 0);
 
 -- --------------------------------------------------------
 
@@ -12220,16 +12244,16 @@ CREATE TABLE `nv4_vi_news_rows` (
 --
 
 INSERT INTO `nv4_vi_news_rows` (`id`, `catid`, `listcatid`, `topicid`, `admin_id`, `author`, `sourceid`, `addtime`, `edittime`, `status`, `publtime`, `exptime`, `archive`, `title`, `alias`, `hometext`, `homeimgfile`, `homeimgalt`, `homeimgthumb`, `inhome`, `allowed_comm`, `allowed_rating`, `external_link`, `hitstotal`, `hitscm`, `total_rating`, `click_rating`, `instant_active`, `instant_template`, `instant_creatauto`) VALUES
-(1, 1, '1', 0, 1, 'Lưu Thủy', 1, 1502357163, 1502357163, 1, 1494840180, 0, 2, 'Nghiên cứu, phát triển sản phẩm CNTT phục vụ Chính phủ điện tử', 'nghien-cuu-phat-trien-san-pham-cntt-phuc-vu-chinh-phu-dien-tu', 'Bộ Khoa học và Công nghệ đã ban hành Quyết định số 1090/QĐ-BKHCN và 1100/QĐ-BKHCN phê duyệt Danh mục nhiệm vụ khoa học và công nghệ đặt hàng thuộc Chương trình khoa học và công nghệ trọng điểm cấp quốc gia giai đoạn 2016 - 2020: &quot;Nghiên cứu công nghệ và phát triển sản phẩm công nghệ thông tin phục vụ Chính phủ điện tử&quot;', '2017_08/hinh-minh-hoa.jpg', 'Hình minh họa', 1, 1, '4', 1, 0, 0, 0, 0, 0, 0, '', 0),
-(2, 2, '2', 0, 1, 'Lê Sơn', 1, 1502357608, 1502444887, 1, 1496136540, 0, 2, 'Quyết tâm cao để đẩy mạnh CCHC thực chất, hiệu quả hơn', 'quyet-tam-cao-de-day-manh-cchc-thuc-chat-hieu-qua-hon', 'Đây là chỉ đạo của Ủy viên Bộ Chính trị, Phó Thủ tướng Thường trực Trương Hòa Bình, Trưởng Ban Chỉ đạo Cải cách hành chính (CCHC) của Chính phủ tại Hội nghị trực tuyến toàn quốc sơ kết công tác 6 tháng đầu năm 2017 của Ban Chỉ đạo, tại Trụ sở Chính phủ, chiều 30/5.', '2017_08/ptt1.jpg', 'Phó Thủ tướng Thường trực Trương Hòa Bình phát biểu chỉ đạo tại hội nghị. Ảnh&#x3A; VGP&#x002F;Lê Sơn', 1, 1, '4', 1, 0, 2, 0, 0, 0, 0, '', 0),
+(1, 1, '1', 0, 1, 'Lưu Thủy', 1, 1502357163, 1502357163, 1, 1494840180, 0, 2, 'Nghiên cứu, phát triển sản phẩm CNTT phục vụ Chính phủ điện tử', 'nghien-cuu-phat-trien-san-pham-cntt-phuc-vu-chinh-phu-dien-tu', 'Bộ Khoa học và Công nghệ đã ban hành Quyết định số 1090/QĐ-BKHCN và 1100/QĐ-BKHCN phê duyệt Danh mục nhiệm vụ khoa học và công nghệ đặt hàng thuộc Chương trình khoa học và công nghệ trọng điểm cấp quốc gia giai đoạn 2016 - 2020: &quot;Nghiên cứu công nghệ và phát triển sản phẩm công nghệ thông tin phục vụ Chính phủ điện tử&quot;', '2017_08/hinh-minh-hoa.jpg', 'Hình minh họa', 1, 1, '4', 1, 0, 1, 0, 0, 0, 0, '', 0),
+(2, 2, '2', 0, 1, 'Lê Sơn', 1, 1502357608, 1502444887, 1, 1496136540, 0, 2, 'Quyết tâm cao để đẩy mạnh CCHC thực chất, hiệu quả hơn', 'quyet-tam-cao-de-day-manh-cchc-thuc-chat-hieu-qua-hon', 'Đây là chỉ đạo của Ủy viên Bộ Chính trị, Phó Thủ tướng Thường trực Trương Hòa Bình, Trưởng Ban Chỉ đạo Cải cách hành chính (CCHC) của Chính phủ tại Hội nghị trực tuyến toàn quốc sơ kết công tác 6 tháng đầu năm 2017 của Ban Chỉ đạo, tại Trụ sở Chính phủ, chiều 30/5.', '2017_08/ptt1.jpg', 'Phó Thủ tướng Thường trực Trương Hòa Bình phát biểu chỉ đạo tại hội nghị. Ảnh&#x3A; VGP&#x002F;Lê Sơn', 1, 1, '4', 1, 0, 3, 0, 0, 0, 0, '', 0),
 (3, 2, '2', 0, 1, '', 2, 1502357918, 1502358065, 1, 1419327360, 0, 2, 'NukeViet được ưu tiên mua sắm, sử dụng trong cơ quan, tổ chức nhà nước', 'nukeviet-duoc-uu-tien-mua-sam-su-dung-trong-co-quan-to-chuc-nha-nuoc', 'Ngày 5/12/2014, Bộ trưởng Bộ TT&TT Nguyễn Bắc Son đã ký ban hành Thông tư 20/2014/TT-BTTTT (Thông tư 20) quy định về các sản phẩm phần mềm nguồn mở (PMNM) được ưu tiên mua sắm, sử dụng trong cơ quan, tổ chức nhà nước. NukeViet (phiên bản 3.4.02 trở lên) là phần mềm được nằm trong danh sách này.', '2017_08/chuc-mung-nukeviet-thong-tu-20-bo-tttt.jpg', '', 1, 1, '4', 1, 0, 0, 0, 0, 0, 0, '', 0),
 (4, 2, '2', 0, 1, 'Phương Nhi', 1, 1502358021, 1502444881, 1, 1494495540, 0, 2, '11 lĩnh vực quan trọng cần ưu tiên bảo đảm an toàn thông tin mạng', '11-linh-vuc-quan-trong-can-uu-tien-bao-dam-an-toan-thong-tin-mang', 'Theo Quyết định số 632/QĐ-TTg của Thủ tướng Chính phủ, có 11 lĩnh vực quan trọng cần ưu tiên bảo đảm an toàn thông tin mạng.', '2017_08/image002.jpg', '', 1, 1, '4', 1, 0, 1, 0, 0, 0, 0, '', 0),
 (5, 3, '3', 0, 1, 'Nguyễn Thế Hùng', 3, 1502358170, 1502358170, 1, 1490780460, 0, 2, '“Điểm mặt” 9 nhầm lẫn thường gặp về phần mềm nguồn mở', 'diem-mat-9-nham-lan-thuong-gap-ve-phan-mem-nguon-mo', 'Mặc dù sử dụng phần mềm nguồn mở đã trở thành một xu hướng tất yếu song đến nay vẫn còn không ít người vẫn nhầm lẫn về phần mềm nguồn mở, đặc biệt là khi so sánh phần mềm nguồn mở với phần mềm nguồn đóng.', '2017_08/phan_mem_nguon_mo.jpg', 'Tại Việt Nam, cộng đồng phần mềm nguồn mở Việt Nam đã bước đầu được hình thành và ngày càng lớn mạnh &#40;Ảnh minh họa. Nguồn&#x3A; Internet&#41;', 1, 1, '4', 1, 0, 1, 0, 0, 0, 0, '', 0),
 (6, 3, '3', 0, 1, 'Đinh Thị Thanh Vân', 4, 1502358287, 1502358287, 1, 1486028580, 0, 2, 'Bộ Thông tin và Truyền thông ban hành Phương pháp đánh giá mức độ ứng dụng công nghệ thông tin của cơ quan nhà nước năm 2016', 'bo-thong-tin-va-truyen-thong-ban-hanh-phuong-phap-danh-gia-muc-do-ung-dung-cong-nghe-thong-tin-cua-co-quan-nha-nuoc-nam-2016', 'Ngày 19/01/2017, Bộ Thông tin và Truyền thông đã ban hành Quyết định số 62/QĐ-BTTTT về việc Phê duyệt Phương pháp đánh giá mức độ ứng dụng công nghệ thông tin của cơ quan nhà nước năm 2016.', '', '', 0, 1, '4', 1, 0, 1, 0, 0, 0, 0, '', 0),
 (7, 4, '4', 0, 1, 'Thành Đạt', 1, 1502358418, 1502444898, 1, 1491644700, 0, 2, 'Cách mạng 4.0 và bàn tay Chính phủ', 'cach-mang-4-0-va-ban-tay-chinh-phu', '“Để bắt kịp cách mạng công nghiệp lần thứ 4 cần phải có bàn tay mạnh mẽ từ Chính phủ”, quan điểm được nhiều chuyên gia đưa ra tại diễn đàn &quot;Cuộc cách mạng công nghiệp 4.0 - Được và mất&quot; vừa được tổ chức chiều 7/4.', '2017_08/cach-mang-4.0.jpg', 'Diễn đàn &quot;Cuộc cách mạng công nghiệp 4.0 - Được và mất&quot;', 1, 1, '4', 1, 0, 0, 0, 0, 0, 0, '', 0),
-(8, 5, '5', 0, 1, 'Minh Hiển', 1, 1502358510, 1502444892, 1, 1493977620, 0, 2, 'Thủ tướng chỉ thị tăng cường năng lực tiếp cận cuộc Cách mạng CN lần thứ 4', 'thu-tuong-chi-thi-tang-cuong-nang-luc-tiep-can-cuoc-cach-mang-cn-lan-thu-4', 'Thủ tướng Chính phủ Nguyễn Xuân Phúc vừa ký Chỉ thị 16/CT-TTg về việc tăng cường năng lực tiếp cận cuộc Cách mạng công nghiệp lần thứ 4', '2017_08/cntt.jpg', 'Ảnh minh họa', 1, 1, '4', 1, 0, 0, 0, 0, 0, 0, '', 0),
-(9, 6, '4,6', 0, 1, 'Hà Chính', 1, 1502358576, 1502359301, 1, 1497606480, 0, 2, 'Hậu TPP&#x3A; Việt Nam có tới 6 kế hoạch phòng xa', 'hau-tpp-viet-nam-co-toi-6-ke-hoach-phong-xa', 'Theo các nhà quan sát nước ngoài, “Việt Nam đã khôn khoan không bỏ hết trứng vào giỏ TPP” và Việt Nam không chỉ có “kế hoạch B” mà còn có cả kế hoạch C, D, E, F và G sau khi Hoa Kỳ rút khỏi Hiệp định này.', '', '', 0, 1, '4', 1, 0, 0, 0, 0, 0, 0, '', 0),
-(10, 7, '7', 0, 1, 'Chinhphu.vn', 1, 1502358714, 1502358714, 1, 1499680260, 0, 2, 'Thời gian đánh giá hồ sơ dự thầu theo nghị định hay thông tư?', 'thoi-gian-danh-gia-ho-so-du-thau-theo-nghi-dinh-hay-thong-tu', 'Trường hợp gói thầu có quy mô nhỏ thì thời gian đánh giá hồ sơ dự thầu tối đa là 25 ngày, kể từ ngày mở thầu đến khi bên mời thầu có tờ trình đề nghị phê duyệt kết quả lựa chọn nhà thầu.', '', '', 0, 1, '4', 1, 0, 1, 0, 0, 0, 0, '', 0),
+(8, 5, '5', 0, 1, 'Minh Hiển', 1, 1502358510, 1502444892, 1, 1493977620, 0, 2, 'Thủ tướng chỉ thị tăng cường năng lực tiếp cận cuộc Cách mạng CN lần thứ 4', 'thu-tuong-chi-thi-tang-cuong-nang-luc-tiep-can-cuoc-cach-mang-cn-lan-thu-4', 'Thủ tướng Chính phủ Nguyễn Xuân Phúc vừa ký Chỉ thị 16/CT-TTg về việc tăng cường năng lực tiếp cận cuộc Cách mạng công nghiệp lần thứ 4', '2017_08/cntt.jpg', 'Ảnh minh họa', 1, 1, '4', 1, 0, 1, 0, 0, 0, 0, '', 0),
+(9, 6, '4,6', 0, 1, 'Hà Chính', 1, 1502358576, 1502359301, 1, 1497606480, 0, 2, 'Hậu TPP&#x3A; Việt Nam có tới 6 kế hoạch phòng xa', 'hau-tpp-viet-nam-co-toi-6-ke-hoach-phong-xa', 'Theo các nhà quan sát nước ngoài, “Việt Nam đã khôn khoan không bỏ hết trứng vào giỏ TPP” và Việt Nam không chỉ có “kế hoạch B” mà còn có cả kế hoạch C, D, E, F và G sau khi Hoa Kỳ rút khỏi Hiệp định này.', '', '', 0, 1, '4', 1, 0, 2, 0, 0, 0, 0, '', 0),
+(10, 7, '7', 0, 1, 'Chinhphu.vn', 1, 1502358714, 1502358714, 1, 1499680260, 0, 2, 'Thời gian đánh giá hồ sơ dự thầu theo nghị định hay thông tư?', 'thoi-gian-danh-gia-ho-so-du-thau-theo-nghi-dinh-hay-thong-tu', 'Trường hợp gói thầu có quy mô nhỏ thì thời gian đánh giá hồ sơ dự thầu tối đa là 25 ngày, kể từ ngày mở thầu đến khi bên mời thầu có tờ trình đề nghị phê duyệt kết quả lựa chọn nhà thầu.', '', '', 0, 1, '4', 1, 0, 3, 0, 0, 0, 0, '', 0),
 (11, 8, '8', 0, 1, 'MK', 1, 1502358784, 1502358784, 1, 1481449920, 0, 2, 'Tuyên dương 34 công trình sáng tạo trẻ', 'tuyen-duong-34-cong-trinh-sang-tao-tre', 'Tối 10/12, tại thành phố Vĩnh Yên, tỉnh Vĩnh Phúc, Trung ương Đoàn Thanh niên Cộng sản Hồ Chí Minh tổ chức tuyên dương và trao giải cho 34 công trình, đề tài, giải pháp sáng tạo trẻ năm 2016.', '2017_08/sang-tao-tre.jpg', 'Ảnh Dân trí', 1, 1, '4', 1, 0, 1, 0, 0, 0, 0, '', 0);
 
 -- --------------------------------------------------------
@@ -12302,6 +12326,13 @@ CREATE TABLE `nv4_vi_news_tmp` (
   `time_late` int(11) NOT NULL,
   `ip` varchar(50) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `nv4_vi_news_tmp`
+--
+
+INSERT INTO `nv4_vi_news_tmp` (`id`, `admin_id`, `time_edit`, `time_late`, `ip`) VALUES
+(1, 1, 1502675114, 1502675114, '127.0.0.1');
 
 -- --------------------------------------------------------
 
@@ -14013,7 +14044,7 @@ ALTER TABLE `nv4_language_file`
 -- AUTO_INCREMENT for table `nv4_logs`
 --
 ALTER TABLE `nv4_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1000;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1013;
 --
 -- AUTO_INCREMENT for table `nv4_notification`
 --
@@ -14313,7 +14344,8 @@ ALTER TABLE `nv4_vi_voting`
 -- AUTO_INCREMENT for table `nv4_vi_voting_rows`
 --
 ALTER TABLE `nv4_vi_voting_rows`
-  MODIFY `id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

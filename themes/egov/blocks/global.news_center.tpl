@@ -3,12 +3,12 @@
 	<div class="panel panel-default news_column fix-pad-panel-default">
         <div class="panel-body fix-pad-panel-body">
             <div class="row">
-                <div class="col-md-15 col-sm-14 margin-bottom-lg">
+                <div class="col-md-14 col-sm-14 margin-bottom-lg padding-right-col">
                     <div class="margin-bottom"><a href="{main.link}" title="{main.link}" {main.target_blank}><img src="{main.imgsource}" alt="{main.title}" width="{main.width}" class="img-thumbnail"/></a></div>
                     <h2 class="margin-bottom-sm"><a href="{main.link}" title="{main.title}" {main.target_blank}>{main.titleclean60}</a></h2>
                     {main.hometext}
                 </div>
-                <div class="col-md-9 col-sm-10 margin-bottom-lg">
+                <div class="col-md-10 col-sm-10 margin-bottom-lg">
                     <ul class="column-margin-left fix-sub-news">
                     	<div class="bg-hot-news-title"><h3>TIN NỔI BẬT</h3></div>
                         <!-- BEGIN: othernews -->

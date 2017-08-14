@@ -25,6 +25,9 @@
     .container {
         width:100%;
     }
+    .height-hometext:after, .height-tabs::after, #hot-news li a::after{
+        display: none;
+    }
     .padding-right-col{
         padding-right: 5px
     }

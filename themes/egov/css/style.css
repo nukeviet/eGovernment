@@ -2465,3 +2465,10 @@ button, html input[type="button"], input[type="reset"], input[type="submit"]{
 .padding-right-col{
     padding-right: 25px
 }
+.img-private{
+    height: 215px;
+    width: auto
+}
+.backgroup-img{
+    background-color: #f4f4f4
+}

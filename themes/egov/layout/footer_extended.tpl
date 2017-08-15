@@ -14,11 +14,11 @@
                     <div class="row">
                         <div class="col-xs-24 col-sm-24 col-md-24 color-text-footer margin-footer-site">
                             	[FOOTER_SITE]
-                                <div class="col-md-8">
+                                <div class="col-md-24 text-center">
                                     [COPYRIGHT]
                                 </div>
-                                <div class="col-md-16'>
-                                    <p class="text-center">Mã nguồn <a href="https://nukeviet.vn/vi/egov/">NukeViet eGovernment</a>.  Thiết kế bởi <a href="https://vinades.vn/">VINADES.,JSC</a>.   |  <a href="/siteterms/terms-and-conditions.html">Điều khoản sử dụng</a></p>
+                                <div class="col-md-24">
+                                    <p class="text-center">Mã nguồn <a href="http://egov.nukeviet.vn">NukeViet eGovernment</a>.  Thiết kế bởi <a href="https://vinades.vn/">VINADES.,JSC</a>.   |  <a href="/siteterms/terms-and-conditions.html">Điều khoản sử dụng</a></p>
                                 </div>
                         </div>
                     </div>

@@ -2436,12 +2436,12 @@ button.close {
     height: 20px;
     width: 100%;
     content: '';
-    background: -moz-linear-gradient(left, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.3) 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(255,255,255,0.3)), color-stop(100%,rgba(255,255,255,0.3))); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(left, rgba(255,255,255,0.3) 0%,rgba(255,255,255,0.3) 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(left, rgba(255,255,255,0.3) 0%,rgba(255,255,255,0.3) 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(left, rgba(255,255,255,0.3) 0%,rgba(255,255,255,0.3) 100%); /* IE10+ */
-    background: linear-gradient(left, rgba(255,255,255,0.3) 0%,rgba(255,255,255,0.3) 100%); /* W3C */
+    background: -moz-linear-gradient(left, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.6) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(255,255,255,0.6)), color-stop(100%,rgba(255,255,255,0.6))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left, rgba(255,255,255,0.6) 0%,rgba(255,255,255,0.6) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left, rgba(255,255,255,0.6) 0%,rgba(255,255,255,0.6) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left, rgba(255,255,255,0.6) 0%,rgba(255,255,255,0.6) 100%); /* IE10+ */
+    background: linear-gradient(left, rgba(255,255,255,0.6) 0%,rgba(255,255,255,0.6) 100%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=1 );
 }
 button, html input[type="button"], input[type="reset"], input[type="submit"]{

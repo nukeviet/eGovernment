@@ -2,6 +2,7 @@
 /.project
 /.buildpath
 /.settings
+/config.php
 /data/cache/
 /data/config/diagnostic-*.xml
 /data/logs/*
@@ -44,4 +45,3 @@ composer.lock
 /vendor/**/phpunit.php
 /vendor/**/.gitignore
 /vendor/**/composer.*
-/config.php

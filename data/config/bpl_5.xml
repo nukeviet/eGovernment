@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plan>
+  <id>5</id>
+  <lang></lang>
+  <title>Bản đồ hành chính</title>
+  <form>sequential</form>
+  <width>255</width>
+  <height>450</height>
+  <banners>
+    <banners_item>
+      <id>5</id>
+      <title>hc1</title>
+      <clid>0</clid>
+      <file_name>bandohc.jpg</file_name>
+      <imageforswf></imageforswf>
+      <file_ext>jpg</file_ext>
+      <file_mime>image/jpeg</file_mime>
+      <file_width>223</file_width>
+      <file_height>284</file_height>
+      <file_alt></file_alt>
+      <file_click></file_click>
+      <target>_blank</target>
+      <bannerhtml></bannerhtml>
+      <publ_time>1498725937</publ_time>
+      <exp_time>0</exp_time>
+    </banners_item>
+  </banners>
+</plan>

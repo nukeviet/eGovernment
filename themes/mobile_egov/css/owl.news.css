@@ -1,0 +1,67 @@
+#tabs{
+    padding: 0px 10px 15px;
+}
+#tabs .mtab {
+    margin: 20px 0;
+    line-height: 32px;
+    font-size: 20px;
+    font-weight: 700;
+    padding-left: 40px;
+    background: url(../images/icons/bg-national-emblem.png) no-repeat left center;
+}
+#tabs .mtab ul{
+    padding: 0px;
+}
+#tabs .mtab ul li {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+#tabs .mtab ul li:FIRST-CHILD h2 a{
+    border-right: 1px solid #999999;
+    padding-right: 10px;
+    margin-right: 10px;
+}
+#tabs .mtab ul li a {
+    color: #a5a5a5;
+    margin: 5px 0;
+    display: block;
+    line-height: 22px;
+}
+#tabs .mtab ul li a:FOCUS{
+    outline: 0px auto -webkit-focus-ring-color;
+    outline-offset: 0px;
+}
+#tabs .mtab ul li.ui-tabs-active a{
+    color: #383838;
+}
+#tabs .mtab ul li h2 {
+    text-transform: uppercase;
+    margin: 0;
+    font-size: 16px;
+}
+.content_cat_slider_tab img{
+    width: 40%;
+    float: left;
+    margin-right: 10px;
+}
+.content_cat_slider_tab a{
+    color: #484848;
+}
+.content_cat_slider_tab h3{
+    font-size: 18px;
+    line-height: normal;
+    margin-bottom: 10px;
+}
+.content_cat_slider_tab .ibg{
+    margin: 5px 0;
+}
+.content_cat_slider_tab h4{
+    font-weight: 400;
+}
+.content_cat_slider_tab h4 i{
+    margin-right: 5px;
+    font-size: 8px;
+    position: relative;
+    top: -3px;
+}

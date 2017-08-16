@@ -44,3 +44,4 @@ composer.lock
 /vendor/**/phpunit.php
 /vendor/**/.gitignore
 /vendor/**/composer.*
+/config.php

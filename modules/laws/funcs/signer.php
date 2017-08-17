@@ -2,7 +2,7 @@
 
 /**
  * @Project NUKEVIET 4.x
- * @Author VINADES.,JSC (contact@vinades.vn)
+ * @Author VINADES.,JSC <contact@vinades.vn>
  * @Copyright (C) 2014 VINADES.,JSC. All rights reserved
  * @License GNU/GPL version 2 or any later version
  * @Createdate Wed, 27 Jul 2011 14:55:22 GMT
@@ -12,7 +12,12 @@ if (!defined('NV_IS_MOD_LAWS')) die('Stop!!!');
 
 $id = isset($array_op[1]) ? intval($array_op[1]) : 0;
 
-if (empty($id)) {
+$sql = "SELECT * FROM " . NV_PREFIXLANG . "_" . $module_data . "_signer WHERE id=" . $id;
+$result = $db->query( $sql );
+$signer = $result->fetch();
+
+
+if( empty( $signer ) ){
     Header('Location: ' . nv_url_rewrite(NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name, true));
     exit();
 }
@@ -27,8 +32,7 @@ $base_url_rewrite = nv_url_rewrite($base_url, true);
 if ($_SERVER['REQUEST_URI'] == $base_url_rewrite) {
     $canonicalUrl = NV_MAIN_DOMAIN . $base_url_rewrite;
 } elseif (NV_MAIN_DOMAIN . $_SERVER['REQUEST_URI'] != $base_url_rewrite) {
-    //chuyen huong neu doi alias
-    header('HTTP/1.1 301 Moved Permanently');
+    http_response_code(301);
     Header('Location: ' . $base_url_rewrite);
     die();
 } else {
@@ -46,27 +50,27 @@ if (!defined('NV_IS_MODADMIN') and $page < 5) {
 
 if (empty($contents)) {
     $order = ($nv_laws_setting['typeview'] == 1) ? 'ASC' : 'DESC';
-    
+
     $sql = 'SELECT SQL_CALC_FOUND_ROWS * FROM ' . NV_PREFIXLANG . '_' . $module_data . '_row WHERE status=1 AND sgid=' . $signer['id'] . ' ORDER BY addtime ' . $order . ' LIMIT ' . $per_page . ' OFFSET ' . ($page - 1) * $per_page;
     $result = $db->query($sql);
     $query = $db->query('SELECT FOUND_ROWS()');
     $all_page = $query->fetchColumn();
-    
+
     $generate_page = nv_alias_page($page_title, $base_url, $all_page, $per_page, $page);
-    
+
     $array_data = array();
     $stt = $page == 1 ? 1 : ($page * $per_page) - ($per_page == 1 ? 0 : 1);
     while ($row = $result->fetch()) {
         $row['url'] = NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&amp;' . NV_NAME_VARIABLE . '=' . $module_name . '&amp;' . NV_OP_VARIABLE . '=detail/' . $row['alias'];
         $row['stt'] = $stt;
-        
+
         if ($nv_laws_setting['down_in_home']) {
             // File download
             if (!empty($row['files'])) {
                 $row['files'] = explode(',', $row['files']);
                 $files = $row['files'];
                 $row['files'] = array();
-                
+
                 foreach ($files as $id => $file) {
                     $file_title = basename($file);
                     $row['files'][] = array(
@@ -77,17 +81,17 @@ if (empty($contents)) {
                 }
             }
         }
-        
+
         $array_data[] = $row;
         $stt++;
     }
-    
+
     $contents = nv_theme_laws_signer($array_data, $generate_page, $signer);
-    
+
     $page_title = $mod_title = $signer['title'];
     $key_words = $module_info['keywords'];
     $description = $signer['title'] . ' - ' . $signer['offices'] . ' - ' . $signer['positions'];
-    
+
     if (!defined('NV_IS_MODADMIN') and $contents != '' and $cache_file != '') {
         $nv_Cache->setItem($module_name, $cache_file, $contents);
     }

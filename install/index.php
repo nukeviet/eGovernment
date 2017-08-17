@@ -15,6 +15,7 @@ require_once 'mainfile.php';
 $file_config_temp = NV_TEMP_DIR . '/config_' . NV_CHECK_SESSION . '.php';
 
 $dirs = nv_scandir(NV_ROOTDIR . '/includes/language', '/^([a-z]{2})/');
+$dirs = array('vi');
 
 $languageslist = array();
 

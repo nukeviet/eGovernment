@@ -3,7 +3,7 @@
 /**
  * @Project NUKEVIET 4.x
  * @Author VINADES.,JSC <contact@vinades.vn>
- * @Copyright (C) 2014 VINADES ., JSC. All rights reserved
+ * @Copyright (C) 2017 VINADES.,JSC. All rights reserved
  * @License GNU/GPL version 2 or any later version
  * @Createdate Jan 17, 2011 11:34:27 AM
  */
@@ -175,7 +175,7 @@ if (! nv_function_exists('nv_company_info')) {
         }
 
         $block_config['company_mapapikey'] = $global_config['googleMapsAPI'];
-        
+
         $xtpl = new XTemplate('global.company_info.tpl', NV_ROOTDIR . '/themes/' . $block_theme . '/blocks');
         $xtpl->assign('LANG', $lang_global);
         $xtpl->assign('NV_BASE_SITEURL', NV_BASE_SITEURL);

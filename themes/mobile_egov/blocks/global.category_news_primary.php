@@ -2,8 +2,8 @@
 
 /**
  * @Project NUKEVIET 4.x
- * @Author Mr.Thinh (thinhwebhp@gmail.com)
- * @Copyright (C) 2017 Thinhweb Blog. All rights reserved
+ * @Author VINADES.,JSC <contact@vinades.vn>
+ * @Copyright (C) 2017 VINADES.,JSC. All rights reserved
  * @License GNU/GPL version 2 or any later version
  * @Createdate Mar 9, 2017 11:34:27 AM
  */

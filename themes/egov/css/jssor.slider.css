@@ -1,83 +1,17 @@
-.jssorb05 {
-	position: absolute;
-	background: #f4f4f4;
+.jssorb05{position:absolute;background:#f4f4f4;}
+.jssorb05 div, .jssorb05 div:hover, .jssorb05 .av{position:absolute;width:16px;height:16px;background:url(../images/b05.png) no-repeat;overflow:hidden;cursor:pointer;}
+.jssorb05 div{background-position:0px 0px;}
+.jssorb05 div:hover, .jssorb05 .av:hover{background-position:-27px 0px;}
+.jssorb05 .av{background-position:-27px 0px;}
+.jssorb05 .dn, .jssorb05 .dn:hover{background-position:-27px -0px;}
+.jssora22l, .jssora22r{display:block !important;position:absolute;width:36px;height:36px;cursor:pointer;overflow:hidden;opacity:1}
+.jssora22l{background:url(../images/arr-pew.png) center center no-repeat;top:0px;left:20px;z-index:9999;}
+.jssora22l:hover, .jssora22r:hover{opacity:0.8;}
+.jssora22r{background:url(../images/arr-next.png) center center no-repeat;top:0px;right:20px;z-index:9999;}
+@media only screen and (max-width:767px){.jssora22l{left:-2px}
+.jssora22r{right:-2px}
 }
-.jssorb05 div, .jssorb05 div:hover, .jssorb05 .av {
-	position: absolute;
-	/* size of bullet elment */
-	width: 16px;
-	height: 16px;
-	background: url(../images/b05.png) no-repeat;
-	overflow: hidden;
-	cursor: pointer;
+@media only screen and (min-width:768px)and (max-width:1300px){.jssora22l{left:0px}
+.jssora22r{right:0px}
 }
-.jssorb05 div {
-	background-position: 0px 0px;
-}
-.jssorb05 div:hover, .jssorb05 .av:hover {
-	background-position: -27px 0px;
-}
-.jssorb05 .av {
-	background-position: -27px 0px;
-}
-.jssorb05 .dn, .jssorb05 .dn:hover {
-	background-position: -27px -0px;
-}
-
-/* jssor slider arrow navigator skin 22 css */
-/*
- .jssora22l                  (normal)
- .jssora22r                  (normal)
- .jssora22l:hover            (normal mouseover)
- .jssora22r:hover            (normal mouseover)
- .jssora22l.jssora22ldn      (mousedown)
- .jssora22r.jssora22rdn      (mousedown)
- */
-.jssora22l, .jssora22r {
-	display: block !important;
-	position: absolute;
-	/* size of arrow element */
-	width: 36px;
-	height: 36px;
-	cursor: pointer;
-	overflow: hidden;
-	opacity: 1
-
-}
-.jssora22l {
-	background: url(../images/arr-pew.png) center center no-repeat;
-	top:0px;
-	left:20px;
-	z-index: 9999;
-}
-.jssora22l:hover, .jssora22r:hover{
-	opacity: 0.8;
-}
-.jssora22r {
-	background: url(../images/arr-next.png) center center no-repeat;
-	top:0px;
-	right:20px;
-	z-index: 9999;
-}
-@media only screen and (max-width: 767px){
-	.jssora22l{
-		left: -2px
-	}
-	.jssora22r{
-		right: -2px
-	}
-}
-@media only screen and (min-width: 768px)and (max-width: 1300px){
-	.jssora22l{
-		left: 0px
-	}
-	.jssora22r{
-		right: 0px
-	}
-}
-.sliders img {
-	border: none;
-	background-color: transparent;
-	padding: 0px;
-	border-radius: 0px;
-}
+.sliders img{border:none;background-color:transparent;padding:0px;border-radius:0px;}

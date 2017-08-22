@@ -3,7 +3,8 @@
 /.buildpath
 /.settings
 /config.php
-/data/cache/
+/data/cache/*
+/data/config/config_ini.*.php
 /data/config/diagnostic-*.xml
 /data/logs/*
 /data/logs/data_logs/

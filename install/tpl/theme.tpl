@@ -15,7 +15,7 @@
     </head>
     <body>
         <div id="header">
-            <h1 id="install_title" class="fl">{LANG.titlesetup} <span class="version">({VERSION})</span></h1>
+            <h1 id="install_title" class="fl">{LANG.titlesetup} <span class="version">1.0 beta (1.0.00)</span></h1>
             <div id="language" class="fr">
                 <div>
                     <strong>Language: </strong>

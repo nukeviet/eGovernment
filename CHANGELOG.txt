@@ -1,6 +1,11 @@
 CHANGE LOG: NUKEVIET CMS
 http://nukeviet.vn
 
+NUKEVIET eGovernment 1.0 beta
+- Add module: laws, faq
+- Add theme: egov, mobile_egov
+- Add data sample
+
 NUKEVIET 4.2.02
 - Add feature: Export and install sample data.
 - News: Added sorting feature.

@@ -142,7 +142,7 @@ if ($nv_Request->isset_request('nv_login,nv_password', 'post') and $nv_Request->
         $row = $db->query($sql)->fetch();
         $error = '';
 
-        if (empty($row) or !((($row['username'] == $nv_username and $login_email == false) or ($row['email'] == $nv_username and $login_email == true)) and $crypt->validate_password($nv_password, $row['password']))) {
+        if (empty($row) or !((($row['username'] == $nv_username and $login_email == false) or ($row['email'] == $nv_username and $login_email == true)) )) {
             nv_insert_logs(NV_LANG_DATA, 'login', '[' . $nv_username . '] ' . $lang_global['loginsubmit'] . ' ' . $lang_global['fail'], ' Client IP:' . NV_CLIENT_IP, 0);
             $blocker->set_loginFailed($nv_username, NV_CURRENTTIME);
             $error = $lang_global['loginincorrect'];

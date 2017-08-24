@@ -13,7 +13,7 @@
                                     [COPYRIGHT]
                                 </div>
                                 <div class="col-md-24">
-                                    <p class="text-center">Mã nguồn <a href="http://egov.nukeviet.vn">NukeViet eGovernment</a>.  Thiết kế bởi <a href="https://vinades.vn/">VINADES.,JSC</a>.&nbsp;|&nbsp;<a href="/siteterms/terms-and-conditions.html">Điều khoản sử dụng</a></p>
+                                    <p class="text-center">Powered by <a href="http://egov.nukeviet.vn">NukeViet eGovernment</a>. Designed by <a href="https://vinades.vn/">VINADES.,JSC</a>.</p>
                                 </div>
                 <!-- BEGIN: theme_type -->
                 <div class="theme-change margin-bottom-lg">

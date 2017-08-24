@@ -114,7 +114,7 @@ define('NV_SEND_ERRORS_LIST', E_USER_ERROR);
 define('NV_FILEHEAD', "/**\n * @Project NUKEVIET 4.x\n * @Author VINADES.,JSC <contact@vinades.vn>\n * @Copyright (C) " . gmdate("Y") . " VINADES.,JSC. All rights reserved\n * @License GNU/GPL version 2 or any later version\n * @Createdate " . gmdate("D, d M Y H:i:s") . " GMT\n */");
 
 // Vui long khong thay doi gia tri nay
-define('NUKEVIET_STORE_APIURL', 'https://api.nukeviet.vn/store/');
+define('NUKEVIET_STORE_APIURL', 'https://api-egov.nukeviet.vn/store/');
 
 //Browser Names
 define('BROWSER_OPERA', 'Opera');

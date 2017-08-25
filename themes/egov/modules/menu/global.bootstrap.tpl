@@ -46,10 +46,8 @@
         </div>
         <div class="collapse" id="toggleearch">
             <form method="get" action="{THEME_SEARCH_URL}" id="siteformsearch" data-minlen="{NV_MIN_SEARCH_LENGTH}" data-maxlen="{NV_MAX_SEARCH_LENGTH}">
-                <!-- BEGIN: no_rewrite -->
                 <input type="hidden" name="{NV_LANG_VARIABLE}" value="{NV_LANG_DATA}"/>
                 <input type="hidden" name="{NV_NAME_VARIABLE}" value="seek"/>
-                <!-- END: no_rewrite -->
                 <input type="text" class="form-control" name="q"/>
                 <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
             </form>

@@ -140,3 +140,8 @@ $lang_module['show_device_1'] = 'Tous';
 $lang_module['show_device_2'] = 'Afficher mobiles';
 $lang_module['show_device_3'] = 'Afficher sur tablette';
 $lang_module['show_device_4'] = 'Autres équipements';
+
+$lang_module['layout_orange'] = 'Orange';
+$lang_module['layout_blue'] = 'Blue';
+$lang_module['layout_light_brown'] = 'Light brown';
+$lang_module['layout_green'] = 'Green';

@@ -142,3 +142,8 @@ $lang_module['show_device_1'] = 'Tất cả';
 $lang_module['show_device_2'] = 'Hiển thị di động';
 $lang_module['show_device_3'] = 'Hiển thị máy tính bảng';
 $lang_module['show_device_4'] = 'Các thiết bị khác';
+
+$lang_module['layout_orange'] = 'Màu cam';
+$lang_module['layout_blue'] = 'Màu xanh nước biển';
+$lang_module['layout_light_brown'] = 'Màu đỏ nâu';
+$lang_module['layout_green'] = 'Màu xanh lá cây';

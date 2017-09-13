@@ -1,0 +1,32 @@
+#header, #winHelp .winHelp, #winHelp .panel {
+    background: linear-gradient(to bottom, #ac2d00 0%, #ac2d00 80%, #ac2d00 100%);
+}
+
+.metismenu .sidebar-nav ul li.active a {
+    border-bottom: 2px solid #b33508;
+}
+
+.mbt {
+    border-right: #730011 1px solid;
+}
+
+#header .logo {
+    border-left: #730011 1px solid;
+}
+
+.headerSearchs .input-group span.input-group-btn button.btn-info, .breadcrumb li a, .breadcrumbs .home-icon a {
+    color: #730011;
+}
+
+.panel-red .panel-heading {
+    background-color: #ac2d00;
+    background-image: url(../images/icons/national-light-brown.png);
+}
+
+.theme-change a, .bttop a {
+    background-color: #ac2d00;
+}
+
+.bttop a:hover {
+    background-color: #fdb32e;
+}

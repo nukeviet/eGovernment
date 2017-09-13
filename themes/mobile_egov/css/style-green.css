@@ -1,0 +1,32 @@
+#header, #winHelp .winHelp, #winHelp .panel {
+    background: linear-gradient(to bottom, #00ab00 0%, #00ab00 80%, #00ab00 100%);
+}
+
+.metismenu .sidebar-nav ul li.active a {
+    border-bottom: 2px solid #24e621;
+}
+
+.mbt {
+    border-right: #018345 1px solid;
+}
+
+#header .logo {
+    border-left: #018345 1px solid;
+}
+
+.headerSearchs .input-group span.input-group-btn button.btn-info, .breadcrumb li a, .breadcrumbs .home-icon a, .headerSearch .input-group span.input-group-btn button.btn-info {
+    color: #018345;
+}
+
+.panel-red .panel-heading {
+    background-color: #07bf05;
+    background-image: url(../images/icons/national-green.png);
+}
+
+.theme-change a, .bttop a {
+    background-color: #07bf05;
+}
+
+.bttop a:hover {
+    background-color: #b1f3b1;
+}

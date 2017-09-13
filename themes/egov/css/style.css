@@ -2472,3 +2472,6 @@ button, html input[type="button"], input[type="reset"], input[type="submit"]{
 .backgroup-img{
     background-color: #f4f4f4
 }
+.btn-xs {
+    color: #fff !important;
+}

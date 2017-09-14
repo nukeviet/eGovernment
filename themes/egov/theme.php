@@ -98,12 +98,23 @@ function nv_site_theme($contents, $full = true)
     if (defined('NV_IS_ADMIN') and $full) {
         $html_links[] = array( 'rel' => 'StyleSheet', 'href' => NV_BASE_SITEURL . 'themes/' . $global_config['module_theme'] . '/css/admin.css' );
     }
+    if (isset($module_config['themes'][$global_config['module_theme']]) and ! empty($module_config['themes'][$global_config['module_theme']])) {
+    	$config_theme = unserialize($module_config['themes'][$global_config['module_theme']]);
+    	if($config_theme['color'] == 2) {
+    		$html_links[] = array( 'rel' => 'StyleSheet', 'href' => NV_BASE_SITEURL . 'themes/' . $global_config['module_theme'] . '/css/style-blue.css' );
+    	}
+    	elseif($config_theme['color'] == 3) {
+    		$html_links[] = array( 'rel' => 'StyleSheet', 'href' => NV_BASE_SITEURL . 'themes/' . $global_config['module_theme'] . '/css/style-green.css' );
+    	}
+    	elseif($config_theme['color'] == 4) {
+    		$html_links[] = array( 'rel' => 'StyleSheet', 'href' => NV_BASE_SITEURL . 'themes/' . $global_config['module_theme'] . '/css/style-light-brown.css' );
+    	}
+    }
     $html_links = array_merge_recursive($html_links, nv_html_links(false));
 
     // Customs Style
     if (isset($module_config['themes'][$global_config['module_theme']]) and ! empty($module_config['themes'][$global_config['module_theme']])) {
         $config_theme = unserialize($module_config['themes'][$global_config['module_theme']]);
-
         if (isset($config_theme['css_content']) and ! empty($config_theme['css_content'])) {
             $customFileName = $global_config['module_theme'] . '.' . NV_LANG_DATA . '.' . $global_config['idsite'];
 

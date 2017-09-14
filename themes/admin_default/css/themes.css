@@ -129,3 +129,16 @@ html ul.tabs li.active, html ul.tabs li.active a:hover  {
 	display: block;
 	margin-bottom: 10px	
 }
+.text-layout {
+    text-align: center;
+    font-size: 16px;
+    padding: 5px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 10px;
+}
+.img-color {
+    max-height: 220px;
+}
+.save-layout {
+    text-align: center; 
+}

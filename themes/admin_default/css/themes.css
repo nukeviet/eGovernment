@@ -135,6 +135,7 @@ html ul.tabs li.active, html ul.tabs li.active a:hover  {
     padding: 5px;
     border-bottom: 1px solid #eee;
     margin-bottom: 10px;
+    font-weight: bold;
 }
 .img-color {
     max-height: 220px;

@@ -137,9 +137,6 @@ html ul.tabs li.active, html ul.tabs li.active a:hover  {
     margin-bottom: 10px;
     font-weight: bold;
 }
-.img-color {
-    max-height: 220px;
-}
 .save-layout {
     text-align: center; 
 }

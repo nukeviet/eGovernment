@@ -54,7 +54,7 @@ hr {
 
 h1#install_title {
 	line-height: 73px;
-	background: transparent url(../images/logo.png) left center no-repeat;
+	background: transparent url(../../themes/admin_default/images/logo_nukeviet_egov.png) left center no-repeat;
 	padding-left: 200px;
 	font-size: 18px;
 	color: #fff;
@@ -281,6 +281,14 @@ div.step_content_title {
 	background: url('../images/button_center_bg.png') repeat-x left center;
 	cursor: pointer;
 	padding: 2px 5px
+}
+
+.checkbox {
+    vertical-align: middle;
+    margin-top: 0;
+    margin-bottom: 0;
+    position: relative;
+    top: -1px;
 }
 
 .select {

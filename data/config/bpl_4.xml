@@ -27,8 +27,8 @@
     <banners_item>
       <id>10</id>
       <title>Slider 2</title>
-      <clid>0</clid>
-      <file_name>slider2.jpg</file_name>
+      <clid>1</clid>
+      <file_name>slider1.jpg</file_name>
       <imageforswf></imageforswf>
       <file_ext>jpg</file_ext>
       <file_mime>image/jpeg</file_mime>
@@ -38,7 +38,7 @@
       <file_click></file_click>
       <target>_blank</target>
       <bannerhtml></bannerhtml>
-      <publ_time>1500953093</publ_time>
+      <publ_time>1500953040</publ_time>
       <exp_time>0</exp_time>
     </banners_item>
   </banners>

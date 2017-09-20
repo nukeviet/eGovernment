@@ -1554,7 +1554,7 @@ a.btn {
 /* Footer */
 
 #footer {
-	background: #d5d5d5 url("../images/bg-footer.jpg") center top no-repeat;
+	background: #d5d5d5 url("../images/bg-footer.png") center top no-repeat;
     position:relative;
     width:100%;
     font-size:13px
@@ -2471,4 +2471,7 @@ button, html input[type="button"], input[type="reset"], input[type="submit"]{
 }
 .backgroup-img{
     background-color: #f4f4f4
+}
+.btn-xs {
+    color: #fff !important;
 }

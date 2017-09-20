@@ -8,11 +8,12 @@
  * @Createdate Sat, 10 Dec 2011 06:46:54 GMT
  */
 
-if (! defined('NV_MAINFILE')) {
+if (!defined('NV_MAINFILE')) {
     die('Stop!!!');
 }
 
-if (! nv_function_exists('nv_block_news_cat_slide_tab')) {
+if (!nv_function_exists('nv_block_news_cat_slide_tab')) {
+
     function nv_block_config_news_cat_slide_tab($module, $data_block, $lang_block)
     {
         global $nv_Cache, $site_mods, $nv_Request;
@@ -50,7 +51,12 @@ if (! nv_function_exists('nv_block_news_cat_slide_tab')) {
             $html .= '<td>' . $lang_block['showtooltip'] . '</td>';
             $html .= '<td>';
             $html .= '<input type="checkbox" value="1" name="config_showtooltip" ' . ($data_block['showtooltip'] == 1 ? 'checked="checked"' : '') . ' /><br /><br />';
-            $tooltip_position = array( 'top' => $lang_block['tooltip_position_top'], 'bottom' => $lang_block['tooltip_position_bottom'], 'left' => $lang_block['tooltip_position_left'], 'right' => $lang_block['tooltip_position_right'] );
+            $tooltip_position = array(
+                'top' => $lang_block['tooltip_position_top'],
+                'bottom' => $lang_block['tooltip_position_bottom'],
+                'left' => $lang_block['tooltip_position_left'],
+                'right' => $lang_block['tooltip_position_right']
+            );
             $html .= '<span class="text-middle pull-left">' . $lang_block['tooltip_position'] . '&nbsp;</span><select name="config_tooltip_position" class="form-control w100 pull-left">';
             foreach ($tooltip_position as $key => $value) {
                 $html .= '<option value="' . $key . '" ' . ($data_block['tooltip_position'] == $key ? 'selected="selected"' : '') . '>' . $value . '</option>';
@@ -177,70 +183,71 @@ if (! nv_function_exists('nv_block_news_cat_slide_tab')) {
 
             $cat_offset = 0;
             foreach ($block_config['catid'] as $catid) {
-                $db->sqlreset()
-                    ->select('id, catid, title, alias, homeimgfile, homeimgthumb, hometext, publtime, external_link')
-                    ->from(NV_PREFIXLANG . '_' . $site_mods[$module]['module_data'] . '_' . $catid)
-                    ->where('status= 1')
-                    ->order('publtime DESC')
-                    ->limit($block_config['numrow']);
+                if (isset($module_array_cat[$catid])) {
+                    $db->sqlreset()
+                        ->select('id, catid, title, alias, homeimgfile, homeimgthumb, hometext, publtime, external_link')
+                        ->from(NV_PREFIXLANG . '_' . $site_mods[$module]['module_data'] . '_' . $catid)
+                        ->where('status= 1')
+                        ->order('publtime DESC')
+                        ->limit($block_config['numrow']);
 
-                $list = $nv_Cache->db($db->sql(), '', $module);
+                    $list = $nv_Cache->db($db->sql(), '', $module);
+                    if (!empty($list)) {
+                        $cat_offset++;
+                        $item_offset = 0;
+                        $num_items = sizeof($list);
+                        $xtpl->assign('CATINFO', $module_array_cat[$catid]);
 
-                if (isset($module_array_cat[$catid]) and !empty($list)) {
-                    $cat_offset++;
-                    $item_offset = 0;
-                    $num_items = sizeof($list);
-                    $xtpl->assign('CATINFO', $module_array_cat[$catid]);
+                        foreach ($list as $l) {
+                            $item_offset++;
+                            $l['link'] = NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&amp;' . NV_NAME_VARIABLE . '=' . $module . '&amp;' . NV_OP_VARIABLE . '=' . $module_array_cat[$l['catid']]['alias'] . '/' . $l['alias'] . '-' . $l['id'] . $global_config['rewrite_exturl'];
+                            if ($l['homeimgthumb'] == 1) {
+                                $l['thumb'] = NV_BASE_SITEURL . NV_FILES_DIR . '/' . $site_mods[$module]['module_upload'] . '/' . $l['homeimgfile'];
+                            } elseif ($l['homeimgthumb'] == 2) {
+                                $l['thumb'] = NV_BASE_SITEURL . NV_UPLOADS_DIR . '/' . $site_mods[$module]['module_upload'] . '/' . $l['homeimgfile'];
+                            } elseif ($l['homeimgthumb'] == 3) {
+                                $l['thumb'] = $l['homeimgfile'];
+                            } elseif (!empty($show_no_image)) {
+                                $l['thumb'] = NV_BASE_SITEURL . $show_no_image;
+                            } else {
+                                $l['thumb'] = '';
+                            }
 
-                    foreach ($list as $l) {
-                        $item_offset++;
-                        $l['link'] = NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&amp;' . NV_NAME_VARIABLE . '=' . $module . '&amp;' . NV_OP_VARIABLE . '=' . $module_array_cat[$l['catid']]['alias'] . '/' . $l['alias'] . '-' . $l['id'] . $global_config['rewrite_exturl'];
-                        if ($l['homeimgthumb'] == 1) {
-                            $l['thumb'] = NV_BASE_SITEURL . NV_FILES_DIR . '/' . $site_mods[$module]['module_upload'] . '/' . $l['homeimgfile'];
-                        } elseif ($l['homeimgthumb'] == 2) {
-                            $l['thumb'] = NV_BASE_SITEURL . NV_UPLOADS_DIR . '/' . $site_mods[$module]['module_upload'] . '/' . $l['homeimgfile'];
-                        } elseif ($l['homeimgthumb'] == 3) {
-                            $l['thumb'] = $l['homeimgfile'];
-                        } elseif (! empty($show_no_image)) {
-                            $l['thumb'] = NV_BASE_SITEURL . $show_no_image;
-                        } else {
-                            $l['thumb'] = '';
+                            $l['blockwidth'] = $blockwidth;
+
+                            $l['hometext_clean'] = strip_tags($l['hometext']);
+                            $l['hometext_clean'] = nv_clean60($l['hometext_clean'], $block_config['tooltip_length'], true);
+                            $l['publtime'] = nv_date('d/m/Y H:i', $l['publtime']);
+
+                            if (!$block_config['showtooltip']) {
+                                $xtpl->assign('TITLE', 'title="' . $l['title'] . '"');
+                            }
+
+                            $l['title_clean'] = nv_clean60($l['title'], $block_config['title_length']);
+
+                            if ($l['external_link']) {
+                                $l['target_blank'] = 'target="_blank"';
+                            }
+
+                            $xtpl->assign('ROW', $l);
+                            if (!empty($l['thumb'])) {
+                                $xtpl->parse('main.loopcat.item.loop.img');
+                            }
+                            $xtpl->parse('main.loopcat.item.loop');
+
+                            if ($item_offset == $num_items or ($item_offset % 2) == 0) {
+                                $xtpl->parse('main.loopcat.item');
+                            }
                         }
 
-                        $l['blockwidth'] = $blockwidth;
+                        $xtpl->parse('main.loopcat');
 
-                        $l['hometext_clean'] = strip_tags($l['hometext']);
-                        $l['hometext_clean'] = nv_clean60($l['hometext_clean'], $block_config['tooltip_length'], true);
-                        $l['publtime'] = nv_date('d/m/Y H:i', $l['publtime']);
-
-                        if (! $block_config['showtooltip']) {
-                            $xtpl->assign('TITLE', 'title="' . $l['title'] . '"');
+                        if ($cat_offset == 1) {
+                            $xtpl->parse('main.loopcat_tab.active');
                         }
 
-                        $l['title_clean'] = nv_clean60($l['title'], $block_config['title_length']);
-
-                        if ($l['external_link']) {
-                            $l['target_blank'] = 'target="_blank"';
-                        }
-
-                        $xtpl->assign('ROW', $l);
-                        if (! empty($l['thumb'])) {
-                            $xtpl->parse('main.loopcat.item.loop.img');
-                        }
-                        $xtpl->parse('main.loopcat.item.loop');
-
-                        if ($item_offset == $num_items or ($item_offset % 2) == 0) {
-                            $xtpl->parse('main.loopcat.item');
-                        }
+                        $xtpl->parse('main.loopcat_tab');
                     }
-
-                    $xtpl->parse('main.loopcat');
-
-                    if ($cat_offset == 1) {
-                        $xtpl->parse('main.loopcat_tab.active');
-                    }
-
-                    $xtpl->parse('main.loopcat_tab');
                 }
             }
 

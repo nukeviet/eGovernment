@@ -98,44 +98,19 @@ function nv_site_theme($contents, $full = true)
     if (defined('NV_IS_ADMIN') and $full) {
         $html_links[] = array( 'rel' => 'StyleSheet', 'href' => NV_BASE_SITEURL . 'themes/' . $global_config['module_theme'] . '/css/admin.css' );
     }
-    $html_links = array_merge_recursive($html_links, nv_html_links(false));
-
-    // Customs Style
     if (isset($module_config['themes'][$global_config['module_theme']]) and ! empty($module_config['themes'][$global_config['module_theme']])) {
-        $config_theme = unserialize($module_config['themes'][$global_config['module_theme']]);
-
-        if (isset($config_theme['css_content']) and ! empty($config_theme['css_content'])) {
-            $customFileName = $global_config['module_theme'] . '.' . NV_LANG_DATA . '.' . $global_config['idsite'];
-
-            if (! file_exists(NV_ROOTDIR . '/' . NV_ASSETS_DIR . '/css/' . $customFileName . '.css')) {
-                $replace = array(
-                    '[body]' => 'body',
-                    '[a_link]' => 'a, a:link, a:active, a:visited',
-                    '[a_link_hover]' => 'a:hover',
-                    '[content]' => '.wraper',
-                    '[header]' => '#header',
-                    '[footer]' => '#footer',
-                    '[block]' => '.panel, .well, .nv-block-banners',
-                    '[block_heading]' => '.panel-default > .panel-heading'
-                );
-
-                $css_content = str_replace(array_keys($replace), array_values($replace), $config_theme['css_content']);
-
-                file_put_contents(NV_ROOTDIR . '/' . NV_ASSETS_DIR . '/css/' . $customFileName . '.css', $css_content);
-            }
-
-            $html_links[] = array( 'rel' => 'StyleSheet', 'href' => NV_BASE_SITEURL . NV_ASSETS_DIR . '/css/' . $customFileName . '.css?t=' . $global_config['timestamp'] );
-        }
-
-        if (isset($config_theme['gfont']) and ! empty($config_theme['gfont']) and isset($config_theme['gfont']['family']) and !empty($config_theme['gfont']['family'])) {
-            $subset = isset($config_theme['gfont']['subset']) ? $config_theme['gfont']['subset'] : '';
-            $gf = new NukeViet\Client\Gfonts(array('fonts' => array($config_theme['gfont']), 'subset' => $subset), $client_info);
-            $webFontFile = $gf->getUrlCss();
-            array_unshift($html_links, array( 'rel' => 'StyleSheet', 'href' => $webFontFile ));
-        }
-
-        unset($config_theme, $css_content, $webFontFile, $font, $subset, $gf);
+    	$config_theme = $module_config['themes'][$global_config['module_theme']];
+    	if($config_theme == 2) {
+    		$html_links[] = array( 'rel' => 'StyleSheet', 'href' => NV_BASE_SITEURL . 'themes/' . $global_config['module_theme'] . '/css/style-blue.css' );
+    	}
+    	elseif($config_theme == 3) {
+    		$html_links[] = array( 'rel' => 'StyleSheet', 'href' => NV_BASE_SITEURL . 'themes/' . $global_config['module_theme'] . '/css/style-green.css' );
+    	}
+    	elseif($config_theme == 4) {
+    		$html_links[] = array( 'rel' => 'StyleSheet', 'href' => NV_BASE_SITEURL . 'themes/' . $global_config['module_theme'] . '/css/style-light-brown.css' );
+    	}
     }
+    $html_links = array_merge_recursive($html_links, nv_html_links(false));
 
     foreach ($html_links as $links) {
         foreach ($links as $key => $value) {
@@ -190,16 +165,15 @@ function nv_site_theme($contents, $full = true)
     }
 
     $size_banner = @getimagesize(NV_ROOTDIR . '/' . $global_config['site_banner']);
-    if (!empty($global_config['site_banner']) and file_exists(NV_ROOTDIR . NV_BASE_SITEURL . $global_config['site_banner'])) {
-        $site_banner = NV_BASE_SITEURL . $global_config['site_banner'];
+    if (!empty($global_config['site_banner']) and file_exists(NV_ROOTDIR . '/' . $global_config['site_banner'])) {
+        $xtpl->assign('SITE_BANNER', NV_BASE_SITEURL . $global_config['site_banner']);
+        if (isset($size_banner['mime']) and $size_banner['mime'] == 'application/x-shockwave-flash') {
+            $xtpl->parse('main.site_banner_swf');
+        } else {
+            $xtpl->parse('main.site_banner_image');
+        }
     }
-    $xtpl->assign('SITE_BANNER', $site_banner);
-    if (isset($size_banner['mime']) and $size_banner['mime'] == 'application/x-shockwave-flash') {
-        $xtpl->parse('main.site_banner_swf');
-    } else {
-        $xtpl->parse('main.site_banner_image');
-    }
-    
+
     if (preg_match("/<h1[^\>]*\>/i", $contents)) {
         $xtpl->parse('main.site_name_span');
     } else {
@@ -301,4 +275,16 @@ function nv_site_theme($contents, $full = true)
     }
 
     return $sitecontent;
+}
+
+/**
+ *  nv_error_theme()
+ *
+ * @param string $title
+ * @param string $content
+ * @param integer $code
+ */
+function nv_error_theme($title, $content, $code)
+{
+    nv_info_die($title, $title, $content, $code);
 }

@@ -5,7 +5,7 @@
   <title>Bản đồ hành chính</title>
   <form>sequential</form>
   <width>255</width>
-  <height>380</height>
+  <height>450</height>
   <banners>
     <banners_item>
       <id>5</id>

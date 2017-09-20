@@ -1,4 +1,6 @@
-# Introduction about NukeViet EGOV
+# Introduction about NukeViet eGovernment
+
+NukeViet eGovernment là phiên bản NukeViet dành cho các cơ quan nhà nước và chính quyền địa phương, được xây dựng dựa trên nền tảng phần mềm nguồn mở NukeViet - một phần mềm nguồn mở thế hệ mới do người Việt phát triển. NukeViet eGovernment cho phép xây dựng các cổng thông tin (Portal) cho UBND các tỉnh/ thành phố và/ hoặc các quận/ huyện tích hợp website xã/ phường. NukeViet đã được trao giải Nhân tài đất Việt 2011, được Bộ TT&TT Quy định ưu tiên sử dụng trong cơ quan, tổ chức nhà nước tại thông tư 20/2014/TT-BTTTT.
 
 ## Licensing
 NukeViet is released under GNU/GPL version 2 or any later version.
@@ -30,4 +32,4 @@ Website: http://vinades.vn | http://nukeviet.vn | http://nukeviet.com
 
 Head Office:
   - Room 1706 - CT2 Nang Huong Building, 583 Nguyen Trai st, Ha Dong dist, Hanoi, Vietnam.
-  - Phone: +84-4-85872007, Fax: +84-4-35500914, Email: contact (at) vinades.vn
+  - Phone: +84-24-85872007, Fax: +84-24-35500914, Email: contact (at) vinades.vn

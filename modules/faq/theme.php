@@ -20,9 +20,9 @@ if (! defined('NV_IS_MOD_FAQ')) {
  */
 function theme_main_faq($list_cats)
 {
-    global $global_config, $lang_module, $lang_global, $module_info, $module_name, $user_info,$module_setting;
+    global $global_config, $lang_module, $lang_global, $module_info, $module_name;
 
-    $xtpl = new XTemplate("main_page.tpl", NV_ROOTDIR . "/themes/" . $module_info['template'] . "/modules/" . $module_info['module_theme'] . "/");
+    $xtpl = new XTemplate("main_page.tpl", NV_ROOTDIR . "/themes/" . $module_info['template'] . "/modules/" . $module_info['module_theme']);
     $xtpl->assign('LANG', $lang_module);
 	$link_qa=NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&amp;" . NV_OP_VARIABLE . "=insertqa";
     $xtpl->assign('LINKQA', $link_qa);
@@ -164,9 +164,9 @@ if (! empty($array_accept)) {
  */
 function theme_cat_faq($list_cats, $catid, $faq,$generate_page)
 {
-    global $global_config, $lang_module, $lang_global, $module_info, $module_name, $user_info,$module_setting;
+    global $global_config, $lang_module, $lang_global, $module_info, $module_name;
 
-    $xtpl = new XTemplate("main_page.tpl", NV_ROOTDIR . "/themes/" . $module_info['template'] . "/modules/" . $module_info['module_theme'] . "/");
+    $xtpl = new XTemplate("main_page.tpl", NV_ROOTDIR . "/themes/" . $module_info['template'] . "/modules/" . $module_info['module_theme']);
     $xtpl->assign('LANG', $lang_module);
 	$link_qa=NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&amp;" . NV_OP_VARIABLE . "=insertqa";
     $xtpl->assign('LINKQA', $link_qa);
@@ -200,7 +200,7 @@ function theme_cat_faq($list_cats, $catid, $faq,$generate_page)
             $xtpl->parse('main.is_show_row.row');
         }
 
-        $xtpl->assign('IMG_GO_TOP_SRC', NV_BASE_SITEURL . 'themes/' . $module_info['template'] . '/images/' . $module_name . '/');
+        $xtpl->assign('IMG_GO_TOP_SRC', NV_BASE_SITEURL . 'themes/' . $module_info['template'] . '/images/' . $module_info['module_theme'] . '/');
 
         foreach ($faq as $row) {
             $xtpl->assign('ROW', $row);

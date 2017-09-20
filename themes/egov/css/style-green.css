@@ -1,0 +1,60 @@
+.header-nav {
+  background-color: #00ab00;
+}
+
+.second-nav .bg {
+    background: #00a546;
+}
+
+#menusite .menuctwrap {
+    border-bottom: 1px #f0f5fb solid;
+}
+
+#menusite .navbar-default {
+    border-bottom: 1px #0f9d65 solid;
+}
+
+#menu-site-default .conner-left {
+    background-image: url(../images/menu-left-green.png);
+}
+
+#menu-site-default .conner-right {
+    background-image: url(../images/menu-right-green.png);
+}
+
+#menusite .navbar-default .navbar-nav>li>a:hover, #menusite .navbar-default .navbar-nav>li>a:focus, #menusite .navbar-default .navbar-nav>.active>a, #menusite .navbar-default .navbar-nav>.active>a:hover, #menusite .navbar-default .navbar-nav>.active>a:focus, #menusite .navbar-default .navbar-nav>.open>a, #menusite .navbar-default .navbar-nav>.open>a:hover, #menusite .navbar-default .navbar-nav>.open>a:focus {
+    background: linear-gradient(to bottom,#82b2dc 0%,#46d858 100%) !important;
+}
+
+#toggleearchbtn {
+    border-left: 3px #007b3f solid;
+}
+
+.header-nav a:hover, .user-fix>span>.user:hover, .header-nav a.button:hover, .header-nav a.active, .sitebannertext, #toggleearch>form>button {
+    color: #00a546 !important;
+}
+
+.sitemenu-bg {
+   border: 1px #008040 solid; 
+   background-color: #00773d;
+}
+
+.bg-hot-news-title {
+  background: #07bf07;
+}
+
+.faqopinion .sendfaq a, .faqopinion a.faqitem span, .box-icon-body .titlebox h2, .panel-primary>.panel-heading, .genpage_cute .pagination li a:hover, .genpage_cute .pagination li.active a, .genpage_cute .pagination li:first-child a:hover, .genpage_cute .pagination li.active:first-child a, .genpage_cute .pagination li:last-child a:hover, .genpage_cute .pagination li.active:last-child a, .sitebtntool ul.maintoolbtns li a, .sitebtntool ul.maintoolbtns li a.themetype .sp1 {
+  background-color: #07bf07;
+  border-color: #06be04;
+}
+.footerNav2 .theme-change a, .footerNav2 .bttop a  {
+  background-color: #77cf3b;
+}
+
+.footerNav2 .theme-change span, .footerNav2 .theme-change a:hover, .footerNav2 .theme-change span:hover, .footerNav2 .bttop a:hover {
+    background-color: #49cc3e;
+}
+
+.color-view a, .more-news a, .box-icon-body a.more, .news-catbox-single ul li a.more, .news-groups-bigimghome a.more, .news_column.listpage>.panel>.panel-body a.more, .news_column.newsdetailbox a.more {
+    color: #06be04 !important;
+}

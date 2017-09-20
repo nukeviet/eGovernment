@@ -1,4 +1,5 @@
 <!-- BEGIN: main -->
+<script src="{NV_BASE_SITEURL}themes/{TEMPLATE}/js/jquery.matchHeight-min.js" type="text/javascript"></script>
 <div class="panel panel-primary">
     <div class="panel-heading">
         {DATA.title}
@@ -41,7 +42,7 @@
             <div class="col-sm-6 col-md-6">
                 <div class="thumbnail">
                     <div style="height: {HEIGHT}px">
-                        <a href="{ROW.link}" title="{ROW.name}"><img src="{ROW.photo}" style="max-height: {HEIGHT}px" alt="{ROW.name}"></a>
+                        <a href="{ROW.link}" title="{ROW.name}"><img class="imgthumbnail" src="{ROW.photo}" style="max-height: {HEIGHT}px" alt="{ROW.name}"></a>
                     </div>
                     <div class="caption text-center">
                         <h3><a href="{ROW.link}" title="{ROW.name}">{ROW.name}</a></h3>
@@ -63,5 +64,9 @@
     {html_pages}
 </div>
 <!-- END: pages -->
-
+<script type="text/javascript">
+$(function() {
+	$('.thumbnail').matchHeight({ property: 'min-height' });
+});
+</script>
 <!-- END: main -->

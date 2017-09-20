@@ -311,3 +311,9 @@ a.name_org:hover, a.org:hover {
 .treeview li {
     margin-bottom: 0px !important;
 }
+#body.dissmisshome .panel-primary .panel-body img.imgthumbnail{
+    margin: 0px auto;
+}
+.table_org{
+    padding: 10px;
+}

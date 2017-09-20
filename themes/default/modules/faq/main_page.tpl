@@ -1,4 +1,12 @@
 <!-- BEGIN: main -->
+<!-- BEGIN: isuser -->
+<div class="row">
+	<div class="button-faq">
+	<a href="{LINKQA}"><button type="button" class="btn btn-primary">{LANG.faq_make_question}</button></a>
+	<a href="{LINKLISTQA}"><button type="button" class="btn btn-primary">{LANG.faq_list_question}</button></a>
+	</div>
+</div>
+<!-- END: isuser -->
 <!-- BEGIN: welcome -->
 <div class="welcome">
     {WELCOME}.
@@ -18,8 +26,11 @@
     <!-- END: li -->
 </ul>
 <!-- END: subcats -->
+<div class="page">
+	{NV_GENERATE_PAGE}
+</div>
 <!-- BEGIN: is_show_row -->
-<div class="show_row">
+<div class="row show_row">
     <a name="faqlist"></a>
     <!-- BEGIN: row -->
     <div class="block_faq">

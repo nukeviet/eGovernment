@@ -3,25 +3,22 @@
 /**
  * @Project NUKEVIET 4.x
  * @Author VINADES.,JSC (contact@vinades.vn)
- * @copyright 2009
+ * @Copyright (C) 2017 VINADES.,JSC. All rights reserved
  * @License GNU/GPL version 2 or any later version
- * @Createdate 12/31/2009 2:29
+ * @Createdate 04/14/2017 09:47
  */
 
 if (! defined('NV_ADMIN') or ! defined('NV_MAINFILE') or ! defined('NV_IS_MODADMIN')) {
     die('Stop!!!');
 }
 
-$submenu['cat'] = $lang_module['faq_catmanager'];
-$submenu['config'] = $lang_module['config'];
-
-$allow_func = array( 'main', 'cat', 'config' );
+$allow_func = array( 'main', 'cat', 'config','acceptqa','editqa' );
 
 define('NV_IS_FILE_ADMIN', true);
 
 /**
  * nv_setcats()
- * 
+ *
  * @param mixed $list2
  * @param mixed $id
  * @param mixed $list
@@ -53,7 +50,7 @@ function nv_setcats($list2, $id, $list, $m = 0, $num = 0)
 
 /**
  * nv_listcats()
- * 
+ *
  * @param mixed $parentid
  * @param integer $m
  * @return
@@ -99,7 +96,7 @@ function nv_listcats($parentid, $m = 0)
 
 /**
  * nv_update_keywords()
- * 
+ *
  * @param mixed $catid
  * @return
  */

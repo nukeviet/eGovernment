@@ -2,10 +2,10 @@
 
 /**
  * @Project NUKEVIET 4.x
- * @Author VINADES (contact@vinades.vn)
- * @Copyright (C) 2014 VINADES. All rights reserved
+ * @Author VINADES.,JSC (contact@vinades.vn)
+ * @Copyright (C) 2017 VINADES.,JSC. All rights reserved
  * @License GNU/GPL version 2 or any later version
- * @Createdate Apr 20, 2010 10:47:41 AM
+ * @Createdate 04/14/2017 09:47
  */
 
 if (! defined('NV_IS_MOD_FAQ')) {
@@ -15,7 +15,7 @@ if (! defined('NV_IS_MOD_FAQ')) {
 $channel = array();
 $items = array();
 
-$channel['title'] = $module_info['custom_title'];
+$channel['title'] = $module_info['site_title'];
 $channel['link'] = NV_MY_DOMAIN . NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name;
 $channel['description'] = !empty($module_info['description']) ? $module_info['description'] : $global_config['site_description'];
 

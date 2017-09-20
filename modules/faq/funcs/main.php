@@ -3,21 +3,30 @@
 /**
  * @Project NUKEVIET 4.x
  * @Author VINADES.,JSC (contact@vinades.vn)
- * @Copyright (C) 2014 VINADES.,JSC. All rights reserved
+ * @Copyright (C) 2017 VINADES.,JSC. All rights reserved
  * @License GNU/GPL version 2 or any later version
- * @Createdate 3-6-2010 0:30
+ * @Createdate 04/14/2017 09:47
  */
 
 if (! defined('NV_IS_MOD_FAQ')) {
     die('Stop!!!');
 }
 
-$page_title = $mod_title = $module_info['custom_title'];
+$page_title = $mod_title = $module_info['site_title'];
 $key_words = $module_info['keywords'];
 $description = $lang_module['faq_welcome'];
-
+if(!empty($array_op[1]))
+$str=explode ( '-' , $array_op[1]);
+if(!empty($str[1])) {
+	$page=$str[1];
+}
+else {
+	$page=1;
+}
+$per_page = 20;
+$base_url = NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name . '&' . NV_OP_VARIABLE . '=main';
 if (empty($list_cats) and ! $module_setting['type_main']) {
-    $page_title = $module_info['custom_title'];
+    $page_title = $module_info['site_title'];
 
     include NV_ROOTDIR . '/includes/header.php';
     echo nv_site_theme($contents);
@@ -31,9 +40,14 @@ if (! empty($alias) and $catid) {
     $description = $list_cats[$catid]['description'];
     $mod_title = $list_cats[$catid]['name'];
 
-    $query = "SELECT id,title, question, answer FROM " . NV_PREFIXLANG . "_" . $module_data . " WHERE catid=" . $catid . " AND status=1 ORDER BY weight ASC";
+    $query = "SELECT id,title, question, answer FROM " . NV_PREFIXLANG . "_" . $module_data . " WHERE catid=" . $catid . " AND status!=0 ORDER BY weight ASC";
+    $all_page = $db->query($query)->rowCount();;
+     if (!empty($page)) {
+    $query .= ' LIMIT ' . $per_page . ' OFFSET ' . ($page - 1) * $per_page;
+	} else {
+	    $query .= ' LIMIT ' . $per_page;
+	}
     $result = $db->query($query);
-
     $faq = array();
 
     while (list($fid, $ftitle, $fquestion, $fanswer) = $result->fetch(3)) {
@@ -50,8 +64,8 @@ if (! empty($alias) and $catid) {
     } elseif (! empty($faq)) {
         $key_words = update_keywords($catid, $faq);
     }
-
-    $contents = theme_cat_faq($list_cats, $catid, $faq);
+	$generate_page = nv_alias_page($page_title,$base_url, $all_page, $per_page, $page);
+    $contents = theme_cat_faq($list_cats, $catid, $faq,$generate_page);
 
     include NV_ROOTDIR . '/includes/header.php';
     echo nv_site_theme($contents);
@@ -61,22 +75,32 @@ if (! empty($alias) and $catid) {
     $contents = theme_main_faq($list_cats);
 } elseif ($module_setting['type_main'] == 1 or $module_setting['type_main'] == 2) {
     $order = ($module_setting['type_main'] == 1) ? "DESC" : "ASC";
-    
-    $query = "SELECT id,title, question, answer FROM " . NV_PREFIXLANG . "_" . $module_data . " WHERE status=1 ORDER BY addtime " . $order;
-    $result = $db->query($query);
 
+    $query = "SELECT `id`,`title`,`question`,`answer`,`pubtime`,`userid`,`hitstotal`,alias FROM " . NV_PREFIXLANG . "_" . $module_data . " WHERE status!=0 ORDER BY addtime " . $order;
+    $all_page = $db->query($query)->rowCount();
+     if (!empty($page)) {
+    $query .= ' LIMIT ' . $per_page . ' OFFSET ' . ($page - 1) * $per_page;
+	} else {
+	    $query .= ' LIMIT ' . $per_page;
+	}
+    $result = $db->query($query);
     $faq = array();
 
-    while (list($fid, $ftitle, $fquestion, $fanswer) = $result->fetch(3)) {
+    while (list($fid, $ftitle, $fquestion, $fanswer,$fpubtime,$fuserid,$fhitstotal,$falias) = $result->fetch(3)) {
+    	$query = $db->query('SELECT `username` FROM '.NV_USERS_GLOBALTABLE.' WHERE `userid`= '. $fuserid)->fetch();
         $faq[$fid] = array(
             'id' => $fid,
             'title' => $ftitle,
             'question' => $fquestion,
-            'answer' => $fanswer
+            'answer' => $fanswer,
+            'pubtime'=>$fpubtime,
+            'customer'=>$query['username'],
+            'hitstotal'=>$fhitstotal,
+            'alias'=>$falias
         );
     }
-    
-    $contents = theme_cat_faq(array(), 0, $faq);
+	$generate_page = nv_alias_page($page_title,$base_url, $all_page, $per_page, $page);
+    $contents = theme_cat_faq(array(), 0, $faq,$generate_page);
 } else {
     nv_info_die($lang_global['error_404_title'], $lang_global['error_404_title'], $lang_global['error_404_content']);
 }

@@ -25,8 +25,6 @@ See [LICENSE.txt](LICENSE.txt) for the full license.
   - https://groups.google.com/forum/?fromgroups#!forum/nukeviet
   - http://google.com/+nukeviet
 
-
-
 ## Nukeviet Centre for Research and Development
 VIETNAM OPEN SOURCE DEVELOPMENT JOINT STOCK COMPANY (VINADES.,JSC)
 

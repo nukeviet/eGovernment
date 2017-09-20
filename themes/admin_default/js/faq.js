@@ -1,9 +1,9 @@
 /**
  * @Project NUKEVIET 4.x
- * @Author VINADES.,JSC ( contact@vinades.vn )
- * @Copyright ( C ) 2014 VINADES.,JSC. All rights reserved
+ * @Author VINADES.,JSC (contact@vinades.vn)
+ * @Copyright (C) 2017 VINADES.,JSC. All rights reserved
  * @License GNU/GPL version 2 or any later version
- * @Createdate 1 - 31 - 2010 5 : 12
+ * @Createdate 04/14/2017 09:47
  */
 
 function nv_cat_del( catid )
@@ -75,6 +75,21 @@ function nv_row_del( fid )
 {
 	if (confirm(nv_is_del_confirm[0])) {
 		$.post(script_name + '?' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=main&nocache=' + new Date().getTime(), 'del=1&id=' + fid, function(res) {
+			if (res == 'OK') {
+				window.location.href = window.location.href;
+			} else {
+				alert(nv_is_del_confirm[2]);
+			}
+		});
+	}
+	return false;
+}
+function nv_row_del_acceptqa( fid,email )
+{
+
+	if (confirm(nv_is_del_confirm[0])) {
+		$.post(script_name + '?' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=acceptqa&nocache=' + new Date().getTime(), 'del=1&id=' + fid+'&email='+email, function(res) {
+			alert(res);
 			if (res == 'OK') {
 				window.location.href = window.location.href;
 			} else {

@@ -15,8 +15,8 @@
 	            <th>
 	                {LANG.faq_catid_faq}
 	            </th>
-	            <th class="w100 text-center">
-	                {LANG.faq_active}
+	            <th class="w200 text-center">
+	                {LANG.faq_status}
 	            </th>
 	            <th class="w200 text-center">
 	                {LANG.faq_feature}
@@ -42,7 +42,11 @@
 	                <a href="{ROW.catlink}">{ROW.cattitle}</a>
 	            </td>
 	            <td class="text-center">
-	                <input name="status" id="change_status{ROW.id}" value="1" type="checkbox"{ROW.status} onclick="nv_change_row_status({ROW.id})" />
+	                <select id="change_status_{ROW.id}" onchange="nv_chang_status('{ROW.id}');" class="form-control">
+					<!-- BEGIN: status -->
+					<option value="{STATUS.key}"{STATUS.selected}>{STATUS.val}</option>
+					<!-- END: status -->
+					</select>
 	            </td>
 	            <td class="text-center">
 	                <em class="fa fa-edit fa-lg">&nbsp;</em> <a href="{EDIT_URL}">{GLANG.edit}</a>

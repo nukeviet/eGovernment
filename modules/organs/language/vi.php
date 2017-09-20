@@ -60,4 +60,4 @@ $lang_module['description'] = "Mô tả";
 
 $lang_module['list_sub_org'] = "Danh sách các phòng ban trực thuộc ";
 
-$lang_module['infor_person'] = "Thông tin nhân sự";
+$lang_module['infor_person'] = "Thông tin nhân sự";

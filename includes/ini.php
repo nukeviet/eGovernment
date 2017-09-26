@@ -18,9 +18,7 @@ if (headers_sent() or connection_status() != 0 or connection_aborted()) {
 
 $iniSaveTime = 0;
 $ini_list = ini_get_all(null, false);
-$config_ini_file = NV_ROOTDIR . '/' . NV_DATADIR . '/config_ini.' . preg_replace('/[^a-zA-Z0-9\.\_]/', '', $server_name) . '.php';
-if (file_exists(NV_ROOTDIR . '/' . NV_CONFIG_DIR . '/' . \$server_name . '.php')) {		
-require NV_ROOTDIR . '/' . NV_CONFIG_DIR . '/' . \$server_name . '.php';		
+$config_ini_file = NV_ROOTDIR . '/' . NV_DATADIR . '/config_ini.' . preg_replace('/[^a-zA-Z0-9\.\_]/', '', $server_name) . '.php';	
 @include_once $config_ini_file;
 if ($iniSaveTime + 86400 < NV_CURRENTTIME) {
     $content_config = "<?php" . "\n\n";

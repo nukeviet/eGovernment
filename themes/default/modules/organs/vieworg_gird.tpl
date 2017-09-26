@@ -1,5 +1,5 @@
 <!-- BEGIN: main -->
-<script src="{NV_BASE_SITEURL}themes/{TEMPLATE}/js/jquery.matchHeight-min.js" type="text/javascript"></script>
+<script src="{NV_BASE_SITEURL}themes/default/js/jquery.matchHeight-min.js" type="text/javascript"></script>
 <div class="panel panel-primary">
     <div class="panel-heading">
         {DATA.title}

@@ -5,7 +5,7 @@
  * @Author VINADES.,JSC <contact@vinades.vn>
  * @Copyright (C) 2017 VINADES.,JSC. All rights reserved
  * @License GNU/GPL version 2 or any later version
- * @Createdate Thu, 28 Sep 2017 02:20:04 GMT
+ * @Createdate Thu, 28 Sep 2017 06:47:25 GMT
  */
 
 if (!defined('NV_MAINFILE')) {
@@ -153,7 +153,7 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'global', 'forbid_extensions', 'php,php3,php4,php5,phtml,inc');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'global', 'forbid_mimes', '');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'global', 'nv_max_size', '20971520');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'global', 'upload_checking_mode', 'strong');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'global', 'upload_checking_mode', 'mild');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'global', 'upload_alt_require', '1');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'global', 'upload_auto_alt', '1');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'global', 'useactivate', '2');";
@@ -223,7 +223,7 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'global', 'autologosize3', '30');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'global', 'autologomod', '');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'global', 'name_show', '0');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'global', 'cronjobs_next_time', '1506565299');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'global', 'cronjobs_next_time', '1506581521');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'global', 'disable_site_content', 'Vì lý do kỹ thuật website tạm ngưng hoạt động. Thành thật xin lỗi các bạn vì sự bất tiện này!');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'global', 'ssl_https_modules', '');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'seotools', 'prcservice', '');";
@@ -308,19 +308,6 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'global', 'ftp_user_pass', 'hDXTbp3-Q9qubVWqbTadZYQ1026d_kParm1Vqm02nWU,');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'global', 'ftp_path', '/');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'global', 'ftp_check_login', '0');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinion', 'instant_articles_httpauth', '0');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinion', 'instant_articles_username', 'admin');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinion', 'instant_articles_password', 'kn-bouz4gbbuNFsh2Krr0Q,,');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinion', 'instant_articles_livetime', '60');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinion', 'instant_articles_gettime', '120');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinion', 'instant_articles_auto', '1');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinion', 'indexfile', 'viewcat_main_right');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinion', 'per_page', '20');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinion', 'st_links', '10');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinion', 'homewidth', '100');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinion', 'homeheight', '150');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinion', 'blockwidth', '70');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinion', 'blockheight', '75');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'about', 'timeoutcomm', '360');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'about', 'perpagecomm', '5');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'about', 'captcha', '1');";
@@ -336,43 +323,6 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'news', 'view_comm', '6');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'news', 'allowed_comm', '-1');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'news', 'auto_postcomm', '1');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinion', 'captcha', '1');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinion', 'perpagecomm', '5');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinion', 'timeoutcomm', '360');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinion', 'emailcomm', '0');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinion', 'adminscomm', '');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinion', 'sortcomm', '0');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinion', 'allowed_comm', '-1');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinion', 'view_comm', '6');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinion', 'setcomm', '4');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinion', 'activecomm', '1');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinion', 'auto_postcomm', '1');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinion', 'imagefull', '460');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinion', 'copyright', '');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinion', 'showtooltip', '1');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinion', 'tooltip_position', 'bottom');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinion', 'tooltip_length', '150');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinion', 'showhometext', '1');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinion', 'timecheckstatus', '0');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinion', 'config_source', '0');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinion', 'show_no_image', 'uploads/no-image.jpg');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinion', 'allowed_rating_point', '1');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinion', 'facebookappid', '');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinion', 'socialbutton', '1');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinion', 'alias_lower', '1');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinion', 'tags_alias', '0');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinion', 'auto_tags', '0');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinion', 'tags_remind', '1');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinion', 'copy_news', '0');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinion', 'structure_upload', 'Ym');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinion', 'imgposition', '2');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinion', 'htmlhometext', '0');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinion', 'elas_use', '0');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinion', 'elas_host', '');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinion', 'elas_port', '9200');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinion', 'elas_index', '');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinion', 'instant_articles_active', '0');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinion', 'instant_articles_template', 'default');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'about', 'adminscomm', '');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'about', 'auto_postcomm', '1');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'about', 'allowed_comm', '-1');";
@@ -381,11 +331,8 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'about', 'activecomm', '1');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'about', 'emailcomm', '0');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'news', 'order_articles', '1');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinion', 'order_articles', '0');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'news', 'frontend_edit_alias', '0');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'news', 'frontend_edit_layout', '1');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinion', 'frontend_edit_alias', '0');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinion', 'frontend_edit_layout', '1');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'themes', 'egov', '1');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'laws', 'view_comm', '6');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'laws', 'allowed_comm', '6');";
@@ -398,6 +345,17 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'laws', 'captcha', '1');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'laws', 'perpagecomm', '5');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'laws', 'timeoutcomm', '360');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinions', 'auto_postcomm', '0');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinions', 'allowed_comm', '6');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinions', 'view_comm', '6');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinions', 'setcomm', '4');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinions', 'activecomm', '1');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinions', 'emailcomm', '0');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinions', 'adminscomm', '');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinions', 'sortcomm', '0');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinions', 'captcha', '1');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinions', 'perpagecomm', '5');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinions', 'timeoutcomm', '360');";
 
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_cronjobs`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_cronjobs` (
@@ -416,14 +374,14 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_cronjobs` (
   PRIMARY KEY (`id`),
   KEY `is_sys` (`is_sys`)
 ) ENGINE=MyISAM  AUTO_INCREMENT=10  DEFAULT CHARSET=utf8";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_cronjobs` (`id`, `start_time`, `inter_val`, `run_file`, `run_func`, `params`, `del`, `is_sys`, `act`, `last_time`, `last_result`, `vi_cron_name`) VALUES (1, 1498555144, 5, 'online_expired_del.php', 'cron_online_expired_del', '', 0, 1, 1, 1506564999, 1, 'Xóa các dòng ghi trạng thái online đã cũ trong CSDL');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_cronjobs` (`id`, `start_time`, `inter_val`, `run_file`, `run_func`, `params`, `del`, `is_sys`, `act`, `last_time`, `last_result`, `vi_cron_name`) VALUES (1, 1498555144, 5, 'online_expired_del.php', 'cron_online_expired_del', '', 0, 1, 1, 1506581221, 1, 'Xóa các dòng ghi trạng thái online đã cũ trong CSDL');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_cronjobs` (`id`, `start_time`, `inter_val`, `run_file`, `run_func`, `params`, `del`, `is_sys`, `act`, `last_time`, `last_result`, `vi_cron_name`) VALUES (2, 1498555144, 1440, 'dump_autobackup.php', 'cron_dump_autobackup', '', 0, 1, 1, 1506564296, 1, 'Tự động lưu CSDL');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_cronjobs` (`id`, `start_time`, `inter_val`, `run_file`, `run_func`, `params`, `del`, `is_sys`, `act`, `last_time`, `last_result`, `vi_cron_name`) VALUES (3, 1498555144, 60, 'temp_download_destroy.php', 'cron_auto_del_temp_download', '', 0, 1, 1, 1506564296, 1, 'Xóa các file tạm trong thư mục tmp');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_cronjobs` (`id`, `start_time`, `inter_val`, `run_file`, `run_func`, `params`, `del`, `is_sys`, `act`, `last_time`, `last_result`, `vi_cron_name`) VALUES (4, 1498555144, 30, 'ip_logs_destroy.php', 'cron_del_ip_logs', '', 0, 1, 1, 1506564296, 1, 'Xóa IP log files, Xóa các file nhật ký truy cập');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_cronjobs` (`id`, `start_time`, `inter_val`, `run_file`, `run_func`, `params`, `del`, `is_sys`, `act`, `last_time`, `last_result`, `vi_cron_name`) VALUES (3, 1498555144, 60, 'temp_download_destroy.php', 'cron_auto_del_temp_download', '', 0, 1, 1, 1506580709, 1, 'Xóa các file tạm trong thư mục tmp');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_cronjobs` (`id`, `start_time`, `inter_val`, `run_file`, `run_func`, `params`, `del`, `is_sys`, `act`, `last_time`, `last_result`, `vi_cron_name`) VALUES (4, 1498555144, 30, 'ip_logs_destroy.php', 'cron_del_ip_logs', '', 0, 1, 1, 1506580709, 1, 'Xóa IP log files, Xóa các file nhật ký truy cập');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_cronjobs` (`id`, `start_time`, `inter_val`, `run_file`, `run_func`, `params`, `del`, `is_sys`, `act`, `last_time`, `last_result`, `vi_cron_name`) VALUES (5, 1498555144, 1440, 'error_log_destroy.php', 'cron_auto_del_error_log', '', 0, 1, 1, 1506564296, 1, 'Xóa các file error_log quá hạn');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_cronjobs` (`id`, `start_time`, `inter_val`, `run_file`, `run_func`, `params`, `del`, `is_sys`, `act`, `last_time`, `last_result`, `vi_cron_name`) VALUES (6, 1498555144, 360, 'error_log_sendmail.php', 'cron_auto_sendmail_error_log', '', 0, 1, 0, 0, 0, 'Gửi email các thông báo lỗi cho admin');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_cronjobs` (`id`, `start_time`, `inter_val`, `run_file`, `run_func`, `params`, `del`, `is_sys`, `act`, `last_time`, `last_result`, `vi_cron_name`) VALUES (7, 1498555144, 60, 'ref_expired_del.php', 'cron_ref_expired_del', '', 0, 1, 1, 1506564296, 1, 'Xóa các referer quá hạn');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_cronjobs` (`id`, `start_time`, `inter_val`, `run_file`, `run_func`, `params`, `del`, `is_sys`, `act`, `last_time`, `last_result`, `vi_cron_name`) VALUES (8, 1498555144, 60, 'check_version.php', 'cron_auto_check_version', '', 0, 1, 1, 1506564296, 1, 'Kiểm tra phiên bản NukeViet');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_cronjobs` (`id`, `start_time`, `inter_val`, `run_file`, `run_func`, `params`, `del`, `is_sys`, `act`, `last_time`, `last_result`, `vi_cron_name`) VALUES (7, 1498555144, 60, 'ref_expired_del.php', 'cron_ref_expired_del', '', 0, 1, 1, 1506580709, 1, 'Xóa các referer quá hạn');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_cronjobs` (`id`, `start_time`, `inter_val`, `run_file`, `run_func`, `params`, `del`, `is_sys`, `act`, `last_time`, `last_result`, `vi_cron_name`) VALUES (8, 1498555144, 60, 'check_version.php', 'cron_auto_check_version', '', 0, 1, 1, 1506580709, 1, 'Kiểm tra phiên bản NukeViet');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_cronjobs` (`id`, `start_time`, `inter_val`, `run_file`, `run_func`, `params`, `del`, `is_sys`, `act`, `last_time`, `last_result`, `vi_cron_name`) VALUES (9, 1498555144, 1440, 'notification_autodel.php', 'cron_notification_autodel', '', 0, 1, 1, 1506564296, 1, 'Xóa thông báo cũ');";
 
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_extension_files`";
@@ -4950,10 +4908,10 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extension
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (311, 'theme', 'mobile_default', 0, 0, 'mobile_default', 'mobile_default', '4.1.02 1492966799', 1498555144, 'VINADES (contact@vinades.vn)', '');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (0, 'module', 'laws', 0, 1, 'laws', 'laws', '4.1.02 1491810212', 1498555548, 'VINADES (contact@vinades.vn)', 'Modules văn bản pháp luật');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (0, 'theme', 'egov', 0, 0, 'egov', 'egov', '4.0.0 1498555740', 1498555740, 'VINADES (contact@vinades.vn)', 'egov');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (0, 'module', 'opinion', 0, 0, 'news', 'opinion', '', 1499996844, '', '');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (0, 'module', 'about', 0, 0, 'page', 'about', '', 1500862887, '', '');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (0, 'module', 'organs', 0, 1, 'organs', 'organs', '4.2.01 1497579330', 1506565060, 'VINADES (contact@vinades.vn)', '');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (0, 'module', 'co-cau-to-chuc', 0, 0, 'organs', 'co_cau_to_chuc', '', 1506565068, '', '');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (0, 'module', 'opinions', 0, 0, 'laws', 'opinions', '', 1506570465, '', '');";
 
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_setup_language`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_setup_language` (
@@ -5214,7 +5172,7 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_group
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_groups` (`bid`, `theme`, `module`, `file_name`, `title`, `link`, `template`, `position`, `exp_time`, `active`, `act`, `groups_view`, `all_func`, `weight`, `config`) VALUES (18, 'default', 'contact', 'global.contact_default.php', 'Contact Default', '', 'no_title', '[CONTACT_DEFAULT]', 0, '1', 1, '6', 1, 1, '');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_groups` (`bid`, `theme`, `module`, `file_name`, `title`, `link`, `template`, `position`, `exp_time`, `active`, `act`, `groups_view`, `all_func`, `weight`, `config`) VALUES (19, 'default', 'theme', 'global.social.php', 'Social icon', '', 'no_title', '[SOCIAL_ICONS]', 0, '1', 1, '6', 1, 1, 'a:4:{s:8:\"facebook\";s:32:\"http://www.facebook.com/nukeviet\";s:11:\"google_plus\";s:32:\"https://www.google.com/+nukeviet\";s:7:\"youtube\";s:37:\"https://www.youtube.com/user/nukeviet\";s:7:\"twitter\";s:28:\"https://twitter.com/nukeviet\";}');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_groups` (`bid`, `theme`, `module`, `file_name`, `title`, `link`, `template`, `position`, `exp_time`, `active`, `act`, `groups_view`, `all_func`, `weight`, `config`) VALUES (20, 'default', 'theme', 'global.menu_footer.php', 'Các chuyên mục chính', '', 'simple', '[MENU_FOOTER]', 0, '1', 1, '6', 1, 1, 'a:1:{s:14:\"module_in_menu\";a:8:{i:0;s:5:\"about\";i:1;s:4:\"news\";i:2;s:5:\"users\";i:3;s:7:\"contact\";i:4;s:6:\"voting\";i:5;s:7:\"banners\";i:6;s:4:\"seek\";i:7;s:5:\"feeds\";}}');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_groups` (`bid`, `theme`, `module`, `file_name`, `title`, `link`, `template`, `position`, `exp_time`, `active`, `act`, `groups_view`, `all_func`, `weight`, `config`) VALUES (100, 'egov', 'theme', 'global.bootstrap.php', 'global bootstrap', '', 'no_title', '[MENU_SITE]', 0, '1', 1, '6', 1, 1, 'a:2:{s:6:\"menuid\";i:1;s:12:\"title_length\";i:24;}');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_groups` (`bid`, `theme`, `module`, `file_name`, `title`, `link`, `template`, `position`, `exp_time`, `active`, `act`, `groups_view`, `all_func`, `weight`, `config`) VALUES (100, 'egov', 'theme', 'global.bootstrap.php', 'global bootstrap', '', 'no_title', '[MENU_SITE]', 0, '1', 1, '6', 1, 1, 'a:2:{s:6:\"menuid\";i:1;s:12:\"title_length\";i:2400;}');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_groups` (`bid`, `theme`, `module`, `file_name`, `title`, `link`, `template`, `position`, `exp_time`, `active`, `act`, `groups_view`, `all_func`, `weight`, `config`) VALUES (101, 'egov', 'menu', 'global.menutop.php', 'global menutop', '', 'no_title', '[MENU_TOP]', 0, '1', 1, '6', 1, 1, 'a:2:{s:6:\"menuid\";i:7;s:12:\"title_length\";i:0;}');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_groups` (`bid`, `theme`, `module`, `file_name`, `title`, `link`, `template`, `position`, `exp_time`, `active`, `act`, `groups_view`, `all_func`, `weight`, `config`) VALUES (102, 'egov', 'theme', 'global.text_banner.php', 'global text banner', '', 'no_title', '[TEXT_BANNER]', 0, '1', 1, '6', 1, 1, 'a:3:{s:10:\"site_title\";s:30:\"Cổng thông tin điện tử\";s:16:\"site_description\";s:17:\"UBND Thành Phố\";s:12:\"use_sitename\";i:0;}');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_groups` (`bid`, `theme`, `module`, `file_name`, `title`, `link`, `template`, `position`, `exp_time`, `active`, `act`, `groups_view`, `all_func`, `weight`, `config`) VALUES (103, 'egov', 'theme', 'global.sliders.php', 'global sliders', '', 'no_title', '[HEADER]', 0, '1', 1, '6', 0, 1, 'a:1:{s:12:\"idplanbanner\";i:4;}');";
@@ -6668,8 +6626,8 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weigh
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (100, 10, 1);";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (100, 120, 1);";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (100, 121, 1);";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (100, 126, 1);";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (100, 127, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (16, 139, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (16, 140, 1);";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (100, 72, 1);";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (100, 71, 1);";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (100, 74, 1);";
@@ -7684,6 +7642,220 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weigh
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (123, 134, 1);";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (123, 133, 1);";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (123, 136, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (16, 142, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (16, 137, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (16, 138, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (16, 145, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (16, 143, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (18, 140, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (18, 139, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (18, 142, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (18, 137, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (18, 138, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (18, 145, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (18, 143, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (11, 140, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (11, 139, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (11, 142, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (11, 137, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (11, 138, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (11, 145, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (11, 143, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (12, 140, 2);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (12, 139, 2);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (12, 142, 2);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (12, 137, 2);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (12, 138, 2);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (12, 145, 2);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (12, 143, 2);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (5, 140, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (5, 139, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (5, 142, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (5, 137, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (5, 138, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (5, 145, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (5, 143, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (6, 140, 2);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (6, 139, 2);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (6, 142, 2);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (6, 137, 2);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (6, 138, 2);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (6, 145, 2);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (6, 143, 2);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (20, 140, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (20, 139, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (20, 142, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (20, 137, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (20, 138, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (20, 145, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (20, 143, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (17, 140, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (17, 139, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (17, 142, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (17, 137, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (17, 138, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (17, 145, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (17, 143, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (15, 140, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (15, 139, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (15, 142, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (15, 137, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (15, 138, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (15, 145, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (15, 143, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (13, 140, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (13, 139, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (13, 142, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (13, 137, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (13, 138, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (13, 145, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (13, 143, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (14, 140, 2);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (14, 139, 2);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (14, 142, 2);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (14, 137, 2);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (14, 138, 2);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (14, 145, 2);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (14, 143, 2);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (8, 140, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (8, 139, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (8, 142, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (8, 137, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (8, 138, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (8, 145, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (8, 143, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (9, 140, 2);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (9, 139, 2);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (9, 142, 2);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (9, 137, 2);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (9, 138, 2);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (9, 145, 2);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (9, 143, 2);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (10, 140, 3);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (10, 139, 3);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (10, 142, 3);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (10, 137, 3);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (10, 138, 3);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (10, 145, 3);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (10, 143, 3);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (19, 140, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (19, 139, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (19, 142, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (19, 137, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (19, 138, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (19, 145, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (19, 143, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (125, 140, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (125, 139, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (125, 142, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (125, 137, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (125, 138, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (125, 145, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (125, 143, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (119, 140, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (119, 139, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (119, 142, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (119, 137, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (119, 138, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (119, 145, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (119, 143, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (100, 140, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (100, 139, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (100, 142, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (100, 137, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (100, 138, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (100, 145, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (100, 143, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (101, 140, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (101, 139, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (101, 142, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (101, 137, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (101, 138, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (101, 145, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (101, 143, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (114, 140, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (114, 139, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (114, 142, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (114, 137, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (114, 138, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (114, 145, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (114, 143, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (115, 140, 2);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (115, 139, 2);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (115, 142, 2);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (115, 137, 2);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (115, 138, 2);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (115, 145, 2);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (115, 143, 2);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (116, 140, 3);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (116, 139, 3);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (116, 142, 3);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (116, 137, 3);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (116, 138, 3);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (116, 145, 3);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (116, 143, 3);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (127, 140, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (127, 139, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (127, 142, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (127, 137, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (127, 138, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (127, 145, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (127, 143, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (102, 140, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (102, 139, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (102, 142, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (102, 137, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (102, 138, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (102, 145, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (102, 143, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (120, 140, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (120, 139, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (120, 142, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (120, 137, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (120, 138, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (120, 145, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (120, 143, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (124, 140, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (124, 139, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (124, 142, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (124, 137, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (124, 138, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (124, 145, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (124, 143, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (123, 140, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (123, 139, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (123, 142, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (123, 137, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (123, 138, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (123, 145, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (123, 143, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (16, 146, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (18, 146, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (11, 146, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (12, 146, 2);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (5, 146, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (6, 146, 2);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (20, 146, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (17, 146, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (15, 146, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (13, 146, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (14, 146, 2);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (8, 146, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (9, 146, 2);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (10, 146, 3);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (19, 146, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (125, 146, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (119, 146, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (100, 146, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (101, 146, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (114, 146, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (115, 146, 2);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (116, 146, 3);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (127, 146, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (102, 146, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (120, 146, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (124, 146, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (123, 146, 1);";
 
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_co_cau_to_chuc_config`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_co_cau_to_chuc_config` (
@@ -7723,8 +7895,15 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_co_cau_to_c
   `professional` text  COLLATE utf8mb4_unicode_ci NOT NULL,
   `political` text  COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`personid`)
-) ENGINE=MyISAM  AUTO_INCREMENT=2  DEFAULT CHARSET=utf8mb4  COLLATE=utf8mb4_unicode_ci";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_co_cau_to_chuc_person` (`personid`, `name`, `photo`, `phone_ext`, `mobile`, `email`, `position`, `position_other`, `address`, `phone`, `birthday`, `place_birth`, `description`, `addtime`, `edittime`, `organid`, `weight`, `active`, `dayinto`, `dayparty`, `marital_status`, `professional`, `political`) VALUES (1, 'Nguyễn Văn A', '', '', '', 'nguyenvana@gmail.com', 'Trưởng phòng', '', '', '', -448407120, 'Quảng Bình', '', 1445394264, 1445394534, 1, 1, 1, 0, 0, 'Đã kết hôn', 'Đại học', 'Cao cấp');";
+) ENGINE=MyISAM  AUTO_INCREMENT=10  DEFAULT CHARSET=utf8mb4  COLLATE=utf8mb4_unicode_ci";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_co_cau_to_chuc_person` (`personid`, `name`, `photo`, `phone_ext`, `mobile`, `email`, `position`, `position_other`, `address`, `phone`, `birthday`, `place_birth`, `description`, `addtime`, `edittime`, `organid`, `weight`, `active`, `dayinto`, `dayparty`, `marital_status`, `professional`, `political`) VALUES (2, 'Nguyễn Văn A', '', '', '0918 123 456', '', 'Ủy viên Trung ương Đảng, Bí thư Tỉnh ủy', 'Trưởng đoàn ĐBQH tỉnh', '', '06513 555 444', -73687560, '', '', 1506568464, 1506568464, 9, 1, 1, 0, 852261240, 'Đã kết hôn', 'Đại học', 'Cao cấp');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_co_cau_to_chuc_person` (`personid`, `name`, `photo`, `phone_ext`, `mobile`, `email`, `position`, `position_other`, `address`, `phone`, `birthday`, `place_birth`, `description`, `addtime`, `edittime`, `organid`, `weight`, `active`, `dayinto`, `dayparty`, `marital_status`, `professional`, `political`) VALUES (3, 'Trần Tuệ H', '', '', '0651 333 444', 'trantueh.hdp@egovement.gov.vn', 'Phó Bí thư Thường trực Tỉnh ủy', 'Chủ tịch HĐND tỉnh', '', '', 0, '', '', 1506568557, 1506569423, 9, 2, 1, 0, 0, '', '', '');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_co_cau_to_chuc_person` (`personid`, `name`, `photo`, `phone_ext`, `mobile`, `email`, `position`, `position_other`, `address`, `phone`, `birthday`, `place_birth`, `description`, `addtime`, `edittime`, `organid`, `weight`, `active`, `dayinto`, `dayparty`, `marital_status`, `professional`, `political`) VALUES (4, 'Nguyễn Văn T', '', '', '0651 345 678', 'nguyenvant.hdp@egovement.gov.vn', 'Phó Bí thư Tỉnh ủy, Chủ tịch UBND tỉnh.', '', '', '', 0, '', '', 1506569204, 1506570275, 13, 1, 1, 0, 0, '', '', '');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_co_cau_to_chuc_person` (`personid`, `name`, `photo`, `phone_ext`, `mobile`, `email`, `position`, `position_other`, `address`, `phone`, `birthday`, `place_birth`, `description`, `addtime`, `edittime`, `organid`, `weight`, `active`, `dayinto`, `dayparty`, `marital_status`, `professional`, `political`) VALUES (6, 'Trần Ngọc T', '', '', '0651 333 333', 'tranngoct.hdp@egovement.gov.vn', 'Phó Chủ tịch HĐND tỉnh', '', '', '', 0, '', '', 1506569496, 1506569533, 10, 2, 1, 0, 0, '', '', '');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_co_cau_to_chuc_person` (`personid`, `name`, `photo`, `phone_ext`, `mobile`, `email`, `position`, `position_other`, `address`, `phone`, `birthday`, `place_birth`, `description`, `addtime`, `edittime`, `organid`, `weight`, `active`, `dayinto`, `dayparty`, `marital_status`, `professional`, `political`) VALUES (5, 'Lê Văn Châu', '', '', '0651 333 777', 'levanchau.hdp@egovement.gov.vn', 'Phó Bí thư Tỉnh ủy', '', '', '', 0, '', '', 1506569317, 1506569520, 10, 1, 1, 0, 0, '', 'Đại học', '');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_co_cau_to_chuc_person` (`personid`, `name`, `photo`, `phone_ext`, `mobile`, `email`, `position`, `position_other`, `address`, `phone`, `birthday`, `place_birth`, `description`, `addtime`, `edittime`, `organid`, `weight`, `active`, `dayinto`, `dayparty`, `marital_status`, `professional`, `political`) VALUES (7, 'Thái Văn H', '', '', '0916.222.222', 'thaih.hdp@egovement.gov.vn', 'Chánh Văn phòng HĐND và UBND', '', '', '', 0, '', '', 1506569949, 1506570009, 11, 1, 1, 0, 0, '', 'Thạc sĩ Kinh tế', 'Cao cấp');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_co_cau_to_chuc_person` (`personid`, `name`, `photo`, `phone_ext`, `mobile`, `email`, `position`, `position_other`, `address`, `phone`, `birthday`, `place_birth`, `description`, `addtime`, `edittime`, `organid`, `weight`, `active`, `dayinto`, `dayparty`, `marital_status`, `professional`, `political`) VALUES (8, 'Nguyễn Quốc D', '', '', '0988 1111 111', '', 'Phó Chánh Văn phòng HĐND và UBND', '', '', '', 0, '', '', 1506570109, 1506570109, 11, 2, 1, 0, 0, '', 'Cử nhân Kinh tế', '');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_co_cau_to_chuc_person` (`personid`, `name`, `photo`, `phone_ext`, `mobile`, `email`, `position`, `position_other`, `address`, `phone`, `birthday`, `place_birth`, `description`, `addtime`, `edittime`, `organid`, `weight`, `active`, `dayinto`, `dayparty`, `marital_status`, `professional`, `political`) VALUES (9, 'Lê Quang Đ', '', '', '0916.123.456', '', 'Trưởng phòng', '', '', '', 0, '', '', 1506570255, 1506570255, 12, 1, 1, 0, 0, '', 'Thạc sĩ Kinh tế', '');";
 
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_co_cau_to_chuc_rows`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_co_cau_to_chuc_rows` (
@@ -7754,14 +7933,13 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_co_cau_to_c
   PRIMARY KEY (`organid`),
   UNIQUE KEY `alias` (`alias`),
   KEY `parentid` (`parentid`)
-) ENGINE=MyISAM  AUTO_INCREMENT=9  DEFAULT CHARSET=utf8mb4  COLLATE=utf8mb4_unicode_ci";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_co_cau_to_chuc_rows` (`organid`, `parentid`, `title`, `alias`, `image`, `thumbnail`, `weight`, `orders`, `numsub`, `suborgan`, `lev`, `active`, `add_time`, `edit_time`, `address`, `email`, `phone`, `phone_ext`, `fax`, `website`, `numperson`, `description`, `view`) VALUES (1, 0, 'Ban giám hiệu', 'Ban-giam-hieu', '', '', 1, 1, 0, '', 0, 1, 1442804405, 1442822308, '', '', '', '', '', '', 1, '', 1);";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_co_cau_to_chuc_rows` (`organid`, `parentid`, `title`, `alias`, `image`, `thumbnail`, `weight`, `orders`, `numsub`, `suborgan`, `lev`, `active`, `add_time`, `edit_time`, `address`, `email`, `phone`, `phone_ext`, `fax`, `website`, `numperson`, `description`, `view`) VALUES (7, 0, 'Tổ chuyên môn', 'To-chuyen-mon', '', '', 2, 2, 0, '', 0, 1, 1442822363, 1442822363, '', '', '', '', '', '', 0, '', 1);";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_co_cau_to_chuc_rows` (`organid`, `parentid`, `title`, `alias`, `image`, `thumbnail`, `weight`, `orders`, `numsub`, `suborgan`, `lev`, `active`, `add_time`, `edit_time`, `address`, `email`, `phone`, `phone_ext`, `fax`, `website`, `numperson`, `description`, `view`) VALUES (8, 0, 'Ban chỉ huy liên đội', 'Ban-chi-huy-lien-doi', '', '', 3, 3, 0, '', 0, 1, 1442829290, 1442829290, '', '', '', '', '', '', 0, '', 1);";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_co_cau_to_chuc_rows` (`organid`, `parentid`, `title`, `alias`, `image`, `thumbnail`, `weight`, `orders`, `numsub`, `suborgan`, `lev`, `active`, `add_time`, `edit_time`, `address`, `email`, `phone`, `phone_ext`, `fax`, `website`, `numperson`, `description`, `view`) VALUES (3, 0, 'Chi bộ Đảng', 'Chi-bo-Dang', '', '', 5, 5, 0, '', 0, 1, 1442822317, 1442822317, '', '', '', '', '', '', 0, '', 1);";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_co_cau_to_chuc_rows` (`organid`, `parentid`, `title`, `alias`, `image`, `thumbnail`, `weight`, `orders`, `numsub`, `suborgan`, `lev`, `active`, `add_time`, `edit_time`, `address`, `email`, `phone`, `phone_ext`, `fax`, `website`, `numperson`, `description`, `view`) VALUES (4, 0, 'BCH Công Đoàn', 'BCH-Cong-Doan', '', '', 4, 4, 0, '', 0, 1, 1442822325, 1442822325, '', '', '', '', '', '', 0, '', 1);";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_co_cau_to_chuc_rows` (`organid`, `parentid`, `title`, `alias`, `image`, `thumbnail`, `weight`, `orders`, `numsub`, `suborgan`, `lev`, `active`, `add_time`, `edit_time`, `address`, `email`, `phone`, `phone_ext`, `fax`, `website`, `numperson`, `description`, `view`) VALUES (5, 0, 'Đoàn thanh niên', 'Doan-thanh-nien', '', '', 6, 6, 0, '', 0, 1, 1442822334, 1442822334, '', '', '', '', '', '', 0, '', 1);";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_co_cau_to_chuc_rows` (`organid`, `parentid`, `title`, `alias`, `image`, `thumbnail`, `weight`, `orders`, `numsub`, `suborgan`, `lev`, `active`, `add_time`, `edit_time`, `address`, `email`, `phone`, `phone_ext`, `fax`, `website`, `numperson`, `description`, `view`) VALUES (6, 0, 'Thường trực hội cha mẹ học sinh', 'Thuong-truc-hoi-cha-me-hoc-sinh', '', '', 7, 7, 0, '', 0, 1, 1442822345, 1442829333, '', '', '', '', '', '', 0, '', 1);";
+) ENGINE=MyISAM  AUTO_INCREMENT=15  DEFAULT CHARSET=utf8mb4  COLLATE=utf8mb4_unicode_ci";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_co_cau_to_chuc_rows` (`organid`, `parentid`, `title`, `alias`, `image`, `thumbnail`, `weight`, `orders`, `numsub`, `suborgan`, `lev`, `active`, `add_time`, `edit_time`, `address`, `email`, `phone`, `phone_ext`, `fax`, `website`, `numperson`, `description`, `view`) VALUES (14, 0, 'Phòng lao động TB&amp;XH', 'Phong-lao-dong-TB-XH', '', '', 6, 6, 0, '', 0, 1, 1506567822, 1506567822, '', '', '', '', '', '', 0, '', 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_co_cau_to_chuc_rows` (`organid`, `parentid`, `title`, `alias`, `image`, `thumbnail`, `weight`, `orders`, `numsub`, `suborgan`, `lev`, `active`, `add_time`, `edit_time`, `address`, `email`, `phone`, `phone_ext`, `fax`, `website`, `numperson`, `description`, `view`) VALUES (13, 0, 'Phòng giáo dục và đào tạo', 'Phong-giao-duc-va-dao-tao', '', '', 5, 5, 0, '', 0, 1, 1506567774, 1506567774, '', '', '', '', '', '', 1, '', 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_co_cau_to_chuc_rows` (`organid`, `parentid`, `title`, `alias`, `image`, `thumbnail`, `weight`, `orders`, `numsub`, `suborgan`, `lev`, `active`, `add_time`, `edit_time`, `address`, `email`, `phone`, `phone_ext`, `fax`, `website`, `numperson`, `description`, `view`) VALUES (11, 0, 'Phòng tài nguyên và môi trường', 'Phong-tai-nguyen-va-moi-truong', '', '', 3, 3, 0, '', 0, 1, 1506567742, 1506567742, '', '', '', '', '', '', 2, '', 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_co_cau_to_chuc_rows` (`organid`, `parentid`, `title`, `alias`, `image`, `thumbnail`, `weight`, `orders`, `numsub`, `suborgan`, `lev`, `active`, `add_time`, `edit_time`, `address`, `email`, `phone`, `phone_ext`, `fax`, `website`, `numperson`, `description`, `view`) VALUES (12, 0, 'Phòng tư pháp', 'Phong-tu-phap', '', '', 4, 4, 0, '', 0, 1, 1506567760, 1506567760, '', '', '', '', '', '', 1, '', 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_co_cau_to_chuc_rows` (`organid`, `parentid`, `title`, `alias`, `image`, `thumbnail`, `weight`, `orders`, `numsub`, `suborgan`, `lev`, `active`, `add_time`, `edit_time`, `address`, `email`, `phone`, `phone_ext`, `fax`, `website`, `numperson`, `description`, `view`) VALUES (9, 0, 'Phòng nội vụ', 'Phong-noi-vu', '', '', 1, 1, 0, '', 0, 1, 1506567704, 1506567704, '', '', '', '', '', '', 2, '', 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_co_cau_to_chuc_rows` (`organid`, `parentid`, `title`, `alias`, `image`, `thumbnail`, `weight`, `orders`, `numsub`, `suborgan`, `lev`, `active`, `add_time`, `edit_time`, `address`, `email`, `phone`, `phone_ext`, `fax`, `website`, `numperson`, `description`, `view`) VALUES (10, 0, 'Phòng tài chính - kế hoạch', 'Phong-tai-chinh-ke-hoach', '', '', 2, 2, 0, '', 0, 1, 1506567721, 1506567721, '', '', '', '', '', '', 2, '', 1);";
 
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_comment`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_comment` (
@@ -7852,6 +8030,54 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_contact_sup
   `weight` smallint(5) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8";
+
+$sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_faq`";
+$sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_faq` (
+  `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+  `catid` mediumint(8) unsigned NOT NULL,
+  `title` varchar(250)  COLLATE utf8mb4_unicode_ci NOT NULL,
+  `alias` varchar(250)  COLLATE utf8mb4_unicode_ci NOT NULL,
+  `question` mediumtext  COLLATE utf8mb4_unicode_ci NOT NULL,
+  `answer` mediumtext  COLLATE utf8mb4_unicode_ci NOT NULL,
+  `weight` smallint(4) unsigned NOT NULL DEFAULT '0',
+  `status` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `addtime` int(11) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `alias` (`alias`),
+  KEY `catid` (`catid`)
+) ENGINE=MyISAM  AUTO_INCREMENT=7  DEFAULT CHARSET=utf8mb4  COLLATE=utf8mb4_unicode_ci";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_faq` (`id`, `catid`, `title`, `alias`, `question`, `answer`, `weight`, `status`, `addtime`) VALUES (1, 1, 'Không cấp lại bản chính văn bằng, chứng chỉ', 'Khong-cap-lai-ban-chinh-van-bang-chung-chi', 'Ông Nguyễn Ngọc Khương (Hải Dương) là học sinh trường THPT Nguyễn Bỉnh Khiêm niên học 2001-2004. Ông Khương bị mất bằng tốt nghiệp THPT và muốn xin cấp lại. Vậy, thủ tục cấp lại bằng tốt nghiệp như thế nào? Ông Khương hiện đi làm xa thì có thể nhờ chị gái làm thủ tục không, nếu được thì cần những giấy tờ gì?', '<p><em>Về vấn đề này, Bộ Giáo dục và Đào tạo trả lời như sau:</em></p><p>Khoản 3 Điều 2 Quy chế văn bằng, chứng chỉ của hệ thống giáo dục quốc dân ban hành kèm theo Quyết định số 33/2007/QĐ-BGDĐT ngày 20/6/2007 của Bộ Giáo dục và Đào tạo quy định bản chính văn bằng, chứng chỉ chỉ cấp một lần, không cấp lại.</p><p>Người bị mất bản chính văn bằng, chứng chỉ chỉ được cấp lại bản sao văn bằng, chứng chỉ từ sổ gốc.</p><p>Người yêu cầu cấp bản sao văn bằng, chứng chỉ từ sổ gốc có thể trực tiếp yêu cầu hoặc gửi yêu cầu của mình đến cơ quan có thẩm quyền cấp bản sao văn bằng, chứng chỉ từ sổ gốc qua bưu điện. Không hạn chế số lượng bản sao yêu cầu được cấp.</p>', 1, 1, 1506574376);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_faq` (`id`, `catid`, `title`, `alias`, `question`, `answer`, `weight`, `status`, `addtime`) VALUES (2, 0, 'Nhiều hộ sống cùng một địa chỉ, tách hộ khẩu thế nào?', 'Nhieu-ho-song-cung-mot-dia-chi-tach-ho-khau-the-nao', 'Gia đình bà Lâm Tú Anh (Hà Nội) có 3 hộ sống chung. Bà hỏi, gia đình bà có thể tách riêng mỗi hộ 1 sổ hộ khẩu được không? Nếu được thì có quy định về số lượng sổ hộ khẩu trong cùng một chỗ ở hợp pháp không?', '<p><em>Về vấn đề này, Bộ Công an &nbsp;trả lời như sau:</em></p><p>Điều 27&nbsp;<a href=\"http://vanban.chinhphu.vn/portal/page/portal/chinhphu/hethongvanban?class_id=1&amp;_page=1&amp;mode=detail&amp;document_id=29515\">Luật Cư trú</a>&nbsp;quy định về trường hợp có cùng một chỗ ở hợp pháp được tách sổ hộ khẩu bao gồm: Người có năng lực hành vi dân sự đầy đủ và có nhu cầu tách sổ hộ khẩu; người ở chung một chỗ ở hợp pháp nhưng không có quan hệ gia đình là ông, bà, cha, mẹ, vợ, chồng, con và anh, chị, em ruột, cháu ruột nếu có đủ điều kiện quy định tại Điều 19, Điều 20 Luật Cư trú và được chủ hộ đồng ý cho nhập vào sổ hộ khẩu gia đình, sổ hộ khẩu cá nhân, khi người này muốn tách sổ hộ khẩu phải được chủ hộ đồng ý bằng văn bản.</p><p>Thủ tục tách sổ hộ khẩu bao gồm:</p><p>- Sổ hộ khẩu.</p><p>- Phiếu báo thay đổi hộ khẩu, nhân khẩu.</p><p>- Ý kiến đồng ý của chủ hộ nếu thuộc trường hợp quy định tại Điểm b, Khoản 1 Điều 27 Luật Cư trú là: Người ở chung một chỗ ở hợp pháp nhưng không có quan hệ gia đình là ông, bà, cha, mẹ, vợ, chồng, con và anh, chị, em ruột, cháu ruột nếu có đủ điều kiện quy định tại Điều 19, Điều 20 Luật Cư trú và được chủ hộ đồng ý cho nhập vào sổ hộ khẩu gia đình, sổ hộ khẩu cá nhân, khi người này muốn tách sổ hộ khẩu phải được chủ hộ đồng ý bằng văn bản.</p><p>Công dân được tách sổ hộ khẩu khi có đầy đủ điều kiện, thủ tục theo quy định của Luật Cư trú và các văn bản hướng dẫn thi hành. Nếu còn vấn đề gì vướng mắc đề nghị bà Lâm Tú Anh đến cơ quan Công an nơi đăng ký cư trú để được hướng dẫn cụ thể.</p>', 1, 1, 1506574492);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_faq` (`id`, `catid`, `title`, `alias`, `question`, `answer`, `weight`, `status`, `addtime`) VALUES (3, 0, 'Điều kiện cấp chứng chỉ năng lực xây dựng làm khó DN nhỏ?', 'Dieu-kien-cap-chung-chi-nang-luc-xay-dung-lam-kho-DN-nho', 'Nếu đăng ký cấp chứng chỉ năng lực hoạt động xây dựng hạng III, DN cần tới tối thiểu 3 người chủ trì và 5 người trong bộ máy. Như vậy, để được cấp chứng chỉ năng lực cấp III với 3 chuyên ngành thì DN cần đến 24 người và phải trả lương, đóng BHXH cho 24 nhân sự, điều này quá khó khăn đối với DN nhỏ.', '<p><em>Về vấn đề này, Bộ Xây dựng có&nbsp;<a href=\"http://baodientu.chinhphu.vn/Uploaded/lethithuyan/2017_09_26/tl_savico_VQRY.PDF\">ý kiến</a>&nbsp;như sau:</em></p><p>Công trình xây dựng là loại sản phẩm hàng hóa đặc thù được hình thành trong tương lai, chất lượng và an toàn của công trình (liên quan đến an toàn cộng đồng) phụ thuộc chủ yếu vào năng lực của cá nhân, tổ chức tham gia vào các hoạt động xây dựng như lập quy hoạch xây dựng, khảo sát, thiết kế, thi công,… để tạo ra công trình. Do đó, năng lực của các tổ chức, cá nhân tham gia các hoạt động xây dựng được pháp luật quy định và quản lý chặt chẽ.</p><p>Theo quy định của pháp luật về xây dựng hiện hành, năng lực của tổ chức được đánh giá trên cơ sở xem xét một cách tổng thể các tiêu chí về nhân sự, kinh nghiệm thực hiện công việc, tài chính, quy trình quản lý chất lượng và khả năng huy động máy móc thiết bị.</p><p>Đối với các doanh nghiệp nhỏ hoặc mới thành lập hoàn toàn có thể đề nghị cấp chứng chỉ năng lực hoạt động xây dựng cấp III vì Nghị định số 59/2015/NĐ-CP ngày 18/6/2015 của Chính phủ về quản lý dự án đầu tư xây dựng chỉ yêu cầu tối thiểu về nhân sự của tổ chức, không yêu cầu về kinh nghiệm thực hiện công việc, tài chính,…</p><p>Trường hợp tổ chức chưa đủ điều kiện cấp chứng chỉ năng lực (kể cả hạng III) thì theo quy định tại Khoản 2, Điều 10 Thông tư số 17/2016/TT-BXD ngày 30/6/2016 của Bộ Xây dựng đã quy định tổ chức này được tham gia các hoạt động xây dựng đối với dự án chỉ yêu cầu lập báo cáo kinh tế - kỹ thuật đầu tư xây dựng công trình quy mô cấp IV; dự án sửa chữa, cải tạo, bảo trì công trình quy mô cấp IV.</p>', 2, 1, 1506574656);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_faq` (`id`, `catid`, `title`, `alias`, `question`, `answer`, `weight`, `status`, `addtime`) VALUES (4, 0, 'Đóng trùng BHXH giữa hai công ty, giải quyết thế nào?', 'Dong-trung-BHXH-giua-hai-cong-ty-giai-quyet-the-nao', 'Công ty của bà Phạm Thị Huệ (Hà Nội) có trường hợp người lao động làm việc tại 1 công ty khác đến tháng 9/2010 và chốt sổ BHXH vào tháng này. Tháng 10/2010, người lao động này chuyển sang công ty của bà Huệ, nhưng kế toán khai đóng BHXH từ tháng 9/2010.<br /><br />Hiện công ty của bà Huệ đang làm thủ tục cấp lại sổ BHXH do bị mất, trong quá trình cấp lại sổ BHXH, cơ quan BHXH báo trường hợp của người lao động này bị trùng 1 tháng đóng BHXH giữa 2 công ty nên phải làm thủ tục thoái trùng.<br /><br />Bà Huệ hỏi, vậy công ty của bà cần chuẩn bị giấy tờ gì để giải quyết và làm thủ tục cấp lại sổ BHXH cho người lao động trên?', '<p><em>Về vấn đề này, BHXH TP. Hà Nội trả lời như sau:</em></p><p>Tại Điều 2&nbsp;Quyết định số 1111/QĐ-BHXH có quy định,<em>&nbsp;</em>“Hoàn trả: Là việc cơ quan BHXH chuyển trả lại số tiền được xác định là không phải tiền đóng hoặc đóng thừa, đóng trùng BHXH, BHYT, BHTN cho cơ quan, đơn vị, cá nhân đã nộp cho cơ quan BHXH…”.</p><p>Như vậy, theo quy định trên, khi người lao động bị đóng trùng BHXH thì cơ quan BHXH có nghĩa vụ hoàn trả lại số tiền đã đóng trùng đó.</p><p>Ngoài ra, tại Khoản 2, Điều 63 Quyết định số 1111/QĐ-BHXH quy định: “Một người có từ 2 sổ BHXH trở lên ghi thời gian đóng BHXH trùng nhau thì cơ quan BHXH hướng dẫn người lao động lựa chọn 1 sổ BHXH để tiếp tục ghi quá trình đóng BHXH, BHTN hoặc giải quyết các chế độ BHXH, BHTN. Các sổ BHXH còn lại thu hồi và thực hiện hoàn trả cho đơn vị, người lao động theo quy định tại Điểm 3.3, Khoản 3, Điều 48.</p><p>Trường hợp sổ BHXH bị thu hồi mà đơn vị đề nghị cấp sổ BHXH đã giải thể thì thực hiện giải quyết chế độ trợ cấp một lần cho người lao động. Khi thu hồi sổ BHXH, đồng thời phải thu hồi các khoản trợ cấp BHXH đã chi trả trước đó (nếu có)”.</p><p>Với thủ tục thoái thu gồm: Công văn của đơn vị; danh sách lao động tham gia BHXH, BHYT, BHTN (D02-TS); sổ BHXH.</p><p>Sau đó, công ty cũ của người lao động sẽ có trách nhiệm&nbsp;làm thoái thu đồng thời chốt sổ BHXH.</p>', 3, 1, 1506574809);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_faq` (`id`, `catid`, `title`, `alias`, `question`, `answer`, `weight`, `status`, `addtime`) VALUES (5, 2, 'Hưởng quyền lợi BHYT theo đối tượng tham gia', 'Huong-quyen-loi-BHYT-theo-doi-tuong-tham-gia', 'Bố đẻ của bà Nguyễn Phương muốn tán sỏi thận nội soi bằng laser tại Bệnh viện Bình Dân, nhưng bố bà đăng ký khám chữa bệnh BHYT tại Bệnh viện Thống Nhất. Bà Phương hỏi, bố bà có được BHYT chi trả không? Việc chuyển viên trong trường hợp này có đúng tuyến không?', '<p><em>Về vấn đề này, BHXH &nbsp;trả lời như sau:</em></p><p>Trường hợp bố của bà được Bệnh viện Thống Nhất chuyển tuyến đến bệnh viện Bình Dân để tán sỏi qua nội soi thì sẽ được hưởng 100% chi phí khám chữa bệnh đúng tuyến nhân mức quyền lợi được hưởng (80%, 95%, 100% tùy theo đối tượng tham gia BHYT). Các chi phí dịch vụ, chi phí ngoài quy định, chi phí đồng chi trả bố của bà phải tự thanh toán với cơ sở khám chữa bệnh.</p>', 1, 1, 1506574893);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_faq` (`id`, `catid`, `title`, `alias`, `question`, `answer`, `weight`, `status`, `addtime`) VALUES (6, 2, 'Tự chuyển viện để phẫu thuật, hưởng BHYT thế nào?', 'Tu-chuyen-vien-de-phau-thuat-huong-BHYT-the-nao', 'Bà nội của ông Hữu Trọng (Nghệ An) có thẻ BHYT đối tượng người có công với cách mạng. Bà của ông đã đi khám tại bệnh viện tuyến tỉnh, sau đó đến bệnh viện tại TP. Hà Nội để khám lại. Hiện bà của ông muốn được phẫu thuật ở bệnh viện tại TP. Hà Nội.<br />Gia đình ông Trọng đã xin giấy chuyển viện của bệnh viện tuyến tỉnh nhưng không được chấp thuận, trường hợp muốn có giấy chuyển viện thì gia đình phải chịu phí 3 triệu đồng.<br /><br />Ông Trọng hỏi, bệnh viện tuyến tỉnh thực hiện như vậy có đúng không? Bà của ông phẫu thuật tại bệnh viện ở TP. Hà Nội mà không có giấy chuyển tuyến thì có được hưởng 100% BHYT không?', '<p><em>Về vấn đề này, BHXH Việt Nam trả lời như sau:</em></p><p>Khi vượt quá khả năng chuyên môn, cơ sở khám, chữa bệnh có trách nhiệm phải chuyển người bệnh lên cơ sở tuyến trên để được khám và điều trị.</p><p>Việc chuyển tuyến thuộc thẩm quyền và trách nhiệm của cơ sở khám, chữa bệnh và người bệnh không phải chi trả bất cứ chi phí nào. Đối với bệnh viện thu phí khi cấp giấy chuyển tuyến, đề nghị ông phản ánh với Sở Y tế để được giải quyết.</p><p>Để được hưởng đầy đủ quyền lợi BHYT khi điều trị tại Hà Nội, người bệnh cần xuất trình Giấy chuyển tuyến của cơ sở khám, chữa bệnh tuyến dưới chuyển đến.</p><p>Trường hợp bà của ông tự đi mổ tại Hà Nội không có giấy chuyển tuyến thì chỉ được hưởng 60% chi phí điều trị nội trú tại cơ sở khám, chữa bệnh tuyến tỉnh và 40% chi phí điều trị nội trú tại cơ sở khám, chữa bệnh tuyến trung ương.</p>', 2, 1, 1506575035);";
+
+$sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_faq_categories`";
+$sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_faq_categories` (
+  `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+  `parentid` mediumint(8) unsigned NOT NULL,
+  `title` varchar(250)  COLLATE utf8mb4_unicode_ci NOT NULL,
+  `alias` varchar(250)  COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` mediumtext  COLLATE utf8mb4_unicode_ci NOT NULL,
+  `groups_view` varchar(255)  COLLATE utf8mb4_unicode_ci NOT NULL,
+  `weight` smallint(4) unsigned NOT NULL DEFAULT '0',
+  `status` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `keywords` mediumtext  COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `alias` (`alias`)
+) ENGINE=MyISAM  AUTO_INCREMENT=4  DEFAULT CHARSET=utf8mb4  COLLATE=utf8mb4_unicode_ci";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_faq_categories` (`id`, `parentid`, `title`, `alias`, `description`, `groups_view`, `weight`, `status`, `keywords`) VALUES (1, 0, 'Giáo dục và đào tạo', 'Giao-duc-va-dao-tao', '', '6', 1, 1, 'văn bằng,chứng chỉ,học sinh,nguyễn bỉnh khiêm,tốt nghiệp,thủ tục,như thế,đi làm,có thể,giấy tờ,vấn đề,giáo dục,đào tạo,trả lời,quy chế,hệ thống,quốc dân,ban hành,quyết định,quy định,bản sao');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_faq_categories` (`id`, `parentid`, `title`, `alias`, `description`, `groups_view`, `weight`, `status`, `keywords`) VALUES (2, 0, 'Dân sinh', 'Dan-sinh', '', '6', 2, 1, 'quyền lợi,tham gia,bình dân,đăng ký,thống nhất,trường hợp,vấn đề,chi phí,tùy theo,quy định,thanh toán,cơ sở,phẫu thuật,thế nào,của ông,cách mạng,sau đó,hà nội,chấp thuận,gia đình,thực hiện');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_faq_categories` (`id`, `parentid`, `title`, `alias`, `description`, `groups_view`, `weight`, `status`, `keywords`) VALUES (3, 0, 'Kinh Tế', 'Kinh-Te', '', '6', 3, 1, '');";
+
+$sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_faq_config`";
+$sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_faq_config` (
+  `config_name` varchar(30)  COLLATE utf8mb4_unicode_ci NOT NULL,
+  `config_value` varchar(255)  COLLATE utf8mb4_unicode_ci NOT NULL,
+  UNIQUE KEY `config_name` (`config_name`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8mb4  COLLATE=utf8mb4_unicode_ci";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_faq_config` (`config_name`, `config_value`) VALUES ('type_main', '1');";
 
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_faq_tmp`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_faq_tmp` (
@@ -7996,7 +8222,7 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_laws_row` (
   `admin_edit` mediumint(8) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  AUTO_INCREMENT=17  DEFAULT CHARSET=utf8";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_laws_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (1, '', '', 'Công văn số 4622&#x002F;BGDĐT-CNTT về việc hướng dẫn thực hiện nhiệm vụ CNTT năm học 2016 – 2017', 'Cong-van-so-4622-BGDDT-CNTT-ve-viec-huong-dan-thuc-hien-nhiem-vu-CNTT-nam-hoc-2016-2017-1', '4622&#x002F;BGDĐT-CNTT', 1, 1, 1, '', 'Công văn số 4622&#x002F;BGDĐT-CNTT về việc hướng dẫn thực hiện nhiệm vụ CNTT năm học 2016 – 2017', '', 'khai thác,sử dụng,tự do,quán triệt,triển khai,thông tư,quy định,cơ sở,tăng cường,nhà trường,danh sách,ban hành,nghiên cứu,áp dụng,hệ thống,xây dựng,thông tin', '6', '6', 'demo.pdf', 1, 1502359836, 1502811964, 1478538000, NULL, NULL, 0, 0, 7, 1, 1, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_laws_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (1, '', '', 'Công văn số 4622&#x002F;BGDĐT-CNTT về việc hướng dẫn thực hiện nhiệm vụ CNTT năm học 2016 – 2017', 'Cong-van-so-4622-BGDDT-CNTT-ve-viec-huong-dan-thuc-hien-nhiem-vu-CNTT-nam-hoc-2016-2017-1', '4622&#x002F;BGDĐT-CNTT', 1, 1, 1, '', 'Công văn số 4622&#x002F;BGDĐT-CNTT về việc hướng dẫn thực hiện nhiệm vụ CNTT năm học 2016 – 2017', '', 'khai thác,sử dụng,tự do,quán triệt,triển khai,thông tư,quy định,cơ sở,tăng cường,nhà trường,danh sách,ban hành,nghiên cứu,áp dụng,hệ thống,xây dựng,thông tin', '6', '6', 'demo.pdf', 1, 1502359836, 1502811964, 1478538000, NULL, NULL, 0, 0, 8, 2, 1, 1);";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_laws_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (10, '', '', 'Thông tư số 01&#x002F;2011&#x002F;TT-BTTTT của Bộ Thông tin và Truyền thông &#x3A; Công bố Danh mục tiêu chuẩn kỹ thuật về ứng dụng công nghệ thông tin trong cơ quan nhà nước', 'Thong-tu-so-01-2011-TT-BTTTT-cua-Bo-Thong-tin-va-Truyen-thong-Cong-bo-Danh-muc-tieu-chuan-ky-thuat-ve-ung-dung-cong-nghe-thong-tin-trong-co-quan-nha-nuoc-10', '01&#x002F;2011&#x002F;TT-BTTTT', 3, 4, 6, '', 'Công bố Danh mục tiêu chuẩn kỹ thuật <br />về ứng dụng công nghệ thông tin trong cơ quan nhà nước', '', 'công bố,danh mục,tiêu chuẩn,kỹ thuật,ứng dụng,công nghệ,thông tin,cơ quan', '6', '6', 'demo.pdf', 1, 1502416130, 0, 1294074000, NULL, NULL, 0, 0, 1, 0, 1, 0);";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_laws_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (2, '', '', 'Thông tư số 08&#x002F;2010&#x002F;TT-BGDĐT của Bộ Giáo dục và Đào tạo &#x3A; Quy định về sử dụng phần mềm tự do mã nguồn mở trong các cơ sở giáo dục', 'Thong-tu-so-08-2010-TT-BGDDT-cua-Bo-Giao-duc-va-Dao-tao-Quy-dinh-ve-su-dung-phan-mem-tu-do-ma-nguon-mo-trong-cac-co-so-giao-duc-2', '08&#x002F;2010&#x002F;TT-BGDĐT', 3, 1, 2, '', 'Thông tư số 08&#x002F;2010&#x002F;TT-BGDĐT của Bộ Giáo dục và Đào tạo &#x3A; Quy định về sử dụng phần mềm tự do mã nguồn mở trong các cơ sở giáo dục', '', 'giáo dục,đào tạo,cộng hoà,xã hội,chủ nghĩa,độc lập,tự do,hạnh phúc,hà nội,sử dụng,cơ sở,công nghệ,thông tin,nghị định,phủ quy,nhiệm vụ,quyền hạn,tổ chức,ứng dụng,hoạt động,cơ quan', '6', '6', 'demo.pdf', 1, 1502359989, 1502812204, 1267376400, NULL, NULL, 0, 0, 3, 0, 1, 1);";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_laws_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (3, '', '', 'Công văn số 310&#x002F;BTTTT-ƯDCNTT ngày 10&#x002F;02&#x002F;2012 của Bộ Thông tin và Truyền thông về việc hướng dẫn áp dụng bộ tiêu chí đánh giá cổng thông tin điện tử của cơ quan nhà nước', 'Cong-van-so-310-BTTTT-UDCNTT-ngay-10-02-2012-cua-Bo-Thong-tin-va-Truyen-thong-ve-viec-huong-dan-ap-dung-bo-tieu-chi-danh-gia-cong-thong-tin-dien-tu-cua-co-quan-nha-nuoc-3', '310&#x002F;BTTTT-ƯDCNTT', 1, 2, 3, '', 'Văn bản hướng dẫn áp dụng bộ tiêu chí đánh giá cổng thông tin điện tử của cơ quan nhà nước', '', 'hướng dẫn,áp dụng,tiêu chí,đánh giá,thông tin,cơ quan', '6', '6', 'demo.pdf', 1, 1502414679, 0, 1328806800, NULL, NULL, 0, 0, 2, 0, 1, 0);";
@@ -8130,9 +8356,9 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_menu_rows` (
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_menu_rows` (`id`, `parentid`, `mid`, `title`, `link`, `icon`, `image`, `note`, `weight`, `sort`, `lev`, `subitem`, `groups_view`, `module_name`, `op`, `target`, `css`, `active_type`, `status`) VALUES (40, 0, 1, 'Văn bản', '" . NV_BASE_SITEURL . "index.php?language=vi&nv=laws', '', '', '', 4, 15, 0, '124,125,126,127', '6', 'laws', '', 1, '', 0, 1);";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_menu_rows` (`id`, `parentid`, `mid`, `title`, `link`, `icon`, `image`, `note`, `weight`, `sort`, `lev`, `subitem`, `groups_view`, `module_name`, `op`, `target`, `css`, `active_type`, `status`) VALUES (41, 0, 1, 'Lịch làm việc', '" . NV_BASE_SITEURL . "index.php?language=vi&nv=page&op=thong-bao.html', '', '', '', 5, 20, 0, '', '6', 'page', 'thong-bao.html', 1, '', 0, 1);";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_menu_rows` (`id`, `parentid`, `mid`, `title`, `link`, `icon`, `image`, `note`, `weight`, `sort`, `lev`, `subitem`, `groups_view`, `module_name`, `op`, `target`, `css`, `active_type`, `status`) VALUES (42, 0, 1, 'Dịch vụ công', 'http://www.chinhphu.vn/portal/page/portal/chinhphu/congdan/dichvucong', '', '', '', 6, 21, 0, '', '6', 'page', '', 2, '', 0, 1);";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_menu_rows` (`id`, `parentid`, `mid`, `title`, `link`, `icon`, `image`, `note`, `weight`, `sort`, `lev`, `subitem`, `groups_view`, `module_name`, `op`, `target`, `css`, `active_type`, `status`) VALUES (43, 0, 1, 'Lấy ý kiến người dân', '" . NV_BASE_SITEURL . "index.php?language=vi&nv=opinion', '', '', '', 7, 22, 0, '135,136,137', '6', 'opinion', '', 1, '', 0, 1);";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_menu_rows` (`id`, `parentid`, `mid`, `title`, `link`, `icon`, `image`, `note`, `weight`, `sort`, `lev`, `subitem`, `groups_view`, `module_name`, `op`, `target`, `css`, `active_type`, `status`) VALUES (44, 0, 1, 'Hỏi đáp', '" . NV_BASE_SITEURL . "index.php?language=vi&nv=opinion&op=cac-cau-hoi-thuong-gap', '', '', '', 8, 26, 0, '138,139', '6', 'opinion', 'cac-cau-hoi-thuong-gap', 1, '', 0, 1);";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_menu_rows` (`id`, `parentid`, `mid`, `title`, `link`, `icon`, `image`, `note`, `weight`, `sort`, `lev`, `subitem`, `groups_view`, `module_name`, `op`, `target`, `css`, `active_type`, `status`) VALUES (45, 0, 1, 'Liên hệ', '" . NV_BASE_SITEURL . "index.php?language=vi&nv=contact', '', '', '', 9, 29, 0, '', '6', 'contact', '', 1, '', 0, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_menu_rows` (`id`, `parentid`, `mid`, `title`, `link`, `icon`, `image`, `note`, `weight`, `sort`, `lev`, `subitem`, `groups_view`, `module_name`, `op`, `target`, `css`, `active_type`, `status`) VALUES (43, 0, 1, 'Lấy ý kiến người dân', '" . NV_BASE_SITEURL . "index.php?language=vi&nv=opinions', '', '', '', 7, 22, 0, '', '6', '0', '', 1, '', 0, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_menu_rows` (`id`, `parentid`, `mid`, `title`, `link`, `icon`, `image`, `note`, `weight`, `sort`, `lev`, `subitem`, `groups_view`, `module_name`, `op`, `target`, `css`, `active_type`, `status`) VALUES (44, 0, 1, 'Hỏi đáp', '" . NV_BASE_SITEURL . "index.php?language=vi&nv=faq', '', '', '', 8, 23, 0, '138,139', '6', 'faq', '', 1, '', 0, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_menu_rows` (`id`, `parentid`, `mid`, `title`, `link`, `icon`, `image`, `note`, `weight`, `sort`, `lev`, `subitem`, `groups_view`, `module_name`, `op`, `target`, `css`, `active_type`, `status`) VALUES (45, 0, 1, 'Liên hệ', '" . NV_BASE_SITEURL . "index.php?language=vi&nv=contact', '', '', '', 9, 26, 0, '', '6', 'contact', '', 1, '', 0, 1);";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_menu_rows` (`id`, `parentid`, `mid`, `title`, `link`, `icon`, `image`, `note`, `weight`, `sort`, `lev`, `subitem`, `groups_view`, `module_name`, `op`, `target`, `css`, `active_type`, `status`) VALUES (46, 0, 4, 'Góp ý của dân', '" . NV_BASE_SITEURL . "index.php?language=vi&nv=opinion&op=gop-y-cua-dan', 'lay-y-kien.png', '', '', 1, 1, 0, '', '6', 'opinion', '', 1, 'col-sm-12 col-md-5', 0, 1);";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_menu_rows` (`id`, `parentid`, `mid`, `title`, `link`, `icon`, `image`, `note`, `weight`, `sort`, `lev`, `subitem`, `groups_view`, `module_name`, `op`, `target`, `css`, `active_type`, `status`) VALUES (47, 0, 4, 'Lấy ý kiến dự thảo văn bản', '" . NV_BASE_SITEURL . "index.php?language=vi&nv=opinion&op=du-thao-van-ban-phap-luat', 'y-kien-du-thao.png', '', '', 2, 2, 0, '', '6', 'opinion', '', 1, 'col-sm-12 col-md-7 imgonright', 0, 1);";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_menu_rows` (`id`, `parentid`, `mid`, `title`, `link`, `icon`, `image`, `note`, `weight`, `sort`, `lev`, `subitem`, `groups_view`, `module_name`, `op`, `target`, `css`, `active_type`, `status`) VALUES (48, 0, 4, 'Đường dây nóng', '" . NV_BASE_SITEURL . "index.php?language=vi&nv=page&op=thongbao.html', 'duong-day-nong.png', '', 'Sở&#x002F; Ban ngành&#x002F; Quận&#x002F; Huyện', 3, 3, 0, '', '6', 'page', '', 1, 'col-sm-12 col-md-5 hasnote', 0, 1);";
@@ -8158,17 +8384,14 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_menu_rows` (
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_menu_rows` (`id`, `parentid`, `mid`, `title`, `link`, `icon`, `image`, `note`, `weight`, `sort`, `lev`, `subitem`, `groups_view`, `module_name`, `op`, `target`, `css`, `active_type`, `status`) VALUES (142, 37, 1, 'Giới thiệu chung', '" . NV_BASE_SITEURL . "index.php?language=vi&nv=about&op=Gioi-thieu-chung.html', '', '', '', 1, 2, 1, '', '6', 'about', '', 1, '', 0, 1);";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_menu_rows` (`id`, `parentid`, `mid`, `title`, `link`, `icon`, `image`, `note`, `weight`, `sort`, `lev`, `subitem`, `groups_view`, `module_name`, `op`, `target`, `css`, `active_type`, `status`) VALUES (141, 0, 7, 'RSS', '" . NV_BASE_SITEURL . "index.php?language=vi&nv=feeds', 'rss_1.png', '', '', 2, 2, 0, '', '6', 'feeds', '', 1, 'li-second-display', 0, 1);";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_menu_rows` (`id`, `parentid`, `mid`, `title`, `link`, `icon`, `image`, `note`, `weight`, `sort`, `lev`, `subitem`, `groups_view`, `module_name`, `op`, `target`, `css`, `active_type`, `status`) VALUES (140, 0, 7, 'Thành viên', '" . NV_BASE_SITEURL . "index.php?language=vi&nv=users', 'user_1.png', '', '', 1, 1, 0, '', '6', 'users', '', 1, 'li-first-menu', 0, 1);";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_menu_rows` (`id`, `parentid`, `mid`, `title`, `link`, `icon`, `image`, `note`, `weight`, `sort`, `lev`, `subitem`, `groups_view`, `module_name`, `op`, `target`, `css`, `active_type`, `status`) VALUES (135, 43, 1, 'Dự thảo văn bản pháp luật', '" . NV_BASE_SITEURL . "index.php?language=vi&nv=opinion&op=du-thao-van-ban-phap-luat', '', '', '', 1, 23, 1, '', '6', 'opinion', '', 1, '', 0, 1);";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_menu_rows` (`id`, `parentid`, `mid`, `title`, `link`, `icon`, `image`, `note`, `weight`, `sort`, `lev`, `subitem`, `groups_view`, `module_name`, `op`, `target`, `css`, `active_type`, `status`) VALUES (34, 0, 3, 'CÔNG BÁO CHÍNH PHỦ', '" . NV_BASE_SITEURL . "index.php?language=vi&nv=laws&op=Cong-van', 'icon1.png', '', '', 1, 1, 0, '', '6', 'laws', 'Cong-van', 1, 'col-sm-12 col-md-8', 0, 1);";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_menu_rows` (`id`, `parentid`, `mid`, `title`, `link`, `icon`, `image`, `note`, `weight`, `sort`, `lev`, `subitem`, `groups_view`, `module_name`, `op`, `target`, `css`, `active_type`, `status`) VALUES (35, 0, 3, 'LỊCH LÀM VIỆC', '" . NV_BASE_SITEURL . "index.php?language=vi&nv=page&op=thong-bao.html', 'icon2.png', '', '', 2, 2, 0, '', '6', 'page', 'thong-bao.html', 1, 'col-sm-12 col-md-8', 0, 1);";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_menu_rows` (`id`, `parentid`, `mid`, `title`, `link`, `icon`, `image`, `note`, `weight`, `sort`, `lev`, `subitem`, `groups_view`, `module_name`, `op`, `target`, `css`, `active_type`, `status`) VALUES (36, 0, 3, 'VĂN BẢN - CHỈ ĐẠO ĐIỀU HÀNH', '" . NV_BASE_SITEURL . "index.php?language=vi&nv=laws', 'icon3.png', '', '', 3, 3, 0, '', '6', 'laws', '', 1, 'col-sm-12 col-md-8', 0, 1);";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_menu_rows` (`id`, `parentid`, `mid`, `title`, `link`, `icon`, `image`, `note`, `weight`, `sort`, `lev`, `subitem`, `groups_view`, `module_name`, `op`, `target`, `css`, `active_type`, `status`) VALUES (118, 39, 1, 'Mua sắm - mời thầu', '" . NV_BASE_SITEURL . "index.php?language=vi&nv=news&amp;op=mua-sam-moi-thau', '', '', '', 7, 12, 1, '', '6', 'news', 'mua-sam-moi-thau', 1, '', 1, 1);";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_menu_rows` (`id`, `parentid`, `mid`, `title`, `link`, `icon`, `image`, `note`, `weight`, `sort`, `lev`, `subitem`, `groups_view`, `module_name`, `op`, `target`, `css`, `active_type`, `status`) VALUES (117, 39, 1, 'Kế hoạch', '" . NV_BASE_SITEURL . "index.php?language=vi&nv=news&amp;op=ke-hoach', '', '', '', 6, 11, 1, '', '6', 'news', 'ke-hoach', 1, '', 1, 1);";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_menu_rows` (`id`, `parentid`, `mid`, `title`, `link`, `icon`, `image`, `note`, `weight`, `sort`, `lev`, `subitem`, `groups_view`, `module_name`, `op`, `target`, `css`, `active_type`, `status`) VALUES (116, 39, 1, 'Chiến lược - Quy hoạch', '" . NV_BASE_SITEURL . "index.php?language=vi&nv=news&amp;op=chien-luoc-quy-hoach', '', '', '', 5, 10, 1, '', '6', 'news', 'chien-luoc-quy-hoach', 1, '', 1, 1);";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_menu_rows` (`id`, `parentid`, `mid`, `title`, `link`, `icon`, `image`, `note`, `weight`, `sort`, `lev`, `subitem`, `groups_view`, `module_name`, `op`, `target`, `css`, `active_type`, `status`) VALUES (136, 43, 1, 'Lấy ý kiến khác', '" . NV_BASE_SITEURL . "index.php?language=vi&nv=opinion&op=lay-y-kien-khac', '', '', '', 2, 24, 1, '', '6', 'opinion', '', 1, '', 0, 1);";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_menu_rows` (`id`, `parentid`, `mid`, `title`, `link`, `icon`, `image`, `note`, `weight`, `sort`, `lev`, `subitem`, `groups_view`, `module_name`, `op`, `target`, `css`, `active_type`, `status`) VALUES (137, 43, 1, 'Góp ý của dân', '" . NV_BASE_SITEURL . "index.php?language=vi&nv=opinion&op=gop-y-cua-dan', '', '', '', 3, 25, 1, '', '6', 'opinion', '', 1, '', 0, 1);";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_menu_rows` (`id`, `parentid`, `mid`, `title`, `link`, `icon`, `image`, `note`, `weight`, `sort`, `lev`, `subitem`, `groups_view`, `module_name`, `op`, `target`, `css`, `active_type`, `status`) VALUES (138, 44, 1, 'Các câu hỏi thường gặp', '" . NV_BASE_SITEURL . "index.php?language=vi&nv=opinion&op=cac-cau-hoi-thuong-gap', '', '', '', 1, 27, 1, '', '6', 'opinion', '', 1, '', 0, 1);";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_menu_rows` (`id`, `parentid`, `mid`, `title`, `link`, `icon`, `image`, `note`, `weight`, `sort`, `lev`, `subitem`, `groups_view`, `module_name`, `op`, `target`, `css`, `active_type`, `status`) VALUES (139, 44, 1, 'Gửi câu hỏi', '" . NV_BASE_SITEURL . "index.php?language=vi&nv=contact&op=ban-bien-tap', '', '', '', 2, 28, 1, '', '6', 'contact', 'ban-bien-tap', 1, '', 0, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_menu_rows` (`id`, `parentid`, `mid`, `title`, `link`, `icon`, `image`, `note`, `weight`, `sort`, `lev`, `subitem`, `groups_view`, `module_name`, `op`, `target`, `css`, `active_type`, `status`) VALUES (138, 44, 1, 'Các câu hỏi thường gặp', '" . NV_BASE_SITEURL . "index.php?language=vi&nv=faq', '', '', '', 1, 24, 1, '', '6', 'faq', '', 1, '', 0, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_menu_rows` (`id`, `parentid`, `mid`, `title`, `link`, `icon`, `image`, `note`, `weight`, `sort`, `lev`, `subitem`, `groups_view`, `module_name`, `op`, `target`, `css`, `active_type`, `status`) VALUES (139, 44, 1, 'Gửi câu hỏi', '" . NV_BASE_SITEURL . "index.php?language=vi&nv=contact&op=ban-bien-tap', '', '', '', 2, 25, 1, '', '6', 'contact', 'ban-bien-tap', 1, '', 0, 1);";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_menu_rows` (`id`, `parentid`, `mid`, `title`, `link`, `icon`, `image`, `note`, `weight`, `sort`, `lev`, `subitem`, `groups_view`, `module_name`, `op`, `target`, `css`, `active_type`, `status`) VALUES (127, 40, 1, 'Nghị định', '" . NV_BASE_SITEURL . "index.php?language=vi&nv=laws&amp;op=Nghi-dinh', '', '', '', 4, 19, 1, '', '6', 'laws', 'Nghi-dinh', 1, '', 1, 1);";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_menu_rows` (`id`, `parentid`, `mid`, `title`, `link`, `icon`, `image`, `note`, `weight`, `sort`, `lev`, `subitem`, `groups_view`, `module_name`, `op`, `target`, `css`, `active_type`, `status`) VALUES (124, 40, 1, 'Công văn', '" . NV_BASE_SITEURL . "index.php?language=vi&nv=laws&amp;op=Cong-van', '', '', '', 1, 16, 1, '', '6', 'laws', 'Cong-van', 1, '', 1, 1);";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_menu_rows` (`id`, `parentid`, `mid`, `title`, `link`, `icon`, `image`, `note`, `weight`, `sort`, `lev`, `subitem`, `groups_view`, `module_name`, `op`, `target`, `css`, `active_type`, `status`) VALUES (125, 40, 1, 'Văn bản', '" . NV_BASE_SITEURL . "index.php?language=vi&nv=laws&amp;op=Van-ban', '', '', '', 2, 17, 1, '', '6', 'laws', 'Van-ban', 1, '', 1, 1);";
@@ -8199,7 +8422,7 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_modfuncs` (
   PRIMARY KEY (`func_id`),
   UNIQUE KEY `func_name` (`func_name`,`in_module`),
   UNIQUE KEY `alias` (`alias`,`in_module`)
-) ENGINE=MyISAM  AUTO_INCREMENT=137  DEFAULT CHARSET=utf8";
+) ENGINE=MyISAM  AUTO_INCREMENT=149  DEFAULT CHARSET=utf8";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modfuncs` (`func_id`, `func_name`, `alias`, `func_custom_name`, `func_site_title`, `in_module`, `show_func`, `in_submenu`, `subweight`, `setting`) VALUES (4, 'main', 'main', 'Main', '', 'news', 1, 0, 1, '');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modfuncs` (`func_id`, `func_name`, `alias`, `func_custom_name`, `func_site_title`, `in_module`, `show_func`, `in_submenu`, `subweight`, `setting`) VALUES (5, 'viewcat', 'viewcat', 'Viewcat', '', 'news', 1, 0, 2, '');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modfuncs` (`func_id`, `func_name`, `alias`, `func_custom_name`, `func_site_title`, `in_module`, `show_func`, `in_submenu`, `subweight`, `setting`) VALUES (6, 'topic', 'topic', 'Topic', '', 'news', 1, 0, 3, '');";
@@ -8269,21 +8492,9 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modfuncs` (`
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modfuncs` (`func_id`, `func_name`, `alias`, `func_custom_name`, `func_site_title`, `in_module`, `show_func`, `in_submenu`, `subweight`, `setting`) VALUES (75, 'signer', 'signer', 'Signer', '', 'laws', 1, 1, 7, '');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modfuncs` (`func_id`, `func_name`, `alias`, `func_custom_name`, `func_site_title`, `in_module`, `show_func`, `in_submenu`, `subweight`, `setting`) VALUES (76, 'sitemap', 'sitemap', 'Sitemap', '', 'laws', 0, 0, 0, '');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modfuncs` (`func_id`, `func_name`, `alias`, `func_custom_name`, `func_site_title`, `in_module`, `show_func`, `in_submenu`, `subweight`, `setting`) VALUES (77, 'subject', 'subject', 'Subject', '', 'laws', 1, 1, 6, '');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modfuncs` (`func_id`, `func_name`, `alias`, `func_custom_name`, `func_site_title`, `in_module`, `show_func`, `in_submenu`, `subweight`, `setting`) VALUES (119, 'viewcat', 'viewcat', 'Viewcat', '', 'opinion', 1, 0, 2, '');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modfuncs` (`func_id`, `func_name`, `alias`, `func_custom_name`, `func_site_title`, `in_module`, `show_func`, `in_submenu`, `subweight`, `setting`) VALUES (118, 'topic', 'topic', 'Topic', '', 'opinion', 1, 0, 3, '');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modfuncs` (`func_id`, `func_name`, `alias`, `func_custom_name`, `func_site_title`, `in_module`, `show_func`, `in_submenu`, `subweight`, `setting`) VALUES (117, 'tag', 'tag', 'Tag', '', 'opinion', 1, 0, 8, '');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modfuncs` (`func_id`, `func_name`, `alias`, `func_custom_name`, `func_site_title`, `in_module`, `show_func`, `in_submenu`, `subweight`, `setting`) VALUES (116, 'sitemap', 'sitemap', 'Sitemap', '', 'opinion', 0, 0, 0, '');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modfuncs` (`func_id`, `func_name`, `alias`, `func_custom_name`, `func_site_title`, `in_module`, `show_func`, `in_submenu`, `subweight`, `setting`) VALUES (115, 'sendmail', 'sendmail', 'Sendmail', '', 'opinion', 0, 0, 0, '');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modfuncs` (`func_id`, `func_name`, `alias`, `func_custom_name`, `func_site_title`, `in_module`, `show_func`, `in_submenu`, `subweight`, `setting`) VALUES (114, 'search', 'search', 'Search', '', 'opinion', 1, 1, 6, '');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modfuncs` (`func_id`, `func_name`, `alias`, `func_custom_name`, `func_site_title`, `in_module`, `show_func`, `in_submenu`, `subweight`, `setting`) VALUES (113, 'savefile', 'savefile', 'Savefile', '', 'opinion', 0, 0, 0, '');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modfuncs` (`func_id`, `func_name`, `alias`, `func_custom_name`, `func_site_title`, `in_module`, `show_func`, `in_submenu`, `subweight`, `setting`) VALUES (112, 'rss', 'rss', 'Rss', '', 'opinion', 1, 1, 9, '');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modfuncs` (`func_id`, `func_name`, `alias`, `func_custom_name`, `func_site_title`, `in_module`, `show_func`, `in_submenu`, `subweight`, `setting`) VALUES (111, 'rating', 'rating', 'Rating', '', 'opinion', 0, 0, 0, '');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modfuncs` (`func_id`, `func_name`, `alias`, `func_custom_name`, `func_site_title`, `in_module`, `show_func`, `in_submenu`, `subweight`, `setting`) VALUES (110, 'print', 'print', 'Print', '', 'opinion', 0, 0, 0, '');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modfuncs` (`func_id`, `func_name`, `alias`, `func_custom_name`, `func_site_title`, `in_module`, `show_func`, `in_submenu`, `subweight`, `setting`) VALUES (109, 'main', 'main', 'Main', '', 'opinion', 1, 0, 1, '');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modfuncs` (`func_id`, `func_name`, `alias`, `func_custom_name`, `func_site_title`, `in_module`, `show_func`, `in_submenu`, `subweight`, `setting`) VALUES (108, 'instant-rss', 'instant-rss', 'Instant-rss', '', 'opinion', 0, 0, 0, '');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modfuncs` (`func_id`, `func_name`, `alias`, `func_custom_name`, `func_site_title`, `in_module`, `show_func`, `in_submenu`, `subweight`, `setting`) VALUES (107, 'groups', 'groups', 'Groups', '', 'opinion', 1, 0, 4, '');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modfuncs` (`func_id`, `func_name`, `alias`, `func_custom_name`, `func_site_title`, `in_module`, `show_func`, `in_submenu`, `subweight`, `setting`) VALUES (106, 'detail', 'detail', 'Detail', '', 'opinion', 1, 0, 5, '');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modfuncs` (`func_id`, `func_name`, `alias`, `func_custom_name`, `func_site_title`, `in_module`, `show_func`, `in_submenu`, `subweight`, `setting`) VALUES (105, 'content', 'content', 'Content', '', 'opinion', 1, 1, 7, '');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modfuncs` (`func_id`, `func_name`, `alias`, `func_custom_name`, `func_site_title`, `in_module`, `show_func`, `in_submenu`, `subweight`, `setting`) VALUES (148, 'sitemap', 'sitemap', 'Sitemap', '', 'faq', 0, 0, 0, '');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modfuncs` (`func_id`, `func_name`, `alias`, `func_custom_name`, `func_site_title`, `in_module`, `show_func`, `in_submenu`, `subweight`, `setting`) VALUES (147, 'rss', 'rss', 'Rss', '', 'faq', 0, 0, 0, '');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modfuncs` (`func_id`, `func_name`, `alias`, `func_custom_name`, `func_site_title`, `in_module`, `show_func`, `in_submenu`, `subweight`, `setting`) VALUES (146, 'main', 'main', 'Main', '', 'faq', 1, 0, 1, '');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modfuncs` (`func_id`, `func_name`, `alias`, `func_custom_name`, `func_site_title`, `in_module`, `show_func`, `in_submenu`, `subweight`, `setting`) VALUES (120, 'main', 'main', 'Main', '', 'about', 1, 0, 1, '');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modfuncs` (`func_id`, `func_name`, `alias`, `func_custom_name`, `func_site_title`, `in_module`, `show_func`, `in_submenu`, `subweight`, `setting`) VALUES (121, 'rss', 'rss', 'Rss', '', 'about', 1, 0, 2, '');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modfuncs` (`func_id`, `func_name`, `alias`, `func_custom_name`, `func_site_title`, `in_module`, `show_func`, `in_submenu`, `subweight`, `setting`) VALUES (122, 'sitemap', 'sitemap', 'Sitemap', '', 'about', 0, 0, 0, '');";
@@ -8292,6 +8503,15 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modfuncs` (`
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modfuncs` (`func_id`, `func_name`, `alias`, `func_custom_name`, `func_site_title`, `in_module`, `show_func`, `in_submenu`, `subweight`, `setting`) VALUES (134, 'vieworg', 'vieworg', 'Vieworg', '', 'co-cau-to-chuc', 1, 0, 2, '');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modfuncs` (`func_id`, `func_name`, `alias`, `func_custom_name`, `func_site_title`, `in_module`, `show_func`, `in_submenu`, `subweight`, `setting`) VALUES (135, 'viewper', 'viewper', 'Viewper', '', 'co-cau-to-chuc', 0, 0, 0, '');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modfuncs` (`func_id`, `func_name`, `alias`, `func_custom_name`, `func_site_title`, `in_module`, `show_func`, `in_submenu`, `subweight`, `setting`) VALUES (136, 'viewsearch', 'viewsearch', 'Viewsearch', '', 'co-cau-to-chuc', 1, 0, 4, '');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modfuncs` (`func_id`, `func_name`, `alias`, `func_custom_name`, `func_site_title`, `in_module`, `show_func`, `in_submenu`, `subweight`, `setting`) VALUES (137, 'area', 'area', 'Area', '', 'opinions', 1, 1, 4, '');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modfuncs` (`func_id`, `func_name`, `alias`, `func_custom_name`, `func_site_title`, `in_module`, `show_func`, `in_submenu`, `subweight`, `setting`) VALUES (138, 'cat', 'cat', 'Cat', '', 'opinions', 1, 1, 5, '');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modfuncs` (`func_id`, `func_name`, `alias`, `func_custom_name`, `func_site_title`, `in_module`, `show_func`, `in_submenu`, `subweight`, `setting`) VALUES (139, 'detail', 'detail', 'Detail', '', 'opinions', 1, 1, 2, '');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modfuncs` (`func_id`, `func_name`, `alias`, `func_custom_name`, `func_site_title`, `in_module`, `show_func`, `in_submenu`, `subweight`, `setting`) VALUES (140, 'main', 'main', 'Main', '', 'opinions', 1, 1, 1, '');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modfuncs` (`func_id`, `func_name`, `alias`, `func_custom_name`, `func_site_title`, `in_module`, `show_func`, `in_submenu`, `subweight`, `setting`) VALUES (141, 'rss', 'rss', 'Rss', '', 'opinions', 0, 0, 0, '');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modfuncs` (`func_id`, `func_name`, `alias`, `func_custom_name`, `func_site_title`, `in_module`, `show_func`, `in_submenu`, `subweight`, `setting`) VALUES (142, 'search', 'search', 'Search', '', 'opinions', 1, 1, 3, '');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modfuncs` (`func_id`, `func_name`, `alias`, `func_custom_name`, `func_site_title`, `in_module`, `show_func`, `in_submenu`, `subweight`, `setting`) VALUES (143, 'signer', 'signer', 'Signer', '', 'opinions', 1, 1, 7, '');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modfuncs` (`func_id`, `func_name`, `alias`, `func_custom_name`, `func_site_title`, `in_module`, `show_func`, `in_submenu`, `subweight`, `setting`) VALUES (144, 'sitemap', 'sitemap', 'Sitemap', '', 'opinions', 0, 0, 0, '');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modfuncs` (`func_id`, `func_name`, `alias`, `func_custom_name`, `func_site_title`, `in_module`, `show_func`, `in_submenu`, `subweight`, `setting`) VALUES (145, 'subject', 'subject', 'Subject', '', 'opinions', 1, 1, 6, '');";
 
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_modthemes`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_modthemes` (
@@ -8461,39 +8681,6 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (77, 'left-main-right', 'default');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (77, 'main', 'mobile_egov');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (77, 'main-right', 'egov');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (105, 'left-main-right', 'default');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (105, 'main', 'mobile_egov');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (105, 'main-right', 'egov');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (106, 'left-main-right', 'default');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (106, 'main', 'mobile_egov');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (106, 'main-right', 'egov');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (107, 'left-main-right', 'default');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (107, 'main', 'mobile_egov');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (107, 'main-right', 'egov');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (108, 'main-right', 'egov');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (109, 'left-main-right', 'default');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (109, 'main', 'mobile_egov');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (109, 'main-right', 'egov');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (110, 'main-right', 'egov');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (111, 'main-right', 'egov');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (112, 'left-main-right', 'default');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (112, 'main', 'mobile_egov');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (112, 'main-right', 'egov');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (113, 'main-right', 'egov');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (114, 'left-main-right', 'default');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (114, 'main', 'mobile_egov');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (114, 'main-right', 'egov');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (115, 'main-right', 'egov');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (116, 'main-right', 'egov');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (117, 'left-main-right', 'default');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (117, 'main', 'mobile_egov');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (117, 'main-right', 'egov');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (118, 'left-main-right', 'default');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (118, 'main', 'mobile_egov');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (118, 'main-right', 'egov');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (119, 'left-main-right', 'default');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (119, 'main', 'mobile_egov');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (119, 'main-right', 'egov');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (120, 'left-main-right', 'default');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (120, 'main', 'mobile_egov');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (120, 'main-right', 'egov');";
@@ -8514,6 +8701,34 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (136, 'left-main-right', 'default');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (136, 'main', 'mobile_egov');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (136, 'main-right', 'egov');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (137, 'left-main-right', 'default');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (137, 'main', 'mobile_egov');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (137, 'main-right', 'egov');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (138, 'left-main-right', 'default');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (138, 'main', 'mobile_egov');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (138, 'main-right', 'egov');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (139, 'left-main-right', 'default');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (139, 'main', 'mobile_egov');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (139, 'main-right', 'egov');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (140, 'left-main-right', 'default');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (140, 'main', 'mobile_egov');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (140, 'main-right', 'egov');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (141, 'main-right', 'egov');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (142, 'left-main-right', 'default');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (142, 'main', 'mobile_egov');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (142, 'main-right', 'egov');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (143, 'left-main-right', 'default');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (143, 'main', 'mobile_egov');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (143, 'main-right', 'egov');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (144, 'main-right', 'egov');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (145, 'left-main-right', 'default');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (145, 'main', 'mobile_egov');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (145, 'main-right', 'egov');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (146, 'left-main-right', 'default');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (146, 'main', 'mobile_egov');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (146, 'main-right', 'egov');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (147, 'main-right', 'egov');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modthemes` (`func_id`, `layout`, `theme`) VALUES (148, 'main-right', 'egov');";
 
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_modules`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_modules` (
@@ -8555,9 +8770,10 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modules` (`t
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modules` (`title`, `module_file`, `module_data`, `module_upload`, `module_theme`, `custom_title`, `site_title`, `admin_title`, `set_time`, `main_file`, `admin_file`, `theme`, `mobile`, `description`, `keywords`, `groups_view`, `weight`, `act`, `admins`, `rss`, `sitemap`, `gid`) VALUES ('siteterms', 'page', 'siteterms', 'siteterms', 'page', 'Điều khoản sử dụng', '', '', 1498555144, 1, 1, '', '', '', '', '6', 16, 1, '', 1, 1, 0);";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modules` (`title`, `module_file`, `module_data`, `module_upload`, `module_theme`, `custom_title`, `site_title`, `admin_title`, `set_time`, `main_file`, `admin_file`, `theme`, `mobile`, `description`, `keywords`, `groups_view`, `weight`, `act`, `admins`, `rss`, `sitemap`, `gid`) VALUES ('two-step-verification', 'two-step-verification', 'two_step_verification', 'two_step_verification', 'two-step-verification', 'Xác thực hai bước', '', '', 1498555144, 1, 0, '', '', '', '', '6', 17, 1, '', 0, 1, 0);";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modules` (`title`, `module_file`, `module_data`, `module_upload`, `module_theme`, `custom_title`, `site_title`, `admin_title`, `set_time`, `main_file`, `admin_file`, `theme`, `mobile`, `description`, `keywords`, `groups_view`, `weight`, `act`, `admins`, `rss`, `sitemap`, `gid`) VALUES ('laws', 'laws', 'laws', 'laws', 'laws', 'Văn bản', '', '', 1498555574, 1, 1, '', '', '', '', '6', 4, 1, '', 1, 1, 0);";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modules` (`title`, `module_file`, `module_data`, `module_upload`, `module_theme`, `custom_title`, `site_title`, `admin_title`, `set_time`, `main_file`, `admin_file`, `theme`, `mobile`, `description`, `keywords`, `groups_view`, `weight`, `act`, `admins`, `rss`, `sitemap`, `gid`) VALUES ('opinion', 'news', 'opinion', 'opinion', 'news', 'Lấy ý kiến người dân', '', '', 1499996849, 1, 1, '', '', '', '', '6', 5, 1, '', 1, 1, 0);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modules` (`title`, `module_file`, `module_data`, `module_upload`, `module_theme`, `custom_title`, `site_title`, `admin_title`, `set_time`, `main_file`, `admin_file`, `theme`, `mobile`, `description`, `keywords`, `groups_view`, `weight`, `act`, `admins`, `rss`, `sitemap`, `gid`) VALUES ('faq', 'faq', 'faq', 'faq', 'faq', 'Các câu hỏi thường gặp', '', 'Các câu hỏi thường gặp', 1506573330, 1, 1, '', '', '', '', '6', 18, 1, '', 1, 1, 0);";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modules` (`title`, `module_file`, `module_data`, `module_upload`, `module_theme`, `custom_title`, `site_title`, `admin_title`, `set_time`, `main_file`, `admin_file`, `theme`, `mobile`, `description`, `keywords`, `groups_view`, `weight`, `act`, `admins`, `rss`, `sitemap`, `gid`) VALUES ('about', 'page', 'about', 'about', 'page', 'Giới thiệu', '', '', 1500862891, 1, 1, '', '', '', '', '6', 1, 1, '', 1, 1, 0);";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modules` (`title`, `module_file`, `module_data`, `module_upload`, `module_theme`, `custom_title`, `site_title`, `admin_title`, `set_time`, `main_file`, `admin_file`, `theme`, `mobile`, `description`, `keywords`, `groups_view`, `weight`, `act`, `admins`, `rss`, `sitemap`, `gid`) VALUES ('co-cau-to-chuc', 'organs', 'co_cau_to_chuc', 'co-cau-to-chuc', 'organs', 'Cơ cấu tổ chức', '', '', 1506565073, 1, 1, '', '', '', '', '6', 3, 1, '', 0, 0, 0);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modules` (`title`, `module_file`, `module_data`, `module_upload`, `module_theme`, `custom_title`, `site_title`, `admin_title`, `set_time`, `main_file`, `admin_file`, `theme`, `mobile`, `description`, `keywords`, `groups_view`, `weight`, `act`, `admins`, `rss`, `sitemap`, `gid`) VALUES ('opinions', 'laws', 'opinions', 'opinions', 'laws', 'Lấy ý kiến người dân', '', 'Lấy ý kiến người dân', 1506570476, 1, 1, '', '', '', '', '6', 5, 1, '', 1, 1, 0);";
 
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_news_1`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_news_1` (
@@ -9425,438 +9641,165 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_news_topics
   UNIQUE KEY `alias` (`alias`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8";
 
-$sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_opinion_1`";
-$sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_opinion_1` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `catid` smallint(5) unsigned NOT NULL DEFAULT '0',
-  `listcatid` varchar(255) NOT NULL DEFAULT '',
-  `topicid` smallint(5) unsigned NOT NULL DEFAULT '0',
-  `admin_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `author` varchar(250) DEFAULT '',
-  `sourceid` mediumint(8) NOT NULL DEFAULT '0',
+$sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_opinions_area`";
+$sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_opinions_area` (
+  `id` smallint(4) unsigned NOT NULL AUTO_INCREMENT,
+  `parentid` smallint(4) unsigned NOT NULL DEFAULT '0',
+  `alias` varchar(249)  COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(249)  COLLATE utf8mb4_unicode_ci NOT NULL,
+  `introduction` mediumtext  COLLATE utf8mb4_unicode_ci NOT NULL,
+  `keywords` varchar(255)  COLLATE utf8mb4_unicode_ci NOT NULL,
   `addtime` int(11) unsigned NOT NULL DEFAULT '0',
-  `edittime` int(11) unsigned NOT NULL DEFAULT '0',
-  `status` tinyint(4) NOT NULL DEFAULT '1',
-  `weight` int(11) NOT NULL DEFAULT '0',
-  `publtime` int(11) unsigned NOT NULL DEFAULT '0',
-  `exptime` int(11) unsigned NOT NULL DEFAULT '0',
-  `archive` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `title` varchar(250) NOT NULL DEFAULT '',
-  `alias` varchar(250) NOT NULL DEFAULT '',
-  `hometext` text NOT NULL,
-  `homeimgfile` varchar(255) DEFAULT '',
-  `homeimgalt` varchar(255) DEFAULT '',
-  `homeimgthumb` tinyint(4) NOT NULL DEFAULT '0',
-  `inhome` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `allowed_comm` varchar(255) DEFAULT '',
-  `allowed_rating` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `external_link` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `hitstotal` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `hitscm` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `total_rating` int(11) NOT NULL DEFAULT '0',
-  `click_rating` int(11) NOT NULL DEFAULT '0',
-  `instant_active` tinyint(1) NOT NULL DEFAULT '0',
-  `instant_template` varchar(100) NOT NULL DEFAULT '',
-  `instant_creatauto` tinyint(1) NOT NULL DEFAULT '0',
+  `weight` smallint(4) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `catid` (`catid`),
-  KEY `topicid` (`topicid`),
-  KEY `admin_id` (`admin_id`),
-  KEY `author` (`author`),
-  KEY `title` (`title`),
-  KEY `addtime` (`addtime`),
-  KEY `edittime` (`edittime`),
-  KEY `publtime` (`publtime`),
-  KEY `exptime` (`exptime`),
-  KEY `status` (`status`),
-  KEY `instant_active` (`instant_active`),
-  KEY `instant_creatauto` (`instant_creatauto`)
-) ENGINE=MyISAM  AUTO_INCREMENT=3  DEFAULT CHARSET=utf8";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinion_1` (`id`, `catid`, `listcatid`, `topicid`, `admin_id`, `author`, `sourceid`, `addtime`, `edittime`, `status`, `weight`, `publtime`, `exptime`, `archive`, `title`, `alias`, `hometext`, `homeimgfile`, `homeimgalt`, `homeimgthumb`, `inhome`, `allowed_comm`, `allowed_rating`, `external_link`, `hitstotal`, `hitscm`, `total_rating`, `click_rating`, `instant_active`, `instant_template`, `instant_creatauto`) VALUES (1, 1, '1', 0, 1, '', 0, 1502418614, 1502418614, 1, 3, 1500085680, 0, 2, 'Dự thảo Nghị định về cơ chế một cửa, cơ chế một cửa liên thông trong giải quyết thủ tục hành chính', 'du-thao-nghi-dinh-ve-co-che-mot-cua-co-che-mot-cua-lien-thong-trong-giai-quyet-thu-tuc-hanh-chinh', 'Văn phòng Chính phủ đang soạn thảo dự thảo Nghị định về cơ chế một cửa, cơ chế một cửa liên thông trong giải quyết thủ tục hành chính. Cổng TTĐT Chính phủ xin giới thiệu toàn văn và đề nghị các cơ quan, tổ chức, cá nhân trong và ngoài nước nghiên cứu, đóng góp ý kiến.', '', '', 0, 1, '4', 1, 0, 0, 0, 0, 0, 0, '', 0);";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinion_1` (`id`, `catid`, `listcatid`, `topicid`, `admin_id`, `author`, `sourceid`, `addtime`, `edittime`, `status`, `weight`, `publtime`, `exptime`, `archive`, `title`, `alias`, `hometext`, `homeimgfile`, `homeimgalt`, `homeimgthumb`, `inhome`, `allowed_comm`, `allowed_rating`, `external_link`, `hitstotal`, `hitscm`, `total_rating`, `click_rating`, `instant_active`, `instant_template`, `instant_creatauto`) VALUES (2, 1, '1', 0, 1, '', 0, 1502418684, 1502418684, 1, 1, 1498617000, 0, 2, 'Dự thảo Thông tư quy định về điều phối ứng cứu sự cố an toàn thông tin mạng', 'du-thao-thong-tu-quy-dinh-ve-dieu-phoi-ung-cuu-su-co-an-toan-thong-tin-mang', 'Bộ Thông tin và Truyền thông đang soạn thảo dự thảo Thông tư quy định về điều phối ứng cứu sự cố an toàn thông tin mạng. Cổng TTĐT Chính phủ xin giới thiệu toàn văn và đề nghị các cơ quan, tổ chức, cá nhân trong và ngoài nước nghiên cứu, đóng góp ý kiến.', '', '', 0, 1, '4', 1, 0, 0, 0, 0, 0, 0, '', 0);";
+  UNIQUE KEY `alias` (`alias`,`parentid`),
+  KEY `weight` (`weight`)
+) ENGINE=MyISAM  AUTO_INCREMENT=3  DEFAULT CHARSET=utf8mb4  COLLATE=utf8mb4_unicode_ci";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_area` (`id`, `parentid`, `alias`, `title`, `introduction`, `keywords`, `addtime`, `weight`) VALUES (1, 0, 'Giao-duc-1', 'Giáo dục', '', '', 1412265295, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_area` (`id`, `parentid`, `alias`, `title`, `introduction`, `keywords`, `addtime`, `weight`) VALUES (2, 0, 'Phap-quy-2', 'Pháp quy', '', '', 1412265295, 2);";
 
-$sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_opinion_2`";
-$sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_opinion_2` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `catid` smallint(5) unsigned NOT NULL DEFAULT '0',
-  `listcatid` varchar(255) NOT NULL DEFAULT '',
-  `topicid` smallint(5) unsigned NOT NULL DEFAULT '0',
-  `admin_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `author` varchar(250) DEFAULT '',
-  `sourceid` mediumint(8) NOT NULL DEFAULT '0',
+$sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_opinions_cat`";
+$sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_opinions_cat` (
+  `id` smallint(4) unsigned NOT NULL AUTO_INCREMENT,
+  `parentid` smallint(4) unsigned NOT NULL DEFAULT '0',
+  `alias` varchar(249)  COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(249)  COLLATE utf8mb4_unicode_ci NOT NULL,
+  `introduction` mediumtext  COLLATE utf8mb4_unicode_ci NOT NULL,
+  `keywords` varchar(255)  COLLATE utf8mb4_unicode_ci NOT NULL,
+  `newday` tinyint(2) unsigned NOT NULL DEFAULT '5',
   `addtime` int(11) unsigned NOT NULL DEFAULT '0',
-  `edittime` int(11) unsigned NOT NULL DEFAULT '0',
-  `status` tinyint(4) NOT NULL DEFAULT '1',
-  `weight` int(11) NOT NULL DEFAULT '0',
-  `publtime` int(11) unsigned NOT NULL DEFAULT '0',
-  `exptime` int(11) unsigned NOT NULL DEFAULT '0',
-  `archive` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `title` varchar(250) NOT NULL DEFAULT '',
-  `alias` varchar(250) NOT NULL DEFAULT '',
-  `hometext` text NOT NULL,
-  `homeimgfile` varchar(255) DEFAULT '',
-  `homeimgalt` varchar(255) DEFAULT '',
-  `homeimgthumb` tinyint(4) NOT NULL DEFAULT '0',
-  `inhome` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `allowed_comm` varchar(255) DEFAULT '',
-  `allowed_rating` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `external_link` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `hitstotal` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `hitscm` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `total_rating` int(11) NOT NULL DEFAULT '0',
-  `click_rating` int(11) NOT NULL DEFAULT '0',
-  `instant_active` tinyint(1) NOT NULL DEFAULT '0',
-  `instant_template` varchar(100) NOT NULL DEFAULT '',
-  `instant_creatauto` tinyint(1) NOT NULL DEFAULT '0',
+  `weight` smallint(4) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `catid` (`catid`),
-  KEY `topicid` (`topicid`),
-  KEY `admin_id` (`admin_id`),
-  KEY `author` (`author`),
-  KEY `title` (`title`),
-  KEY `addtime` (`addtime`),
-  KEY `edittime` (`edittime`),
-  KEY `publtime` (`publtime`),
-  KEY `exptime` (`exptime`),
-  KEY `status` (`status`),
-  KEY `instant_active` (`instant_active`),
-  KEY `instant_creatauto` (`instant_creatauto`)
-) ENGINE=MyISAM  AUTO_INCREMENT=4  DEFAULT CHARSET=utf8";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinion_2` (`id`, `catid`, `listcatid`, `topicid`, `admin_id`, `author`, `sourceid`, `addtime`, `edittime`, `status`, `weight`, `publtime`, `exptime`, `archive`, `title`, `alias`, `hometext`, `homeimgfile`, `homeimgalt`, `homeimgthumb`, `inhome`, `allowed_comm`, `allowed_rating`, `external_link`, `hitstotal`, `hitscm`, `total_rating`, `click_rating`, `instant_active`, `instant_template`, `instant_creatauto`) VALUES (3, 2, '2', 0, 1, '', 0, 1502418734, 1502418734, 1, 2, 1499999460, 0, 2, 'Lấy ý kiến người dân về vấn đề loa phường', 'lay-y-kien-nguoi-dan-ve-van-de-loa-phuong', 'Sở Thông tin và Truyền thông Hà Nội đang thăm dò, lấy ý kiến đóng góp của người dân về 4 nội dung chính liên quan đến hoạt động của hệ thống đài truyền thanh cơ sở trên địa bàn Hà Nội', '2017_08/loa.jpg', 'Ảnh chỉ có tính chất minh họa', 1, 1, '4', 1, 0, 0, 0, 0, 0, 0, '', 0);";
+  UNIQUE KEY `alias` (`alias`,`parentid`),
+  KEY `weight` (`weight`)
+) ENGINE=MyISAM  AUTO_INCREMENT=10  DEFAULT CHARSET=utf8mb4  COLLATE=utf8mb4_unicode_ci";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_cat` (`id`, `parentid`, `alias`, `title`, `introduction`, `keywords`, `newday`, `addtime`, `weight`) VALUES (1, 0, 'Cong-van', 'Công văn', '', '', 5, 1412265295, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_cat` (`id`, `parentid`, `alias`, `title`, `introduction`, `keywords`, `newday`, `addtime`, `weight`) VALUES (2, 0, 'Thong-tu', 'Thông tư', '', '', 5, 1412265295, 2);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_cat` (`id`, `parentid`, `alias`, `title`, `introduction`, `keywords`, `newday`, `addtime`, `weight`) VALUES (3, 0, 'Quyet-dinh', 'Quyết định', '', '', 5, 1412265295, 3);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_cat` (`id`, `parentid`, `alias`, `title`, `introduction`, `keywords`, `newday`, `addtime`, `weight`) VALUES (4, 0, 'Nghi-dinh', 'Nghị định', '', '', 5, 1412265295, 4);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_cat` (`id`, `parentid`, `alias`, `title`, `introduction`, `keywords`, `newday`, `addtime`, `weight`) VALUES (5, 0, 'Thong-bao', 'Thông báo', '', '', 5, 1412998152, 5);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_cat` (`id`, `parentid`, `alias`, `title`, `introduction`, `keywords`, `newday`, `addtime`, `weight`) VALUES (6, 0, 'Huong-dan', 'Hướng dẫn', '', '', 5, 1412998170, 6);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_cat` (`id`, `parentid`, `alias`, `title`, `introduction`, `keywords`, `newday`, `addtime`, `weight`) VALUES (7, 0, 'Bao-cao', 'Báo cáo', '', '', 5, 1412998182, 7);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_cat` (`id`, `parentid`, `alias`, `title`, `introduction`, `keywords`, `newday`, `addtime`, `weight`) VALUES (8, 0, 'Chi-thi', 'Chỉ thị', '', '', 5, 1412998193, 8);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_cat` (`id`, `parentid`, `alias`, `title`, `introduction`, `keywords`, `newday`, `addtime`, `weight`) VALUES (9, 0, 'Ke-hoach', 'Kế hoạch', '', '', 5, 1412998208, 9);";
 
-$sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_opinion_3`";
-$sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_opinion_3` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `catid` smallint(5) unsigned NOT NULL DEFAULT '0',
-  `listcatid` varchar(255) NOT NULL DEFAULT '',
-  `topicid` smallint(5) unsigned NOT NULL DEFAULT '0',
-  `admin_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `author` varchar(250) DEFAULT '',
-  `sourceid` mediumint(8) NOT NULL DEFAULT '0',
-  `addtime` int(11) unsigned NOT NULL DEFAULT '0',
-  `edittime` int(11) unsigned NOT NULL DEFAULT '0',
-  `status` tinyint(4) NOT NULL DEFAULT '1',
-  `weight` int(11) NOT NULL DEFAULT '0',
-  `publtime` int(11) unsigned NOT NULL DEFAULT '0',
-  `exptime` int(11) unsigned NOT NULL DEFAULT '0',
-  `archive` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `title` varchar(250) NOT NULL DEFAULT '',
-  `alias` varchar(250) NOT NULL DEFAULT '',
-  `hometext` text NOT NULL,
-  `homeimgfile` varchar(255) DEFAULT '',
-  `homeimgalt` varchar(255) DEFAULT '',
-  `homeimgthumb` tinyint(4) NOT NULL DEFAULT '0',
-  `inhome` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `allowed_comm` varchar(255) DEFAULT '',
-  `allowed_rating` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `external_link` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `hitstotal` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `hitscm` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `total_rating` int(11) NOT NULL DEFAULT '0',
-  `click_rating` int(11) NOT NULL DEFAULT '0',
-  `instant_active` tinyint(1) NOT NULL DEFAULT '0',
-  `instant_template` varchar(100) NOT NULL DEFAULT '',
-  `instant_creatauto` tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `catid` (`catid`),
-  KEY `topicid` (`topicid`),
-  KEY `admin_id` (`admin_id`),
-  KEY `author` (`author`),
-  KEY `title` (`title`),
-  KEY `addtime` (`addtime`),
-  KEY `edittime` (`edittime`),
-  KEY `publtime` (`publtime`),
-  KEY `exptime` (`exptime`),
-  KEY `status` (`status`),
-  KEY `instant_active` (`instant_active`),
-  KEY `instant_creatauto` (`instant_creatauto`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8";
+$sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_opinions_config`";
+$sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_opinions_config` (
+  `config_name` varchar(30)  COLLATE utf8mb4_unicode_ci NOT NULL,
+  `config_value` varchar(255)  COLLATE utf8mb4_unicode_ci NOT NULL,
+  UNIQUE KEY `config_name` (`config_name`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8mb4  COLLATE=utf8mb4_unicode_ci";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_config` (`config_name`, `config_value`) VALUES ('nummain', '50');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_config` (`config_name`, `config_value`) VALUES ('numsub', '50');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_config` (`config_name`, `config_value`) VALUES ('typeview', '0');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_config` (`config_name`, `config_value`) VALUES ('down_in_home', '1');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_config` (`config_name`, `config_value`) VALUES ('detail_other', 'a:1:{i:0;s:3:\"cat\";}');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_config` (`config_name`, `config_value`) VALUES ('detail_hide_empty_field', '1');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_config` (`config_name`, `config_value`) VALUES ('detail_show_link_cat', '1');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_config` (`config_name`, `config_value`) VALUES ('detail_show_link_area', '1');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_config` (`config_name`, `config_value`) VALUES ('detail_show_link_subject', '1');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_config` (`config_name`, `config_value`) VALUES ('detail_show_link_signer', '1');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_config` (`config_name`, `config_value`) VALUES ('detail_pdf_quick_view', '1');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_config` (`config_name`, `config_value`) VALUES ('other_numlinks', '5');";
 
-$sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_opinion_4`";
-$sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_opinion_4` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `catid` smallint(5) unsigned NOT NULL DEFAULT '0',
-  `listcatid` varchar(255) NOT NULL DEFAULT '',
-  `topicid` smallint(5) unsigned NOT NULL DEFAULT '0',
-  `admin_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `author` varchar(250) DEFAULT '',
-  `sourceid` mediumint(8) NOT NULL DEFAULT '0',
-  `addtime` int(11) unsigned NOT NULL DEFAULT '0',
-  `edittime` int(11) unsigned NOT NULL DEFAULT '0',
-  `status` tinyint(4) NOT NULL DEFAULT '1',
-  `weight` int(11) NOT NULL DEFAULT '0',
-  `publtime` int(11) unsigned NOT NULL DEFAULT '0',
-  `exptime` int(11) unsigned NOT NULL DEFAULT '0',
-  `archive` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `title` varchar(250) NOT NULL DEFAULT '',
-  `alias` varchar(250) NOT NULL DEFAULT '',
-  `hometext` text NOT NULL,
-  `homeimgfile` varchar(255) DEFAULT '',
-  `homeimgalt` varchar(255) DEFAULT '',
-  `homeimgthumb` tinyint(4) NOT NULL DEFAULT '0',
-  `inhome` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `allowed_comm` varchar(255) DEFAULT '',
-  `allowed_rating` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `external_link` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `hitstotal` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `hitscm` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `total_rating` int(11) NOT NULL DEFAULT '0',
-  `click_rating` int(11) NOT NULL DEFAULT '0',
-  `instant_active` tinyint(1) NOT NULL DEFAULT '0',
-  `instant_template` varchar(100) NOT NULL DEFAULT '',
-  `instant_creatauto` tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `catid` (`catid`),
-  KEY `topicid` (`topicid`),
-  KEY `admin_id` (`admin_id`),
-  KEY `author` (`author`),
-  KEY `title` (`title`),
-  KEY `addtime` (`addtime`),
-  KEY `edittime` (`edittime`),
-  KEY `publtime` (`publtime`),
-  KEY `exptime` (`exptime`),
-  KEY `status` (`status`),
-  KEY `instant_active` (`instant_active`),
-  KEY `instant_creatauto` (`instant_creatauto`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8";
-
-$sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_opinion_admins`";
-$sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_opinion_admins` (
-  `userid` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `catid` smallint(5) NOT NULL DEFAULT '0',
-  `admin` tinyint(4) NOT NULL DEFAULT '0',
-  `add_content` tinyint(4) NOT NULL DEFAULT '0',
-  `pub_content` tinyint(4) NOT NULL DEFAULT '0',
-  `edit_content` tinyint(4) NOT NULL DEFAULT '0',
-  `del_content` tinyint(4) NOT NULL DEFAULT '0',
-  `app_content` tinyint(4) NOT NULL DEFAULT '0',
-  UNIQUE KEY `userid` (`userid`,`catid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8";
-
-$sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_opinion_block`";
-$sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_opinion_block` (
-  `bid` smallint(5) unsigned NOT NULL,
-  `id` int(11) unsigned NOT NULL,
-  `weight` int(11) unsigned NOT NULL,
-  UNIQUE KEY `bid` (`bid`,`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8";
-
-$sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_opinion_block_cat`";
-$sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_opinion_block_cat` (
-  `bid` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
-  `adddefault` tinyint(4) NOT NULL DEFAULT '0',
-  `numbers` smallint(5) NOT NULL DEFAULT '10',
-  `title` varchar(250) NOT NULL DEFAULT '',
-  `alias` varchar(250) NOT NULL DEFAULT '',
-  `image` varchar(255) DEFAULT '',
-  `description` varchar(255) DEFAULT '',
-  `weight` smallint(5) NOT NULL DEFAULT '0',
-  `keywords` text,
-  `add_time` int(11) NOT NULL DEFAULT '0',
-  `edit_time` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`bid`),
-  UNIQUE KEY `title` (`title`),
-  UNIQUE KEY `alias` (`alias`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8";
-
-$sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_opinion_cat`";
-$sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_opinion_cat` (
-  `catid` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
-  `parentid` smallint(5) unsigned NOT NULL DEFAULT '0',
-  `title` varchar(250) NOT NULL,
-  `titlesite` varchar(250) DEFAULT '',
-  `alias` varchar(250) NOT NULL DEFAULT '',
-  `description` text,
-  `descriptionhtml` text,
-  `image` varchar(255) DEFAULT '',
-  `viewdescription` tinyint(2) NOT NULL DEFAULT '0',
-  `weight` smallint(5) unsigned NOT NULL DEFAULT '0',
-  `sort` smallint(5) NOT NULL DEFAULT '0',
-  `lev` smallint(5) NOT NULL DEFAULT '0',
-  `viewcat` varchar(50) NOT NULL DEFAULT 'viewcat_page_new',
-  `numsubcat` smallint(5) NOT NULL DEFAULT '0',
-  `subcatid` varchar(255) DEFAULT '',
-  `inhome` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `numlinks` tinyint(2) unsigned NOT NULL DEFAULT '3',
-  `newday` tinyint(2) unsigned NOT NULL DEFAULT '2',
-  `featured` int(11) NOT NULL DEFAULT '0',
-  `ad_block_cat` varchar(255) NOT NULL DEFAULT '',
-  `keywords` text,
-  `admins` text,
-  `add_time` int(11) unsigned NOT NULL DEFAULT '0',
-  `edit_time` int(11) unsigned NOT NULL DEFAULT '0',
-  `groups_view` varchar(255) DEFAULT '',
-  PRIMARY KEY (`catid`),
-  UNIQUE KEY `alias` (`alias`),
-  KEY `parentid` (`parentid`)
-) ENGINE=MyISAM  AUTO_INCREMENT=5  DEFAULT CHARSET=utf8";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinion_cat` (`catid`, `parentid`, `title`, `titlesite`, `alias`, `description`, `descriptionhtml`, `image`, `viewdescription`, `weight`, `sort`, `lev`, `viewcat`, `numsubcat`, `subcatid`, `inhome`, `numlinks`, `newday`, `featured`, `ad_block_cat`, `keywords`, `admins`, `add_time`, `edit_time`, `groups_view`) VALUES (1, 0, 'Dự thảo văn bản pháp luật', '', 'du-thao-van-ban-phap-luat', '', '', '', 0, 1, 1, 0, 'viewcat_page_new', 0, '', 1, 3, 2, 0, '', '', '', 1502418495, 1502418495, '6');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinion_cat` (`catid`, `parentid`, `title`, `titlesite`, `alias`, `description`, `descriptionhtml`, `image`, `viewdescription`, `weight`, `sort`, `lev`, `viewcat`, `numsubcat`, `subcatid`, `inhome`, `numlinks`, `newday`, `featured`, `ad_block_cat`, `keywords`, `admins`, `add_time`, `edit_time`, `groups_view`) VALUES (2, 0, 'Lấy ý kiến khác', '', 'lay-y-kien-khac', '', '', '', 0, 2, 2, 0, 'viewcat_page_new', 0, '', 1, 3, 2, 0, '', '', '', 1502418500, 1502418500, '6');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinion_cat` (`catid`, `parentid`, `title`, `titlesite`, `alias`, `description`, `descriptionhtml`, `image`, `viewdescription`, `weight`, `sort`, `lev`, `viewcat`, `numsubcat`, `subcatid`, `inhome`, `numlinks`, `newday`, `featured`, `ad_block_cat`, `keywords`, `admins`, `add_time`, `edit_time`, `groups_view`) VALUES (3, 0, 'Góp ý của dân', '', 'gop-y-cua-dan', '', '', '', 0, 3, 3, 0, 'viewcat_page_new', 0, '', 1, 3, 2, 0, '', '', '', 1502418519, 1502418519, '6');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinion_cat` (`catid`, `parentid`, `title`, `titlesite`, `alias`, `description`, `descriptionhtml`, `image`, `viewdescription`, `weight`, `sort`, `lev`, `viewcat`, `numsubcat`, `subcatid`, `inhome`, `numlinks`, `newday`, `featured`, `ad_block_cat`, `keywords`, `admins`, `add_time`, `edit_time`, `groups_view`) VALUES (4, 0, 'Các câu hỏi thường gặp', '', 'cac-cau-hoi-thuong-gap', '', '', '', 0, 4, 4, 0, 'viewcat_page_new', 0, '', 1, 3, 2, 0, '', '', '', 1502418526, 1502418526, '6');";
-
-$sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_opinion_config_post`";
-$sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_opinion_config_post` (
-  `group_id` smallint(5) NOT NULL,
-  `addcontent` tinyint(4) NOT NULL,
-  `postcontent` tinyint(4) NOT NULL,
-  `editcontent` tinyint(4) NOT NULL,
-  `delcontent` tinyint(4) NOT NULL,
-  PRIMARY KEY (`group_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinion_config_post` (`group_id`, `addcontent`, `postcontent`, `editcontent`, `delcontent`) VALUES (1, 0, 0, 0, 0);";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinion_config_post` (`group_id`, `addcontent`, `postcontent`, `editcontent`, `delcontent`) VALUES (2, 0, 0, 0, 0);";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinion_config_post` (`group_id`, `addcontent`, `postcontent`, `editcontent`, `delcontent`) VALUES (3, 0, 0, 0, 0);";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinion_config_post` (`group_id`, `addcontent`, `postcontent`, `editcontent`, `delcontent`) VALUES (4, 0, 0, 0, 0);";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinion_config_post` (`group_id`, `addcontent`, `postcontent`, `editcontent`, `delcontent`) VALUES (7, 0, 0, 0, 0);";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinion_config_post` (`group_id`, `addcontent`, `postcontent`, `editcontent`, `delcontent`) VALUES (5, 0, 0, 0, 0);";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinion_config_post` (`group_id`, `addcontent`, `postcontent`, `editcontent`, `delcontent`) VALUES (10, 0, 0, 0, 0);";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinion_config_post` (`group_id`, `addcontent`, `postcontent`, `editcontent`, `delcontent`) VALUES (11, 0, 0, 0, 0);";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinion_config_post` (`group_id`, `addcontent`, `postcontent`, `editcontent`, `delcontent`) VALUES (12, 0, 0, 0, 0);";
-
-$sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_opinion_detail`";
-$sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_opinion_detail` (
-  `id` int(11) unsigned NOT NULL,
-  `titlesite` varchar(255) NOT NULL DEFAULT '',
-  `description` text NOT NULL,
-  `bodyhtml` longtext NOT NULL,
-  `sourcetext` varchar(255) DEFAULT '',
-  `imgposition` tinyint(1) NOT NULL DEFAULT '1',
-  `layout_func` varchar(100) DEFAULT '',
-  `copyright` tinyint(1) NOT NULL DEFAULT '0',
-  `allowed_send` tinyint(1) NOT NULL DEFAULT '0',
-  `allowed_print` tinyint(1) NOT NULL DEFAULT '0',
-  `allowed_save` tinyint(1) NOT NULL DEFAULT '0',
-  `gid` mediumint(8) NOT NULL DEFAULT '0',
+$sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_opinions_row`";
+$sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_opinions_row` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `replacement` varchar(255)  COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `relatement` varchar(255)  COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `title` varchar(255)  COLLATE utf8mb4_unicode_ci NOT NULL,
+  `alias` varchar(255)  COLLATE utf8mb4_unicode_ci NOT NULL,
+  `code` varchar(50)  COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cid` smallint(4) unsigned NOT NULL DEFAULT '0',
+  `sid` smallint(4) unsigned NOT NULL DEFAULT '0',
+  `sgid` smallint(4) unsigned NOT NULL DEFAULT '0',
+  `note` text  COLLATE utf8mb4_unicode_ci NOT NULL,
+  `introtext` text  COLLATE utf8mb4_unicode_ci NOT NULL,
+  `bodytext` text  COLLATE utf8mb4_unicode_ci NOT NULL,
+  `keywords` varchar(255)  COLLATE utf8mb4_unicode_ci NOT NULL,
+  `groups_view` varchar(255)  COLLATE utf8mb4_unicode_ci NOT NULL,
+  `groups_download` varchar(255)  COLLATE utf8mb4_unicode_ci NOT NULL,
+  `files` mediumtext  COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` tinyint(1) NOT NULL,
+  `addtime` int(11) NOT NULL,
+  `edittime` int(11) NOT NULL,
+  `publtime` int(11) NOT NULL DEFAULT '0',
+  `start_comm_time` int(11) DEFAULT NULL,
+  `end_comm_time` int(11) DEFAULT NULL,
+  `startvalid` int(11) NOT NULL DEFAULT '0',
+  `exptime` int(11) NOT NULL DEFAULT '0',
+  `view_hits` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `download_hits` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `admin_add` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `admin_edit` mediumint(8) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinion_detail` (`id`, `titlesite`, `description`, `bodyhtml`, `sourcetext`, `imgposition`, `layout_func`, `copyright`, `allowed_send`, `allowed_print`, `allowed_save`, `gid`) VALUES (1, '', '', '<a href=\"" . NV_BASE_SITEURL . "uploads/opinion/2017_08/hsdt_01.rar\">Xem toàn văn</a>', '', 2, '', 0, 1, 1, 1, 0);";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinion_detail` (`id`, `titlesite`, `description`, `bodyhtml`, `sourcetext`, `imgposition`, `layout_func`, `copyright`, `allowed_send`, `allowed_print`, `allowed_save`, `gid`) VALUES (2, '', '', '<a href=\"" . NV_BASE_SITEURL . "uploads/opinion/2017_08/456.doc\">Xem toàn văn</a>', '', 2, '', 0, 1, 1, 1, 0);";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinion_detail` (`id`, `titlesite`, `description`, `bodyhtml`, `sourcetext`, `imgposition`, `layout_func`, `copyright`, `allowed_send`, `allowed_print`, `allowed_save`, `gid`) VALUES (3, '', '', 'Sở Thông tin và Truyền thông Hà Nội đang thăm dò, lấy ý kiến đóng góp của người dân về 4 nội dung chính liên quan đến hoạt động của hệ thống đài truyền thanh cơ sở trên địa bàn Hà Nội gồm các hình thức cập nhật thông tin của người dân Hà Nội; nội dung thông tin trên đài truyền thanh cơ sở có thiết thực hữu ích hay không; thời gian người dân thường nghe đài truyền thanh cơ sở; ý kiến của người dân về hoạt động của đài truyền thanh cơ sở.<br  /><br  />Dự kiến đợt lấy ý kiến nhân dân về vấn đề loa phường diễn ra đến hết ngày 10/3/2017./.', '', 2, '', 0, 1, 1, 1, 0);";
+) ENGINE=MyISAM  AUTO_INCREMENT=8  DEFAULT CHARSET=utf8mb4  COLLATE=utf8mb4_unicode_ci";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (1, '', '', 'Dự thảo Thông tư quy định tiêu chuẩn chức danh nghề nghiệp viên chức tư vấn viên dịch vụ việc làm', 'Du-thao-Thong-tu-quy-dinh-tieu-chuan-chuc-danh-nghe-nghiep-vien-chuc-tu-van-vien-dich-vu-viec-lam-1', '&#x002F;2017&#x002F;TT-BLĐTB&amp;XH', 2, 5, 1, '', 'Bộ Lao động - Thương binh và Xã hội đang soạn thảo dự thảo Thông tư quy định tiêu chuẩn chức danh nghề nghiệp viên chức tư vấn viên dịch vụ việc làm. Cổng TTĐT Chính phủ xin giới thiệu toàn văn và đề nghị các cơ quan, tổ chức, cá nhân trong và ngoài nước nghiên cứu, đóng góp ý kiến', '', 'lao động,thương binh,xã hội,soạn thảo,thông tư,quy định,tiêu chuẩn,nghề nghiệp,viên chức,tư vấn,việc làm,giới thiệu,đề nghị,cơ quan,tổ chức,cá nhân,nghiên cứu', '6', '6', 'demo.pdf', 1, 1506571390, 1506571490, 0, 1504198800, 1514653200, 0, 0, 0, 0, 1, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (2, '', '', 'Dự thảo Luật đơn vị hành chính - kinh tế đặc biệt', 'Du-thao-Luat-don-vi-hanh-chinh-kinh-te-dac-biet-2', '&#x002F;2017&#x002F;BKH&amp;DT', 2, 2, 5, '', 'Bộ Kế hoạch và Đầu tư đang soạn thảo dự thảo Luật đơn vị hành chính - kinh tế đặc biệt. Cổng TTĐT Chính phủ xin giới thiệu toàn văn và đề nghị các cơ quan, tổ chức, cá nhân trong và ngoài nước nghiên cứu, đóng góp ý kiến.', '', 'kế hoạch,soạn thảo,đơn vị,kinh tế,đặc biệt,giới thiệu,đề nghị,cơ quan,tổ chức,cá nhân,nghiên cứu', '6', '6', 'demo.pdf', 1, 1506571915, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (3, '', '', 'Dự thảo Thông tư Sửa đổi Thông tư số 279&#x002F;2016&#x002F;TT-BTC ngày 14&#x002F;11&#x002F;2016 của Bộ Tài chính quy định mức thu, chế độ thu, nộp, quản lý và sử dụng phí trong công tác an toàn vệ sinh thực phẩm', 'Du-thao-Thong-tu-Sua-doi-Thong-tu-so-279-2016-TT-BTC-ngay-14-11-2016-cua-Bo-Tai-chinh-quy-dinh-muc-thu-che-do-thu-nop-quan-ly-va-su-dung-phi-trong-cong-tac-an-toan-ve-sinh-thuc-pham-3', '279&#x002F;2016&#x002F;TT-BTC', 1, 3, 1, '', 'Bộ Tài chính đang soạn thảo dự thảo Thông tư Sửa đổi Thông tư số 279&#x002F;2016&#x002F;TT-BTC ngày 14&#x002F;11&#x002F;2016  của Bộ Tài chính quy định mức thu, chế độ thu, nộp, quản lý  và sử dụng phí trong công tác an toàn vệ sinh thực phẩm. Cổng TTĐT Chính phủ xin giới thiệu toàn văn và đề nghị các cơ quan, tổ chức, cá nhân trong và ngoài nước nghiên cứu, đóng góp ý kiến.', '', 'tài chính,soạn thảo,thông tư,sửa đổi,quy định,chế độ,quản lý,sử dụng,công tác,an toàn,vệ sinh,thực phẩm,giới thiệu,đề nghị,cơ quan,tổ chức,cá nhân,nghiên cứu', '6', '6', 'demo.pdf', 1, 1506572019, 1506572047, 0, 1504198800, 0, 0, 0, 1, 0, 1, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (4, '', '', 'Dự thảo Nghị định quy định việc sắp xếp lại tài sản công', 'Du-thao-Nghi-dinh-quy-dinh-viec-sap-xep-lai-tai-san-cong-4', '279&#x002F;2016&#x002F;TT-BTC', 4, 3, 5, '', 'Bộ Tài chính đang soạn thảo dự thảo Thông tư Sửa đổi Thông tư số 279&#x002F;2016&#x002F;TT-BTC ngày 14&#x002F;11&#x002F;2016  của Bộ Tài chính quy định mức thu, chế độ thu, nộp, quản lý  và sử dụng phí trong công tác an toàn vệ sinh thực phẩm. Cổng TTĐT Chính phủ xin giới thiệu toàn văn và đề nghị các cơ quan, tổ chức, cá nhân trong và ngoài nước nghiên cứu, đóng góp ý kiến.', '', 'tài chính,soạn thảo,thông tư,sửa đổi,quy định,chế độ,quản lý,sử dụng,công tác,an toàn,vệ sinh,thực phẩm,giới thiệu,đề nghị,cơ quan,tổ chức,cá nhân,nghiên cứu', '6', '6', 'demo.pdf', 1, 1506572225, 0, 0, 0, 1519750800, 0, 0, 0, 0, 1, 0);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (5, '', '', 'Dự thảo Nghị định sửa đổi, bổ sung một số quy định về cán bộ, công chức và người hoạt động không chuyên trách ở xã, phường, thị trấn', 'Du-thao-Nghi-dinh-sua-doi-bo-sung-mot-so-quy-dinh-ve-can-bo-cong-chuc-va-nguoi-hoat-dong-khong-chuyen-trach-o-xa-phuong-thi-tran-5', '&#x002F;2017&#x002F;BNV', 4, 6, 5, '', 'Bộ Nội vụ đang soạn thảo dự thảo Nghị định sửa đổi, bổ sung một số quy định về cán bộ, công chức và người hoạt động không chuyên trách ở xã, phường, thị trấn. Cổng TTĐT Chính phủ xin giới thiệu toàn văn và đề nghị các cơ quan, tổ chức, cá nhân trong và ngoài nước nghiên cứu, đóng góp ý kiến.', '', 'nội vụ,soạn thảo,nghị định,sửa đổi,bổ sung,quy định,cán bộ,hoạt động,chuyên trách,thị trấn,giới thiệu,đề nghị,cơ quan,tổ chức,cá nhân,nghiên cứu', '6', '6', 'demo.pdf', 1, 1506572426, 1506572464, 0, 1496250000, 1517418000, 0, 0, 0, 0, 1, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (6, '', '', 'Dự thảo Thông tư sửa đổi, bổ sung một số điều của Thông tư 36&#x002F;2014&#x002F;TT-NHNN ngày 20&#x002F;11&#x002F;2014 của Thống đốc Ngân hàng Nhà nước quy định các giới hạn, tỷ lệ bảo đảm an toàn trong hoạt động của TCTD, chi nhánh ngân hàng nước ngoài', 'Du-thao-Thong-tu-sua-doi-bo-sung-mot-so-dieu-cua-Thong-tu-36-2014-TT-NHNN-ngay-20-11-2014-cua-Thong-doc-Ngan-hang-Nha-nuoc-quy-dinh-cac-gioi-han-ty-le-bao-dam-an-toan-trong-hoat-dong-cua-TCTD-chi-nhanh-ngan-hang-nuoc-ngoai-6', '36&#x002F;2014&#x002F;TT-NHNN', 2, 3, 5, '', 'Ngân hàng Nhà nước đang soạn thảo dự thảo Thông tư sửa đổi, bổ sung một số điều của Thông tư 36&#x002F;2014&#x002F;TT-NHNN ngày 20&#x002F;11&#x002F;2014 của Thống đốc Ngân hàng Nhà nước quy định các giới hạn, tỷ lệ bảo đảm an toàn trong hoạt động của TCTD, chi nhánh ngân hàng nước ngoài. Cổng TTĐT Chính phủ xin giới thiệu toàn văn và đề nghị các cơ quan, tổ chức, cá nhân trong và ngoài nước nghiên cứu, đóng góp ý kiến.', '', 'ngân hàng,nhà nước,soạn thảo,thông tư,sửa đổi,bổ sung,thống đốc,quy định,giới hạn,tỷ lệ,bảo đảm,an toàn,hoạt động,giới thiệu,đề nghị,cơ quan,tổ chức,cá nhân,nghiên cứu', '6', '6', 'demo.pdf', 1, 1506572619, 0, 0, 1504198800, 1538240400, 0, 0, 0, 0, 1, 0);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (7, '', '', 'Dự thảo Thông tư hướng dẫn phòng và xử trí phản vệ', 'Du-thao-Thong-tu-huong-dan-phong-va-xu-tri-phan-ve-7', '&#x002F;2017&#x002F;BYT', 2, 4, 5, '', 'Bộ Y tế đang soạn thảo dự thảo Thông tư hướng dẫn phòng và xử trí phản vệ. Cổng TTĐT Chính phủ xin giới thiệu toàn văn và đề nghị các cơ quan, tổ chức, cá nhân trong và ngoài nước nghiên cứu, đóng góp ý kiến.', '', 'y tế,soạn thảo,thông tư,hướng dẫn,xử trí,giới thiệu,đề nghị,cơ quan,tổ chức,cá nhân,nghiên cứu', '6', '6', 'demo.pdf', 1, 1506572792, 0, 0, 1483203600, 1504198800, 0, 0, 0, 0, 1, 0);";
 
-$sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_opinion_logs`";
-$sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_opinion_logs` (
+$sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_opinions_row_area`";
+$sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_opinions_row_area` (
+  `row_id` int(10) unsigned NOT NULL,
+  `area_id` smallint(4) unsigned NOT NULL,
+  UNIQUE KEY `alias` (`row_id`,`area_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8mb4  COLLATE=utf8mb4_unicode_ci";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_row_area` (`row_id`, `area_id`) VALUES (1, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_row_area` (`row_id`, `area_id`) VALUES (2, 2);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_row_area` (`row_id`, `area_id`) VALUES (3, 2);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_row_area` (`row_id`, `area_id`) VALUES (4, 2);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_row_area` (`row_id`, `area_id`) VALUES (5, 2);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_row_area` (`row_id`, `area_id`) VALUES (6, 2);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_row_area` (`row_id`, `area_id`) VALUES (7, 2);";
+
+$sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_opinions_set_replace`";
+$sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_opinions_set_replace` (
   `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
-  `sid` mediumint(8) NOT NULL DEFAULT '0',
-  `userid` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `status` tinyint(4) NOT NULL DEFAULT '0',
-  `note` varchar(255) NOT NULL,
-  `set_time` int(11) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `sid` (`sid`),
-  KEY `userid` (`userid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8";
-
-$sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_opinion_rows`";
-$sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_opinion_rows` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `catid` smallint(5) unsigned NOT NULL DEFAULT '0',
-  `listcatid` varchar(255) NOT NULL DEFAULT '',
-  `topicid` smallint(5) unsigned NOT NULL DEFAULT '0',
-  `admin_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `author` varchar(250) DEFAULT '',
-  `sourceid` mediumint(8) NOT NULL DEFAULT '0',
-  `addtime` int(11) unsigned NOT NULL DEFAULT '0',
-  `edittime` int(11) unsigned NOT NULL DEFAULT '0',
-  `status` tinyint(4) NOT NULL DEFAULT '1',
-  `weight` int(11) NOT NULL DEFAULT '0',
-  `publtime` int(11) unsigned NOT NULL DEFAULT '0',
-  `exptime` int(11) unsigned NOT NULL DEFAULT '0',
-  `archive` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `title` varchar(250) NOT NULL DEFAULT '',
-  `alias` varchar(250) NOT NULL DEFAULT '',
-  `hometext` text NOT NULL,
-  `homeimgfile` varchar(255) DEFAULT '',
-  `homeimgalt` varchar(255) DEFAULT '',
-  `homeimgthumb` tinyint(4) NOT NULL DEFAULT '0',
-  `inhome` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `allowed_comm` varchar(255) DEFAULT '',
-  `allowed_rating` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `external_link` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `hitstotal` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `hitscm` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `total_rating` int(11) NOT NULL DEFAULT '0',
-  `click_rating` int(11) NOT NULL DEFAULT '0',
-  `instant_active` tinyint(1) NOT NULL DEFAULT '0',
-  `instant_template` varchar(100) NOT NULL DEFAULT '',
-  `instant_creatauto` tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `catid` (`catid`),
-  KEY `topicid` (`topicid`),
-  KEY `admin_id` (`admin_id`),
-  KEY `author` (`author`),
-  KEY `title` (`title`),
-  KEY `addtime` (`addtime`),
-  KEY `edittime` (`edittime`),
-  KEY `publtime` (`publtime`),
-  KEY `exptime` (`exptime`),
-  KEY `status` (`status`),
-  KEY `instant_active` (`instant_active`),
-  KEY `instant_creatauto` (`instant_creatauto`)
-) ENGINE=MyISAM  AUTO_INCREMENT=4  DEFAULT CHARSET=utf8";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinion_rows` (`id`, `catid`, `listcatid`, `topicid`, `admin_id`, `author`, `sourceid`, `addtime`, `edittime`, `status`, `weight`, `publtime`, `exptime`, `archive`, `title`, `alias`, `hometext`, `homeimgfile`, `homeimgalt`, `homeimgthumb`, `inhome`, `allowed_comm`, `allowed_rating`, `external_link`, `hitstotal`, `hitscm`, `total_rating`, `click_rating`, `instant_active`, `instant_template`, `instant_creatauto`) VALUES (1, 1, '1', 0, 1, '', 0, 1502418614, 1502418614, 1, 3, 1500085680, 0, 2, 'Dự thảo Nghị định về cơ chế một cửa, cơ chế một cửa liên thông trong giải quyết thủ tục hành chính', 'du-thao-nghi-dinh-ve-co-che-mot-cua-co-che-mot-cua-lien-thong-trong-giai-quyet-thu-tuc-hanh-chinh', 'Văn phòng Chính phủ đang soạn thảo dự thảo Nghị định về cơ chế một cửa, cơ chế một cửa liên thông trong giải quyết thủ tục hành chính. Cổng TTĐT Chính phủ xin giới thiệu toàn văn và đề nghị các cơ quan, tổ chức, cá nhân trong và ngoài nước nghiên cứu, đóng góp ý kiến.', '', '', 0, 1, '4', 1, 0, 0, 0, 0, 0, 0, '', 0);";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinion_rows` (`id`, `catid`, `listcatid`, `topicid`, `admin_id`, `author`, `sourceid`, `addtime`, `edittime`, `status`, `weight`, `publtime`, `exptime`, `archive`, `title`, `alias`, `hometext`, `homeimgfile`, `homeimgalt`, `homeimgthumb`, `inhome`, `allowed_comm`, `allowed_rating`, `external_link`, `hitstotal`, `hitscm`, `total_rating`, `click_rating`, `instant_active`, `instant_template`, `instant_creatauto`) VALUES (2, 1, '1', 0, 1, '', 0, 1502418684, 1502418684, 1, 1, 1498617000, 0, 2, 'Dự thảo Thông tư quy định về điều phối ứng cứu sự cố an toàn thông tin mạng', 'du-thao-thong-tu-quy-dinh-ve-dieu-phoi-ung-cuu-su-co-an-toan-thong-tin-mang', 'Bộ Thông tin và Truyền thông đang soạn thảo dự thảo Thông tư quy định về điều phối ứng cứu sự cố an toàn thông tin mạng. Cổng TTĐT Chính phủ xin giới thiệu toàn văn và đề nghị các cơ quan, tổ chức, cá nhân trong và ngoài nước nghiên cứu, đóng góp ý kiến.', '', '', 0, 1, '4', 1, 0, 0, 0, 0, 0, 0, '', 0);";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinion_rows` (`id`, `catid`, `listcatid`, `topicid`, `admin_id`, `author`, `sourceid`, `addtime`, `edittime`, `status`, `weight`, `publtime`, `exptime`, `archive`, `title`, `alias`, `hometext`, `homeimgfile`, `homeimgalt`, `homeimgthumb`, `inhome`, `allowed_comm`, `allowed_rating`, `external_link`, `hitstotal`, `hitscm`, `total_rating`, `click_rating`, `instant_active`, `instant_template`, `instant_creatauto`) VALUES (3, 2, '2', 0, 1, '', 0, 1502418734, 1502418734, 1, 2, 1499999460, 0, 2, 'Lấy ý kiến người dân về vấn đề loa phường', 'lay-y-kien-nguoi-dan-ve-van-de-loa-phuong', 'Sở Thông tin và Truyền thông Hà Nội đang thăm dò, lấy ý kiến đóng góp của người dân về 4 nội dung chính liên quan đến hoạt động của hệ thống đài truyền thanh cơ sở trên địa bàn Hà Nội', '2017_08/loa.jpg', 'Ảnh chỉ có tính chất minh họa', 1, 1, '4', 1, 0, 0, 0, 0, 0, 0, '', 0);";
-
-$sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_opinion_sources`";
-$sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_opinion_sources` (
-  `sourceid` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
-  `title` varchar(250) NOT NULL DEFAULT '',
-  `link` varchar(255) DEFAULT '',
-  `logo` varchar(255) DEFAULT '',
-  `weight` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `add_time` int(11) unsigned NOT NULL,
-  `edit_time` int(11) unsigned NOT NULL,
-  PRIMARY KEY (`sourceid`),
-  UNIQUE KEY `title` (`title`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8";
-
-$sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_opinion_tags`";
-$sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_opinion_tags` (
-  `tid` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
-  `numnews` mediumint(8) NOT NULL DEFAULT '0',
-  `alias` varchar(250) NOT NULL DEFAULT '',
-  `image` varchar(255) DEFAULT '',
-  `description` text,
-  `keywords` varchar(255) DEFAULT '',
-  PRIMARY KEY (`tid`),
-  UNIQUE KEY `alias` (`alias`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8";
-
-$sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_opinion_tags_id`";
-$sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_opinion_tags_id` (
-  `id` int(11) NOT NULL,
-  `tid` mediumint(9) NOT NULL,
-  `keyword` varchar(65) NOT NULL,
-  UNIQUE KEY `id_tid` (`id`,`tid`),
-  KEY `tid` (`tid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8";
-
-$sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_opinion_tmp`";
-$sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_opinion_tmp` (
-  `id` mediumint(8) unsigned NOT NULL,
-  `admin_id` int(11) NOT NULL DEFAULT '0',
-  `time_edit` int(11) NOT NULL,
-  `time_late` int(11) NOT NULL,
-  `ip` varchar(50) NOT NULL,
+  `oid` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `nid` mediumint(8) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8";
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8mb4  COLLATE=utf8mb4_unicode_ci";
 
-$sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_opinion_topics`";
-$sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_opinion_topics` (
-  `topicid` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
-  `title` varchar(250) NOT NULL DEFAULT '',
-  `alias` varchar(250) NOT NULL DEFAULT '',
-  `image` varchar(255) DEFAULT '',
-  `description` varchar(255) DEFAULT '',
-  `weight` smallint(5) NOT NULL DEFAULT '0',
-  `keywords` text,
-  `add_time` int(11) NOT NULL DEFAULT '0',
-  `edit_time` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`topicid`),
-  UNIQUE KEY `title` (`title`),
-  UNIQUE KEY `alias` (`alias`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8";
+$sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_opinions_signer`";
+$sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_opinions_signer` (
+  `id` smallint(4) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(255)  COLLATE utf8mb4_unicode_ci NOT NULL,
+  `offices` varchar(255)  COLLATE utf8mb4_unicode_ci NOT NULL,
+  `positions` varchar(255)  COLLATE utf8mb4_unicode_ci NOT NULL,
+  `addtime` int(11) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  AUTO_INCREMENT=6  DEFAULT CHARSET=utf8mb4  COLLATE=utf8mb4_unicode_ci";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_signer` (`id`, `title`, `offices`, `positions`, `addtime`) VALUES (1, 'Phạm Vũ Luận', '', 'Bộ trưởng', 1412265295);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_signer` (`id`, `title`, `offices`, `positions`, `addtime`) VALUES (2, 'Bùi Văn Ga', '', 'Thứ trưởng', 1412265295);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_signer` (`id`, `title`, `offices`, `positions`, `addtime`) VALUES (3, 'Nguyễn Thị Nghĩa', '', 'Thứ trưởng', 1412265295);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_signer` (`id`, `title`, `offices`, `positions`, `addtime`) VALUES (4, 'Nguyễn Vinh Hiển', '', 'Thứ trưởng', 1412265295);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_signer` (`id`, `title`, `offices`, `positions`, `addtime`) VALUES (5, 'Khác', '', '', 1412265295);";
+
+$sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_opinions_subject`";
+$sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_opinions_subject` (
+  `id` smallint(4) unsigned NOT NULL AUTO_INCREMENT,
+  `alias` varchar(250)  COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(250)  COLLATE utf8mb4_unicode_ci NOT NULL,
+  `introduction` mediumtext  COLLATE utf8mb4_unicode_ci NOT NULL,
+  `keywords` varchar(255)  COLLATE utf8mb4_unicode_ci NOT NULL,
+  `numcount` int(10) NOT NULL DEFAULT '0',
+  `numlink` tinyint(2) NOT NULL DEFAULT '5',
+  `addtime` int(11) unsigned NOT NULL DEFAULT '0',
+  `weight` smallint(4) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `alias` (`alias`),
+  KEY `weight` (`weight`)
+) ENGINE=MyISAM  AUTO_INCREMENT=7  DEFAULT CHARSET=utf8mb4  COLLATE=utf8mb4_unicode_ci";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_subject` (`id`, `alias`, `title`, `introduction`, `keywords`, `numcount`, `numlink`, `addtime`, `weight`) VALUES (1, 'Bo-GD-DT', 'Bộ GD&amp;ĐT', '', '', 1, 5, 1412265295, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_subject` (`id`, `alias`, `title`, `introduction`, `keywords`, `numcount`, `numlink`, `addtime`, `weight`) VALUES (2, 'Bo-Ke-hoach-va-Dau-tu', 'Bộ Kế hoạch và Đầu tư', '', '', 1, 5, 1412265295, 2);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_subject` (`id`, `alias`, `title`, `introduction`, `keywords`, `numcount`, `numlink`, `addtime`, `weight`) VALUES (3, 'Bo-tai-chinh', 'Bộ tài chính', '', '', 3, 5, 1412265295, 3);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_subject` (`id`, `alias`, `title`, `introduction`, `keywords`, `numcount`, `numlink`, `addtime`, `weight`) VALUES (4, 'Khac', 'Khác', '', '', 1, 5, 1412265295, 6);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_subject` (`id`, `alias`, `title`, `introduction`, `keywords`, `numcount`, `numlink`, `addtime`, `weight`) VALUES (5, 'Phong-LDTB-XH', 'Phòng LĐTB&amp;XH', '', '', 1, 5, 1506571413, 4);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_subject` (`id`, `alias`, `title`, `introduction`, `keywords`, `numcount`, `numlink`, `addtime`, `weight`) VALUES (6, 'Bo-noi-vu', 'Bộ nội vụ', '', '', 1, 5, 1506572448, 5);";
 
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_page`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_page` (

@@ -1,4 +1,5 @@
 # Ignore some static files and directories.
+/.project
 /.gitattributes
 /.htaccess
 /config.php

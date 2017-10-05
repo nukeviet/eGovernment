@@ -258,8 +258,8 @@ function vieworg_catelist($array_content, $suborg = array())
             }
 
             foreach ($array_content as $content) {
-                $suborganid = explode(',', $content['suborgan']);
                 if (!empty($content['suborgan'])) {
+                	$suborganid = explode(',', $content['suborgan']);
                     foreach ($suborganid as $sid) {
                         $xtpl->assign('SUBORGAN', $global_organ_rows[$sid]);
                         $xtpl->parse('main.cateloop.suborgan.loop');

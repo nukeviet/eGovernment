@@ -794,7 +794,6 @@ a.btn {
 /* Header */
 
 #header {
-    position:relative;
     margin-top:51px;
     display: -webkit-flex;
     -webkit-align-items: center;
@@ -1815,10 +1814,10 @@ a.btn {
     left:0;
 }
 
-.nv-block-banners img {
+/*.nv-block-banners img {
     max-width:100% !important;
     height:auto;
-}
+}*/
 
 .nv-block-rss li {
     border-bottom-width:1px;

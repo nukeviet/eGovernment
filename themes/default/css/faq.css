@@ -1,5 +1,5 @@
-.block_faq .title{background:url(../images/faq/faq.gif) no-repeat left -96px;padding-left:27px}
-.block_faq .title a{text-decoration:none}
+.block_faq .title{background:url(../images/faq/faq.gif) no-repeat left -68px;padding-left:27px;height:30px}
+.block_faq .title a{text-decoration:none;font-size: 15px}
 .block_faq .title a:hover{text-decoration:underline}
 .catlist{margin-bottom:15px;margin-top:5px;padding-left:20px}
 .catlist li.description{color:#666;font:normal 12px arial, verdana, sans-serif;padding-bottom:10px;padding-left:27px}

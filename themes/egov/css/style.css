@@ -794,7 +794,6 @@ a.btn {
 /* Header */
 
 #header {
-    position:relative;
     margin-top:51px;
     display: -webkit-flex;
     -webkit-align-items: center;

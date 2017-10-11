@@ -5,7 +5,7 @@
  * @Author VINADES.,JSC <contact@vinades.vn>
  * @Copyright (C) 2017 VINADES.,JSC. All rights reserved
  * @License GNU/GPL version 2 or any later version
- * @Createdate Fri, 29 Sep 2017 01:47:26 GMT
+ * @Createdate Wed, 11 Oct 2017 06:47:32 GMT
  */
 
 if (!defined('NV_MAINFILE')) {
@@ -139,7 +139,7 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'site', 'auto_login_after_reg', '1');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'site', 'whoviewuser', '2');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'define', 'nv_gfx_num', '6');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'global', 'ssl_https', '0');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'site', 'ssl_https', '0');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'global', 'notification_active', '1');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'global', 'notification_autodel', '15');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'global', 'site_keywords', 'NukeViet, portal, mysql, php');";
@@ -169,7 +169,7 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'global', 'gzip_method', '1');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'global', 'authors_detail_main', '0');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'global', 'spadmin_add_admin', '1');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'global', 'timestamp', '16');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'global', 'timestamp', '19');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'global', 'captcha_type', '1');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'global', 'version', '1.0.01');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'global', 'facebook_client_id', '');";
@@ -223,9 +223,9 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'global', 'autologosize3', '30');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'global', 'autologomod', '');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'global', 'name_show', '0');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'global', 'cronjobs_next_time', '1506649934');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'global', 'cronjobs_next_time', '1507704551');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'global', 'disable_site_content', 'Vì lý do kỹ thuật website tạm ngưng hoạt động. Thành thật xin lỗi các bạn vì sự bất tiện này!');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'global', 'ssl_https_modules', '');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'about', 'allowattachcomm', '0');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'seotools', 'prcservice', '');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'news', 'instant_articles_gettime', '120');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'news', 'instant_articles_livetime', '60');";
@@ -294,7 +294,7 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'global', 'error_set_logs', '1');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'global', 'error_send_email', 'admin@nukeviet.vn');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'global', 'site_lang', 'vi');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'global', 'my_domains', 'egov.my');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'global', 'my_domains', 'egov.nukeviet.dev');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'global', 'cookie_prefix', 'nv4c_r4kJV');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'global', 'session_prefix', 'nv4s_q5vJ67');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'global', 'site_timezone', 'byCountry');";
@@ -356,6 +356,17 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinions', 'captcha', '1');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinions', 'perpagecomm', '5');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinions', 'timeoutcomm', '360');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'about', 'alloweditorcomm', '0');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'laws', 'allowattachcomm', '0');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'laws', 'alloweditorcomm', '0');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'news', 'allowattachcomm', '0');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'news', 'alloweditorcomm', '0');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinions', 'allowattachcomm', '0');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinions', 'alloweditorcomm', '0');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'page', 'allowattachcomm', '0');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'page', 'alloweditorcomm', '0');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'siteterms', 'allowattachcomm', '0');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'siteterms', 'alloweditorcomm', '0');";
 
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_cronjobs`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_cronjobs` (
@@ -374,15 +385,15 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_cronjobs` (
   PRIMARY KEY (`id`),
   KEY `is_sys` (`is_sys`)
 ) ENGINE=MyISAM  AUTO_INCREMENT=10  DEFAULT CHARSET=utf8";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_cronjobs` (`id`, `start_time`, `inter_val`, `run_file`, `run_func`, `params`, `del`, `is_sys`, `act`, `last_time`, `last_result`, `vi_cron_name`) VALUES (1, 1498555144, 5, 'online_expired_del.php', 'cron_online_expired_del', '', 0, 1, 1, 1506649634, 1, 'Xóa các dòng ghi trạng thái online đã cũ trong CSDL');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_cronjobs` (`id`, `start_time`, `inter_val`, `run_file`, `run_func`, `params`, `del`, `is_sys`, `act`, `last_time`, `last_result`, `vi_cron_name`) VALUES (2, 1498555144, 1440, 'dump_autobackup.php', 'cron_dump_autobackup', '', 0, 1, 1, 1506564296, 1, 'Tự động lưu CSDL');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_cronjobs` (`id`, `start_time`, `inter_val`, `run_file`, `run_func`, `params`, `del`, `is_sys`, `act`, `last_time`, `last_result`, `vi_cron_name`) VALUES (3, 1498555144, 60, 'temp_download_destroy.php', 'cron_auto_del_temp_download', '', 0, 1, 1, 1506647554, 1, 'Xóa các file tạm trong thư mục tmp');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_cronjobs` (`id`, `start_time`, `inter_val`, `run_file`, `run_func`, `params`, `del`, `is_sys`, `act`, `last_time`, `last_result`, `vi_cron_name`) VALUES (4, 1498555144, 30, 'ip_logs_destroy.php', 'cron_del_ip_logs', '', 0, 1, 1, 1506649634, 1, 'Xóa IP log files, Xóa các file nhật ký truy cập');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_cronjobs` (`id`, `start_time`, `inter_val`, `run_file`, `run_func`, `params`, `del`, `is_sys`, `act`, `last_time`, `last_result`, `vi_cron_name`) VALUES (5, 1498555144, 1440, 'error_log_destroy.php', 'cron_auto_del_error_log', '', 0, 1, 1, 1506564296, 1, 'Xóa các file error_log quá hạn');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_cronjobs` (`id`, `start_time`, `inter_val`, `run_file`, `run_func`, `params`, `del`, `is_sys`, `act`, `last_time`, `last_result`, `vi_cron_name`) VALUES (1, 1498555144, 5, 'online_expired_del.php', 'cron_online_expired_del', '', 0, 1, 1, 1507704251, 1, 'Xóa các dòng ghi trạng thái online đã cũ trong CSDL');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_cronjobs` (`id`, `start_time`, `inter_val`, `run_file`, `run_func`, `params`, `del`, `is_sys`, `act`, `last_time`, `last_result`, `vi_cron_name`) VALUES (2, 1498555144, 1440, 'dump_autobackup.php', 'cron_dump_autobackup', '', 0, 1, 1, 1507698988, 1, 'Tự động lưu CSDL');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_cronjobs` (`id`, `start_time`, `inter_val`, `run_file`, `run_func`, `params`, `del`, `is_sys`, `act`, `last_time`, `last_result`, `vi_cron_name`) VALUES (3, 1498555144, 60, 'temp_download_destroy.php', 'cron_auto_del_temp_download', '', 0, 1, 1, 1507703942, 1, 'Xóa các file tạm trong thư mục tmp');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_cronjobs` (`id`, `start_time`, `inter_val`, `run_file`, `run_func`, `params`, `del`, `is_sys`, `act`, `last_time`, `last_result`, `vi_cron_name`) VALUES (4, 1498555144, 30, 'ip_logs_destroy.php', 'cron_del_ip_logs', '', 0, 1, 1, 1507703942, 1, 'Xóa IP log files, Xóa các file nhật ký truy cập');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_cronjobs` (`id`, `start_time`, `inter_val`, `run_file`, `run_func`, `params`, `del`, `is_sys`, `act`, `last_time`, `last_result`, `vi_cron_name`) VALUES (5, 1498555144, 1440, 'error_log_destroy.php', 'cron_auto_del_error_log', '', 0, 1, 1, 1507698988, 1, 'Xóa các file error_log quá hạn');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_cronjobs` (`id`, `start_time`, `inter_val`, `run_file`, `run_func`, `params`, `del`, `is_sys`, `act`, `last_time`, `last_result`, `vi_cron_name`) VALUES (6, 1498555144, 360, 'error_log_sendmail.php', 'cron_auto_sendmail_error_log', '', 0, 1, 0, 0, 0, 'Gửi email các thông báo lỗi cho admin');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_cronjobs` (`id`, `start_time`, `inter_val`, `run_file`, `run_func`, `params`, `del`, `is_sys`, `act`, `last_time`, `last_result`, `vi_cron_name`) VALUES (7, 1498555144, 60, 'ref_expired_del.php', 'cron_ref_expired_del', '', 0, 1, 1, 1506647554, 1, 'Xóa các referer quá hạn');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_cronjobs` (`id`, `start_time`, `inter_val`, `run_file`, `run_func`, `params`, `del`, `is_sys`, `act`, `last_time`, `last_result`, `vi_cron_name`) VALUES (8, 1498555144, 60, 'check_version.php', 'cron_auto_check_version', '', 0, 1, 1, 1506647554, 1, 'Kiểm tra phiên bản NukeViet');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_cronjobs` (`id`, `start_time`, `inter_val`, `run_file`, `run_func`, `params`, `del`, `is_sys`, `act`, `last_time`, `last_result`, `vi_cron_name`) VALUES (9, 1498555144, 1440, 'notification_autodel.php', 'cron_notification_autodel', '', 0, 1, 1, 1506564296, 1, 'Xóa thông báo cũ');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_cronjobs` (`id`, `start_time`, `inter_val`, `run_file`, `run_func`, `params`, `del`, `is_sys`, `act`, `last_time`, `last_result`, `vi_cron_name`) VALUES (7, 1498555144, 60, 'ref_expired_del.php', 'cron_ref_expired_del', '', 0, 1, 1, 1507703942, 1, 'Xóa các referer quá hạn');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_cronjobs` (`id`, `start_time`, `inter_val`, `run_file`, `run_func`, `params`, `del`, `is_sys`, `act`, `last_time`, `last_result`, `vi_cron_name`) VALUES (8, 1498555144, 60, 'check_version.php', 'cron_auto_check_version', '', 0, 1, 1, 1507703942, 1, 'Kiểm tra phiên bản NukeViet');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_cronjobs` (`id`, `start_time`, `inter_val`, `run_file`, `run_func`, `params`, `del`, `is_sys`, `act`, `last_time`, `last_result`, `vi_cron_name`) VALUES (9, 1498555144, 1440, 'notification_autodel.php', 'cron_notification_autodel', '', 0, 1, 1, 1507698988, 1, 'Xóa thông báo cũ');";
 
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_extension_files`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_extension_files` (
@@ -5114,7 +5125,7 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_about` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `alias` (`alias`)
 ) ENGINE=MyISAM  AUTO_INCREMENT=3  DEFAULT CHARSET=utf8";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_about` (`id`, `title`, `alias`, `image`, `imagealt`, `imageposition`, `description`, `bodytext`, `keywords`, `socialbutton`, `activecomm`, `layout_func`, `gid`, `weight`, `admin_id`, `add_time`, `edit_time`, `status`, `hitstotal`, `hot_post`) VALUES (1, 'Giới thiệu chung', 'Gioi-thieu-chung', '', '', 0, '', '<style type=\"text/css\"> </style> &quot;Giới thiệu thông tin chung về đơn vị ở đây&quot;.', 'giới thiệu', 1, '4', '', 0, 1, 1, 1502358889, 1502358889, 1, 4, 0);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_about` (`id`, `title`, `alias`, `image`, `imagealt`, `imageposition`, `description`, `bodytext`, `keywords`, `socialbutton`, `activecomm`, `layout_func`, `gid`, `weight`, `admin_id`, `add_time`, `edit_time`, `status`, `hitstotal`, `hot_post`) VALUES (1, 'Giới thiệu chung', 'Gioi-thieu-chung', '', '', 0, '', '<style type=\"text/css\"> </style> &quot;Giới thiệu thông tin chung về đơn vị ở đây&quot;.', 'giới thiệu', 1, '4', '', 0, 1, 1, 1502358889, 1502358889, 1, 5, 0);";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_about` (`id`, `title`, `alias`, `image`, `imagealt`, `imageposition`, `description`, `bodytext`, `keywords`, `socialbutton`, `activecomm`, `layout_func`, `gid`, `weight`, `admin_id`, `add_time`, `edit_time`, `status`, `hitstotal`, `hot_post`) VALUES (2, 'Sự hình thành và phát triển', 'Su-hinh-thanh-va-phat-trien', '', '', 0, '', '<style type=\"text/css\"> </style> &quot;Lịch sử hình thành và phát triển của đơn vị&quot;.', '', 1, '4', '', 0, 2, 1, 1502358901, 1502358901, 1, 1, 0);";
 
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_about_config`";
@@ -5129,6 +5140,7 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_about_config
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_about_config` (`config_name`, `config_value`) VALUES ('news_first', '0');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_about_config` (`config_name`, `config_value`) VALUES ('related_articles', '5');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_about_config` (`config_name`, `config_value`) VALUES ('copy_page', '0');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_about_config` (`config_name`, `config_value`) VALUES ('alias_lower', '0');";
 
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_blocks_groups`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_blocks_groups` (
@@ -7859,8 +7871,8 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weigh
 
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_co_cau_to_chuc_config`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_co_cau_to_chuc_config` (
-  `config_name` varchar(30)  COLLATE utf8mb4_unicode_ci NOT NULL,
-  `config_value` varchar(255)  COLLATE utf8mb4_unicode_ci NOT NULL,
+  `config_name` varchar(30) NOT NULL,
+  `config_value` varchar(255) NOT NULL,
   UNIQUE KEY `config_name` (`config_name`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8mb4  COLLATE=utf8mb4_unicode_ci";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_co_cau_to_chuc_config` (`config_name`, `config_value`) VALUES ('per_page', '10');";
@@ -7872,18 +7884,18 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_co_cau_to_ch
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_co_cau_to_chuc_person`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_co_cau_to_chuc_person` (
   `personid` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(100)  COLLATE utf8mb4_unicode_ci NOT NULL,
-  `photo` varchar(255)  COLLATE utf8mb4_unicode_ci NOT NULL,
-  `phone_ext` char(20)  COLLATE utf8mb4_unicode_ci NOT NULL,
-  `mobile` char(20)  COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(50)  COLLATE utf8mb4_unicode_ci NOT NULL,
-  `position` text  COLLATE utf8mb4_unicode_ci NOT NULL,
-  `position_other` text  COLLATE utf8mb4_unicode_ci NOT NULL,
-  `address` text  COLLATE utf8mb4_unicode_ci NOT NULL,
-  `phone` varchar(255)  COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `photo` varchar(255) NOT NULL,
+  `phone_ext` char(20) NOT NULL,
+  `mobile` char(20) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `position` text NOT NULL,
+  `position_other` text NOT NULL,
+  `address` text NOT NULL,
+  `phone` varchar(255) NOT NULL,
   `birthday` int(11) NOT NULL,
-  `place_birth` varchar(255)  COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` mediumtext  COLLATE utf8mb4_unicode_ci NOT NULL,
+  `place_birth` varchar(255) NOT NULL,
+  `description` mediumtext NOT NULL,
   `addtime` int(11) NOT NULL,
   `edittime` int(11) NOT NULL,
   `organid` int(11) NOT NULL,
@@ -7891,9 +7903,9 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_co_cau_to_c
   `active` tinyint(2) NOT NULL DEFAULT '0',
   `dayinto` int(11) NOT NULL DEFAULT '0',
   `dayparty` int(11) NOT NULL DEFAULT '0',
-  `marital_status` text  COLLATE utf8mb4_unicode_ci NOT NULL,
-  `professional` text  COLLATE utf8mb4_unicode_ci NOT NULL,
-  `political` text  COLLATE utf8mb4_unicode_ci NOT NULL,
+  `marital_status` text NOT NULL,
+  `professional` text NOT NULL,
+  `political` text NOT NULL,
   PRIMARY KEY (`personid`)
 ) ENGINE=MyISAM  AUTO_INCREMENT=19  DEFAULT CHARSET=utf8mb4  COLLATE=utf8mb4_unicode_ci";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_co_cau_to_chuc_person` (`personid`, `name`, `photo`, `phone_ext`, `mobile`, `email`, `position`, `position_other`, `address`, `phone`, `birthday`, `place_birth`, `description`, `addtime`, `edittime`, `organid`, `weight`, `active`, `dayinto`, `dayparty`, `marital_status`, `professional`, `political`) VALUES (16, 'Phạm Văn M', '', '', '&#40;028&#41; 38.000', 'bbt@mysite.com', 'Chủ tịch', '', '', '', 0, '', '', 1506649196, 1506649196, 24, 1, 1, 0, 0, '', '', '');";
@@ -7909,26 +7921,26 @@ $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_co_
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_co_cau_to_chuc_rows` (
   `organid` mediumint(11) unsigned NOT NULL AUTO_INCREMENT,
   `parentid` mediumint(11) unsigned NOT NULL DEFAULT '0',
-  `title` varchar(250)  COLLATE utf8mb4_unicode_ci NOT NULL,
-  `alias` varchar(250)  COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `image` varchar(255)  COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `thumbnail` varchar(255)  COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `title` varchar(250) NOT NULL,
+  `alias` varchar(250) NOT NULL DEFAULT '',
+  `image` varchar(255) NOT NULL DEFAULT '',
+  `thumbnail` varchar(255) NOT NULL DEFAULT '',
   `weight` smallint(4) unsigned NOT NULL DEFAULT '0',
   `orders` int(8) NOT NULL DEFAULT '0',
   `numsub` int(8) NOT NULL DEFAULT '0',
-  `suborgan` varchar(255)  COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `suborgan` varchar(255) NOT NULL DEFAULT '',
   `lev` int(8) NOT NULL,
   `active` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `add_time` int(11) unsigned NOT NULL DEFAULT '0',
   `edit_time` int(11) unsigned NOT NULL DEFAULT '0',
-  `address` text  COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` text  COLLATE utf8mb4_unicode_ci NOT NULL,
-  `phone` varchar(50)  COLLATE utf8mb4_unicode_ci NOT NULL,
-  `phone_ext` char(12)  COLLATE utf8mb4_unicode_ci NOT NULL,
-  `fax` varchar(50)  COLLATE utf8mb4_unicode_ci NOT NULL,
-  `website` text  COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` text NOT NULL,
+  `email` text NOT NULL,
+  `phone` varchar(50) NOT NULL,
+  `phone_ext` char(12) NOT NULL,
+  `fax` varchar(50) NOT NULL,
+  `website` text NOT NULL,
   `numperson` int(8) NOT NULL,
-  `description` mediumtext  COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` mediumtext NOT NULL,
   `view` int(2) NOT NULL DEFAULT '0',
   PRIMARY KEY (`organid`),
   UNIQUE KEY `alias` (`alias`),
@@ -7953,6 +7965,7 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_comment` (
   `id` mediumint(8) unsigned NOT NULL DEFAULT '0',
   `pid` mediumint(8) unsigned NOT NULL DEFAULT '0',
   `content` text NOT NULL,
+  `attach` varchar(255) NOT NULL DEFAULT '',
   `post_time` int(11) unsigned NOT NULL DEFAULT '0',
   `userid` mediumint(8) unsigned NOT NULL DEFAULT '0',
   `post_name` varchar(100) NOT NULL,
@@ -8039,10 +8052,10 @@ $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_faq
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_faq` (
   `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
   `catid` mediumint(8) unsigned NOT NULL,
-  `title` varchar(250)  COLLATE utf8mb4_unicode_ci NOT NULL,
-  `alias` varchar(250)  COLLATE utf8mb4_unicode_ci NOT NULL,
-  `question` mediumtext  COLLATE utf8mb4_unicode_ci NOT NULL,
-  `answer` mediumtext  COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(250) NOT NULL,
+  `alias` varchar(250) NOT NULL,
+  `question` mediumtext NOT NULL,
+  `answer` mediumtext NOT NULL,
   `weight` smallint(4) unsigned NOT NULL DEFAULT '0',
   `status` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `addtime` int(11) unsigned NOT NULL DEFAULT '0',
@@ -8061,13 +8074,13 @@ $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_faq
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_faq_categories` (
   `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
   `parentid` mediumint(8) unsigned NOT NULL,
-  `title` varchar(250)  COLLATE utf8mb4_unicode_ci NOT NULL,
-  `alias` varchar(250)  COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` mediumtext  COLLATE utf8mb4_unicode_ci NOT NULL,
-  `groups_view` varchar(255)  COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(250) NOT NULL,
+  `alias` varchar(250) NOT NULL,
+  `description` mediumtext NOT NULL,
+  `groups_view` varchar(255) NOT NULL,
   `weight` smallint(4) unsigned NOT NULL DEFAULT '0',
   `status` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `keywords` mediumtext  COLLATE utf8mb4_unicode_ci NOT NULL,
+  `keywords` mediumtext NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `alias` (`alias`)
 ) ENGINE=MyISAM  AUTO_INCREMENT=4  DEFAULT CHARSET=utf8mb4  COLLATE=utf8mb4_unicode_ci";
@@ -8077,8 +8090,8 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_faq_categori
 
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_faq_config`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_faq_config` (
-  `config_name` varchar(30)  COLLATE utf8mb4_unicode_ci NOT NULL,
-  `config_value` varchar(255)  COLLATE utf8mb4_unicode_ci NOT NULL,
+  `config_name` varchar(30) NOT NULL,
+  `config_value` varchar(255) NOT NULL,
   UNIQUE KEY `config_name` (`config_name`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8mb4  COLLATE=utf8mb4_unicode_ci";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_faq_config` (`config_name`, `config_value`) VALUES ('type_main', '1');";
@@ -8099,8 +8112,8 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_faq_tmp` (
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_freecontent_blocks`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_freecontent_blocks` (
   `bid` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
-  `title` varchar(255)  COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `description` mediumtext  COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(255) NOT NULL DEFAULT '',
+  `description` mediumtext NOT NULL,
   PRIMARY KEY (`bid`)
 ) ENGINE=MyISAM  AUTO_INCREMENT=2  DEFAULT CHARSET=utf8mb4  COLLATE=utf8mb4_unicode_ci";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_freecontent_blocks` (`bid`, `title`, `description`) VALUES (1, 'Sản phẩm', 'Sản phẩm của công ty cổ phần phát triển nguồn mở Việt Nam - VINADES.,JSC');";
@@ -8109,11 +8122,11 @@ $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_fre
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_freecontent_rows` (
   `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
   `bid` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `title` varchar(255)  COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `description` mediumtext  COLLATE utf8mb4_unicode_ci NOT NULL,
-  `link` varchar(255)  COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `target` varchar(10)  COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '_blank|_self|_parent|_top',
-  `image` varchar(255)  COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `title` varchar(255) NOT NULL DEFAULT '',
+  `description` mediumtext NOT NULL,
+  `link` varchar(255) NOT NULL DEFAULT '',
+  `target` varchar(10) NOT NULL DEFAULT '' COMMENT '_blank|_self|_parent|_top',
+  `image` varchar(255) NOT NULL DEFAULT '',
   `start_time` int(11) NOT NULL DEFAULT '0',
   `end_time` int(11) NOT NULL DEFAULT '0',
   `status` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '0: In-Active, 1: Active, 2: Expired',
@@ -8194,6 +8207,14 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_laws_config`
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_laws_config` (`config_name`, `config_value`) VALUES ('detail_pdf_quick_view', '1');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_laws_config` (`config_name`, `config_value`) VALUES ('other_numlinks', '5');";
 
+$sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_laws_examine`";
+$sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_laws_examine` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `weight` smallint(4) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8mb4  COLLATE=utf8mb4_unicode_ci";
+
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_laws_row`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_laws_row` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
@@ -8204,6 +8225,7 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_laws_row` (
   `code` varchar(50) NOT NULL,
   `cid` smallint(4) unsigned NOT NULL DEFAULT '0',
   `sid` smallint(4) unsigned NOT NULL DEFAULT '0',
+  `approval` tinyint(1) DEFAULT NULL,
   `sgid` smallint(4) unsigned NOT NULL DEFAULT '0',
   `note` text NOT NULL,
   `introtext` text NOT NULL,
@@ -8217,6 +8239,7 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_laws_row` (
   `edittime` int(11) NOT NULL,
   `publtime` int(11) NOT NULL DEFAULT '0',
   `start_comm_time` int(11) DEFAULT NULL,
+  `eid` int(11) DEFAULT NULL,
   `end_comm_time` int(11) DEFAULT NULL,
   `startvalid` int(11) NOT NULL DEFAULT '0',
   `exptime` int(11) NOT NULL DEFAULT '0',
@@ -8226,22 +8249,22 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_laws_row` (
   `admin_edit` mediumint(8) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  AUTO_INCREMENT=17  DEFAULT CHARSET=utf8";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_laws_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (1, '', '', 'Công văn số 4622&#x002F;BGDĐT-CNTT về việc hướng dẫn thực hiện nhiệm vụ CNTT năm học 2016 – 2017', 'Cong-van-so-4622-BGDDT-CNTT-ve-viec-huong-dan-thuc-hien-nhiem-vu-CNTT-nam-hoc-2016-2017-1', '4622&#x002F;BGDĐT-CNTT', 1, 1, 1, '', 'Công văn số 4622&#x002F;BGDĐT-CNTT về việc hướng dẫn thực hiện nhiệm vụ CNTT năm học 2016 – 2017', '', 'khai thác,sử dụng,tự do,quán triệt,triển khai,thông tư,quy định,cơ sở,tăng cường,nhà trường,danh sách,ban hành,nghiên cứu,áp dụng,hệ thống,xây dựng,thông tin', '6', '6', 'demo.pdf', 1, 1502359836, 1502811964, 1478538000, NULL, NULL, 0, 0, 8, 2, 1, 1);";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_laws_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (10, '', '', 'Thông tư số 01&#x002F;2011&#x002F;TT-BTTTT của Bộ Thông tin và Truyền thông &#x3A; Công bố Danh mục tiêu chuẩn kỹ thuật về ứng dụng công nghệ thông tin trong cơ quan nhà nước', 'Thong-tu-so-01-2011-TT-BTTTT-cua-Bo-Thong-tin-va-Truyen-thong-Cong-bo-Danh-muc-tieu-chuan-ky-thuat-ve-ung-dung-cong-nghe-thong-tin-trong-co-quan-nha-nuoc-10', '01&#x002F;2011&#x002F;TT-BTTTT', 3, 4, 6, '', 'Công bố Danh mục tiêu chuẩn kỹ thuật <br />về ứng dụng công nghệ thông tin trong cơ quan nhà nước', '', 'công bố,danh mục,tiêu chuẩn,kỹ thuật,ứng dụng,công nghệ,thông tin,cơ quan', '6', '6', 'demo.pdf', 1, 1502416130, 0, 1294074000, NULL, NULL, 0, 0, 1, 0, 1, 0);";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_laws_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (2, '', '', 'Thông tư số 08&#x002F;2010&#x002F;TT-BGDĐT của Bộ Giáo dục và Đào tạo &#x3A; Quy định về sử dụng phần mềm tự do mã nguồn mở trong các cơ sở giáo dục', 'Thong-tu-so-08-2010-TT-BGDDT-cua-Bo-Giao-duc-va-Dao-tao-Quy-dinh-ve-su-dung-phan-mem-tu-do-ma-nguon-mo-trong-cac-co-so-giao-duc-2', '08&#x002F;2010&#x002F;TT-BGDĐT', 3, 1, 2, '', 'Thông tư số 08&#x002F;2010&#x002F;TT-BGDĐT của Bộ Giáo dục và Đào tạo &#x3A; Quy định về sử dụng phần mềm tự do mã nguồn mở trong các cơ sở giáo dục', '', 'giáo dục,đào tạo,cộng hoà,xã hội,chủ nghĩa,độc lập,tự do,hạnh phúc,hà nội,sử dụng,cơ sở,công nghệ,thông tin,nghị định,phủ quy,nhiệm vụ,quyền hạn,tổ chức,ứng dụng,hoạt động,cơ quan', '6', '6', 'demo.pdf', 1, 1502359989, 1502812204, 1267376400, NULL, NULL, 0, 0, 3, 0, 1, 1);";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_laws_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (3, '', '', 'Công văn số 310&#x002F;BTTTT-ƯDCNTT ngày 10&#x002F;02&#x002F;2012 của Bộ Thông tin và Truyền thông về việc hướng dẫn áp dụng bộ tiêu chí đánh giá cổng thông tin điện tử của cơ quan nhà nước', 'Cong-van-so-310-BTTTT-UDCNTT-ngay-10-02-2012-cua-Bo-Thong-tin-va-Truyen-thong-ve-viec-huong-dan-ap-dung-bo-tieu-chi-danh-gia-cong-thong-tin-dien-tu-cua-co-quan-nha-nuoc-3', '310&#x002F;BTTTT-ƯDCNTT', 1, 2, 3, '', 'Văn bản hướng dẫn áp dụng bộ tiêu chí đánh giá cổng thông tin điện tử của cơ quan nhà nước', '', 'hướng dẫn,áp dụng,tiêu chí,đánh giá,thông tin,cơ quan', '6', '6', 'demo.pdf', 1, 1502414679, 0, 1328806800, NULL, NULL, 0, 0, 2, 0, 1, 0);";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_laws_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (4, '', '', 'Thông tư 20&#x002F;2014&#x002F;TT-BTTTT của Bộ TT&amp;TT ban hành ngày 05&#x002F;12&#x002F;2014 quy định về các sản phẩm phần mềm nguồn mở &#40;PMNM&#41; được ưu tiên mua sắm, sử dụng trong cơ quan, tổ chức nhà nước.', 'Thong-tu-20-2014-TT-BTTTT-cua-Bo-TT-TT-ban-hanh-ngay-05-12-2014-quy-dinh-ve-cac-san-pham-phan-mem-nguon-mo-PMNM-duoc-uu-tien-mua-sam-su-dung-trong-co-quan-to-chuc-nha-nuoc-4', '20&#x002F;2014&#x002F;TT-BTTTT', 3, 2, 4, '', 'Thông tư Quy định về các sản phẩm phần mềm nguồn mở được ưu tiên mua sắm, sử dụng trong cơ quan, tổ chức nhà nước', '', 'thông tư,quy định,sản phẩm,ưu tiên,mua sắm,sử dụng,cơ quan,tổ chức', '6', '6', 'demo.pdf', 1, 1502414811, 0, 1417712400, NULL, NULL, 1421686800, 0, 1, 0, 1, 0);";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_laws_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (5, '', '', 'Nghị định số 43&#x002F;2011&#x002F;NĐ-CP ngày 13&#x002F;6&#x002F;2011 của Chính phủ Quy định về việc cung cấp thông tin và dịch vụ công trực tuyến trên trang thông tin điện tử hoặc cổng thông tin điện tử của cơ quan Nhà nước', 'Nghi-dinh-so-43-2011-ND-CP-ngay-13-6-2011-cua-Chinh-phu-Quy-dinh-ve-viec-cung-cap-thong-tin-va-dich-vu-cong-truc-tuyen-tren-trang-thong-tin-dien-tu-hoac-cong-thong-tin-dien-tu-cua-co-quan-Nha-nuoc-5', '43&#x002F;2011&#x002F;NĐ-CP', 4, 3, 5, '', 'Quy định về việc cung cấp thông tin và dịch vụ công trực tuyến trên trang thông tin điện tử hoặc cổng thông tin điện tử của cơ quan nhà nước', '', 'cộng hòa,xã hội,chủ nghĩa,độc lập,tự do,hạnh phúc,hà nội,thông tin,cơ quan,tổ chức,công nghệ,đề nghị,phạm vi,quy định,sau đây,bảo đảm,hoạt động,tổng cục,tương đương,ủy ban,nhân dân', '6', '6', 'demo.pdf', 1, 1502415038, 1502812086, 1307898000, NULL, NULL, 0, 0, 2, 0, 1, 1);";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_laws_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (6, '', '', 'Văn bản số 1654&#x002F;BTTTT-UDCNTT của Bộ TT&amp;TT ban hành ngày 27&#x002F;05&#x002F;2008 Hướng dẫn các yêu cầu cơ bản về chức năng, tính năng kỹ thuật cho các dự án dùng chung theo Quyết định số 43&#x002F;2008&#x002F;QĐ-TTg &#40;Cổng thông tin điện tử&', 'Van-ban-so-1654-BTTTT-UDCNTT-cua-Bo-TT-TT-ban-hanh-ngay-27-05-2008-Huong-dan-cac-yeu-cau-co-ban-ve-chuc-nang-tinh-nang-ky-thuat-cho-cac-du-an-dung-chung-theo-Quyet-dinh-so-43-2008-QD-TTg-Cong-thong-tin-dien-tu-6', '1654&#x002F;BTTTT-UDCNTT', 2, 2, 6, '', 'Hướng dẫn các yêu cầu cơ bản về chức năng, tính năng kỹ thuật cho các dự án dùng chung theo Quyết định số 43&#x002F;2008&#x002F;QĐ-TTg &#40;Cổng thông tin điện tử&#41;', '', 'hướng dẫn,yêu cầu,cơ bản,tính năng,kỹ thuật,dự án,quyết định,thông tin', '6', '6', 'demo.pdf', 1, 1502415180, 0, 1211821200, NULL, NULL, 0, 0, 1, 0, 1, 0);";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_laws_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (7, '', '', 'Văn bản số&#x3A; 1790&#x002F;BTTTT-VNCERT ngày 20&#x002F;06&#x002F;2011 của Bộ TT&amp;TT về việc tăng cường công tác đảm bảo an toàn thông tin cho cổng&#x002F;trang thông tin điện tử', 'Van-ban-so-1790-BTTTT-VNCERT-ngay-20-06-2011-cua-Bo-TT-TT-ve-viec-tang-cuong-cong-tac-dam-bao-an-toan-thong-tin-cho-cong-trang-thong-tin-dien-tu-7', '1790&#x002F;BTTTT-VNCERT', 2, 2, 6, '', 'V&#x002F;v tăng cường công tác đảm bảo an toàn thông tin cho cổng&#x002F;trang thông tin điện tử', '', 'tăng cường,công tác,đảm bảo,an toàn,thông tin', '6', '6', 'demo.pdf', 1, 1502415276, 0, 1308502800, NULL, NULL, 0, 0, 0, 0, 1, 0);";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_laws_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (8, '', '', 'Văn bản số 2132&#x002F;BTTTT-VNCERT, ngày 18&#x002F;7&#x002F;2011, của Bộ Thông tin và Truyền thông về việc hướng dẫn bảo đảm an toàn thông tin cho các cổng&#x002F;trang thông tin điện tử', 'Van-ban-so-2132-BTTTT-VNCERT-ngay-18-7-2011-cua-Bo-Thong-tin-va-Truyen-thong-ve-viec-huong-dan-bao-dam-an-toan-thong-tin-cho-cac-cong-trang-thong-tin-dien-tu-8', '2132&#x002F;BTTTT-VNCERT', 2, 2, 6, '', 'Hướng dẫn đảm bảo an toàn thông tin cho các Cổng&#x002F;Trang thông tin điện tử', '', 'hướng dẫn,đảm bảo,an toàn,thông tin', '6', '6', 'demo.pdf', 1, 1502415396, 0, 1310922000, NULL, NULL, 0, 0, 0, 0, 1, 0);";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_laws_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (9, '', '', 'Thông tư số 24&#x002F;2011&#x002F;TT-BTTTT ngày 20&#x002F;9&#x002F;2011 của Bộ Thông tin và Truyền thông quy định về việc tạo lập, sử dụng và lưu trữ dữ liệu đặc tả trên trang thông tin điện tử hoặc cổng thông tin điện tử của cơ quan nhà nước', 'Thong-tu-so-24-2011-TT-BTTTT-ngay-20-9-2011-cua-Bo-Thong-tin-va-Truyen-thong-quy-dinh-ve-viec-tao-lap-su-dung-va-luu-tru-du-lieu-dac-ta-tren-trang-thong-tin-dien-tu-hoac-cong-thong-tin-dien-tu-cua-co-quan-nha-nuoc-9', '24&#x002F;2011&#x002F;TT-BTTTT', 3, 4, 7, '', 'Quy định về việc tạo lập, sử dụng và lưu trữ dữ liệu đặc tả trên trang thông tin điện tử hoặc cổng thông tin điện tử của cơ quan nhà nước', '', 'thông tin,thông số,cộng hoà,xã hội,chủ nghĩa,độc lập,tự do,hạnh phúc,hà nội,thông tư,quy định,tạo lập,sử dụng,lưu trữ,cơ quan,nhà nước,căn cứ,công nghệ,nghị định,ứng dụng,hoạt động', '6', '6', 'demo.pdf', 1, 1502415529, 1502812030, 1316451600, NULL, NULL, 0, 0, 5, 0, 1, 1);";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_laws_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (11, '', '', 'Nghị Định ứng dụng công nghệ thông tin trong hoạt động của cơ quan nhà nước CHÍNH PHỦ', 'Nghi-Dinh-ung-dung-cong-nghe-thong-tin-trong-hoat-dong-cua-co-quan-nha-nuoc-CHINH-PHU-11', '64&#x002F;2007&#x002F;NĐ-CP', 4, 4, 7, '', 'Ứng dụng công nghệ thông tin trong hoạt động của cơ quan nhà nước CHÍNH PHỦ', '', 'cộng hoà,xã hội,chủ nghĩa,độc lập,tự do,hạnh phúc,hà nội,nghị định,ứng dụng,công nghệ,thông tin,hoạt động,cơ quan,nhà nước,căn cứ,tổ chức,giao dịch,đề nghị,bưu chính,viễn thông,quy định', '6', '6', 'demo.pdf', 1, 1502416239, 1502812358, 1176138000, NULL, NULL, 0, 0, 1, 0, 1, 1);";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_laws_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (12, '', '', 'Thông tư 26&#x002F;2009&#x002F;TT-BTTTT Quy định về việc cung cấp thông tin và đảm bảo khả năng truy nhập thuận tiện đối với trang thông tin điện tử của Nhà nước', 'Thong-tu-26-2009-TT-BTTTT-Quy-dinh-ve-viec-cung-cap-thong-tin-va-dam-bao-kha-nang-truy-nhap-thuan-tien-doi-voi-trang-thong-tin-dien-tu-cua-Nha-nuoc-12', '26&#x002F;2009&#x002F;TT-BTTTT', 3, 2, 8, '', 'Quy định về việc cung cấp thông tin và đảm bảo khả năng truy nhập thuận tiện đối với trang thông tin điện tử của Nhà nước', '', 'thông tin', '6', '6', 'demo.pdf', 1, 1502416406, 0, 1248973200, NULL, NULL, 1252947600, 0, 0, 0, 1, 0);";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_laws_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (13, '', '', 'Thông tư số 19&#x002F;2011&#x002F;TT-BTTTT của Bộ Thông tin và Truyền thông &#x3A; Quy định về áp dụng tiêu chuẩn định dạng tài liệu mở trong cơ quan nhà nước', 'Thong-tu-so-19-2011-TT-BTTTT-cua-Bo-Thong-tin-va-Truyen-thong-Quy-dinh-ve-ap-dung-tieu-chuan-dinh-dang-tai-lieu-mo-trong-co-quan-nha-nuoc-13', '19&#x002F;2011&#x002F;TT-BTTTT', 3, 4, 6, '', 'Quy định về áp dụng tiêu chuẩn định dạng tài liệu mở trong cơ quan nhà nước', '', 'quy định,áp dụng,tiêu chuẩn,tài liệu,cơ quan', '6', '6', 'demo.pdf', 1, 1502416491, 0, 1309453200, NULL, NULL, 0, 0, 0, 0, 1, 0);";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_laws_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (14, '', '', 'Thông tư 28&#x002F;2009&#x002F;TT-BTTTT quy định việc áp dụng tiêu chuẩn, công nghệ hỗ trợ người khuyết tật tiếp cận, sử dụng công nghệ thông tin và truyền thông', 'Thong-tu-28-2009-TT-BTTTT-quy-dinh-viec-ap-dung-tieu-chuan-cong-nghe-ho-tro-nguoi-khuyet-tat-tiep-can-su-dung-cong-nghe-thong-tin-va-truyen-thong-14', '28&#x002F;2009&#x002F;TT-BTTTT', 3, 4, 7, '', 'Quy định về việc áp dụng tiêu chuẩn, công nghệ hỗ trợ người khuyết tật tiếp cận, sử dụng công nghệ thông tin và truyền thông', '', 'thông tin,thông số,cộng hoà,xã hội,chủ nghĩa,độc lập,tự do,hạnh phúc,hà nội,thông tư,quy định,áp dụng,tiêu chuẩn,công nghệ,hỗ trợ,tiếp cận,sử dụng,căn cứ,nghị định,phủ quy,nhiệm vụ', '6', '6', 'demo.pdf', 1, 1502416578, 1502812261, 1252861200, NULL, NULL, 0, 0, 3, 0, 1, 1);";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_laws_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (15, '', '', 'Quyết định số 80&#x002F;2014&#x002F;QĐ-TTg của Thủ tướng Chính phủ&#x3A; Quy định thí điểm về thuê dịch vụ công nghệ thông tin trong cơ quan nhà nước', 'Quyet-dinh-so-80-2014-QD-TTg-cua-Thu-tuong-Chinh-phu-Quy-dinh-thi-diem-ve-thue-dich-vu-cong-nghe-thong-tin-trong-co-quan-nha-nuoc-15', '80&#x002F;2014&#x002F;QĐ-TTg', 2, 3, 5, '', 'Quy định thí điểm về thuê dịch vụ công nghệ thông tin trong cơ quan nhà nước', '', 'quy định,thí điểm,công nghệ,thông tin,cơ quan', '6', '6', 'demo.pdf', 1, 1502416668, 1502770009, 1419872400, NULL, NULL, 1423933200, 0, 3, 1, 1, 1);";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_laws_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (16, '', '', 'Nghị định số 72&#x002F;2013&#x002F;NĐ-CP của Chính phủ &#x3A; Quản lý, cung cấp, sử dụng dịch vụ Internet và thông tin trên mạng', 'Nghi-dinh-so-72-2013-ND-CP-cua-Chinh-phu-Quan-ly-cung-cap-su-dung-dich-vu-Internet-va-thong-tin-tren-mang-16', '72&#x002F;2013&#x002F;NĐ-CP', 4, 3, 5, '', 'Quản lý, cung cấp, sử dụng dịch vụ Internet và thông tin trên mạng', '', 'quản lý,sử dụng,thông tin', '6', '6', 'demo.pdf', 1, 1502416748, 0, 1373821200, NULL, NULL, 0, 0, 0, 0, 1, 0);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_laws_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `approval`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `eid`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (1, '', '', 'Công văn số 4622&#x002F;BGDĐT-CNTT về việc hướng dẫn thực hiện nhiệm vụ CNTT năm học 2016 – 2017', 'Cong-van-so-4622-BGDDT-CNTT-ve-viec-huong-dan-thuc-hien-nhiem-vu-CNTT-nam-hoc-2016-2017-1', '4622&#x002F;BGDĐT-CNTT', 1, 1, NULL, 1, '', 'Công văn số 4622&#x002F;BGDĐT-CNTT về việc hướng dẫn thực hiện nhiệm vụ CNTT năm học 2016 – 2017', '', 'khai thác,sử dụng,tự do,quán triệt,triển khai,thông tư,quy định,cơ sở,tăng cường,nhà trường,danh sách,ban hành,nghiên cứu,áp dụng,hệ thống,xây dựng,thông tin', '6', '6', 'demo.pdf', 1, 1502359836, 1502811964, 1478538000, NULL, NULL, NULL, 0, 0, 8, 2, 1, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_laws_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `approval`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `eid`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (10, '', '', 'Thông tư số 01&#x002F;2011&#x002F;TT-BTTTT của Bộ Thông tin và Truyền thông &#x3A; Công bố Danh mục tiêu chuẩn kỹ thuật về ứng dụng công nghệ thông tin trong cơ quan nhà nước', 'Thong-tu-so-01-2011-TT-BTTTT-cua-Bo-Thong-tin-va-Truyen-thong-Cong-bo-Danh-muc-tieu-chuan-ky-thuat-ve-ung-dung-cong-nghe-thong-tin-trong-co-quan-nha-nuoc-10', '01&#x002F;2011&#x002F;TT-BTTTT', 3, 4, NULL, 6, '', 'Công bố Danh mục tiêu chuẩn kỹ thuật <br />về ứng dụng công nghệ thông tin trong cơ quan nhà nước', '', 'công bố,danh mục,tiêu chuẩn,kỹ thuật,ứng dụng,công nghệ,thông tin,cơ quan', '6', '6', 'demo.pdf', 1, 1502416130, 0, 1294074000, NULL, NULL, NULL, 0, 0, 1, 0, 1, 0);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_laws_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `approval`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `eid`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (2, '', '', 'Thông tư số 08&#x002F;2010&#x002F;TT-BGDĐT của Bộ Giáo dục và Đào tạo &#x3A; Quy định về sử dụng phần mềm tự do mã nguồn mở trong các cơ sở giáo dục', 'Thong-tu-so-08-2010-TT-BGDDT-cua-Bo-Giao-duc-va-Dao-tao-Quy-dinh-ve-su-dung-phan-mem-tu-do-ma-nguon-mo-trong-cac-co-so-giao-duc-2', '08&#x002F;2010&#x002F;TT-BGDĐT', 3, 1, NULL, 2, '', 'Thông tư số 08&#x002F;2010&#x002F;TT-BGDĐT của Bộ Giáo dục và Đào tạo &#x3A; Quy định về sử dụng phần mềm tự do mã nguồn mở trong các cơ sở giáo dục', '', 'giáo dục,đào tạo,cộng hoà,xã hội,chủ nghĩa,độc lập,tự do,hạnh phúc,hà nội,sử dụng,cơ sở,công nghệ,thông tin,nghị định,phủ quy,nhiệm vụ,quyền hạn,tổ chức,ứng dụng,hoạt động,cơ quan', '6', '6', 'demo.pdf', 1, 1502359989, 1502812204, 1267376400, NULL, NULL, NULL, 0, 0, 3, 0, 1, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_laws_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `approval`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `eid`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (3, '', '', 'Công văn số 310&#x002F;BTTTT-ƯDCNTT ngày 10&#x002F;02&#x002F;2012 của Bộ Thông tin và Truyền thông về việc hướng dẫn áp dụng bộ tiêu chí đánh giá cổng thông tin điện tử của cơ quan nhà nước', 'Cong-van-so-310-BTTTT-UDCNTT-ngay-10-02-2012-cua-Bo-Thong-tin-va-Truyen-thong-ve-viec-huong-dan-ap-dung-bo-tieu-chi-danh-gia-cong-thong-tin-dien-tu-cua-co-quan-nha-nuoc-3', '310&#x002F;BTTTT-ƯDCNTT', 1, 2, NULL, 3, '', 'Văn bản hướng dẫn áp dụng bộ tiêu chí đánh giá cổng thông tin điện tử của cơ quan nhà nước', '', 'hướng dẫn,áp dụng,tiêu chí,đánh giá,thông tin,cơ quan', '6', '6', 'demo.pdf', 1, 1502414679, 0, 1328806800, NULL, NULL, NULL, 0, 0, 3, 0, 1, 0);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_laws_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `approval`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `eid`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (4, '', '', 'Thông tư 20&#x002F;2014&#x002F;TT-BTTTT của Bộ TT&amp;TT ban hành ngày 05&#x002F;12&#x002F;2014 quy định về các sản phẩm phần mềm nguồn mở &#40;PMNM&#41; được ưu tiên mua sắm, sử dụng trong cơ quan, tổ chức nhà nước.', 'Thong-tu-20-2014-TT-BTTTT-cua-Bo-TT-TT-ban-hanh-ngay-05-12-2014-quy-dinh-ve-cac-san-pham-phan-mem-nguon-mo-PMNM-duoc-uu-tien-mua-sam-su-dung-trong-co-quan-to-chuc-nha-nuoc-4', '20&#x002F;2014&#x002F;TT-BTTTT', 3, 2, NULL, 4, '', 'Thông tư Quy định về các sản phẩm phần mềm nguồn mở được ưu tiên mua sắm, sử dụng trong cơ quan, tổ chức nhà nước', '', 'thông tư,quy định,sản phẩm,ưu tiên,mua sắm,sử dụng,cơ quan,tổ chức', '6', '6', 'demo.pdf', 1, 1502414811, 0, 1417712400, NULL, NULL, NULL, 1421686800, 0, 1, 0, 1, 0);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_laws_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `approval`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `eid`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (5, '', '', 'Nghị định số 43&#x002F;2011&#x002F;NĐ-CP ngày 13&#x002F;6&#x002F;2011 của Chính phủ Quy định về việc cung cấp thông tin và dịch vụ công trực tuyến trên trang thông tin điện tử hoặc cổng thông tin điện tử của cơ quan Nhà nước', 'Nghi-dinh-so-43-2011-ND-CP-ngay-13-6-2011-cua-Chinh-phu-Quy-dinh-ve-viec-cung-cap-thong-tin-va-dich-vu-cong-truc-tuyen-tren-trang-thong-tin-dien-tu-hoac-cong-thong-tin-dien-tu-cua-co-quan-Nha-nuoc-5', '43&#x002F;2011&#x002F;NĐ-CP', 4, 3, NULL, 5, '', 'Quy định về việc cung cấp thông tin và dịch vụ công trực tuyến trên trang thông tin điện tử hoặc cổng thông tin điện tử của cơ quan nhà nước', '', 'cộng hòa,xã hội,chủ nghĩa,độc lập,tự do,hạnh phúc,hà nội,thông tin,cơ quan,tổ chức,công nghệ,đề nghị,phạm vi,quy định,sau đây,bảo đảm,hoạt động,tổng cục,tương đương,ủy ban,nhân dân', '6', '6', 'demo.pdf', 1, 1502415038, 1502812086, 1307898000, NULL, NULL, NULL, 0, 0, 2, 0, 1, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_laws_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `approval`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `eid`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (6, '', '', 'Văn bản số 1654&#x002F;BTTTT-UDCNTT của Bộ TT&amp;TT ban hành ngày 27&#x002F;05&#x002F;2008 Hướng dẫn các yêu cầu cơ bản về chức năng, tính năng kỹ thuật cho các dự án dùng chung theo Quyết định số 43&#x002F;2008&#x002F;QĐ-TTg &#40;Cổng thông tin điện tử&', 'Van-ban-so-1654-BTTTT-UDCNTT-cua-Bo-TT-TT-ban-hanh-ngay-27-05-2008-Huong-dan-cac-yeu-cau-co-ban-ve-chuc-nang-tinh-nang-ky-thuat-cho-cac-du-an-dung-chung-theo-Quyet-dinh-so-43-2008-QD-TTg-Cong-thong-tin-dien-tu-6', '1654&#x002F;BTTTT-UDCNTT', 2, 2, NULL, 6, '', 'Hướng dẫn các yêu cầu cơ bản về chức năng, tính năng kỹ thuật cho các dự án dùng chung theo Quyết định số 43&#x002F;2008&#x002F;QĐ-TTg &#40;Cổng thông tin điện tử&#41;', '', 'hướng dẫn,yêu cầu,cơ bản,tính năng,kỹ thuật,dự án,quyết định,thông tin', '6', '6', 'demo.pdf', 1, 1502415180, 0, 1211821200, NULL, NULL, NULL, 0, 0, 1, 0, 1, 0);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_laws_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `approval`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `eid`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (7, '', '', 'Văn bản số&#x3A; 1790&#x002F;BTTTT-VNCERT ngày 20&#x002F;06&#x002F;2011 của Bộ TT&amp;TT về việc tăng cường công tác đảm bảo an toàn thông tin cho cổng&#x002F;trang thông tin điện tử', 'Van-ban-so-1790-BTTTT-VNCERT-ngay-20-06-2011-cua-Bo-TT-TT-ve-viec-tang-cuong-cong-tac-dam-bao-an-toan-thong-tin-cho-cong-trang-thong-tin-dien-tu-7', '1790&#x002F;BTTTT-VNCERT', 2, 2, NULL, 6, '', 'V&#x002F;v tăng cường công tác đảm bảo an toàn thông tin cho cổng&#x002F;trang thông tin điện tử', '', 'tăng cường,công tác,đảm bảo,an toàn,thông tin', '6', '6', 'demo.pdf', 1, 1502415276, 0, 1308502800, NULL, NULL, NULL, 0, 0, 0, 0, 1, 0);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_laws_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `approval`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `eid`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (8, '', '', 'Văn bản số 2132&#x002F;BTTTT-VNCERT, ngày 18&#x002F;7&#x002F;2011, của Bộ Thông tin và Truyền thông về việc hướng dẫn bảo đảm an toàn thông tin cho các cổng&#x002F;trang thông tin điện tử', 'Van-ban-so-2132-BTTTT-VNCERT-ngay-18-7-2011-cua-Bo-Thong-tin-va-Truyen-thong-ve-viec-huong-dan-bao-dam-an-toan-thong-tin-cho-cac-cong-trang-thong-tin-dien-tu-8', '2132&#x002F;BTTTT-VNCERT', 2, 2, NULL, 6, '', 'Hướng dẫn đảm bảo an toàn thông tin cho các Cổng&#x002F;Trang thông tin điện tử', '', 'hướng dẫn,đảm bảo,an toàn,thông tin', '6', '6', 'demo.pdf', 1, 1502415396, 0, 1310922000, NULL, NULL, NULL, 0, 0, 0, 0, 1, 0);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_laws_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `approval`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `eid`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (9, '', '', 'Thông tư số 24&#x002F;2011&#x002F;TT-BTTTT ngày 20&#x002F;9&#x002F;2011 của Bộ Thông tin và Truyền thông quy định về việc tạo lập, sử dụng và lưu trữ dữ liệu đặc tả trên trang thông tin điện tử hoặc cổng thông tin điện tử của cơ quan nhà nước', 'Thong-tu-so-24-2011-TT-BTTTT-ngay-20-9-2011-cua-Bo-Thong-tin-va-Truyen-thong-quy-dinh-ve-viec-tao-lap-su-dung-va-luu-tru-du-lieu-dac-ta-tren-trang-thong-tin-dien-tu-hoac-cong-thong-tin-dien-tu-cua-co-quan-nha-nuoc-9', '24&#x002F;2011&#x002F;TT-BTTTT', 3, 4, NULL, 7, '', 'Quy định về việc tạo lập, sử dụng và lưu trữ dữ liệu đặc tả trên trang thông tin điện tử hoặc cổng thông tin điện tử của cơ quan nhà nước', '', 'thông tin,thông số,cộng hoà,xã hội,chủ nghĩa,độc lập,tự do,hạnh phúc,hà nội,thông tư,quy định,tạo lập,sử dụng,lưu trữ,cơ quan,nhà nước,căn cứ,công nghệ,nghị định,ứng dụng,hoạt động', '6', '6', 'demo.pdf', 1, 1502415529, 1502812030, 1316451600, NULL, NULL, NULL, 0, 0, 5, 0, 1, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_laws_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `approval`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `eid`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (11, '', '', 'Nghị Định ứng dụng công nghệ thông tin trong hoạt động của cơ quan nhà nước CHÍNH PHỦ', 'Nghi-Dinh-ung-dung-cong-nghe-thong-tin-trong-hoat-dong-cua-co-quan-nha-nuoc-CHINH-PHU-11', '64&#x002F;2007&#x002F;NĐ-CP', 4, 4, NULL, 7, '', 'Ứng dụng công nghệ thông tin trong hoạt động của cơ quan nhà nước CHÍNH PHỦ', '', 'cộng hoà,xã hội,chủ nghĩa,độc lập,tự do,hạnh phúc,hà nội,nghị định,ứng dụng,công nghệ,thông tin,hoạt động,cơ quan,nhà nước,căn cứ,tổ chức,giao dịch,đề nghị,bưu chính,viễn thông,quy định', '6', '6', 'demo.pdf', 1, 1502416239, 1502812358, 1176138000, NULL, NULL, NULL, 0, 0, 1, 0, 1, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_laws_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `approval`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `eid`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (12, '', '', 'Thông tư 26&#x002F;2009&#x002F;TT-BTTTT Quy định về việc cung cấp thông tin và đảm bảo khả năng truy nhập thuận tiện đối với trang thông tin điện tử của Nhà nước', 'Thong-tu-26-2009-TT-BTTTT-Quy-dinh-ve-viec-cung-cap-thong-tin-va-dam-bao-kha-nang-truy-nhap-thuan-tien-doi-voi-trang-thong-tin-dien-tu-cua-Nha-nuoc-12', '26&#x002F;2009&#x002F;TT-BTTTT', 3, 2, NULL, 8, '', 'Quy định về việc cung cấp thông tin và đảm bảo khả năng truy nhập thuận tiện đối với trang thông tin điện tử của Nhà nước', '', 'thông tin', '6', '6', 'demo.pdf', 1, 1502416406, 0, 1248973200, NULL, NULL, NULL, 1252947600, 0, 0, 0, 1, 0);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_laws_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `approval`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `eid`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (13, '', '', 'Thông tư số 19&#x002F;2011&#x002F;TT-BTTTT của Bộ Thông tin và Truyền thông &#x3A; Quy định về áp dụng tiêu chuẩn định dạng tài liệu mở trong cơ quan nhà nước', 'Thong-tu-so-19-2011-TT-BTTTT-cua-Bo-Thong-tin-va-Truyen-thong-Quy-dinh-ve-ap-dung-tieu-chuan-dinh-dang-tai-lieu-mo-trong-co-quan-nha-nuoc-13', '19&#x002F;2011&#x002F;TT-BTTTT', 3, 4, NULL, 6, '', 'Quy định về áp dụng tiêu chuẩn định dạng tài liệu mở trong cơ quan nhà nước', '', 'quy định,áp dụng,tiêu chuẩn,tài liệu,cơ quan', '6', '6', 'demo.pdf', 1, 1502416491, 0, 1309453200, NULL, NULL, NULL, 0, 0, 0, 0, 1, 0);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_laws_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `approval`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `eid`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (14, '', '', 'Thông tư 28&#x002F;2009&#x002F;TT-BTTTT quy định việc áp dụng tiêu chuẩn, công nghệ hỗ trợ người khuyết tật tiếp cận, sử dụng công nghệ thông tin và truyền thông', 'Thong-tu-28-2009-TT-BTTTT-quy-dinh-viec-ap-dung-tieu-chuan-cong-nghe-ho-tro-nguoi-khuyet-tat-tiep-can-su-dung-cong-nghe-thong-tin-va-truyen-thong-14', '28&#x002F;2009&#x002F;TT-BTTTT', 3, 4, NULL, 7, '', 'Quy định về việc áp dụng tiêu chuẩn, công nghệ hỗ trợ người khuyết tật tiếp cận, sử dụng công nghệ thông tin và truyền thông', '', 'thông tin,thông số,cộng hoà,xã hội,chủ nghĩa,độc lập,tự do,hạnh phúc,hà nội,thông tư,quy định,áp dụng,tiêu chuẩn,công nghệ,hỗ trợ,tiếp cận,sử dụng,căn cứ,nghị định,phủ quy,nhiệm vụ', '6', '6', 'demo.pdf', 1, 1502416578, 1502812261, 1252861200, NULL, NULL, NULL, 0, 0, 3, 0, 1, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_laws_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `approval`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `eid`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (15, '', '', 'Quyết định số 80&#x002F;2014&#x002F;QĐ-TTg của Thủ tướng Chính phủ&#x3A; Quy định thí điểm về thuê dịch vụ công nghệ thông tin trong cơ quan nhà nước', 'Quyet-dinh-so-80-2014-QD-TTg-cua-Thu-tuong-Chinh-phu-Quy-dinh-thi-diem-ve-thue-dich-vu-cong-nghe-thong-tin-trong-co-quan-nha-nuoc-15', '80&#x002F;2014&#x002F;QĐ-TTg', 2, 3, NULL, 5, '', 'Quy định thí điểm về thuê dịch vụ công nghệ thông tin trong cơ quan nhà nước', '', 'quy định,thí điểm,công nghệ,thông tin,cơ quan', '6', '6', 'demo.pdf', 1, 1502416668, 1502770009, 1419872400, NULL, NULL, NULL, 1423933200, 0, 4, 1, 1, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_laws_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `approval`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `eid`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (16, '', '', 'Nghị định số 72&#x002F;2013&#x002F;NĐ-CP của Chính phủ &#x3A; Quản lý, cung cấp, sử dụng dịch vụ Internet và thông tin trên mạng', 'Nghi-dinh-so-72-2013-ND-CP-cua-Chinh-phu-Quan-ly-cung-cap-su-dung-dich-vu-Internet-va-thong-tin-tren-mang-16', '72&#x002F;2013&#x002F;NĐ-CP', 4, 3, NULL, 5, '', 'Quản lý, cung cấp, sử dụng dịch vụ Internet và thông tin trên mạng', '', 'quản lý,sử dụng,thông tin', '6', '6', 'demo.pdf', 1, 1502416748, 0, 1373821200, NULL, NULL, NULL, 0, 0, 0, 0, 1, 0);";
 
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_laws_row_area`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_laws_row_area` (
@@ -8426,7 +8449,7 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_modfuncs` (
   PRIMARY KEY (`func_id`),
   UNIQUE KEY `func_name` (`func_name`,`in_module`),
   UNIQUE KEY `alias` (`alias`,`in_module`)
-) ENGINE=MyISAM  AUTO_INCREMENT=149  DEFAULT CHARSET=utf8";
+) ENGINE=MyISAM  AUTO_INCREMENT=150  DEFAULT CHARSET=utf8";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modfuncs` (`func_id`, `func_name`, `alias`, `func_custom_name`, `func_site_title`, `in_module`, `show_func`, `in_submenu`, `subweight`, `setting`) VALUES (4, 'main', 'main', 'Main', '', 'news', 1, 0, 1, '');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modfuncs` (`func_id`, `func_name`, `alias`, `func_custom_name`, `func_site_title`, `in_module`, `show_func`, `in_submenu`, `subweight`, `setting`) VALUES (5, 'viewcat', 'viewcat', 'Viewcat', '', 'news', 1, 0, 2, '');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modfuncs` (`func_id`, `func_name`, `alias`, `func_custom_name`, `func_site_title`, `in_module`, `show_func`, `in_submenu`, `subweight`, `setting`) VALUES (6, 'topic', 'topic', 'Topic', '', 'news', 1, 0, 3, '');";
@@ -8516,6 +8539,7 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modfuncs` (`
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modfuncs` (`func_id`, `func_name`, `alias`, `func_custom_name`, `func_site_title`, `in_module`, `show_func`, `in_submenu`, `subweight`, `setting`) VALUES (143, 'signer', 'signer', 'Signer', '', 'opinions', 1, 1, 7, '');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modfuncs` (`func_id`, `func_name`, `alias`, `func_custom_name`, `func_site_title`, `in_module`, `show_func`, `in_submenu`, `subweight`, `setting`) VALUES (144, 'sitemap', 'sitemap', 'Sitemap', '', 'opinions', 0, 0, 0, '');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modfuncs` (`func_id`, `func_name`, `alias`, `func_custom_name`, `func_site_title`, `in_module`, `show_func`, `in_submenu`, `subweight`, `setting`) VALUES (145, 'subject', 'subject', 'Subject', '', 'opinions', 1, 1, 6, '');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modfuncs` (`func_id`, `func_name`, `alias`, `func_custom_name`, `func_site_title`, `in_module`, `show_func`, `in_submenu`, `subweight`, `setting`) VALUES (149, 'down', 'down', 'Down', '', 'comment', 0, 0, 5, '');";
 
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_modthemes`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_modthemes` (
@@ -8832,10 +8856,10 @@ $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_new
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_news_10` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `catid` smallint(5) unsigned NOT NULL DEFAULT '0',
-  `listcatid` varchar(255)  COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `listcatid` varchar(255) NOT NULL DEFAULT '',
   `topicid` smallint(5) unsigned NOT NULL DEFAULT '0',
   `admin_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `author` varchar(250)  COLLATE utf8mb4_unicode_ci DEFAULT '',
+  `author` varchar(250) DEFAULT '',
   `sourceid` mediumint(8) NOT NULL DEFAULT '0',
   `addtime` int(11) unsigned NOT NULL DEFAULT '0',
   `edittime` int(11) unsigned NOT NULL DEFAULT '0',
@@ -8844,14 +8868,14 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_news_10` (
   `publtime` int(11) unsigned NOT NULL DEFAULT '0',
   `exptime` int(11) unsigned NOT NULL DEFAULT '0',
   `archive` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `title` varchar(250)  COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `alias` varchar(250)  COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `hometext` text  COLLATE utf8mb4_unicode_ci NOT NULL,
-  `homeimgfile` varchar(255)  COLLATE utf8mb4_unicode_ci DEFAULT '',
-  `homeimgalt` varchar(255)  COLLATE utf8mb4_unicode_ci DEFAULT '',
+  `title` varchar(250) NOT NULL DEFAULT '',
+  `alias` varchar(250) NOT NULL DEFAULT '',
+  `hometext` text NOT NULL,
+  `homeimgfile` varchar(255) DEFAULT '',
+  `homeimgalt` varchar(255) DEFAULT '',
   `homeimgthumb` tinyint(4) NOT NULL DEFAULT '0',
   `inhome` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `allowed_comm` varchar(255)  COLLATE utf8mb4_unicode_ci DEFAULT '',
+  `allowed_comm` varchar(255) DEFAULT '',
   `allowed_rating` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `external_link` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `hitstotal` mediumint(8) unsigned NOT NULL DEFAULT '0',
@@ -8859,7 +8883,7 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_news_10` (
   `total_rating` int(11) NOT NULL DEFAULT '0',
   `click_rating` int(11) NOT NULL DEFAULT '0',
   `instant_active` tinyint(1) NOT NULL DEFAULT '0',
-  `instant_template` varchar(100)  COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `instant_template` varchar(100) NOT NULL DEFAULT '',
   `instant_creatauto` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `catid` (`catid`),
@@ -8881,10 +8905,10 @@ $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_new
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_news_11` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `catid` smallint(5) unsigned NOT NULL DEFAULT '0',
-  `listcatid` varchar(255)  COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `listcatid` varchar(255) NOT NULL DEFAULT '',
   `topicid` smallint(5) unsigned NOT NULL DEFAULT '0',
   `admin_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `author` varchar(250)  COLLATE utf8mb4_unicode_ci DEFAULT '',
+  `author` varchar(250) DEFAULT '',
   `sourceid` mediumint(8) NOT NULL DEFAULT '0',
   `addtime` int(11) unsigned NOT NULL DEFAULT '0',
   `edittime` int(11) unsigned NOT NULL DEFAULT '0',
@@ -8893,14 +8917,14 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_news_11` (
   `publtime` int(11) unsigned NOT NULL DEFAULT '0',
   `exptime` int(11) unsigned NOT NULL DEFAULT '0',
   `archive` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `title` varchar(250)  COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `alias` varchar(250)  COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `hometext` text  COLLATE utf8mb4_unicode_ci NOT NULL,
-  `homeimgfile` varchar(255)  COLLATE utf8mb4_unicode_ci DEFAULT '',
-  `homeimgalt` varchar(255)  COLLATE utf8mb4_unicode_ci DEFAULT '',
+  `title` varchar(250) NOT NULL DEFAULT '',
+  `alias` varchar(250) NOT NULL DEFAULT '',
+  `hometext` text NOT NULL,
+  `homeimgfile` varchar(255) DEFAULT '',
+  `homeimgalt` varchar(255) DEFAULT '',
   `homeimgthumb` tinyint(4) NOT NULL DEFAULT '0',
   `inhome` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `allowed_comm` varchar(255)  COLLATE utf8mb4_unicode_ci DEFAULT '',
+  `allowed_comm` varchar(255) DEFAULT '',
   `allowed_rating` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `external_link` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `hitstotal` mediumint(8) unsigned NOT NULL DEFAULT '0',
@@ -8908,7 +8932,7 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_news_11` (
   `total_rating` int(11) NOT NULL DEFAULT '0',
   `click_rating` int(11) NOT NULL DEFAULT '0',
   `instant_active` tinyint(1) NOT NULL DEFAULT '0',
-  `instant_template` varchar(100)  COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `instant_template` varchar(100) NOT NULL DEFAULT '',
   `instant_creatauto` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `catid` (`catid`),
@@ -8935,10 +8959,10 @@ $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_new
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_news_12` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `catid` smallint(5) unsigned NOT NULL DEFAULT '0',
-  `listcatid` varchar(255)  COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `listcatid` varchar(255) NOT NULL DEFAULT '',
   `topicid` smallint(5) unsigned NOT NULL DEFAULT '0',
   `admin_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `author` varchar(250)  COLLATE utf8mb4_unicode_ci DEFAULT '',
+  `author` varchar(250) DEFAULT '',
   `sourceid` mediumint(8) NOT NULL DEFAULT '0',
   `addtime` int(11) unsigned NOT NULL DEFAULT '0',
   `edittime` int(11) unsigned NOT NULL DEFAULT '0',
@@ -8947,14 +8971,14 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_news_12` (
   `publtime` int(11) unsigned NOT NULL DEFAULT '0',
   `exptime` int(11) unsigned NOT NULL DEFAULT '0',
   `archive` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `title` varchar(250)  COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `alias` varchar(250)  COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `hometext` text  COLLATE utf8mb4_unicode_ci NOT NULL,
-  `homeimgfile` varchar(255)  COLLATE utf8mb4_unicode_ci DEFAULT '',
-  `homeimgalt` varchar(255)  COLLATE utf8mb4_unicode_ci DEFAULT '',
+  `title` varchar(250) NOT NULL DEFAULT '',
+  `alias` varchar(250) NOT NULL DEFAULT '',
+  `hometext` text NOT NULL,
+  `homeimgfile` varchar(255) DEFAULT '',
+  `homeimgalt` varchar(255) DEFAULT '',
   `homeimgthumb` tinyint(4) NOT NULL DEFAULT '0',
   `inhome` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `allowed_comm` varchar(255)  COLLATE utf8mb4_unicode_ci DEFAULT '',
+  `allowed_comm` varchar(255) DEFAULT '',
   `allowed_rating` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `external_link` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `hitstotal` mediumint(8) unsigned NOT NULL DEFAULT '0',
@@ -8962,7 +8986,7 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_news_12` (
   `total_rating` int(11) NOT NULL DEFAULT '0',
   `click_rating` int(11) NOT NULL DEFAULT '0',
   `instant_active` tinyint(1) NOT NULL DEFAULT '0',
-  `instant_template` varchar(100)  COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `instant_template` varchar(100) NOT NULL DEFAULT '',
   `instant_creatauto` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `catid` (`catid`),
@@ -9081,7 +9105,7 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_news_3` (
 ) ENGINE=MyISAM  AUTO_INCREMENT=10  DEFAULT CHARSET=utf8";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_news_3` (`id`, `catid`, `listcatid`, `topicid`, `admin_id`, `author`, `sourceid`, `addtime`, `edittime`, `status`, `weight`, `publtime`, `exptime`, `archive`, `title`, `alias`, `hometext`, `homeimgfile`, `homeimgalt`, `homeimgthumb`, `inhome`, `allowed_comm`, `allowed_rating`, `external_link`, `hitstotal`, `hitscm`, `total_rating`, `click_rating`, `instant_active`, `instant_template`, `instant_creatauto`) VALUES (5, 3, '3', 0, 1, 'Nguyễn Thế Hùng', 3, 1502358170, 1504152071, 1, 4, 1490780460, 0, 2, '“Điểm mặt” 9 nhầm lẫn thường gặp về phần mềm nguồn mở', 'diem-mat-9-nham-lan-thuong-gap-ve-phan-mem-nguon-mo', 'Mặc dù sử dụng phần mềm nguồn mở đã trở thành một xu hướng tất yếu song đến nay vẫn còn không ít người vẫn nhầm lẫn về phần mềm nguồn mở, đặc biệt là khi so sánh phần mềm nguồn mở với phần mềm nguồn đóng.', '2017_08/phan_mem_nguon_mo.jpg', 'Tại Việt Nam, cộng đồng phần mềm nguồn mở Việt Nam đã bước đầu được hình thành và ngày càng lớn mạnh &#40;Ảnh minh họa. Nguồn&#x3A; Internet&#41;', 1, 1, '4', 1, 0, 2, 0, 0, 0, 0, '', 0);";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_news_3` (`id`, `catid`, `listcatid`, `topicid`, `admin_id`, `author`, `sourceid`, `addtime`, `edittime`, `status`, `weight`, `publtime`, `exptime`, `archive`, `title`, `alias`, `hometext`, `homeimgfile`, `homeimgalt`, `homeimgthumb`, `inhome`, `allowed_comm`, `allowed_rating`, `external_link`, `hitstotal`, `hitscm`, `total_rating`, `click_rating`, `instant_active`, `instant_template`, `instant_creatauto`) VALUES (6, 3, '3', 0, 1, 'Đinh Thị Thanh Vân', 4, 1502358287, 1502358287, 1, 3, 1486028580, 0, 2, 'Bộ Thông tin và Truyền thông ban hành Phương pháp đánh giá mức độ ứng dụng công nghệ thông tin của cơ quan nhà nước năm 2016', 'bo-thong-tin-va-truyen-thong-ban-hanh-phuong-phap-danh-gia-muc-do-ung-dung-cong-nghe-thong-tin-cua-co-quan-nha-nuoc-nam-2016', 'Ngày 19/01/2017, Bộ Thông tin và Truyền thông đã ban hành Quyết định số 62/QĐ-BTTTT về việc Phê duyệt Phương pháp đánh giá mức độ ứng dụng công nghệ thông tin của cơ quan nhà nước năm 2016.', '', '', 0, 1, '4', 1, 0, 1, 0, 0, 0, 0, '', 0);";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_news_3` (`id`, `catid`, `listcatid`, `topicid`, `admin_id`, `author`, `sourceid`, `addtime`, `edittime`, `status`, `weight`, `publtime`, `exptime`, `archive`, `title`, `alias`, `hometext`, `homeimgfile`, `homeimgalt`, `homeimgthumb`, `inhome`, `allowed_comm`, `allowed_rating`, `external_link`, `hitstotal`, `hitscm`, `total_rating`, `click_rating`, `instant_active`, `instant_template`, `instant_creatauto`) VALUES (9, 6, '3,4,6', 0, 1, 'Hà Chính', 1, 1502358576, 1502802497, 1, 10, 1497606480, 0, 2, 'Hậu TPP&#x3A; Việt Nam có tới 6 kế hoạch phòng xa', 'hau-tpp-viet-nam-co-toi-6-ke-hoach-phong-xa', 'Theo các nhà quan sát nước ngoài, “Việt Nam đã khôn khoan không bỏ hết trứng vào giỏ TPP” và Việt Nam không chỉ có “kế hoạch B” mà còn có cả kế hoạch C, D, E, F và G sau khi Hoa Kỳ rút khỏi Hiệp định này.', '', '', 0, 1, '4', 1, 0, 5, 0, 0, 0, 0, '', 0);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_news_3` (`id`, `catid`, `listcatid`, `topicid`, `admin_id`, `author`, `sourceid`, `addtime`, `edittime`, `status`, `weight`, `publtime`, `exptime`, `archive`, `title`, `alias`, `hometext`, `homeimgfile`, `homeimgalt`, `homeimgthumb`, `inhome`, `allowed_comm`, `allowed_rating`, `external_link`, `hitstotal`, `hitscm`, `total_rating`, `click_rating`, `instant_active`, `instant_template`, `instant_creatauto`) VALUES (9, 6, '3,4,6', 0, 1, 'Hà Chính', 1, 1502358576, 1502802497, 1, 10, 1497606480, 0, 2, 'Hậu TPP&#x3A; Việt Nam có tới 6 kế hoạch phòng xa', 'hau-tpp-viet-nam-co-toi-6-ke-hoach-phong-xa', 'Theo các nhà quan sát nước ngoài, “Việt Nam đã khôn khoan không bỏ hết trứng vào giỏ TPP” và Việt Nam không chỉ có “kế hoạch B” mà còn có cả kế hoạch C, D, E, F và G sau khi Hoa Kỳ rút khỏi Hiệp định này.', '', '', 0, 1, '4', 1, 0, 6, 0, 0, 0, 0, '', 0);";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_news_3` (`id`, `catid`, `listcatid`, `topicid`, `admin_id`, `author`, `sourceid`, `addtime`, `edittime`, `status`, `weight`, `publtime`, `exptime`, `archive`, `title`, `alias`, `hometext`, `homeimgfile`, `homeimgalt`, `homeimgthumb`, `inhome`, `allowed_comm`, `allowed_rating`, `external_link`, `hitstotal`, `hitscm`, `total_rating`, `click_rating`, `instant_active`, `instant_template`, `instant_creatauto`) VALUES (3, 2, '2,3', 0, 1, '', 2, 1502357918, 1502811208, 1, 1, 1419327360, 0, 2, 'NukeViet được ưu tiên mua sắm, sử dụng trong cơ quan, tổ chức nhà nước', 'nukeviet-duoc-uu-tien-mua-sam-su-dung-trong-co-quan-to-chuc-nha-nuoc', 'Ngày 5/12/2014, Bộ trưởng Bộ TT&TT Nguyễn Bắc Son đã ký ban hành Thông tư 20/2014/TT-BTTTT (Thông tư 20) quy định về các sản phẩm phần mềm nguồn mở (PMNM) được ưu tiên mua sắm, sử dụng trong cơ quan, tổ chức nhà nước. NukeViet (phiên bản 3.4.02 trở lên) là phần mềm được nằm trong danh sách này.', '2017_08/chuc-mung-nukeviet-thong-tu-20-bo-tttt.jpg', '', 1, 1, '4', 1, 0, 10, 0, 10, 2, 0, '', 0);";
 
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_news_4`";
@@ -9132,7 +9156,7 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_news_4` (
   KEY `instant_creatauto` (`instant_creatauto`)
 ) ENGINE=MyISAM  AUTO_INCREMENT=10  DEFAULT CHARSET=utf8";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_news_4` (`id`, `catid`, `listcatid`, `topicid`, `admin_id`, `author`, `sourceid`, `addtime`, `edittime`, `status`, `weight`, `publtime`, `exptime`, `archive`, `title`, `alias`, `hometext`, `homeimgfile`, `homeimgalt`, `homeimgthumb`, `inhome`, `allowed_comm`, `allowed_rating`, `external_link`, `hitstotal`, `hitscm`, `total_rating`, `click_rating`, `instant_active`, `instant_template`, `instant_creatauto`) VALUES (7, 4, '4', 0, 1, 'Thành Đạt', 1, 1502358418, 1502444898, 1, 5, 1491644700, 0, 2, 'Cách mạng 4.0 và bàn tay Chính phủ', 'cach-mang-4-0-va-ban-tay-chinh-phu', '“Để bắt kịp cách mạng công nghiệp lần thứ 4 cần phải có bàn tay mạnh mẽ từ Chính phủ”, quan điểm được nhiều chuyên gia đưa ra tại diễn đàn &quot;Cuộc cách mạng công nghiệp 4.0 - Được và mất&quot; vừa được tổ chức chiều 7/4.', '2017_08/cach-mang-4.0.jpg', 'Diễn đàn &quot;Cuộc cách mạng công nghiệp 4.0 - Được và mất&quot;', 1, 1, '4', 1, 0, 0, 0, 0, 0, 0, '', 0);";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_news_4` (`id`, `catid`, `listcatid`, `topicid`, `admin_id`, `author`, `sourceid`, `addtime`, `edittime`, `status`, `weight`, `publtime`, `exptime`, `archive`, `title`, `alias`, `hometext`, `homeimgfile`, `homeimgalt`, `homeimgthumb`, `inhome`, `allowed_comm`, `allowed_rating`, `external_link`, `hitstotal`, `hitscm`, `total_rating`, `click_rating`, `instant_active`, `instant_template`, `instant_creatauto`) VALUES (9, 6, '3,4,6', 0, 1, 'Hà Chính', 1, 1502358576, 1502802497, 1, 10, 1497606480, 0, 2, 'Hậu TPP&#x3A; Việt Nam có tới 6 kế hoạch phòng xa', 'hau-tpp-viet-nam-co-toi-6-ke-hoach-phong-xa', 'Theo các nhà quan sát nước ngoài, “Việt Nam đã khôn khoan không bỏ hết trứng vào giỏ TPP” và Việt Nam không chỉ có “kế hoạch B” mà còn có cả kế hoạch C, D, E, F và G sau khi Hoa Kỳ rút khỏi Hiệp định này.', '', '', 0, 1, '4', 1, 0, 5, 0, 0, 0, 0, '', 0);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_news_4` (`id`, `catid`, `listcatid`, `topicid`, `admin_id`, `author`, `sourceid`, `addtime`, `edittime`, `status`, `weight`, `publtime`, `exptime`, `archive`, `title`, `alias`, `hometext`, `homeimgfile`, `homeimgalt`, `homeimgthumb`, `inhome`, `allowed_comm`, `allowed_rating`, `external_link`, `hitstotal`, `hitscm`, `total_rating`, `click_rating`, `instant_active`, `instant_template`, `instant_creatauto`) VALUES (9, 6, '3,4,6', 0, 1, 'Hà Chính', 1, 1502358576, 1502802497, 1, 10, 1497606480, 0, 2, 'Hậu TPP&#x3A; Việt Nam có tới 6 kế hoạch phòng xa', 'hau-tpp-viet-nam-co-toi-6-ke-hoach-phong-xa', 'Theo các nhà quan sát nước ngoài, “Việt Nam đã khôn khoan không bỏ hết trứng vào giỏ TPP” và Việt Nam không chỉ có “kế hoạch B” mà còn có cả kế hoạch C, D, E, F và G sau khi Hoa Kỳ rút khỏi Hiệp định này.', '', '', 0, 1, '4', 1, 0, 6, 0, 0, 0, 0, '', 0);";
 
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_news_5`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_news_5` (
@@ -9230,7 +9254,7 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_news_6` (
   KEY `instant_active` (`instant_active`),
   KEY `instant_creatauto` (`instant_creatauto`)
 ) ENGINE=MyISAM  AUTO_INCREMENT=10  DEFAULT CHARSET=utf8";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_news_6` (`id`, `catid`, `listcatid`, `topicid`, `admin_id`, `author`, `sourceid`, `addtime`, `edittime`, `status`, `weight`, `publtime`, `exptime`, `archive`, `title`, `alias`, `hometext`, `homeimgfile`, `homeimgalt`, `homeimgthumb`, `inhome`, `allowed_comm`, `allowed_rating`, `external_link`, `hitstotal`, `hitscm`, `total_rating`, `click_rating`, `instant_active`, `instant_template`, `instant_creatauto`) VALUES (9, 6, '3,4,6', 0, 1, 'Hà Chính', 1, 1502358576, 1502802497, 1, 10, 1497606480, 0, 2, 'Hậu TPP&#x3A; Việt Nam có tới 6 kế hoạch phòng xa', 'hau-tpp-viet-nam-co-toi-6-ke-hoach-phong-xa', 'Theo các nhà quan sát nước ngoài, “Việt Nam đã khôn khoan không bỏ hết trứng vào giỏ TPP” và Việt Nam không chỉ có “kế hoạch B” mà còn có cả kế hoạch C, D, E, F và G sau khi Hoa Kỳ rút khỏi Hiệp định này.', '', '', 0, 1, '4', 1, 0, 5, 0, 0, 0, 0, '', 0);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_news_6` (`id`, `catid`, `listcatid`, `topicid`, `admin_id`, `author`, `sourceid`, `addtime`, `edittime`, `status`, `weight`, `publtime`, `exptime`, `archive`, `title`, `alias`, `hometext`, `homeimgfile`, `homeimgalt`, `homeimgthumb`, `inhome`, `allowed_comm`, `allowed_rating`, `external_link`, `hitstotal`, `hitscm`, `total_rating`, `click_rating`, `instant_active`, `instant_template`, `instant_creatauto`) VALUES (9, 6, '3,4,6', 0, 1, 'Hà Chính', 1, 1502358576, 1502802497, 1, 10, 1497606480, 0, 2, 'Hậu TPP&#x3A; Việt Nam có tới 6 kế hoạch phòng xa', 'hau-tpp-viet-nam-co-toi-6-ke-hoach-phong-xa', 'Theo các nhà quan sát nước ngoài, “Việt Nam đã khôn khoan không bỏ hết trứng vào giỏ TPP” và Việt Nam không chỉ có “kế hoạch B” mà còn có cả kế hoạch C, D, E, F và G sau khi Hoa Kỳ rút khỏi Hiệp định này.', '', '', 0, 1, '4', 1, 0, 6, 0, 0, 0, 0, '', 0);";
 
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_news_7`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_news_7` (
@@ -9440,7 +9464,6 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_news_cat` (
   `viewcat` varchar(50) NOT NULL DEFAULT 'viewcat_page_new',
   `numsubcat` smallint(5) NOT NULL DEFAULT '0',
   `subcatid` varchar(255) DEFAULT '',
-  `inhome` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `numlinks` tinyint(2) unsigned NOT NULL DEFAULT '3',
   `newday` tinyint(2) unsigned NOT NULL DEFAULT '2',
   `featured` int(11) NOT NULL DEFAULT '0',
@@ -9450,19 +9473,21 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_news_cat` (
   `add_time` int(11) unsigned NOT NULL DEFAULT '0',
   `edit_time` int(11) unsigned NOT NULL DEFAULT '0',
   `groups_view` varchar(255) DEFAULT '',
+  `status` smallint(4) NOT NULL DEFAULT '1',
   PRIMARY KEY (`catid`),
   UNIQUE KEY `alias` (`alias`),
-  KEY `parentid` (`parentid`)
+  KEY `parentid` (`parentid`),
+  KEY `status` (`status`)
 ) ENGINE=MyISAM  AUTO_INCREMENT=10  DEFAULT CHARSET=utf8";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_news_cat` (`catid`, `parentid`, `title`, `titlesite`, `alias`, `description`, `descriptionhtml`, `image`, `viewdescription`, `weight`, `sort`, `lev`, `viewcat`, `numsubcat`, `subcatid`, `inhome`, `numlinks`, `newday`, `featured`, `ad_block_cat`, `keywords`, `admins`, `add_time`, `edit_time`, `groups_view`) VALUES (1, 0, 'Tin hoạt động', '', 'tin-hoat-dong', '', '', '', 0, 1, 1, 0, 'viewcat_page_new', 0, '', 1, 1, 2, 0, '', '', '', 1502356995, 1502356995, '6');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_news_cat` (`catid`, `parentid`, `title`, `titlesite`, `alias`, `description`, `descriptionhtml`, `image`, `viewdescription`, `weight`, `sort`, `lev`, `viewcat`, `numsubcat`, `subcatid`, `inhome`, `numlinks`, `newday`, `featured`, `ad_block_cat`, `keywords`, `admins`, `add_time`, `edit_time`, `groups_view`) VALUES (2, 0, 'Chỉ đạo điều hành', '', 'chi-dao-dieu-hanh', '', '', '', 0, 2, 2, 0, 'viewcat_page_new', 0, '', 0, 1, 2, 0, '', '', '', 1502357340, 1502357340, '6');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_news_cat` (`catid`, `parentid`, `title`, `titlesite`, `alias`, `description`, `descriptionhtml`, `image`, `viewdescription`, `weight`, `sort`, `lev`, `viewcat`, `numsubcat`, `subcatid`, `inhome`, `numlinks`, `newday`, `featured`, `ad_block_cat`, `keywords`, `admins`, `add_time`, `edit_time`, `groups_view`) VALUES (3, 0, 'Thông tin tuyên truyền', '', 'thong-tin-tuyen-truyen', '', '', '', 0, 3, 3, 0, 'viewcat_page_new', 0, '', 0, 1, 2, 0, '', '', '', 1502358086, 1502358086, '6');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_news_cat` (`catid`, `parentid`, `title`, `titlesite`, `alias`, `description`, `descriptionhtml`, `image`, `viewdescription`, `weight`, `sort`, `lev`, `viewcat`, `numsubcat`, `subcatid`, `inhome`, `numlinks`, `newday`, `featured`, `ad_block_cat`, `keywords`, `admins`, `add_time`, `edit_time`, `groups_view`) VALUES (4, 0, 'Thông tin kinh tế - xã hội', '', 'thong-tin-kinh-te-xa-hoi', '', '', '', 0, 4, 4, 0, 'viewcat_page_new', 0, '', 1, 1, 2, 0, '', '', '', 1502358337, 1502358337, '6');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_news_cat` (`catid`, `parentid`, `title`, `titlesite`, `alias`, `description`, `descriptionhtml`, `image`, `viewdescription`, `weight`, `sort`, `lev`, `viewcat`, `numsubcat`, `subcatid`, `inhome`, `numlinks`, `newday`, `featured`, `ad_block_cat`, `keywords`, `admins`, `add_time`, `edit_time`, `groups_view`) VALUES (5, 0, 'Chiến lược - Quy hoạch', '', 'chien-luoc-quy-hoach', '', '', '', 0, 5, 5, 0, 'viewcat_page_new', 0, '', 1, 1, 2, 0, '', '', '', 1502358445, 1502358445, '6');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_news_cat` (`catid`, `parentid`, `title`, `titlesite`, `alias`, `description`, `descriptionhtml`, `image`, `viewdescription`, `weight`, `sort`, `lev`, `viewcat`, `numsubcat`, `subcatid`, `inhome`, `numlinks`, `newday`, `featured`, `ad_block_cat`, `keywords`, `admins`, `add_time`, `edit_time`, `groups_view`) VALUES (6, 0, 'Kế hoạch', '', 'ke-hoach', '', '', '', 0, 6, 6, 0, 'viewcat_page_new', 0, '', 1, 1, 2, 0, '', '', '', 1502358532, 1502358532, '6');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_news_cat` (`catid`, `parentid`, `title`, `titlesite`, `alias`, `description`, `descriptionhtml`, `image`, `viewdescription`, `weight`, `sort`, `lev`, `viewcat`, `numsubcat`, `subcatid`, `inhome`, `numlinks`, `newday`, `featured`, `ad_block_cat`, `keywords`, `admins`, `add_time`, `edit_time`, `groups_view`) VALUES (7, 0, 'Mua sắm - mời thầu', '', 'mua-sam-moi-thau', '', '', '', 0, 7, 7, 0, 'viewcat_page_new', 0, '', 1, 1, 2, 0, '', '', '', 1502358668, 1502358668, '6');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_news_cat` (`catid`, `parentid`, `title`, `titlesite`, `alias`, `description`, `descriptionhtml`, `image`, `viewdescription`, `weight`, `sort`, `lev`, `viewcat`, `numsubcat`, `subcatid`, `inhome`, `numlinks`, `newday`, `featured`, `ad_block_cat`, `keywords`, `admins`, `add_time`, `edit_time`, `groups_view`) VALUES (8, 0, 'Công trình - Đề tài', '', 'cong-trinh-de-tai', '', '', '', 0, 8, 8, 0, 'viewcat_page_new', 0, '', 1, 1, 2, 0, '', '', '', 1502358729, 1502358729, '6');";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_news_cat` (`catid`, `parentid`, `title`, `titlesite`, `alias`, `description`, `descriptionhtml`, `image`, `viewdescription`, `weight`, `sort`, `lev`, `viewcat`, `numsubcat`, `subcatid`, `inhome`, `numlinks`, `newday`, `featured`, `ad_block_cat`, `keywords`, `admins`, `add_time`, `edit_time`, `groups_view`) VALUES (9, 0, 'Thông tin Thống kê', '', 'thong-tin-thong-ke', '', '', '', 0, 9, 9, 0, 'viewcat_page_new', 0, '', 1, 1, 2, 0, '', '', '', 1502358797, 1502358797, '6');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_news_cat` (`catid`, `parentid`, `title`, `titlesite`, `alias`, `description`, `descriptionhtml`, `image`, `viewdescription`, `weight`, `sort`, `lev`, `viewcat`, `numsubcat`, `subcatid`, `numlinks`, `newday`, `featured`, `ad_block_cat`, `keywords`, `admins`, `add_time`, `edit_time`, `groups_view`, `status`) VALUES (1, 0, 'Tin hoạt động', '', 'tin-hoat-dong', '', '', '', 0, 1, 1, 0, 'viewcat_page_new', 0, '', 1, 2, 0, '', '', '', 1502356995, 1502356995, '6', 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_news_cat` (`catid`, `parentid`, `title`, `titlesite`, `alias`, `description`, `descriptionhtml`, `image`, `viewdescription`, `weight`, `sort`, `lev`, `viewcat`, `numsubcat`, `subcatid`, `numlinks`, `newday`, `featured`, `ad_block_cat`, `keywords`, `admins`, `add_time`, `edit_time`, `groups_view`, `status`) VALUES (2, 0, 'Chỉ đạo điều hành', '', 'chi-dao-dieu-hanh', '', '', '', 0, 2, 2, 0, 'viewcat_page_new', 0, '', 1, 2, 0, '', '', '', 1502357340, 1502357340, '6', 2);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_news_cat` (`catid`, `parentid`, `title`, `titlesite`, `alias`, `description`, `descriptionhtml`, `image`, `viewdescription`, `weight`, `sort`, `lev`, `viewcat`, `numsubcat`, `subcatid`, `numlinks`, `newday`, `featured`, `ad_block_cat`, `keywords`, `admins`, `add_time`, `edit_time`, `groups_view`, `status`) VALUES (3, 0, 'Thông tin tuyên truyền', '', 'thong-tin-tuyen-truyen', '', '', '', 0, 3, 3, 0, 'viewcat_page_new', 0, '', 1, 2, 0, '', '', '', 1502358086, 1502358086, '6', 2);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_news_cat` (`catid`, `parentid`, `title`, `titlesite`, `alias`, `description`, `descriptionhtml`, `image`, `viewdescription`, `weight`, `sort`, `lev`, `viewcat`, `numsubcat`, `subcatid`, `numlinks`, `newday`, `featured`, `ad_block_cat`, `keywords`, `admins`, `add_time`, `edit_time`, `groups_view`, `status`) VALUES (4, 0, 'Thông tin kinh tế - xã hội', '', 'thong-tin-kinh-te-xa-hoi', '', '', '', 0, 4, 4, 0, 'viewcat_page_new', 0, '', 1, 2, 0, '', '', '', 1502358337, 1502358337, '6', 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_news_cat` (`catid`, `parentid`, `title`, `titlesite`, `alias`, `description`, `descriptionhtml`, `image`, `viewdescription`, `weight`, `sort`, `lev`, `viewcat`, `numsubcat`, `subcatid`, `numlinks`, `newday`, `featured`, `ad_block_cat`, `keywords`, `admins`, `add_time`, `edit_time`, `groups_view`, `status`) VALUES (5, 0, 'Chiến lược - Quy hoạch', '', 'chien-luoc-quy-hoach', '', '', '', 0, 5, 5, 0, 'viewcat_page_new', 0, '', 1, 2, 0, '', '', '', 1502358445, 1502358445, '6', 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_news_cat` (`catid`, `parentid`, `title`, `titlesite`, `alias`, `description`, `descriptionhtml`, `image`, `viewdescription`, `weight`, `sort`, `lev`, `viewcat`, `numsubcat`, `subcatid`, `numlinks`, `newday`, `featured`, `ad_block_cat`, `keywords`, `admins`, `add_time`, `edit_time`, `groups_view`, `status`) VALUES (6, 0, 'Kế hoạch', '', 'ke-hoach', '', '', '', 0, 6, 6, 0, 'viewcat_page_new', 0, '', 1, 2, 0, '', '', '', 1502358532, 1502358532, '6', 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_news_cat` (`catid`, `parentid`, `title`, `titlesite`, `alias`, `description`, `descriptionhtml`, `image`, `viewdescription`, `weight`, `sort`, `lev`, `viewcat`, `numsubcat`, `subcatid`, `numlinks`, `newday`, `featured`, `ad_block_cat`, `keywords`, `admins`, `add_time`, `edit_time`, `groups_view`, `status`) VALUES (7, 0, 'Mua sắm - mời thầu', '', 'mua-sam-moi-thau', '', '', '', 0, 7, 7, 0, 'viewcat_page_new', 0, '', 1, 2, 0, '', '', '', 1502358668, 1502358668, '6', 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_news_cat` (`catid`, `parentid`, `title`, `titlesite`, `alias`, `description`, `descriptionhtml`, `image`, `viewdescription`, `weight`, `sort`, `lev`, `viewcat`, `numsubcat`, `subcatid`, `numlinks`, `newday`, `featured`, `ad_block_cat`, `keywords`, `admins`, `add_time`, `edit_time`, `groups_view`, `status`) VALUES (8, 0, 'Công trình - Đề tài', '', 'cong-trinh-de-tai', '', '', '', 0, 8, 8, 0, 'viewcat_page_new', 0, '', 1, 2, 0, '', '', '', 1502358729, 1502358729, '6', 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_news_cat` (`catid`, `parentid`, `title`, `titlesite`, `alias`, `description`, `descriptionhtml`, `image`, `viewdescription`, `weight`, `sort`, `lev`, `viewcat`, `numsubcat`, `subcatid`, `numlinks`, `newday`, `featured`, `ad_block_cat`, `keywords`, `admins`, `add_time`, `edit_time`, `groups_view`, `status`) VALUES (9, 0, 'Thông tin Thống kê', '', 'thong-tin-thong-ke', '', '', '', 0, 9, 9, 0, 'viewcat_page_new', 0, '', 1, 2, 0, '', '', '', 1502358797, 1502358797, '6', 1);";
 
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_news_config_post`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_news_config_post` (
@@ -9576,7 +9601,7 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_news_rows` (
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_news_rows` (`id`, `catid`, `listcatid`, `topicid`, `admin_id`, `author`, `sourceid`, `addtime`, `edittime`, `status`, `weight`, `publtime`, `exptime`, `archive`, `title`, `alias`, `hometext`, `homeimgfile`, `homeimgalt`, `homeimgthumb`, `inhome`, `allowed_comm`, `allowed_rating`, `external_link`, `hitstotal`, `hitscm`, `total_rating`, `click_rating`, `instant_active`, `instant_template`, `instant_creatauto`) VALUES (6, 3, '3', 0, 1, 'Đinh Thị Thanh Vân', 4, 1502358287, 1502358287, 1, 3, 1486028580, 0, 2, 'Bộ Thông tin và Truyền thông ban hành Phương pháp đánh giá mức độ ứng dụng công nghệ thông tin của cơ quan nhà nước năm 2016', 'bo-thong-tin-va-truyen-thong-ban-hanh-phuong-phap-danh-gia-muc-do-ung-dung-cong-nghe-thong-tin-cua-co-quan-nha-nuoc-nam-2016', 'Ngày 19/01/2017, Bộ Thông tin và Truyền thông đã ban hành Quyết định số 62/QĐ-BTTTT về việc Phê duyệt Phương pháp đánh giá mức độ ứng dụng công nghệ thông tin của cơ quan nhà nước năm 2016.', '', '', 0, 1, '4', 1, 0, 1, 0, 0, 0, 0, '', 0);";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_news_rows` (`id`, `catid`, `listcatid`, `topicid`, `admin_id`, `author`, `sourceid`, `addtime`, `edittime`, `status`, `weight`, `publtime`, `exptime`, `archive`, `title`, `alias`, `hometext`, `homeimgfile`, `homeimgalt`, `homeimgthumb`, `inhome`, `allowed_comm`, `allowed_rating`, `external_link`, `hitstotal`, `hitscm`, `total_rating`, `click_rating`, `instant_active`, `instant_template`, `instant_creatauto`) VALUES (7, 4, '4', 0, 1, 'Thành Đạt', 1, 1502358418, 1502444898, 1, 5, 1491644700, 0, 2, 'Cách mạng 4.0 và bàn tay Chính phủ', 'cach-mang-4-0-va-ban-tay-chinh-phu', '“Để bắt kịp cách mạng công nghiệp lần thứ 4 cần phải có bàn tay mạnh mẽ từ Chính phủ”, quan điểm được nhiều chuyên gia đưa ra tại diễn đàn &quot;Cuộc cách mạng công nghiệp 4.0 - Được và mất&quot; vừa được tổ chức chiều 7/4.', '2017_08/cach-mang-4.0.jpg', 'Diễn đàn &quot;Cuộc cách mạng công nghiệp 4.0 - Được và mất&quot;', 1, 1, '4', 1, 0, 0, 0, 0, 0, 0, '', 0);";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_news_rows` (`id`, `catid`, `listcatid`, `topicid`, `admin_id`, `author`, `sourceid`, `addtime`, `edittime`, `status`, `weight`, `publtime`, `exptime`, `archive`, `title`, `alias`, `hometext`, `homeimgfile`, `homeimgalt`, `homeimgthumb`, `inhome`, `allowed_comm`, `allowed_rating`, `external_link`, `hitstotal`, `hitscm`, `total_rating`, `click_rating`, `instant_active`, `instant_template`, `instant_creatauto`) VALUES (8, 5, '5', 0, 1, 'Minh Hiển', 1, 1502358510, 1502444892, 1, 6, 1493977620, 0, 2, 'Thủ tướng chỉ thị tăng cường năng lực tiếp cận cuộc Cách mạng CN lần thứ 4', 'thu-tuong-chi-thi-tang-cuong-nang-luc-tiep-can-cuoc-cach-mang-cn-lan-thu-4', 'Thủ tướng Chính phủ Nguyễn Xuân Phúc vừa ký Chỉ thị 16/CT-TTg về việc tăng cường năng lực tiếp cận cuộc Cách mạng công nghiệp lần thứ 4', '2017_08/cntt.jpg', 'Ảnh minh họa', 1, 1, '4', 1, 0, 1, 0, 0, 0, 0, '', 0);";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_news_rows` (`id`, `catid`, `listcatid`, `topicid`, `admin_id`, `author`, `sourceid`, `addtime`, `edittime`, `status`, `weight`, `publtime`, `exptime`, `archive`, `title`, `alias`, `hometext`, `homeimgfile`, `homeimgalt`, `homeimgthumb`, `inhome`, `allowed_comm`, `allowed_rating`, `external_link`, `hitstotal`, `hitscm`, `total_rating`, `click_rating`, `instant_active`, `instant_template`, `instant_creatauto`) VALUES (9, 6, '3,4,6', 0, 1, 'Hà Chính', 1, 1502358576, 1502802497, 1, 10, 1497606480, 0, 2, 'Hậu TPP&#x3A; Việt Nam có tới 6 kế hoạch phòng xa', 'hau-tpp-viet-nam-co-toi-6-ke-hoach-phong-xa', 'Theo các nhà quan sát nước ngoài, “Việt Nam đã khôn khoan không bỏ hết trứng vào giỏ TPP” và Việt Nam không chỉ có “kế hoạch B” mà còn có cả kế hoạch C, D, E, F và G sau khi Hoa Kỳ rút khỏi Hiệp định này.', '', '', 0, 1, '4', 1, 0, 5, 0, 0, 0, 0, '', 0);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_news_rows` (`id`, `catid`, `listcatid`, `topicid`, `admin_id`, `author`, `sourceid`, `addtime`, `edittime`, `status`, `weight`, `publtime`, `exptime`, `archive`, `title`, `alias`, `hometext`, `homeimgfile`, `homeimgalt`, `homeimgthumb`, `inhome`, `allowed_comm`, `allowed_rating`, `external_link`, `hitstotal`, `hitscm`, `total_rating`, `click_rating`, `instant_active`, `instant_template`, `instant_creatauto`) VALUES (9, 6, '3,4,6', 0, 1, 'Hà Chính', 1, 1502358576, 1502802497, 1, 10, 1497606480, 0, 2, 'Hậu TPP&#x3A; Việt Nam có tới 6 kế hoạch phòng xa', 'hau-tpp-viet-nam-co-toi-6-ke-hoach-phong-xa', 'Theo các nhà quan sát nước ngoài, “Việt Nam đã khôn khoan không bỏ hết trứng vào giỏ TPP” và Việt Nam không chỉ có “kế hoạch B” mà còn có cả kế hoạch C, D, E, F và G sau khi Hoa Kỳ rút khỏi Hiệp định này.', '', '', 0, 1, '4', 1, 0, 6, 0, 0, 0, 0, '', 0);";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_news_rows` (`id`, `catid`, `listcatid`, `topicid`, `admin_id`, `author`, `sourceid`, `addtime`, `edittime`, `status`, `weight`, `publtime`, `exptime`, `archive`, `title`, `alias`, `hometext`, `homeimgfile`, `homeimgalt`, `homeimgthumb`, `inhome`, `allowed_comm`, `allowed_rating`, `external_link`, `hitstotal`, `hitscm`, `total_rating`, `click_rating`, `instant_active`, `instant_template`, `instant_creatauto`) VALUES (10, 7, '7', 0, 1, 'Chinhphu.vn', 1, 1502358714, 1502358714, 1, 11, 1499680260, 0, 2, 'Thời gian đánh giá hồ sơ dự thầu theo nghị định hay thông tư?', 'thoi-gian-danh-gia-ho-so-du-thau-theo-nghi-dinh-hay-thong-tu', 'Trường hợp gói thầu có quy mô nhỏ thì thời gian đánh giá hồ sơ dự thầu tối đa là 25 ngày, kể từ ngày mở thầu đến khi bên mời thầu có tờ trình đề nghị phê duyệt kết quả lựa chọn nhà thầu.', '', '', 0, 1, '4', 1, 0, 3, 0, 0, 0, 0, '', 0);";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_news_rows` (`id`, `catid`, `listcatid`, `topicid`, `admin_id`, `author`, `sourceid`, `addtime`, `edittime`, `status`, `weight`, `publtime`, `exptime`, `archive`, `title`, `alias`, `hometext`, `homeimgfile`, `homeimgalt`, `homeimgthumb`, `inhome`, `allowed_comm`, `allowed_rating`, `external_link`, `hitstotal`, `hitscm`, `total_rating`, `click_rating`, `instant_active`, `instant_template`, `instant_creatauto`) VALUES (11, 8, '8', 0, 1, 'MK', 1, 1502358784, 1502358784, 1, 2, 1481449920, 0, 2, 'Tuyên dương 34 công trình sáng tạo trẻ', 'tuyen-duong-34-cong-trinh-sang-tao-tre', 'Tối 10/12, tại thành phố Vĩnh Yên, tỉnh Vĩnh Phúc, Trung ương Đoàn Thanh niên Cộng sản Hồ Chí Minh tổ chức tuyên dương và trao giải cho 34 công trình, đề tài, giải pháp sáng tạo trẻ năm 2016.', '2017_08/sang-tao-tre.jpg', 'Ảnh Dân trí', 1, 1, '4', 1, 0, 1, 0, 0, 0, 0, '', 0);";
 
@@ -9649,10 +9674,10 @@ $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_opi
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_opinions_area` (
   `id` smallint(4) unsigned NOT NULL AUTO_INCREMENT,
   `parentid` smallint(4) unsigned NOT NULL DEFAULT '0',
-  `alias` varchar(249)  COLLATE utf8mb4_unicode_ci NOT NULL,
-  `title` varchar(249)  COLLATE utf8mb4_unicode_ci NOT NULL,
-  `introduction` mediumtext  COLLATE utf8mb4_unicode_ci NOT NULL,
-  `keywords` varchar(255)  COLLATE utf8mb4_unicode_ci NOT NULL,
+  `alias` varchar(249) NOT NULL,
+  `title` varchar(249) NOT NULL,
+  `introduction` mediumtext NOT NULL,
+  `keywords` varchar(255) NOT NULL,
   `addtime` int(11) unsigned NOT NULL DEFAULT '0',
   `weight` smallint(4) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
@@ -9666,10 +9691,10 @@ $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_opi
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_opinions_cat` (
   `id` smallint(4) unsigned NOT NULL AUTO_INCREMENT,
   `parentid` smallint(4) unsigned NOT NULL DEFAULT '0',
-  `alias` varchar(249)  COLLATE utf8mb4_unicode_ci NOT NULL,
-  `title` varchar(249)  COLLATE utf8mb4_unicode_ci NOT NULL,
-  `introduction` mediumtext  COLLATE utf8mb4_unicode_ci NOT NULL,
-  `keywords` varchar(255)  COLLATE utf8mb4_unicode_ci NOT NULL,
+  `alias` varchar(249) NOT NULL,
+  `title` varchar(249) NOT NULL,
+  `introduction` mediumtext NOT NULL,
+  `keywords` varchar(255) NOT NULL,
   `newday` tinyint(2) unsigned NOT NULL DEFAULT '5',
   `addtime` int(11) unsigned NOT NULL DEFAULT '0',
   `weight` smallint(4) unsigned NOT NULL DEFAULT '0',
@@ -9689,8 +9714,8 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_cat
 
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_opinions_config`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_opinions_config` (
-  `config_name` varchar(30)  COLLATE utf8mb4_unicode_ci NOT NULL,
-  `config_value` varchar(255)  COLLATE utf8mb4_unicode_ci NOT NULL,
+  `config_name` varchar(30) NOT NULL,
+  `config_value` varchar(255) NOT NULL,
   UNIQUE KEY `config_name` (`config_name`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8mb4  COLLATE=utf8mb4_unicode_ci";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_config` (`config_name`, `config_value`) VALUES ('nummain', '50');";
@@ -9706,29 +9731,39 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_con
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_config` (`config_name`, `config_value`) VALUES ('detail_pdf_quick_view', '1');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_config` (`config_name`, `config_value`) VALUES ('other_numlinks', '5');";
 
+$sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_opinions_examine`";
+$sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_opinions_examine` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `weight` smallint(4) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8mb4  COLLATE=utf8mb4_unicode_ci";
+
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_opinions_row`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_opinions_row` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
-  `replacement` varchar(255)  COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `relatement` varchar(255)  COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `title` varchar(255)  COLLATE utf8mb4_unicode_ci NOT NULL,
-  `alias` varchar(255)  COLLATE utf8mb4_unicode_ci NOT NULL,
-  `code` varchar(50)  COLLATE utf8mb4_unicode_ci NOT NULL,
+  `replacement` varchar(255) NOT NULL DEFAULT '',
+  `relatement` varchar(255) NOT NULL DEFAULT '',
+  `title` varchar(255) NOT NULL,
+  `alias` varchar(255) NOT NULL,
+  `code` varchar(50) NOT NULL,
   `cid` smallint(4) unsigned NOT NULL DEFAULT '0',
   `sid` smallint(4) unsigned NOT NULL DEFAULT '0',
+  `approval` tinyint(1) DEFAULT NULL,
   `sgid` smallint(4) unsigned NOT NULL DEFAULT '0',
-  `note` text  COLLATE utf8mb4_unicode_ci NOT NULL,
-  `introtext` text  COLLATE utf8mb4_unicode_ci NOT NULL,
-  `bodytext` text  COLLATE utf8mb4_unicode_ci NOT NULL,
-  `keywords` varchar(255)  COLLATE utf8mb4_unicode_ci NOT NULL,
-  `groups_view` varchar(255)  COLLATE utf8mb4_unicode_ci NOT NULL,
-  `groups_download` varchar(255)  COLLATE utf8mb4_unicode_ci NOT NULL,
-  `files` mediumtext  COLLATE utf8mb4_unicode_ci NOT NULL,
+  `note` text NOT NULL,
+  `introtext` text NOT NULL,
+  `bodytext` text NOT NULL,
+  `keywords` varchar(255) NOT NULL,
+  `groups_view` varchar(255) NOT NULL,
+  `groups_download` varchar(255) NOT NULL,
+  `files` mediumtext NOT NULL,
   `status` tinyint(1) NOT NULL,
   `addtime` int(11) NOT NULL,
   `edittime` int(11) NOT NULL,
   `publtime` int(11) NOT NULL DEFAULT '0',
   `start_comm_time` int(11) DEFAULT NULL,
+  `eid` int(11) DEFAULT NULL,
   `end_comm_time` int(11) DEFAULT NULL,
   `startvalid` int(11) NOT NULL DEFAULT '0',
   `exptime` int(11) NOT NULL DEFAULT '0',
@@ -9738,13 +9773,13 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_opinions_ro
   `admin_edit` mediumint(8) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  AUTO_INCREMENT=8  DEFAULT CHARSET=utf8mb4  COLLATE=utf8mb4_unicode_ci";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (1, '', '', 'Dự thảo Thông tư quy định tiêu chuẩn chức danh nghề nghiệp viên chức tư vấn viên dịch vụ việc làm', 'Du-thao-Thong-tu-quy-dinh-tieu-chuan-chuc-danh-nghe-nghiep-vien-chuc-tu-van-vien-dich-vu-viec-lam-1', '&#x002F;2017&#x002F;TT-BLĐTB&amp;XH', 2, 5, 1, '', 'Bộ Lao động - Thương binh và Xã hội đang soạn thảo dự thảo Thông tư quy định tiêu chuẩn chức danh nghề nghiệp viên chức tư vấn viên dịch vụ việc làm. Cổng TTĐT Chính phủ xin giới thiệu toàn văn và đề nghị các cơ quan, tổ chức, cá nhân trong và ngoài nước nghiên cứu, đóng góp ý kiến', '', 'lao động,thương binh,xã hội,soạn thảo,thông tư,quy định,tiêu chuẩn,nghề nghiệp,viên chức,tư vấn,việc làm,giới thiệu,đề nghị,cơ quan,tổ chức,cá nhân,nghiên cứu', '6', '6', 'demo.pdf', 1, 1506571390, 1506571490, 0, 1504198800, 1514653200, 0, 0, 0, 0, 1, 1);";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (2, '', '', 'Dự thảo Luật đơn vị hành chính - kinh tế đặc biệt', 'Du-thao-Luat-don-vi-hanh-chinh-kinh-te-dac-biet-2', '&#x002F;2017&#x002F;BKH&amp;DT', 2, 2, 5, '', 'Bộ Kế hoạch và Đầu tư đang soạn thảo dự thảo Luật đơn vị hành chính - kinh tế đặc biệt. Cổng TTĐT Chính phủ xin giới thiệu toàn văn và đề nghị các cơ quan, tổ chức, cá nhân trong và ngoài nước nghiên cứu, đóng góp ý kiến.', '', 'kế hoạch,soạn thảo,đơn vị,kinh tế,đặc biệt,giới thiệu,đề nghị,cơ quan,tổ chức,cá nhân,nghiên cứu', '6', '6', 'demo.pdf', 1, 1506571915, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0);";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (3, '', '', 'Dự thảo Thông tư Sửa đổi Thông tư số 279&#x002F;2016&#x002F;TT-BTC ngày 14&#x002F;11&#x002F;2016 của Bộ Tài chính quy định mức thu, chế độ thu, nộp, quản lý và sử dụng phí trong công tác an toàn vệ sinh thực phẩm', 'Du-thao-Thong-tu-Sua-doi-Thong-tu-so-279-2016-TT-BTC-ngay-14-11-2016-cua-Bo-Tai-chinh-quy-dinh-muc-thu-che-do-thu-nop-quan-ly-va-su-dung-phi-trong-cong-tac-an-toan-ve-sinh-thuc-pham-3', '279&#x002F;2016&#x002F;TT-BTC', 1, 3, 1, '', 'Bộ Tài chính đang soạn thảo dự thảo Thông tư Sửa đổi Thông tư số 279&#x002F;2016&#x002F;TT-BTC ngày 14&#x002F;11&#x002F;2016  của Bộ Tài chính quy định mức thu, chế độ thu, nộp, quản lý  và sử dụng phí trong công tác an toàn vệ sinh thực phẩm. Cổng TTĐT Chính phủ xin giới thiệu toàn văn và đề nghị các cơ quan, tổ chức, cá nhân trong và ngoài nước nghiên cứu, đóng góp ý kiến.', '', 'tài chính,soạn thảo,thông tư,sửa đổi,quy định,chế độ,quản lý,sử dụng,công tác,an toàn,vệ sinh,thực phẩm,giới thiệu,đề nghị,cơ quan,tổ chức,cá nhân,nghiên cứu', '6', '6', 'demo.pdf', 1, 1506572019, 1506572047, 0, 1504198800, 0, 0, 0, 1, 0, 1, 1);";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (4, '', '', 'Dự thảo Nghị định quy định việc sắp xếp lại tài sản công', 'Du-thao-Nghi-dinh-quy-dinh-viec-sap-xep-lai-tai-san-cong-4', '279&#x002F;2016&#x002F;TT-BTC', 4, 3, 5, '', 'Bộ Tài chính đang soạn thảo dự thảo Thông tư Sửa đổi Thông tư số 279&#x002F;2016&#x002F;TT-BTC ngày 14&#x002F;11&#x002F;2016  của Bộ Tài chính quy định mức thu, chế độ thu, nộp, quản lý  và sử dụng phí trong công tác an toàn vệ sinh thực phẩm. Cổng TTĐT Chính phủ xin giới thiệu toàn văn và đề nghị các cơ quan, tổ chức, cá nhân trong và ngoài nước nghiên cứu, đóng góp ý kiến.', '', 'tài chính,soạn thảo,thông tư,sửa đổi,quy định,chế độ,quản lý,sử dụng,công tác,an toàn,vệ sinh,thực phẩm,giới thiệu,đề nghị,cơ quan,tổ chức,cá nhân,nghiên cứu', '6', '6', 'demo.pdf', 1, 1506572225, 0, 0, 0, 1519750800, 0, 0, 0, 0, 1, 0);";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (5, '', '', 'Dự thảo Nghị định sửa đổi, bổ sung một số quy định về cán bộ, công chức và người hoạt động không chuyên trách ở xã, phường, thị trấn', 'Du-thao-Nghi-dinh-sua-doi-bo-sung-mot-so-quy-dinh-ve-can-bo-cong-chuc-va-nguoi-hoat-dong-khong-chuyen-trach-o-xa-phuong-thi-tran-5', '&#x002F;2017&#x002F;BNV', 4, 6, 5, '', 'Bộ Nội vụ đang soạn thảo dự thảo Nghị định sửa đổi, bổ sung một số quy định về cán bộ, công chức và người hoạt động không chuyên trách ở xã, phường, thị trấn. Cổng TTĐT Chính phủ xin giới thiệu toàn văn và đề nghị các cơ quan, tổ chức, cá nhân trong và ngoài nước nghiên cứu, đóng góp ý kiến.', '', 'nội vụ,soạn thảo,nghị định,sửa đổi,bổ sung,quy định,cán bộ,hoạt động,chuyên trách,thị trấn,giới thiệu,đề nghị,cơ quan,tổ chức,cá nhân,nghiên cứu', '6', '6', 'demo.pdf', 1, 1506572426, 1506572464, 0, 1496250000, 1517418000, 0, 0, 0, 0, 1, 1);";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (6, '', '', 'Dự thảo Thông tư sửa đổi, bổ sung một số điều của Thông tư 36&#x002F;2014&#x002F;TT-NHNN ngày 20&#x002F;11&#x002F;2014 của Thống đốc Ngân hàng Nhà nước quy định các giới hạn, tỷ lệ bảo đảm an toàn trong hoạt động của TCTD, chi nhánh ngân hàng nước ngoài', 'Du-thao-Thong-tu-sua-doi-bo-sung-mot-so-dieu-cua-Thong-tu-36-2014-TT-NHNN-ngay-20-11-2014-cua-Thong-doc-Ngan-hang-Nha-nuoc-quy-dinh-cac-gioi-han-ty-le-bao-dam-an-toan-trong-hoat-dong-cua-TCTD-chi-nhanh-ngan-hang-nuoc-ngoai-6', '36&#x002F;2014&#x002F;TT-NHNN', 2, 3, 5, '', 'Ngân hàng Nhà nước đang soạn thảo dự thảo Thông tư sửa đổi, bổ sung một số điều của Thông tư 36&#x002F;2014&#x002F;TT-NHNN ngày 20&#x002F;11&#x002F;2014 của Thống đốc Ngân hàng Nhà nước quy định các giới hạn, tỷ lệ bảo đảm an toàn trong hoạt động của TCTD, chi nhánh ngân hàng nước ngoài. Cổng TTĐT Chính phủ xin giới thiệu toàn văn và đề nghị các cơ quan, tổ chức, cá nhân trong và ngoài nước nghiên cứu, đóng góp ý kiến.', '', 'ngân hàng,nhà nước,soạn thảo,thông tư,sửa đổi,bổ sung,thống đốc,quy định,giới hạn,tỷ lệ,bảo đảm,an toàn,hoạt động,giới thiệu,đề nghị,cơ quan,tổ chức,cá nhân,nghiên cứu', '6', '6', 'demo.pdf', 1, 1506572619, 0, 0, 1504198800, 1538240400, 0, 0, 0, 0, 1, 0);";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (7, '', '', 'Dự thảo Thông tư hướng dẫn phòng và xử trí phản vệ', 'Du-thao-Thong-tu-huong-dan-phong-va-xu-tri-phan-ve-7', '&#x002F;2017&#x002F;BYT', 2, 4, 5, '', 'Bộ Y tế đang soạn thảo dự thảo Thông tư hướng dẫn phòng và xử trí phản vệ. Cổng TTĐT Chính phủ xin giới thiệu toàn văn và đề nghị các cơ quan, tổ chức, cá nhân trong và ngoài nước nghiên cứu, đóng góp ý kiến.', '', 'y tế,soạn thảo,thông tư,hướng dẫn,xử trí,giới thiệu,đề nghị,cơ quan,tổ chức,cá nhân,nghiên cứu', '6', '6', 'demo.pdf', 1, 1506572792, 0, 0, 1483203600, 1504198800, 0, 0, 0, 0, 1, 0);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `approval`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `eid`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (1, '', '', 'Dự thảo Thông tư quy định tiêu chuẩn chức danh nghề nghiệp viên chức tư vấn viên dịch vụ việc làm', 'Du-thao-Thong-tu-quy-dinh-tieu-chuan-chuc-danh-nghe-nghiep-vien-chuc-tu-van-vien-dich-vu-viec-lam-1', '&#x002F;2017&#x002F;TT-BLĐTB&amp;XH', 2, 5, NULL, 1, '', 'Bộ Lao động - Thương binh và Xã hội đang soạn thảo dự thảo Thông tư quy định tiêu chuẩn chức danh nghề nghiệp viên chức tư vấn viên dịch vụ việc làm. Cổng TTĐT Chính phủ xin giới thiệu toàn văn và đề nghị các cơ quan, tổ chức, cá nhân trong và ngoài nước nghiên cứu, đóng góp ý kiến', '', 'lao động,thương binh,xã hội,soạn thảo,thông tư,quy định,tiêu chuẩn,nghề nghiệp,viên chức,tư vấn,việc làm,giới thiệu,đề nghị,cơ quan,tổ chức,cá nhân,nghiên cứu', '6', '6', 'demo.pdf', 1, 1506571390, 1506571490, 0, 1504198800, NULL, 1514653200, 0, 0, 3, 0, 1, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `approval`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `eid`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (2, '', '', 'Dự thảo Luật đơn vị hành chính - kinh tế đặc biệt', 'Du-thao-Luat-don-vi-hanh-chinh-kinh-te-dac-biet-2', '&#x002F;2017&#x002F;BKH&amp;DT', 2, 2, NULL, 5, '', 'Bộ Kế hoạch và Đầu tư đang soạn thảo dự thảo Luật đơn vị hành chính - kinh tế đặc biệt. Cổng TTĐT Chính phủ xin giới thiệu toàn văn và đề nghị các cơ quan, tổ chức, cá nhân trong và ngoài nước nghiên cứu, đóng góp ý kiến.', '', 'kế hoạch,soạn thảo,đơn vị,kinh tế,đặc biệt,giới thiệu,đề nghị,cơ quan,tổ chức,cá nhân,nghiên cứu', '6', '6', 'demo.pdf', 1, 1506571915, 0, 0, 0, NULL, 0, 0, 0, 0, 0, 1, 0);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `approval`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `eid`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (3, '', '', 'Dự thảo Thông tư Sửa đổi Thông tư số 279&#x002F;2016&#x002F;TT-BTC ngày 14&#x002F;11&#x002F;2016 của Bộ Tài chính quy định mức thu, chế độ thu, nộp, quản lý và sử dụng phí trong công tác an toàn vệ sinh thực phẩm', 'Du-thao-Thong-tu-Sua-doi-Thong-tu-so-279-2016-TT-BTC-ngay-14-11-2016-cua-Bo-Tai-chinh-quy-dinh-muc-thu-che-do-thu-nop-quan-ly-va-su-dung-phi-trong-cong-tac-an-toan-ve-sinh-thuc-pham-3', '279&#x002F;2016&#x002F;TT-BTC', 1, 3, NULL, 1, '', 'Bộ Tài chính đang soạn thảo dự thảo Thông tư Sửa đổi Thông tư số 279&#x002F;2016&#x002F;TT-BTC ngày 14&#x002F;11&#x002F;2016  của Bộ Tài chính quy định mức thu, chế độ thu, nộp, quản lý  và sử dụng phí trong công tác an toàn vệ sinh thực phẩm. Cổng TTĐT Chính phủ xin giới thiệu toàn văn và đề nghị các cơ quan, tổ chức, cá nhân trong và ngoài nước nghiên cứu, đóng góp ý kiến.', '', 'tài chính,soạn thảo,thông tư,sửa đổi,quy định,chế độ,quản lý,sử dụng,công tác,an toàn,vệ sinh,thực phẩm,giới thiệu,đề nghị,cơ quan,tổ chức,cá nhân,nghiên cứu', '6', '6', 'demo.pdf', 1, 1506572019, 1506572047, 0, 1504198800, NULL, 0, 0, 0, 1, 0, 1, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `approval`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `eid`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (4, '', '', 'Dự thảo Nghị định quy định việc sắp xếp lại tài sản công', 'Du-thao-Nghi-dinh-quy-dinh-viec-sap-xep-lai-tai-san-cong-4', '279&#x002F;2016&#x002F;TT-BTC', 4, 3, NULL, 5, '', 'Bộ Tài chính đang soạn thảo dự thảo Thông tư Sửa đổi Thông tư số 279&#x002F;2016&#x002F;TT-BTC ngày 14&#x002F;11&#x002F;2016  của Bộ Tài chính quy định mức thu, chế độ thu, nộp, quản lý  và sử dụng phí trong công tác an toàn vệ sinh thực phẩm. Cổng TTĐT Chính phủ xin giới thiệu toàn văn và đề nghị các cơ quan, tổ chức, cá nhân trong và ngoài nước nghiên cứu, đóng góp ý kiến.', '', 'tài chính,soạn thảo,thông tư,sửa đổi,quy định,chế độ,quản lý,sử dụng,công tác,an toàn,vệ sinh,thực phẩm,giới thiệu,đề nghị,cơ quan,tổ chức,cá nhân,nghiên cứu', '6', '6', 'demo.pdf', 1, 1506572225, 0, 0, 0, NULL, 1519750800, 0, 0, 1, 1, 1, 0);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `approval`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `eid`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (5, '', '', 'Dự thảo Nghị định sửa đổi, bổ sung một số quy định về cán bộ, công chức và người hoạt động không chuyên trách ở xã, phường, thị trấn', 'Du-thao-Nghi-dinh-sua-doi-bo-sung-mot-so-quy-dinh-ve-can-bo-cong-chuc-va-nguoi-hoat-dong-khong-chuyen-trach-o-xa-phuong-thi-tran-5', '&#x002F;2017&#x002F;BNV', 4, 6, NULL, 5, '', 'Bộ Nội vụ đang soạn thảo dự thảo Nghị định sửa đổi, bổ sung một số quy định về cán bộ, công chức và người hoạt động không chuyên trách ở xã, phường, thị trấn. Cổng TTĐT Chính phủ xin giới thiệu toàn văn và đề nghị các cơ quan, tổ chức, cá nhân trong và ngoài nước nghiên cứu, đóng góp ý kiến.', '', 'nội vụ,soạn thảo,nghị định,sửa đổi,bổ sung,quy định,cán bộ,hoạt động,chuyên trách,thị trấn,giới thiệu,đề nghị,cơ quan,tổ chức,cá nhân,nghiên cứu', '6', '6', 'demo.pdf', 1, 1506572426, 1506572464, 0, 1496250000, NULL, 1517418000, 0, 0, 0, 0, 1, 1);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `approval`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `eid`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (6, '', '', 'Dự thảo Thông tư sửa đổi, bổ sung một số điều của Thông tư 36&#x002F;2014&#x002F;TT-NHNN ngày 20&#x002F;11&#x002F;2014 của Thống đốc Ngân hàng Nhà nước quy định các giới hạn, tỷ lệ bảo đảm an toàn trong hoạt động của TCTD, chi nhánh ngân hàng nước ngoài', 'Du-thao-Thong-tu-sua-doi-bo-sung-mot-so-dieu-cua-Thong-tu-36-2014-TT-NHNN-ngay-20-11-2014-cua-Thong-doc-Ngan-hang-Nha-nuoc-quy-dinh-cac-gioi-han-ty-le-bao-dam-an-toan-trong-hoat-dong-cua-TCTD-chi-nhanh-ngan-hang-nuoc-ngoai-6', '36&#x002F;2014&#x002F;TT-NHNN', 2, 3, NULL, 5, '', 'Ngân hàng Nhà nước đang soạn thảo dự thảo Thông tư sửa đổi, bổ sung một số điều của Thông tư 36&#x002F;2014&#x002F;TT-NHNN ngày 20&#x002F;11&#x002F;2014 của Thống đốc Ngân hàng Nhà nước quy định các giới hạn, tỷ lệ bảo đảm an toàn trong hoạt động của TCTD, chi nhánh ngân hàng nước ngoài. Cổng TTĐT Chính phủ xin giới thiệu toàn văn và đề nghị các cơ quan, tổ chức, cá nhân trong và ngoài nước nghiên cứu, đóng góp ý kiến.', '', 'ngân hàng,nhà nước,soạn thảo,thông tư,sửa đổi,bổ sung,thống đốc,quy định,giới hạn,tỷ lệ,bảo đảm,an toàn,hoạt động,giới thiệu,đề nghị,cơ quan,tổ chức,cá nhân,nghiên cứu', '6', '6', 'demo.pdf', 1, 1506572619, 0, 0, 1504198800, NULL, 1538240400, 0, 0, 0, 0, 1, 0);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `approval`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `eid`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (7, '', '', 'Dự thảo Thông tư hướng dẫn phòng và xử trí phản vệ', 'Du-thao-Thong-tu-huong-dan-phong-va-xu-tri-phan-ve-7', '&#x002F;2017&#x002F;BYT', 2, 4, NULL, 5, '', 'Bộ Y tế đang soạn thảo dự thảo Thông tư hướng dẫn phòng và xử trí phản vệ. Cổng TTĐT Chính phủ xin giới thiệu toàn văn và đề nghị các cơ quan, tổ chức, cá nhân trong và ngoài nước nghiên cứu, đóng góp ý kiến.', '', 'y tế,soạn thảo,thông tư,hướng dẫn,xử trí,giới thiệu,đề nghị,cơ quan,tổ chức,cá nhân,nghiên cứu', '6', '6', 'demo.pdf', 1, 1506572792, 0, 0, 1483203600, NULL, 1504198800, 0, 0, 0, 0, 1, 0);";
 
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_opinions_row_area`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_opinions_row_area` (
@@ -9771,9 +9806,9 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_opinions_se
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_opinions_signer`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_opinions_signer` (
   `id` smallint(4) unsigned NOT NULL AUTO_INCREMENT,
-  `title` varchar(255)  COLLATE utf8mb4_unicode_ci NOT NULL,
-  `offices` varchar(255)  COLLATE utf8mb4_unicode_ci NOT NULL,
-  `positions` varchar(255)  COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `offices` varchar(255) NOT NULL,
+  `positions` varchar(255) NOT NULL,
   `addtime` int(11) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  AUTO_INCREMENT=6  DEFAULT CHARSET=utf8mb4  COLLATE=utf8mb4_unicode_ci";
@@ -9786,10 +9821,10 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_sig
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_opinions_subject`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_opinions_subject` (
   `id` smallint(4) unsigned NOT NULL AUTO_INCREMENT,
-  `alias` varchar(250)  COLLATE utf8mb4_unicode_ci NOT NULL,
-  `title` varchar(250)  COLLATE utf8mb4_unicode_ci NOT NULL,
-  `introduction` mediumtext  COLLATE utf8mb4_unicode_ci NOT NULL,
-  `keywords` varchar(255)  COLLATE utf8mb4_unicode_ci NOT NULL,
+  `alias` varchar(250) NOT NULL,
+  `title` varchar(250) NOT NULL,
+  `introduction` mediumtext NOT NULL,
+  `keywords` varchar(255) NOT NULL,
   `numcount` int(10) NOT NULL DEFAULT '0',
   `numlink` tinyint(2) NOT NULL DEFAULT '5',
   `addtime` int(11) unsigned NOT NULL DEFAULT '0',
@@ -9830,7 +9865,7 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_page` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `alias` (`alias`)
 ) ENGINE=MyISAM  AUTO_INCREMENT=6  DEFAULT CHARSET=utf8";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_page` (`id`, `title`, `alias`, `image`, `imagealt`, `imageposition`, `description`, `bodytext`, `keywords`, `socialbutton`, `activecomm`, `layout_func`, `gid`, `weight`, `admin_id`, `add_time`, `edit_time`, `status`, `hitstotal`, `hot_post`) VALUES (5, 'Thông báo', 'thong-bao', '', '', 0, '', '<strong>Chỉ dẫn cho người quản trị website:</strong><br  /> <br  /> Các liên kết đến bài viết này có nghĩa là menu bạn vừa truy cập là mục cần phải có cho website của các cơ quan nhà nước (căn cứ theo các quy định hiện hành về website/ cổng thông tin).<br  /> <br  /> Với NukeViet eGovernment bạn có nhiều cách để hoàn hiện các hạng mục này, bằng cách sử dụng các chức năng có sẵn trên phiên bản NukeViet eGovernment mặc định hoặc cài thêm các module có trên <a href=\"https://nukeviet.vn/vi/store/\">NukeViet Store</a><br  /> <br  /> Để có thể tìm kiếm và cài đặt các module liên quan tới NukeViet eGovernment, bạn có thể truy cập địa chỉ: <a href=\"https://www.google.com/url?q=https://nukeviet.vn/vi/store/egovernment/&amp;sa=D&amp;ust=1502771381609000&amp;usg=AFQjCNE1FNRyppme78qvagw4M79fKQFU1Q\" target=\"_blank\">https://nukeviet.vn/vi/store/egovernment/</a>', '', 1, '4', '', 0, 1, 1, 1502769405, 1502882606, 1, 15, 0);";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_page` (`id`, `title`, `alias`, `image`, `imagealt`, `imageposition`, `description`, `bodytext`, `keywords`, `socialbutton`, `activecomm`, `layout_func`, `gid`, `weight`, `admin_id`, `add_time`, `edit_time`, `status`, `hitstotal`, `hot_post`) VALUES (5, 'Thông báo', 'thong-bao', '', '', 0, '', '<strong>Chỉ dẫn cho người quản trị website:</strong><br  /> <br  /> Các liên kết đến bài viết này có nghĩa là menu bạn vừa truy cập là mục cần phải có cho website của các cơ quan nhà nước (căn cứ theo các quy định hiện hành về website/ cổng thông tin).<br  /> <br  /> Với NukeViet eGovernment bạn có nhiều cách để hoàn hiện các hạng mục này, bằng cách sử dụng các chức năng có sẵn trên phiên bản NukeViet eGovernment mặc định hoặc cài thêm các module có trên <a href=\"https://nukeviet.vn/vi/store/\">NukeViet Store</a><br  /> <br  /> Để có thể tìm kiếm và cài đặt các module liên quan tới NukeViet eGovernment, bạn có thể truy cập địa chỉ: <a href=\"https://www.google.com/url?q=https://nukeviet.vn/vi/store/egovernment/&amp;sa=D&amp;ust=1502771381609000&amp;usg=AFQjCNE1FNRyppme78qvagw4M79fKQFU1Q\" target=\"_blank\">https://nukeviet.vn/vi/store/egovernment/</a>', '', 1, '4', '', 0, 1, 1, 1502769405, 1502882606, 1, 17, 0);";
 
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_page_config`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_page_config` (
@@ -9844,6 +9879,7 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_page_config`
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_page_config` (`config_name`, `config_value`) VALUES ('news_first', '0');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_page_config` (`config_name`, `config_value`) VALUES ('related_articles', '5');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_page_config` (`config_name`, `config_value`) VALUES ('copy_page', '0');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_page_config` (`config_name`, `config_value`) VALUES ('alias_lower', '0');";
 
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_referer_stats`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_referer_stats` (
@@ -9921,6 +9957,7 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_siteterms_co
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_siteterms_config` (`config_name`, `config_value`) VALUES ('news_first', '0');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_siteterms_config` (`config_name`, `config_value`) VALUES ('related_articles', '5');";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_siteterms_config` (`config_name`, `config_value`) VALUES ('copy_page', '0');";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_siteterms_config` (`config_name`, `config_value`) VALUES ('alias_lower', '0');";
 
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_voting`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_voting` (

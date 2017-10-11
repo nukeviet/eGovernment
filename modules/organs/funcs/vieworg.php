@@ -72,7 +72,7 @@ while ($row = $result->fetch()) {
     } else {
         $row['photo'] = NV_BASE_SITEURL . 'themes/' . $module_info['template'] . '/images/' . $module_info['module_theme'] . '/no-avatar.jpg';
     }
-    
+
     $row['link'] = NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=person/" . $global_organ_rows[$id]['alias'] . "-" . $id . "/" . change_alias($row['name']) . "-" . $row['personid'];
     $person_data[] = $row;
 }
@@ -91,12 +91,12 @@ if ($organs_data['numsub'] > 0) {
     foreach ($global_organ_rows as $organid => $organinfo) {
         if ($organinfo['parentid'] == $id) {
             $person_data = array();
-            
+
             // Hien thi phong ban truc thuoc
             $i++;
             $suborg[$i]['link'] = $organinfo['link'];
             $suborg[$i]['title'] = ucwords(mb_strtolower($organinfo['title']));
-            
+
             //Hien thi danh sach nhan su
             $sql = 'SELECT * FROM ' . NV_PREFIXLANG . '_' . $module_data . '_person WHERE organid=' . intval($organinfo['organid']) . ' AND active=1 ORDER BY weight LIMIT 5';
             $result = $db->query($sql);
@@ -106,9 +106,9 @@ if ($organs_data['numsub'] > 0) {
                 } elseif (!empty($row['photo']) and file_exists(NV_ROOTDIR . '/' . NV_UPLOADS_DIR . '/' . $module_upload . '/' . $row['photo'])) {
                     $row['photo'] = NV_BASE_SITEURL . NV_UPLOADS_DIR . '/' . $module_upload . '/' . $row['photo'];
                 } else {
-                    $row['photo'] = NV_BASE_SITEURL . 'themes/' . $global_config['site_theme'] . '/images/' . $module_info['module_theme'] . '/no-avatar.jpg';
+                    $row['photo'] = NV_BASE_SITEURL . 'themes/' . $module_info['template'] . '/images/' . $module_info['module_theme'] . '/no-avatar.jpg';
                 }
-                
+
                 $row['link'] = NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name . '&' . NV_OP_VARIABLE . '=person/' . $global_organ_rows[$id]['alias'] . '-' . $id . '/' . change_alias($row['name']) . '-' . $row['personid'];
                 $person_data[] = $row;
             }

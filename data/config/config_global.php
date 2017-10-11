@@ -2,20 +2,16 @@
 
 /**
  * @Project NUKEVIET 4.x
- * @Author VINADES.,JSC (contact@vinades.vn)
+ * @Author VINADES.,JSC <contact@vinades.vn>
  * @Copyright (C) 2017 VINADES.,JSC. All rights reserved
  * @License GNU/GPL version 2 or any later version
- * @Createdate Sun, 23 Apr 2017 04:03:27 GMT
+ * @Createdate Thu, 05 Oct 2017 04:02:53 GMT
  */
 
-if ( ! defined( 'NV_MAINFILE' ) ) die( 'Stop!!!' );
+if (!defined('NV_MAINFILE'))
+    die('Stop!!!');
 
-$sys_info['disable_classes']=array();
-$sys_info['disable_functions']=array();
-$sys_info['ini_set_support']= true;
-$sys_info['supports_rewrite']='rewrite_mode_apache';
-
-define('NV_ALLOWED_HTML_TAGS', 'embed, object, param, a, b, blockquote, br, caption, col, colgroup, div, em, h1, h2, h3, h4, h5, h6, hr, i, img, li, p, span, strong, s, sub, sup, table, tbody, td, th, tr, u, ul, ol, iframe, figure, figcaption, video, audio, source, track, code, pre');
+define('NV_ALLOWED_HTML_TAGS', 'embed, object, param, a, b, blockquote, br, caption, col, colgroup, div, em, h1, h2, h3, h4, h5, h6, hr, i, img, li, p, span, strong, s, sub, sup, table, tbody, td, th, tr, u, ul, ol, iframe, figure, figcaption, video, audio, source, track, code, pre, svg, defs, filter, dropshadow, fegaussianblur, sourcealpha, stddeviation, result, blur, feoffset, in, dx, dy, offsetblur, feflood, fecomposite, offsetcolor, operator, feblend, sourcegraphic, in2, g, transform, rect, x, y, rx, ry, xmlns, fill, stroke, translate, opacity, height, width, all, foreignobject, font, face, path, d, visibility, style, lineargradient, x1, x2, y1, y2, id, stop, offset, script, type');
 define('NV_ANTI_AGENT', 0);
 define('NV_ANTI_IFRAME', 0);
 define('NV_GFX_HEIGHT', 40);
@@ -25,8 +21,8 @@ define('NV_LIVE_COOKIE_TIME', 31104000);
 define('NV_LIVE_SESSION_TIME', 0);
 define('NV_MAX_HEIGHT', 1500);
 define('NV_MAX_WIDTH', 1500);
-define('NV_EOL', "\r\n");
-define('NV_UPLOAD_MAX_FILESIZE', 2097152);
+define('NV_EOL', "\n");
+define('NV_UPLOAD_MAX_FILESIZE', 20971520);
 $global_config['admfirewall']=0;
 $global_config['admin_check_pass_time']=1800;
 $global_config['allow_sitelangs']=array('vi');
@@ -37,7 +33,7 @@ $global_config['block_admin_ip']=0;
 $global_config['captcha_type']=1;
 $global_config['cdn_url']='';
 $global_config['cookie_httponly']=1;
-$global_config['cookie_prefix']='nv4c_z0FZ1';
+$global_config['cookie_prefix']='nv4c_r4kJV';
 $global_config['cookie_secure']=0;
 $global_config['display_errors_list']=32767;
 $global_config['dump_autobackup']=1;
@@ -56,7 +52,7 @@ $global_config['ftp_path']='/';
 $global_config['ftp_port']=21;
 $global_config['ftp_server']='localhost';
 $global_config['ftp_user_name']='';
-$global_config['ftp_user_pass']='qRKq-Egt0ElJCcuw0g0_nKkSqvhILdBJSQnLsNINP5w,';
+$global_config['ftp_user_pass']='hDXTbp3-Q9qubVWqbTadZYQ1026d_kParm1Vqm02nWU,';
 $global_config['gfx_chk']=3;
 $global_config['google_client_id']='';
 $global_config['google_client_secret']='';
@@ -70,12 +66,12 @@ $global_config['login_time_ban']=1440;
 $global_config['login_time_tracking']=5;
 $global_config['max_requests_300']=150;
 $global_config['max_requests_60']=40;
-$global_config['my_domains']='nukeviet.my';
+$global_config['my_domains']='egov.nukeviet.dev';
 $global_config['notification_active']=1;
 $global_config['notification_autodel']=15;
 $global_config['nv_auto_resize']=1;
 $global_config['nv_display_errors_list']=1;
-$global_config['nv_max_size']=2097152;
+$global_config['nv_max_size']=20971520;
 $global_config['proxy_blocker']=0;
 $global_config['read_type']=0;
 $global_config['recaptcha_secretkey']='';
@@ -84,22 +80,22 @@ $global_config['recaptcha_type']='image';
 $global_config['rewrite_enable']=1;
 $global_config['rewrite_endurl']='/';
 $global_config['rewrite_exturl']='.html';
-$global_config['rewrite_op_mod']='news';
 $global_config['rewrite_optional']=1;
-$global_config['session_prefix']='nv4s_l73T0K';
+$global_config['rewrite_op_mod']='';
+$global_config['session_prefix']='nv4s_q5vJ67';
 $global_config['site_keywords']='NukeViet, portal, mysql, php';
 $global_config['site_lang']='vi';
 $global_config['site_timezone']='byCountry';
 $global_config['spadmin_add_admin']=1;
 $global_config['ssl_https']=0;
 $global_config['str_referer_blocker']=0;
-$global_config['timestamp']=1;
+$global_config['timestamp']=16;
 $global_config['two_step_verification']=0;
 $global_config['upload_alt_require']=1;
 $global_config['upload_auto_alt']=1;
 $global_config['upload_checking_mode']='strong';
 $global_config['useactivate']=2;
-$global_config['version']='4.1.02';
+$global_config['version']='1.0.01';
 $global_config['check_rewrite_file']=1;
 $global_config['allow_request_mods']=array('get','post','cookie','session','request','env','server');
 $global_config['request_default_mode']='request';
@@ -108,7 +104,8 @@ $global_config['send_errors_list']=256;
 $global_config['error_log_path']='data/logs/error_logs';
 $global_config['error_log_filename']='error_log';
 $global_config['error_log_fileext']='log';
-$global_config['allowed_html_tags']=array('embed','object','param','a','b','blockquote','br','caption','col','colgroup','div','em','h1','h2','h3','h4','h5','h6','hr','i','img','li','p','span','strong','s','sub','sup','table','tbody','td','th','tr','u','ul','ol','iframe','figure','figcaption','video','audio','source','track','code','pre');
+$global_config['setup_langs']=array('vi');
+$global_config['allowed_html_tags']=array('embed','object','param','a','b','blockquote','br','caption','col','colgroup','div','em','h1','h2','h3','h4','h5','h6','hr','i','img','li','p','span','strong','s','sub','sup','table','tbody','td','th','tr','u','ul','ol','iframe','figure','figcaption','video','audio','source','track','code','pre','svg','defs','filter','dropshadow','fegaussianblur','sourcealpha','stddeviation','result','blur','feoffset','in','dx','dy','offsetblur','feflood','fecomposite','offsetcolor','operator','feblend','sourcegraphic','in2','g','transform','rect','x','y','rx','ry','xmlns','fill','stroke','translate','opacity','height','width','all','foreignobject','font','face','path','d','visibility','style','lineargradient','x1','x2','y1','y2','id','stop','offset','script','type');
 $global_config['engine_allowed']=array('Google'=>array('host_pattern'=>'google.', 'query_param'=>'q'), 'Yahoo'=>array('host_pattern'=>'yahoo.', 'query_param'=>'p'), 'MSN'=>array('host_pattern'=>'search.msn', 'query_param'=>'q'), 'Localhost'=>array('host_pattern'=>'localhost', 'query_param'=>'q'));
 
 $language_array=array('en'=>array('name'=>'English', 'language'=>'English'), 'fr'=>array('name'=>'Français', 'language'=>'French'), 'vi'=>array('name'=>'Tiếng Việt', 'language'=>'Vietnamese'));

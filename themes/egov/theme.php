@@ -98,6 +98,7 @@ function nv_site_theme($contents, $full = true)
     if (defined('NV_IS_ADMIN') and $full) {
         $html_links[] = array( 'rel' => 'StyleSheet', 'href' => NV_BASE_SITEURL . 'themes/' . $global_config['module_theme'] . '/css/admin.css' );
     }
+
     if (isset($module_config['themes'][$global_config['module_theme']]) and ! empty($module_config['themes'][$global_config['module_theme']])) {
     	$config_theme = $module_config['themes'][$global_config['module_theme']];
     	if($config_theme == 2) {

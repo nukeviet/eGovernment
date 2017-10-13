@@ -15,11 +15,13 @@ $allow_func = array(
     'area',
     'cat',
     'subject',
+    'examine',
     'getlid',
     'signer',
     'scontent',
     'config',
-    'change_cat'
+    'change_cat',
+    'view'
 );
 
 define('NV_IS_FILE_ADMIN', true);
@@ -31,7 +33,7 @@ function nv_setCats($list2, $id, $list, $num = 0)
     for ($i = 0; $i < $num; $i++) {
         $defis .= "---";
     }
-    
+
     if (isset($list[$id])) {
         foreach ($list[$id] as $value) {
             $list2[$value['id']] = $value;
@@ -49,7 +51,7 @@ function nv_setCats($list2, $id, $list, $num = 0)
 function nv_catList()
 {
     global $db, $module_data;
-    
+
     $sql = "SELECT * FROM " . NV_PREFIXLANG . "_" . $module_data . "_cat ORDER BY parentid,weight ASC";
     $result = $db->query($sql);
     $list = array();
@@ -64,11 +66,11 @@ function nv_catList()
             'newday' => $row['newday'] //
         );
     }
-    
+
     if (empty($list)) {
         return $list;
     }
-    
+
     $list2 = array();
     foreach ($list[0] as $value) {
         $list2[$value['id']] = $value;
@@ -78,14 +80,14 @@ function nv_catList()
             $list2 = nv_setCats($list2, $value['id'], $list);
         }
     }
-    
+
     return $list2;
 }
 
 function fix_catWeight($parentid)
 {
     global $db, $module_data;
-    
+
     $sql = "SELECT id FROM " . NV_PREFIXLANG . "_" . $module_data . "_cat WHERE parentid=" . intval($parentid) . " ORDER BY weight ASC";
     $result = $db->query($sql);
     $weight = 0;
@@ -99,7 +101,7 @@ function fix_catWeight($parentid)
 function nv_aList()
 {
     global $db, $module_data;
-    
+
     $sql = "SELECT * FROM " . NV_PREFIXLANG . "_" . $module_data . "_area ORDER BY parentid,weight ASC";
     $result = $db->query($sql);
     $list = array();
@@ -113,11 +115,11 @@ function nv_aList()
             'name' => $row['title'] //
         );
     }
-    
+
     if (empty($list)) {
         return $list;
     }
-    
+
     $list2 = array();
     foreach ($list[0] as $value) {
         $list2[$value['id']] = $value;
@@ -127,14 +129,14 @@ function nv_aList()
             $list2 = nv_setCats($list2, $value['id'], $list);
         }
     }
-    
+
     return $list2;
 }
 
 function fix_aWeight($parentid)
 {
     global $db, $module_data;
-    
+
     $sql = "SELECT id FROM " . NV_PREFIXLANG . "_" . $module_data . "_area WHERE parentid=" . intval($parentid) . " ORDER BY weight ASC";
     $result = $db->query($sql);
     $weight = 0;
@@ -148,7 +150,7 @@ function fix_aWeight($parentid)
 function nv_sList()
 {
     global $db, $module_data;
-    
+
     $sql = "SELECT * FROM " . NV_PREFIXLANG . "_" . $module_data . "_subject ORDER BY weight ASC";
     $result = $db->query($sql);
     $list = array();
@@ -161,14 +163,32 @@ function nv_sList()
             'weight' => (int) $row['weight'] //
         );
     }
-    
+
+    return $list;
+}
+
+function nv_eList()
+{
+    global $db, $module_data;
+
+    $sql = "SELECT * FROM " . NV_PREFIXLANG . "_" . $module_data . "_examine ORDER BY weight ASC";
+    $result = $db->query($sql);
+    $list = array();
+    while ($row = $result->fetch()) {
+        $list[$row['id']] = array( //
+            'id' => (int) $row['id'], //
+            'title' => $row['title'], //
+            'weight' => (int) $row['weight'] //
+        );
+    }
+
     return $list;
 }
 
 function nv_sgList()
 {
     global $db, $module_data;
-    
+
     $sql = "SELECT * FROM " . NV_PREFIXLANG . "_" . $module_data . "_signer ORDER BY id ASC";
     $result = $db->query($sql);
     $list = array();
@@ -180,14 +200,14 @@ function nv_sgList()
             //'weight' => ( int )$row['weight'] //
         );
     }
-    
+
     return $list;
 }
 
 function fix_subjectWeight()
 {
     global $db, $module_data;
-    
+
     $sql = "SELECT id FROM " . NV_PREFIXLANG . "_" . $module_data . "_subject ORDER BY weight ASC";
     $result = $db->query($sql);
     $weight = 0;
@@ -198,11 +218,25 @@ function fix_subjectWeight()
     }
 }
 
+function fix_examineWeight()
+{
+    global $db, $module_data;
+
+    $sql = "SELECT id FROM " . NV_PREFIXLANG . "_" . $module_data . "_examine ORDER BY weight ASC";
+    $result = $db->query($sql);
+    $weight = 0;
+    while ($row = $result->fetch()) {
+        $weight++;
+        $query = "UPDATE " . NV_PREFIXLANG . "_" . $module_data . "_examine SET weight=" . $weight . " WHERE id=" . $row['id'];
+        $db->query($query);
+    }
+}
+
 function nv_GetCatidInParent($id, $array_cat)
 {
     $array_id = array();
     $array_id[] = $id;
-    
+
     if (!empty($array_cat)) {
         foreach ($array_cat as $cat) {
             if ($cat['parentid'] == $id) {

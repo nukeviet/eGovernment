@@ -74,7 +74,7 @@ if (! nv_function_exists('nv_block_news_center')) {
 
             $html .= '<tr>';
             $html .= '<td>' . $lang_block['nocatid'] . '</td>';
-            $sql = 'SELECT * FROM ' . NV_PREFIXLANG . '_' . $site_mods[$module]['module_data'] . '_cat ORDER BY sort ASC';
+            $sql = 'SELECT * FROM ' . NV_PREFIXLANG . '_' . $site_mods[$module]['module_data'] . '_cat WHERE status=1 OR status=2 ORDER BY sort ASC';
             $list = $nv_Cache->db($sql, '', $module);
             $html .= '<td>';
             $html .= '<div style="height: 160px; overflow: auto">';
@@ -192,8 +192,7 @@ if (! nv_function_exists('nv_block_news_center')) {
             if ($module_name == $module) {
                 $module_array_cat = $global_array_cat;
             } else {
-                $sql = 'SELECT catid, parentid, title, alias, viewcat, subcatid, numlinks, description, inhome, keywords, groups_view FROM
-                ' . NV_PREFIXLANG . '_' . $module_data . '_cat ORDER BY sort ASC';
+                $sql = 'SELECT catid, parentid, title, alias, viewcat, subcatid, numlinks, description, inhome, keywords, groups_view FROM ' . NV_PREFIXLANG . '_' . $module_data . '_cat WHERE status=1 OR status=2 ORDER BY sort ASC';
                 $list = $nv_Cache->db($sql, 'catid', $module);
                 if (!empty($list)) {
                     foreach ($list as $l) {

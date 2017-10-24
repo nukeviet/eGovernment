@@ -133,7 +133,7 @@ if (!nv_function_exists('nv_block_global_faq_opinion')) {
             $blockwidth = $module_config[$block_config['modopinion']]['blockwidth'];
 
             $module_array_cat = array();
-            $sql = 'SELECT catid, parentid, title, alias, viewcat, subcatid, numlinks, description, inhome, keywords, groups_view FROM ' . NV_PREFIXLANG . '_' . $site_mods[$block_config['modopinion']]['module_data'] . '_cat ORDER BY sort ASC';
+            $sql = 'SELECT catid, parentid, title, alias, viewcat, subcatid, numlinks, description, status, keywords, groups_view FROM ' . NV_PREFIXLANG . '_' . $site_mods[$block_config['modopinion']]['module_data'] . '_cat WHERE status=1 OR status=2 ORDER BY sort ASC';
             $list = $nv_Cache->db($sql, 'catid', $block_config['modopinion']);
             if (!empty($list)) {
                 foreach ($list as $l) {

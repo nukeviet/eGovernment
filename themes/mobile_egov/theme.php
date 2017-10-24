@@ -92,8 +92,8 @@ function nv_site_theme($contents, $full = true)
     }
 
     $arr_name_theme = explode('_',$global_config['module_theme']);
-    if (isset($module_config['themes'][$arr_name_theme[1]]) and ! empty($module_config['themes'][$arr_name_theme[1]])) {
-    	$config_theme = $module_config['themes'][$arr_name_theme[1]];
+    if (isset($module_config['themes'][$global_config['module_theme']]) and ! empty($module_config['themes'][$arr_name_theme[1]])) {
+    	$config_theme = $module_config['themes'][$global_config['module_theme']];
     	if($config_theme == 2) {
     		$html_links[] = array( 'rel' => 'StyleSheet', 'href' => NV_BASE_SITEURL . 'themes/' . $global_config['module_theme'] . '/css/style-blue.css' );
     	}

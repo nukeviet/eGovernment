@@ -45,7 +45,7 @@
                     <!--> <![endif]-->
                 </object>
                 <!-- END: swf -->
-                
+
             </div>
 		</div>
 	</header>
@@ -75,7 +75,7 @@
                     <div class="col-xs-8">
                         <div class="headerSearchs">
                             <div class="input-group">
-                                <input type="text" class="form-control" maxlength="{NV_MAX_SEARCH_LENGTH}" placeholder="{LANG.search}..."><span class="input-group-btn"><button type="button" class="btn btn-info" data-url="{THEME_SEARCH_URL}" data-minlength="{NV_MIN_SEARCH_LENGTH}" data-click="y"><em class="fa fa-search fa-lg"></em></button></span>
+                                <input type="text" class="form-control" maxlength="{NV_MAX_SEARCH_LENGTH}" placeholder="{LANG.search}..."><span class="input-group-btn"><button type="button" class="btn btn-info" onclick="headerSearchSubmit(this);" data-url="{THEME_SEARCH_URL}" data-minlength="{NV_MIN_SEARCH_LENGTH}" data-click="y"><em class="fa fa-search fa-lg"></em></button></span>
                             </div>
                         </div>
                     </div>

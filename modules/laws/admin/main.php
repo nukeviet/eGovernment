@@ -255,6 +255,17 @@ if (empty($all_page) and !$nv_Request->isset_request('add', 'get')) {
                 $post['startvalid'] = 0;
             }
 
+			//Nếu là module văn bản bình thường(k cho góp ý) thì bắt lỗi ngày ban hành <= Ngày có hiệu lực <=ngày hết hiệu lực
+			if($module_config[$module_name]['activecomm']==0){
+				if($post['startvalid']>0){
+					if($post['startvalid'] < $post['publtime']){
+						die($lang_module['erroStartvalid']);
+					}elseif($post['exptime']>0 && ($post['exptime'] <= $post['publtime'] || $post['exptime'] <= $post['startvalid'])){
+						die($lang_module['erroExptime']);
+					}
+				}
+			}
+
 			$post['sgid'] = $nv_Request->get_title('sgid', 'post', '');
             if (!is_numeric($post['sgid']) and !empty($post['sgid'])) {
                 $result = $db->query("SELECT id FROM " . NV_PREFIXLANG . "_" . $module_data . "_signer WHERE title=" . $db->quote($post['title']) . " AND offices='' AND positions=''");
@@ -405,7 +416,8 @@ if (empty($all_page) and !$nv_Request->isset_request('add', 'get')) {
             $post['ptitle'] = $lang_module['editRow'];
             $post['action_url'] = NV_BASE_ADMINURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=main&edit&id=" . $post['id'];
         } else {
-            $post['relatement'] = $post['replacement'] = $post['title'] = $post['code'] = $post['introtext'] = $post['bodytext'] = $post['keywords'] = $post['author'] = $post['publtime'] = $post['exptime'] = "";
+        	$post['publtime'] = date("d.m.Y", NV_CURRENTTIME);
+            $post['relatement'] = $post['replacement'] = $post['title'] = $post['code'] = $post['introtext'] = $post['bodytext'] = $post['keywords'] = $post['author'] = $post['exptime'] = "";
             $post['groups_view'] = $post['groups_download'] = array(
                 6
             );
@@ -575,7 +587,7 @@ if (empty($all_page) and !$nv_Request->isset_request('add', 'get')) {
 
     if ($nv_Request->isset_request('list', 'get')) {
         $base_url = NV_BASE_ADMINURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=" . $op . "&list";
-        $join = "";
+        $join = 'INNER JOIN ' . NV_USERS_GLOBALTABLE . ' u1 ON t1.admin_add=u1.userid';
         $where = array();
         if ($nv_Request->isset_request('cat', 'get')) {
             $keywords = $nv_Request->get_title('keywords', 'get', '');
@@ -626,10 +638,11 @@ if (empty($all_page) and !$nv_Request->isset_request('add', 'get')) {
         $per_page = 30;
 
         if ($all_page) {
-            $sql = "SELECT * FROM " . NV_PREFIXLANG . "_" . $module_data . "_row t1 " . $join . ($where ? " WHERE " . implode(" AND ", $where) : "") . " ORDER BY t1.addtime DESC LIMIT " . (($page - 1) * $per_page) . "," . $per_page;
+            $sql = "SELECT t1.*, u1.username FROM " . NV_PREFIXLANG . "_" . $module_data . "_row t1 " . $join . ($where ? " WHERE " . implode(" AND ", $where) : "") . " ORDER BY t1.addtime DESC LIMIT " . (($page - 1) * $per_page) . "," . $per_page;
             $result = $db->query($sql);
             $a = 0;
             while ($row = $result->fetch()) {
+            	$row['admin_add'] = $row['username'];
                 $row['publtime'] = date("d-m-Y", $row['publtime']);
                 $row['exptime'] = $row['exptime'] ? date("d-m-Y", $row['exptime']) : "N/A";
 				$row['start_comm_time'] = $row['start_comm_time'] ? date("d/m/Y", $row['start_comm_time']) : "";

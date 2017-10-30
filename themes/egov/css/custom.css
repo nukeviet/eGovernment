@@ -52,7 +52,7 @@ a, a:link, a:active, a:visited, #footer a {
     background-color: #ff0000;
 }
 
-.faqopinion .sendfaq a, .faqopinion a.faqitem span, .box-icon-body .titlebox h2, .panel-primary>.panel-heading, .genpage_cute .pagination li a:hover, .genpage_cute .pagination li.active a, .genpage_cute .pagination li:first-child a:hover, .genpage_cute .pagination li.active:first-child a, .genpage_cute .pagination li:last-child a:hover, .genpage_cute .pagination li.active:last-child a, .sitebtntool ul.maintoolbtns li a, .sitebtntool ul.maintoolbtns li a.themetype .sp1 {
+.faqopinion .sendfaq a, .faqopinion a.faqitem span, .box-icon-body .titlebox h2, .panel-primary>.panel-heading, .genpage_cute .pagination li a:hover, .genpage_cute .pagination li.active a, .genpage_cute .pagination li:first-child a:hover, .genpage_cute .pagination li.active:first-child a, .genpage_cute .pagination li:last-child a:hover, .genpage_cute .pagination li.active:last-child a, .sitebtntool ul.maintoolbtns li a, .sitebtntool ul.maintoolbtns li .sp1 {
     background-color: #fba919;
     border-color: #fba919;
 }
@@ -146,32 +146,6 @@ a, a:link, a:active, a:visited, #footer a {
     background-color: #5da9dd;
 }
 
-.sitebtntool ul.maintoolbtns li a.themetype {
-    position: relative;
-}
-
-.sitebtntool ul.maintoolbtns li a.themetype .sp1 {
-    position: absolute;
-    width: 18px;
-    height: 18px;
-    border-width: 1px;
-    border-style: solid;
-    background-color: #fff800 !important;
-    bottom: 10px;
-    left: 10px;
-    z-index: 2;
-}
-
-.sitebtntool ul.maintoolbtns li a.themetype .sp2 {
-    position: absolute;
-    width: 16px;
-    height: 16px;
-    background-color: #fff !important;
-    bottom: 19px;
-    left: 19px;
-    z-index: 1;
-}
-
 .sitebtntool ul.maintoolbtns li a.fontsize {
     position: relative;
 }
@@ -187,45 +161,6 @@ a, a:link, a:active, a:visited, #footer a {
     font-size: 16px;
     top: -5px;
     left: 25px;
-}
-
-.sitebtntool .sitethemechange {
-    position: absolute;
-    width: 200px;
-    height: 100%;
-    background-color: #fff;
-    right: 46px;
-}
-
-#sitethemechange div.tl {
-    text-align: center;
-    font-weight: 700;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-}
-
-#sitethemechange ul li a {
-    display: block;
-    height: 30px;
-    border-width: 3px;
-    border-style: solid;
-    border-color: transparent;
-}
-
-#sitethemechange ul li a.active {
-    border-color: #000;
-}
-
-#sitethemechange ul li a.color_default {
-    background-color: #fba919;
-}
-
-#sitethemechange ul li a.color1 {
-    background-color: #3664a2;
-}
-
-#sitethemechange ul li a.color2 {
-    background-color: #d23337;
 }
 
 .header-nav {

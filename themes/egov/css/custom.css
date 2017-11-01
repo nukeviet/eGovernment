@@ -22,6 +22,7 @@ h4, .h4 {
 
 .padding-news-tintuc-thongtinkt, .border-bottom-news {
     border-bottom-color: #c1c1c1;
+    margin-bottom: 20px;
 }
 
 a, a:link, a:active, a:visited, #footer a {

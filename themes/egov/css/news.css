@@ -283,7 +283,22 @@ ul.related h4 {
 }
 
 .panel-body-left {
-    padding-left: 0px
+    /* padding-left: 0px; */
+    border: #ccc 1px solid;
+    border-top: 0px;
+    border-radius: 0px 0px 5px 5px;
+    box-shadow: 1px 2px 2px rgba(0,0,0,0.08);
+}
+
+.news-catbox-single {
+    border: #ccc 1px solid;
+    border-bottom: 0px;
+    border-radius: 5px 5px 0px 0px;
+    padding: 10px;
+}
+
+.news-catbox-single h2 {
+    border-bottom: #fba919 2px solid;
 }
 
 .height-hometext {
@@ -381,3 +396,4 @@ ul.related h4 {
         width: 100%;
     }
 }
+

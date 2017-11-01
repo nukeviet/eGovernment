@@ -2321,6 +2321,7 @@ button.close {
 .fix-pad-panel-default {
 	border: 0px;
 	box-shadow: none;
+	margin-top: 20px;
 }
 
 .shadow-bg-1 {
@@ -2438,7 +2439,7 @@ button.close {
     position: absolute;
     bottom: 44px;
     height: 20px;
-    width: 100%;
+    width: 93%;
     content: '';
     background: -moz-linear-gradient(left, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.6) 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(255,255,255,0.6)), color-stop(100%,rgba(255,255,255,0.6))); /* Chrome,Safari4+ */

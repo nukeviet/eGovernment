@@ -43,7 +43,7 @@
 				{ADMINLINK}
 			</p>
 			<!-- END: adminlink -->
-
+			<div class="clearfix">&nbsp;</div>
 			<!-- BEGIN: related -->
 			<ul class="related">
 				<!-- BEGIN: loop -->

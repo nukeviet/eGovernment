@@ -45,6 +45,18 @@
                             <span class="text-middle pull-left">&nbsp;px&nbsp;</span>
                         </td>
                     </tr>
+                    <tr>
+                        <td>{LANG.email_require}</td>
+                        <td>
+                            <input type="checkbox" name="email_require" value="1" {EMAIL} />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>{LANG.phone_require}</td>
+                        <td>
+                            <input type="checkbox" name="phone_require" value="1" {PHONE} />
+                        </td>
+                    </tr>
                 </tbody>
           </table>
         </div>

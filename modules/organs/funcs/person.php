@@ -59,8 +59,7 @@ while ($parentid > 0) {
     );
     $parentid = $array_cat_i['parentid'];
 }
-sort($array_mod_title, SORT_NUMERIC);
-
+krsort($array_mod_title, SORT_NUMERIC);
 $page_title = $data_content['name'];
 $contents = detail_per($data_content);
 

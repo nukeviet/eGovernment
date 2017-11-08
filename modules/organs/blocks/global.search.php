@@ -14,7 +14,7 @@ if (!defined('NV_MAINFILE'))
 if (!nv_function_exists('nv_block_orgsearch')) {
     /**
      * nv_block_config_orgsearch()
-     * 
+     *
      * @param mixed $module
      * @param mixed $data_block
      * @param mixed $lang_block
@@ -24,9 +24,9 @@ if (!nv_function_exists('nv_block_orgsearch')) {
     {
         $html = '';
 
-        $html .= '<tr>';
-        $html .= '<td>' . $lang_block['display_layout'] . '</td>';
-        $html .= '<td>';
+        $html .= '<div class="form-group">';
+        $html .= '<label class="control-label col-sm-6">' . $lang_block['display_layout'] . '</label>';
+        $html .= '<div class="col-sm-18">';
         $html .= '<select class="form-control w300" name="config_display_layout">';
 
         $array_display_layout = array('h', 'v');
@@ -35,15 +35,15 @@ if (!nv_function_exists('nv_block_orgsearch')) {
         }
 
         $html .= '</select>';
-        $html .= '</td>';
-        $html .= '</tr>';
+        $html .= '</div>';
+        $html .= '</div>';
 
         return $html;
     }
 
     /**
      * nv_block_config_orgsearch_submit()
-     * 
+     *
      * @param mixed $module
      * @param mixed $lang_block
      * @return
@@ -60,23 +60,23 @@ if (!nv_function_exists('nv_block_orgsearch')) {
 
     /**
      * nv_block_orgsearch()
-     * 
+     *
      * @param mixed $block_config
      * @return
      */
     function nv_block_orgsearch($block_config)
     {
         global $module_info, $module_name, $site_mods, $global_config, $nv_Request;
-        
+
         $module = $block_config['module'];
         $mod_file = $site_mods[$module]['module_file'];
-        
+
         if (file_exists(NV_ROOTDIR . "/themes/" . $module_info['template'] . "/modules/" . $mod_file . "/block_search.tpl")) {
             $block_theme = $module_info['template'];
         } else {
             $block_theme = "default";
         }
-        
+
         if ($module_name == $module) {
             global $lang_module;
         } else {
@@ -93,13 +93,13 @@ if (!nv_function_exists('nv_block_orgsearch')) {
         } else {
             $data['action'] = nv_url_rewrite(NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&amp;' . NV_NAME_VARIABLE . '=' . $module . '&amp;' . NV_OP_VARIABLE . '=viewsearch', true);
         }
-        
+
         $data['q'] = $nv_Request->get_title('q', 'get', '');
         $data['p'] = $nv_Request->get_title('p', 'get', '');
         $data['e'] = $nv_Request->get_title('e', 'get', '');
-        
+
         $xtpl->assign('DATA', $data);
-        
+
         if (!$global_config['rewrite_enable']) {
             $xtpl->assign('NV_LANG_VARIABLE', NV_LANG_VARIABLE);
             $xtpl->assign('NV_LANG_DATA', NV_LANG_DATA);
@@ -109,9 +109,9 @@ if (!nv_function_exists('nv_block_orgsearch')) {
             $xtpl->assign('OP', 'viewsearch');
             $xtpl->parse('main.no_rewrite');
         }
-        
+
         $xtpl->parse('main.layout' . $block_config['display_layout']);
-        
+
         $xtpl->parse('main');
         return $xtpl->text('main');
     }

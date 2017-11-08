@@ -60,14 +60,14 @@
                     </td>
                 </tr>
                 <tr class="form-inline">
-                    <td><strong>{LANG.organ_phonehome_title}: </strong></td>
+                    <td><strong>{LANG.organ_phonehome_title}: </strong><!-- BEGIN: phone_require --><span class="red">(*)</span><!-- END: phone_require --></td>
                     <td>
                     <input class="form-control" name="phone" type="text" value="{DATA.phone}" maxlength="255" placeholder="{LANG.organ_title}" />
                     <input class="form-control" name="mobile" type="text" value="{DATA.mobile}" maxlength="255" placeholder="{LANG.organ_mobile_title}" />
                     </td>
                 </tr>
                 <tr>
-                    <td><strong>{LANG.organ_email_title}: </strong></td>
+                    <td><strong>{LANG.organ_email_title}: </strong><!-- BEGIN: email_require --><span class="red">(*)</span><!-- END: email_require --></td>
                     <td>
                     <input class="form-control w400" name="email" type="text" value="{DATA.email}" maxlength="255" />
                     </td>

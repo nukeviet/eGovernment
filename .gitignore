@@ -4,6 +4,7 @@
 /.htaccess
 /config.php
 /favicon.ico
+/error.php
 /index.php
 /LICENSE.txt
 /CHANGELOG.txt

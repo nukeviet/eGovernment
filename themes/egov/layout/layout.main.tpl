@@ -4,12 +4,10 @@
 <div class="row">
 	[HEADER]
 </div>
-<div class="row">
-	<div class="col-md-24">
+<div class="row bg-body-new">
 		[TOP]
 		{MODULE_CONTENT}
 		[BOTTOM]
-	</div>
 </div>
 <div class="row">
 	[FOOTER]

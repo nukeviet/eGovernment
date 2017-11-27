@@ -13,6 +13,13 @@ if (!defined('NV_IS_FILE_ADMIN')) die('Stop!!!');
 $page_title = $lang_module['addper_title'];
 $month_dir_module = nv_mkdir(NV_UPLOADS_REAL_DIR . '/' . $module_upload, date("Y_m"), true);
 
+//Lấy thông tin cấu hình
+$sql = 'SELECT config_name, config_value FROM ' . NV_PREFIXLANG . '_' . $module_data . '_config';
+$result = $db->query($sql);
+while (list ($c_config_name, $c_config_value) = $result->fetch(3)) {
+    $array_config[$c_config_name] = $c_config_value;
+}
+
 $data = array(
     "personid" => 0,
     "name" => '',
@@ -82,7 +89,7 @@ if ($nv_Request->get_int('save', 'post') == 1) {
         preg_match("/^([0-9]{1,2})\\/([0-9]{1,2})\/([0-9]{4})$/", $birthday, $m);
         $data['birthday'] = mktime($phour, $pmin, 0, $m[2], $m[1], $m[3]);
     }
-    
+
     $dayinto = $nv_Request->get_string('dayinto', 'post', '');
     if (!empty($dayinto) and !preg_match("/^([0-9]{1,2})\\/([0-9]{1,2})\/([0-9]{4})$/", $dayinto)) $dayinto = "";
     if (empty($dayinto)) {
@@ -94,7 +101,7 @@ if ($nv_Request->get_int('save', 'post') == 1) {
         preg_match("/^([0-9]{1,2})\\/([0-9]{1,2})\/([0-9]{4})$/", $dayinto, $m);
         $data['dayinto'] = mktime($phour, $pmin, 0, $m[2], $m[1], $m[3]);
     }
-    
+
     $dayparty = $nv_Request->get_string('dayparty', 'post', '');
     if (!empty($dayparty) and !preg_match("/^([0-9]{1,2})\\/([0-9]{1,2})\/([0-9]{4})$/", $dayparty)) $dayparty = "";
     if (empty($dayparty)) {
@@ -106,7 +113,7 @@ if ($nv_Request->get_int('save', 'post') == 1) {
         preg_match("/^([0-9]{1,2})\\/([0-9]{1,2})\/([0-9]{4})$/", $dayparty, $m);
         $data['dayparty'] = mktime($phour, $pmin, 0, $m[2], $m[1], $m[3]);
     }
-    
+
     //* check error*//
     if (empty($data['name'])) {
         $error = $lang_module['error_person_title'];
@@ -116,12 +123,16 @@ if ($nv_Request->get_int('save', 'post') == 1) {
     //}
     elseif (empty($data['position'])) {
         $error = $lang_module['error_organ_position'];
+    }elseif (empty($data['phone']) && empty($data['mobile']) && $array_config['phone_require']==1) {
+        $error = $lang_module['error_phone_require'];
+    }elseif (empty($data['email']) && $array_config['email_require']==1) {
+        $error = $lang_module['error_email_require'];
     } elseif (!empty($data['email'])) {
         if (nv_check_valid_email($data['email']) != '') {
             $error = $lang_module['error_organ_emal'];
         }
     }
-    
+
     /**action with none error**/
     if (empty($error)) {
         $id = $nv_Request->get_int('id', 'get', 0);
@@ -198,7 +209,7 @@ if ($nv_Request->get_int('save', 'post') == 1) {
                             political = " . $db->quote($data['political']) . ",
                             edittime = UNIX_TIMESTAMP()
                       WHERE personid = " . intval($id) . "";
-            
+
             if ($db->query($query)) {
                 nv_insert_logs(NV_LANG_DATA, $module_name, 'log_edit_catalog', "id " . $id, $admin_info['userid']);
                 if ($data['organid'] != $data['organid_old']) {
@@ -230,7 +241,7 @@ if ($id > 0 && $nv_Request->get_int('save', 'post') == 0) // insert data
     $data = $result->fetch();
     $data['organid_old'] = $data['organid'];
     if (!empty($data['description'])) $data['description'] = nv_htmlspecialchars($data['description']);
-    
+
     if (!empty($data['photo']) and file_exists(NV_UPLOADS_REAL_DIR . "/" . $module_upload . "/" . $data['photo'])) {
         $data['photo'] = NV_BASE_SITEURL . NV_UPLOADS_DIR . "/" . $module_upload . "/" . $data['photo'];
     }
@@ -270,6 +281,14 @@ while ($row = $result->fetch()) {
     $row['select'] = ($data['organid'] == $row['organid']) ? "selected=\"selected\"" : "";
     $xtpl->assign('ROW', $row);
     $xtpl->parse('main.parent_loop');
+}
+
+if($array_config['phone_require']){
+	$xtpl->parse('main.phone_require');
+}
+
+if($array_config['email_require']){
+	$xtpl->parse('main.email_require');
 }
 
 /*end set input select parentid*/

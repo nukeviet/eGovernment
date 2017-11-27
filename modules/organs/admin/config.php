@@ -16,6 +16,8 @@ if ($nv_Request->isset_request('submit', 'post')) {
     $array_config['organ_view_type_main'] = $nv_Request->get_int('organ_view_type_main', 'post', 1);
     $array_config['thumb_width'] = $nv_Request->get_int('thumb_width', 'post', 100);
     $array_config['thumb_height'] = $nv_Request->get_int('thumb_height', 'post', 150);
+	$array_config['email_require'] = $nv_Request->get_int('email_require', 'post', 0);
+	$array_config['phone_require'] = $nv_Request->get_int('phone_require', 'post', 0);
 
     foreach ($array_config as $config_name => $config_value) {
         $query = 'UPDATE ' . NV_PREFIXLANG . '_' . $module_data . '_config SET config_value=' . $db->quote($config_value) . ' WHERE config_name=' . $db->quote($config_name);
@@ -50,6 +52,14 @@ foreach ($arr_organ_view as $id => $organ) {
         'selected' => $id == $array_config['organ_view_type'] ? 'selected="selected"' : ''
     ));
     $xtpl->parse('main.view_type');
+}
+
+if($array_config['email_require']){
+	$xtpl->assign('EMAIL', 'checked');
+}
+
+if($array_config['phone_require']){
+	$xtpl->assign('PHONE', 'checked');
 }
 
 $arr_organ_view_main = array(

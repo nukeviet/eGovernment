@@ -11,7 +11,5 @@
 		<!-- BEGIN: js -->
 		<script<!-- BEGIN: ext --> src="{JS_SRC}"<!-- END: ext -->><!-- BEGIN: int -->{JS_CONTENT}<!-- END: int --></script>
 		<!-- END: js -->
-        <link rel="stylesheet" disabled="disabled" class="linkcolorsite" id="linkcolorsite1" type="text/css" media="screen" href="{NV_BASE_SITEURL}themes/{GTEMPLATE}/css/color1.css"/>
-        <link rel="stylesheet" disabled="disabled" class="linkcolorsite" id="linkcolorsite2" type="text/css" media="screen" href="{NV_BASE_SITEURL}themes/{GTEMPLATE}/css/color2.css"/>
 	</head>
 	<body>

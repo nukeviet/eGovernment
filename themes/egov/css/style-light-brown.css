@@ -43,7 +43,7 @@
   background: #ac2d00;
 }
 
-.faqopinion .sendfaq a, .faqopinion a.faqitem span, .box-icon-body .titlebox h2, .panel-primary>.panel-heading, .genpage_cute .pagination li a:hover, .genpage_cute .pagination li.active a, .genpage_cute .pagination li:first-child a:hover, .genpage_cute .pagination li.active:first-child a, .genpage_cute .pagination li:last-child a:hover, .genpage_cute .pagination li.active:last-child a, .sitebtntool ul.maintoolbtns li a, .sitebtntool ul.maintoolbtns li a.themetype .sp1 {
+.faqopinion .sendfaq a, .faqopinion a.faqitem span, .box-icon-body .titlebox h2, .panel-primary>.panel-heading, .genpage_cute .pagination li a:hover, .genpage_cute .pagination li.active a, .genpage_cute .pagination li:first-child a:hover, .genpage_cute .pagination li.active:first-child a, .genpage_cute .pagination li:last-child a:hover, .genpage_cute .pagination li.active:last-child a, .sitebtntool ul.maintoolbtns li a, .sitebtntool ul.maintoolbtns li .sp1 {
   background-color: #ac2d00;
   border-color: #ac2d00;
 }

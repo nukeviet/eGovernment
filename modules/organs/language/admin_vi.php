@@ -106,3 +106,7 @@ $lang_module['config_organ_view_main_0'] = "Hiển thị dạng danh sách có �
 $lang_module['config_organ_view_main_1'] = "Hiển thị dạng danh sách không ảnh";
 
 $lang_module['num'] = "STT";
+$lang_module['email_require'] = "Bắt buộc nhập email nhân sự";
+$lang_module['phone_require'] = "Bắt buộc nhập số điện thoại nhân sự";
+$lang_module['error_phone_require'] = 'Lỗi: Bạn chưa nhập số điện thoại.';
+$lang_module['error_email_require'] = 'Lỗi: Bạn chưa nhập địa chỉ email.';

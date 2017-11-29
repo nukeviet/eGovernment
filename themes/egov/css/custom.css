@@ -1241,6 +1241,11 @@ div.breadcrumbs-bg {
     margin-bottom: 5px;
 }
 
+#news-bodyhtml.has-attach {
+    padding-bottom: 0;
+    border-bottom: 0;
+}
+
 .news_column.newsdetailbox {
     border-radius: 0;
 }

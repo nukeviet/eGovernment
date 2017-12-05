@@ -13,6 +13,11 @@ if (!defined('NV_IS_FILE_ADMIN'))
 
 $page_title = $lang_module['main'];
 
+// Nếu không có quyền quản lý phòng ban thì chuyển đến phần danh sách nhân sự
+if (!defined('NV_IS_ADMIN_MODULE')) {
+    nv_redirect_location(NV_BASE_ADMINURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name . '&' . NV_OP_VARIABLE . '=listper');
+}
+
 $per_page = 20;
 $page = $nv_Request->get_int('page', 'get', 1);
 $parentid = $nv_Request->get_int('pid', 'get', 0);

@@ -8,15 +8,11 @@
  * @Createdate Dec 3, 2010  11:11:28 AM
  */
 
-if (!defined('NV_ADMIN') or !defined('NV_MAINFILE') or !defined('NV_IS_MODADMIN')) die('Stop!!!');
+if (!defined('NV_ADMIN') or !defined('NV_MAINFILE') or !defined('NV_IS_MODADMIN'))
+    die('Stop!!!');
 
 $allow_func = array(
     'main',
-    'config',
-    'delrow',
-    'actrow',
-    'addrow',
-    'changeorgan',
     'listper',
     'actper',
     'delper',
@@ -26,6 +22,28 @@ $allow_func = array(
 
 define('NV_IS_FILE_ADMIN', true);
 
+if ($NV_IS_ADMIN_MODULE) {
+    $allow_func[] = 'changeorgan';
+    $allow_func[] = 'delrow';
+    $allow_func[] = 'actrow';
+    $allow_func[] = 'addrow';
+    define('NV_IS_ADMIN_MODULE', true);
+}
+
+if ($NV_IS_ADMIN_FULL_MODULE) {
+    $allow_func[] = 'config';
+    $allow_func[] = 'admins';
+    define('NV_IS_ADMIN_FULL_MODULE', true);
+}
+
+/**
+ * nv_fix_row_order()
+ *
+ * @param integer $parentid
+ * @param integer $order
+ * @param integer $lev
+ * @return
+ */
 function nv_fix_row_order($parentid = 0, $order = 0, $lev = 0)
 {
     global $db, $db_config, $lang_module, $lang_global, $module_name, $module_data, $op;
@@ -62,6 +80,17 @@ function nv_fix_row_order($parentid = 0, $order = 0, $lev = 0)
     return $order;
 }
 
+/**
+ * drawselect_number()
+ *
+ * @param string $select_name
+ * @param integer $number_start
+ * @param integer $number_end
+ * @param integer $number_curent
+ * @param string $func_onchange
+ * @param string $enable
+ * @return
+ */
 function drawselect_number($select_name = "", $number_start = 0, $number_end = 1, $number_curent = 0, $func_onchange = "", $enable = "")
 {
     $html = '<select class="form-control" name="' . $select_name . '" onchange="' . $func_onchange . '" ' . $enable . '>';
@@ -73,23 +102,35 @@ function drawselect_number($select_name = "", $number_start = 0, $number_end = 1
     return $html;
 }
 
+/**
+ * nv_fix_organ()
+ *
+ * @param integer $organid
+ * @return void
+ */
 function nv_fix_organ($organid = 0)
 {
     global $db, $db_config, $lang_module, $lang_global, $module_name, $module_data, $op;
-    
+
     $query = 'SELECT count(*) FROM ' . NV_PREFIXLANG . '_' . $module_data . '_person WHERE organid=' . $organid;
     $numperson = $db->query($query)->fetchColumn();
-    
+
     $sql = 'UPDATE ' . NV_PREFIXLANG . '_' . $module_data . '_rows SET numperson=' . $numperson . ' WHERE organid=' . $organid;
     $db->query($sql);
 }
 
+/**
+ * nv_fix_personweight()
+ *
+ * @param integer $organid
+ * @return void
+ */
 function nv_fix_personweight($organid = 0)
 {
     global $db, $db_config, $lang_module, $lang_global, $module_name, $module_data, $op;
-    
+
     $table = NV_PREFIXLANG . '_' . $module_data . '_person';
-    
+
     $query = 'SELECT personid FROM ' . $table . ' WHERE organid =' . $organid . ' ORDER BY weight ASC';
     $result = $db->query($query);
     $weight = 0;
@@ -100,6 +141,13 @@ function nv_fix_personweight($organid = 0)
     }
 }
 
+/**
+ * getall_organid_of_parent()
+ *
+ * @param mixed $array_organs
+ * @param mixed $pid
+ * @return
+ */
 function getall_organid_of_parent($array_organs, $pid)
 {
     $array_id = array();
@@ -115,6 +163,13 @@ function getall_organid_of_parent($array_organs, $pid)
     return $array_id;
 }
 
+/**
+ * getall_numper_of_parent()
+ *
+ * @param mixed $array_organs
+ * @param mixed $pid
+ * @return
+ */
 function getall_numper_of_parent($array_organs, $pid)
 {
     $count = $array_organs[$pid]['numperson'];
@@ -129,6 +184,13 @@ function getall_numper_of_parent($array_organs, $pid)
     return $count;
 }
 
+/**
+ * getall_organid_parent()
+ *
+ * @param mixed $array_organs
+ * @param mixed $oid
+ * @return
+ */
 function getall_organid_parent($array_organs, $oid)
 {
     $array_id = array();

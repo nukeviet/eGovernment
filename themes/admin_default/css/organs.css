@@ -1,0 +1,11 @@
+#id_admin_module > tr > td {
+    padding: 0;
+}
+
+#id_admin_module > tr > td table {
+    margin: 0;
+}
+
+.org-admin-module {
+    margin: 0;
+}

@@ -9,3 +9,7 @@
 .org-admin-module {
     margin: 0;
 }
+
+.well-no-bottom {
+    padding-bottom: 5px;
+}

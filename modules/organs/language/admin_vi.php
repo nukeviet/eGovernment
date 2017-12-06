@@ -94,6 +94,9 @@ $lang_module['addper_decription_title'] = "Tiểu sử";
 $lang_module['error_person_title'] = "Không có tên của nhân sự này";
 $lang_module['view_active_title'] = "Hiển thị thông tin chi tiết";
 $lang_module['view_active_title_note'] = "Nếu bạn không muốn hiển thị thông tin của tổ chức hay cơ sở hãy bỏ phần chọn này";
+$lang_module['addper_no_organ1'] = "Thông báo quyền quản lý";
+$lang_module['addper_no_organ2'] = "Bạn chưa được phân công quản lý tổ chức cơ sở nào do đó không thể thêm nhân sự được";
+$lang_module['addper_no_organ3'] = "Bạn chưa được phân công quản lý tổ chức cơ sở nào do đó không có nhân sự nào được hiển thị";
 
 $lang_module['config_per_page'] = "Số nhân sự hiển thị trên một trang";
 $lang_module['config_organ_view'] = "Kiểu hiển thị danh sách nhân sự khi xem tổ chức";

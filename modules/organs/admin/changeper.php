@@ -8,22 +8,28 @@
  * @Createdate 2-10-2010 18:49
  */
 
-if (!defined('NV_IS_FILE_ADMIN')) die('Stop!!!');
+if (!defined('NV_IS_FILE_ADMIN'))
+    die('Stop!!!');
 
 $personid = $nv_Request->get_int('personid', 'post', 0);
 $new_weight = $nv_Request->get_int('w', 'post', 0);
 $content = 'NO_' . $personid;
 $table = NV_PREFIXLANG . '_' . $module_data . '_person';
-list ($personid, $organid, $old_weight) = $db->query('SELECT personid , organid, weight FROM ' . $table . ' WHERE personid=' . $personid . '')->fetch(3);
-if ($personid > 0) {
+list($personid, $organid, $old_weight) = $db->query('SELECT personid , organid, weight FROM ' . $table . ' WHERE personid=' . $personid . '')->fetch(3);
+if ($personid > 0 and $organid > 0 and (
+    defined('NV_IS_ADMIN_MODULE') or (
+        isset($array_organs_admin[$admin_info['admin_id']][$organid]) and
+        !empty($array_organs_admin[$admin_info['admin_id']][$organid]['status_content'])
+    )
+)) {
     $personid_swap = $db->query('SELECT personid FROM ' . $table . ' WHERE organid = ' . intval($organid) . ' AND weight = ' . $new_weight)->fetchColumn();
     $sql = 'UPDATE ' . $table . ' SET weight=' . $new_weight . ' WHERE personid=' . intval($personid);
     $db->query($sql);
-    
+
     $sql = 'UPDATE ' . $table . ' SET weight=' . $old_weight . ' WHERE personid=' . intval($personid_swap);
     $db->query($sql);
     nv_fix_personweight($organid);
-    
+
     $content = 'OK_' . $personid;
     $nv_Cache->delMod($module_name);
 }

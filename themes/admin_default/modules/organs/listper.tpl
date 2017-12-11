@@ -5,7 +5,7 @@
     var url_back = '{URL_BACK}';
 </script>
 
-<div class="well">
+<div class="well well-no-bottom">
     <form action="{NV_BASE_ADMINURL}index.php" method="get">
         <input type="hidden" name="{NV_LANG_VARIABLE}"  value="{NV_LANG_DATA}" />
         <input type="hidden" name="{NV_NAME_VARIABLE}"  value="{MODULE_NAME}" />
@@ -76,37 +76,49 @@
                 <th class="text-center">{LANG.functions}</th>
             </tr>
         </thead>
+        <tbody>
+            <!-- BEGIN: row -->
+            <tr>
+                <td class="text-center">
+                    <!-- BEGIN: allow_delbtn --><input type="checkbox" onclick="nv_UncheckAll(this.form, 'idcheck[]', 'check_all[]', this.checked);" value="{ROW.personid}" name="idcheck[]" /><!-- END: allow_delbtn -->
+                </td>
+                <td class="text-center"> {ROW.select_weight} </td>
+                <td> <a href="{ROW.link_view}" title="{ROW.name}">{ROW.name} </a></td>
+                <td>{ROW.address}</td>
+                <td class="text-center" width="80">
+                    <!-- BEGIN: allow_status -->
+                    <select class="form-control" name="active" id="{ROW.personid}" onchange="ChangeActive(this,url_change)">
+                        <option {CHECK_NO} value="0">{LANG.active_no}</option>
+                        <option {CHECK_YES} value="1">{LANG.active_yes}</option>
+                    </select>
+                    <!-- END: allow_status -->
+                    <!-- BEGIN: text_status -->
+                    {TEXT_STATUS}
+                    <!-- END: text_status -->
+                </td>
+                <td class="text-center">
+                    <!-- BEGIN: allow_edit --><a href="{ROW.link_edit}" class="btn btn-default btn-xs"><i class="fa fa-edit fa-fw"></i>{LANG.edit}</a><!-- END: allow_edit -->
+                    <!-- BEGIN: allow_del --><a href="{ROW.link_del}" class="delete btn btn-danger btn-xs"><i class="fa fa-trash fa-fw"></i>{LANG.del}</a><!-- END: allow_del -->
+                </td>
+            </tr>
+            <!-- END: row -->
+        </tbody>
+        <!-- BEGIN: generate_page -->
         <tfoot>
             <tr class="text-center">
                 <td colspan="6">{PAGES}</td>
             </tr>
         </tfoot>
-        <!-- BEGIN: row -->
-        <tr>
-            <td class="text-center">
-                <input type="checkbox" onclick="nv_UncheckAll(this.form, 'idcheck[]', 'check_all[]', this.checked);" value="{ROW.personid}" name="idcheck[]" />
-            </td>
-            <td class="text-center"> {ROW.select_weight} </td>
-            <td> <a href="{ROW.link_view}" title="{ROW.name}">{ROW.name} </a></td>
-            <td>{ROW.address}</td>
-            <td class="text-center" width="80">
-            <select class="form-control" name="active" id="{ROW.personid}" onchange="ChangeActive(this,url_change)">
-                <option {CHECK_NO} value="0">{LANG.active_no}</option>
-                <option {CHECK_YES} value="1">{LANG.active_yes}</option>
-            </select></td>
-            <td class="text-center">
-                <em class="fa fa-edit fa-lg">&nbsp;</em><a href="{ROW.link_edit}" title="">{LANG.edit}</a>&nbsp; -
-                <em class="fa fa-trash-o fa-lg">&nbsp;</em><a href="{ROW.link_del}" class="delete" title="">{LANG.del}</a>
-            </td>
-        </tr>
-        <!-- END: row -->
+        <!-- END: generate_page -->
     </table>
 </form>
 
+<!-- BEGIN: bottom_btn -->
 <div class="form-group">
-    <a class="btn btn-danger deleteall" href="{URL_DELALL}">{LANG.delete_select}</a>
-    <a href="{URL_ADD}" class="btn btn-primary">{LANG.add}</a>
+    <!-- BEGIN: btn_del --><a class="btn btn-danger deleteall" href="{URL_DELALL}">{LANG.delete_select}</a><!-- END: btn_del -->
+    <!-- BEGIN: btn_add --><a href="{URL_ADD}" class="btn btn-primary">{LANG.add}</a><!-- END: btn_add -->
 </div>
+<!-- END: bottom_btn -->
 
 <script type="text/javascript">
     delete_one('delete', '{LANG.del_confirm}', url_back);

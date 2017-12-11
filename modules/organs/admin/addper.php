@@ -8,7 +8,8 @@
  * @Createdate Dec 3, 2010  11:33:22 AM
  */
 
-if (!defined('NV_IS_FILE_ADMIN')) die('Stop!!!');
+if (!defined('NV_IS_FILE_ADMIN'))
+    die('Stop!!!');
 
 $page_title = $lang_module['addper_title'];
 $month_dir_module = nv_mkdir(NV_UPLOADS_REAL_DIR . '/' . $module_upload, date("Y_m"), true);
@@ -16,7 +17,7 @@ $month_dir_module = nv_mkdir(NV_UPLOADS_REAL_DIR . '/' . $module_upload, date("Y
 //Lấy thông tin cấu hình
 $sql = 'SELECT config_name, config_value FROM ' . NV_PREFIXLANG . '_' . $module_data . '_config';
 $result = $db->query($sql);
-while (list ($c_config_name, $c_config_value) = $result->fetch(3)) {
+while (list($c_config_name, $c_config_value) = $result->fetch(3)) {
     $array_config[$c_config_name] = $c_config_value;
 }
 
@@ -58,12 +59,40 @@ if (!empty($row)) {
     $page_title = $lang_module['addper_title'] . $lang_module['main_sub'] . $row['title'];
 }
 
+// Sửa nhân sự
+$id = $nv_Request->get_int('id', 'get', 0);
+if ($id > 0) {
+    $sql = "SELECT * FROM " . $table_name . " WHERE personid=" . intval($id);
+    $result = $db->query($sql);
+    $data = $result->fetch();
+
+    if (empty($data)) {
+        nv_redirect_location(NV_BASE_ADMINURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name . '&' . NV_OP_VARIABLE . '=listper');
+    }
+
+    // Kiểm tra quyền sửa
+    if (!defined('NV_IS_ADMIN_MODULE') and (!isset($array_organs_admin[$admin_info['admin_id']][$data['organid']]) or empty($array_organs_admin[$admin_info['admin_id']][$data['organid']]['edit_content']))) {
+        nv_redirect_location(NV_BASE_ADMINURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name . '&' . NV_OP_VARIABLE . '=listper');
+    }
+
+    $data['organid_old'] = $data['organid'];
+    if (!empty($data['description']))
+        $data['description'] = nv_htmlspecialchars($data['description']);
+
+    if (!empty($data['photo']) and file_exists(NV_UPLOADS_REAL_DIR . "/" . $module_upload . "/" . $data['photo'])) {
+        $data['photo'] = NV_BASE_SITEURL . NV_UPLOADS_DIR . "/" . $module_upload . "/" . $data['photo'];
+    }
+    $data['birthday'] = (!empty($data['birthday'])) ? date("d/m/Y", $data['birthday']) : "";
+    $data['dayinto'] = (!empty($data['dayinto'])) ? date("d/m/Y", $data['dayinto']) : "";
+    $data['dayparty'] = (!empty($data['dayparty'])) ? date("d/m/Y", $data['dayparty']) : "";
+}
+
 /*error*/
 $error = "";
+
 /**begin get data post**/
 if ($nv_Request->get_int('save', 'post') == 1) {
     $data['organid'] = $nv_Request->get_int('organid', 'post', 0);
-    $data['organid_old'] = $nv_Request->get_int('organid_old', 'post', 0);
     $data['name'] = $nv_Request->get_title('name', 'post', '', 1);
     $data['description'] = $nv_Request->get_editor('description', 'post');
     $data['address'] = $nv_Request->get_title('address', 'post', '', 1);
@@ -78,8 +107,10 @@ if ($nv_Request->get_int('save', 'post') == 1) {
     $data['professional'] = $nv_Request->get_title('professional', 'post', '', 1);
     $data['political'] = $nv_Request->get_title('political', 'post', '', 1);
     $data['place_birth'] = $nv_Request->get_title('place_birth', 'post', '', 1);
+
     $birthday = $nv_Request->get_string('birthday', 'post', '');
-    if (!empty($birthday) and !preg_match("/^([0-9]{1,2})\\/([0-9]{1,2})\/([0-9]{4})$/", $birthday)) $birthday = "";
+    if (!empty($birthday) and !preg_match("/^([0-9]{1,2})\\/([0-9]{1,2})\/([0-9]{4})$/", $birthday))
+        $birthday = "";
     if (empty($birthday)) {
         $data['birthday'] = 0;
     } else {
@@ -91,7 +122,8 @@ if ($nv_Request->get_int('save', 'post') == 1) {
     }
 
     $dayinto = $nv_Request->get_string('dayinto', 'post', '');
-    if (!empty($dayinto) and !preg_match("/^([0-9]{1,2})\\/([0-9]{1,2})\/([0-9]{4})$/", $dayinto)) $dayinto = "";
+    if (!empty($dayinto) and !preg_match("/^([0-9]{1,2})\\/([0-9]{1,2})\/([0-9]{4})$/", $dayinto))
+        $dayinto = "";
     if (empty($dayinto)) {
         $data['dayinto'] = 0;
     } else {
@@ -103,7 +135,8 @@ if ($nv_Request->get_int('save', 'post') == 1) {
     }
 
     $dayparty = $nv_Request->get_string('dayparty', 'post', '');
-    if (!empty($dayparty) and !preg_match("/^([0-9]{1,2})\\/([0-9]{1,2})\/([0-9]{4})$/", $dayparty)) $dayparty = "";
+    if (!empty($dayparty) and !preg_match("/^([0-9]{1,2})\\/([0-9]{1,2})\/([0-9]{4})$/", $dayparty))
+        $dayparty = "";
     if (empty($dayparty)) {
         $data['dayparty'] = 0;
     } else {
@@ -112,6 +145,16 @@ if ($nv_Request->get_int('save', 'post') == 1) {
         unset($m);
         preg_match("/^([0-9]{1,2})\\/([0-9]{1,2})\/([0-9]{4})$/", $dayparty, $m);
         $data['dayparty'] = mktime($phour, $pmin, 0, $m[2], $m[1], $m[3]);
+    }
+
+    // Kiểm tra tổ chức cơ sở
+    if (!defined('NV_IS_ADMIN_MODULE') and (
+        (!isset($array_organs_admin[$admin_info['admin_id']][$data['organid']]) or empty($array_organs_admin[$admin_info['admin_id']][$data['organid']]['add_content'])) or
+        (!isset($array_organs_admin[$admin_info['admin_id']][$data['organid']]) or empty($array_organs_admin[$admin_info['admin_id']][$data['organid']]['edit_content']))
+    )) {
+        // Chỗ này dữ liệu luôn luôn có
+        // Nếu sai là do cố ý làm sai nên chỉ cần redirect
+        nv_redirect_location(NV_BASE_ADMINURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name . '&' . NV_OP_VARIABLE . '=listper');
     }
 
     //* check error*//
@@ -123,9 +166,9 @@ if ($nv_Request->get_int('save', 'post') == 1) {
     //}
     elseif (empty($data['position'])) {
         $error = $lang_module['error_organ_position'];
-    }elseif (empty($data['phone']) && empty($data['mobile']) && $array_config['phone_require']==1) {
+    } elseif (empty($data['phone']) && empty($data['mobile']) && $array_config['phone_require'] == 1) {
         $error = $lang_module['error_phone_require'];
-    }elseif (empty($data['email']) && $array_config['email_require']==1) {
+    } elseif (empty($data['email']) && $array_config['email_require'] == 1) {
         $error = $lang_module['error_email_require'];
     } elseif (!empty($data['email'])) {
         if (nv_check_valid_email($data['email']) != '') {
@@ -135,7 +178,6 @@ if ($nv_Request->get_int('save', 'post') == 1) {
 
     /**action with none error**/
     if (empty($error)) {
-        $id = $nv_Request->get_int('id', 'get', 0);
         // Xu ly anh minh ha
         if (!nv_is_url($data['photo']) and file_exists(NV_DOCUMENT_ROOT . $data['photo'])) {
             $lu = strlen(NV_BASE_SITEURL . NV_UPLOADS_DIR . "/" . $module_upload . "/");
@@ -144,9 +186,8 @@ if ($nv_Request->get_int('save', 'post') == 1) {
             $data['photo'] = "";
         }
         if ($id == 0) // insert data
-{
-            $weight = $db->query("SELECT max(weight) FROM " . $table_name . " WHERE organid=" . $db->quote($data['organid']) . "")
-                ->fetchColumn();
+            {
+            $weight = $db->query("SELECT max(weight) FROM " . $table_name . " WHERE organid=" . $db->quote($data['organid']) . "")->fetchColumn();
             $weight = intval($weight) + 1;
             $sql = "INSERT INTO " . $table_name . " (personid, name, photo, email, position,position_other ,address, phone,phone_ext ,mobile, birthday, place_birth, description, addtime, edittime, organid, weight, active,dayinto,dayparty,marital_status,professional, political )
                      VALUES (
@@ -213,8 +254,7 @@ if ($nv_Request->get_int('save', 'post') == 1) {
             if ($db->query($query)) {
                 nv_insert_logs(NV_LANG_DATA, $module_name, 'log_edit_catalog', "id " . $id, $admin_info['userid']);
                 if ($data['organid'] != $data['organid_old']) {
-                    $weight = $db->query("SELECT max(weight) FROM " . $table_name . " WHERE organid=" . $db->quote($data['organid']) . "")
-                        ->fetchColumn();
+                    $weight = $db->query("SELECT max(weight) FROM " . $table_name . " WHERE organid=" . $db->quote($data['organid']) . "")->fetchColumn();
                     $weight = intval($weight) + 1;
                     $sql = "UPDATE " . $table_name . " SET weight=" . $weight . " WHERE organid=" . intval($id);
                     $db->query($sql);
@@ -232,23 +272,6 @@ if ($nv_Request->get_int('save', 'post') == 1) {
         }
     }
 }
-/**end get data post**/
-$id = $nv_Request->get_int('id', 'get', 0);
-if ($id > 0 && $nv_Request->get_int('save', 'post') == 0) // insert data
-{
-    $sql = "SELECT * FROM " . $table_name . " WHERE personid=" . intval($id);
-    $result = $db->query($sql);
-    $data = $result->fetch();
-    $data['organid_old'] = $data['organid'];
-    if (!empty($data['description'])) $data['description'] = nv_htmlspecialchars($data['description']);
-
-    if (!empty($data['photo']) and file_exists(NV_UPLOADS_REAL_DIR . "/" . $module_upload . "/" . $data['photo'])) {
-        $data['photo'] = NV_BASE_SITEURL . NV_UPLOADS_DIR . "/" . $module_upload . "/" . $data['photo'];
-    }
-    $data['birthday'] = (!empty($data['birthday'])) ? date("d/m/Y", $data['birthday']) : "";
-    $data['dayinto'] = (!empty($data['dayinto'])) ? date("d/m/Y", $data['dayinto']) : "";
-    $data['dayparty'] = (!empty($data['dayparty'])) ? date("d/m/Y", $data['dayparty']) : "";
-}
 
 $xtpl = new XTemplate("addper.tpl", NV_ROOTDIR . "/themes/" . $global_config['module_theme'] . "/modules/" . $module_file);
 $xtpl->assign('LANG', $lang_module);
@@ -263,32 +286,48 @@ $xtpl->assign('NV_ASSETS_DIR', NV_ASSETS_DIR);
 $xtpl->assign('UPLOAD_CURRENT', NV_UPLOADS_DIR . '/' . $module_upload . '/' . date("Y_m"));
 
 /* begin set input select parentid */
-$sql = "SELECT organid, title, lev FROM " . NV_PREFIXLANG . "_" . $module_data . "_rows ORDER BY orders ASC";
+$sql = "SELECT organid, parentid, title, lev FROM " . NV_PREFIXLANG . "_" . $module_data . "_rows ORDER BY orders ASC";
 $result = $db->query($sql);
-$array_cat_list = array();
-if ($result->rowCount() == 0) {
-    Header("Location: " . NV_BASE_ADMINURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=addrow");
-    die();
+if ($result->rowCount() == 0 and defined('NV_IS_ADMIN_MODULE')) {
+    nv_redirect_location(NV_BASE_ADMINURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=addrow");
 }
+
+$array_organ_parent = array();
+$haveOrganWork = false;
 while ($row = $result->fetch()) {
-    $xtitle = "";
-    if ($row['lev'] > 0) {
-        for ($i = 1; $i <= $row['lev']; $i++) {
-            $xtitle .= "---";
+    if (
+        defined('NV_IS_ADMIN_MODULE') or (
+        ($id and (isset($array_organs_admin[$admin_info['admin_id']][$row['organid']]) and !empty($array_organs_admin[$admin_info['admin_id']][$row['organid']]['edit_content']))) or
+        (!$id and (isset($array_organs_admin[$admin_info['admin_id']][$row['organid']]) and !empty($array_organs_admin[$admin_info['admin_id']][$row['organid']]['add_content'])))
+    )) {
+        $haveOrganWork = true;
+        $array_organ_parent[$row['organid']] = $row;
+        $xtitle = "";
+        if (isset($array_organ_parent[$row['parentid']]) and $row['lev'] > 0) {
+            for ($i = 1; $i <= $row['lev']; $i++) {
+                $xtitle .= "---";
+            }
         }
+        $row['title'] = $xtitle . $row['title'];
+        $row['select'] = ($data['organid'] == $row['organid']) ? "selected=\"selected\"" : "";
+        $xtpl->assign('ROW', $row);
+        $xtpl->parse('main.parent_loop');
     }
-    $row['title'] = $xtitle . $row['title'];
-    $row['select'] = ($data['organid'] == $row['organid']) ? "selected=\"selected\"" : "";
-    $xtpl->assign('ROW', $row);
-    $xtpl->parse('main.parent_loop');
 }
 
-if($array_config['phone_require']){
-	$xtpl->parse('main.phone_require');
+if (!$haveOrganWork) {
+    $contents = nv_theme_alert($lang_module['addper_no_organ1'], $lang_module['addper_no_organ2']);
+    include NV_ROOTDIR . '/includes/header.php';
+    echo nv_admin_theme($contents);
+    include NV_ROOTDIR . '/includes/footer.php';
 }
 
-if($array_config['email_require']){
-	$xtpl->parse('main.email_require');
+if ($array_config['phone_require']) {
+    $xtpl->parse('main.phone_require');
+}
+
+if ($array_config['email_require']) {
+    $xtpl->parse('main.email_require');
 }
 
 /*end set input select parentid*/

@@ -248,7 +248,7 @@ function vieworg_catelist($array_content, $suborg = array())
 
                 $xtpl->parse('main.vieworg');
             }
-            //print_r($suborg); die($html_suborg);
+
             if (!empty($suborg)) {
                 foreach ($suborg as $key => $value) {
                     $xtpl->assign('suborg', $value);
@@ -258,6 +258,7 @@ function vieworg_catelist($array_content, $suborg = array())
             }
 
             foreach ($array_content as $content) {
+                $suborganid = array();
                 if (!empty($content['suborgan'])) {
                 	$suborganid = explode(',', $content['suborgan']);
                     foreach ($suborganid as $sid) {
@@ -276,7 +277,7 @@ function vieworg_catelist($array_content, $suborg = array())
                     $i = 1;
                     $org_item = '';
                     foreach ($content['data'] as $person) {
-                        if ($person['organid'] != $org_item and empty($array_op[1]) and count($suborganid) > 1) {
+                        if ($person['organid'] != $org_item and empty($array_op[1]) and sizeof($suborganid) > 1) {
                             $org_item = $person['organid'];
                             $cat = $global_organ_rows[$org_item];
                             $xtpl->assign('CAT', $cat);

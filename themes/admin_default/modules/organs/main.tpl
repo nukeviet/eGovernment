@@ -2,7 +2,7 @@
 <script type="text/javascript">
     var url_change = '{URL_CHANGE}';
     var url_change_weight = '{URL_CHANGE_WEIGHT}';
-    var url_back = '{URL_BACK}'; 
+    var url_back = '{URL_BACK}';
 </script>
 
 <div class="form-group">
@@ -24,11 +24,13 @@
             <th class="text-center">{LANG.functions}</th>
         </tr>
     </thead>
+    <!-- BEGIN: generate_page -->
     <tfoot>
         <tr class="text-center">
             <td colspan="5">{PAGES}</td>
         </tr>
     </tfoot>
+    <!-- END: generate_page -->
     <!-- BEGIN: row -->
     <tr>
         <td class="text-center"> {ROW.select_weight} </td>

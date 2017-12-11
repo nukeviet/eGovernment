@@ -172,7 +172,7 @@ if (preg_match($global_config['check_module'], $module_name)) {
                 $is_mobile = true;
                 $theme_type = 'm';
             } else {
-                if (empty($global_config['current_theme_type']) and ($client_info['is_mobile'] or empty($_theme_mobile))) {
+                if (in_array('r', $global_config['array_theme_type']) and empty($global_config['current_theme_type']) and ($client_info['is_mobile'] or empty($_theme_mobile))) {
                     $global_config['current_theme_type'] = 'r';
                 }
 

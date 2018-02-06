@@ -1,8 +1,11 @@
 CHANGE LOG: NukeViet eGovernment
 http://egov.nukeviet.vn
 
+NukeViet eGovernment 1.1
+- Cập nhật NukeViet 4.3.01
+
 NukeViet eGovernment 1
-- Cập nhật NukeViet 4.3
+- Cập nhật NukeViet 4.3.00
 
 NukeViet eGovernment 1.0.05 (beta 5)
 - Sửa lỗi admin đăng nhập

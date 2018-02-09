@@ -10,7 +10,7 @@
                         <tr>
                             <td style="padding-left: 50px; width: 50%">
                                 <div class="img-color">
-                                    <img alt="{LANG.layout_orange}" src="/themes/{SELECTTHEMES}/images/ePotor_VP-Chinh-Phu-Home.jpg" style="max-width: 100%">
+                                    <img alt="{LANG.layout_orange}" src="{NV_BASE_SITEURL}themes/{SELECTTHEMES}/images/ePotor_VP-Chinh-Phu-Home.jpg" style="max-width: 100%">
                                 </div> <br />
                                 <div class="text-layout">
                                     <label><span>{LANG.layout_orange}</span> <input type="radio" name="color_default" value="1"{THEME_COLOR_CHECKED_1}></label>
@@ -18,7 +18,7 @@
                             </td>
                             <td style="padding-left: 50px; width: 50%;">
                                 <div class="img-color">
-                                    <img alt="{LANG.layout_blue}" src="/themes/{SELECTTHEMES}/images/ePotor_VP-Chinh-Phu-PA2-Home.jpg" style="max-width: 100%">
+                                    <img alt="{LANG.layout_blue}" src="{NV_BASE_SITEURL}themes/{SELECTTHEMES}/images/ePotor_VP-Chinh-Phu-PA2-Home.jpg" style="max-width: 100%">
                                 </div> <br />
                                 <div class="text-layout">
                                     <label><span>{LANG.layout_blue}</span> <input type="radio" name="color_default" value="2"{THEME_COLOR_CHECKED_2}></label>
@@ -27,14 +27,14 @@
                         </tr>
                         <tr>
                             <td style="padding-left: 50px; width: 50%"><div class="img-color">
-                                    <img alt="{LANG.layout_green}" src="/themes/{SELECTTHEMES}/images/ePotor_VP-Chinh-Phu-PA3-Home.jpg" style="max-width: 100%">
+                                    <img alt="{LANG.layout_green}" src="{NV_BASE_SITEURL}themes/{SELECTTHEMES}/images/ePotor_VP-Chinh-Phu-PA3-Home.jpg" style="max-width: 100%">
                                 </div> <br />
                                 <div class="text-layout">
                                     <label><span>{LANG.layout_green}</span> <input type="radio" name="color_default" value="3"{THEME_COLOR_CHECKED_3}></label>
                                 </div></td>
                             <td style="padding-left: 50px; width: 50%">
                                 <div class="img-color">
-                                    <img alt="{LANG.layout_light_brown}" src="/themes/{SELECTTHEMES}/images/ePotor_VP-Chinh-Phu-PA4-Home.jpg" style="max-width: 100%">
+                                    <img alt="{LANG.layout_light_brown}" src="{NV_BASE_SITEURL}themes/{SELECTTHEMES}/images/ePotor_VP-Chinh-Phu-PA4-Home.jpg" style="max-width: 100%">
                                 </div> <br />
                                 <div class="text-layout">
                                     <label><span>{LANG.layout_light_brown}</span> <input type="radio" name="color_default" value="4"{THEME_COLOR_CHECKED_4}></label>

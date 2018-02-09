@@ -12,25 +12,32 @@ if (!defined('NV_IS_MOD_ORGAN')) die('Stop!!!');
 
 $key_words = $module_info['keywords'];
 
-//get pages
+// Get Perason ID
 $pid = 0;
 if (!empty($array_op[2])) {
     $temp = explode('-', $array_op[2]);
     if (!empty($temp)) {
         $pid = end($temp);
+        $pid = intval($pid);
     }
 }
-//get id
+
+// Get org ID
 $oid = 0;
 if (!empty($array_op[1])) {
     $temp = explode('-', $array_op[1]);
     if (!empty($temp)) {
         $oid = end($temp);
+        $oid = intval($oid);
     }
 }
 
+if (isset($array_op[3])) {
+    nv_redirect_location(NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name);
+}
+
 $data_content = array();
-$sql = 'SELECT * FROM ' . NV_PREFIXLANG . '_' . $module_data . '_person WHERE personid=' . intval($pid) . ' AND active=1';
+$sql = 'SELECT * FROM ' . NV_PREFIXLANG . '_' . $module_data . '_person WHERE personid=' . $pid . ' AND active=1';
 $result = $db->query($sql);
 $data_content = $result->fetch();
 
@@ -47,6 +54,17 @@ if (!empty($data_content['photo']) and file_exists(NV_ROOTDIR . '/' . NV_FILES_D
     $data_content['photo_thumb'] = NV_BASE_SITEURL . 'themes/' . $module_info['template'] . '/images/' . $module_info['module_theme'] . '/no-avatar.jpg';
 }
 $data_content['imgsrc'] = NV_BASE_SITEURL . NV_UPLOADS_DIR . '/' . $module_upload . '/' . $data_content['photo'];
+
+$base_url_rewrite = nv_url_rewrite(NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name . '&' . NV_OP_VARIABLE . '=person/' . $global_organ_rows[$data_content['organid']]['alias'] . '-' . $data_content['organid'] . '/' . change_alias($data_content['name']) . '-' . $data_content['personid'], true);
+if ($_SERVER['REQUEST_URI'] == $base_url_rewrite) {
+    $canonicalUrl = NV_MAIN_DOMAIN . $base_url_rewrite;
+} elseif (NV_MAIN_DOMAIN . $_SERVER['REQUEST_URI'] != $base_url_rewrite) {
+    //chuyen huong neu doi alias
+    nv_redirect_location($base_url_rewrite);
+} else {
+    $canonicalUrl = $base_url_rewrite;
+}
+$canonicalUrl = str_replace('&', '&amp;', $canonicalUrl);
 
 // thanh dieu huong
 $parentid = $data_content['organid'];

@@ -1,7 +1,7 @@
 <!-- BEGIN: submenu -->
 <ul class="dropdown-menu">
 	<!-- BEGIN: loop -->
-    <li <!-- BEGIN: submenu -->class="dropdown-submenu"<!-- END: submenu -->>
+    <li <!-- BEGIN: submenu -->class="dropdown-submenu"<!-- END: submenu --><!-- BEGIN: submenu_width --> style="min-width: auto;width: {SUBMENU_WIDTH}px;"<!-- END: submenu_width -->>
         <!-- BEGIN: icon -->
         <img src="{SUBMENU.icon}" />&nbsp;
         <!-- END: icon -->

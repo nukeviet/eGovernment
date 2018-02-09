@@ -25,7 +25,7 @@
 		</button>
 	</div>
 	<div class="collapse navbar-collapse" id="menu-site-default">
-        <ul class="nav navbar-nav">
+        <ul class="nav navbar-nav{ALLOW_WRAP_SUBMENU}">
 			<li>
 				<a class="home" title="{LANG.Home}" href="{THEME_SITE_HREF}"><em class="fa fa-lg fa-home">&nbsp;</em><span class="visible-xs-inline-block"> {LANG.Home}</span></a>
 			</li>

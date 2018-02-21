@@ -17,11 +17,16 @@ $per_page = $arr_config['per_page'];
 
 //get pages
 $page = 1;
-if (!empty($array_op[2])) {
-    $temp = explode('-', $array_op[2]);
-    if (!empty($temp)) {
-        $page = end($temp);
+if (isset($array_op[2])) {
+    if (preg_match('/^page\-([0-9]{1,10})$/', $array_op[2], $m)) {
+        $page = intval($m[1]);
     }
+    if ($page <= 1) {
+        nv_redirect_location(NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name);
+    }
+}
+if (isset($array_op[3])) {
+    nv_redirect_location(NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name);
 }
 
 //get id
@@ -30,11 +35,12 @@ if (!empty($array_op[1])) {
     $temp = explode('-', $array_op[1]);
     if (!empty($temp)) {
         $id = end($temp);
+        $id = intval($id);
     }
 }
 $person_data = $organs_data = array();
 
-$sql = 'SELECT * FROM ' . NV_PREFIXLANG . '_' . $module_data . '_rows WHERE organid=' . intval($id);
+$sql = 'SELECT * FROM ' . NV_PREFIXLANG . '_' . $module_data . '_rows WHERE organid=' . $id;
 $result = $db->query($sql);
 $organs_data = $result->fetch();
 
@@ -59,7 +65,7 @@ if (empty($organs_data)) {
 $contents = '';
 $base_url = NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=" . $op . "/" . $organs_data['alias'] . "-" . $organs_data['organid'];
 
-$sql = 'SELECT SQL_CALC_FOUND_ROWS * FROM ' . NV_PREFIXLANG . '_' . $module_data . '_person WHERE organid=' . intval($id) . ' AND active=1 ORDER BY weight LIMIT ' . $per_page . ' OFFSET ' . ($page - 1) * $per_page;
+$sql = 'SELECT SQL_CALC_FOUND_ROWS * FROM ' . NV_PREFIXLANG . '_' . $module_data . '_person WHERE organid=' . $id . ' AND active=1 ORDER BY weight LIMIT ' . $per_page . ' OFFSET ' . ($page - 1) * $per_page;
 $result = $db->query($sql);
 $result_all = $db->query("SELECT FOUND_ROWS()");
 $numf = $result_all->fetchColumn();

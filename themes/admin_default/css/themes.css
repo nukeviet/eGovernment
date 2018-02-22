@@ -135,6 +135,7 @@ html ul.tabs li.active, html ul.tabs li.active a:hover  {
 .margin-bottom-sm {
     margin-bottom: 15px;
 }
+}
 
 .text-layout {
     text-align: center;
@@ -145,7 +146,7 @@ html ul.tabs li.active, html ul.tabs li.active a:hover  {
     font-weight: bold;
 }
 .save-layout {
-    text-align: center; 
+    text-align: center;
 }
 
 /*

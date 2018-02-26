@@ -277,7 +277,7 @@ function vieworg_catelist($array_content, $suborg = array())
                     $i = 1;
                     $org_item = '';
                     foreach ($content['data'] as $person) {
-                        if ($person['organid'] != $org_item and empty($array_op[1]) and sizeof($suborganid) > 1) {
+                        if ($content['id'] != $person['organid'] and $person['organid'] != $org_item and empty($array_op[1]) and sizeof($suborganid) > 1) {
                             $org_item = $person['organid'];
                             $cat = $global_organ_rows[$org_item];
                             $xtpl->assign('CAT', $cat);

@@ -145,3 +145,7 @@ $lang_module['layout_orange'] = 'Orange';
 $lang_module['layout_blue'] = 'Blue';
 $lang_module['layout_light_brown'] = 'Light brown';
 $lang_module['layout_green'] = 'Green';
+$lang_module['preview_theme_on'] = 'Enable preview';
+$lang_module['preview_theme_off'] = 'Disable preview';
+$lang_module['preview_theme_link'] = 'Preview link';
+$lang_module['preview_theme_link_copied'] = 'The link has been copied to the clipboard';

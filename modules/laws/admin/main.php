@@ -437,7 +437,7 @@ if (empty($all_page) and !$nv_Request->isset_request('add', 'get')) {
             $post['cid'] = $post['sid'] = $post['sgid'] = $post['eid'] = $post['who_view'] = $post['who_download'] = 0;
 
             $post['groupcss'] = $post['groupcss2'] = "groupcss0";
-            $post['files'] = '';
+            $post['files'] = array();
 
             $post['select0'] = " selected=\"selected\"";
             $post['select1'] = "";
@@ -608,7 +608,7 @@ if (empty($all_page) and !$nv_Request->isset_request('add', 'get')) {
 
     if ($nv_Request->isset_request('list', 'get')) {
         $base_url = NV_BASE_ADMINURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=" . $op . "&list";
-        $join = 'INNER JOIN ' . NV_USERS_GLOBALTABLE . ' u1 ON t1.admin_add=u1.userid';
+        $join = 'INNER JOIN ' . NV_USERS_GLOBALTABLE . ' u1 ON t1.admin_add=u1.userid ';
         $where = array();
         if ($nv_Request->isset_request('cat', 'get')) {
             $keywords = $nv_Request->get_title('keywords', 'get', '');

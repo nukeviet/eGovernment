@@ -1,10 +1,16 @@
 CHANGE LOG: NukeViet eGovernment
 http://egov.nukeviet.vn
 
-NukeViet eGovernment 1
-- Cập nhật NukeViet 4.3
+NukeViet eGovernment 1.1.00
+- Cập nhật NukeViet 4.3.01
+- Cập nhật module laws 4.3.01
+- Cập nhật module organs 4.3.01
+- Theme eogv: Fix news two column, update menu bootstrap
 
-NukeViet eGovernment 1.0.05 (beta 5)
+NukeViet eGovernment 1.0.05
+- Cập nhật NukeViet 4.3.00
+
+NukeViet eGovernment 1.0.04 (beta 5)
 - Sửa lỗi admin đăng nhập
 - Sửa các lỗi của module văn bản
 - Sửa lỗi tìm kiếm ở giao diện mobile

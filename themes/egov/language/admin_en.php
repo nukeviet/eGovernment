@@ -55,3 +55,6 @@ $lang_module['module_in_menu'] = 'Module in menu';
 $lang_module['save'] = 'Save configuration';
 $lang_module['exp'] = 'eg';
 $lang_module['gfont_note'] = 'Select font in the site: https://www.google.com/fonts';
+$lang_module['themeCfgCssNote'] = 'If you do not know about CSS should not enter data in this section avoid causing interface errors';
+$lang_module['themeCfgColor'] = 'Select color';
+$lang_module['themeCfgCss'] = 'Custom CSS';

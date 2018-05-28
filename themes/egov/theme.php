@@ -99,18 +99,34 @@ function nv_site_theme($contents, $full = true)
         $html_links[] = array( 'rel' => 'StyleSheet', 'href' => NV_BASE_SITEURL . 'themes/' . $global_config['module_theme'] . '/css/admin.css' );
     }
 
-    if (isset($module_config['themes'][$global_config['module_theme']]) and ! empty($module_config['themes'][$global_config['module_theme']])) {
-    	$config_theme = $module_config['themes'][$global_config['module_theme']];
-    	if($config_theme == 2) {
-    		$html_links[] = array( 'rel' => 'StyleSheet', 'href' => NV_BASE_SITEURL . 'themes/' . $global_config['module_theme'] . '/css/style-blue.css' );
-    	}
-    	elseif($config_theme == 3) {
-    		$html_links[] = array( 'rel' => 'StyleSheet', 'href' => NV_BASE_SITEURL . 'themes/' . $global_config['module_theme'] . '/css/style-green.css' );
-    	}
-    	elseif($config_theme == 4) {
-    		$html_links[] = array( 'rel' => 'StyleSheet', 'href' => NV_BASE_SITEURL . 'themes/' . $global_config['module_theme'] . '/css/style-light-brown.css' );
-    	}
+    if (isset($module_config['themes'][$global_config['module_theme']]) and !empty($module_config['themes'][$global_config['module_theme']])) {
+        if (is_numeric($module_config['themes'][$global_config['module_theme']])) {
+            $config_theme = array(
+                'color_default' => $module_config['themes'][$global_config['module_theme']],
+                'generalcss' => ''
+            );
+        } else {
+            $config_theme = unserialize($module_config['themes'][$global_config['module_theme']]);
+        }
+
+        if ($config_theme['color_default'] == 2) {
+            $html_links[] = array('rel' => 'StyleSheet', 'href' => NV_BASE_SITEURL . 'themes/' . $global_config['module_theme'] . '/css/style-blue.css');
+        } elseif ($config_theme['color_default'] == 3) {
+            $html_links[] = array('rel' => 'StyleSheet', 'href' => NV_BASE_SITEURL . 'themes/' . $global_config['module_theme'] . '/css/style-green.css');
+        } elseif ($config_theme['color_default'] == 4) {
+            $html_links[] = array('rel' => 'StyleSheet', 'href' => NV_BASE_SITEURL . 'themes/' . $global_config['module_theme'] . '/css/style-light-brown.css');
+        }
+
+        if (!empty($config_theme['generalcss'])) {
+            $customFileName = $global_config['module_theme'] . '.' . NV_LANG_DATA . '.' . $global_config['idsite'];
+            if (!file_exists(NV_ROOTDIR . '/' . NV_ASSETS_DIR . '/css/' . $customFileName . '.css')) {
+                file_put_contents(NV_ROOTDIR . '/' . NV_ASSETS_DIR . '/css/' . $customFileName . '.css', $config_theme['generalcss']);
+            }
+
+            $html_links[] = array('rel' => 'StyleSheet', 'href' => NV_BASE_SITEURL . NV_ASSETS_DIR . '/css/' . $customFileName . '.css');
+        }
     }
+
     $html_links = array_merge_recursive($html_links, nv_html_links(false));
 
     foreach ($html_links as $links) {

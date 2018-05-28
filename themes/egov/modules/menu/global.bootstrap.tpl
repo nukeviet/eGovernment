@@ -30,7 +30,7 @@
 				<a class="home" title="{LANG.Home}" href="{THEME_SITE_HREF}"><em class="fa fa-lg fa-home">&nbsp;</em><span class="visible-xs-inline-block"> {LANG.Home}</span></a>
 			</li>
 			<!-- BEGIN: top_menu -->
-            <li {TOP_MENU.current} rol="presentation">
+            <li {TOP_MENU.current} role="presentation">
                 <!-- BEGIN: icon -->
                 <img src="{TOP_MENU.icon}" />&nbsp;
                 <!-- END: icon -->

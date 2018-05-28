@@ -55,3 +55,6 @@ $lang_module['module_in_menu'] = 'Các module hiển thị tại menu';
 $lang_module['save'] = 'Lưu cấu hình';
 $lang_module['exp'] = 'Ví dụ';
 $lang_module['gfont_note'] = 'Chọn font tại: https://www.google.com/fonts';
+$lang_module['themeCfgCssNote'] = 'Nếu bạn không biết về CSS thì không nên nhập liệu vào phần này tránh gây lỗi giao diện';
+$lang_module['themeCfgColor'] = 'Chọn màu sắc';
+$lang_module['themeCfgCss'] = 'Tùy chỉnh CSS';

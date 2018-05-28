@@ -3,7 +3,7 @@
 /**
 * @Project NUKEVIET 4.x
 * @Author VINADES.,JSC <contact@vinades.vn>
-* @Copyright (C) 2017 VINADES.,JSC. All rights reserved
+* @Copyright (C) 2018 VINADES.,JSC. All rights reserved
 * @Language Français
 * @License CC BY-SA (http://creativecommons.org/licenses/by-sa/4.0/)
 * @Createdate Jun 21, 2010, 12:30:00 PM
@@ -39,12 +39,16 @@ $lang_module['err_writable'] = 'Erreur: impossible d\'entregister le fichier: %s
 $lang_module['err_supports_rewrite'] = 'Erreur: le serveur ne supporte pas le module rewrite';
 $lang_module['err_save_sysconfig'] = 'Les modifications ont été enregistrées, mais le système est pas configuré pour enregistrer le fichier. Écrivons les autorisations pour le fichier% s puis refaisons';
 $lang_module['security'] = 'Configuration de la sécurité';
+$lang_module['flood_blocker'] = 'Capacité contre flood';
 $lang_module['is_flood_blocker'] = 'Active la capacité contre flood';
 $lang_module['max_requests_60'] = 'Le nombre de requests maximum pendant 1 minutes';
 $lang_module['max_requests_300'] = 'Le nombre de requests maximum pendant 5 minutes';
+$lang_module['max_requests_error'] = 'Erreur: Veuillez entrer un numéro de requête supérieur à 0';
 $lang_module['nv_anti_iframe'] = 'Contre IFRAME';
 $lang_module['nv_anti_agent'] = 'Vérifier et bloquer les ordinateurs qui n\'ont pas d\'agent';
 $lang_module['nv_allowed_html_tags'] = 'Code HTML est accepté par le système';
+$lang_module['nv_debug'] = 'Mode développeur';
+$lang_module['nv_debug_help'] = 'Si cette option est activée, le système affichera des erreurs pour aider les développeurs à vérifier facilement le processus de programmation. Si votre site Web fonctionne dans un environnement réel, <strong>désactivez</strong> cette option.';
 $lang_module['captcha_type'] = 'Type de captcha';
 $lang_module['captcha_type_0'] = 'Défaut captcha';
 $lang_module['captcha_type_1'] = 'Bon php captcha';
@@ -249,3 +253,6 @@ $lang_module['two_step_verification_note'] = 'Remarque: Cette configuration appl
 $lang_module['site_phone'] = 'Nom du fichier Téléphone';
 $lang_module['googleMapsAPI'] = 'Google Maps API key';
 $lang_module['googleMapsAPI_guide'] = '<a href="https://wiki.nukeviet.vn/google:api:creat-google-map-apikey" target="_blank">Guides obtiennent clé API</a>';
+$lang_module['noflood_ip_add'] = 'Ajouter une adresse IP pour ignorer le contrôle d\'inondation';
+$lang_module['noflood_ip_edit'] = 'Correction du contournement de l\'inondation IP';
+$lang_module['noflood_ip_list'] = 'L\'IP contourne le contrôle d\'inondation';

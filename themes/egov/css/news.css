@@ -9,20 +9,39 @@
 }
 
 #topnews ul.lastest-news li {
-    text-indent: 10px;
+    text-indent: 15px;
 }
 
 #topnews ul.lastest-news a {
-    background: transparent url("../images/squared-blue.png") no-repeat 5px 9px;
-    border-bottom: 1px dotted #bbdbf6;
+    background: transparent url("../images/squared-orange.png") no-repeat 5px 14px;
+    border-bottom: 1px dotted #ddd;
     color: #383838;
     display: block;
     font-weight: normal;
-    padding: 2px 0;
+    padding: 7px 0;
+    font-size: 14px!important;
+}
+
+#topnews ul.lastest-news li:last-child a {
+    padding-bottom: 0;
+    border-bottom: 0;
 }
 
 #topnews ul.lastest-news a:hover {
-    background: #fff url("../images/squared-blue.png") no-repeat 5px 9px;
+    background: #fff url("../images/squared-orange.png") no-repeat 5px 9px;
+}
+
+#topnews #tabs .tabs-header {
+    margin-bottom: 15px;
+    margin-top: 5px;
+}
+
+#topnews #tabs .tabs-header ul {
+    padding: 0;
+}
+
+#topnews #tabs .tabs-header ul a {
+    outline: 0!important;
 }
 
 div.news_column .socialicon {

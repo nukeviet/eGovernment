@@ -1,44 +1,49 @@
 <!-- BEGIN: main -->
 <link type="text/css" rel="stylesheet" href="{NV_BASE_SITEURL}themes/{TEMPLATE}/css/jquery.ui.tabs.css" />
 <link type="text/css" rel="stylesheet" href="{NV_BASE_SITEURL}themes/{TEMPLATE}/css/contentslider.css" />
-<div id="topnews" class="panel panel-default clearfix" style="display:none">
-	<div class="row">
-		<!-- BEGIN: hots_news_img -->
-		<div class="col-md-12">
-			<div id="slider1" class="sliderwrapper">
-				<!-- BEGIN: loop -->
-				<div class="contentdiv clearfix">
-					<a title="{HOTSNEWS.title}" href="{HOTSNEWS.link}" {HOTSNEWS.target_blank}><img class="img-responsive" id="slImg{HOTSNEWS.imgID}" src="{PIX_IMG}" alt="{HOTSNEWS.image_alt}" /></a><h3><a title="{HOTSNEWS.title}" href="{HOTSNEWS.link}" {HOTSNEWS.target_blank}>{HOTSNEWS.title}</a></h3>
-				</div>
-				<!-- END: loop -->
-			</div>
-			<div id="paginate-slider1" class="pagination">&nbsp;</div>
-		</div>
-		<!-- END: hots_news_img -->
-		<div id="tabs" class="col-md-12 tabs">
-			<ul>
-				<!-- BEGIN: loop_tabs_title -->
-				<li>
-					<a href="#tabs-{TAB_TITLE.id}"><span><span>{TAB_TITLE.title}</span></span></a>
-				</li>
-				<!-- END: loop_tabs_title -->
-			</ul>
-			<div class="clear">&nbsp;</div>
-			<!-- BEGIN: loop_tabs_content -->
-			<div id="tabs-{TAB_TITLE.id}">
-				<!-- BEGIN: content -->
-				<ul class="lastest-news">
-					<!-- BEGIN: loop -->
-					<li>
-						<a {TITLE} class="show" href="{LASTEST.link}" {LASTEST.target_blank} data-content="{LASTEST.hometext_clean}" data-img="{LASTEST.homeimgfile}" data-rel="block_headline_tooltip">{LASTEST.title}</a>
-					</li>
-					<!-- END: loop -->
-				</ul>
-				<!-- END: content -->
-			</div>
-			<!-- END: loop_tabs_content -->
-		</div>
-	</div>
+<div id="topnews" class="panel panel-default clearfix" style="display: none">
+    <div class="row">
+        <!-- BEGIN: hots_news_img -->
+        <div class="col-md-14">
+            <div id="slider1" class="sliderwrapper">
+                <!-- BEGIN: loop -->
+                <div class="contentdiv clearfix">
+                    <a title="{HOTSNEWS.title}" href="{HOTSNEWS.link}"{HOTSNEWS.target_blank} style="background-image: url('{HOTSNEWS.imagefull}');"><img class="img-responsive" id="slImg{HOTSNEWS.imgID}" src="{PIX_IMG}" alt="{HOTSNEWS.image_alt}" /></a>
+                    <div class="ittext">
+                        <h3>
+                            <a title="{HOTSNEWS.title}" href="{HOTSNEWS.link}"{HOTSNEWS.target_blank}>{HOTSNEWS.title}</a>
+                        </h3>
+                        <div class="htext">{HOTSNEWS.hometext}</div>
+                    </div>
+                </div>
+                <!-- END: loop -->
+            </div>
+            <div id="paginate-slider1" class="pagination">&nbsp;</div>
+        </div>
+        <!-- END: hots_news_img -->
+        <div id="tabs" class="col-md-10 tabs">
+            <div class="clearfix tabs-header">
+                <ul>
+                    <!-- BEGIN: loop_tabs_title -->
+                    <li><a href="#tabs-{TAB_TITLE.id}"><span><span>{TAB_TITLE.title}</span></span></a></li>
+                    <!-- END: loop_tabs_title -->
+                </ul>
+            </div>
+            <div class="clearfix">
+                <!-- BEGIN: loop_tabs_content -->
+                <div id="tabs-{TAB_TITLE.id}">
+                    <!-- BEGIN: content -->
+                    <ul class="lastest-news">
+                        <!-- BEGIN: loop -->
+                        <li><a {TITLE} class="show" href="{LASTEST.link}" {LASTEST.target_blank} data-content="{LASTEST.hometext_clean}" data-img="{LASTEST.homeimgfile}" data-rel="block_headline_tooltip">{LASTEST.title}</a></li>
+                        <!-- END: loop -->
+                    </ul>
+                    <!-- END: content -->
+                </div>
+                <!-- END: loop_tabs_content -->
+            </div>
+        </div>
+    </div>
 </div>
 <!-- BEGIN: tooltip -->
 <script type="text/javascript">

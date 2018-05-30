@@ -58,3 +58,12 @@
 .color-view a, .more-news a, .box-icon-body a.more, .news-catbox-single ul li a.more, .news-groups-bigimghome a.more, .news_column.listpage>.panel>.panel-body a.more, .news_column.newsdetailbox a.more {
     color: #ac2d00 !important;
 }
+
+/* Block headline */
+#topnews .ui-tabs .ui-tabs-nav li.ui-tabs-active a span span {
+    background-color: #ac2d00!important;
+}
+
+#topnews ul.lastest-news a {
+    background-image: url("../images/squared-light-brown.png")!important;    
+}

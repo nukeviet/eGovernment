@@ -27,10 +27,6 @@
     border-bottom: 0;
 }
 
-#topnews ul.lastest-news a:hover {
-    background: #fff url("../images/squared-orange.png") no-repeat 5px 9px;
-}
-
 #topnews #tabs .tabs-header {
     margin-bottom: 15px;
     margin-top: 5px;

@@ -837,7 +837,7 @@ div.breadcrumbs-bg {
     padding-bottom: 0;
 }
 
-.news-catbox-single h2 {
+.news-catbox-single h2, .viewcat-main-style > ul h2 {
     text-transform: uppercase;
     margin-bottom: 0px;
 }

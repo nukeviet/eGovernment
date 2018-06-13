@@ -2,14 +2,14 @@
 <!-- BEGIN: listcat -->
 <div class="news_column">
 	<div class="panel clearfix">
-		<div class="news-catbox-single clearfix">
+		<div class="viewcat-main-style clearfix">
 			<ul class="list-inline" style="margin: 0">
 				<li><h2><a title="{CAT.title}" href="{CAT.link}"><span>{CAT.title}</span></a></h2></li>
 				<!-- BEGIN: subcatloop -->
 				<li class="hidden-xs"><h4><a class="dimgray" title="{SUBCAT.title}" href="{SUBCAT.link}">{SUBCAT.title}</a></h4></li>
 				<!-- END: subcatloop -->
 				<!-- BEGIN: subcatmore -->
-				<a class="dimgray pull-right hidden-xs" title="{MORE.title}" href="{MORE.link}"><em class="fa fa-sign-out">&nbsp;</em></a>
+				<li class="pull-right hidden-xs last-cat"><a class="dimgray" title="{MORE.title}" href="{MORE.link}"><em class="fa fa-sign-out">&nbsp;</em></a></li>
 				<!-- END: subcatmore -->
 			</ul>
 		</div>

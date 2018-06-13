@@ -1,6 +1,12 @@
 CHANGE LOG: NukeViet eGovernment
 http://egov.nukeviet.vn
 
+NukeViet eGovernment 1.1.01
+- Cập nhật NukeViet 4.3.02
+- Thêm giao diện cho block headling module news
+- Thêm chức năng cấu hình CSS cho giao diện egov
+- Thêm giao diện các kiểu hiển thị khác tại trang chủ của module news
+
 NukeViet eGovernment 1.1.00
 - Cập nhật NukeViet 4.3.01
 - Cập nhật module laws 4.3.01

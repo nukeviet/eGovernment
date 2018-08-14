@@ -57,3 +57,5 @@
 !/themes/admin_default/js/organs.js
 !/themes/admin_default/images/organs
 !/themes/admin_default/modules/organs
+/.buildpath
+/.settings

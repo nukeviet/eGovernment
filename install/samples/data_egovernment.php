@@ -3,9 +3,9 @@
 /**
  * @Project NUKEVIET 4.x
  * @Author VINADES.,JSC <contact@vinades.vn>
- * @Copyright (C) 2018 VINADES.,JSC. All rights reserved
+ * @Copyright (C) 2019 VINADES.,JSC. All rights reserved
  * @License GNU/GPL version 2 or any later version
- * @Createdate Mon, 26 Feb 2018 02:20:26 GMT
+ * @Createdate Thu, 03 Jan 2019 09:09:23 GMT
  */
 
 if (!defined('NV_MAINFILE')) {
@@ -20,7 +20,7 @@ $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_banip`
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_banip` (
   `id` mediumint(8) NOT NULL AUTO_INCREMENT,
   `ip` varchar(32) DEFAULT NULL,
-  `mask` tinyint(4) NOT NULL DEFAULT '0',
+  `mask` tinyint(4) NOT NULL DEFAULT 0,
   `area` tinyint(3) NOT NULL,
   `begintime` int(11) DEFAULT NULL,
   `endtime` int(11) DEFAULT NULL,
@@ -34,15 +34,15 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_banners_plans`
   `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
   `blang` char(2) DEFAULT '',
   `title` varchar(250) NOT NULL,
-  `description` text,
+  `description` text DEFAULT NULL,
   `form` varchar(100) NOT NULL,
-  `width` smallint(4) unsigned NOT NULL DEFAULT '0',
-  `height` smallint(4) unsigned NOT NULL DEFAULT '0',
-  `act` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `require_image` tinyint(1) unsigned NOT NULL DEFAULT '1',
+  `width` smallint(4) unsigned NOT NULL DEFAULT 0,
+  `height` smallint(4) unsigned NOT NULL DEFAULT 0,
+  `act` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `require_image` tinyint(1) unsigned NOT NULL DEFAULT 1,
   `uploadtype` varchar(255) NOT NULL DEFAULT '',
   `uploadgroup` varchar(255) NOT NULL DEFAULT '',
-  `exp_time` int(11) unsigned NOT NULL DEFAULT '0',
+  `exp_time` int(11) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `title` (`title`)
 ) ENGINE=MyISAM  AUTO_INCREMENT=7  DEFAULT CHARSET=utf8";
@@ -57,30 +57,30 @@ $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_banner
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_banners_rows` (
   `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
-  `pid` smallint(5) unsigned NOT NULL DEFAULT '0',
-  `clid` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `pid` smallint(5) unsigned NOT NULL DEFAULT 0,
+  `clid` mediumint(8) unsigned NOT NULL DEFAULT 0,
   `file_name` varchar(255) NOT NULL,
   `file_ext` varchar(100) NOT NULL,
   `file_mime` varchar(100) NOT NULL,
-  `width` int(4) unsigned NOT NULL DEFAULT '0',
-  `height` int(4) unsigned NOT NULL DEFAULT '0',
+  `width` int(4) unsigned NOT NULL DEFAULT 0,
+  `height` int(4) unsigned NOT NULL DEFAULT 0,
   `file_alt` varchar(255) DEFAULT '',
   `imageforswf` varchar(255) DEFAULT '',
   `click_url` varchar(255) DEFAULT '',
   `target` varchar(10) NOT NULL DEFAULT '_blank',
   `bannerhtml` mediumtext NOT NULL,
-  `add_time` int(11) unsigned NOT NULL DEFAULT '0',
-  `publ_time` int(11) unsigned NOT NULL DEFAULT '0',
-  `exp_time` int(11) unsigned NOT NULL DEFAULT '0',
-  `hits_total` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `act` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `weight` int(11) NOT NULL DEFAULT '0',
+  `add_time` int(11) unsigned NOT NULL DEFAULT 0,
+  `publ_time` int(11) unsigned NOT NULL DEFAULT 0,
+  `exp_time` int(11) unsigned NOT NULL DEFAULT 0,
+  `hits_total` mediumint(8) unsigned NOT NULL DEFAULT 0,
+  `act` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `weight` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `pid` (`pid`),
   KEY `clid` (`clid`)
 ) ENGINE=MyISAM  AUTO_INCREMENT=11  DEFAULT CHARSET=utf8";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_banners_rows` (`id`, `title`, `pid`, `clid`, `file_name`, `file_ext`, `file_mime`, `width`, `height`, `file_alt`, `imageforswf`, `click_url`, `target`, `bannerhtml`, `add_time`, `publ_time`, `exp_time`, `hits_total`, `act`, `weight`) VALUES (2, 'vinades', 2, 0, 'vinades.jpg', 'jpg', 'image/jpeg', 212, 400, '', '', 'http://vinades.vn', '_blank', '', 1498555144, 1498555144, 0, 0, 1, 2)";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_banners_rows` (`id`, `title`, `pid`, `clid`, `file_name`, `file_ext`, `file_mime`, `width`, `height`, `file_alt`, `imageforswf`, `click_url`, `target`, `bannerhtml`, `add_time`, `publ_time`, `exp_time`, `hits_total`, `act`, `weight`) VALUES (3, 'Quang cao giua trang', 1, 0, 'webnhanh.jpg', 'png', 'image/jpeg', 575, 72, '', '', 'http://webnhanh.vn', '_blank', '', 1498555144, 1498555144, 0, 0, 1, 1)";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_banners_rows` (`id`, `title`, `pid`, `clid`, `file_name`, `file_ext`, `file_mime`, `width`, `height`, `file_alt`, `imageforswf`, `click_url`, `target`, `bannerhtml`, `add_time`, `publ_time`, `exp_time`, `hits_total`, `act`, `weight`) VALUES (2, 'vinades', 2, 0, 'vinades.jpg', 'jpg', 'image/jpeg', 212, 400, '', '', 'http://vinades.vn', '_blank', '', 1546504163, 1546504163, 0, 0, 1, 2)";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_banners_rows` (`id`, `title`, `pid`, `clid`, `file_name`, `file_ext`, `file_mime`, `width`, `height`, `file_alt`, `imageforswf`, `click_url`, `target`, `bannerhtml`, `add_time`, `publ_time`, `exp_time`, `hits_total`, `act`, `weight`) VALUES (3, 'Quang cao giua trang', 1, 0, 'webnhanh.jpg', 'png', 'image/jpeg', 575, 72, '', '', 'http://webnhanh.vn', '_blank', '', 1546504163, 1546504163, 0, 0, 1, 1)";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_banners_rows` (`id`, `title`, `pid`, `clid`, `file_name`, `file_ext`, `file_mime`, `width`, `height`, `file_alt`, `imageforswf`, `click_url`, `target`, `bannerhtml`, `add_time`, `publ_time`, `exp_time`, `hits_total`, `act`, `weight`) VALUES (4, 'slider1', 4, 0, 'slider1.jpg', 'jpg', 'image/jpeg', 1080, 395, '', '', '', '_blank', '', 1498721564, 1498721564, 0, 0, 1, 1)";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_banners_rows` (`id`, `title`, `pid`, `clid`, `file_name`, `file_ext`, `file_mime`, `width`, `height`, `file_alt`, `imageforswf`, `click_url`, `target`, `bannerhtml`, `add_time`, `publ_time`, `exp_time`, `hits_total`, `act`, `weight`) VALUES (5, 'hc1', 5, 1, 'bandohc.jpg', 'jpg', 'image/jpeg', 230, 312, '', '', '', '_blank', '', 1498725937, 1498725900, 0, 0, 1, 1)";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_banners_rows` (`id`, `title`, `pid`, `clid`, `file_name`, `file_ext`, `file_mime`, `width`, `height`, `file_alt`, `imageforswf`, `click_url`, `target`, `bannerhtml`, `add_time`, `publ_time`, `exp_time`, `hits_total`, `act`, `weight`) VALUES (6, 'Văn bản chỉ đạo điều hành', 6, 0, 'qc1.jpg', 'jpg', 'image/jpeg', 249, 102, '', '', 'http://egov-demo.nukeviet.vn/laws/', '_blank', '', 1498791748, 1498791748, 0, 2, 1, 1)";
@@ -167,9 +167,9 @@ $sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang
 $sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'global', 'gzip_method', '1')";
 $sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'global', 'authors_detail_main', '0')";
 $sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'global', 'spadmin_add_admin', '1')";
-$sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'global', 'timestamp', '48')";
+$sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'global', 'timestamp', '51')";
 $sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'global', 'captcha_type', '1')";
-$sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'global', 'version', '1.1.00')";
+$sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'global', 'version', '1.1.02')";
 $sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'global', 'cookie_httponly', '1')";
 $sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'global', 'admin_check_pass_time', '1800')";
 $sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'global', 'cookie_secure', '0')";
@@ -198,6 +198,7 @@ $sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang
 $sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'define', 'nv_anti_iframe', '0')";
 $sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'define', 'nv_anti_agent', '0')";
 $sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'define', 'nv_allowed_html_tags', 'embed, object, param, a, b, blockquote, br, caption, col, colgroup, div, em, h1, h2, h3, h4, h5, h6, hr, i, img, li, p, span, strong, s, sub, sup, table, tbody, td, th, tr, u, ul, ol, iframe, figure, figcaption, video, audio, source, track, code, pre, svg, defs, filter, dropshadow, fegaussianblur, sourcealpha, stddeviation, result, blur, feoffset, in, dx, dy, offsetblur, feflood, fecomposite, offsetcolor, operator, feblend, sourcegraphic, in2, g, transform, rect, x, y, rx, ry, xmlns, fill, stroke, translate, opacity, height, width, all, foreignobject, font, face, path, d, visibility, style, lineargradient, x1, x2, y1, y2, id, stop, offset, script, type')";
+$sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'define', 'nv_debug', '0')";
 $sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'global', 'site_domain', '')";
 $sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'global', 'site_logo', 'uploads/logo.png')";
 $sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'global', 'site_banner', 'uploads/banner_1.jpg')";
@@ -206,6 +207,7 @@ $sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang
 $sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'global', 'site_keywords', '')";
 $sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'global', 'theme_type', 'r,d,m')";
 $sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'global', 'site_theme', 'egov')";
+$sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'global', 'preview_theme', '')";
 $sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'global', 'mobile_theme', 'mobile_egov')";
 $sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'global', 'site_home_module', 'news')";
 $sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'global', 'switch_mobi_des', '1')";
@@ -216,7 +218,7 @@ $sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang
 $sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'global', 'autologosize3', '30')";
 $sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'global', 'autologomod', '')";
 $sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'global', 'name_show', '0')";
-$sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'global', 'cronjobs_next_time', '1519611864')";
+$sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'global', 'cronjobs_next_time', '1546506671')";
 $sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'global', 'disable_site_content', 'Vì lý do kỹ thuật website tạm ngưng hoạt động. Thành thật xin lỗi các bạn vì sự bất tiện này!')";
 $sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'seotools', 'prcservice', '')";
 $sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'about', 'auto_postcomm', '1')";
@@ -288,6 +290,8 @@ $sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang
 $sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'news', 'alloweditorcomm', '0')";
 $sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'news', 'frontend_edit_alias', '0')";
 $sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'news', 'frontend_edit_layout', '1')";
+$sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'contact', 'bodytext', 'Để không ngừng nâng cao chất lượng dịch vụ và đáp ứng tốt hơn nữa các yêu cầu của Quý khách, chúng tôi mong muốn nhận được các thông tin phản hồi. Nếu Quý khách có bất kỳ thắc mắc hoặc đóng góp nào, xin vui lòng liên hệ với chúng tôi theo thông tin dưới đây. Chúng tôi sẽ phản hồi lại Quý khách trong thời gian sớm nhất.')";
+$sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'contact', 'sendcopymode', '0')";
 $sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'page', 'auto_postcomm', '1')";
 $sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'page', 'allowed_comm', '-1')";
 $sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'page', 'view_comm', '6')";
@@ -316,13 +320,12 @@ $sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang
 $sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'siteterms', 'alloweditorcomm', '0')";
 $sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'freecontent', 'next_execute', '0')";
 $sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'laws', 'view_comm', '6')";
-$sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'contact', 'bodytext', 'Để không ngừng nâng cao chất lượng dịch vụ và đáp ứng tốt hơn nữa các yêu cầu của Quý khách, chúng tôi mong muốn nhận được các thông tin phản hồi. Nếu Quý khách có bất kỳ thắc mắc hoặc đóng góp nào, xin vui lòng liên hệ với chúng tôi theo thông tin dưới đây. Chúng tôi sẽ phản hồi lại Quý khách trong thời gian sớm nhất.')";
 $sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'site', 'statistics_timezone', 'Asia/Bangkok')";
 $sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'site', 'site_email', 'admin@nukeviet.vn')";
 $sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'global', 'error_set_logs', '1')";
 $sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'global', 'error_send_email', 'admin@nukeviet.vn')";
 $sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'global', 'site_lang', 'vi')";
-$sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'global', 'my_domains', 'egovernment.nukeviet4.my')";
+$sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'global', 'my_domains', 'egov.nukeviet.my')";
 $sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'global', 'site_timezone', 'byCountry')";
 $sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'global', 'proxy_blocker', '0')";
 $sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('sys', 'global', 'str_referer_blocker', '0')";
@@ -362,34 +365,33 @@ $sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang
 $sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'laws', 'alloweditorcomm', '0')";
 $sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinions', 'allowattachcomm', '1')";
 $sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'opinions', 'alloweditorcomm', '1')";
-$sql_create_table[] = "REPLACE INTO `" . $db_config['prefix'] . "_config` (`lang`, `module`, `config_name`, `config_value`) VALUES ('vi', 'global', 'preview_theme', '')";
 
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_cronjobs`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_cronjobs` (
   `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
-  `start_time` int(11) unsigned NOT NULL DEFAULT '0',
-  `inter_val` int(11) unsigned NOT NULL DEFAULT '0',
+  `start_time` int(11) unsigned NOT NULL DEFAULT 0,
+  `inter_val` int(11) unsigned NOT NULL DEFAULT 0,
   `run_file` varchar(255) NOT NULL,
   `run_func` varchar(255) NOT NULL,
   `params` varchar(255) DEFAULT NULL,
-  `del` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `is_sys` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `act` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `last_time` int(11) unsigned NOT NULL DEFAULT '0',
-  `last_result` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `del` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `is_sys` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `act` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `last_time` int(11) unsigned NOT NULL DEFAULT 0,
+  `last_result` tinyint(1) unsigned NOT NULL DEFAULT 0,
   `vi_cron_name` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `is_sys` (`is_sys`)
 ) ENGINE=MyISAM  AUTO_INCREMENT=10  DEFAULT CHARSET=utf8";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_cronjobs` (`id`, `start_time`, `inter_val`, `run_file`, `run_func`, `params`, `del`, `is_sys`, `act`, `last_time`, `last_result`, `vi_cron_name`) VALUES (1, 1498555144, 5, 'online_expired_del.php', 'cron_online_expired_del', '', 0, 1, 1, 1519611564, 1, 'Xóa các dòng ghi trạng thái online đã cũ trong CSDL')";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_cronjobs` (`id`, `start_time`, `inter_val`, `run_file`, `run_func`, `params`, `del`, `is_sys`, `act`, `last_time`, `last_result`, `vi_cron_name`) VALUES (2, 1498555144, 1440, 'dump_autobackup.php', 'cron_dump_autobackup', '', 0, 1, 1, 1519611564, 1, 'Tự động lưu CSDL')";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_cronjobs` (`id`, `start_time`, `inter_val`, `run_file`, `run_func`, `params`, `del`, `is_sys`, `act`, `last_time`, `last_result`, `vi_cron_name`) VALUES (3, 1498555144, 60, 'temp_download_destroy.php', 'cron_auto_del_temp_download', '', 0, 1, 1, 1519611564, 1, 'Xóa các file tạm trong thư mục tmp')";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_cronjobs` (`id`, `start_time`, `inter_val`, `run_file`, `run_func`, `params`, `del`, `is_sys`, `act`, `last_time`, `last_result`, `vi_cron_name`) VALUES (4, 1498555144, 30, 'ip_logs_destroy.php', 'cron_del_ip_logs', '', 0, 1, 1, 1519611564, 1, 'Xóa IP log files, Xóa các file nhật ký truy cập')";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_cronjobs` (`id`, `start_time`, `inter_val`, `run_file`, `run_func`, `params`, `del`, `is_sys`, `act`, `last_time`, `last_result`, `vi_cron_name`) VALUES (5, 1498555144, 1440, 'error_log_destroy.php', 'cron_auto_del_error_log', '', 0, 1, 1, 1519611564, 1, 'Xóa các file error_log quá hạn')";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_cronjobs` (`id`, `start_time`, `inter_val`, `run_file`, `run_func`, `params`, `del`, `is_sys`, `act`, `last_time`, `last_result`, `vi_cron_name`) VALUES (6, 1498555144, 360, 'error_log_sendmail.php', 'cron_auto_sendmail_error_log', '', 0, 1, 0, 0, 0, 'Gửi email các thông báo lỗi cho admin')";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_cronjobs` (`id`, `start_time`, `inter_val`, `run_file`, `run_func`, `params`, `del`, `is_sys`, `act`, `last_time`, `last_result`, `vi_cron_name`) VALUES (7, 1498555144, 60, 'ref_expired_del.php', 'cron_ref_expired_del', '', 0, 1, 1, 1519611564, 1, 'Xóa các referer quá hạn')";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_cronjobs` (`id`, `start_time`, `inter_val`, `run_file`, `run_func`, `params`, `del`, `is_sys`, `act`, `last_time`, `last_result`, `vi_cron_name`) VALUES (8, 1498555144, 60, 'check_version.php', 'cron_auto_check_version', '', 0, 1, 1, 1519611564, 1, 'Kiểm tra phiên bản NukeViet')";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_cronjobs` (`id`, `start_time`, `inter_val`, `run_file`, `run_func`, `params`, `del`, `is_sys`, `act`, `last_time`, `last_result`, `vi_cron_name`) VALUES (9, 1498555144, 1440, 'notification_autodel.php', 'cron_notification_autodel', '', 0, 1, 1, 1519611564, 1, 'Xóa thông báo cũ')";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_cronjobs` (`id`, `start_time`, `inter_val`, `run_file`, `run_func`, `params`, `del`, `is_sys`, `act`, `last_time`, `last_result`, `vi_cron_name`) VALUES (1, 1546504163, 5, 'online_expired_del.php', 'cron_online_expired_del', '', 0, 1, 1, 1546506371, 1, 'Xóa các dòng ghi trạng thái online đã cũ trong CSDL')";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_cronjobs` (`id`, `start_time`, `inter_val`, `run_file`, `run_func`, `params`, `del`, `is_sys`, `act`, `last_time`, `last_result`, `vi_cron_name`) VALUES (2, 1546504163, 1440, 'dump_autobackup.php', 'cron_dump_autobackup', '', 0, 1, 1, 1546506371, 1, 'Tự động lưu CSDL')";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_cronjobs` (`id`, `start_time`, `inter_val`, `run_file`, `run_func`, `params`, `del`, `is_sys`, `act`, `last_time`, `last_result`, `vi_cron_name`) VALUES (3, 1546504163, 60, 'temp_download_destroy.php', 'cron_auto_del_temp_download', '', 0, 1, 1, 1546506371, 1, 'Xóa các file tạm trong thư mục tmp')";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_cronjobs` (`id`, `start_time`, `inter_val`, `run_file`, `run_func`, `params`, `del`, `is_sys`, `act`, `last_time`, `last_result`, `vi_cron_name`) VALUES (4, 1546504163, 30, 'ip_logs_destroy.php', 'cron_del_ip_logs', '', 0, 1, 1, 1546506371, 1, 'Xóa IP log files, Xóa các file nhật ký truy cập')";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_cronjobs` (`id`, `start_time`, `inter_val`, `run_file`, `run_func`, `params`, `del`, `is_sys`, `act`, `last_time`, `last_result`, `vi_cron_name`) VALUES (5, 1546504163, 1440, 'error_log_destroy.php', 'cron_auto_del_error_log', '', 0, 1, 1, 1546506371, 1, 'Xóa các file error_log quá hạn')";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_cronjobs` (`id`, `start_time`, `inter_val`, `run_file`, `run_func`, `params`, `del`, `is_sys`, `act`, `last_time`, `last_result`, `vi_cron_name`) VALUES (6, 1546504163, 360, 'error_log_sendmail.php', 'cron_auto_sendmail_error_log', '', 0, 1, 0, 0, 0, 'Gửi email các thông báo lỗi cho admin')";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_cronjobs` (`id`, `start_time`, `inter_val`, `run_file`, `run_func`, `params`, `del`, `is_sys`, `act`, `last_time`, `last_result`, `vi_cron_name`) VALUES (7, 1546504163, 60, 'ref_expired_del.php', 'cron_ref_expired_del', '', 0, 1, 1, 1546506371, 1, 'Xóa các referer quá hạn')";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_cronjobs` (`id`, `start_time`, `inter_val`, `run_file`, `run_func`, `params`, `del`, `is_sys`, `act`, `last_time`, `last_result`, `vi_cron_name`) VALUES (8, 1546504163, 60, 'check_version.php', 'cron_auto_check_version', '', 0, 1, 1, 1546506371, 1, 'Kiểm tra phiên bản NukeViet')";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_cronjobs` (`id`, `start_time`, `inter_val`, `run_file`, `run_func`, `params`, `del`, `is_sys`, `act`, `last_time`, `last_result`, `vi_cron_name`) VALUES (9, 1546504163, 1440, 'notification_autodel.php', 'cron_notification_autodel', '', 0, 1, 1, 1546506371, 1, 'Xóa thông báo cũ')";
 
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_extension_files`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_extension_files` (
@@ -397,8 +399,8 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_extension_file
   `type` varchar(10) NOT NULL DEFAULT 'other',
   `title` varchar(55) NOT NULL DEFAULT '',
   `path` varchar(255) NOT NULL DEFAULT '',
-  `lastmodified` int(11) unsigned NOT NULL DEFAULT '0',
-  `duplicate` smallint(4) unsigned NOT NULL DEFAULT '0',
+  `lastmodified` int(11) unsigned NOT NULL DEFAULT 0,
+  `duplicate` smallint(4) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`idfile`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8";
 
@@ -407,21 +409,35 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_googleplus` (
   `gid` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL DEFAULT '',
   `idprofile` varchar(25) NOT NULL DEFAULT '',
-  `weight` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `add_time` int(11) unsigned NOT NULL DEFAULT '0',
-  `edit_time` int(11) unsigned NOT NULL DEFAULT '0',
+  `weight` mediumint(8) unsigned NOT NULL DEFAULT 0,
+  `add_time` int(11) unsigned NOT NULL DEFAULT 0,
+  `edit_time` int(11) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`gid`),
   UNIQUE KEY `idprofile` (`idprofile`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8";
 
+$sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_ips`";
+$sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_ips` (
+  `id` mediumint(8) NOT NULL AUTO_INCREMENT,
+  `type` tinyint(4) unsigned NOT NULL DEFAULT 0,
+  `ip` varchar(32) DEFAULT NULL,
+  `mask` tinyint(4) NOT NULL DEFAULT 0,
+  `area` tinyint(3) NOT NULL,
+  `begintime` int(11) DEFAULT NULL,
+  `endtime` int(11) DEFAULT NULL,
+  `notice` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `ip` (`ip`,`type`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8mb4  COLLATE=utf8mb4_unicode_ci";
+
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_language`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_language` (
   `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
-  `idfile` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `idfile` mediumint(8) unsigned NOT NULL DEFAULT 0,
   `langtype` varchar(50) NOT NULL DEFAULT 'lang_module',
   `lang_key` varchar(50) NOT NULL,
-  `lang_en` text,
-  `update_en` int(11) DEFAULT '0',
+  `lang_en` text DEFAULT NULL,
+  `update_en` int(11) DEFAULT 0,
   PRIMARY KEY (`id`),
   UNIQUE KEY `filelang` USING BTREE (`idfile`,`lang_key`,`langtype`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8";
@@ -432,7 +448,7 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_language_file`
   `module` varchar(50) NOT NULL,
   `admin_file` varchar(200) NOT NULL DEFAULT '0',
   `langtype` varchar(50) NOT NULL DEFAULT 'lang_module',
-  `author_en` text,
+  `author_en` text DEFAULT NULL,
   PRIMARY KEY (`idfile`),
   UNIQUE KEY `module` (`module`,`admin_file`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8";
@@ -441,15 +457,15 @@ $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_notifi
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_notification` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `send_to` mediumint(8) unsigned NOT NULL,
-  `send_from` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `send_from` mediumint(8) unsigned NOT NULL DEFAULT 0,
   `area` tinyint(1) unsigned NOT NULL,
   `language` char(3) NOT NULL,
   `module` varchar(50) NOT NULL,
-  `obid` int(11) unsigned NOT NULL DEFAULT '0',
+  `obid` int(11) unsigned NOT NULL DEFAULT 0,
   `type` varchar(255) NOT NULL,
   `content` text NOT NULL,
   `add_time` int(11) unsigned NOT NULL,
-  `view` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `view` tinyint(1) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8";
 
@@ -467,52 +483,52 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_plugin` (`pid`,
 
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_setup_extensions`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_setup_extensions` (
-  `id` int(11) NOT NULL DEFAULT '0',
+  `id` int(11) NOT NULL DEFAULT 0,
   `type` varchar(10) NOT NULL DEFAULT 'other',
   `title` varchar(55) NOT NULL,
-  `is_sys` tinyint(1) NOT NULL DEFAULT '0',
-  `is_virtual` tinyint(1) NOT NULL DEFAULT '0',
+  `is_sys` tinyint(1) NOT NULL DEFAULT 0,
+  `is_virtual` tinyint(1) NOT NULL DEFAULT 0,
   `basename` varchar(50) NOT NULL DEFAULT '',
   `table_prefix` varchar(55) NOT NULL DEFAULT '',
   `version` varchar(50) NOT NULL,
-  `addtime` int(11) NOT NULL DEFAULT '0',
+  `addtime` int(11) NOT NULL DEFAULT 0,
   `author` text NOT NULL,
   `note` varchar(255) DEFAULT '',
   UNIQUE KEY `title` (`type`,`title`),
   KEY `id` (`id`),
   KEY `type` (`type`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (0, 'module', 'siteterms', 0, 0, 'page', 'siteterms', '4.3.01 1517475600', 1498555144, 'VINADES (contact@vinades.vn)', '')";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (19, 'module', 'banners', 1, 0, 'banners', 'banners', '4.3.01 1517475600', 1498555144, 'VINADES (contact@vinades.vn)', '')";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (20, 'module', 'contact', 0, 1, 'contact', 'contact', '4.3.01 1517475600', 1498555144, 'VINADES (contact@vinades.vn)', '')";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (1, 'module', 'news', 0, 1, 'news', 'news', '4.3.01 1517475600', 1498555144, 'VINADES (contact@vinades.vn)', '')";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (21, 'module', 'voting', 0, 0, 'voting', 'voting', '4.3.01 1517475600', 1498555144, 'VINADES (contact@vinades.vn)', '')";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (28, 'module', 'faq', 0, 1, 'faq', 'faq', '4.3.01 1517475600', 1498555548, 'VINADES (contact@vinades.vn)', '')";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (284, 'module', 'seek', 1, 0, 'seek', 'seek', '4.3.01 1517475600', 1498555144, 'VINADES (contact@vinades.vn)', '')";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (24, 'module', 'users', 1, 1, 'users', 'users', '4.3.01 1517475600', 1498555144, 'VINADES (contact@vinades.vn)', '')";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (27, 'module', 'statistics', 0, 0, 'statistics', 'statistics', '4.3.01 1517475600', 1498555144, 'VINADES (contact@vinades.vn)', '')";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (29, 'module', 'menu', 0, 0, 'menu', 'menu', '4.3.01 1517475600', 1498555144, 'VINADES (contact@vinades.vn)', '')";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (283, 'module', 'feeds', 1, 0, 'feeds', 'feeds', '4.3.01 1517475600', 1498555144, 'VINADES (contact@vinades.vn)', '')";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (282, 'module', 'page', 1, 1, 'page', 'page', '4.3.01 1517475600', 1498555144, 'VINADES (contact@vinades.vn)', '')";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (281, 'module', 'comment', 1, 0, 'comment', 'comment', '4.3.01 1517475600', 1498555144, 'VINADES (contact@vinades.vn)', '')";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (312, 'module', 'freecontent', 0, 1, 'freecontent', 'freecontent', '4.3.01 1517475600', 1498555144, 'VINADES (contact@vinades.vn)', '')";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (327, 'module', 'two-step-verification', 1, 0, 'two-step-verification', 'two_step_verification', '4.3.01 1517475600', 1498555144, 'VINADES (contact@vinades.vn)', '')";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (307, 'theme', 'default', 0, 0, 'default', 'default', '4.3.01 1517475600', 1498555144, 'VINADES (contact@vinades.vn)', '')";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (311, 'theme', 'mobile_default', 0, 0, 'mobile_default', 'mobile_default', '4.3.01 1517475600', 1498555144, 'VINADES (contact@vinades.vn)', '')";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (254, 'module', 'laws', 0, 1, 'laws', 'laws', '4.3.01 1517475600', 1498555548, 'VINADES (contact@vinades.vn)', 'Modules văn bản pháp luật')";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (391, 'theme', 'egov', 0, 0, 'egov', 'egov', '1.0.05 1510912800', 1510912800, 'VINADES (contact@vinades.vn)', 'egov')";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (0, 'module', 'about', 0, 0, 'page', 'about', '', 1500862887, '', '')";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (374, 'module', 'organs', 0, 1, 'organs', 'organs', '4.3.01 1517475600', 1506565060, 'VINADES (contact@vinades.vn)', '')";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (0, 'module', 'co-cau-to-chuc', 0, 0, 'organs', 'co_cau_to_chuc', '', 1506565068, '', '')";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (0, 'module', 'opinions', 0, 0, 'laws', 'opinions', '', 1506570465, '', '')";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (392, 'theme', 'mobile_egov', 0, 0, 'mobile_egov', 'mobile_egov', '1.0.05 1510912800', 1510912800, 'VINADES (contact@vinades.vn)', 'Đây là giao diện mặc định cho mobile')";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (64, 'module', 'videoclips', 0, 1, 'videoclips', 'videoclips', '4.3.01 1517475600', 1510884305, 'VINADES (contact@vinades.vn)', 'Module playback of video-clips')";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (0, 'module', 'siteterms', 0, 0, 'page', 'siteterms', '4.3.04 1546504163', 1546504163, 'VINADES (contact@vinades.vn)', '')";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (19, 'module', 'banners', 1, 0, 'banners', 'banners', '4.3.04 1546504163', 1546504163, 'VINADES (contact@vinades.vn)', '')";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (20, 'module', 'contact', 0, 1, 'contact', 'contact', '4.3.04 1546504163', 1546504163, 'VINADES (contact@vinades.vn)', '')";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (1, 'module', 'news', 0, 1, 'news', 'news', '4.3.04 1546504163', 1546504163, 'VINADES (contact@vinades.vn)', '')";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (21, 'module', 'voting', 0, 0, 'voting', 'voting', '4.3.04 1546504163', 1546504163, 'VINADES (contact@vinades.vn)', '')";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (28, 'module', 'faq', 0, 1, 'faq', 'faq', '4.3.04 1546504163', 1498555548, 'VINADES (contact@vinades.vn)', '')";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (284, 'module', 'seek', 1, 0, 'seek', 'seek', '4.3.04 1546504163', 1546504163, 'VINADES (contact@vinades.vn)', '')";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (24, 'module', 'users', 1, 1, 'users', 'users', '4.3.04 1546504163', 1546504163, 'VINADES (contact@vinades.vn)', '')";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (27, 'module', 'statistics', 0, 0, 'statistics', 'statistics', '4.3.04 1546504163', 1546504163, 'VINADES (contact@vinades.vn)', '')";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (29, 'module', 'menu', 0, 0, 'menu', 'menu', '4.3.04 1546504163', 1546504163, 'VINADES (contact@vinades.vn)', '')";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (283, 'module', 'feeds', 1, 0, 'feeds', 'feeds', '4.3.04 1546504163', 1546504163, 'VINADES (contact@vinades.vn)', '')";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (282, 'module', 'page', 1, 1, 'page', 'page', '4.3.04 1546504163', 1546504163, 'VINADES (contact@vinades.vn)', '')";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (281, 'module', 'comment', 1, 0, 'comment', 'comment', '4.3.04 1546504163', 1546504163, 'VINADES (contact@vinades.vn)', '')";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (312, 'module', 'freecontent', 0, 1, 'freecontent', 'freecontent', '4.3.04 1546504163', 1546504163, 'VINADES (contact@vinades.vn)', '')";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (327, 'module', 'two-step-verification', 1, 0, 'two-step-verification', 'two_step_verification', '4.3.04 1546504163', 1546504163, 'VINADES (contact@vinades.vn)', '')";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (307, 'theme', 'default', 0, 0, 'default', 'default', '4.3.04 1546504163', 1546504163, 'VINADES (contact@vinades.vn)', '')";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (311, 'theme', 'mobile_default', 0, 0, 'mobile_default', 'mobile_default', '4.3.04 1546504163', 1546504163, 'VINADES (contact@vinades.vn)', '')";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (254, 'module', 'laws', 0, 1, 'laws', 'laws', '4.3.04 1546504163', 1498555548, 'VINADES (contact@vinades.vn)', 'Modules văn bản pháp luật')";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (391, 'theme', 'egov', 0, 0, 'egov', 'egov', '4.3.04 1546504163', 1510912800, 'VINADES (contact@vinades.vn)', 'egov')";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (0, 'module', 'about', 0, 0, 'page', 'about', '4.3.04 1546504163', 1500862887, '', '')";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (374, 'module', 'organs', 0, 1, 'organs', 'organs', '4.3.04 1546504163', 1506565060, 'VINADES (contact@vinades.vn)', '')";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (0, 'module', 'co-cau-to-chuc', 0, 0, 'organs', 'co_cau_to_chuc', '4.3.04 1546504163', 1506565068, '', '')";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (0, 'module', 'opinions', 0, 0, 'laws', 'opinions', '4.3.04 1546504163', 1506570465, '', '')";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (392, 'theme', 'mobile_egov', 0, 0, 'mobile_egov', 'mobile_egov', '4.3.04 1546504163', 1510912800, 'VINADES (contact@vinades.vn)', 'Đây là giao diện mặc định cho mobile')";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_extensions` (`id`, `type`, `title`, `is_sys`, `is_virtual`, `basename`, `table_prefix`, `version`, `addtime`, `author`, `note`) VALUES (64, 'module', 'videoclips', 0, 1, 'videoclips', 'videoclips', '4.3.04 1546504163', 1510884305, 'VINADES (contact@vinades.vn)', 'Module playback of video-clips')";
 
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_setup_language`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_setup_language` (
   `lang` char(2) NOT NULL,
-  `setup` tinyint(1) NOT NULL DEFAULT '0',
-  `weight` smallint(4) unsigned NOT NULL DEFAULT '0',
+  `setup` tinyint(1) NOT NULL DEFAULT 0,
+  `weight` smallint(4) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`lang`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_setup_language` (`lang`, `setup`, `weight`) VALUES ('vi', 1, 1)";
@@ -521,50 +537,50 @@ $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_users_
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_users_backupcodes` (
   `userid` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
   `code` varchar(20) NOT NULL,
-  `is_used` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `time_used` int(11) unsigned NOT NULL DEFAULT '0',
-  `time_creat` int(11) unsigned NOT NULL DEFAULT '0',
+  `is_used` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `time_used` int(11) unsigned NOT NULL DEFAULT 0,
+  `time_creat` int(11) unsigned NOT NULL DEFAULT 0,
   UNIQUE KEY `userid` (`userid`,`code`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8";
 
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_users_config`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_users_config` (
   `config` varchar(100) NOT NULL,
-  `content` text,
-  `edit_time` int(11) unsigned NOT NULL DEFAULT '0',
+  `content` text DEFAULT NULL,
+  `edit_time` int(11) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`config`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_users_config` (`config`, `content`, `edit_time`) VALUES ('access_admin', 'a:6:{s:12:\"access_addus\";a:3:{i:1;b:1;i:2;b:1;i:3;b:1;}s:14:\"access_waiting\";a:3:{i:1;b:1;i:2;b:1;i:3;b:1;}s:13:\"access_editus\";a:3:{i:1;b:1;i:2;b:1;i:3;b:1;}s:12:\"access_delus\";a:3:{i:1;b:1;i:2;b:1;i:3;b:1;}s:13:\"access_passus\";a:3:{i:1;b:1;i:2;b:1;i:3;b:1;}s:13:\"access_groups\";a:3:{i:1;b:1;i:2;b:1;i:3;b:1;}}', 1352873462)";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_users_config` (`config`, `content`, `edit_time`) VALUES ('password_simple', '000000|1234|2000|12345|111111|123123|123456|11223344|654321|696969|1234567|12345678|87654321|123456789|23456789|1234567890|66666666|68686868|66668888|88888888|99999999|999999999|1234569|12345679|aaaaaa|abc123|abc123@|abc@123|admin123|admin123@|admin@123|nuke123|nuke123@|nuke@123|adobe1|adobe123|azerty|baseball|dragon|football|harley|iloveyou|jennifer|jordan|letmein|macromedia|master|michael|monkey|mustang|password|photoshop|pussy|qwerty|shadow|superman|hoilamgi|khongbiet|khongco|khongcopass', 1498555144)";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_users_config` (`config`, `content`, `edit_time`) VALUES ('deny_email', 'yoursite.com|mysite.com|localhost|xxx', 1498555144)";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_users_config` (`config`, `content`, `edit_time`) VALUES ('deny_name', 'anonimo|anonymous|god|linux|nobody|operator|root', 1498555144)";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_users_config` (`config`, `content`, `edit_time`) VALUES ('avatar_width', '80', 1498555144)";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_users_config` (`config`, `content`, `edit_time`) VALUES ('avatar_height', '80', 1498555144)";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_users_config` (`config`, `content`, `edit_time`) VALUES ('active_group_newusers', '0', 1498555144)";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_users_config` (`config`, `content`, `edit_time`) VALUES ('min_old_user', '16', 1498555144)";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_users_config` (`config`, `content`, `edit_time`) VALUES ('password_simple', '000000|1234|2000|12345|111111|123123|123456|11223344|654321|696969|1234567|12345678|87654321|123456789|23456789|1234567890|66666666|68686868|66668888|88888888|99999999|999999999|1234569|12345679|aaaaaa|abc123|abc123@|abc@123|admin123|admin123@|admin@123|nuke123|nuke123@|nuke@123|adobe1|adobe123|azerty|baseball|dragon|football|harley|iloveyou|jennifer|jordan|letmein|macromedia|master|michael|monkey|mustang|password|photoshop|pussy|qwerty|shadow|superman|hoilamgi|khongbiet|khongco|khongcopass', 1546504163)";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_users_config` (`config`, `content`, `edit_time`) VALUES ('deny_email', 'yoursite.com|mysite.com|localhost|xxx', 1546504163)";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_users_config` (`config`, `content`, `edit_time`) VALUES ('deny_name', 'anonimo|anonymous|god|linux|nobody|operator|root', 1546504163)";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_users_config` (`config`, `content`, `edit_time`) VALUES ('avatar_width', '80', 1546504163)";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_users_config` (`config`, `content`, `edit_time`) VALUES ('avatar_height', '80', 1546504163)";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_users_config` (`config`, `content`, `edit_time`) VALUES ('active_group_newusers', '0', 1546504163)";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_users_config` (`config`, `content`, `edit_time`) VALUES ('min_old_user', '16', 1546504163)";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_users_config` (`config`, `content`, `edit_time`) VALUES ('siteterms_vi', '<p> Để trở thành thành viên, bạn phải cam kết đồng ý với các điều khoản dưới đây. Chúng tôi có thể thay đổi lại những điều khoản này vào bất cứ lúc nào và chúng tôi sẽ cố gắng thông báo đến bạn kịp thời.<br /> <br /> Bạn cam kết không gửi bất cứ bài viết có nội dung lừa đảo, thô tục, thiếu văn hoá; vu khống, khiêu khích, đe doạ người khác; liên quan đến các vấn đề tình dục hay bất cứ nội dung nào vi phạm luật pháp của quốc gia mà bạn đang sống, luật pháp của quốc gia nơi đặt máy chủ của website này hay luật pháp quốc tế. Nếu vẫn cố tình vi phạm, ngay lập tức bạn sẽ bị cấm tham gia vào website. Địa chỉ IP của tất cả các bài viết đều được ghi nhận lại để bảo vệ các điều khoản cam kết này trong trường hợp bạn không tuân thủ.<br /> <br /> Bạn đồng ý rằng website có quyền gỡ bỏ, sửa, di chuyển hoặc khoá bất kỳ bài viết nào trong website vào bất cứ lúc nào tuỳ theo nhu cầu công việc.<br /> <br /> Đăng ký làm thành viên của chúng tôi, bạn cũng phải đồng ý rằng, bất kỳ thông tin cá nhân nào mà bạn cung cấp đều được lưu trữ trong cơ sở dữ liệu của hệ thống. Mặc dù những thông tin này sẽ không được cung cấp cho bất kỳ người thứ ba nào khác mà không được sự đồng ý của bạn, chúng tôi không chịu trách nhiệm về việc những thông tin cá nhân này của bạn bị lộ ra bên ngoài từ những kẻ phá hoại có ý đồ xấu tấn công vào cơ sở dữ liệu của hệ thống.</p>', 1274757129)";
 
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_users_field`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_users_field` (
   `fid` mediumint(8) NOT NULL AUTO_INCREMENT,
   `field` varchar(25) NOT NULL,
-  `weight` int(10) unsigned NOT NULL DEFAULT '1',
+  `weight` int(10) unsigned NOT NULL DEFAULT 1,
   `field_type` enum('number','date','textbox','textarea','editor','select','radio','checkbox','multiselect') NOT NULL DEFAULT 'textbox',
   `field_choices` text NOT NULL,
   `sql_choices` text NOT NULL,
   `match_type` enum('none','alphanumeric','email','url','regex','callback') NOT NULL DEFAULT 'none',
   `match_regex` varchar(250) NOT NULL DEFAULT '',
   `func_callback` varchar(75) NOT NULL DEFAULT '',
-  `min_length` int(11) NOT NULL DEFAULT '0',
-  `max_length` bigint(20) unsigned NOT NULL DEFAULT '0',
-  `required` tinyint(3) unsigned NOT NULL DEFAULT '0',
-  `show_register` tinyint(3) unsigned NOT NULL DEFAULT '0',
-  `user_editable` tinyint(3) unsigned NOT NULL DEFAULT '0',
-  `show_profile` tinyint(4) NOT NULL DEFAULT '1',
+  `min_length` int(11) NOT NULL DEFAULT 0,
+  `max_length` bigint(20) unsigned NOT NULL DEFAULT 0,
+  `required` tinyint(3) unsigned NOT NULL DEFAULT 0,
+  `show_register` tinyint(3) unsigned NOT NULL DEFAULT 0,
+  `user_editable` tinyint(3) unsigned NOT NULL DEFAULT 0,
+  `show_profile` tinyint(4) NOT NULL DEFAULT 1,
   `class` varchar(50) NOT NULL,
   `language` text NOT NULL,
   `default_value` varchar(255) NOT NULL DEFAULT '',
-  `system` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `system` tinyint(1) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`fid`),
   UNIQUE KEY `field` (`field`)
 ) ENGINE=MyISAM  AUTO_INCREMENT=8  DEFAULT CHARSET=utf8";
@@ -581,43 +597,43 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_users_groups` 
   `group_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(240) NOT NULL,
   `email` varchar(100) DEFAULT '',
-  `description` text,
-  `content` text,
-  `group_type` tinyint(4) unsigned NOT NULL DEFAULT '0' COMMENT '0:Sys, 1:approval, 2:public',
+  `description` text DEFAULT NULL,
+  `content` text DEFAULT NULL,
+  `group_type` tinyint(4) unsigned NOT NULL DEFAULT 0 COMMENT '0:Sys, 1:approval, 2:public',
   `group_color` varchar(10) NOT NULL,
   `group_avatar` varchar(255) NOT NULL,
-  `require_2step_admin` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `require_2step_site` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `is_default` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `require_2step_admin` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `require_2step_site` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `is_default` tinyint(1) unsigned NOT NULL DEFAULT 0,
   `add_time` int(11) NOT NULL,
   `exp_time` int(11) NOT NULL,
-  `weight` int(11) unsigned NOT NULL DEFAULT '0',
+  `weight` int(11) unsigned NOT NULL DEFAULT 0,
   `act` tinyint(1) unsigned NOT NULL,
-  `idsite` int(11) unsigned NOT NULL DEFAULT '0',
-  `numbers` mediumint(9) unsigned NOT NULL DEFAULT '0',
-  `siteus` tinyint(4) unsigned NOT NULL DEFAULT '0',
+  `idsite` int(11) unsigned NOT NULL DEFAULT 0,
+  `numbers` mediumint(9) unsigned NOT NULL DEFAULT 0,
+  `siteus` tinyint(4) unsigned NOT NULL DEFAULT 0,
   `config` varchar(250) DEFAULT '',
   PRIMARY KEY (`group_id`),
   UNIQUE KEY `ktitle` (`title`,`idsite`),
   KEY `exp_time` (`exp_time`)
 ) ENGINE=MyISAM  AUTO_INCREMENT=13  DEFAULT CHARSET=utf8";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_users_groups` (`group_id`, `title`, `email`, `description`, `content`, `group_type`, `group_color`, `group_avatar`, `require_2step_admin`, `require_2step_site`, `is_default`, `add_time`, `exp_time`, `weight`, `act`, `idsite`, `numbers`, `siteus`, `config`) VALUES (1, 'Super admin', '', 'Super Admin', '', 0, '', '', 0, 0, 0, 1498555144, 0, 1, 1, 0, 1, 0, 'a:7:{s:17:\"access_groups_add\";i:1;s:17:\"access_groups_del\";i:1;s:12:\"access_addus\";i:0;s:14:\"access_waiting\";i:0;s:13:\"access_editus\";i:0;s:12:\"access_delus\";i:0;s:13:\"access_passus\";i:0;}')";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_users_groups` (`group_id`, `title`, `email`, `description`, `content`, `group_type`, `group_color`, `group_avatar`, `require_2step_admin`, `require_2step_site`, `is_default`, `add_time`, `exp_time`, `weight`, `act`, `idsite`, `numbers`, `siteus`, `config`) VALUES (2, 'General admin', '', 'General Admin', '', 0, '', '', 0, 0, 0, 1498555144, 0, 2, 1, 0, 4, 0, 'a:7:{s:17:\"access_groups_add\";i:1;s:17:\"access_groups_del\";i:1;s:12:\"access_addus\";i:0;s:14:\"access_waiting\";i:0;s:13:\"access_editus\";i:0;s:12:\"access_delus\";i:0;s:13:\"access_passus\";i:0;}')";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_users_groups` (`group_id`, `title`, `email`, `description`, `content`, `group_type`, `group_color`, `group_avatar`, `require_2step_admin`, `require_2step_site`, `is_default`, `add_time`, `exp_time`, `weight`, `act`, `idsite`, `numbers`, `siteus`, `config`) VALUES (3, 'Module admin', '', 'Module Admin', '', 0, '', '', 0, 0, 0, 1498555144, 0, 3, 1, 0, 0, 0, 'a:7:{s:17:\"access_groups_add\";i:1;s:17:\"access_groups_del\";i:1;s:12:\"access_addus\";i:0;s:14:\"access_waiting\";i:0;s:13:\"access_editus\";i:0;s:12:\"access_delus\";i:0;s:13:\"access_passus\";i:0;}')";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_users_groups` (`group_id`, `title`, `email`, `description`, `content`, `group_type`, `group_color`, `group_avatar`, `require_2step_admin`, `require_2step_site`, `is_default`, `add_time`, `exp_time`, `weight`, `act`, `idsite`, `numbers`, `siteus`, `config`) VALUES (4, 'Users', '', 'Users', '', 0, '', '', 0, 0, 0, 1498555144, 0, 4, 1, 0, 1, 0, 'a:7:{s:17:\"access_groups_add\";i:1;s:17:\"access_groups_del\";i:1;s:12:\"access_addus\";i:0;s:14:\"access_waiting\";i:0;s:13:\"access_editus\";i:0;s:12:\"access_delus\";i:0;s:13:\"access_passus\";i:0;}')";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_users_groups` (`group_id`, `title`, `email`, `description`, `content`, `group_type`, `group_color`, `group_avatar`, `require_2step_admin`, `require_2step_site`, `is_default`, `add_time`, `exp_time`, `weight`, `act`, `idsite`, `numbers`, `siteus`, `config`) VALUES (7, 'New Users', '', 'New Users', '', 0, '', '', 0, 0, 0, 1498555144, 0, 5, 1, 0, 0, 0, 'a:7:{s:17:\"access_groups_add\";i:1;s:17:\"access_groups_del\";i:1;s:12:\"access_addus\";i:0;s:14:\"access_waiting\";i:0;s:13:\"access_editus\";i:0;s:12:\"access_delus\";i:0;s:13:\"access_passus\";i:0;}')";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_users_groups` (`group_id`, `title`, `email`, `description`, `content`, `group_type`, `group_color`, `group_avatar`, `require_2step_admin`, `require_2step_site`, `is_default`, `add_time`, `exp_time`, `weight`, `act`, `idsite`, `numbers`, `siteus`, `config`) VALUES (5, 'Guest', '', 'Guest', '', 0, '', '', 0, 0, 0, 1498555144, 0, 6, 1, 0, 0, 0, 'a:7:{s:17:\"access_groups_add\";i:1;s:17:\"access_groups_del\";i:1;s:12:\"access_addus\";i:0;s:14:\"access_waiting\";i:0;s:13:\"access_editus\";i:0;s:12:\"access_delus\";i:0;s:13:\"access_passus\";i:0;}')";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_users_groups` (`group_id`, `title`, `email`, `description`, `content`, `group_type`, `group_color`, `group_avatar`, `require_2step_admin`, `require_2step_site`, `is_default`, `add_time`, `exp_time`, `weight`, `act`, `idsite`, `numbers`, `siteus`, `config`) VALUES (6, 'All', '', 'All', '', 0, '', '', 0, 0, 0, 1498555144, 0, 7, 1, 0, 0, 0, 'a:7:{s:17:\"access_groups_add\";i:1;s:17:\"access_groups_del\";i:1;s:12:\"access_addus\";i:0;s:14:\"access_waiting\";i:0;s:13:\"access_editus\";i:0;s:12:\"access_delus\";i:0;s:13:\"access_passus\";i:0;}')";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_users_groups` (`group_id`, `title`, `email`, `description`, `content`, `group_type`, `group_color`, `group_avatar`, `require_2step_admin`, `require_2step_site`, `is_default`, `add_time`, `exp_time`, `weight`, `act`, `idsite`, `numbers`, `siteus`, `config`) VALUES (10, 'NukeViet-Fans', '', 'Nhóm những người hâm mộ hệ thống NukeViet', '', 2, '', '', 0, 0, 1, 1498555144, 0, 8, 1, 0, 0, 0, 'a:7:{s:17:\"access_groups_add\";i:1;s:17:\"access_groups_del\";i:1;s:12:\"access_addus\";i:0;s:14:\"access_waiting\";i:0;s:13:\"access_editus\";i:0;s:12:\"access_delus\";i:0;s:13:\"access_passus\";i:0;}')";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_users_groups` (`group_id`, `title`, `email`, `description`, `content`, `group_type`, `group_color`, `group_avatar`, `require_2step_admin`, `require_2step_site`, `is_default`, `add_time`, `exp_time`, `weight`, `act`, `idsite`, `numbers`, `siteus`, `config`) VALUES (11, 'NukeViet-Admins', '', 'Nhóm những người quản lý website xây dựng bằng hệ thống NukeViet', '', 2, '', '', 0, 0, 0, 1498555144, 0, 9, 1, 0, 0, 0, 'a:7:{s:17:\"access_groups_add\";i:1;s:17:\"access_groups_del\";i:1;s:12:\"access_addus\";i:0;s:14:\"access_waiting\";i:0;s:13:\"access_editus\";i:0;s:12:\"access_delus\";i:0;s:13:\"access_passus\";i:0;}')";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_users_groups` (`group_id`, `title`, `email`, `description`, `content`, `group_type`, `group_color`, `group_avatar`, `require_2step_admin`, `require_2step_site`, `is_default`, `add_time`, `exp_time`, `weight`, `act`, `idsite`, `numbers`, `siteus`, `config`) VALUES (12, 'NukeViet-Programmers', '', 'Nhóm Lập trình viên hệ thống NukeViet', '', 1, '', '', 0, 0, 0, 1498555144, 0, 10, 1, 0, 0, 0, 'a:7:{s:17:\"access_groups_add\";i:1;s:17:\"access_groups_del\";i:1;s:12:\"access_addus\";i:0;s:14:\"access_waiting\";i:0;s:13:\"access_editus\";i:0;s:12:\"access_delus\";i:0;s:13:\"access_passus\";i:0;}')";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_users_groups` (`group_id`, `title`, `email`, `description`, `content`, `group_type`, `group_color`, `group_avatar`, `require_2step_admin`, `require_2step_site`, `is_default`, `add_time`, `exp_time`, `weight`, `act`, `idsite`, `numbers`, `siteus`, `config`) VALUES (1, 'Super admin', '', 'Super Admin', '', 0, '', '', 0, 0, 0, 1546504163, 0, 1, 1, 0, 1, 0, 'a:7:{s:17:\"access_groups_add\";i:1;s:17:\"access_groups_del\";i:1;s:12:\"access_addus\";i:0;s:14:\"access_waiting\";i:0;s:13:\"access_editus\";i:0;s:12:\"access_delus\";i:0;s:13:\"access_passus\";i:0;}')";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_users_groups` (`group_id`, `title`, `email`, `description`, `content`, `group_type`, `group_color`, `group_avatar`, `require_2step_admin`, `require_2step_site`, `is_default`, `add_time`, `exp_time`, `weight`, `act`, `idsite`, `numbers`, `siteus`, `config`) VALUES (2, 'General admin', '', 'General Admin', '', 0, '', '', 0, 0, 0, 1546504163, 0, 2, 1, 0, 4, 0, 'a:7:{s:17:\"access_groups_add\";i:1;s:17:\"access_groups_del\";i:1;s:12:\"access_addus\";i:0;s:14:\"access_waiting\";i:0;s:13:\"access_editus\";i:0;s:12:\"access_delus\";i:0;s:13:\"access_passus\";i:0;}')";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_users_groups` (`group_id`, `title`, `email`, `description`, `content`, `group_type`, `group_color`, `group_avatar`, `require_2step_admin`, `require_2step_site`, `is_default`, `add_time`, `exp_time`, `weight`, `act`, `idsite`, `numbers`, `siteus`, `config`) VALUES (3, 'Module admin', '', 'Module Admin', '', 0, '', '', 0, 0, 0, 1546504163, 0, 3, 1, 0, 0, 0, 'a:7:{s:17:\"access_groups_add\";i:1;s:17:\"access_groups_del\";i:1;s:12:\"access_addus\";i:0;s:14:\"access_waiting\";i:0;s:13:\"access_editus\";i:0;s:12:\"access_delus\";i:0;s:13:\"access_passus\";i:0;}')";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_users_groups` (`group_id`, `title`, `email`, `description`, `content`, `group_type`, `group_color`, `group_avatar`, `require_2step_admin`, `require_2step_site`, `is_default`, `add_time`, `exp_time`, `weight`, `act`, `idsite`, `numbers`, `siteus`, `config`) VALUES (4, 'Users', '', 'Users', '', 0, '', '', 0, 0, 0, 1546504163, 0, 4, 1, 0, 1, 0, 'a:7:{s:17:\"access_groups_add\";i:1;s:17:\"access_groups_del\";i:1;s:12:\"access_addus\";i:0;s:14:\"access_waiting\";i:0;s:13:\"access_editus\";i:0;s:12:\"access_delus\";i:0;s:13:\"access_passus\";i:0;}')";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_users_groups` (`group_id`, `title`, `email`, `description`, `content`, `group_type`, `group_color`, `group_avatar`, `require_2step_admin`, `require_2step_site`, `is_default`, `add_time`, `exp_time`, `weight`, `act`, `idsite`, `numbers`, `siteus`, `config`) VALUES (7, 'New Users', '', 'New Users', '', 0, '', '', 0, 0, 0, 1546504163, 0, 5, 1, 0, 0, 0, 'a:7:{s:17:\"access_groups_add\";i:1;s:17:\"access_groups_del\";i:1;s:12:\"access_addus\";i:0;s:14:\"access_waiting\";i:0;s:13:\"access_editus\";i:0;s:12:\"access_delus\";i:0;s:13:\"access_passus\";i:0;}')";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_users_groups` (`group_id`, `title`, `email`, `description`, `content`, `group_type`, `group_color`, `group_avatar`, `require_2step_admin`, `require_2step_site`, `is_default`, `add_time`, `exp_time`, `weight`, `act`, `idsite`, `numbers`, `siteus`, `config`) VALUES (5, 'Guest', '', 'Guest', '', 0, '', '', 0, 0, 0, 1546504163, 0, 6, 1, 0, 0, 0, 'a:7:{s:17:\"access_groups_add\";i:1;s:17:\"access_groups_del\";i:1;s:12:\"access_addus\";i:0;s:14:\"access_waiting\";i:0;s:13:\"access_editus\";i:0;s:12:\"access_delus\";i:0;s:13:\"access_passus\";i:0;}')";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_users_groups` (`group_id`, `title`, `email`, `description`, `content`, `group_type`, `group_color`, `group_avatar`, `require_2step_admin`, `require_2step_site`, `is_default`, `add_time`, `exp_time`, `weight`, `act`, `idsite`, `numbers`, `siteus`, `config`) VALUES (6, 'All', '', 'All', '', 0, '', '', 0, 0, 0, 1546504163, 0, 7, 1, 0, 0, 0, 'a:7:{s:17:\"access_groups_add\";i:1;s:17:\"access_groups_del\";i:1;s:12:\"access_addus\";i:0;s:14:\"access_waiting\";i:0;s:13:\"access_editus\";i:0;s:12:\"access_delus\";i:0;s:13:\"access_passus\";i:0;}')";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_users_groups` (`group_id`, `title`, `email`, `description`, `content`, `group_type`, `group_color`, `group_avatar`, `require_2step_admin`, `require_2step_site`, `is_default`, `add_time`, `exp_time`, `weight`, `act`, `idsite`, `numbers`, `siteus`, `config`) VALUES (10, 'NukeViet-Fans', '', 'Nhóm những người hâm mộ hệ thống NukeViet', '', 2, '', '', 0, 0, 1, 1546504163, 0, 8, 1, 0, 0, 0, 'a:7:{s:17:\"access_groups_add\";i:1;s:17:\"access_groups_del\";i:1;s:12:\"access_addus\";i:0;s:14:\"access_waiting\";i:0;s:13:\"access_editus\";i:0;s:12:\"access_delus\";i:0;s:13:\"access_passus\";i:0;}')";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_users_groups` (`group_id`, `title`, `email`, `description`, `content`, `group_type`, `group_color`, `group_avatar`, `require_2step_admin`, `require_2step_site`, `is_default`, `add_time`, `exp_time`, `weight`, `act`, `idsite`, `numbers`, `siteus`, `config`) VALUES (11, 'NukeViet-Admins', '', 'Nhóm những người quản lý website xây dựng bằng hệ thống NukeViet', '', 2, '', '', 0, 0, 0, 1546504163, 0, 9, 1, 0, 0, 0, 'a:7:{s:17:\"access_groups_add\";i:1;s:17:\"access_groups_del\";i:1;s:12:\"access_addus\";i:0;s:14:\"access_waiting\";i:0;s:13:\"access_editus\";i:0;s:12:\"access_delus\";i:0;s:13:\"access_passus\";i:0;}')";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_users_groups` (`group_id`, `title`, `email`, `description`, `content`, `group_type`, `group_color`, `group_avatar`, `require_2step_admin`, `require_2step_site`, `is_default`, `add_time`, `exp_time`, `weight`, `act`, `idsite`, `numbers`, `siteus`, `config`) VALUES (12, 'NukeViet-Programmers', '', 'Nhóm Lập trình viên hệ thống NukeViet', '', 1, '', '', 0, 0, 0, 1546504163, 0, 10, 1, 0, 0, 0, 'a:7:{s:17:\"access_groups_add\";i:1;s:17:\"access_groups_del\";i:1;s:12:\"access_addus\";i:0;s:14:\"access_waiting\";i:0;s:13:\"access_editus\";i:0;s:12:\"access_delus\";i:0;s:13:\"access_passus\";i:0;}')";
 
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_users_groups_users`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_users_groups_users` (
-  `group_id` smallint(5) unsigned NOT NULL DEFAULT '0',
-  `userid` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `is_leader` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `approved` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `group_id` smallint(5) unsigned NOT NULL DEFAULT 0,
+  `userid` mediumint(8) unsigned NOT NULL DEFAULT 0,
+  `is_leader` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `approved` tinyint(1) unsigned NOT NULL DEFAULT 0,
   `data` text NOT NULL,
   PRIMARY KEY (`group_id`,`userid`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8";
@@ -632,7 +648,7 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_users_info` (`u
 
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_users_openid`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_users_openid` (
-  `userid` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `userid` mediumint(8) unsigned NOT NULL DEFAULT 0,
   `openid` varchar(255) NOT NULL DEFAULT '',
   `opid` varchar(50) NOT NULL DEFAULT '',
   `email` varchar(100) NOT NULL DEFAULT '',
@@ -646,9 +662,9 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_users_question
   `qid` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(240) NOT NULL DEFAULT '',
   `lang` char(2) NOT NULL DEFAULT '',
-  `weight` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `add_time` int(11) unsigned NOT NULL DEFAULT '0',
-  `edit_time` int(11) unsigned NOT NULL DEFAULT '0',
+  `weight` mediumint(8) unsigned NOT NULL DEFAULT 0,
+  `add_time` int(11) unsigned NOT NULL DEFAULT 0,
+  `edit_time` int(11) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`qid`),
   UNIQUE KEY `title` (`title`,`lang`)
 ) ENGINE=MyISAM  AUTO_INCREMENT=17  DEFAULT CHARSET=utf8";
@@ -671,13 +687,13 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_users_reg` (
   `last_name` varchar(255) NOT NULL DEFAULT '',
   `gender` char(1) NOT NULL DEFAULT '',
   `birthday` int(11) NOT NULL,
-  `sig` text,
-  `regdate` int(11) unsigned NOT NULL DEFAULT '0',
+  `sig` text DEFAULT NULL,
+  `regdate` int(11) unsigned NOT NULL DEFAULT 0,
   `question` varchar(255) NOT NULL,
   `answer` varchar(255) NOT NULL DEFAULT '',
   `checknum` varchar(50) NOT NULL DEFAULT '',
-  `users_info` text,
-  `openid_info` text,
+  `users_info` text DEFAULT NULL,
+  `openid_info` text DEFAULT NULL,
   PRIMARY KEY (`userid`),
   UNIQUE KEY `login` (`username`),
   UNIQUE KEY `md5username` (`md5username`),
@@ -691,21 +707,21 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_about` (
   `alias` varchar(250) NOT NULL,
   `image` varchar(255) DEFAULT '',
   `imagealt` varchar(255) DEFAULT '',
-  `imageposition` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `description` text,
+  `imageposition` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `description` text DEFAULT NULL,
   `bodytext` mediumtext NOT NULL,
-  `keywords` text,
-  `socialbutton` tinyint(4) NOT NULL DEFAULT '0',
+  `keywords` text DEFAULT NULL,
+  `socialbutton` tinyint(4) NOT NULL DEFAULT 0,
   `activecomm` varchar(255) DEFAULT '',
   `layout_func` varchar(100) DEFAULT '',
-  `gid` mediumint(9) NOT NULL DEFAULT '0',
-  `weight` smallint(4) NOT NULL DEFAULT '0',
-  `admin_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `add_time` int(11) NOT NULL DEFAULT '0',
-  `edit_time` int(11) NOT NULL DEFAULT '0',
-  `status` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `hitstotal` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `hot_post` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `gid` mediumint(9) NOT NULL DEFAULT 0,
+  `weight` smallint(4) NOT NULL DEFAULT 0,
+  `admin_id` mediumint(8) unsigned NOT NULL DEFAULT 0,
+  `add_time` int(11) NOT NULL DEFAULT 0,
+  `edit_time` int(11) NOT NULL DEFAULT 0,
+  `status` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `hitstotal` mediumint(8) unsigned NOT NULL DEFAULT 0,
+  `hot_post` tinyint(1) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   UNIQUE KEY `alias` (`alias`)
 ) ENGINE=MyISAM  AUTO_INCREMENT=3  DEFAULT CHARSET=utf8";
@@ -736,13 +752,13 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_blocks_grou
   `link` varchar(255) DEFAULT NULL,
   `template` varchar(55) DEFAULT NULL,
   `position` varchar(55) DEFAULT NULL,
-  `exp_time` int(11) DEFAULT '0',
+  `exp_time` int(11) DEFAULT 0,
   `active` varchar(10) DEFAULT '1',
-  `act` tinyint(1) unsigned NOT NULL DEFAULT '1',
+  `act` tinyint(1) unsigned NOT NULL DEFAULT 1,
   `groups_view` varchar(255) DEFAULT '',
-  `all_func` tinyint(4) NOT NULL DEFAULT '0',
-  `weight` int(11) NOT NULL DEFAULT '0',
-  `config` text,
+  `all_func` tinyint(4) NOT NULL DEFAULT 0,
+  `weight` int(11) NOT NULL DEFAULT 0,
+  `config` text DEFAULT NULL,
   PRIMARY KEY (`bid`),
   KEY `theme` (`theme`),
   KEY `module` (`module`),
@@ -799,9 +815,9 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_group
 
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_blocks_weight`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_blocks_weight` (
-  `bid` mediumint(8) NOT NULL DEFAULT '0',
-  `func_id` mediumint(8) NOT NULL DEFAULT '0',
-  `weight` mediumint(8) NOT NULL DEFAULT '0',
+  `bid` mediumint(8) NOT NULL DEFAULT 0,
+  `func_id` mediumint(8) NOT NULL DEFAULT 0,
+  `weight` mediumint(8) NOT NULL DEFAULT 0,
   UNIQUE KEY `bid` (`bid`,`func_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weight` (`bid`, `func_id`, `weight`) VALUES (16, 1, 1)";
@@ -3563,13 +3579,13 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_blocks_weigh
 
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_co_cau_to_chuc_admins`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_co_cau_to_chuc_admins` (
-  `userid` int(11) unsigned NOT NULL DEFAULT '0',
-  `organid` int(11) NOT NULL DEFAULT '0',
-  `admin` tinyint(4) NOT NULL DEFAULT '0',
-  `add_content` tinyint(4) NOT NULL DEFAULT '0',
-  `edit_content` tinyint(4) NOT NULL DEFAULT '0',
-  `status_content` tinyint(4) NOT NULL DEFAULT '0',
-  `del_content` tinyint(4) NOT NULL DEFAULT '0'
+  `userid` int(11) unsigned NOT NULL DEFAULT 0,
+  `organid` int(11) NOT NULL DEFAULT 0,
+  `admin` tinyint(4) NOT NULL DEFAULT 0,
+  `add_content` tinyint(4) NOT NULL DEFAULT 0,
+  `edit_content` tinyint(4) NOT NULL DEFAULT 0,
+  `status_content` tinyint(4) NOT NULL DEFAULT 0,
+  `del_content` tinyint(4) NOT NULL DEFAULT 0
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8mb4  COLLATE=utf8mb4_unicode_ci";
 
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_co_cau_to_chuc_config`";
@@ -3604,10 +3620,10 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_co_cau_to_c
   `addtime` int(11) NOT NULL,
   `edittime` int(11) NOT NULL,
   `organid` int(11) NOT NULL,
-  `weight` int(8) NOT NULL DEFAULT '0',
-  `active` tinyint(2) NOT NULL DEFAULT '0',
-  `dayinto` int(11) NOT NULL DEFAULT '0',
-  `dayparty` int(11) NOT NULL DEFAULT '0',
+  `weight` int(8) NOT NULL DEFAULT 0,
+  `active` tinyint(2) NOT NULL DEFAULT 0,
+  `dayinto` int(11) NOT NULL DEFAULT 0,
+  `dayparty` int(11) NOT NULL DEFAULT 0,
   `marital_status` text NOT NULL,
   `professional` text NOT NULL,
   `political` text NOT NULL,
@@ -3625,19 +3641,19 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_co_cau_to_ch
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_co_cau_to_chuc_rows`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_co_cau_to_chuc_rows` (
   `organid` mediumint(11) unsigned NOT NULL AUTO_INCREMENT,
-  `parentid` mediumint(11) unsigned NOT NULL DEFAULT '0',
+  `parentid` mediumint(11) unsigned NOT NULL DEFAULT 0,
   `title` varchar(250) NOT NULL,
   `alias` varchar(250) NOT NULL DEFAULT '',
   `image` varchar(255) NOT NULL DEFAULT '',
   `thumbnail` varchar(255) NOT NULL DEFAULT '',
-  `weight` smallint(4) unsigned NOT NULL DEFAULT '0',
-  `orders` int(8) NOT NULL DEFAULT '0',
-  `numsub` int(8) NOT NULL DEFAULT '0',
+  `weight` smallint(4) unsigned NOT NULL DEFAULT 0,
+  `orders` int(8) NOT NULL DEFAULT 0,
+  `numsub` int(8) NOT NULL DEFAULT 0,
   `suborgan` varchar(255) NOT NULL DEFAULT '',
   `lev` int(8) NOT NULL,
-  `active` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `add_time` int(11) unsigned NOT NULL DEFAULT '0',
-  `edit_time` int(11) unsigned NOT NULL DEFAULT '0',
+  `active` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `add_time` int(11) unsigned NOT NULL DEFAULT 0,
+  `edit_time` int(11) unsigned NOT NULL DEFAULT 0,
   `address` text NOT NULL,
   `email` text NOT NULL,
   `phone` varchar(50) NOT NULL,
@@ -3646,7 +3662,7 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_co_cau_to_c
   `website` text NOT NULL,
   `numperson` int(8) NOT NULL,
   `description` mediumtext NOT NULL,
-  `view` int(2) NOT NULL DEFAULT '0',
+  `view` int(2) NOT NULL DEFAULT 0,
   PRIMARY KEY (`organid`),
   UNIQUE KEY `alias` (`alias`),
   KEY `parentid` (`parentid`)
@@ -3666,19 +3682,19 @@ $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_com
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_comment` (
   `cid` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
   `module` varchar(55) NOT NULL,
-  `area` int(11) NOT NULL DEFAULT '0',
-  `id` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `pid` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `area` int(11) NOT NULL DEFAULT 0,
+  `id` mediumint(8) unsigned NOT NULL DEFAULT 0,
+  `pid` mediumint(8) unsigned NOT NULL DEFAULT 0,
   `content` text NOT NULL,
   `attach` varchar(255) NOT NULL DEFAULT '',
-  `post_time` int(11) unsigned NOT NULL DEFAULT '0',
-  `userid` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `post_time` int(11) unsigned NOT NULL DEFAULT 0,
+  `userid` mediumint(8) unsigned NOT NULL DEFAULT 0,
   `post_name` varchar(100) NOT NULL,
   `post_email` varchar(100) NOT NULL,
   `post_ip` varchar(15) NOT NULL,
-  `status` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `likes` mediumint(9) NOT NULL DEFAULT '0',
-  `dislikes` mediumint(9) NOT NULL DEFAULT '0',
+  `status` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `likes` mediumint(9) NOT NULL DEFAULT 0,
+  `dislikes` mediumint(9) NOT NULL DEFAULT 0,
   PRIMARY KEY (`cid`),
   KEY `mod_id` (`module`,`area`,`id`),
   KEY `post_time` (`post_time`)
@@ -3698,9 +3714,9 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_contact_dep
   `others` text NOT NULL,
   `cats` text NOT NULL,
   `admins` text NOT NULL,
-  `act` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `act` tinyint(1) unsigned NOT NULL DEFAULT 0,
   `weight` smallint(5) NOT NULL,
-  `is_default` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `is_default` tinyint(1) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   UNIQUE KEY `full_name` (`full_name`),
   UNIQUE KEY `alias` (`alias`)
@@ -3711,10 +3727,10 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_contact_depa
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_contact_reply`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_contact_reply` (
   `rid` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
-  `id` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `reply_content` text,
-  `reply_time` int(11) unsigned NOT NULL DEFAULT '0',
-  `reply_aid` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `id` mediumint(8) unsigned NOT NULL DEFAULT 0,
+  `reply_content` text DEFAULT NULL,
+  `reply_time` int(11) unsigned NOT NULL DEFAULT 0,
+  `reply_aid` mediumint(8) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`rid`),
   KEY `id` (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8";
@@ -3722,19 +3738,19 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_contact_rep
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_contact_send`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_contact_send` (
   `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
-  `cid` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `cid` smallint(5) unsigned NOT NULL DEFAULT 0,
   `cat` varchar(255) NOT NULL,
   `title` varchar(255) NOT NULL,
   `content` text NOT NULL,
-  `send_time` int(11) unsigned NOT NULL DEFAULT '0',
-  `sender_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `send_time` int(11) unsigned NOT NULL DEFAULT 0,
+  `sender_id` mediumint(8) unsigned NOT NULL DEFAULT 0,
   `sender_name` varchar(100) NOT NULL,
   `sender_address` varchar(250) NOT NULL,
   `sender_email` varchar(100) NOT NULL,
   `sender_phone` varchar(20) DEFAULT '',
   `sender_ip` varchar(15) NOT NULL,
-  `is_read` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `is_reply` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `is_read` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `is_reply` tinyint(1) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `sender_name` (`sender_name`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8";
@@ -3748,7 +3764,7 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_contact_sup
   `phone` varchar(255) NOT NULL,
   `email` varchar(100) NOT NULL,
   `others` text NOT NULL,
-  `act` tinyint(1) unsigned NOT NULL DEFAULT '1',
+  `act` tinyint(1) unsigned NOT NULL DEFAULT 1,
   `weight` smallint(5) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8";
@@ -3761,9 +3777,9 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_faq` (
   `alias` varchar(250) NOT NULL,
   `question` mediumtext NOT NULL,
   `answer` mediumtext NOT NULL,
-  `weight` smallint(4) unsigned NOT NULL DEFAULT '0',
-  `status` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `addtime` int(11) unsigned NOT NULL DEFAULT '0',
+  `weight` smallint(4) unsigned NOT NULL DEFAULT 0,
+  `status` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `addtime` int(11) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   UNIQUE KEY `alias` (`alias`),
   KEY `catid` (`catid`)
@@ -3783,8 +3799,8 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_faq_categor
   `alias` varchar(250) NOT NULL,
   `description` mediumtext NOT NULL,
   `groups_view` varchar(255) NOT NULL,
-  `weight` smallint(4) unsigned NOT NULL DEFAULT '0',
-  `status` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `weight` smallint(4) unsigned NOT NULL DEFAULT 0,
+  `status` tinyint(1) unsigned NOT NULL DEFAULT 0,
   `keywords` mediumtext NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `alias` (`alias`)
@@ -3808,7 +3824,7 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_faq_tmp` (
   `title` varchar(250) NOT NULL,
   `question` text NOT NULL,
   `answer` mediumtext NOT NULL,
-  `addtime` int(11) unsigned NOT NULL DEFAULT '0',
+  `addtime` int(11) unsigned NOT NULL DEFAULT 0,
   `userid` mediumint(8) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   KEY `catid` (`catid`)
@@ -3826,15 +3842,15 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_freecontent_
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_freecontent_rows`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_freecontent_rows` (
   `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
-  `bid` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `bid` mediumint(8) unsigned NOT NULL DEFAULT 0,
   `title` varchar(255) NOT NULL DEFAULT '',
   `description` mediumtext NOT NULL,
   `link` varchar(255) NOT NULL DEFAULT '',
   `target` varchar(10) NOT NULL DEFAULT '' COMMENT '_blank|_self|_parent|_top',
   `image` varchar(255) NOT NULL DEFAULT '',
-  `start_time` int(11) NOT NULL DEFAULT '0',
-  `end_time` int(11) NOT NULL DEFAULT '0',
-  `status` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '0: In-Active, 1: Active, 2: Expired',
+  `start_time` int(11) NOT NULL DEFAULT 0,
+  `end_time` int(11) NOT NULL DEFAULT 0,
+  `status` tinyint(1) unsigned NOT NULL DEFAULT 0 COMMENT '0: In-Active, 1: Active, 2: Expired',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  AUTO_INCREMENT=6  DEFAULT CHARSET=utf8mb4  COLLATE=utf8mb4_unicode_ci";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_freecontent_rows` (`id`, `bid`, `title`, `description`, `link`, `target`, `image`, `start_time`, `end_time`, `status`) VALUES (1, 1, 'Hệ quản trị nội dung NukeViet', '<ul>
@@ -3858,25 +3874,25 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_freecontent_
 
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_laws_admins`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_laws_admins` (
-  `userid` int(11) unsigned NOT NULL DEFAULT '0',
-  `subjectid` smallint(4) NOT NULL DEFAULT '0',
-  `admin` tinyint(4) NOT NULL DEFAULT '0',
-  `add_content` tinyint(4) NOT NULL DEFAULT '0',
-  `edit_content` tinyint(4) NOT NULL DEFAULT '0',
-  `del_content` tinyint(4) NOT NULL DEFAULT '0',
+  `userid` int(11) unsigned NOT NULL DEFAULT 0,
+  `subjectid` smallint(4) NOT NULL DEFAULT 0,
+  `admin` tinyint(4) NOT NULL DEFAULT 0,
+  `add_content` tinyint(4) NOT NULL DEFAULT 0,
+  `edit_content` tinyint(4) NOT NULL DEFAULT 0,
+  `del_content` tinyint(4) NOT NULL DEFAULT 0,
   UNIQUE KEY `userid` (`userid`,`subjectid`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8mb4  COLLATE=utf8mb4_unicode_ci";
 
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_laws_area`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_laws_area` (
   `id` smallint(4) unsigned NOT NULL AUTO_INCREMENT,
-  `parentid` smallint(4) unsigned NOT NULL DEFAULT '0',
+  `parentid` smallint(4) unsigned NOT NULL DEFAULT 0,
   `alias` varchar(249) NOT NULL,
   `title` varchar(249) NOT NULL,
   `introduction` mediumtext NOT NULL,
   `keywords` varchar(255) NOT NULL,
-  `addtime` int(11) unsigned NOT NULL DEFAULT '0',
-  `weight` smallint(4) unsigned NOT NULL DEFAULT '0',
+  `addtime` int(11) unsigned NOT NULL DEFAULT 0,
+  `weight` smallint(4) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   UNIQUE KEY `alias` (`alias`,`parentid`),
   KEY `weight` (`weight`)
@@ -3887,14 +3903,14 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_laws_area` (
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_laws_cat`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_laws_cat` (
   `id` smallint(4) unsigned NOT NULL AUTO_INCREMENT,
-  `parentid` smallint(4) unsigned NOT NULL DEFAULT '0',
+  `parentid` smallint(4) unsigned NOT NULL DEFAULT 0,
   `alias` varchar(249) NOT NULL,
   `title` varchar(249) NOT NULL,
   `introduction` mediumtext NOT NULL,
   `keywords` varchar(255) NOT NULL,
-  `newday` tinyint(2) unsigned NOT NULL DEFAULT '5',
-  `addtime` int(11) unsigned NOT NULL DEFAULT '0',
-  `weight` smallint(4) unsigned NOT NULL DEFAULT '0',
+  `newday` tinyint(2) unsigned NOT NULL DEFAULT 5,
+  `addtime` int(11) unsigned NOT NULL DEFAULT 0,
+  `weight` smallint(4) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   UNIQUE KEY `alias` (`alias`,`parentid`),
   KEY `weight` (`weight`)
@@ -3939,10 +3955,10 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_laws_row` (
   `title` varchar(255) NOT NULL,
   `alias` varchar(255) NOT NULL,
   `code` varchar(50) NOT NULL,
-  `cid` smallint(4) unsigned NOT NULL DEFAULT '0',
-  `sid` smallint(4) unsigned NOT NULL DEFAULT '0',
+  `cid` smallint(4) unsigned NOT NULL DEFAULT 0,
+  `sid` smallint(4) unsigned NOT NULL DEFAULT 0,
   `approval` tinyint(1) DEFAULT NULL,
-  `sgid` smallint(4) unsigned NOT NULL DEFAULT '0',
+  `sgid` smallint(4) unsigned NOT NULL DEFAULT 0,
   `note` text NOT NULL,
   `introtext` text NOT NULL,
   `bodytext` text NOT NULL,
@@ -3953,16 +3969,16 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_laws_row` (
   `status` tinyint(1) NOT NULL,
   `addtime` int(11) NOT NULL,
   `edittime` int(11) NOT NULL,
-  `publtime` int(11) NOT NULL DEFAULT '0',
+  `publtime` int(11) NOT NULL DEFAULT 0,
   `start_comm_time` int(11) DEFAULT NULL,
   `eid` int(11) DEFAULT NULL,
   `end_comm_time` int(11) DEFAULT NULL,
-  `startvalid` int(11) NOT NULL DEFAULT '0',
-  `exptime` int(11) NOT NULL DEFAULT '0',
-  `view_hits` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `download_hits` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `admin_add` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `admin_edit` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `startvalid` int(11) NOT NULL DEFAULT 0,
+  `exptime` int(11) NOT NULL DEFAULT 0,
+  `view_hits` mediumint(8) unsigned NOT NULL DEFAULT 0,
+  `download_hits` mediumint(8) unsigned NOT NULL DEFAULT 0,
+  `admin_add` mediumint(8) unsigned NOT NULL DEFAULT 0,
+  `admin_edit` mediumint(8) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  AUTO_INCREMENT=17  DEFAULT CHARSET=utf8";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_laws_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `approval`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `eid`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (1, '', '', 'Công văn số 4622&#x002F;BGDĐT-CNTT về việc hướng dẫn thực hiện nhiệm vụ CNTT năm học 2016 – 2017', 'Cong-van-so-4622-BGDDT-CNTT-ve-viec-huong-dan-thuc-hien-nhiem-vu-CNTT-nam-hoc-2016-2017-1', '4622&#x002F;BGDĐT-CNTT', 1, 1, NULL, 1, '', 'Công văn số 4622&#x002F;BGDĐT-CNTT về việc hướng dẫn thực hiện nhiệm vụ CNTT năm học 2016 – 2017', '', 'khai thác,sử dụng,tự do,quán triệt,triển khai,thông tư,quy định,cơ sở,tăng cường,nhà trường,danh sách,ban hành,nghiên cứu,áp dụng,hệ thống,xây dựng,thông tin', '6', '6', 'demo.pdf', 1, 1502359836, 1502811964, 1478538000, NULL, NULL, NULL, 0, 0, 12, 2, 1, 1)";
@@ -4008,8 +4024,8 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_laws_row_are
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_laws_set_replace`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_laws_set_replace` (
   `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
-  `oid` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `nid` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `oid` mediumint(8) unsigned NOT NULL DEFAULT 0,
+  `nid` mediumint(8) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8";
 
@@ -4019,7 +4035,7 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_laws_signer
   `title` varchar(255) NOT NULL,
   `offices` varchar(255) NOT NULL,
   `positions` varchar(255) NOT NULL,
-  `addtime` int(11) unsigned NOT NULL DEFAULT '0',
+  `addtime` int(11) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  AUTO_INCREMENT=9  DEFAULT CHARSET=utf8";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_laws_signer` (`id`, `title`, `offices`, `positions`, `addtime`) VALUES (1, 'Phạm Mạnh Hùng', '', '', 1502359701)";
@@ -4038,10 +4054,10 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_laws_subjec
   `title` varchar(250) NOT NULL,
   `introduction` mediumtext NOT NULL,
   `keywords` varchar(255) NOT NULL,
-  `numcount` int(10) NOT NULL DEFAULT '0',
-  `numlink` tinyint(2) NOT NULL DEFAULT '5',
-  `addtime` int(11) unsigned NOT NULL DEFAULT '0',
-  `weight` smallint(4) unsigned NOT NULL DEFAULT '0',
+  `numcount` int(10) NOT NULL DEFAULT 0,
+  `numlink` tinyint(2) NOT NULL DEFAULT 5,
+  `addtime` int(11) unsigned NOT NULL DEFAULT 0,
+  `weight` smallint(4) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   UNIQUE KEY `alias` (`alias`),
   KEY `weight` (`weight`)
@@ -4068,23 +4084,23 @@ $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_men
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_menu_rows` (
   `id` mediumint(5) NOT NULL AUTO_INCREMENT,
   `parentid` mediumint(5) unsigned NOT NULL,
-  `mid` smallint(5) NOT NULL DEFAULT '0',
+  `mid` smallint(5) NOT NULL DEFAULT 0,
   `title` varchar(255) NOT NULL,
   `link` text NOT NULL,
   `icon` varchar(255) DEFAULT '',
   `image` varchar(255) DEFAULT '',
   `note` varchar(255) DEFAULT '',
   `weight` int(11) NOT NULL,
-  `sort` int(11) NOT NULL DEFAULT '0',
-  `lev` int(11) NOT NULL DEFAULT '0',
-  `subitem` text,
+  `sort` int(11) NOT NULL DEFAULT 0,
+  `lev` int(11) NOT NULL DEFAULT 0,
+  `subitem` text DEFAULT NULL,
   `groups_view` varchar(255) DEFAULT '',
   `module_name` varchar(255) DEFAULT '',
   `op` varchar(255) DEFAULT '',
-  `target` tinyint(4) DEFAULT '0',
+  `target` tinyint(4) DEFAULT 0,
   `css` varchar(255) DEFAULT '',
-  `active_type` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `status` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `active_type` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `status` tinyint(1) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `parentid` (`parentid`,`mid`)
 ) ENGINE=MyISAM  AUTO_INCREMENT=154  DEFAULT CHARSET=utf8";
@@ -4158,9 +4174,9 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_modfuncs` (
   `func_custom_name` varchar(255) NOT NULL,
   `func_site_title` varchar(255) NOT NULL DEFAULT '',
   `in_module` varchar(50) NOT NULL,
-  `show_func` tinyint(4) NOT NULL DEFAULT '0',
-  `in_submenu` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `subweight` smallint(2) unsigned NOT NULL DEFAULT '1',
+  `show_func` tinyint(4) NOT NULL DEFAULT 0,
+  `in_submenu` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `subweight` smallint(2) unsigned NOT NULL DEFAULT 1,
   `setting` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`func_id`),
   UNIQUE KEY `func_name` (`func_name`,`in_module`),
@@ -4484,35 +4500,35 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_modules` (
   `custom_title` varchar(255) NOT NULL,
   `site_title` varchar(255) NOT NULL DEFAULT '',
   `admin_title` varchar(255) NOT NULL DEFAULT '',
-  `set_time` int(11) unsigned NOT NULL DEFAULT '0',
-  `main_file` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `admin_file` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `set_time` int(11) unsigned NOT NULL DEFAULT 0,
+  `main_file` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `admin_file` tinyint(1) unsigned NOT NULL DEFAULT 0,
   `theme` varchar(100) DEFAULT '',
   `mobile` varchar(100) DEFAULT '',
   `description` varchar(255) DEFAULT '',
-  `keywords` text,
+  `keywords` text DEFAULT NULL,
   `groups_view` varchar(255) NOT NULL,
-  `weight` tinyint(3) unsigned NOT NULL DEFAULT '1',
-  `act` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `weight` tinyint(3) unsigned NOT NULL DEFAULT 1,
+  `act` tinyint(1) unsigned NOT NULL DEFAULT 0,
   `admins` varchar(255) DEFAULT '',
-  `rss` tinyint(4) NOT NULL DEFAULT '1',
-  `sitemap` tinyint(4) NOT NULL DEFAULT '1',
-  `gid` smallint(5) NOT NULL DEFAULT '0',
+  `rss` tinyint(4) NOT NULL DEFAULT 1,
+  `sitemap` tinyint(4) NOT NULL DEFAULT 1,
+  `gid` smallint(5) NOT NULL DEFAULT 0,
   PRIMARY KEY (`title`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modules` (`title`, `module_file`, `module_data`, `module_upload`, `module_theme`, `custom_title`, `site_title`, `admin_title`, `set_time`, `main_file`, `admin_file`, `theme`, `mobile`, `description`, `keywords`, `groups_view`, `weight`, `act`, `admins`, `rss`, `sitemap`, `gid`) VALUES ('news', 'news', 'news', 'news', 'news', 'Tin Tức', '', '', 1498555144, 1, 1, '', '', '', '', '6', 2, 1, '', 1, 1, 0)";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modules` (`title`, `module_file`, `module_data`, `module_upload`, `module_theme`, `custom_title`, `site_title`, `admin_title`, `set_time`, `main_file`, `admin_file`, `theme`, `mobile`, `description`, `keywords`, `groups_view`, `weight`, `act`, `admins`, `rss`, `sitemap`, `gid`) VALUES ('users', 'users', 'users', 'users', 'users', 'Thành viên', '', 'Tài khoản', 1498555144, 1, 1, '', '', '', '', '6', 7, 1, '', 0, 1, 0)";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modules` (`title`, `module_file`, `module_data`, `module_upload`, `module_theme`, `custom_title`, `site_title`, `admin_title`, `set_time`, `main_file`, `admin_file`, `theme`, `mobile`, `description`, `keywords`, `groups_view`, `weight`, `act`, `admins`, `rss`, `sitemap`, `gid`) VALUES ('contact', 'contact', 'contact', 'contact', 'contact', 'Liên hệ', '', '', 1498555144, 1, 1, '', '', '', '', '6', 8, 1, '', 0, 1, 0)";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modules` (`title`, `module_file`, `module_data`, `module_upload`, `module_theme`, `custom_title`, `site_title`, `admin_title`, `set_time`, `main_file`, `admin_file`, `theme`, `mobile`, `description`, `keywords`, `groups_view`, `weight`, `act`, `admins`, `rss`, `sitemap`, `gid`) VALUES ('statistics', 'statistics', 'statistics', 'statistics', 'statistics', 'Thống kê', '', '', 1498555144, 1, 1, '', '', '', 'online, statistics', '6', 9, 1, '', 0, 1, 0)";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modules` (`title`, `module_file`, `module_data`, `module_upload`, `module_theme`, `custom_title`, `site_title`, `admin_title`, `set_time`, `main_file`, `admin_file`, `theme`, `mobile`, `description`, `keywords`, `groups_view`, `weight`, `act`, `admins`, `rss`, `sitemap`, `gid`) VALUES ('voting', 'voting', 'voting', 'voting', 'voting', 'Thăm dò ý kiến', '', '', 1498555144, 1, 1, '', '', '', '', '6', 10, 1, '', 1, 1, 0)";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modules` (`title`, `module_file`, `module_data`, `module_upload`, `module_theme`, `custom_title`, `site_title`, `admin_title`, `set_time`, `main_file`, `admin_file`, `theme`, `mobile`, `description`, `keywords`, `groups_view`, `weight`, `act`, `admins`, `rss`, `sitemap`, `gid`) VALUES ('banners', 'banners', 'banners', 'banners', 'banners', 'Quảng cáo', '', '', 1498555144, 1, 1, '', '', '', '', '6', 11, 1, '', 0, 1, 0)";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modules` (`title`, `module_file`, `module_data`, `module_upload`, `module_theme`, `custom_title`, `site_title`, `admin_title`, `set_time`, `main_file`, `admin_file`, `theme`, `mobile`, `description`, `keywords`, `groups_view`, `weight`, `act`, `admins`, `rss`, `sitemap`, `gid`) VALUES ('seek', 'seek', 'seek', 'seek', 'seek', 'Tìm kiếm', '', '', 1498555144, 1, 0, '', '', '', '', '6', 12, 1, '', 0, 1, 0)";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modules` (`title`, `module_file`, `module_data`, `module_upload`, `module_theme`, `custom_title`, `site_title`, `admin_title`, `set_time`, `main_file`, `admin_file`, `theme`, `mobile`, `description`, `keywords`, `groups_view`, `weight`, `act`, `admins`, `rss`, `sitemap`, `gid`) VALUES ('menu', 'menu', 'menu', 'menu', 'menu', 'Menu Site', '', '', 1498555144, 0, 1, '', '', '', '', '6', 13, 1, '', 0, 1, 0)";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modules` (`title`, `module_file`, `module_data`, `module_upload`, `module_theme`, `custom_title`, `site_title`, `admin_title`, `set_time`, `main_file`, `admin_file`, `theme`, `mobile`, `description`, `keywords`, `groups_view`, `weight`, `act`, `admins`, `rss`, `sitemap`, `gid`) VALUES ('feeds', 'feeds', 'feeds', 'feeds', 'feeds', 'RSS-feeds', '', 'RSS-feeds', 1498555144, 1, 1, '', '', '', '', '6', 14, 1, '', 0, 1, 0)";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modules` (`title`, `module_file`, `module_data`, `module_upload`, `module_theme`, `custom_title`, `site_title`, `admin_title`, `set_time`, `main_file`, `admin_file`, `theme`, `mobile`, `description`, `keywords`, `groups_view`, `weight`, `act`, `admins`, `rss`, `sitemap`, `gid`) VALUES ('page', 'page', 'page', 'page', 'page', 'Page', '', '', 1498555144, 1, 1, '', '', '', '', '6', 15, 1, '', 1, 1, 0)";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modules` (`title`, `module_file`, `module_data`, `module_upload`, `module_theme`, `custom_title`, `site_title`, `admin_title`, `set_time`, `main_file`, `admin_file`, `theme`, `mobile`, `description`, `keywords`, `groups_view`, `weight`, `act`, `admins`, `rss`, `sitemap`, `gid`) VALUES ('comment', 'comment', 'comment', 'comment', 'comment', 'Bình luận', '', 'Quản lý bình luận', 1498555144, 0, 1, '', '', '', '', '6', 16, 1, '', 0, 1, 0)";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modules` (`title`, `module_file`, `module_data`, `module_upload`, `module_theme`, `custom_title`, `site_title`, `admin_title`, `set_time`, `main_file`, `admin_file`, `theme`, `mobile`, `description`, `keywords`, `groups_view`, `weight`, `act`, `admins`, `rss`, `sitemap`, `gid`) VALUES ('siteterms', 'page', 'siteterms', 'siteterms', 'page', 'Điều khoản sử dụng', '', '', 1498555144, 1, 1, '', '', '', '', '6', 17, 1, '', 1, 1, 0)";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modules` (`title`, `module_file`, `module_data`, `module_upload`, `module_theme`, `custom_title`, `site_title`, `admin_title`, `set_time`, `main_file`, `admin_file`, `theme`, `mobile`, `description`, `keywords`, `groups_view`, `weight`, `act`, `admins`, `rss`, `sitemap`, `gid`) VALUES ('two-step-verification', 'two-step-verification', 'two_step_verification', 'two_step_verification', 'two-step-verification', 'Xác thực hai bước', '', '', 1498555144, 1, 0, '', '', '', '', '6', 18, 1, '', 0, 1, 0)";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modules` (`title`, `module_file`, `module_data`, `module_upload`, `module_theme`, `custom_title`, `site_title`, `admin_title`, `set_time`, `main_file`, `admin_file`, `theme`, `mobile`, `description`, `keywords`, `groups_view`, `weight`, `act`, `admins`, `rss`, `sitemap`, `gid`) VALUES ('news', 'news', 'news', 'news', 'news', 'Tin Tức', '', '', 1546504163, 1, 1, '', '', '', '', '6', 2, 1, '', 1, 1, 0)";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modules` (`title`, `module_file`, `module_data`, `module_upload`, `module_theme`, `custom_title`, `site_title`, `admin_title`, `set_time`, `main_file`, `admin_file`, `theme`, `mobile`, `description`, `keywords`, `groups_view`, `weight`, `act`, `admins`, `rss`, `sitemap`, `gid`) VALUES ('users', 'users', 'users', 'users', 'users', 'Thành viên', '', 'Tài khoản', 1546504163, 1, 1, '', '', '', '', '6', 7, 1, '', 0, 1, 0)";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modules` (`title`, `module_file`, `module_data`, `module_upload`, `module_theme`, `custom_title`, `site_title`, `admin_title`, `set_time`, `main_file`, `admin_file`, `theme`, `mobile`, `description`, `keywords`, `groups_view`, `weight`, `act`, `admins`, `rss`, `sitemap`, `gid`) VALUES ('contact', 'contact', 'contact', 'contact', 'contact', 'Liên hệ', '', '', 1546504163, 1, 1, '', '', '', '', '6', 8, 1, '', 0, 1, 0)";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modules` (`title`, `module_file`, `module_data`, `module_upload`, `module_theme`, `custom_title`, `site_title`, `admin_title`, `set_time`, `main_file`, `admin_file`, `theme`, `mobile`, `description`, `keywords`, `groups_view`, `weight`, `act`, `admins`, `rss`, `sitemap`, `gid`) VALUES ('statistics', 'statistics', 'statistics', 'statistics', 'statistics', 'Thống kê', '', '', 1546504163, 1, 1, '', '', '', 'online, statistics', '6', 9, 1, '', 0, 1, 0)";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modules` (`title`, `module_file`, `module_data`, `module_upload`, `module_theme`, `custom_title`, `site_title`, `admin_title`, `set_time`, `main_file`, `admin_file`, `theme`, `mobile`, `description`, `keywords`, `groups_view`, `weight`, `act`, `admins`, `rss`, `sitemap`, `gid`) VALUES ('voting', 'voting', 'voting', 'voting', 'voting', 'Thăm dò ý kiến', '', '', 1546504163, 1, 1, '', '', '', '', '6', 10, 1, '', 1, 1, 0)";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modules` (`title`, `module_file`, `module_data`, `module_upload`, `module_theme`, `custom_title`, `site_title`, `admin_title`, `set_time`, `main_file`, `admin_file`, `theme`, `mobile`, `description`, `keywords`, `groups_view`, `weight`, `act`, `admins`, `rss`, `sitemap`, `gid`) VALUES ('banners', 'banners', 'banners', 'banners', 'banners', 'Quảng cáo', '', '', 1546504163, 1, 1, '', '', '', '', '6', 11, 1, '', 0, 1, 0)";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modules` (`title`, `module_file`, `module_data`, `module_upload`, `module_theme`, `custom_title`, `site_title`, `admin_title`, `set_time`, `main_file`, `admin_file`, `theme`, `mobile`, `description`, `keywords`, `groups_view`, `weight`, `act`, `admins`, `rss`, `sitemap`, `gid`) VALUES ('seek', 'seek', 'seek', 'seek', 'seek', 'Tìm kiếm', '', '', 1546504163, 1, 0, '', '', '', '', '6', 12, 1, '', 0, 1, 0)";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modules` (`title`, `module_file`, `module_data`, `module_upload`, `module_theme`, `custom_title`, `site_title`, `admin_title`, `set_time`, `main_file`, `admin_file`, `theme`, `mobile`, `description`, `keywords`, `groups_view`, `weight`, `act`, `admins`, `rss`, `sitemap`, `gid`) VALUES ('menu', 'menu', 'menu', 'menu', 'menu', 'Menu Site', '', '', 1546504163, 0, 1, '', '', '', '', '6', 13, 1, '', 0, 1, 0)";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modules` (`title`, `module_file`, `module_data`, `module_upload`, `module_theme`, `custom_title`, `site_title`, `admin_title`, `set_time`, `main_file`, `admin_file`, `theme`, `mobile`, `description`, `keywords`, `groups_view`, `weight`, `act`, `admins`, `rss`, `sitemap`, `gid`) VALUES ('feeds', 'feeds', 'feeds', 'feeds', 'feeds', 'RSS-feeds', '', 'RSS-feeds', 1546504163, 1, 1, '', '', '', '', '6', 14, 1, '', 0, 1, 0)";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modules` (`title`, `module_file`, `module_data`, `module_upload`, `module_theme`, `custom_title`, `site_title`, `admin_title`, `set_time`, `main_file`, `admin_file`, `theme`, `mobile`, `description`, `keywords`, `groups_view`, `weight`, `act`, `admins`, `rss`, `sitemap`, `gid`) VALUES ('page', 'page', 'page', 'page', 'page', 'Page', '', '', 1546504163, 1, 1, '', '', '', '', '6', 15, 1, '', 1, 1, 0)";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modules` (`title`, `module_file`, `module_data`, `module_upload`, `module_theme`, `custom_title`, `site_title`, `admin_title`, `set_time`, `main_file`, `admin_file`, `theme`, `mobile`, `description`, `keywords`, `groups_view`, `weight`, `act`, `admins`, `rss`, `sitemap`, `gid`) VALUES ('comment', 'comment', 'comment', 'comment', 'comment', 'Bình luận', '', 'Quản lý bình luận', 1546504163, 0, 1, '', '', '', '', '6', 16, 1, '', 0, 1, 0)";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modules` (`title`, `module_file`, `module_data`, `module_upload`, `module_theme`, `custom_title`, `site_title`, `admin_title`, `set_time`, `main_file`, `admin_file`, `theme`, `mobile`, `description`, `keywords`, `groups_view`, `weight`, `act`, `admins`, `rss`, `sitemap`, `gid`) VALUES ('siteterms', 'page', 'siteterms', 'siteterms', 'page', 'Điều khoản sử dụng', '', '', 1546504163, 1, 1, '', '', '', '', '6', 17, 1, '', 1, 1, 0)";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modules` (`title`, `module_file`, `module_data`, `module_upload`, `module_theme`, `custom_title`, `site_title`, `admin_title`, `set_time`, `main_file`, `admin_file`, `theme`, `mobile`, `description`, `keywords`, `groups_view`, `weight`, `act`, `admins`, `rss`, `sitemap`, `gid`) VALUES ('two-step-verification', 'two-step-verification', 'two_step_verification', 'two_step_verification', 'two-step-verification', 'Xác thực hai bước', '', '', 1546504163, 1, 0, '', '', '', '', '6', 18, 1, '', 0, 1, 0)";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modules` (`title`, `module_file`, `module_data`, `module_upload`, `module_theme`, `custom_title`, `site_title`, `admin_title`, `set_time`, `main_file`, `admin_file`, `theme`, `mobile`, `description`, `keywords`, `groups_view`, `weight`, `act`, `admins`, `rss`, `sitemap`, `gid`) VALUES ('laws', 'laws', 'laws', 'laws', 'laws', 'Văn bản', '', '', 1498555574, 1, 1, '', '', '', '', '6', 4, 1, '', 1, 1, 0)";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modules` (`title`, `module_file`, `module_data`, `module_upload`, `module_theme`, `custom_title`, `site_title`, `admin_title`, `set_time`, `main_file`, `admin_file`, `theme`, `mobile`, `description`, `keywords`, `groups_view`, `weight`, `act`, `admins`, `rss`, `sitemap`, `gid`) VALUES ('faq', 'faq', 'faq', 'faq', 'faq', 'Các câu hỏi thường gặp', '', 'Các câu hỏi thường gặp', 1506573330, 1, 1, '', '', '', '', '6', 6, 1, '', 1, 1, 0)";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modules` (`title`, `module_file`, `module_data`, `module_upload`, `module_theme`, `custom_title`, `site_title`, `admin_title`, `set_time`, `main_file`, `admin_file`, `theme`, `mobile`, `description`, `keywords`, `groups_view`, `weight`, `act`, `admins`, `rss`, `sitemap`, `gid`) VALUES ('about', 'page', 'about', 'about', 'page', 'Giới thiệu', '', '', 1500862891, 1, 1, '', '', '', '', '6', 1, 1, '', 1, 1, 0)";
@@ -4522,36 +4538,36 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_modules` (`t
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_news_1`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_news_1` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `catid` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `catid` smallint(5) unsigned NOT NULL DEFAULT 0,
   `listcatid` varchar(255) NOT NULL DEFAULT '',
-  `topicid` smallint(5) unsigned NOT NULL DEFAULT '0',
-  `admin_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `topicid` smallint(5) unsigned NOT NULL DEFAULT 0,
+  `admin_id` mediumint(8) unsigned NOT NULL DEFAULT 0,
   `author` varchar(250) DEFAULT '',
-  `sourceid` mediumint(8) NOT NULL DEFAULT '0',
-  `addtime` int(11) unsigned NOT NULL DEFAULT '0',
-  `edittime` int(11) unsigned NOT NULL DEFAULT '0',
-  `status` tinyint(4) NOT NULL DEFAULT '1',
-  `weight` int(11) NOT NULL DEFAULT '0',
-  `publtime` int(11) unsigned NOT NULL DEFAULT '0',
-  `exptime` int(11) unsigned NOT NULL DEFAULT '0',
-  `archive` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `sourceid` mediumint(8) NOT NULL DEFAULT 0,
+  `addtime` int(11) unsigned NOT NULL DEFAULT 0,
+  `edittime` int(11) unsigned NOT NULL DEFAULT 0,
+  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `weight` int(11) NOT NULL DEFAULT 0,
+  `publtime` int(11) unsigned NOT NULL DEFAULT 0,
+  `exptime` int(11) unsigned NOT NULL DEFAULT 0,
+  `archive` tinyint(1) unsigned NOT NULL DEFAULT 0,
   `title` varchar(250) NOT NULL DEFAULT '',
   `alias` varchar(250) NOT NULL DEFAULT '',
   `hometext` text NOT NULL,
   `homeimgfile` varchar(255) DEFAULT '',
   `homeimgalt` varchar(255) DEFAULT '',
-  `homeimgthumb` tinyint(4) NOT NULL DEFAULT '0',
-  `inhome` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `homeimgthumb` tinyint(4) NOT NULL DEFAULT 0,
+  `inhome` tinyint(1) unsigned NOT NULL DEFAULT 0,
   `allowed_comm` varchar(255) DEFAULT '',
-  `allowed_rating` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `external_link` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `hitstotal` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `hitscm` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `total_rating` int(11) NOT NULL DEFAULT '0',
-  `click_rating` int(11) NOT NULL DEFAULT '0',
-  `instant_active` tinyint(1) NOT NULL DEFAULT '0',
+  `allowed_rating` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `external_link` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `hitstotal` mediumint(8) unsigned NOT NULL DEFAULT 0,
+  `hitscm` mediumint(8) unsigned NOT NULL DEFAULT 0,
+  `total_rating` int(11) NOT NULL DEFAULT 0,
+  `click_rating` int(11) NOT NULL DEFAULT 0,
+  `instant_active` tinyint(1) NOT NULL DEFAULT 0,
   `instant_template` varchar(100) NOT NULL DEFAULT '',
-  `instant_creatauto` tinyint(1) NOT NULL DEFAULT '0',
+  `instant_creatauto` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `catid` (`catid`),
   KEY `topicid` (`topicid`),
@@ -4571,36 +4587,36 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_news_1` (`id
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_news_10`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_news_10` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `catid` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `catid` smallint(5) unsigned NOT NULL DEFAULT 0,
   `listcatid` varchar(255) NOT NULL DEFAULT '',
-  `topicid` smallint(5) unsigned NOT NULL DEFAULT '0',
-  `admin_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `topicid` smallint(5) unsigned NOT NULL DEFAULT 0,
+  `admin_id` mediumint(8) unsigned NOT NULL DEFAULT 0,
   `author` varchar(250) DEFAULT '',
-  `sourceid` mediumint(8) NOT NULL DEFAULT '0',
-  `addtime` int(11) unsigned NOT NULL DEFAULT '0',
-  `edittime` int(11) unsigned NOT NULL DEFAULT '0',
-  `status` tinyint(4) NOT NULL DEFAULT '1',
-  `weight` int(11) unsigned NOT NULL DEFAULT '0',
-  `publtime` int(11) unsigned NOT NULL DEFAULT '0',
-  `exptime` int(11) unsigned NOT NULL DEFAULT '0',
-  `archive` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `sourceid` mediumint(8) NOT NULL DEFAULT 0,
+  `addtime` int(11) unsigned NOT NULL DEFAULT 0,
+  `edittime` int(11) unsigned NOT NULL DEFAULT 0,
+  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `weight` int(11) unsigned NOT NULL DEFAULT 0,
+  `publtime` int(11) unsigned NOT NULL DEFAULT 0,
+  `exptime` int(11) unsigned NOT NULL DEFAULT 0,
+  `archive` tinyint(1) unsigned NOT NULL DEFAULT 0,
   `title` varchar(250) NOT NULL DEFAULT '',
   `alias` varchar(250) NOT NULL DEFAULT '',
   `hometext` text NOT NULL,
   `homeimgfile` varchar(255) DEFAULT '',
   `homeimgalt` varchar(255) DEFAULT '',
-  `homeimgthumb` tinyint(4) NOT NULL DEFAULT '0',
-  `inhome` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `homeimgthumb` tinyint(4) NOT NULL DEFAULT 0,
+  `inhome` tinyint(1) unsigned NOT NULL DEFAULT 0,
   `allowed_comm` varchar(255) DEFAULT '',
-  `allowed_rating` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `external_link` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `hitstotal` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `hitscm` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `total_rating` int(11) NOT NULL DEFAULT '0',
-  `click_rating` int(11) NOT NULL DEFAULT '0',
-  `instant_active` tinyint(1) NOT NULL DEFAULT '0',
+  `allowed_rating` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `external_link` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `hitstotal` mediumint(8) unsigned NOT NULL DEFAULT 0,
+  `hitscm` mediumint(8) unsigned NOT NULL DEFAULT 0,
+  `total_rating` int(11) NOT NULL DEFAULT 0,
+  `click_rating` int(11) NOT NULL DEFAULT 0,
+  `instant_active` tinyint(1) NOT NULL DEFAULT 0,
   `instant_template` varchar(100) NOT NULL DEFAULT '',
-  `instant_creatauto` tinyint(1) NOT NULL DEFAULT '0',
+  `instant_creatauto` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `catid` (`catid`),
   KEY `topicid` (`topicid`),
@@ -4620,36 +4636,36 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_news_10` (`i
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_news_11`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_news_11` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `catid` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `catid` smallint(5) unsigned NOT NULL DEFAULT 0,
   `listcatid` varchar(255) NOT NULL DEFAULT '',
-  `topicid` smallint(5) unsigned NOT NULL DEFAULT '0',
-  `admin_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `topicid` smallint(5) unsigned NOT NULL DEFAULT 0,
+  `admin_id` mediumint(8) unsigned NOT NULL DEFAULT 0,
   `author` varchar(250) DEFAULT '',
-  `sourceid` mediumint(8) NOT NULL DEFAULT '0',
-  `addtime` int(11) unsigned NOT NULL DEFAULT '0',
-  `edittime` int(11) unsigned NOT NULL DEFAULT '0',
-  `status` tinyint(4) NOT NULL DEFAULT '1',
-  `weight` int(11) unsigned NOT NULL DEFAULT '0',
-  `publtime` int(11) unsigned NOT NULL DEFAULT '0',
-  `exptime` int(11) unsigned NOT NULL DEFAULT '0',
-  `archive` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `sourceid` mediumint(8) NOT NULL DEFAULT 0,
+  `addtime` int(11) unsigned NOT NULL DEFAULT 0,
+  `edittime` int(11) unsigned NOT NULL DEFAULT 0,
+  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `weight` int(11) unsigned NOT NULL DEFAULT 0,
+  `publtime` int(11) unsigned NOT NULL DEFAULT 0,
+  `exptime` int(11) unsigned NOT NULL DEFAULT 0,
+  `archive` tinyint(1) unsigned NOT NULL DEFAULT 0,
   `title` varchar(250) NOT NULL DEFAULT '',
   `alias` varchar(250) NOT NULL DEFAULT '',
   `hometext` text NOT NULL,
   `homeimgfile` varchar(255) DEFAULT '',
   `homeimgalt` varchar(255) DEFAULT '',
-  `homeimgthumb` tinyint(4) NOT NULL DEFAULT '0',
-  `inhome` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `homeimgthumb` tinyint(4) NOT NULL DEFAULT 0,
+  `inhome` tinyint(1) unsigned NOT NULL DEFAULT 0,
   `allowed_comm` varchar(255) DEFAULT '',
-  `allowed_rating` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `external_link` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `hitstotal` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `hitscm` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `total_rating` int(11) NOT NULL DEFAULT '0',
-  `click_rating` int(11) NOT NULL DEFAULT '0',
-  `instant_active` tinyint(1) NOT NULL DEFAULT '0',
+  `allowed_rating` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `external_link` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `hitstotal` mediumint(8) unsigned NOT NULL DEFAULT 0,
+  `hitscm` mediumint(8) unsigned NOT NULL DEFAULT 0,
+  `total_rating` int(11) NOT NULL DEFAULT 0,
+  `click_rating` int(11) NOT NULL DEFAULT 0,
+  `instant_active` tinyint(1) NOT NULL DEFAULT 0,
   `instant_template` varchar(100) NOT NULL DEFAULT '',
-  `instant_creatauto` tinyint(1) NOT NULL DEFAULT '0',
+  `instant_creatauto` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `catid` (`catid`),
   KEY `topicid` (`topicid`),
@@ -4674,36 +4690,36 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_news_11` (`i
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_news_12`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_news_12` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `catid` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `catid` smallint(5) unsigned NOT NULL DEFAULT 0,
   `listcatid` varchar(255) NOT NULL DEFAULT '',
-  `topicid` smallint(5) unsigned NOT NULL DEFAULT '0',
-  `admin_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `topicid` smallint(5) unsigned NOT NULL DEFAULT 0,
+  `admin_id` mediumint(8) unsigned NOT NULL DEFAULT 0,
   `author` varchar(250) DEFAULT '',
-  `sourceid` mediumint(8) NOT NULL DEFAULT '0',
-  `addtime` int(11) unsigned NOT NULL DEFAULT '0',
-  `edittime` int(11) unsigned NOT NULL DEFAULT '0',
-  `status` tinyint(4) NOT NULL DEFAULT '1',
-  `weight` int(11) unsigned NOT NULL DEFAULT '0',
-  `publtime` int(11) unsigned NOT NULL DEFAULT '0',
-  `exptime` int(11) unsigned NOT NULL DEFAULT '0',
-  `archive` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `sourceid` mediumint(8) NOT NULL DEFAULT 0,
+  `addtime` int(11) unsigned NOT NULL DEFAULT 0,
+  `edittime` int(11) unsigned NOT NULL DEFAULT 0,
+  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `weight` int(11) unsigned NOT NULL DEFAULT 0,
+  `publtime` int(11) unsigned NOT NULL DEFAULT 0,
+  `exptime` int(11) unsigned NOT NULL DEFAULT 0,
+  `archive` tinyint(1) unsigned NOT NULL DEFAULT 0,
   `title` varchar(250) NOT NULL DEFAULT '',
   `alias` varchar(250) NOT NULL DEFAULT '',
   `hometext` text NOT NULL,
   `homeimgfile` varchar(255) DEFAULT '',
   `homeimgalt` varchar(255) DEFAULT '',
-  `homeimgthumb` tinyint(4) NOT NULL DEFAULT '0',
-  `inhome` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `homeimgthumb` tinyint(4) NOT NULL DEFAULT 0,
+  `inhome` tinyint(1) unsigned NOT NULL DEFAULT 0,
   `allowed_comm` varchar(255) DEFAULT '',
-  `allowed_rating` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `external_link` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `hitstotal` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `hitscm` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `total_rating` int(11) NOT NULL DEFAULT '0',
-  `click_rating` int(11) NOT NULL DEFAULT '0',
-  `instant_active` tinyint(1) NOT NULL DEFAULT '0',
+  `allowed_rating` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `external_link` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `hitstotal` mediumint(8) unsigned NOT NULL DEFAULT 0,
+  `hitscm` mediumint(8) unsigned NOT NULL DEFAULT 0,
+  `total_rating` int(11) NOT NULL DEFAULT 0,
+  `click_rating` int(11) NOT NULL DEFAULT 0,
+  `instant_active` tinyint(1) NOT NULL DEFAULT 0,
   `instant_template` varchar(100) NOT NULL DEFAULT '',
-  `instant_creatauto` tinyint(1) NOT NULL DEFAULT '0',
+  `instant_creatauto` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `catid` (`catid`),
   KEY `topicid` (`topicid`),
@@ -4724,36 +4740,36 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_news_12` (`i
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_news_2`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_news_2` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `catid` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `catid` smallint(5) unsigned NOT NULL DEFAULT 0,
   `listcatid` varchar(255) NOT NULL DEFAULT '',
-  `topicid` smallint(5) unsigned NOT NULL DEFAULT '0',
-  `admin_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `topicid` smallint(5) unsigned NOT NULL DEFAULT 0,
+  `admin_id` mediumint(8) unsigned NOT NULL DEFAULT 0,
   `author` varchar(250) DEFAULT '',
-  `sourceid` mediumint(8) NOT NULL DEFAULT '0',
-  `addtime` int(11) unsigned NOT NULL DEFAULT '0',
-  `edittime` int(11) unsigned NOT NULL DEFAULT '0',
-  `status` tinyint(4) NOT NULL DEFAULT '1',
-  `weight` int(11) NOT NULL DEFAULT '0',
-  `publtime` int(11) unsigned NOT NULL DEFAULT '0',
-  `exptime` int(11) unsigned NOT NULL DEFAULT '0',
-  `archive` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `sourceid` mediumint(8) NOT NULL DEFAULT 0,
+  `addtime` int(11) unsigned NOT NULL DEFAULT 0,
+  `edittime` int(11) unsigned NOT NULL DEFAULT 0,
+  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `weight` int(11) NOT NULL DEFAULT 0,
+  `publtime` int(11) unsigned NOT NULL DEFAULT 0,
+  `exptime` int(11) unsigned NOT NULL DEFAULT 0,
+  `archive` tinyint(1) unsigned NOT NULL DEFAULT 0,
   `title` varchar(250) NOT NULL DEFAULT '',
   `alias` varchar(250) NOT NULL DEFAULT '',
   `hometext` text NOT NULL,
   `homeimgfile` varchar(255) DEFAULT '',
   `homeimgalt` varchar(255) DEFAULT '',
-  `homeimgthumb` tinyint(4) NOT NULL DEFAULT '0',
-  `inhome` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `homeimgthumb` tinyint(4) NOT NULL DEFAULT 0,
+  `inhome` tinyint(1) unsigned NOT NULL DEFAULT 0,
   `allowed_comm` varchar(255) DEFAULT '',
-  `allowed_rating` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `external_link` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `hitstotal` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `hitscm` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `total_rating` int(11) NOT NULL DEFAULT '0',
-  `click_rating` int(11) NOT NULL DEFAULT '0',
-  `instant_active` tinyint(1) NOT NULL DEFAULT '0',
+  `allowed_rating` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `external_link` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `hitstotal` mediumint(8) unsigned NOT NULL DEFAULT 0,
+  `hitscm` mediumint(8) unsigned NOT NULL DEFAULT 0,
+  `total_rating` int(11) NOT NULL DEFAULT 0,
+  `click_rating` int(11) NOT NULL DEFAULT 0,
+  `instant_active` tinyint(1) NOT NULL DEFAULT 0,
   `instant_template` varchar(100) NOT NULL DEFAULT '',
-  `instant_creatauto` tinyint(1) NOT NULL DEFAULT '0',
+  `instant_creatauto` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `catid` (`catid`),
   KEY `topicid` (`topicid`),
@@ -4775,36 +4791,36 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_news_2` (`id
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_news_3`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_news_3` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `catid` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `catid` smallint(5) unsigned NOT NULL DEFAULT 0,
   `listcatid` varchar(255) NOT NULL DEFAULT '',
-  `topicid` smallint(5) unsigned NOT NULL DEFAULT '0',
-  `admin_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `topicid` smallint(5) unsigned NOT NULL DEFAULT 0,
+  `admin_id` mediumint(8) unsigned NOT NULL DEFAULT 0,
   `author` varchar(250) DEFAULT '',
-  `sourceid` mediumint(8) NOT NULL DEFAULT '0',
-  `addtime` int(11) unsigned NOT NULL DEFAULT '0',
-  `edittime` int(11) unsigned NOT NULL DEFAULT '0',
-  `status` tinyint(4) NOT NULL DEFAULT '1',
-  `weight` int(11) NOT NULL DEFAULT '0',
-  `publtime` int(11) unsigned NOT NULL DEFAULT '0',
-  `exptime` int(11) unsigned NOT NULL DEFAULT '0',
-  `archive` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `sourceid` mediumint(8) NOT NULL DEFAULT 0,
+  `addtime` int(11) unsigned NOT NULL DEFAULT 0,
+  `edittime` int(11) unsigned NOT NULL DEFAULT 0,
+  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `weight` int(11) NOT NULL DEFAULT 0,
+  `publtime` int(11) unsigned NOT NULL DEFAULT 0,
+  `exptime` int(11) unsigned NOT NULL DEFAULT 0,
+  `archive` tinyint(1) unsigned NOT NULL DEFAULT 0,
   `title` varchar(250) NOT NULL DEFAULT '',
   `alias` varchar(250) NOT NULL DEFAULT '',
   `hometext` text NOT NULL,
   `homeimgfile` varchar(255) DEFAULT '',
   `homeimgalt` varchar(255) DEFAULT '',
-  `homeimgthumb` tinyint(4) NOT NULL DEFAULT '0',
-  `inhome` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `homeimgthumb` tinyint(4) NOT NULL DEFAULT 0,
+  `inhome` tinyint(1) unsigned NOT NULL DEFAULT 0,
   `allowed_comm` varchar(255) DEFAULT '',
-  `allowed_rating` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `external_link` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `hitstotal` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `hitscm` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `total_rating` int(11) NOT NULL DEFAULT '0',
-  `click_rating` int(11) NOT NULL DEFAULT '0',
-  `instant_active` tinyint(1) NOT NULL DEFAULT '0',
+  `allowed_rating` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `external_link` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `hitstotal` mediumint(8) unsigned NOT NULL DEFAULT 0,
+  `hitscm` mediumint(8) unsigned NOT NULL DEFAULT 0,
+  `total_rating` int(11) NOT NULL DEFAULT 0,
+  `click_rating` int(11) NOT NULL DEFAULT 0,
+  `instant_active` tinyint(1) NOT NULL DEFAULT 0,
   `instant_template` varchar(100) NOT NULL DEFAULT '',
-  `instant_creatauto` tinyint(1) NOT NULL DEFAULT '0',
+  `instant_creatauto` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `catid` (`catid`),
   KEY `topicid` (`topicid`),
@@ -4828,36 +4844,36 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_news_3` (`id
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_news_4`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_news_4` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `catid` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `catid` smallint(5) unsigned NOT NULL DEFAULT 0,
   `listcatid` varchar(255) NOT NULL DEFAULT '',
-  `topicid` smallint(5) unsigned NOT NULL DEFAULT '0',
-  `admin_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `topicid` smallint(5) unsigned NOT NULL DEFAULT 0,
+  `admin_id` mediumint(8) unsigned NOT NULL DEFAULT 0,
   `author` varchar(250) DEFAULT '',
-  `sourceid` mediumint(8) NOT NULL DEFAULT '0',
-  `addtime` int(11) unsigned NOT NULL DEFAULT '0',
-  `edittime` int(11) unsigned NOT NULL DEFAULT '0',
-  `status` tinyint(4) NOT NULL DEFAULT '1',
-  `weight` int(11) NOT NULL DEFAULT '0',
-  `publtime` int(11) unsigned NOT NULL DEFAULT '0',
-  `exptime` int(11) unsigned NOT NULL DEFAULT '0',
-  `archive` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `sourceid` mediumint(8) NOT NULL DEFAULT 0,
+  `addtime` int(11) unsigned NOT NULL DEFAULT 0,
+  `edittime` int(11) unsigned NOT NULL DEFAULT 0,
+  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `weight` int(11) NOT NULL DEFAULT 0,
+  `publtime` int(11) unsigned NOT NULL DEFAULT 0,
+  `exptime` int(11) unsigned NOT NULL DEFAULT 0,
+  `archive` tinyint(1) unsigned NOT NULL DEFAULT 0,
   `title` varchar(250) NOT NULL DEFAULT '',
   `alias` varchar(250) NOT NULL DEFAULT '',
   `hometext` text NOT NULL,
   `homeimgfile` varchar(255) DEFAULT '',
   `homeimgalt` varchar(255) DEFAULT '',
-  `homeimgthumb` tinyint(4) NOT NULL DEFAULT '0',
-  `inhome` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `homeimgthumb` tinyint(4) NOT NULL DEFAULT 0,
+  `inhome` tinyint(1) unsigned NOT NULL DEFAULT 0,
   `allowed_comm` varchar(255) DEFAULT '',
-  `allowed_rating` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `external_link` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `hitstotal` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `hitscm` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `total_rating` int(11) NOT NULL DEFAULT '0',
-  `click_rating` int(11) NOT NULL DEFAULT '0',
-  `instant_active` tinyint(1) NOT NULL DEFAULT '0',
+  `allowed_rating` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `external_link` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `hitstotal` mediumint(8) unsigned NOT NULL DEFAULT 0,
+  `hitscm` mediumint(8) unsigned NOT NULL DEFAULT 0,
+  `total_rating` int(11) NOT NULL DEFAULT 0,
+  `click_rating` int(11) NOT NULL DEFAULT 0,
+  `instant_active` tinyint(1) NOT NULL DEFAULT 0,
   `instant_template` varchar(100) NOT NULL DEFAULT '',
-  `instant_creatauto` tinyint(1) NOT NULL DEFAULT '0',
+  `instant_creatauto` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `catid` (`catid`),
   KEY `topicid` (`topicid`),
@@ -4878,36 +4894,36 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_news_4` (`id
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_news_5`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_news_5` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `catid` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `catid` smallint(5) unsigned NOT NULL DEFAULT 0,
   `listcatid` varchar(255) NOT NULL DEFAULT '',
-  `topicid` smallint(5) unsigned NOT NULL DEFAULT '0',
-  `admin_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `topicid` smallint(5) unsigned NOT NULL DEFAULT 0,
+  `admin_id` mediumint(8) unsigned NOT NULL DEFAULT 0,
   `author` varchar(250) DEFAULT '',
-  `sourceid` mediumint(8) NOT NULL DEFAULT '0',
-  `addtime` int(11) unsigned NOT NULL DEFAULT '0',
-  `edittime` int(11) unsigned NOT NULL DEFAULT '0',
-  `status` tinyint(4) NOT NULL DEFAULT '1',
-  `weight` int(11) NOT NULL DEFAULT '0',
-  `publtime` int(11) unsigned NOT NULL DEFAULT '0',
-  `exptime` int(11) unsigned NOT NULL DEFAULT '0',
-  `archive` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `sourceid` mediumint(8) NOT NULL DEFAULT 0,
+  `addtime` int(11) unsigned NOT NULL DEFAULT 0,
+  `edittime` int(11) unsigned NOT NULL DEFAULT 0,
+  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `weight` int(11) NOT NULL DEFAULT 0,
+  `publtime` int(11) unsigned NOT NULL DEFAULT 0,
+  `exptime` int(11) unsigned NOT NULL DEFAULT 0,
+  `archive` tinyint(1) unsigned NOT NULL DEFAULT 0,
   `title` varchar(250) NOT NULL DEFAULT '',
   `alias` varchar(250) NOT NULL DEFAULT '',
   `hometext` text NOT NULL,
   `homeimgfile` varchar(255) DEFAULT '',
   `homeimgalt` varchar(255) DEFAULT '',
-  `homeimgthumb` tinyint(4) NOT NULL DEFAULT '0',
-  `inhome` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `homeimgthumb` tinyint(4) NOT NULL DEFAULT 0,
+  `inhome` tinyint(1) unsigned NOT NULL DEFAULT 0,
   `allowed_comm` varchar(255) DEFAULT '',
-  `allowed_rating` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `external_link` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `hitstotal` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `hitscm` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `total_rating` int(11) NOT NULL DEFAULT '0',
-  `click_rating` int(11) NOT NULL DEFAULT '0',
-  `instant_active` tinyint(1) NOT NULL DEFAULT '0',
+  `allowed_rating` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `external_link` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `hitstotal` mediumint(8) unsigned NOT NULL DEFAULT 0,
+  `hitscm` mediumint(8) unsigned NOT NULL DEFAULT 0,
+  `total_rating` int(11) NOT NULL DEFAULT 0,
+  `click_rating` int(11) NOT NULL DEFAULT 0,
+  `instant_active` tinyint(1) NOT NULL DEFAULT 0,
   `instant_template` varchar(100) NOT NULL DEFAULT '',
-  `instant_creatauto` tinyint(1) NOT NULL DEFAULT '0',
+  `instant_creatauto` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `catid` (`catid`),
   KEY `topicid` (`topicid`),
@@ -4927,36 +4943,36 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_news_5` (`id
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_news_6`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_news_6` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `catid` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `catid` smallint(5) unsigned NOT NULL DEFAULT 0,
   `listcatid` varchar(255) NOT NULL DEFAULT '',
-  `topicid` smallint(5) unsigned NOT NULL DEFAULT '0',
-  `admin_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `topicid` smallint(5) unsigned NOT NULL DEFAULT 0,
+  `admin_id` mediumint(8) unsigned NOT NULL DEFAULT 0,
   `author` varchar(250) DEFAULT '',
-  `sourceid` mediumint(8) NOT NULL DEFAULT '0',
-  `addtime` int(11) unsigned NOT NULL DEFAULT '0',
-  `edittime` int(11) unsigned NOT NULL DEFAULT '0',
-  `status` tinyint(4) NOT NULL DEFAULT '1',
-  `weight` int(11) NOT NULL DEFAULT '0',
-  `publtime` int(11) unsigned NOT NULL DEFAULT '0',
-  `exptime` int(11) unsigned NOT NULL DEFAULT '0',
-  `archive` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `sourceid` mediumint(8) NOT NULL DEFAULT 0,
+  `addtime` int(11) unsigned NOT NULL DEFAULT 0,
+  `edittime` int(11) unsigned NOT NULL DEFAULT 0,
+  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `weight` int(11) NOT NULL DEFAULT 0,
+  `publtime` int(11) unsigned NOT NULL DEFAULT 0,
+  `exptime` int(11) unsigned NOT NULL DEFAULT 0,
+  `archive` tinyint(1) unsigned NOT NULL DEFAULT 0,
   `title` varchar(250) NOT NULL DEFAULT '',
   `alias` varchar(250) NOT NULL DEFAULT '',
   `hometext` text NOT NULL,
   `homeimgfile` varchar(255) DEFAULT '',
   `homeimgalt` varchar(255) DEFAULT '',
-  `homeimgthumb` tinyint(4) NOT NULL DEFAULT '0',
-  `inhome` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `homeimgthumb` tinyint(4) NOT NULL DEFAULT 0,
+  `inhome` tinyint(1) unsigned NOT NULL DEFAULT 0,
   `allowed_comm` varchar(255) DEFAULT '',
-  `allowed_rating` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `external_link` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `hitstotal` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `hitscm` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `total_rating` int(11) NOT NULL DEFAULT '0',
-  `click_rating` int(11) NOT NULL DEFAULT '0',
-  `instant_active` tinyint(1) NOT NULL DEFAULT '0',
+  `allowed_rating` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `external_link` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `hitstotal` mediumint(8) unsigned NOT NULL DEFAULT 0,
+  `hitscm` mediumint(8) unsigned NOT NULL DEFAULT 0,
+  `total_rating` int(11) NOT NULL DEFAULT 0,
+  `click_rating` int(11) NOT NULL DEFAULT 0,
+  `instant_active` tinyint(1) NOT NULL DEFAULT 0,
   `instant_template` varchar(100) NOT NULL DEFAULT '',
-  `instant_creatauto` tinyint(1) NOT NULL DEFAULT '0',
+  `instant_creatauto` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `catid` (`catid`),
   KEY `topicid` (`topicid`),
@@ -4976,36 +4992,36 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_news_6` (`id
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_news_7`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_news_7` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `catid` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `catid` smallint(5) unsigned NOT NULL DEFAULT 0,
   `listcatid` varchar(255) NOT NULL DEFAULT '',
-  `topicid` smallint(5) unsigned NOT NULL DEFAULT '0',
-  `admin_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `topicid` smallint(5) unsigned NOT NULL DEFAULT 0,
+  `admin_id` mediumint(8) unsigned NOT NULL DEFAULT 0,
   `author` varchar(250) DEFAULT '',
-  `sourceid` mediumint(8) NOT NULL DEFAULT '0',
-  `addtime` int(11) unsigned NOT NULL DEFAULT '0',
-  `edittime` int(11) unsigned NOT NULL DEFAULT '0',
-  `status` tinyint(4) NOT NULL DEFAULT '1',
-  `weight` int(11) NOT NULL DEFAULT '0',
-  `publtime` int(11) unsigned NOT NULL DEFAULT '0',
-  `exptime` int(11) unsigned NOT NULL DEFAULT '0',
-  `archive` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `sourceid` mediumint(8) NOT NULL DEFAULT 0,
+  `addtime` int(11) unsigned NOT NULL DEFAULT 0,
+  `edittime` int(11) unsigned NOT NULL DEFAULT 0,
+  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `weight` int(11) NOT NULL DEFAULT 0,
+  `publtime` int(11) unsigned NOT NULL DEFAULT 0,
+  `exptime` int(11) unsigned NOT NULL DEFAULT 0,
+  `archive` tinyint(1) unsigned NOT NULL DEFAULT 0,
   `title` varchar(250) NOT NULL DEFAULT '',
   `alias` varchar(250) NOT NULL DEFAULT '',
   `hometext` text NOT NULL,
   `homeimgfile` varchar(255) DEFAULT '',
   `homeimgalt` varchar(255) DEFAULT '',
-  `homeimgthumb` tinyint(4) NOT NULL DEFAULT '0',
-  `inhome` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `homeimgthumb` tinyint(4) NOT NULL DEFAULT 0,
+  `inhome` tinyint(1) unsigned NOT NULL DEFAULT 0,
   `allowed_comm` varchar(255) DEFAULT '',
-  `allowed_rating` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `external_link` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `hitstotal` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `hitscm` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `total_rating` int(11) NOT NULL DEFAULT '0',
-  `click_rating` int(11) NOT NULL DEFAULT '0',
-  `instant_active` tinyint(1) NOT NULL DEFAULT '0',
+  `allowed_rating` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `external_link` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `hitstotal` mediumint(8) unsigned NOT NULL DEFAULT 0,
+  `hitscm` mediumint(8) unsigned NOT NULL DEFAULT 0,
+  `total_rating` int(11) NOT NULL DEFAULT 0,
+  `click_rating` int(11) NOT NULL DEFAULT 0,
+  `instant_active` tinyint(1) NOT NULL DEFAULT 0,
   `instant_template` varchar(100) NOT NULL DEFAULT '',
-  `instant_creatauto` tinyint(1) NOT NULL DEFAULT '0',
+  `instant_creatauto` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `catid` (`catid`),
   KEY `topicid` (`topicid`),
@@ -5025,36 +5041,36 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_news_7` (`id
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_news_8`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_news_8` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `catid` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `catid` smallint(5) unsigned NOT NULL DEFAULT 0,
   `listcatid` varchar(255) NOT NULL DEFAULT '',
-  `topicid` smallint(5) unsigned NOT NULL DEFAULT '0',
-  `admin_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `topicid` smallint(5) unsigned NOT NULL DEFAULT 0,
+  `admin_id` mediumint(8) unsigned NOT NULL DEFAULT 0,
   `author` varchar(250) DEFAULT '',
-  `sourceid` mediumint(8) NOT NULL DEFAULT '0',
-  `addtime` int(11) unsigned NOT NULL DEFAULT '0',
-  `edittime` int(11) unsigned NOT NULL DEFAULT '0',
-  `status` tinyint(4) NOT NULL DEFAULT '1',
-  `weight` int(11) NOT NULL DEFAULT '0',
-  `publtime` int(11) unsigned NOT NULL DEFAULT '0',
-  `exptime` int(11) unsigned NOT NULL DEFAULT '0',
-  `archive` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `sourceid` mediumint(8) NOT NULL DEFAULT 0,
+  `addtime` int(11) unsigned NOT NULL DEFAULT 0,
+  `edittime` int(11) unsigned NOT NULL DEFAULT 0,
+  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `weight` int(11) NOT NULL DEFAULT 0,
+  `publtime` int(11) unsigned NOT NULL DEFAULT 0,
+  `exptime` int(11) unsigned NOT NULL DEFAULT 0,
+  `archive` tinyint(1) unsigned NOT NULL DEFAULT 0,
   `title` varchar(250) NOT NULL DEFAULT '',
   `alias` varchar(250) NOT NULL DEFAULT '',
   `hometext` text NOT NULL,
   `homeimgfile` varchar(255) DEFAULT '',
   `homeimgalt` varchar(255) DEFAULT '',
-  `homeimgthumb` tinyint(4) NOT NULL DEFAULT '0',
-  `inhome` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `homeimgthumb` tinyint(4) NOT NULL DEFAULT 0,
+  `inhome` tinyint(1) unsigned NOT NULL DEFAULT 0,
   `allowed_comm` varchar(255) DEFAULT '',
-  `allowed_rating` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `external_link` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `hitstotal` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `hitscm` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `total_rating` int(11) NOT NULL DEFAULT '0',
-  `click_rating` int(11) NOT NULL DEFAULT '0',
-  `instant_active` tinyint(1) NOT NULL DEFAULT '0',
+  `allowed_rating` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `external_link` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `hitstotal` mediumint(8) unsigned NOT NULL DEFAULT 0,
+  `hitscm` mediumint(8) unsigned NOT NULL DEFAULT 0,
+  `total_rating` int(11) NOT NULL DEFAULT 0,
+  `click_rating` int(11) NOT NULL DEFAULT 0,
+  `instant_active` tinyint(1) NOT NULL DEFAULT 0,
   `instant_template` varchar(100) NOT NULL DEFAULT '',
-  `instant_creatauto` tinyint(1) NOT NULL DEFAULT '0',
+  `instant_creatauto` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `catid` (`catid`),
   KEY `topicid` (`topicid`),
@@ -5074,36 +5090,36 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_news_8` (`id
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_news_9`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_news_9` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `catid` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `catid` smallint(5) unsigned NOT NULL DEFAULT 0,
   `listcatid` varchar(255) NOT NULL DEFAULT '',
-  `topicid` smallint(5) unsigned NOT NULL DEFAULT '0',
-  `admin_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `topicid` smallint(5) unsigned NOT NULL DEFAULT 0,
+  `admin_id` mediumint(8) unsigned NOT NULL DEFAULT 0,
   `author` varchar(250) DEFAULT '',
-  `sourceid` mediumint(8) NOT NULL DEFAULT '0',
-  `addtime` int(11) unsigned NOT NULL DEFAULT '0',
-  `edittime` int(11) unsigned NOT NULL DEFAULT '0',
-  `status` tinyint(4) NOT NULL DEFAULT '1',
-  `weight` int(11) NOT NULL DEFAULT '0',
-  `publtime` int(11) unsigned NOT NULL DEFAULT '0',
-  `exptime` int(11) unsigned NOT NULL DEFAULT '0',
-  `archive` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `sourceid` mediumint(8) NOT NULL DEFAULT 0,
+  `addtime` int(11) unsigned NOT NULL DEFAULT 0,
+  `edittime` int(11) unsigned NOT NULL DEFAULT 0,
+  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `weight` int(11) NOT NULL DEFAULT 0,
+  `publtime` int(11) unsigned NOT NULL DEFAULT 0,
+  `exptime` int(11) unsigned NOT NULL DEFAULT 0,
+  `archive` tinyint(1) unsigned NOT NULL DEFAULT 0,
   `title` varchar(250) NOT NULL DEFAULT '',
   `alias` varchar(250) NOT NULL DEFAULT '',
   `hometext` text NOT NULL,
   `homeimgfile` varchar(255) DEFAULT '',
   `homeimgalt` varchar(255) DEFAULT '',
-  `homeimgthumb` tinyint(4) NOT NULL DEFAULT '0',
-  `inhome` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `homeimgthumb` tinyint(4) NOT NULL DEFAULT 0,
+  `inhome` tinyint(1) unsigned NOT NULL DEFAULT 0,
   `allowed_comm` varchar(255) DEFAULT '',
-  `allowed_rating` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `external_link` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `hitstotal` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `hitscm` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `total_rating` int(11) NOT NULL DEFAULT '0',
-  `click_rating` int(11) NOT NULL DEFAULT '0',
-  `instant_active` tinyint(1) NOT NULL DEFAULT '0',
+  `allowed_rating` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `external_link` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `hitstotal` mediumint(8) unsigned NOT NULL DEFAULT 0,
+  `hitscm` mediumint(8) unsigned NOT NULL DEFAULT 0,
+  `total_rating` int(11) NOT NULL DEFAULT 0,
+  `click_rating` int(11) NOT NULL DEFAULT 0,
+  `instant_active` tinyint(1) NOT NULL DEFAULT 0,
   `instant_template` varchar(100) NOT NULL DEFAULT '',
-  `instant_creatauto` tinyint(1) NOT NULL DEFAULT '0',
+  `instant_creatauto` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `catid` (`catid`),
   KEY `topicid` (`topicid`),
@@ -5121,14 +5137,14 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_news_9` (
 
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_news_admins`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_news_admins` (
-  `userid` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `catid` smallint(5) NOT NULL DEFAULT '0',
-  `admin` tinyint(4) NOT NULL DEFAULT '0',
-  `add_content` tinyint(4) NOT NULL DEFAULT '0',
-  `pub_content` tinyint(4) NOT NULL DEFAULT '0',
-  `edit_content` tinyint(4) NOT NULL DEFAULT '0',
-  `del_content` tinyint(4) NOT NULL DEFAULT '0',
-  `app_content` tinyint(4) NOT NULL DEFAULT '0',
+  `userid` mediumint(8) unsigned NOT NULL DEFAULT 0,
+  `catid` smallint(5) NOT NULL DEFAULT 0,
+  `admin` tinyint(4) NOT NULL DEFAULT 0,
+  `add_content` tinyint(4) NOT NULL DEFAULT 0,
+  `pub_content` tinyint(4) NOT NULL DEFAULT 0,
+  `edit_content` tinyint(4) NOT NULL DEFAULT 0,
+  `del_content` tinyint(4) NOT NULL DEFAULT 0,
+  `app_content` tinyint(4) NOT NULL DEFAULT 0,
   UNIQUE KEY `userid` (`userid`,`catid`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8";
 
@@ -5147,16 +5163,16 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_news_block` 
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_news_block_cat`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_news_block_cat` (
   `bid` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
-  `adddefault` tinyint(4) NOT NULL DEFAULT '0',
-  `numbers` smallint(5) NOT NULL DEFAULT '10',
+  `adddefault` tinyint(4) NOT NULL DEFAULT 0,
+  `numbers` smallint(5) NOT NULL DEFAULT 10,
   `title` varchar(250) NOT NULL DEFAULT '',
   `alias` varchar(250) NOT NULL DEFAULT '',
   `image` varchar(255) DEFAULT '',
   `description` varchar(255) DEFAULT '',
-  `weight` smallint(5) NOT NULL DEFAULT '0',
-  `keywords` text,
-  `add_time` int(11) NOT NULL DEFAULT '0',
-  `edit_time` int(11) NOT NULL DEFAULT '0',
+  `weight` smallint(5) NOT NULL DEFAULT 0,
+  `keywords` text DEFAULT NULL,
+  `add_time` int(11) NOT NULL DEFAULT 0,
+  `edit_time` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`bid`),
   UNIQUE KEY `title` (`title`),
   UNIQUE KEY `alias` (`alias`)
@@ -5167,30 +5183,30 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_news_block_c
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_news_cat`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_news_cat` (
   `catid` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
-  `parentid` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `parentid` smallint(5) unsigned NOT NULL DEFAULT 0,
   `title` varchar(250) NOT NULL,
   `titlesite` varchar(250) DEFAULT '',
   `alias` varchar(250) NOT NULL DEFAULT '',
-  `description` text,
-  `descriptionhtml` text,
+  `description` text DEFAULT NULL,
+  `descriptionhtml` text DEFAULT NULL,
   `image` varchar(255) DEFAULT '',
-  `viewdescription` tinyint(2) NOT NULL DEFAULT '0',
-  `weight` smallint(5) unsigned NOT NULL DEFAULT '0',
-  `sort` smallint(5) NOT NULL DEFAULT '0',
-  `lev` smallint(5) NOT NULL DEFAULT '0',
+  `viewdescription` tinyint(2) NOT NULL DEFAULT 0,
+  `weight` smallint(5) unsigned NOT NULL DEFAULT 0,
+  `sort` smallint(5) NOT NULL DEFAULT 0,
+  `lev` smallint(5) NOT NULL DEFAULT 0,
   `viewcat` varchar(50) NOT NULL DEFAULT 'viewcat_page_new',
-  `numsubcat` smallint(5) NOT NULL DEFAULT '0',
+  `numsubcat` smallint(5) NOT NULL DEFAULT 0,
   `subcatid` varchar(255) DEFAULT '',
-  `numlinks` tinyint(2) unsigned NOT NULL DEFAULT '3',
-  `newday` tinyint(2) unsigned NOT NULL DEFAULT '2',
-  `featured` int(11) NOT NULL DEFAULT '0',
+  `numlinks` tinyint(2) unsigned NOT NULL DEFAULT 3,
+  `newday` tinyint(2) unsigned NOT NULL DEFAULT 2,
+  `featured` int(11) NOT NULL DEFAULT 0,
   `ad_block_cat` varchar(255) NOT NULL DEFAULT '',
-  `keywords` text,
-  `admins` text,
-  `add_time` int(11) unsigned NOT NULL DEFAULT '0',
-  `edit_time` int(11) unsigned NOT NULL DEFAULT '0',
+  `keywords` text DEFAULT NULL,
+  `admins` text DEFAULT NULL,
+  `add_time` int(11) unsigned NOT NULL DEFAULT 0,
+  `edit_time` int(11) unsigned NOT NULL DEFAULT 0,
   `groups_view` varchar(255) DEFAULT '',
-  `status` smallint(4) NOT NULL DEFAULT '1',
+  `status` smallint(4) NOT NULL DEFAULT 1,
   PRIMARY KEY (`catid`),
   UNIQUE KEY `alias` (`alias`),
   KEY `parentid` (`parentid`),
@@ -5230,14 +5246,14 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_news_detail
   `bodyhtml` longtext NOT NULL,
   `keywords` varchar(255) NOT NULL DEFAULT '',
   `sourcetext` varchar(255) DEFAULT '',
-  `files` text,
-  `imgposition` tinyint(1) NOT NULL DEFAULT '1',
+  `files` text DEFAULT NULL,
+  `imgposition` tinyint(1) NOT NULL DEFAULT 1,
   `layout_func` varchar(100) DEFAULT '',
-  `copyright` tinyint(1) NOT NULL DEFAULT '0',
-  `allowed_send` tinyint(1) NOT NULL DEFAULT '0',
-  `allowed_print` tinyint(1) NOT NULL DEFAULT '0',
-  `allowed_save` tinyint(1) NOT NULL DEFAULT '0',
-  `gid` mediumint(8) NOT NULL DEFAULT '0',
+  `copyright` tinyint(1) NOT NULL DEFAULT 0,
+  `allowed_send` tinyint(1) NOT NULL DEFAULT 0,
+  `allowed_print` tinyint(1) NOT NULL DEFAULT 0,
+  `allowed_save` tinyint(1) NOT NULL DEFAULT 0,
+  `gid` mediumint(8) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_news_detail` (`id`, `titlesite`, `description`, `bodyhtml`, `keywords`, `sourcetext`, `files`, `imgposition`, `layout_func`, `copyright`, `allowed_send`, `allowed_print`, `allowed_save`, `gid`) VALUES (1, '', '', '<p>Cụ thể, nhiệm vụ 1: Nghiên cứu, phát triển một số dịch vụ hỗ trợ và quản lý du khách nhằm phát triển du lịch bền vững theo định hướng thành phố thông minh và Chính phủ điện tử. Định hướng mục tiêu là nghiên cứu, đề xuất kiến trúc tổng thể hệ thống dịch vụ hỗ trợ và quản lý du khách với định hướng thành phố thông minh và chính phủ điện tử; xây dựng, triển khai thử nghiệm hệ thống thông tin cung cấp một số dịch vụ hỗ trợ du khách nhằm phát triển du lịch bền vững.</p><p>Nhiệm vụ 2: Nghiên cứu, thiết kế, chế tạo hệ thống KIOSK chuyên dụng cho chính phủ điện tử. Định hướng mục tiêu là làm chủ công nghệ thiết kế, chế tạo hệ thống KIOSK chuyên dụng hỗ trợ cung cấp dịch vụ hành chính công. Đồng thời, thiết kế, chế tạo mẫu KIOSK để triển khai một số dịch vụ hành chính công.</p><p>Nhiệm vụ 3: Nghiên cứu, xây dựng hệ thống công nghệ thông tin thử nghiệm thu thập dữ liệu và phân tích một số chỉ số hiệu năng thực hiện (KPI) của đô thị thông minh phù hợp với điều kiện của Việt Nam nhằm phục vụ cho hoạt động của cơ quan quản lý nhà nước. Định hướng mục tiêu là xây dựng thí điểm hệ thống công nghệ thông tin giúp cho cơ quan quản lý nhà nước trong một số lĩnh vực nắm bắt được dữ liệu về một số chỉ số hiệu năng thực hiện của đô thị để làm cơ sở xây dựng bộ tiêu chí công nghệ thông tin đánh giá đô thị thông minh tại Việt Nam; đề xuất được bộ chỉ số đánh giá KPI sự phát triển của đô thị thông minh phù hợp với Việt Nam giai đoạn 2018 - 2023.</p><p>Nhiệm vụ 4: Nghiên cứu, phát triển hệ thống phân tích vết truy cập dịch vụ cho phép phát hiện, cảnh báo hành vi bất thường và nguy cơ mất an toàn thông tin trong Chính phủ điện tử. Định hướng mục tiêu là nghiên cứu, đề xuất giải pháp thu thập và phân tích vết truy cập các máy chủ tại các cơ quan cấp Tỉnh/Thành phố/Bộ, nhằm trích xuất các thông tin có giá trị hỗ trợ phát hiện, cảnh báo hành vi bất thường và đảm bảo an toàn thông tin. Đồng thời, xây dựng, phát triển hệ thống phân tích nhật ký vết truy cập dịch vụ hỗ trợ phát hiện, cảnh báo hành vi bất thường và nguy cơ mất an toàn thông tin và triển khai thử nghiệm tại cơ quan cấp Tỉnh/Thành phố/Bộ.</p><p>Nhiệm vụ 5: Nghiên cứu, phát triển tích hợp hệ thống hỗ trợ giám sát, quản lý, vận hành an toàn cho hệ thống mạng và hạ tầng cung cấp dịch vụ công trực tuyến. Định hướng mục tiêu là làm chủ công nghệ chế tạo thiết bị phần cứng, phát triển phần mềm chuyên dụng, tích hợp hệ thống hỗ trợ giám sát, quản lý đảm bảo vận hành an toàn và an ninh thông tin cho các hệ thống mạng và hạ tầng cung cấp dịch vụ công trực tuyến tại các cơ quan nhà nước.</p><p>Các tổ chức và cá nhân tham gia tuyển chọn cần chuẩn bị hồ sơ theo các yêu cầu của Thông tư 10/2014/TT-BKHCN và 23/2014/TT-BKHCN và các biểu mẫu bổ sung tại Quyết định số 950/QĐ-BKHCN ngày 25/4/2016. Thời hạn nộp hồ sơ trước 17h00 ngày 22/6/2017 tại Văn phòng Bộ, Bộ Khoa học và Công nghệ, 113 Trần Duy Hưng, Cầu Giấy, Hà Nội.</p><p>Quy trình tuyển chọn tổ chức và cá nhân thực hiện nhiệm vụ khoa học và công nghệ cấp quốc gia được thực hiện theo hướng dẫn tại Thông tư số 10/2014/TT-BKHCN và Thông tư số 23/2014/TT-BKHCN về việc sữa đổi, bổ sung một số điều Thông tư số 10/2014/TT-BKHCN</p>', '', 'http://baochinhphu.vn/Khoa-hoc-Cong-nghe/Nghien-cuu-phat-trien-san-pham-CNTT-phuc-vu-Chinh-phu-dien-tu/305966.vgp', NULL, 2, '', 0, 1, 1, 1, 0)";
@@ -5256,11 +5272,11 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_news_detail`
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_news_logs`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_news_logs` (
   `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
-  `sid` mediumint(8) NOT NULL DEFAULT '0',
-  `userid` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `status` tinyint(4) NOT NULL DEFAULT '0',
+  `sid` mediumint(8) NOT NULL DEFAULT 0,
+  `userid` mediumint(8) unsigned NOT NULL DEFAULT 0,
+  `status` tinyint(4) NOT NULL DEFAULT 0,
   `note` varchar(255) NOT NULL,
-  `set_time` int(11) unsigned NOT NULL DEFAULT '0',
+  `set_time` int(11) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `sid` (`sid`),
   KEY `userid` (`userid`)
@@ -5269,36 +5285,36 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_news_logs` 
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_news_rows`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_news_rows` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `catid` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `catid` smallint(5) unsigned NOT NULL DEFAULT 0,
   `listcatid` varchar(255) NOT NULL DEFAULT '',
-  `topicid` smallint(5) unsigned NOT NULL DEFAULT '0',
-  `admin_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `topicid` smallint(5) unsigned NOT NULL DEFAULT 0,
+  `admin_id` mediumint(8) unsigned NOT NULL DEFAULT 0,
   `author` varchar(250) DEFAULT '',
-  `sourceid` mediumint(8) NOT NULL DEFAULT '0',
-  `addtime` int(11) unsigned NOT NULL DEFAULT '0',
-  `edittime` int(11) unsigned NOT NULL DEFAULT '0',
-  `status` tinyint(4) NOT NULL DEFAULT '1',
-  `weight` int(11) NOT NULL DEFAULT '0',
-  `publtime` int(11) unsigned NOT NULL DEFAULT '0',
-  `exptime` int(11) unsigned NOT NULL DEFAULT '0',
-  `archive` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `sourceid` mediumint(8) NOT NULL DEFAULT 0,
+  `addtime` int(11) unsigned NOT NULL DEFAULT 0,
+  `edittime` int(11) unsigned NOT NULL DEFAULT 0,
+  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `weight` int(11) NOT NULL DEFAULT 0,
+  `publtime` int(11) unsigned NOT NULL DEFAULT 0,
+  `exptime` int(11) unsigned NOT NULL DEFAULT 0,
+  `archive` tinyint(1) unsigned NOT NULL DEFAULT 0,
   `title` varchar(250) NOT NULL DEFAULT '',
   `alias` varchar(250) NOT NULL DEFAULT '',
   `hometext` text NOT NULL,
   `homeimgfile` varchar(255) DEFAULT '',
   `homeimgalt` varchar(255) DEFAULT '',
-  `homeimgthumb` tinyint(4) NOT NULL DEFAULT '0',
-  `inhome` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `homeimgthumb` tinyint(4) NOT NULL DEFAULT 0,
+  `inhome` tinyint(1) unsigned NOT NULL DEFAULT 0,
   `allowed_comm` varchar(255) DEFAULT '',
-  `allowed_rating` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `external_link` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `hitstotal` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `hitscm` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `total_rating` int(11) NOT NULL DEFAULT '0',
-  `click_rating` int(11) NOT NULL DEFAULT '0',
-  `instant_active` tinyint(1) NOT NULL DEFAULT '0',
+  `allowed_rating` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `external_link` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `hitstotal` mediumint(8) unsigned NOT NULL DEFAULT 0,
+  `hitscm` mediumint(8) unsigned NOT NULL DEFAULT 0,
+  `total_rating` int(11) NOT NULL DEFAULT 0,
+  `click_rating` int(11) NOT NULL DEFAULT 0,
+  `instant_active` tinyint(1) NOT NULL DEFAULT 0,
   `instant_template` varchar(100) NOT NULL DEFAULT '',
-  `instant_creatauto` tinyint(1) NOT NULL DEFAULT '0',
+  `instant_creatauto` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `catid` (`catid`),
   KEY `topicid` (`topicid`),
@@ -5332,7 +5348,7 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_news_source
   `title` varchar(250) NOT NULL DEFAULT '',
   `link` varchar(255) DEFAULT '',
   `logo` varchar(255) DEFAULT '',
-  `weight` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `weight` mediumint(8) unsigned NOT NULL DEFAULT 0,
   `add_time` int(11) unsigned NOT NULL,
   `edit_time` int(11) unsigned NOT NULL,
   PRIMARY KEY (`sourceid`),
@@ -5346,10 +5362,10 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_news_sources
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_news_tags`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_news_tags` (
   `tid` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
-  `numnews` mediumint(8) NOT NULL DEFAULT '0',
+  `numnews` mediumint(8) NOT NULL DEFAULT 0,
   `alias` varchar(250) NOT NULL DEFAULT '',
   `image` varchar(255) DEFAULT '',
-  `description` text,
+  `description` text DEFAULT NULL,
   `keywords` varchar(255) DEFAULT '',
   PRIMARY KEY (`tid`),
   UNIQUE KEY `alias` (`alias`)
@@ -5367,7 +5383,7 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_news_tags_i
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_news_tmp`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_news_tmp` (
   `id` mediumint(8) unsigned NOT NULL,
-  `admin_id` int(11) NOT NULL DEFAULT '0',
+  `admin_id` int(11) NOT NULL DEFAULT 0,
   `time_edit` int(11) NOT NULL,
   `time_late` int(11) NOT NULL,
   `ip` varchar(50) NOT NULL,
@@ -5381,10 +5397,10 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_news_topics
   `alias` varchar(250) NOT NULL DEFAULT '',
   `image` varchar(255) DEFAULT '',
   `description` varchar(255) DEFAULT '',
-  `weight` smallint(5) NOT NULL DEFAULT '0',
-  `keywords` text,
-  `add_time` int(11) NOT NULL DEFAULT '0',
-  `edit_time` int(11) NOT NULL DEFAULT '0',
+  `weight` smallint(5) NOT NULL DEFAULT 0,
+  `keywords` text DEFAULT NULL,
+  `add_time` int(11) NOT NULL DEFAULT 0,
+  `edit_time` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`topicid`),
   UNIQUE KEY `title` (`title`),
   UNIQUE KEY `alias` (`alias`)
@@ -5392,25 +5408,25 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_news_topics
 
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_opinions_admins`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_opinions_admins` (
-  `userid` int(11) unsigned NOT NULL DEFAULT '0',
-  `subjectid` smallint(4) NOT NULL DEFAULT '0',
-  `admin` tinyint(4) NOT NULL DEFAULT '0',
-  `add_content` tinyint(4) NOT NULL DEFAULT '0',
-  `edit_content` tinyint(4) NOT NULL DEFAULT '0',
-  `del_content` tinyint(4) NOT NULL DEFAULT '0',
+  `userid` int(11) unsigned NOT NULL DEFAULT 0,
+  `subjectid` smallint(4) NOT NULL DEFAULT 0,
+  `admin` tinyint(4) NOT NULL DEFAULT 0,
+  `add_content` tinyint(4) NOT NULL DEFAULT 0,
+  `edit_content` tinyint(4) NOT NULL DEFAULT 0,
+  `del_content` tinyint(4) NOT NULL DEFAULT 0,
   UNIQUE KEY `userid` (`userid`,`subjectid`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8mb4  COLLATE=utf8mb4_unicode_ci";
 
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_opinions_area`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_opinions_area` (
   `id` smallint(4) unsigned NOT NULL AUTO_INCREMENT,
-  `parentid` smallint(4) unsigned NOT NULL DEFAULT '0',
+  `parentid` smallint(4) unsigned NOT NULL DEFAULT 0,
   `alias` varchar(249) NOT NULL,
   `title` varchar(249) NOT NULL,
   `introduction` mediumtext NOT NULL,
   `keywords` varchar(255) NOT NULL,
-  `addtime` int(11) unsigned NOT NULL DEFAULT '0',
-  `weight` smallint(4) unsigned NOT NULL DEFAULT '0',
+  `addtime` int(11) unsigned NOT NULL DEFAULT 0,
+  `weight` smallint(4) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   UNIQUE KEY `alias` (`alias`,`parentid`),
   KEY `weight` (`weight`)
@@ -5421,14 +5437,14 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_are
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_opinions_cat`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_opinions_cat` (
   `id` smallint(4) unsigned NOT NULL AUTO_INCREMENT,
-  `parentid` smallint(4) unsigned NOT NULL DEFAULT '0',
+  `parentid` smallint(4) unsigned NOT NULL DEFAULT 0,
   `alias` varchar(249) NOT NULL,
   `title` varchar(249) NOT NULL,
   `introduction` mediumtext NOT NULL,
   `keywords` varchar(255) NOT NULL,
-  `newday` tinyint(2) unsigned NOT NULL DEFAULT '5',
-  `addtime` int(11) unsigned NOT NULL DEFAULT '0',
-  `weight` smallint(4) unsigned NOT NULL DEFAULT '0',
+  `newday` tinyint(2) unsigned NOT NULL DEFAULT 5,
+  `addtime` int(11) unsigned NOT NULL DEFAULT 0,
+  `weight` smallint(4) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   UNIQUE KEY `alias` (`alias`,`parentid`),
   KEY `weight` (`weight`)
@@ -5478,10 +5494,10 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_opinions_ro
   `title` varchar(255) NOT NULL,
   `alias` varchar(255) NOT NULL,
   `code` varchar(50) NOT NULL,
-  `cid` smallint(4) unsigned NOT NULL DEFAULT '0',
-  `sid` smallint(4) unsigned NOT NULL DEFAULT '0',
+  `cid` smallint(4) unsigned NOT NULL DEFAULT 0,
+  `sid` smallint(4) unsigned NOT NULL DEFAULT 0,
   `approval` tinyint(1) DEFAULT NULL,
-  `sgid` smallint(4) unsigned NOT NULL DEFAULT '0',
+  `sgid` smallint(4) unsigned NOT NULL DEFAULT 0,
   `note` text NOT NULL,
   `introtext` text NOT NULL,
   `bodytext` text NOT NULL,
@@ -5492,16 +5508,16 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_opinions_ro
   `status` tinyint(1) NOT NULL,
   `addtime` int(11) NOT NULL,
   `edittime` int(11) NOT NULL,
-  `publtime` int(11) NOT NULL DEFAULT '0',
+  `publtime` int(11) NOT NULL DEFAULT 0,
   `start_comm_time` int(11) DEFAULT NULL,
   `eid` int(11) DEFAULT NULL,
   `end_comm_time` int(11) DEFAULT NULL,
-  `startvalid` int(11) NOT NULL DEFAULT '0',
-  `exptime` int(11) NOT NULL DEFAULT '0',
-  `view_hits` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `download_hits` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `admin_add` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `admin_edit` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `startvalid` int(11) NOT NULL DEFAULT 0,
+  `exptime` int(11) NOT NULL DEFAULT 0,
+  `view_hits` mediumint(8) unsigned NOT NULL DEFAULT 0,
+  `download_hits` mediumint(8) unsigned NOT NULL DEFAULT 0,
+  `admin_add` mediumint(8) unsigned NOT NULL DEFAULT 0,
+  `admin_edit` mediumint(8) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  AUTO_INCREMENT=8  DEFAULT CHARSET=utf8mb4  COLLATE=utf8mb4_unicode_ci";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_row` (`id`, `replacement`, `relatement`, `title`, `alias`, `code`, `cid`, `sid`, `approval`, `sgid`, `note`, `introtext`, `bodytext`, `keywords`, `groups_view`, `groups_download`, `files`, `status`, `addtime`, `edittime`, `publtime`, `start_comm_time`, `eid`, `end_comm_time`, `startvalid`, `exptime`, `view_hits`, `download_hits`, `admin_add`, `admin_edit`) VALUES (1, '', '', 'Dự thảo Thông tư quy định tiêu chuẩn chức danh nghề nghiệp viên chức tư vấn viên dịch vụ việc làm', 'Du-thao-Thong-tu-quy-dinh-tieu-chuan-chuc-danh-nghe-nghiep-vien-chuc-tu-van-vien-dich-vu-viec-lam-1', '&#x002F;2017&#x002F;TT-BLĐTB&amp;XH', 2, 5, NULL, 1, '', 'Bộ Lao động - Thương binh và Xã hội đang soạn thảo dự thảo Thông tư quy định tiêu chuẩn chức danh nghề nghiệp viên chức tư vấn viên dịch vụ việc làm. Cổng TTĐT Chính phủ xin giới thiệu toàn văn và đề nghị các cơ quan, tổ chức, cá nhân trong và ngoài nước nghiên cứu, đóng góp ý kiến', '', 'lao động,thương binh,xã hội,soạn thảo,thông tư,quy định,tiêu chuẩn,nghề nghiệp,viên chức,tư vấn,việc làm,giới thiệu,đề nghị,cơ quan,tổ chức,cá nhân,nghiên cứu', '6', '6', 'demo.pdf', 1, 1506571390, 1506571490, 0, 1504198800, NULL, 1514653200, 0, 0, 5, 0, 1, 1)";
@@ -5529,8 +5545,8 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_row
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_opinions_set_replace`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_opinions_set_replace` (
   `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
-  `oid` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `nid` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `oid` mediumint(8) unsigned NOT NULL DEFAULT 0,
+  `nid` mediumint(8) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8mb4  COLLATE=utf8mb4_unicode_ci";
 
@@ -5540,7 +5556,7 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_opinions_si
   `title` varchar(255) NOT NULL,
   `offices` varchar(255) NOT NULL,
   `positions` varchar(255) NOT NULL,
-  `addtime` int(11) unsigned NOT NULL DEFAULT '0',
+  `addtime` int(11) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  AUTO_INCREMENT=6  DEFAULT CHARSET=utf8mb4  COLLATE=utf8mb4_unicode_ci";
 $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_opinions_signer` (`id`, `title`, `offices`, `positions`, `addtime`) VALUES (1, 'Phạm Vũ Luận', '', 'Bộ trưởng', 1412265295)";
@@ -5556,10 +5572,10 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_opinions_su
   `title` varchar(250) NOT NULL,
   `introduction` mediumtext NOT NULL,
   `keywords` varchar(255) NOT NULL,
-  `numcount` int(10) NOT NULL DEFAULT '0',
-  `numlink` tinyint(2) NOT NULL DEFAULT '5',
-  `addtime` int(11) unsigned NOT NULL DEFAULT '0',
-  `weight` smallint(4) unsigned NOT NULL DEFAULT '0',
+  `numcount` int(10) NOT NULL DEFAULT 0,
+  `numlink` tinyint(2) NOT NULL DEFAULT 5,
+  `addtime` int(11) unsigned NOT NULL DEFAULT 0,
+  `weight` smallint(4) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   UNIQUE KEY `alias` (`alias`),
   KEY `weight` (`weight`)
@@ -5578,21 +5594,21 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_page` (
   `alias` varchar(250) NOT NULL,
   `image` varchar(255) DEFAULT '',
   `imagealt` varchar(255) DEFAULT '',
-  `imageposition` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `description` text,
+  `imageposition` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `description` text DEFAULT NULL,
   `bodytext` mediumtext NOT NULL,
-  `keywords` text,
-  `socialbutton` tinyint(4) NOT NULL DEFAULT '0',
+  `keywords` text DEFAULT NULL,
+  `socialbutton` tinyint(4) NOT NULL DEFAULT 0,
   `activecomm` varchar(255) DEFAULT '',
   `layout_func` varchar(100) DEFAULT '',
-  `gid` mediumint(9) NOT NULL DEFAULT '0',
-  `weight` smallint(4) NOT NULL DEFAULT '0',
-  `admin_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `add_time` int(11) NOT NULL DEFAULT '0',
-  `edit_time` int(11) NOT NULL DEFAULT '0',
-  `status` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `hitstotal` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `hot_post` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `gid` mediumint(9) NOT NULL DEFAULT 0,
+  `weight` smallint(4) NOT NULL DEFAULT 0,
+  `admin_id` mediumint(8) unsigned NOT NULL DEFAULT 0,
+  `add_time` int(11) NOT NULL DEFAULT 0,
+  `edit_time` int(11) NOT NULL DEFAULT 0,
+  `status` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `hitstotal` mediumint(8) unsigned NOT NULL DEFAULT 0,
+  `hot_post` tinyint(1) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   UNIQUE KEY `alias` (`alias`)
 ) ENGINE=MyISAM  AUTO_INCREMENT=6  DEFAULT CHARSET=utf8";
@@ -5615,20 +5631,20 @@ $sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_page_config`
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_referer_stats`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_referer_stats` (
   `host` varchar(250) NOT NULL,
-  `total` int(11) NOT NULL DEFAULT '0',
-  `month01` int(11) NOT NULL DEFAULT '0',
-  `month02` int(11) NOT NULL DEFAULT '0',
-  `month03` int(11) NOT NULL DEFAULT '0',
-  `month04` int(11) NOT NULL DEFAULT '0',
-  `month05` int(11) NOT NULL DEFAULT '0',
-  `month06` int(11) NOT NULL DEFAULT '0',
-  `month07` int(11) NOT NULL DEFAULT '0',
-  `month08` int(11) NOT NULL DEFAULT '0',
-  `month09` int(11) NOT NULL DEFAULT '0',
-  `month10` int(11) NOT NULL DEFAULT '0',
-  `month11` int(11) NOT NULL DEFAULT '0',
-  `month12` int(11) NOT NULL DEFAULT '0',
-  `last_update` int(11) NOT NULL DEFAULT '0',
+  `total` int(11) NOT NULL DEFAULT 0,
+  `month01` int(11) NOT NULL DEFAULT 0,
+  `month02` int(11) NOT NULL DEFAULT 0,
+  `month03` int(11) NOT NULL DEFAULT 0,
+  `month04` int(11) NOT NULL DEFAULT 0,
+  `month05` int(11) NOT NULL DEFAULT 0,
+  `month06` int(11) NOT NULL DEFAULT 0,
+  `month07` int(11) NOT NULL DEFAULT 0,
+  `month08` int(11) NOT NULL DEFAULT 0,
+  `month09` int(11) NOT NULL DEFAULT 0,
+  `month10` int(11) NOT NULL DEFAULT 0,
+  `month11` int(11) NOT NULL DEFAULT 0,
+  `month12` int(11) NOT NULL DEFAULT 0,
+  `last_update` int(11) NOT NULL DEFAULT 0,
   UNIQUE KEY `host` (`host`),
   KEY `total` (`total`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8";
@@ -5641,7 +5657,7 @@ $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_sea
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_searchkeys` (
   `id` varchar(32) NOT NULL DEFAULT '',
   `skey` varchar(250) NOT NULL,
-  `total` int(11) NOT NULL DEFAULT '0',
+  `total` int(11) NOT NULL DEFAULT 0,
   `search_engine` varchar(50) NOT NULL,
   KEY `id` (`id`),
   KEY `skey` (`skey`),
@@ -5655,26 +5671,26 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_siteterms` 
   `alias` varchar(250) NOT NULL,
   `image` varchar(255) DEFAULT '',
   `imagealt` varchar(255) DEFAULT '',
-  `imageposition` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `description` text,
+  `imageposition` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `description` text DEFAULT NULL,
   `bodytext` mediumtext NOT NULL,
-  `keywords` text,
-  `socialbutton` tinyint(4) NOT NULL DEFAULT '0',
+  `keywords` text DEFAULT NULL,
+  `socialbutton` tinyint(4) NOT NULL DEFAULT 0,
   `activecomm` varchar(255) DEFAULT '',
   `layout_func` varchar(100) DEFAULT '',
-  `gid` mediumint(9) NOT NULL DEFAULT '0',
-  `weight` smallint(4) NOT NULL DEFAULT '0',
-  `admin_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `add_time` int(11) NOT NULL DEFAULT '0',
-  `edit_time` int(11) NOT NULL DEFAULT '0',
-  `status` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `hitstotal` mediumint(8) unsigned NOT NULL DEFAULT '0',
-  `hot_post` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `gid` mediumint(9) NOT NULL DEFAULT 0,
+  `weight` smallint(4) NOT NULL DEFAULT 0,
+  `admin_id` mediumint(8) unsigned NOT NULL DEFAULT 0,
+  `add_time` int(11) NOT NULL DEFAULT 0,
+  `edit_time` int(11) NOT NULL DEFAULT 0,
+  `status` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `hitstotal` mediumint(8) unsigned NOT NULL DEFAULT 0,
+  `hot_post` tinyint(1) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   UNIQUE KEY `alias` (`alias`)
 ) ENGINE=MyISAM  AUTO_INCREMENT=3  DEFAULT CHARSET=utf8";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_siteterms` (`id`, `title`, `alias`, `image`, `imagealt`, `imageposition`, `description`, `bodytext`, `keywords`, `socialbutton`, `activecomm`, `layout_func`, `gid`, `weight`, `admin_id`, `add_time`, `edit_time`, `status`, `hitstotal`, `hot_post`) VALUES (1, 'Chính sách bảo mật (Quyền riêng tư)', 'privacy', '', '', 0, 'Tài liệu này cung cấp cho bạn (người truy cập và sử dụng website) chính sách liên quan đến bảo mật và quyền riêng tư của bạn', '<strong><a id=\"index\" name=\"index\"></a>Danh mục</strong><br /> <a href=\"#1\">Điều 1: Thu thập thông tin</a><br /> <a href=\"#2\">Điều 2: Lưu trữ &amp; Bảo vệ thông tin</a><br /> <a href=\"#3\">Điều 3: Sử dụng thông tin </a><br /> <a href=\"#4\">Điều 4: Tiếp nhận thông tin từ các đối tác </a><br /> <a href=\"#5\">Điều 5: Chia sẻ thông tin với bên thứ ba</a><br /> <a href=\"#6\">Điều 6: Thay đổi chính sách bảo mật</a>  <hr  /> <h2 style=\"text-align: justify;\"><a id=\"1\" name=\"1\"></a>Điều 1: Thu thập thông tin</h2>  <h3 style=\"text-align: justify;\">1.1. Thu thập tự động:</h3>  <div style=\"text-align: justify;\">Hệ thống này được xây dựng bằng mã nguồn NukeViet. Như mọi website hiện đại khác, chúng tôi sẽ thu thập địa chỉ IP và các thông tin web tiêu chuẩn khác của bạn như: loại trình duyệt, các trang bạn truy cập trong quá trình sử dụng dịch vụ, thông tin về máy tính &amp; thiết bị mạng v.v… cho mục đích phân tích thông tin phục vụ việc bảo mật và giữ an toàn cho hệ thống.</div>  <h3 style=\"text-align: justify;\">1.2. Thu thập từ các khai báo của chính bạn:</h3>  <div style=\"text-align: justify;\">Các thông tin do bạn khai báo cho chúng tôi trong quá trình làm việc như: đăng ký tài khoản, liên hệ với chúng tôi... cũng sẽ được chúng tôi lưu trữ phục vụ công việc chăm sóc khách hàng sau này.</div>  <h3 style=\"text-align: justify;\">1.3. Thu thập thông tin thông qua việc đặt cookies:</h3>  <p style=\"text-align: justify;\">Như mọi website hiện đại khác, khi bạn truy cập website, chúng tôi (hoặc các công cụ theo dõi hoặc thống kê hoạt động của website do các đối tác cung cấp) sẽ đặt một số File dữ liệu gọi là Cookies lên đĩa cứng hoặc bộ nhớ máy tính của bạn.</p>  <p style=\"text-align: justify;\">Một trong số những Cookies này có thể tồn tại lâu để thuận tiện cho bạn trong quá trình sử dụng, ví dụ như: lưu Email của bạn trong trang đăng nhập để bạn không phải nhập lại v.v…</p>  <h3 style=\"text-align: justify;\">1.4. Thu thập và lưu trữ thông tin trong quá khứ:</h3>  <p style=\"text-align: justify;\">Bạn có thể thay đổi thông tin cá nhân của mình bất kỳ lúc nào bằng cách sử dụng chức năng tương ứng. Tuy nhiên chúng tôi sẽ lưu lại những thông tin bị thay đổi để chống các hành vi xóa dấu vết gian lận.</p>  <p style=\"text-align: right;\"><a href=\"#index\">Trở lại danh mục</a></p>  <h2 style=\"text-align: justify;\"><a id=\"2\" name=\"2\"></a>Điều 2: Lưu trữ &amp; Bảo vệ thông tin</h2>  <div style=\"text-align: justify;\">Hầu hết các thông tin được thu thập sẽ được lưu trữ tại cơ sở dữ liệu của chúng tôi.<br /> <br /> Chúng tôi bảo vệ dữ liệu cá nhân của các bạn bằng các hình thức như: mật khẩu, tường lửa, mã hóa cùng các hình thức thích hợp khác và chỉ cấp phép việc truy cập và xử lý dữ liệu cho các đối tượng phù hợp, ví dụ chính bạn hoặc các nhân viên có trách nhiệm xử thông tin với bạn thông qua các bước xác định danh tính phù hợp.<br /> <br /> Mật khẩu của bạn được lưu trữ và bảo vệ bằng phương pháp mã hoá trong cơ sở dữ liệu của hệ thống, vì thế nó rất an toàn. Tuy nhiên, chúng tôi khuyên bạn không nên dùng lại mật khẩu này trên các website khác. Mật khẩu của bạn là cách duy nhất để bạn đăng nhập vào tài khoản thành viên của mình trong website này, vì thế hãy cất giữ nó cẩn thận. Trong mọi trường hợp bạn không nên cung cấp thông tin mật khẩu cho bất kỳ người nào dù là người của chúng tôi, người của NukeViet hay bất kỳ người thứ ba nào khác trừ khi bạn hiểu rõ các rủi ro khi để lộ mật khẩu. Nếu quên mật khẩu, bạn có thể sử dụng chức năng “<a href=\"" . NV_BASE_SITEURL . "users/lostpass/\">Quên mật khẩu</a>” trên website. Để thực hiện việc này, bạn cần phải cung cấp cho hệ thống biết tên thành viên hoặc địa chỉ Email đang sử dụng của mình trong tài khoản, sau đó hệ thống sẽ tạo ra cho bạn mật khẩu mới và gửi đến cho bạn để bạn vẫn có thể đăng nhập vào tài khoản thành viên của mình.  <p style=\"text-align: right;\"><a href=\"#index\">Trở lại danh mục</a></p> </div>  <h2 style=\"text-align: justify;\"><a id=\"3\" name=\"3\"></a>Điều 3: Sử dụng thông tin</h2>  <p style=\"text-align: justify;\">Thông tin thu thập được sẽ được chúng tôi sử dụng để:</p>  <div style=\"text-align: justify;\">- Cung cấp các dịch vụ hỗ trợ &amp; chăm sóc khách hàng.</div>  <div style=\"text-align: justify;\">- Thực hiện giao dịch thanh toán &amp; gửi các thông báo trong quá trình giao dịch.</div>  <div style=\"text-align: justify;\">- Xử lý khiếu nại, thu phí &amp; giải quyết sự cố.</div>  <div style=\"text-align: justify;\">- Ngăn chặn các hành vi có nguy cơ rủi ro, bị cấm hoặc bất hợp pháp và đảm bảo tuân thủ đúng chính sách “Thỏa thuận người dùng”.</div>  <div style=\"text-align: justify;\">- Đo đạc, tùy biến &amp; cải tiến dịch vụ, nội dung và hình thức của website.</div>  <div style=\"text-align: justify;\">- Gửi bạn các thông tin về chương trình Marketing, các thông báo &amp; chương trình khuyến mại.</div>  <div style=\"text-align: justify;\">- So sánh độ chính xác của thông tin cá nhân của bạn trong quá trình kiểm tra với bên thứ ba.</div>  <p style=\"text-align: right;\"><a href=\"#index\">Trở lại danh mục</a></p>  <h2 style=\"text-align: justify;\"><a id=\"4\" name=\"4\"></a>Điều 4: Tiếp nhận thông tin từ các đối tác</h2>  <div style=\"text-align: justify;\">Khi sử dụng các công cụ giao dịch và thanh toán thông qua internet, chúng tôi có thể tiếp nhận thêm các thông tin về bạn như địa chỉ username, Email, số tài khoản ngân hàng... Chúng tôi kiểm tra những thông tin này với cơ sở dữ liệu người dùng của mình nhằm xác nhận rằng bạn có phải là khách hàng của chúng tôi hay không nhằm giúp việc thực hiện các dịch vụ cho bạn được thuận lợi.<br /> <br /> Các thông tin tiếp nhận được sẽ được chúng tôi bảo mật như những thông tin mà chúng tôi thu thập được trực tiếp từ bạn.</div>  <p style=\"text-align: right;\"><a href=\"#index\">Trở lại danh mục</a></p>  <h2><a id=\"5\" name=\"5\"></a>Điều 5: Chia sẻ thông tin với bên thứ ba</h2>  <p style=\"text-align: justify;\">Chúng tôi sẽ không chia sẻ thông tin cá nhân, thông tin tài chính... của bạn cho các bên thứ 3 trừ khi được sự đồng ý của chính bạn hoặc khi chúng tôi buộc phải tuân thủ theo các quy định pháp luật hoặc khi có yêu cầu từ cơ quan công quyền có thẩm quyền.</p>  <p style=\"text-align: right;\"><a href=\"#index\">Trở lại danh mục</a></p>  <h2><a id=\"6\" name=\"6\"></a>Điều 6: Thay đổi chính sách bảo mật</h2>  <p style=\"text-align: justify;\">Chính sách Bảo mật này có thể thay đổi theo thời gian. Chúng tôi sẽ không giảm quyền của bạn theo Chính sách Bảo mật này mà không có sự đồng ý rõ ràng của bạn. Chúng tôi sẽ đăng bất kỳ thay đổi Chính sách Bảo mật nào trên trang này và, nếu những thay đổi này quan trọng, chúng tôi sẽ cung cấp thông báo nổi bật hơn (bao gồm, đối với một số dịch vụ nhất định, thông báo bằng email về các thay đổi của Chính sách Bảo mật).</p>  <p style=\"text-align: right;\"><a href=\"#index\">Trở lại danh mục</a></p>  <p style=\"text-align: right;\">Chính sách bảo mật mặc định này được xây dựng cho <a href=\"http://nukeviet.vn\" target=\"_blank\">NukeViet CMS</a>, được tham khảo từ website <a href=\"http://webnhanh.vn/vi/thiet-ke-web/detail/Chinh-sach-bao-mat-Quyen-rieng-tu-Privacy-Policy-2147/\">webnhanh.vn</a></p>', '', 0, '4', '', 0, 1, 1, 1498555144, 1498555144, 1, 4, 0)";
-$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_siteterms` (`id`, `title`, `alias`, `image`, `imagealt`, `imageposition`, `description`, `bodytext`, `keywords`, `socialbutton`, `activecomm`, `layout_func`, `gid`, `weight`, `admin_id`, `add_time`, `edit_time`, `status`, `hitstotal`, `hot_post`) VALUES (2, 'Điều khoản và điều kiện sử dụng', 'terms-and-conditions', '', '', 0, 'Đây là các điều khoản và điều kiện áp dụng cho website này. Truy cập và sử dụng website tức là bạn đã đồng ý với các quy định này.', '<div style=\"text-align: justify;\">Cảm ơn bạn đã sử dụng. Xin vui lòng đọc các Điều khoản một cách cẩn thận, và <a href=\"" . NV_BASE_SITEURL . "contact/\">liên hệ</a> với chúng tôi nếu bạn có bất kỳ câu hỏi. Bằng việc truy cập hoặc sử dụng website của chúng tôi, bạn đồng ý bị ràng buộc bởi các <a href=\"" . NV_BASE_SITEURL . "siteterms/terms-and-conditions.html\">Điều khoản và điều kiện</a> sử dụng cũng như <a href=\"" . NV_BASE_SITEURL . "siteterms/privacy.html\">Chính sách bảo mật</a> của chúng tôi. Nếu không đồng ý với các quy định này, bạn vui lòng ngưng sử dụng website.<br /> <br /> <strong><a id=\"index\" name=\"index\"></a>Danh mục</strong><br /> <a href=\"#1\">Điều 1: Điều khoản liên quan đến phần mềm vận hành website</a><br /> <a href=\"#2\">Điều 2: Giới hạn cho việc sử dụng Website và các tài liệu trên website</a><br /> <a href=\"#3\">Điều 3: Sử dụng thương hiệu</a><br /> <a href=\"#4\">Điều 4: Các hành vi bị nghiêm cấm</a><br /> <a href=\"#5\">Điều 5: Các đường liên kết đến các website khác</a><br /> <a href=\"#6\">Điều 6: Từ chối bảo đảm</a><br /> <a href=\"#7\">Điều 7: Luật áp dụng và cơ quan giải quyết tranh chấp</a><br /> <a href=\"#8\">Điều 8: Thay đổi điều khoản và điều kiện sử dụng</a></div>  <hr  /> <h2 style=\"text-align: justify;\"><a id=\"1\" name=\"1\"></a>Điều khoản liên quan đến phần mềm vận hành website</h2>  <p style=\"text-align: justify;\">- Website của chúng tôi sử dụng hệ thống NukeViet, là giải pháp về website/ cổng thông tin nguồn mở được phát hành theo giấy phép bản quyền phần mềm tự do nguồn mở “<a href=\"http://www.gnu.org/licenses/old-licenses/gpl-2.0.html\" target=\"_blank\">GNU General Public License</a>” (viết tắt là GNU/GPL hay GPL) và có thể tải về miễn phí tại trang web <a href=\"http://www.nukeviet.vn\" target=\"_blank\">www.nukeviet.vn</a>.<br /> - Website này do chúng tôi sở hữu, điều hành và duy trì. NukeViet (hiểu ở đây là “hệ thống NukeViet” (bao gồm nhân hệ thống NukeViet và các sản phẩm phái sinh như NukeViet CMS, NukeViet Portal, <a href=\"http://edu.nukeviet.vn\" target=\"_blank\">NukeViet Edu Gate</a>...), “www.nukeviet.vn”, “tổ chức NukeViet”, “ban điều hành NukeViet”, &quot;Ban Quản Trị NukeViet&quot; và nói chung là những gì liên quan đến NukeViet...) không liên quan gì đến việc chúng tôi điều hành website cũng như quy định bạn được phép làm và không được phép làm gì trên website này.<br /> - Hệ thống NukeViet là bộ mã nguồn được phát triển để xây dựng các website/ cổng thông tin trên mạng. Chúng tôi (chủ sở hữu, điều hành và duy trì website này) không hỗ trợ và khẳng định hay ngụ ý về việc có liên quan đến NukeViet. Để biết thêm nhiều thông tin về NukeViet, hãy ghé thăm website của NukeViet tại địa chỉ: <a href=\"http://nukeviet.vn\" target=\"_blank\">http://nukeviet.vn</a>.</p>  <p style=\"text-align: right;\"><a href=\"#index\">Trở lại danh mục</a></p>  <h2 style=\"text-align: justify;\"><a id=\"2\" name=\"2\"></a>Giới hạn cho việc sử dụng Website và các tài liệu trên website</h2>  <p style=\"text-align: justify;\">- Tất cả các quyền liên quan đến tất cả tài liệu và thông tin được hiển thị và/ hoặc được tạo ra sẵn cho Website này (ví dụ như những tài liệu được cung cấp để tải về) được quản lý, sở hữu hoặc được cho phép sử dụng bởi chúng tôi hoặc chủ sở hữu tương ứng với giấy phép tương ứng. Việc sử dụng các tài liệu và thông tin phải được tuân thủ theo giấy phép tương ứng được áp dụng cho chúng.<br /> - Ngoại trừ các tài liệu được cấp phép rõ ràng dưới dạng giấy phép tư liệu mở&nbsp;Creative Commons (gọi là giấy phép CC) cho phép bạn khai thác và chia sẻ theo quy định của giấy phép tư liệu mở, đối với các loại tài liệu không ghi giấy phép rõ ràng thì bạn không được phép sử dụng (bao gồm nhưng không giới hạn việc sao chép, chỉnh sửa toàn bộ hay một phần, đăng tải, phân phối, cấp phép, bán và xuất bản) bất cứ tài liệu nào mà không có sự cho phép trước bằng văn bản của chúng tôi ngoại trừ việc sử dụng cho mục đích cá nhân, nội bộ, phi thương mại.<br /> - Một số tài liệu hoặc thông tin có những điều khoản và điều kiện áp dụng riêng cho chúng không phải là giấy phép tư liệu mở, trong trường hợp như vậy, bạn được yêu cầu phải chấp nhận các điều khoản và điều kiện đó khi truy cập vào các tài liệu và thông tin này.</p>  <p style=\"text-align: right;\"><a href=\"#index\">Trở lại danh mục</a></p>  <h2 style=\"text-align: justify;\"><a id=\"3\" name=\"3\"></a>Sử dụng thương hiệu</h2>  <p style=\"text-align: justify;\">- VINADES.,JSC, NukeViet và thương hiệu gắn với NukeViet (ví dụ NukeViet CMS, NukeViet Portal, NukeViet Edu Gate...), logo công ty VINADES thuộc sở hữu của Công ty cổ phần phát triển nguồn mở Việt Nam.<br /> - Những tên sản phẩm, tên dịch vụ khác, logo và/ hoặc những tên công ty được sử dụng trong Website này là những tài sản đã được đăng ký độc quyền và được giữ bản quyền bởi những người sở hữu và/ hoặc người cấp phép tương ứng.</p>  <p style=\"text-align: right;\"><a href=\"#index\">Trở lại danh mục</a></p>  <h2 style=\"text-align: justify;\"><a id=\"4\" name=\"4\"></a>Các hành vi bị nghiêm cấm</h2>  <p style=\"text-align: justify;\">Người truy cập website này không được thực hiện những hành vi dưới đây khi sử dụng website:<br /> - Xâm phạm các quyền hợp pháp (bao gồm nhưng không giới hạn đối với các quyền riêng tư và chung) của người khác.<br /> - Gây ra sự thiệt hại hoặc bất lợi cho người khác.<br /> - Làm xáo trộn trật tự công cộng.<br /> - Hành vi liên quan đến tội phạm.<br /> - Tải lên hoặc phát tán thông tin riêng tư của tổ chức, cá nhân khác mà không được sự chấp thuận của họ.<br /> - Sử dụng Website này vào mục đích thương mại mà chưa được sự cho phép của chúng tôi.<br /> - Nói xấu, làm nhục, phỉ báng người khác.<br /> - Tải lên các tập tin chứa virus hoặc các tập tin bị hư mà có thể gây thiệt hại đến sự vận hành của máy tính khác.<br /> - Những hoạt động có khả năng ảnh hưởng đến hoạt động bình thường của website.<br /> - Những hoạt động mà chúng tôi cho là không thích hợp.<br /> - Những hoạt động bất hợp pháp hoặc bị cấm bởi pháp luật hiện hành.</p>  <p style=\"text-align: right;\"><a href=\"#index\">Trở lại danh mục</a></p>  <h2 style=\"text-align: justify;\"><a id=\"5\" name=\"5\"></a>Các đường liên kết đến các website khác</h2>  <p style=\"text-align: justify;\">- Các website của các bên thứ ba (không phải các trang do chúng tôi quản lý) được liên kết đến hoặc từ website này (&quot;Các website khác&quot;) được điều hành và duy trì hoàn toàn độc lập bởi các bên thứ ba đó và không nằm trong quyền điều khiển và/hoặc giám sát của chúng tôi. Việc truy cập các website khác phải được tuân thủ theo các điều khoản và điều kiện quy định bởi ban điều hành của website đó.<br /> - Chúng tôi không chịu trách nhiệm cho sự mất mát hoặc thiệt hại do việc truy cập và sử dụng các website bên ngoài, và bạn phải chịu mọi rủi ro khi truy cập các website đó.<br /> - Không có nội dung nào trong Website này thể hiện như một sự đảm bảo của chúng tôi về nội dung của các website khác và các sản phẩm và/ hoặc các dịch vụ xuất hiện và/ hoặc được cung cấp tại các website khác.</p>  <p style=\"text-align: right;\"><a href=\"#index\">Trở lại danh mục</a></p>  <h2 style=\"text-align: justify;\"><a id=\"6\" name=\"6\"></a>Từ chối bảo đảm</h2>  <p style=\"text-align: justify;\">NGOẠI TRỪ PHẠM VI BỊ CẤM THEO LUẬT PHÁP HIỆN HÀNH, CHÚNG TÔI SẼ:<br /> - KHÔNG CHỊU TRÁCH NHIỆM HAY BẢO ĐẢM, MỘT CÁCH RÕ RÀNG HAY NGỤ Ý, BAO GỒM SỰ BẢO ĐẢM VỀ TÍNH CHÍNH XÁC, MỨC ĐỘ TIN CẬY, HOÀN THIỆN, PHÙ HỢP CHO MỤC ĐÍCH CỤ THỂ, SỰ KHÔNG XÂM PHẠM QUYỀN CỦA BÊN THỨ 3 VÀ/HOẶC TÍNH AN TOÀN CỦA NỘI DỤNG WEBSITE NÀY, VÀ NHỮNG TUYÊN BỐ, ĐẢM BẢO CÓ LIÊN QUAN.<br /> - KHÔNG CHỊU TRÁCH NHIỆM CHO BẤT KỲ SỰ THIỆT HẠI HAY MẤT MÁT PHÁT SINH TỪ VIỆC TRUY CẬP VÀ SỬ DỤNG WEBSITE HAY VIỆC KHÔNG THỂ SỬ DỤNG WEBSITE.<br /> - CHÚNG TÔI CÓ THỂ THAY ĐỔI VÀ/HOẶC THAY THẾ NỘI DUNG CỦA WEBSITE NÀY, HOẶC TẠM HOÃN HOẶC NGƯNG CUNG CẤP CÁC DỊCH VỤ QUA WEBSITE NÀY VÀO BẤT KỲ THỜI ĐIỂM NÀO MÀ KHÔNG CẦN THÔNG BÁO TRƯỚC. CHÚNG TÔI SẼ KHÔNG CHỊU TRÁCH NHIỆM CHO BẤT CỨ THIỆT HẠI NÀO PHÁT SINH DO SỰ THAY ĐỔI HOẶC THAY THẾ NỘI DUNG CỦA WEBSITE.</p>  <p style=\"text-align: right;\"><a href=\"#index\">Trở lại danh mục</a></p>  <h2 style=\"text-align: justify;\"><a id=\"7\" name=\"7\"></a>Luật áp dụng và cơ quan giải quyết tranh chấp</h2>  <p style=\"text-align: justify;\">- Các Điều Khoản và Điều Kiện này được điều chỉnh và giải thích theo luật của Việt Nam trừ khi có điều khoản khác được cung cấp thêm. Tất cả tranh chấp phát sinh liên quan đến website này và các Điều Khoản và Điều Kiện sử dụng này sẽ được giải quyết tại các tòa án ở Việt Nam.<br /> - Nếu một phần nào đó của các Điều Khoản và Điều Kiện bị xem là không có giá trị, vô hiệu, hoặc không áp dụng được vì lý do nào đó, phần đó được xem như là phần riêng biệt và không ảnh hưởng đến tính hiệu lực của phần còn lại.<br /> - Trong trường hợp có sự mâu thuẫn giữa bản Tiếng Anh và bản Tiếng Việt của bản Điều Khoản và Điều Kiện này, bản Tiếng Việt sẽ được ưu tiên áp dụng.</p>  <p style=\"text-align: right;\"><a href=\"#index\">Trở lại danh mục</a></p>  <h2 style=\"text-align: justify;\"><a id=\"8\" name=\"8\"></a>Thay đổi điều khoản và điều kiện sử dụng</h2>  <div style=\"text-align: justify;\">Điều khoản và điều kiện sử dụng có thể thay đổi theo thời gian. Chúng tôi bảo lưu quyền thay đổi hoặc sửa đổi bất kỳ điều khoản và điều kiện cũng như các quy định khác, bất cứ lúc nào và theo ý mình. Chúng tôi sẽ có thông báo trên website khi có sự thay đổi. Tiếp tục sử dụng trang web này sau khi đăng các thay đổi tức là bạn đã chấp nhận các thay đổi đó. <p style=\"text-align: right;\"><a href=\"#index\">Trở lại danh mục</a></p> </div>', '', 0, '4', '', 0, 2, 1, 1498555144, 1498555144, 1, 6, 0)";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_siteterms` (`id`, `title`, `alias`, `image`, `imagealt`, `imageposition`, `description`, `bodytext`, `keywords`, `socialbutton`, `activecomm`, `layout_func`, `gid`, `weight`, `admin_id`, `add_time`, `edit_time`, `status`, `hitstotal`, `hot_post`) VALUES (1, 'Chính sách bảo mật (Quyền riêng tư)', 'privacy', '', '', 0, 'Tài liệu này cung cấp cho bạn (người truy cập và sử dụng website) chính sách liên quan đến bảo mật và quyền riêng tư của bạn', '<strong><a id=\"index\" name=\"index\"></a>Danh mục</strong><br /> <a href=\"#1\">Điều 1: Thu thập thông tin</a><br /> <a href=\"#2\">Điều 2: Lưu trữ &amp; Bảo vệ thông tin</a><br /> <a href=\"#3\">Điều 3: Sử dụng thông tin </a><br /> <a href=\"#4\">Điều 4: Tiếp nhận thông tin từ các đối tác </a><br /> <a href=\"#5\">Điều 5: Chia sẻ thông tin với bên thứ ba</a><br /> <a href=\"#6\">Điều 6: Thay đổi chính sách bảo mật</a>  <hr  /> <h2 style=\"text-align: justify;\"><a id=\"1\" name=\"1\"></a>Điều 1: Thu thập thông tin</h2>  <h3 style=\"text-align: justify;\">1.1. Thu thập tự động:</h3>  <div style=\"text-align: justify;\">Hệ thống này được xây dựng bằng mã nguồn NukeViet. Như mọi website hiện đại khác, chúng tôi sẽ thu thập địa chỉ IP và các thông tin web tiêu chuẩn khác của bạn như: loại trình duyệt, các trang bạn truy cập trong quá trình sử dụng dịch vụ, thông tin về máy tính &amp; thiết bị mạng v.v… cho mục đích phân tích thông tin phục vụ việc bảo mật và giữ an toàn cho hệ thống.</div>  <h3 style=\"text-align: justify;\">1.2. Thu thập từ các khai báo của chính bạn:</h3>  <div style=\"text-align: justify;\">Các thông tin do bạn khai báo cho chúng tôi trong quá trình làm việc như: đăng ký tài khoản, liên hệ với chúng tôi... cũng sẽ được chúng tôi lưu trữ phục vụ công việc chăm sóc khách hàng sau này.</div>  <h3 style=\"text-align: justify;\">1.3. Thu thập thông tin thông qua việc đặt cookies:</h3>  <p style=\"text-align: justify;\">Như mọi website hiện đại khác, khi bạn truy cập website, chúng tôi (hoặc các công cụ theo dõi hoặc thống kê hoạt động của website do các đối tác cung cấp) sẽ đặt một số File dữ liệu gọi là Cookies lên đĩa cứng hoặc bộ nhớ máy tính của bạn.</p>  <p style=\"text-align: justify;\">Một trong số những Cookies này có thể tồn tại lâu để thuận tiện cho bạn trong quá trình sử dụng, ví dụ như: lưu Email của bạn trong trang đăng nhập để bạn không phải nhập lại v.v…</p>  <h3 style=\"text-align: justify;\">1.4. Thu thập và lưu trữ thông tin trong quá khứ:</h3>  <p style=\"text-align: justify;\">Bạn có thể thay đổi thông tin cá nhân của mình bất kỳ lúc nào bằng cách sử dụng chức năng tương ứng. Tuy nhiên chúng tôi sẽ lưu lại những thông tin bị thay đổi để chống các hành vi xóa dấu vết gian lận.</p>  <p style=\"text-align: right;\"><a href=\"#index\">Trở lại danh mục</a></p>  <h2 style=\"text-align: justify;\"><a id=\"2\" name=\"2\"></a>Điều 2: Lưu trữ &amp; Bảo vệ thông tin</h2>  <div style=\"text-align: justify;\">Hầu hết các thông tin được thu thập sẽ được lưu trữ tại cơ sở dữ liệu của chúng tôi.<br /> <br /> Chúng tôi bảo vệ dữ liệu cá nhân của các bạn bằng các hình thức như: mật khẩu, tường lửa, mã hóa cùng các hình thức thích hợp khác và chỉ cấp phép việc truy cập và xử lý dữ liệu cho các đối tượng phù hợp, ví dụ chính bạn hoặc các nhân viên có trách nhiệm xử thông tin với bạn thông qua các bước xác định danh tính phù hợp.<br /> <br /> Mật khẩu của bạn được lưu trữ và bảo vệ bằng phương pháp mã hoá trong cơ sở dữ liệu của hệ thống, vì thế nó rất an toàn. Tuy nhiên, chúng tôi khuyên bạn không nên dùng lại mật khẩu này trên các website khác. Mật khẩu của bạn là cách duy nhất để bạn đăng nhập vào tài khoản thành viên của mình trong website này, vì thế hãy cất giữ nó cẩn thận. Trong mọi trường hợp bạn không nên cung cấp thông tin mật khẩu cho bất kỳ người nào dù là người của chúng tôi, người của NukeViet hay bất kỳ người thứ ba nào khác trừ khi bạn hiểu rõ các rủi ro khi để lộ mật khẩu. Nếu quên mật khẩu, bạn có thể sử dụng chức năng “<a href=\"" . NV_BASE_SITEURL . "users/lostpass/\">Quên mật khẩu</a>” trên website. Để thực hiện việc này, bạn cần phải cung cấp cho hệ thống biết tên thành viên hoặc địa chỉ Email đang sử dụng của mình trong tài khoản, sau đó hệ thống sẽ tạo ra cho bạn mật khẩu mới và gửi đến cho bạn để bạn vẫn có thể đăng nhập vào tài khoản thành viên của mình.  <p style=\"text-align: right;\"><a href=\"#index\">Trở lại danh mục</a></p> </div>  <h2 style=\"text-align: justify;\"><a id=\"3\" name=\"3\"></a>Điều 3: Sử dụng thông tin</h2>  <p style=\"text-align: justify;\">Thông tin thu thập được sẽ được chúng tôi sử dụng để:</p>  <div style=\"text-align: justify;\">- Cung cấp các dịch vụ hỗ trợ &amp; chăm sóc khách hàng.</div>  <div style=\"text-align: justify;\">- Thực hiện giao dịch thanh toán &amp; gửi các thông báo trong quá trình giao dịch.</div>  <div style=\"text-align: justify;\">- Xử lý khiếu nại, thu phí &amp; giải quyết sự cố.</div>  <div style=\"text-align: justify;\">- Ngăn chặn các hành vi có nguy cơ rủi ro, bị cấm hoặc bất hợp pháp và đảm bảo tuân thủ đúng chính sách “Thỏa thuận người dùng”.</div>  <div style=\"text-align: justify;\">- Đo đạc, tùy biến &amp; cải tiến dịch vụ, nội dung và hình thức của website.</div>  <div style=\"text-align: justify;\">- Gửi bạn các thông tin về chương trình Marketing, các thông báo &amp; chương trình khuyến mại.</div>  <div style=\"text-align: justify;\">- So sánh độ chính xác của thông tin cá nhân của bạn trong quá trình kiểm tra với bên thứ ba.</div>  <p style=\"text-align: right;\"><a href=\"#index\">Trở lại danh mục</a></p>  <h2 style=\"text-align: justify;\"><a id=\"4\" name=\"4\"></a>Điều 4: Tiếp nhận thông tin từ các đối tác</h2>  <div style=\"text-align: justify;\">Khi sử dụng các công cụ giao dịch và thanh toán thông qua internet, chúng tôi có thể tiếp nhận thêm các thông tin về bạn như địa chỉ username, Email, số tài khoản ngân hàng... Chúng tôi kiểm tra những thông tin này với cơ sở dữ liệu người dùng của mình nhằm xác nhận rằng bạn có phải là khách hàng của chúng tôi hay không nhằm giúp việc thực hiện các dịch vụ cho bạn được thuận lợi.<br /> <br /> Các thông tin tiếp nhận được sẽ được chúng tôi bảo mật như những thông tin mà chúng tôi thu thập được trực tiếp từ bạn.</div>  <p style=\"text-align: right;\"><a href=\"#index\">Trở lại danh mục</a></p>  <h2><a id=\"5\" name=\"5\"></a>Điều 5: Chia sẻ thông tin với bên thứ ba</h2>  <p style=\"text-align: justify;\">Chúng tôi sẽ không chia sẻ thông tin cá nhân, thông tin tài chính... của bạn cho các bên thứ 3 trừ khi được sự đồng ý của chính bạn hoặc khi chúng tôi buộc phải tuân thủ theo các quy định pháp luật hoặc khi có yêu cầu từ cơ quan công quyền có thẩm quyền.</p>  <p style=\"text-align: right;\"><a href=\"#index\">Trở lại danh mục</a></p>  <h2><a id=\"6\" name=\"6\"></a>Điều 6: Thay đổi chính sách bảo mật</h2>  <p style=\"text-align: justify;\">Chính sách Bảo mật này có thể thay đổi theo thời gian. Chúng tôi sẽ không giảm quyền của bạn theo Chính sách Bảo mật này mà không có sự đồng ý rõ ràng của bạn. Chúng tôi sẽ đăng bất kỳ thay đổi Chính sách Bảo mật nào trên trang này và, nếu những thay đổi này quan trọng, chúng tôi sẽ cung cấp thông báo nổi bật hơn (bao gồm, đối với một số dịch vụ nhất định, thông báo bằng email về các thay đổi của Chính sách Bảo mật).</p>  <p style=\"text-align: right;\"><a href=\"#index\">Trở lại danh mục</a></p>  <p style=\"text-align: right;\">Chính sách bảo mật mặc định này được xây dựng cho <a href=\"http://nukeviet.vn\" target=\"_blank\">NukeViet CMS</a>, được tham khảo từ website <a href=\"http://webnhanh.vn/vi/thiet-ke-web/detail/Chinh-sach-bao-mat-Quyen-rieng-tu-Privacy-Policy-2147/\">webnhanh.vn</a></p>', '', 0, '4', '', 0, 1, 1, 1546504163, 1546504163, 1, 4, 0)";
+$sql_create_table[] = "INSERT INTO `" . $db_config['prefix'] . "_vi_siteterms` (`id`, `title`, `alias`, `image`, `imagealt`, `imageposition`, `description`, `bodytext`, `keywords`, `socialbutton`, `activecomm`, `layout_func`, `gid`, `weight`, `admin_id`, `add_time`, `edit_time`, `status`, `hitstotal`, `hot_post`) VALUES (2, 'Điều khoản và điều kiện sử dụng', 'terms-and-conditions', '', '', 0, 'Đây là các điều khoản và điều kiện áp dụng cho website này. Truy cập và sử dụng website tức là bạn đã đồng ý với các quy định này.', '<div style=\"text-align: justify;\">Cảm ơn bạn đã sử dụng. Xin vui lòng đọc các Điều khoản một cách cẩn thận, và <a href=\"" . NV_BASE_SITEURL . "contact/\">liên hệ</a> với chúng tôi nếu bạn có bất kỳ câu hỏi. Bằng việc truy cập hoặc sử dụng website của chúng tôi, bạn đồng ý bị ràng buộc bởi các <a href=\"" . NV_BASE_SITEURL . "siteterms/terms-and-conditions.html\">Điều khoản và điều kiện</a> sử dụng cũng như <a href=\"" . NV_BASE_SITEURL . "siteterms/privacy.html\">Chính sách bảo mật</a> của chúng tôi. Nếu không đồng ý với các quy định này, bạn vui lòng ngưng sử dụng website.<br /> <br /> <strong><a id=\"index\" name=\"index\"></a>Danh mục</strong><br /> <a href=\"#1\">Điều 1: Điều khoản liên quan đến phần mềm vận hành website</a><br /> <a href=\"#2\">Điều 2: Giới hạn cho việc sử dụng Website và các tài liệu trên website</a><br /> <a href=\"#3\">Điều 3: Sử dụng thương hiệu</a><br /> <a href=\"#4\">Điều 4: Các hành vi bị nghiêm cấm</a><br /> <a href=\"#5\">Điều 5: Các đường liên kết đến các website khác</a><br /> <a href=\"#6\">Điều 6: Từ chối bảo đảm</a><br /> <a href=\"#7\">Điều 7: Luật áp dụng và cơ quan giải quyết tranh chấp</a><br /> <a href=\"#8\">Điều 8: Thay đổi điều khoản và điều kiện sử dụng</a></div>  <hr  /> <h2 style=\"text-align: justify;\"><a id=\"1\" name=\"1\"></a>Điều khoản liên quan đến phần mềm vận hành website</h2>  <p style=\"text-align: justify;\">- Website của chúng tôi sử dụng hệ thống NukeViet, là giải pháp về website/ cổng thông tin nguồn mở được phát hành theo giấy phép bản quyền phần mềm tự do nguồn mở “<a href=\"http://www.gnu.org/licenses/old-licenses/gpl-2.0.html\" target=\"_blank\">GNU General Public License</a>” (viết tắt là GNU/GPL hay GPL) và có thể tải về miễn phí tại trang web <a href=\"http://www.nukeviet.vn\" target=\"_blank\">www.nukeviet.vn</a>.<br /> - Website này do chúng tôi sở hữu, điều hành và duy trì. NukeViet (hiểu ở đây là “hệ thống NukeViet” (bao gồm nhân hệ thống NukeViet và các sản phẩm phái sinh như NukeViet CMS, NukeViet Portal, <a href=\"http://edu.nukeviet.vn\" target=\"_blank\">NukeViet Edu Gate</a>...), “www.nukeviet.vn”, “tổ chức NukeViet”, “ban điều hành NukeViet”, &quot;Ban Quản Trị NukeViet&quot; và nói chung là những gì liên quan đến NukeViet...) không liên quan gì đến việc chúng tôi điều hành website cũng như quy định bạn được phép làm và không được phép làm gì trên website này.<br /> - Hệ thống NukeViet là bộ mã nguồn được phát triển để xây dựng các website/ cổng thông tin trên mạng. Chúng tôi (chủ sở hữu, điều hành và duy trì website này) không hỗ trợ và khẳng định hay ngụ ý về việc có liên quan đến NukeViet. Để biết thêm nhiều thông tin về NukeViet, hãy ghé thăm website của NukeViet tại địa chỉ: <a href=\"http://nukeviet.vn\" target=\"_blank\">http://nukeviet.vn</a>.</p>  <p style=\"text-align: right;\"><a href=\"#index\">Trở lại danh mục</a></p>  <h2 style=\"text-align: justify;\"><a id=\"2\" name=\"2\"></a>Giới hạn cho việc sử dụng Website và các tài liệu trên website</h2>  <p style=\"text-align: justify;\">- Tất cả các quyền liên quan đến tất cả tài liệu và thông tin được hiển thị và/ hoặc được tạo ra sẵn cho Website này (ví dụ như những tài liệu được cung cấp để tải về) được quản lý, sở hữu hoặc được cho phép sử dụng bởi chúng tôi hoặc chủ sở hữu tương ứng với giấy phép tương ứng. Việc sử dụng các tài liệu và thông tin phải được tuân thủ theo giấy phép tương ứng được áp dụng cho chúng.<br /> - Ngoại trừ các tài liệu được cấp phép rõ ràng dưới dạng giấy phép tư liệu mở&nbsp;Creative Commons (gọi là giấy phép CC) cho phép bạn khai thác và chia sẻ theo quy định của giấy phép tư liệu mở, đối với các loại tài liệu không ghi giấy phép rõ ràng thì bạn không được phép sử dụng (bao gồm nhưng không giới hạn việc sao chép, chỉnh sửa toàn bộ hay một phần, đăng tải, phân phối, cấp phép, bán và xuất bản) bất cứ tài liệu nào mà không có sự cho phép trước bằng văn bản của chúng tôi ngoại trừ việc sử dụng cho mục đích cá nhân, nội bộ, phi thương mại.<br /> - Một số tài liệu hoặc thông tin có những điều khoản và điều kiện áp dụng riêng cho chúng không phải là giấy phép tư liệu mở, trong trường hợp như vậy, bạn được yêu cầu phải chấp nhận các điều khoản và điều kiện đó khi truy cập vào các tài liệu và thông tin này.</p>  <p style=\"text-align: right;\"><a href=\"#index\">Trở lại danh mục</a></p>  <h2 style=\"text-align: justify;\"><a id=\"3\" name=\"3\"></a>Sử dụng thương hiệu</h2>  <p style=\"text-align: justify;\">- VINADES.,JSC, NukeViet và thương hiệu gắn với NukeViet (ví dụ NukeViet CMS, NukeViet Portal, NukeViet Edu Gate...), logo công ty VINADES thuộc sở hữu của Công ty cổ phần phát triển nguồn mở Việt Nam.<br /> - Những tên sản phẩm, tên dịch vụ khác, logo và/ hoặc những tên công ty được sử dụng trong Website này là những tài sản đã được đăng ký độc quyền và được giữ bản quyền bởi những người sở hữu và/ hoặc người cấp phép tương ứng.</p>  <p style=\"text-align: right;\"><a href=\"#index\">Trở lại danh mục</a></p>  <h2 style=\"text-align: justify;\"><a id=\"4\" name=\"4\"></a>Các hành vi bị nghiêm cấm</h2>  <p style=\"text-align: justify;\">Người truy cập website này không được thực hiện những hành vi dưới đây khi sử dụng website:<br /> - Xâm phạm các quyền hợp pháp (bao gồm nhưng không giới hạn đối với các quyền riêng tư và chung) của người khác.<br /> - Gây ra sự thiệt hại hoặc bất lợi cho người khác.<br /> - Làm xáo trộn trật tự công cộng.<br /> - Hành vi liên quan đến tội phạm.<br /> - Tải lên hoặc phát tán thông tin riêng tư của tổ chức, cá nhân khác mà không được sự chấp thuận của họ.<br /> - Sử dụng Website này vào mục đích thương mại mà chưa được sự cho phép của chúng tôi.<br /> - Nói xấu, làm nhục, phỉ báng người khác.<br /> - Tải lên các tập tin chứa virus hoặc các tập tin bị hư mà có thể gây thiệt hại đến sự vận hành của máy tính khác.<br /> - Những hoạt động có khả năng ảnh hưởng đến hoạt động bình thường của website.<br /> - Những hoạt động mà chúng tôi cho là không thích hợp.<br /> - Những hoạt động bất hợp pháp hoặc bị cấm bởi pháp luật hiện hành.</p>  <p style=\"text-align: right;\"><a href=\"#index\">Trở lại danh mục</a></p>  <h2 style=\"text-align: justify;\"><a id=\"5\" name=\"5\"></a>Các đường liên kết đến các website khác</h2>  <p style=\"text-align: justify;\">- Các website của các bên thứ ba (không phải các trang do chúng tôi quản lý) được liên kết đến hoặc từ website này (&quot;Các website khác&quot;) được điều hành và duy trì hoàn toàn độc lập bởi các bên thứ ba đó và không nằm trong quyền điều khiển và/hoặc giám sát của chúng tôi. Việc truy cập các website khác phải được tuân thủ theo các điều khoản và điều kiện quy định bởi ban điều hành của website đó.<br /> - Chúng tôi không chịu trách nhiệm cho sự mất mát hoặc thiệt hại do việc truy cập và sử dụng các website bên ngoài, và bạn phải chịu mọi rủi ro khi truy cập các website đó.<br /> - Không có nội dung nào trong Website này thể hiện như một sự đảm bảo của chúng tôi về nội dung của các website khác và các sản phẩm và/ hoặc các dịch vụ xuất hiện và/ hoặc được cung cấp tại các website khác.</p>  <p style=\"text-align: right;\"><a href=\"#index\">Trở lại danh mục</a></p>  <h2 style=\"text-align: justify;\"><a id=\"6\" name=\"6\"></a>Từ chối bảo đảm</h2>  <p style=\"text-align: justify;\">NGOẠI TRỪ PHẠM VI BỊ CẤM THEO LUẬT PHÁP HIỆN HÀNH, CHÚNG TÔI SẼ:<br /> - KHÔNG CHỊU TRÁCH NHIỆM HAY BẢO ĐẢM, MỘT CÁCH RÕ RÀNG HAY NGỤ Ý, BAO GỒM SỰ BẢO ĐẢM VỀ TÍNH CHÍNH XÁC, MỨC ĐỘ TIN CẬY, HOÀN THIỆN, PHÙ HỢP CHO MỤC ĐÍCH CỤ THỂ, SỰ KHÔNG XÂM PHẠM QUYỀN CỦA BÊN THỨ 3 VÀ/HOẶC TÍNH AN TOÀN CỦA NỘI DỤNG WEBSITE NÀY, VÀ NHỮNG TUYÊN BỐ, ĐẢM BẢO CÓ LIÊN QUAN.<br /> - KHÔNG CHỊU TRÁCH NHIỆM CHO BẤT KỲ SỰ THIỆT HẠI HAY MẤT MÁT PHÁT SINH TỪ VIỆC TRUY CẬP VÀ SỬ DỤNG WEBSITE HAY VIỆC KHÔNG THỂ SỬ DỤNG WEBSITE.<br /> - CHÚNG TÔI CÓ THỂ THAY ĐỔI VÀ/HOẶC THAY THẾ NỘI DUNG CỦA WEBSITE NÀY, HOẶC TẠM HOÃN HOẶC NGƯNG CUNG CẤP CÁC DỊCH VỤ QUA WEBSITE NÀY VÀO BẤT KỲ THỜI ĐIỂM NÀO MÀ KHÔNG CẦN THÔNG BÁO TRƯỚC. CHÚNG TÔI SẼ KHÔNG CHỊU TRÁCH NHIỆM CHO BẤT CỨ THIỆT HẠI NÀO PHÁT SINH DO SỰ THAY ĐỔI HOẶC THAY THẾ NỘI DUNG CỦA WEBSITE.</p>  <p style=\"text-align: right;\"><a href=\"#index\">Trở lại danh mục</a></p>  <h2 style=\"text-align: justify;\"><a id=\"7\" name=\"7\"></a>Luật áp dụng và cơ quan giải quyết tranh chấp</h2>  <p style=\"text-align: justify;\">- Các Điều Khoản và Điều Kiện này được điều chỉnh và giải thích theo luật của Việt Nam trừ khi có điều khoản khác được cung cấp thêm. Tất cả tranh chấp phát sinh liên quan đến website này và các Điều Khoản và Điều Kiện sử dụng này sẽ được giải quyết tại các tòa án ở Việt Nam.<br /> - Nếu một phần nào đó của các Điều Khoản và Điều Kiện bị xem là không có giá trị, vô hiệu, hoặc không áp dụng được vì lý do nào đó, phần đó được xem như là phần riêng biệt và không ảnh hưởng đến tính hiệu lực của phần còn lại.<br /> - Trong trường hợp có sự mâu thuẫn giữa bản Tiếng Anh và bản Tiếng Việt của bản Điều Khoản và Điều Kiện này, bản Tiếng Việt sẽ được ưu tiên áp dụng.</p>  <p style=\"text-align: right;\"><a href=\"#index\">Trở lại danh mục</a></p>  <h2 style=\"text-align: justify;\"><a id=\"8\" name=\"8\"></a>Thay đổi điều khoản và điều kiện sử dụng</h2>  <div style=\"text-align: justify;\">Điều khoản và điều kiện sử dụng có thể thay đổi theo thời gian. Chúng tôi bảo lưu quyền thay đổi hoặc sửa đổi bất kỳ điều khoản và điều kiện cũng như các quy định khác, bất cứ lúc nào và theo ý mình. Chúng tôi sẽ có thông báo trên website khi có sự thay đổi. Tiếp tục sử dụng trang web này sau khi đăng các thay đổi tức là bạn đã chấp nhận các thay đổi đó. <p style=\"text-align: right;\"><a href=\"#index\">Trở lại danh mục</a></p> </div>', '', 0, '4', '', 0, 2, 1, 1546504163, 1546504163, 1, 6, 0)";
 
 $sql_create_table[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_vi_siteterms_config`";
 $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_siteterms_config` (
@@ -5695,13 +5711,13 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_voting` (
   `vid` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
   `question` varchar(333) NOT NULL,
   `link` varchar(255) DEFAULT '',
-  `acceptcm` int(2) NOT NULL DEFAULT '1',
-  `active_captcha` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `admin_id` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `acceptcm` int(2) NOT NULL DEFAULT 1,
+  `active_captcha` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `admin_id` mediumint(8) unsigned NOT NULL DEFAULT 0,
   `groups_view` varchar(255) DEFAULT '',
-  `publ_time` int(11) unsigned NOT NULL DEFAULT '0',
-  `exp_time` int(11) unsigned NOT NULL DEFAULT '0',
-  `act` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `publ_time` int(11) unsigned NOT NULL DEFAULT 0,
+  `exp_time` int(11) unsigned NOT NULL DEFAULT 0,
+  `act` tinyint(1) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`vid`),
   UNIQUE KEY `question` (`question`)
 ) ENGINE=MyISAM  AUTO_INCREMENT=4  DEFAULT CHARSET=utf8";
@@ -5714,7 +5730,7 @@ $sql_create_table[] = "CREATE TABLE `" . $db_config['prefix'] . "_vi_voting_rows
   `vid` smallint(5) unsigned NOT NULL,
   `title` varchar(245) NOT NULL DEFAULT '',
   `url` varchar(255) DEFAULT '',
-  `hitstotal` int(11) unsigned NOT NULL DEFAULT '0',
+  `hitstotal` int(11) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   UNIQUE KEY `vid` (`vid`,`title`)
 ) ENGINE=MyISAM  AUTO_INCREMENT=14  DEFAULT CHARSET=utf8";

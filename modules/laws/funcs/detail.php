@@ -25,6 +25,10 @@ if (($row = $result->fetch()) === false) {
     nv_redirect_location(NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name, true);
 }
 
+if (isset($array_op[2])) {
+    nv_redirect_location(NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name . '&' . NV_OP_VARIABLE . '=detail/' . $array_op[1], true);
+}
+
 $row['edit_link'] = NV_BASE_ADMINURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&amp;" . NV_OP_VARIABLE . "=main&amp;edit=1&amp;id=" . $row['id'];
 $row['delete_link'] = 'nv_delete_law(' . $row['id'] . ', \'' . md5($row['id'] . session_id()) . '\')';
 
@@ -217,30 +221,32 @@ if ($nv_laws_setting['detail_other']) {
     }
 }
 
-// comment
-    if (isset($site_mods['comment']) and isset($module_config[$module_name]['activecomm'])) {
-        define('NV_COMM_ID', $row['id']);//ID bài viết hoặc
-        define('NV_COMM_AREA', $module_info['funcs'][$op]['func_id']);//để đáp ứng comment ở bất cứ đâu không cứ là bài viết
-        //check allow comemnt
-        if(($row['start_comm_time']>0 && $row['start_comm_time']> NV_CURRENTTIME) || ($row['end_comm_time']>0 && $row['end_comm_time']< NV_CURRENTTIME)){
-        	$allowed = 1;//Nếu không trong thời gian góp ý thì chỉ quản trị tối cao có thể comment
-        }else{
-        	//Nếu văn bản trong thời gian lấy ý kiến thì lấy cấu hình comm theo module
-        	$allowed = $module_config[$module_name]['allowed_comm'];//tùy vào module để lấy cấu hình.
-	        if ($allowed == '-1') {
-	            $allowed = 6;//Nếu cấu hình giá trị là tùy vào bài viết thì để mặc định là tất cả mọi người được comment
-	        }
+// Lấy ý kiến góp ý (bình luận)
+if (isset($site_mods['comment']) and isset($module_config[$module_name]['activecomm'])) {
+    define('NV_COMM_ID', $row['id']); // ID văn bản
+    define('NV_COMM_AREA', $module_info['funcs'][$op]['func_id']); // Phạm vi comment
+    // Check allow comemnt
+    if ((empty($row['start_comm_time']) or $row['start_comm_time'] <= NV_CURRENTTIME) and (empty($row['end_comm_time']) or $row['end_comm_time'] > NV_CURRENTTIME)) {
+        // Nếu trong thời gian lấy ý kiến thì xác định quyền cho ý kiến dựa theo cấu hình
+        $allowed = $module_config[$module_name]['allowed_comm'];
+        if ($allowed == '-1') {
+            // Nếu cấu hình giá trị là tùy vào bài viết thì để mặc định là tất cả mọi người được comment
+            $allowed = 6;
         }
-
-        require_once NV_ROOTDIR . '/modules/comment/comment.php';
-        $area = (defined('NV_COMM_AREA')) ? NV_COMM_AREA : 0;
-        $checkss = md5($module_name . '-' . $area . '-' . NV_COMM_ID . '-' . $allowed . '-' . NV_CACHE_PREFIX);
-
-        $content_comment = nv_comment_module($module_name, $checkss, $area, NV_COMM_ID, $allowed, 1);
     } else {
-        $content_comment = '';
+        // Ngoài thời gian lấy ý kiến thì điều hành chung trở lên được bình luận
+        $allowed = 2;
     }
-//print_r($row);die('ok');
+
+    require_once NV_ROOTDIR . '/modules/comment/comment.php';
+    $area = (defined('NV_COMM_AREA')) ? NV_COMM_AREA : 0;
+    $checkss = md5($module_name . '-' . $area . '-' . NV_COMM_ID . '-' . $allowed . '-' . NV_CACHE_PREFIX);
+
+    $content_comment = nv_comment_module($module_name, $checkss, $area, NV_COMM_ID, $allowed, 1);
+} else {
+    $content_comment = '';
+}
+
 $contents = nv_theme_laws_detail($row, $other_cat, $other_area, $other_subject, $other_signer, $content_comment);
 
 include NV_ROOTDIR . '/includes/header.php';

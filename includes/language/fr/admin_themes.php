@@ -145,3 +145,7 @@ $lang_module['layout_orange'] = 'Orange';
 $lang_module['layout_blue'] = 'Blue';
 $lang_module['layout_light_brown'] = 'Light brown';
 $lang_module['layout_green'] = 'Green';
+$lang_module['preview_theme_on'] = 'Autoriser l\'aperçu';
+$lang_module['preview_theme_off'] = 'Annuler l\'aperçu';
+$lang_module['preview_theme_link'] = 'Aperçu de l\'interface du lien';
+$lang_module['preview_theme_link_copied'] = 'Le lien a été copié dans le presse-papiers';

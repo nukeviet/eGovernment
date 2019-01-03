@@ -2,22 +2,88 @@
 
 /**
  * @Project NUKEVIET 4.x
- * @Author VINADES.,JSC (contact@vinades.vn)
+ * @Author VINADES.,JSC <contact@vinades.vn>
  * @Copyright (C) 2014 VINADES ., JSC. All rights reserved
  * @License GNU/GPL version 2 or any later version
  * @Createdate Jan 17, 2011 11:34:27 AM
  */
 
-if (! defined('NV_MAINFILE')) {
+if (!defined('NV_MAINFILE')) {
     die('Stop!!!');
 }
 
-if (defined('NV_IS_FILE_THEMES')) {
-    // include config theme
-    require NV_ROOTDIR . '/modules/menu/menu_config.php';
-}
+if (!nv_function_exists('nv_menu_bootstrapegov')) {
+    function nv_menu_bootstrapegov_config($module, $data_block, $lang_block)
+    {
+        global $nv_Cache;
+        $html = '';
+        $html .= "<div class=\"form-group\">";
+        $html .= "	<label class=\"control-label col-sm-6\">" . $lang_block['menu'] . ":</label>";
+        $html .= "	<div class=\"col-sm-9\"><select name=\"menuid\" class=\"form-control\">\n";
 
-if (! nv_function_exists('nv_menu_bootstrapegov')) {
+        $sql = "SELECT * FROM " . NV_PREFIXLANG . "_menu ORDER BY id DESC";
+        // Module menu của hệ thống không ảo hóa, do đó chỉ định cache trực tiếp vào module tránh lỗi khi gọi file từ giao diện
+        $list = $nv_Cache->db($sql, 'id', 'menu');
+        foreach ($list as $l) {
+            $sel = ($data_block['menuid'] == $l['id']) ? ' selected' : '';
+            $html .= "<option value=\"" . $l['id'] . "\" " . $sel . ">" . $l['title'] . "</option>\n";
+        }
+
+        $html .= "	</select></div>\n";
+        $html .= "</div>";
+
+        $html .= "<div class=\"form-group\">";
+        $html .= "<label class=\"control-label col-sm-6\">";
+        $html .= $lang_block['title_length'];
+        $html .= ":</label>";
+        $html .= "<div class=\"col-sm-5\">";
+        $html .= "<input type=\"text\" class=\"form-control\" name=\"config_title_length\" value=\"" . $data_block['title_length'] . "\"/>";
+        $html .= "</div>";
+        $html .= "<div class=\"col-sm-13\"></div>";
+        $html .= "</div>";
+
+        $html .= "<div class=\"form-group\">";
+        $html .= "<label class=\"control-label col-sm-6\">";
+        $html .= $lang_block['submenu_width'];
+        $html .= ":</label>";
+        $html .= "<div class=\"col-sm-5\">";
+        $html .= "<input type=\"text\" class=\"form-control\" name=\"config_submenu_width\" value=\"" . $data_block['submenu_width'] . "\"/>";
+        $html .= "</div>";
+        $html .= "<div class=\"col-sm-13\"><label class=\"control-label\">" . $lang_block['submenu_width_help'] . "</label></div>";
+        $html .= "</div>";
+
+        $html .= "<div class=\"form-group\">";
+        $html .= "<label class=\"control-label col-sm-6\">";
+        $html .= $lang_block['wraptext'];
+        $html .= ":</label>";
+        $html .= "<div class=\"col-sm-18\">";
+        $html .= "<label class=\"control-label\"><input type=\"checkbox\" name=\"config_wraptext\" value=\"1\"" . (empty($data_block['wraptext']) ? '' : ' checked="checked"') . "/> " . $lang_block['wraptext_help'] . "</label>";
+        $html .= "</div>";
+        $html .= "</div>";
+
+        return $html;
+    }
+
+    /**
+     * nv_menu_bootstrapegov_config_submit()
+     *
+     * @param mixed $module
+     * @param mixed $lang_block
+     * @return
+     */
+    function nv_menu_bootstrapegov_config_submit($module, $lang_block)
+    {
+        global $nv_Request;
+        $return = array();
+        $return['error'] = array();
+        $return['config'] = array();
+        $return['config']['menuid'] = $nv_Request->get_int('menuid', 'post', 0);
+        $return['config']['title_length'] = $nv_Request->get_int('config_title_length', 'post', 0);
+        $return['config']['submenu_width'] = $nv_Request->get_int('config_submenu_width', 'post', 0);
+        $return['config']['wraptext'] = $nv_Request->get_int('config_wraptext', 'post', 0);
+        return $return;
+    }
+
     /**
      * nv_menu_bootstrapegov_check_current()
      *
@@ -108,6 +174,7 @@ if (! nv_function_exists('nv_menu_bootstrapegov')) {
         $xtpl->assign('NV_BASE_SITEURL', NV_BASE_SITEURL);
         $xtpl->assign('BLOCK_THEME', $block_theme);
         $xtpl->assign('THEME_SITE_HREF', NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA);
+        $xtpl->assign('ALLOW_WRAP_SUBMENU', empty($block_config['wraptext']) ? ' ellipsissub' : ' allowrwap');
 
         // Search form variables
         $xtpl->assign('NV_MAX_SEARCH_LENGTH', NV_MAX_SEARCH_LENGTH);
@@ -129,17 +196,17 @@ if (! nv_function_exists('nv_menu_bootstrapegov')) {
                 $submenu_active = array();
                 if (isset($array_menu[$id])) {
                     $classcurrent[] = 'dropdown';
-                    $submenu = nv_get_bootstrapegov_submenu($id, $array_menu, $submenu_active, $block_theme);
+                    $submenu = nv_get_bootstrapegov_submenu($id, $array_menu, $submenu_active, $block_theme, $block_config);
                     $xtpl->assign('SUB', $submenu);
                     $xtpl->parse('main.top_menu.sub');
                     $xtpl->parse('main.top_menu.has_sub');
                 }
                 if (nv_menu_bootstrapegov_check_current($item['link'], $item['active_type'])) {
                     $classcurrent[] = 'active';
-                } elseif (! empty($submenu_active)) {
+                } elseif (!empty($submenu_active)) {
                     $classcurrent[] = 'active';
                 }
-                if (! empty($item['css'])) {
+                if (!empty($item['css'])) {
                     $classcurrent[] = $item['css'];
                 }
                 $item['current'] = empty($classcurrent) ? '' : ' class="' . (implode(' ', $classcurrent)) . '"';
@@ -149,7 +216,7 @@ if (! nv_function_exists('nv_menu_bootstrapegov')) {
                 }
 
                 $xtpl->assign('TOP_MENU', $item);
-                if (! empty($item['icon'])) {
+                if (!empty($item['icon'])) {
                     $xtpl->parse('main.top_menu.icon');
                 }
                 $xtpl->parse('main.top_menu');
@@ -167,27 +234,31 @@ if (! nv_function_exists('nv_menu_bootstrapegov')) {
      * @param string $block_theme
      * @return string
      */
-    function nv_get_bootstrapegov_submenu($id, $array_menu, &$submenu_active, $block_theme)
+    function nv_get_bootstrapegov_submenu($id, $array_menu, &$submenu_active, $block_theme, $block_config)
     {
         $xtpl = new XTemplate('global.bootstrap.tpl', NV_ROOTDIR . '/themes/' . $block_theme . '/modules/menu');
 
-        if (! empty($array_menu[$id])) {
+        if (!empty($array_menu[$id])) {
             foreach ($array_menu[$id] as $sid => $smenu) {
                 if (nv_menu_bootstrapegov_check_current($smenu['link'], $smenu['active_type'])) {
                     $submenu_active[] = $id;
                 }
                 $submenu = '';
                 if (isset($array_menu[$sid])) {
-                    $submenu = nv_get_bootstrapegov_submenu($sid, $array_menu, $submenu_active, $block_theme);
+                    $submenu = nv_get_bootstrapegov_submenu($sid, $array_menu, $submenu_active, $block_theme, $block_config);
                     $xtpl->assign('SUB', $submenu);
                     $xtpl->parse('submenu.loop.item');
                 }
                 $xtpl->assign('SUBMENU', $smenu);
-                if (! empty($submenu)) {
+                if (!empty($submenu)) {
                     $xtpl->parse('submenu.loop.submenu');
                 }
-                if (! empty($smenu['icon'])) {
+                if (!empty($smenu['icon'])) {
                     $xtpl->parse('submenu.loop.icon');
+                }
+                if (!empty($block_config['submenu_width']) and $block_config['submenu_width'] > 0) {
+                    $xtpl->assign('SUBMENU_WIDTH', $block_config['submenu_width']);
+                    $xtpl->parse('submenu.loop.submenu_width');
                 }
                 $xtpl->parse('submenu.loop');
             }

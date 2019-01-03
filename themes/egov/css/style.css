@@ -2435,11 +2435,15 @@ button.close {
     background: linear-gradient(left, rgba(244,244,244,0.3) 0%,rgba(244,244,244,0.3) 100%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 */
 }
+.height-hometext {
+    position: relative;
+    margin-bottom: 15px;
+}
 .height-hometext:after {
     position: absolute;
-    bottom: 44px;
+    bottom: -10px;
     height: 20px;
-    width: 93%;
+    width: 100%;
     content: '';
     background: -moz-linear-gradient(left, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.6) 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(255,255,255,0.6)), color-stop(100%,rgba(255,255,255,0.6))); /* Chrome,Safari4+ */

@@ -2,23 +2,36 @@
 
 /**
  * @Project NUKEVIET 4.x
- * @Author VINADES., JSC (contact@vinades.vn)
+ * @Author VINADES., JSC <contact@vinades.vn>
  * @Copyright (C) 2014 VINADES ., JSC. All rights reserved
  * @License GNU/GPL version 2 or any later version
  * @Createdate Dec 3, 2010  11:10:39 AM
  */
 
-if (!defined('NV_IS_FILE_MODULES')) die('Stop!!!');
+if (!defined('NV_IS_FILE_MODULES'))
+    die('Stop!!!');
 
 $sql_drop_module = array();
+$sql_drop_module[] = "DROP TABLE IF EXISTS " . $db_config['prefix'] . "_" . $lang . "_" . $module_data . "_admins";
 $sql_drop_module[] = "DROP TABLE IF EXISTS " . $db_config['prefix'] . "_" . $lang . "_" . $module_data . "_rows;";
 $sql_drop_module[] = "DROP TABLE IF EXISTS " . $db_config['prefix'] . "_" . $lang . "_" . $module_data . "_person;";
 $sql_drop_module[] = "DROP TABLE IF EXISTS " . $db_config['prefix'] . "_" . $lang . "_" . $module_data . "_config;";
 $sql_create_module = $sql_drop_module;
 
+$sql_create_module[] = "CREATE TABLE " . $db_config['prefix'] . "_" . $lang . "_" . $module_data . "_admins(
+  userid int(11) UNSIGNED NOT NULL DEFAULT '0',
+  organid int(11) NOT NULL DEFAULT '0',
+  admin tinyint(4) NOT NULL DEFAULT '0',
+  add_content tinyint(4) NOT NULL DEFAULT '0',
+  edit_content tinyint(4) NOT NULL DEFAULT '0',
+  status_content tinyint(4) NOT NULL DEFAULT '0',
+  del_content tinyint(4) NOT NULL DEFAULT '0',
+  UNIQUE KEY userid (userid,organid)
+) ENGINE=MyISAM";
+
 $sql_create_module[] = "CREATE TABLE " . $db_config['prefix'] . "_" . $lang . "_" . $module_data . "_rows (
-  organid mediumint(11) unsigned NOT NULL AUTO_INCREMENT,
-  parentid mediumint(11) unsigned NOT NULL DEFAULT '0',
+  organid int(11) unsigned NOT NULL AUTO_INCREMENT,
+  parentid int(11) unsigned NOT NULL DEFAULT '0',
   title varchar(250) NOT NULL,
   alias varchar(250) NOT NULL DEFAULT '',
   image varchar(255) NOT NULL DEFAULT '',

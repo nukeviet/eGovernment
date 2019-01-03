@@ -384,6 +384,16 @@ ul.menutop, ul.menutop a, .socialList li a, .user-fix>span>.user, .user-fix>span
     background-image: url(../images/menu-right.png);
 }
 
+#menu-site-default ul.allowrwap .dropdown-menu > li > a {
+    white-space: normal;
+}
+
+#menu-site-default ul.ellipsissub .dropdown-menu > li > a{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
 #toggleearch {
     position: absolute;
     right: 0;
@@ -1239,6 +1249,11 @@ div.breadcrumbs-bg {
     border-bottom: 1px #b6b6bc solid;
     padding-bottom: 20px;
     margin-bottom: 5px;
+}
+
+#news-bodyhtml.has-attach {
+    padding-bottom: 0;
+    border-bottom: 0;
 }
 
 .news_column.newsdetailbox {

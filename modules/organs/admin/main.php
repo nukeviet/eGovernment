@@ -8,12 +8,18 @@
  * @Createdate Dec 3, 2010  11:33:22 AM
  */
 
-if (!defined('NV_IS_FILE_ADMIN')) die('Stop!!!');
+if (!defined('NV_IS_FILE_ADMIN'))
+    die('Stop!!!');
 
 $page_title = $lang_module['main'];
 
+// Nếu không có quyền quản lý phòng ban thì chuyển đến phần danh sách nhân sự
+if (!defined('NV_IS_ADMIN_MODULE')) {
+    nv_redirect_location(NV_BASE_ADMINURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name . '&' . NV_OP_VARIABLE . '=listper');
+}
+
 $per_page = 20;
-$page = $nv_Request->get_int('page', 'get', 0);
+$page = $nv_Request->get_int('page', 'get', 1);
 $parentid = $nv_Request->get_int('pid', 'get', 0);
 
 $base_url = NV_BASE_ADMINURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name . '&' . NV_OP_VARIABLE . '=' . $op . '&pid=' . $parentid;
@@ -37,18 +43,18 @@ if (!empty($array_organs[$parentid])) {
 $xtpl = new XTemplate('main.tpl', NV_ROOTDIR . '/themes/' . $global_config['module_theme'] . '/modules/' . $module_file);
 $xtpl->assign('LANG', $lang_module);
 
-$sql = 'SELECT SQL_CALC_FOUND_ROWS * FROM ' . NV_PREFIXLANG . '_' . $module_data . '_rows WHERE parentid=' . intval($parentid) . ' ORDER BY weight ASC LIMIT ' . $page . ',' . $per_page;
+$sql = 'SELECT SQL_CALC_FOUND_ROWS * FROM ' . NV_PREFIXLANG . '_' . $module_data . '_rows WHERE parentid=' . intval($parentid) . ' ORDER BY weight ASC LIMIT ' . (($page - 1) * $per_page) . ',' . $per_page;
 $result = $db->query($sql);
 
 $result_all = $db->query('SELECT FOUND_ROWS()');
 $numf = $result_all->fetchColumn();
 $all_page = ($numf) ? $numf : 1;
 
-$i = $page + 1;
+$i = (($page - 1) * $per_page) + 1;
 while ($row = $result->fetch()) {
     $ck_yes = '';
     $ck_no = '';
-    
+
     if ($row['active'] == '1') {
         $ck_yes = 'selected="selected"';
         $ck_no = '';
@@ -75,7 +81,12 @@ $xtpl->assign('URL_CHANGE', NV_BASE_ADMINURL . 'index.php?' . NV_LANG_VARIABLE .
 $xtpl->assign('URL_CHANGE_WEIGHT', NV_BASE_ADMINURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name . '&' . NV_OP_VARIABLE . '=changeorgan');
 $xtpl->assign('URL_ADD', NV_BASE_ADMINURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name . '&' . NV_OP_VARIABLE . '=addrow' . '&amp;pid=' . $parentid);
 
-$xtpl->assign('PAGES', nv_generate_page($base_url, $all_page, $per_page, $page));
+$generate_page = nv_generate_page($base_url, $all_page, $per_page, $page);
+if (!empty($generate_page)) {
+    $xtpl->assign('PAGES', $generate_page);
+    $xtpl->parse('main.generate_page');
+}
+
 $xtpl->parse('main');
 $contents = $xtpl->text('main');
 

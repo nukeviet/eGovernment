@@ -51,6 +51,50 @@
 		<div class="bodytext">
 			{DETAIL.bodyhtml}
 		</div>
+        <!-- BEGIN: files -->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <i class="fa fa-download fa-fw"></i><strong>{LANG.files}</strong>
+            </div>
+    		<div class="list-group news-download-file">
+    		    <!-- BEGIN: loop -->
+    		    <div class="list-group-item">
+    		        <!-- BEGIN: show_quick_viewpdf -->
+                    <span class="badge">
+                        <a role="button" data-toggle="collapse" href="#pdf{FILE.key}" aria-expanded="false" aria-controls="pdf{FILE.key}">
+                            <i class="fa fa-file-pdf-o" data-rel="tooltip" data-content="{LANG.quick_view_pdf}"></i>
+                        </a>
+                    </span>
+                    <!-- END: show_quick_viewpdf -->
+    		        <!-- BEGIN: show_quick_viewimg -->
+                    <span class="badge">
+                        <a href="javascript:void(0)" data-src="{FILE.src}" data-toggle="newsattachimage">
+                            <i class="fa fa-file-image-o" data-rel="tooltip" data-content="{LANG.quick_view_pdf}"></i>
+                        </a>
+                    </span>
+                    <!-- END: show_quick_viewimg -->
+    		        <a href="{FILE.url}" title="{FILE.titledown}{FILE.title}">{FILE.titledown}: <strong>{FILE.title}</strong></a>
+    		        <!-- BEGIN: content_quick_viewpdf -->
+    		        <div class="clearfix"></div>
+    		        <div class="collapse" id="pdf{FILE.key}" data-src="{FILE.urlpdf}" data-toggle="collapsepdf">
+    		            <div class="well margin-top">
+    		                <iframe frameborder="0" height="600" scrolling="yes" src="" width="100%"></iframe>
+    		            </div>
+    		        </div>
+    		        <!-- END: content_quick_viewpdf -->
+    		        <!-- BEGIN: content_quick_viewdoc -->
+    		        <div class="clearfix"></div>
+    		        <div class="collapse" id="pdf{FILE.key}" data-src="{FILE.urldoc}" data-toggle="collapsepdf">
+    		            <div class="well margin-top">
+    		                <iframe frameborder="0" height="600" scrolling="yes" src="" width="100%"></iframe>
+    		            </div>
+    		        </div>
+    		        <!-- END: content_quick_viewdoc -->
+    		    </div>
+    		    <!-- END: loop -->
+    		</div>
+        </div>
+        <!-- END: files -->
 		<!-- BEGIN: author -->
 		<!-- BEGIN: name -->
 		<p class="text-right">
@@ -87,7 +131,7 @@
 			<div class="col-md-12">
 				<!-- BEGIN: keywords -->
 				<div class="keywords">
-					<em class="fa fa-tags">&nbsp;</em><strong>{LANG.keywords}: </strong>
+					<em class="fa fa-tags">&nbsp;</em><strong>{LANG.tags}: </strong>
 					<!-- BEGIN: loop -->
 					<a title="{KEYWORD}" href="{LINK_KEYWORDS}"><em>{KEYWORD}</em></a>{SLASH}
 					<!-- END: loop -->

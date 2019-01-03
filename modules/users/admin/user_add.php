@@ -200,8 +200,8 @@ if ($nv_Request->isset_request('confirm', 'post')) {
     $sql = "INSERT INTO " . NV_MOD_TABLE . " (
         group_id, username, md5username, password, email, first_name, last_name, gender, birthday, sig, regdate,
         question, answer, passlostkey, view_mail,
-        remember, in_groups, active, checknum, last_login, last_ip, last_agent, last_openid, idsite)
-    VALUES (
+        remember, in_groups, active, checknum, last_login, last_ip, last_agent, last_openid, idsite, email_verification_time
+    ) VALUES (
         " . $_user['in_groups_default'] . ",
         :username,
         :md5_username,
@@ -218,7 +218,7 @@ if ($nv_Request->isset_request('confirm', 'post')) {
         '',
          " . $_user['view_mail'] . ",
          1,
-         '" . implode(',', $_user['in_groups']) . "', 1, '', 0, '', '', '', " . $global_config['idsite'] . "
+         '" . implode(',', $_user['in_groups']) . "', 1, '', 0, '', '', '', " . $global_config['idsite'] . ", 0
     )";
 
     $data_insert = array();
@@ -358,6 +358,7 @@ if (defined('NV_IS_USER_FORUM')) {
     }
 
     $have_custom_fields = false;
+    $have_name_field = false;
     foreach ($array_field_config as $row) {
         if (($row['show_register'] and $userid == 0) or $userid > 0) {
             // Value luôn là giá trị mặc định
@@ -388,6 +389,7 @@ if (defined('NV_IS_USER_FORUM')) {
                 $xtpl->assign('FIELD', $row);
                 if ($row['field'] == 'first_name' or $row['field'] == 'last_name') {
                     $show_key = 'name_show_' . $global_config['name_show'] . '.show_' . $row['field'];
+                    $have_name_field = true;
                 } else {
                     $show_key = 'show_' . $row['field'];
                 }
@@ -405,9 +407,6 @@ if (defined('NV_IS_USER_FORUM')) {
                     $xtpl->parse('main.edit_user.' . $show_key . '.description');
                 }
                 $xtpl->parse('main.edit_user.' . $show_key);
-                if ($row['field'] == 'gender') {
-                    $xtpl->parse('main.edit_user.name_show_' . $global_config['name_show']);
-                }
             } else {
                 if ($row['required']) {
                     $xtpl->parse('main.edit_user.field.loop.required');
@@ -485,6 +484,9 @@ if (defined('NV_IS_USER_FORUM')) {
                 $have_custom_fields = true;
             }
         }
+    }
+    if ($have_name_field) {
+        $xtpl->parse('main.edit_user.name_show_' . $global_config['name_show']);
     }
     if ($have_custom_fields) {
         $xtpl->parse('main.edit_user.field');

@@ -301,6 +301,12 @@ if ($nv_Request->isset_request('confirm', 'post')) {
         }
     }
 
+    if ($row['email'] != $_user['email']) {
+        $email_verification_time = 0;
+    } else {
+        $email_verification_time = $row['email_verification_time'];
+    }
+
     $db->query("UPDATE " . NV_MOD_TABLE . " SET
         group_id=" . $_user['in_groups_default'] . ",
         username=" . $db->quote($_user['username']) . ",
@@ -316,7 +322,8 @@ if ($nv_Request->isset_request('confirm', 'post')) {
         question=" . $db->quote($_user['question']) . ",
         answer=" . $db->quote($_user['answer']) . ",
         view_mail=" . $_user['view_mail'] . ",
-        in_groups='" . implode(',', $in_groups) . "'
+        in_groups='" . implode(',', $in_groups) . "',
+        email_verification_time=" . $email_verification_time . "
     WHERE userid=" . $userid);
 
     if (!empty($query_field)) {
@@ -427,6 +434,7 @@ if (defined('NV_IS_USER_FORUM')) {
     }
 
     $have_custom_fields = false;
+    $have_name_field = false;
     foreach ($array_field_config as $row) {
         $row['value'] = (isset($custom_fields[$row['field']])) ? $custom_fields[$row['field']] : $row['default_value'];
         $row['required'] = ($row['required']) ? 'required' : '';
@@ -443,6 +451,7 @@ if (defined('NV_IS_USER_FORUM')) {
             $xtpl->assign('FIELD', $row);
             if ($row['field'] == 'first_name' or $row['field'] == 'last_name') {
                 $show_key = 'name_show_' . $global_config['name_show'] . '.show_' . $row['field'];
+                $have_name_field = true;
             } else {
                 $show_key = 'show_' . $row['field'];
             }
@@ -460,9 +469,6 @@ if (defined('NV_IS_USER_FORUM')) {
                 $xtpl->parse('main.edit_user.' . $show_key . '.description');
             }
             $xtpl->parse('main.edit_user.' . $show_key);
-            if ($row['field'] == 'gender') {
-                $xtpl->parse('main.edit_user.name_show_' . $global_config['name_show']);
-            }
         } else {
             if ($row['required']) {
                 $xtpl->parse('main.edit_user.field.loop.required');
@@ -540,6 +546,9 @@ if (defined('NV_IS_USER_FORUM')) {
             $xtpl->parse('main.edit_user.field.loop');
             $have_custom_fields = true;
         }
+    }
+    if ($have_name_field) {
+        $xtpl->parse('main.edit_user.name_show_' . $global_config['name_show']);
     }
     if ($have_custom_fields) {
         $xtpl->parse('main.edit_user.field');

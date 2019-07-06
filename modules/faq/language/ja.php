@@ -8,7 +8,9 @@
  * @Createdate Apr 15, 2011, 08:22:00 AM
  */
 
-if( ! defined( 'NV_MAINFILE' ) ) die( 'Stop!!!' );
+if (! defined('NV_MAINFILE')) {
+    die('Stop!!!');
+}
 
 $lang_translator['author'] = 'VINADES.,JSC (contact@vinades.vn)';
 $lang_translator['createdate'] = '15/04/2011, 15:22';
@@ -20,5 +22,3 @@ $lang_module['faq_welcome'] = 'ここでは興味を持っている質問への�
 $lang_module['go_top'] = 'トップ';
 $lang_module['faq_question'] = '質問';
 $lang_module['faq_answer'] = '回答';
-
-?>

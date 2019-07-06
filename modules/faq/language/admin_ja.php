@@ -8,7 +8,9 @@
  * @Createdate Apr 15, 2011, 08:22:00 AM
  */
 
-if( ! defined( 'NV_ADMIN' ) or ! defined( 'NV_MAINFILE' ) ) die( 'Stop!!!' );
+if (! defined('NV_ADMIN') or ! defined('NV_MAINFILE')) {
+    die('Stop!!!');
+}
 
 $lang_translator['author'] = 'VINADES.,JSC (contact@vinades.vn)';
 $lang_translator['createdate'] = '15/04/2011, 15:22';
@@ -60,5 +62,3 @@ $lang_module['config_type_main'] = 'トップページに表示する方法';
 $lang_module['config_type_main_0'] = 'トピック表示';
 $lang_module['config_type_main_1'] = '上記の新しいリスト';
 $lang_module['config_type_main_2'] = '上記の古いリスト';
-
-?>

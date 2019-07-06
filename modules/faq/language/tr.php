@@ -9,7 +9,9 @@
  * @Createdate Oct 25, 2012, 03:11:41 PM
 */
 
-if( ! defined( 'NV_MAINFILE' ) ) die( 'Stop!!!' );
+if (! defined('NV_MAINFILE')) {
+    die('Stop!!!');
+}
 
 $lang_translator['author'] = 'Nukevietdestek.com (destek@nukevietdestek.com)';
 $lang_translator['createdate'] = '14/06/2011/03:30';

@@ -12,3 +12,76 @@
 .show_row{padding-bottom:30px;padding-left:20px}
 .welcome{font:bold 13px arial, verdana, sans-serif;padding-bottom:10px;padding-top:5px}
 .catlist li.main:hover{background:url(../images/faq/faq.gif) no-repeat left 0;font:bold 12px/24px arial, verdana, sans-serif;padding-left:27px}
+.cd-faq-categories a {
+    -webkit-transition: background 0.2s, padding 0.2s;
+    -moz-transition: background 0.2s, padding 0.2s;
+    transition: background 0.2s, padding 0.2s;
+}
+.cd-faq-categories{
+    padding: 0;
+    width: initial;
+    background: whitesmoke;
+    border: 1px solid #e1e8ed;
+    padding-bottom: 20px;
+    border-radius: 4px;
+}
+.cd-faq-categories a {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    margin: 0;
+    line-height: 20px;
+    -webkit-transition: none;
+    transition: none;
+    padding: 5px 20px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #666666;
+    background: none;
+}
+.t-heading.-size-xs {
+    font-size: 18px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 16px;
+}
+.side-tabs__header {
+    padding: 20px 20px 0;
+}
+.e-box {
+    background-color: white;
+    border: 1px solid #e1e8ed;
+    color: #666666;
+    word-break: break-word;
+        border-radius: 4px;
+}
+.secclass{margin-bottom: 21px;}
+.license-faqs h2 {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    margin-bottom: 0.2em;
+    font-size: 24px;
+}
+.license-faqs h3 {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding: 10px 0 10px 0;
+    font-size: 15px;
+    font-weight: 400;
+}
+.license-faqs h3 a{
+        color: #0084B4;
+}
+.h-p2 {
+    padding: 16px !important;
+}
+.name{
+    font-weight: 600;
+}

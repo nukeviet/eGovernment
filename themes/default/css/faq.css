@@ -1,181 +1,191 @@
 .block_faq .title {
-    background: url(../images/faq/faq.gif) no-repeat left -96px;
-    padding-left: 27px
+				background: url(../images/faq/faq.gif) no-repeat left -96px;
+				padding-left: 27px
 }
 
 .block_faq .title a {
-    text-decoration: none
+				text-decoration: none
 }
 
 .block_faq .title a:hover {
-    text-decoration: underline
+				text-decoration: underline
 }
 
 .catlist {
-    margin-bottom: 15px;
-    margin-top: 5px;
-    padding-left: 20px
+				margin-bottom: 15px;
+				margin-top: 5px;
+				padding-left: 20px
 }
 
 .catlist li.description {
-    color: #666;
-    font: normal 12px arial, verdana, sans-serif;
-    padding-bottom: 10px;
-    padding-left: 27px
+				color: #666;
+				font: normal 12px arial, verdana, sans-serif;
+				padding-bottom: 10px;
+				padding-left: 27px
 }
 
 .catlist li.main {
-    background: url(../images/faq/faq.gif) no-repeat left -24px;
-    font: bold 12px/24px arial, verdana, sans-serif;
-    padding-left: 27px
+				background: url(../images/faq/faq.gif) no-repeat left -24px;
+				font: bold 12px/24px arial, verdana, sans-serif;
+				padding-left: 27px
 }
 
 .page_title {
-    border-bottom: 1px solid #ccc;
-    font: bold 12px/23px arial, verdana, sans-serif
+				border-bottom: 1px solid #ccc;
+				font: bold 12px/23px arial, verdana, sans-serif
 }
 
 .show_detail .detail_faq {
-    padding-bottom: 15px
+				padding-bottom: 15px
 }
 
 .show_detail .detail_faq .question {
-    padding-bottom: 10px
+				padding-bottom: 10px
 }
 
 .show_detail .detail_faq .title {
-    background: url(../images/faq/faq.gif) no-repeat left -48px;
-    border-bottom: 1px solid #92c2fe;
-    display: block;
-    font: bold 12px/24px arial, verdana, sans-serif;
-    margin-bottom: 5px;
-    padding-left: 27px
+				background: url(../images/faq/faq.gif) no-repeat left -48px;
+				border-bottom: 1px solid #92c2fe;
+				display: block;
+				font: bold 12px/24px arial, verdana, sans-serif;
+				margin-bottom: 5px;
+				padding-left: 27px
 }
 
 .show_detail .detail_faq .title .gotop {
-    float: right;
-    padding-top: 4px
+				float: right;
+				padding-top: 4px
 }
 
 .show_row {
-    padding-bottom: 30px;
-    padding-left: 20px
+				padding-bottom: 30px;
+				padding-left: 20px
 }
 
 .welcome {
-    font: bold 13px arial, verdana, sans-serif;
-    padding-bottom: 10px;
-    padding-top: 5px
+				font: bold 13px arial, verdana, sans-serif;
+				padding-bottom: 10px;
+				padding-top: 5px
 }
 
 .catlist li.main:hover {
-    background: url(../images/faq/faq.gif) no-repeat left 0;
-    font: bold 12px/24px arial, verdana, sans-serif;
-    padding-left: 27px
+				background: url(../images/faq/faq.gif) no-repeat left 0;
+				font: bold 12px/24px arial, verdana, sans-serif;
+				padding-left: 27px
 }
 
 .cd-faq-categories a {
-    -webkit-transition: background 0.2s, padding 0.2s;
-    -moz-transition: background 0.2s, padding 0.2s;
-    transition: background 0.2s, padding 0.2s;
+				-webkit-transition: background 0.2s, padding 0.2s;
+				-moz-transition: background 0.2s, padding 0.2s;
+				transition: background 0.2s, padding 0.2s;
 }
 
 .cd-faq-categories {
-    padding: 0;
-    width: initial;
-    background: whitesmoke;
-    border: 1px solid #e1e8ed;
-    padding-bottom: 20px;
-    border-radius: 4px;
+				padding: 0;
+				width: initial;
+				background: whitesmoke;
+				border: 1px solid #e1e8ed;
+				padding-bottom: 20px;
+				border-radius: 4px;
 }
 
 .cd-faq-categories a {
-    position: relative;
-    overflow: hidden;
-    margin: 0;
-    line-height: 20px;
-    -webkit-transition: none;
-    transition: none;
-    padding: 5px 20px;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-overflow: ellipsis;
-    color: #666666;
-    background: none;
+				position: relative;
+				overflow: hidden;
+				margin: 0;
+				line-height: 20px;
+				-webkit-transition: none;
+				transition: none;
+				padding: 5px 20px;
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+				text-overflow: ellipsis;
+				color: #666666;
+				background: none;
 }
 
 .t-heading.-size-xs {
-    font-size: 18px;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 16px;
+				font-size: 18px;
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+				font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+				font-weight: 700;
+				line-height: 1.2;
+				margin-bottom: 16px;
 }
 
 .side-tabs__header {
-    padding: 20px 20px 0;
+				padding: 20px 20px 0;
 }
 
 .e-box {
-    background-color: white;
-    border: 1px solid #e1e8ed;
-    color: #666666;
-    word-break: break-word;
-    border-radius: 4px;
+				background-color: white;
+				border: 1px solid #e1e8ed;
+				color: #666666;
+				word-break: break-word;
+				border-radius: 4px;
 }
 
 .secclass {
-    margin-bottom: 21px;
+				margin-bottom: 21px;
 }
 
 .license-faqs h2 {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-weight: 700;
-    margin-bottom: 0.2em;
-    font-size: 24px;
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+				font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+				font-weight: 700;
+				margin-bottom: 0.2em;
+				font-size: 24px;
 }
 
 .license-faqs h3 {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    padding: 10px 0 10px 0;
-    font-size: 15px;
-    font-weight: 400;
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+				padding: 10px 0 10px 0;
+				font-size: 15px;
+				font-weight: 400;
 }
 
 .license-faqs h3 a {
-    color: #0084B4;
+				color: #0084B4;
 }
 
 .h-p2 {
-    padding: 16px !important;
+				padding: 16px !important;
 }
 
 .name {
-    font-weight: 600;
+				font-weight: 600;
 }
 
-.menu.fixed {position: relative;overflow: hidden;}
+.menu.fixed {
+				position: relative;
+				overflow: hidden;
+}
 
 .menu.fixed .cd-faq-categories {
-    top: 0;
-    position: fixed;
+				top: 0;
+				position: fixed;
+				width: 160px;
 }
 
 .cd-faq-categories a {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    line-height: 25px;
-    -webkit-line-clamp: 1;
-    height: 30px;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    width: 100%;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				line-height: 25px;
+				-webkit-line-clamp: 1;
+				height: 30px;
+				display: -webkit-box;
+				-webkit-box-orient: vertical;
+				width: 100%;
 }
+
 .fixed .cd-faq-categories a {
-				width: 50%;
+				
+}
+
+@media screen and (min-width: 1200px) {
+				.license-faqs {
+				}
 }

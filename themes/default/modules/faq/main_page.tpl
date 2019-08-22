@@ -16,8 +16,8 @@
 <!-- END: subcats -->
 <!-- BEGIN: is_show_row -->
 <div class="row">
-    <div class="col-xs-6">
-        <ul class="cd-faq-categories" style="left: 0px; top: 0px; transform: translateZ(0px);">
+    <div class="col-xs-6 menu">
+        <ul class="cd-faq-categories" style="transform: translateZ(0px);">
             <li class="side-tabs__header"><h4 class="t-heading -size-xs">{LANG.faq_question}</h4></li>
             <!-- BEGIN: row -->
             <li><a class="selected" href="#sec{ROW.id}">{ROW.title}</a></li>
@@ -42,6 +42,15 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+$(window).bind('scroll', function () {
+    if ($(window).scrollTop() > 50) {
+        $('.menu').addClass('fixed');
+    } else {
+        $('.menu').removeClass('fixed');
+    }
+});
+</script>
 <script>
     $(document).ready(function() {
         $("a[href*='#']:not([href='#])").click(function() {

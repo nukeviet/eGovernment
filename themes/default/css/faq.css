@@ -164,12 +164,6 @@
 				overflow: hidden;
 }
 
-.menu.fixed .cd-faq-categories {
-				top: 0;
-				position: fixed;
-				width: 160px;
-}
-
 .cd-faq-categories a {
 				overflow: hidden;
 				text-overflow: ellipsis;
@@ -186,6 +180,9 @@
 }
 
 @media screen and (min-width: 1200px) {
-				.license-faqs {
-				}
+				.menu.fixed .cd-faq-categories {
+				top: 0;
+				position: fixed;
+				width: 160px;
+}
 }

@@ -7,8 +7,7 @@
  * @Language 日本語
  * @Createdate Apr 15, 2011, 08:22:00 AM
  */
-
-if (! defined('NV_ADMIN') or ! defined('NV_MAINFILE')) {
+if (!defined('NV_ADMIN') or !defined('NV_MAINFILE')) {
     die('Stop!!!');
 }
 

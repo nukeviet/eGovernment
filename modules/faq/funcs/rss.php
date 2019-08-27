@@ -7,8 +7,7 @@
  * @License GNU/GPL version 2 or any later version
  * @Createdate Apr 20, 2010 10:47:41 AM
  */
-
-if (! defined('NV_IS_MOD_FAQ')) {
+if (!defined('NV_IS_MOD_FAQ')) {
     die('Stop!!!');
 }
 
@@ -21,10 +20,10 @@ $channel['description'] = !empty($module_info['description']) ? $module_info['de
 
 $list_cats = nv_list_cats();
 
-if (! empty($list_cats)) {
+if (!empty($list_cats)) {
     $catalias = isset($array_op[1]) ? $array_op[1] : "";
     $catid = 0;
-    if (! empty($catalias)) {
+    if (!empty($catalias)) {
         foreach ($list_cats as $c) {
             if ($c['alias'] == $catalias) {
                 $catid = $c['id'];
@@ -50,7 +49,7 @@ if (! empty($list_cats)) {
     }
     if ($module_info['rss']) {
         if (($result = $db->query($sql)) !== false) {
-            while (list($id, $cid, $title, $question, $addtime) = $result->fetch(3)) {
+            while (list ($id, $cid, $title, $question, $addtime) = $result->fetch(3)) {
                 $items[] = array(
                     'title' => $title,
                     'link' => NV_MY_DOMAIN . NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&amp;" . NV_OP_VARIABLE . "=" . $list_cats[$cid]['alias'] . "#faq" . $id,

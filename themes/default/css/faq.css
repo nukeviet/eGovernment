@@ -179,9 +179,7 @@
 }
 
 .left_menu {
-    margin: 0;
-    padding: 2px 0 0 12px;
     position: -webkit-sticky;
     position: sticky;
-    top: -1px;
+    top: 0px;
 }

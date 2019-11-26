@@ -8,7 +8,6 @@
  * @License GNU/GPL version 2 or any later version
  * @Createdate 4/12/2010, 1:27
  */
-
 if (!defined('NV_IS_MOD_FAQ')) {
     die('Stop!!!');
 }
@@ -29,7 +28,7 @@ if (($cache = $nv_Cache->getItem($module_name, $cacheFile, $cacheTTL)) != false)
         AND status=1 ORDER BY weight ASC LIMIT 1000';
     $result = $db->query($sql);
     
-    while (list($id, $cid, $publtime) = $result->fetch(3)) {
+    while (list ($id, $cid, $publtime) = $result->fetch(3)) {
         $url[] = array(
             'link' => NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&amp;' . NV_NAME_VARIABLE . '=' . $module_name . '&amp;' . NV_OP_VARIABLE . '=' . $list_cats[$cid]['alias'] . '#faq' . $id,
             'publtime' => $publtime

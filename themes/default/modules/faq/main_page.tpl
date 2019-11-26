@@ -1,54 +1,54 @@
 <!-- BEGIN: main -->
 <!-- BEGIN: welcome -->
-<div class="welcome">
-    {WELCOME}.
-</div>
+<div class="well">{WELCOME}.</div>
 <!-- END: welcome -->
 <!-- BEGIN: subcats -->
-<ul class="catlist">
+<ul class="cd-faq-categories" style="left: 0px; top: 0px; transform: translateZ(0px);">
+    <li class="side-tabs__header"><h4 class="t-heading -size-xs">{LANG.faq_categories}</h4></li>
     <!-- BEGIN: li -->
-    <li class="main">
-        {SUBCAT.name}
-    </li>
+    <li class="name">{SUBCAT.name}</li>
     <!-- BEGIN: description -->
-    <li class="description">
-        {SUBCAT.description}
-    </li>
+    <li><a class="selected" href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i> {SUBCAT.description}</a></li>
     <!-- END: description -->
     <!-- END: li -->
 </ul>
 <!-- END: subcats -->
 <!-- BEGIN: is_show_row -->
-<div class="show_row">
-    <a name="faqlist"></a>
-    <!-- BEGIN: row -->
-    <div class="block_faq">
-        <div class="title">
-            <a href="javascript:void(0);" onclick="faq_show_content({ROW.id});">{ROW.title}</a>
-        </div>
-    </div>
-    <!-- END: row -->
-</div>
-<div class="show_detail">
-    <!-- BEGIN: detail -->
-    <a name="faq{ROW.id}"></a>
-    <div class="detail_faq">
-        <div class="title">
-            <div class="gotop">
-                <a href="#faqlist" title="{LANG.go_top}"><img alt="{LANG.go_top}" title="{LANG.go_top}" src="{IMG_GO_TOP_SRC}top.gif" width="16" height="16" /></a>
+<div class="layout__main-content license-faqs h-mr0 cd-faq-items col-sm-18 col-md-19 col-sm-push-6 col-md-push-5" data-view="faqs">
+    <div class="content-s -content-wide">
+        <div class="e-box h-p2">
+            <!-- BEGIN: detail -->
+            <div id="sec{ROW.id}" class="secclass">
+                <h2 class="faq-section-general-questions">{ROW.title}</h2>
+                <h3 class="js-faq-question license-faqs__question">{ROW.question}</h3>
+                <div class="answer">
+                    <strong>{LANG.faq_answer}:</strong><br /> {ROW.answer}
+                </div>
             </div>
-            {ROW.title}
-        </div>
-        <div class="question">
-            <strong>{LANG.faq_question}:</strong><br />
-            {ROW.question}
-        </div>
-        <div class="answer">
-            <strong>{LANG.faq_answer}:</strong><br />
-            {ROW.answer}
+            <!-- END: detail -->
         </div>
     </div>
-    <!-- END: detail -->
 </div>
+<div class="col-sm-6 col-md-5 col-sm-pull-18 col-md-pull-19 menu left_menu">
+    <div class="cd-faq-categories">
+        <ul style="transform: translateZ(0px); padding: 0">
+            <li class="side-tabs__header"><h4 class="t-heading -size-xs">{LANG.faq_question}</h4></li>
+            <!-- BEGIN: row -->
+            <li><a class="selected" href="#sec{ROW.id}">{ROW.title}</a></li>
+            <!-- END: row -->
+        </ul>
+    </div>
+</div>
+<script>
+    $(document).ready(function() {
+        $("a[href*='#']:not([href='#])").click(function() {
+            let target = $(this).attr("href");
+            $('html,body').stop().animate({
+                scrollTop : $(target).offset().top
+            }, 1000);
+            event.preventDefault();
+        });
+    });
+</script>
 <!-- END: is_show_row -->
 <!-- END: main -->

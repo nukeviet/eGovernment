@@ -3,6 +3,7 @@
 /.project
 /.htaccess
 /.gitattributes
+/.github
 /composer.json
 /config.php
 /CHANGELOG.txt
@@ -22,6 +23,7 @@
 /install/
 /uploads/
 /vendor/
+/error.php
 
 # Ignore fix module files and directories.
 /modules/*

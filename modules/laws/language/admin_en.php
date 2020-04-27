@@ -9,7 +9,9 @@
  * @Createdate Jul 27, 2011, 07:55:00 AM
  */
 
-if (!defined('NV_ADMIN') or !defined('NV_MAINFILE')) die('Stop!!!');
+if (!defined('NV_ADMIN') or !defined('NV_MAINFILE')) {
+    die('Stop!!!');
+}
 
 $lang_translator['author'] = 'VINADES.,JSC <contact@vinades.vn>';
 $lang_translator['createdate'] = '27/07/2011, 14:55';
@@ -133,3 +135,7 @@ $lang_module['search_error'] = 'Choose at least one search terms';
 $lang_module['admin_add'] = "Admin add";
 
 $lang_module['admins'] = 'Decentralization of management';
+$lang_module['config_tshow'] = 'Show title/abstract when when viewing list form';
+$lang_module['config_tshow0'] = 'Show abstract';
+$lang_module['config_tshow1'] = 'Show title';
+$lang_module['config_tshow2'] = 'Title + Abstract';

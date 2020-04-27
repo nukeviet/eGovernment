@@ -8,20 +8,22 @@
  * @Createdate Wed, 27 Jul 2011 14:55:22 GMT
  */
 
-if (!defined('NV_MAINFILE')) die('Stop!!!');
+if (!defined('NV_MAINFILE')) {
+    die('Stop!!!');
+}
 
-$module_version = array(
+$module_version = [
     'name' => 'Laws',
     'modfuncs' => 'main,detail,search,area,cat,subject,signer',
     'submenu' => 'main,detail,search,area,cat,subject,signer',
     'change_alias' => 'detail',
     'is_sysmod' => 0,
     'virtual' => 1,
-    'version' => '4.3.03',
-    'date' => 'Tuesday, August 14, 2018 8:06:55 AM GMT+07:00',
+    'version' => '4.3.05',
+    'date' => 'Thursday, March 21, 2019 6:12:17 AM GMT+07:00',
     'author' => 'VINADES <contact@vinades.vn>',
-    'uploads_dir' => array(
+    'uploads_dir' => [
         $module_upload
-    ),
+    ],
     'note' => 'Modules văn bản pháp luật'
-);
+];

@@ -7,8 +7,7 @@
  * @License GNU/GPL version 2 or any later version
  * @Createdate Apr 20, 2010 10:47:41 AM
  */
-
-if (! defined('NV_IS_MOD_RSS')) {
+if (!defined('NV_IS_MOD_RSS')) {
     die('Stop!!!');
 }
 

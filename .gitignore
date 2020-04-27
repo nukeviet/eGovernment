@@ -1,5 +1,6 @@
 # Base ignore
 /.project
+<<<<<<< HEAD
 /.buildpath
 /.settings
 /config.php
@@ -22,6 +23,31 @@
 /assets/logo_*
 /install/default.php
 >>>>>>> 4.3.08
+=======
+/.htaccess
+/.gitattributes
+/.github
+/composer.json
+/config.php
+/CHANGELOG.txt
+/COPYRIGHT.txt
+/CONTRIBUTING.md
+/README.md
+/favicon.ico
+/index.php
+/LICENSE.txt
+/robots.php
+/robots.txt
+/web.config
+/admin/
+/assets/
+/data/
+/includes/
+/install/
+/uploads/
+/vendor/
+/error.php
+>>>>>>> faq/develop
 
 <<<<<<< HEAD
 composer.lock
@@ -62,6 +88,7 @@ composer.lock
 !/modules/laws
 !/modules/laws/*
 /themes/*
+<<<<<<< HEAD
 !/themes/admin_default/css/laws.css
 !/themes/admin_default/js/laws.js
 !/themes/admin_default/js/laws_*.js
@@ -82,3 +109,18 @@ composer.lock
 /error.php
 /.github
 >>>>>>> laws/master
+=======
+!/themes/admin_default/css/faq.css
+!/themes/admin_default/js/faq.js
+!/themes/admin_default/images/faq
+!/themes/admin_default/images/faq/*
+!/themes/admin_default/modules/faq
+!/themes/admin_default/modules/faq/*
+!/themes/default/css/faq.css
+!/themes/default/js/faq.js
+!/themes/default/images/faq
+!/themes/default/images/faq/*
+!/themes/default/modules/faq
+!/themes/default/modules/faq/*
+/.buildpath
+>>>>>>> faq/develop

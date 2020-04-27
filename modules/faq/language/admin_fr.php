@@ -1,15 +1,14 @@
 <?php
 
 /**
-* @Project NUKEVIET 4.x
-* @Author VINADES.,JSC (contact@vinades.vn)
-* @Copyright (C) 2014 VINADES.,JSC. All rights reserved
-* @Language Français
-* @License CC BY-SA (http://creativecommons.org/licenses/by-sa/4.0/)
+ * @Project NUKEVIET 4.x
+ * @Author VINADES.,JSC (contact@vinades.vn)
+ * @Copyright (C) 2014 VINADES.,JSC. All rights reserved
+ * @Language Français
+ * @License CC BY-SA (http://creativecommons.org/licenses/by-sa/4.0/)
  * @Createdate Sep 01, 2010, 05:00:00 PM
-*/
-
-if (! defined('NV_ADMIN') or ! defined('NV_MAINFILE')) {
+ */
+if (!defined('NV_ADMIN') or !defined('NV_MAINFILE')) {
     die('Stop!!!');
 }
 

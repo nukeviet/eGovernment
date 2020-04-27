@@ -92,7 +92,7 @@ if (!nv_function_exists('nv_block_login')) {
             } elseif (file_exists(NV_ROOTDIR . '/themes/' . $global_config['site_theme'] . '/css/users.css')) {
                 $block_css = $global_config['site_theme'];
             } else {
-                $block_css = '';
+                $block_css = 'default';
             }
             if (file_exists(NV_ROOTDIR . '/themes/' . $global_config['module_theme'] . '/js/users.js')) {
                 $block_js = $global_config['module_theme'];
@@ -110,9 +110,7 @@ if (!nv_function_exists('nv_block_login')) {
                 } else {
                     include NV_ROOTDIR . '/modules/users/language/vi.php';
                 }
-                if (!empty($block_css)) {
-                    $my_head .= '<link rel="StyleSheet" href="' . NV_BASE_SITEURL . 'themes/' . $block_css . '/css/users.css">';
-                }
+                $my_head .= '<link rel="StyleSheet" href="' . NV_BASE_SITEURL . 'themes/' . $block_css . '/css/users.css">';
             } else {
                 global $lang_module;
             }
@@ -296,12 +294,17 @@ if (!nv_function_exists('nv_block_login')) {
                                 $row_field['field_choices'] = unserialize($row_field['field_choices']);
                             } elseif (!empty($row_field['sql_choices'])) {
                                 $row_field['sql_choices'] = explode('|', $row_field['sql_choices']);
+                                $row_field['field_choices'] = [];
                                 $query = 'SELECT ' . $row_field['sql_choices'][2] . ', ' . $row_field['sql_choices'][3] . ' FROM ' . $row_field['sql_choices'][1];
+                                if (!empty($row_field['sql_choices'][4]) and !empty($row_field['sql_choices'][5])) {
+                                    $query .= ' ORDER BY ' . $row_field['sql_choices'][4] . ' ' . $row_field['sql_choices'][5];
+                                }
                                 $result = $db->query($query);
                                 while (list ($key, $val) = $result->fetch(3)) {
                                     $row_field['field_choices'][$key] = $val;
                                 }
                             }
+                            $row_field['system'] = $row_field['is_system'];
                             $array_field_config[$row_field['field']] = $row_field;
                         }
 

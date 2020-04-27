@@ -14,7 +14,14 @@
 /data/logs/ip_logs/
 /data/logs/ref_logs/
 /data/logs/voting_logs/
+<<<<<<< HEAD
 /data/tmp/
+=======
+/data/tmp/*
+/uploads/logo_*
+/assets/logo_*
+/install/default.php
+>>>>>>> 4.3.08
 
 composer.lock
 #vendor test ignore 

@@ -89,13 +89,14 @@ function nv_check_username_reg($login)
  * @param mixed $email
  * @return
  */
-function nv_check_email_reg($email)
+function nv_check_email_reg(&$email)
 {
     global $db, $lang_module, $global_users_config;
 
-    $error = nv_check_valid_email($email);
-    if ($error != '') {
-        return preg_replace('/\&(l|r)dquo\;/', '', strip_tags($error));
+    $error = nv_check_valid_email($email, true);
+    $email = $error[1];
+    if ($error[0] != '') {
+        return preg_replace('/\&(l|r)dquo\;/', '', strip_tags($error[0]));
     }
 
     if (!empty($global_users_config['deny_email']) and preg_match('/' . $global_users_config['deny_email'] . '/i', $email)) {
@@ -217,13 +218,22 @@ while ($row_field = $result_field->fetch()) {
         $row_field['field_choices'] = unserialize($row_field['field_choices']);
     } elseif (!empty($row_field['sql_choices'])) {
         $row_field['sql_choices'] = explode('|', $row_field['sql_choices']);
+        $row_field['field_choices'] = [];
         $query = 'SELECT ' . $row_field['sql_choices'][2] . ', ' . $row_field['sql_choices'][3] . ' FROM ' . $row_field['sql_choices'][1];
+        if (!empty($row_field['sql_choices'][4]) and !empty($row_field['sql_choices'][5])) {
+            $query .= ' ORDER BY ' . $row_field['sql_choices'][4] . ' ' . $row_field['sql_choices'][5];
+        }
         $result = $db->query($query);
         while (list($key, $val) = $result->fetch(3)) {
             $row_field['field_choices'][$key] = $val;
         }
     }
+    $row_field['system'] = $row_field['is_system'];
     $array_field_config[$row_field['field']] = $row_field;
+}
+
+if (!defined('NV_EDITOR')) {
+    define('NV_EDITOR', 'ckeditor');
 }
 if (defined('NV_EDITOR')) {
     require_once NV_ROOTDIR . '/' . NV_EDITORSDIR . '/' . NV_EDITOR . '/nv.php';
@@ -371,7 +381,7 @@ if ($checkss == $array_register['checkss']) {
 
                 $subject = $lang_module['account_active'];
                 $message = sprintf($lang_module['account_active_info'], $_full_name, $global_config['site_name'], NV_MY_DOMAIN . NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name . '&' . NV_OP_VARIABLE . '=active&userid=' . $userid . '&checknum=' . $checknum, $array_register['username'], $array_register['email'], nv_date('H:i d/m/Y', NV_CURRENTTIME + $register_active_time));
-                $send = nv_sendmail($global_config['site_email'], $array_register['email'], $subject, $message);
+                $send = nv_sendmail([$global_config['site_name'], $global_config['site_email']], $array_register['email'], $subject, $message);
 
                 if ($send) {
                     $info = $lang_module['account_active_mess'];
@@ -394,7 +404,7 @@ if ($checkss == $array_register['checkss']) {
         $sql = "INSERT INTO " . NV_MOD_TABLE . " (
             group_id, username, md5username, password, email, first_name, last_name, gender, photo, birthday, sig, regdate,
             question, answer, passlostkey, view_mail, remember, in_groups,
-            active, checknum, last_login, last_ip, last_agent, last_openid, idsite, email_verification_time
+            active, checknum, last_login, last_ip, last_agent, last_openid, idsite, email_verification_time, active_obj
         ) VALUES (
             " . (defined('ACCESS_ADDUS') ? $group_id : ($global_users_config['active_group_newusers'] ? 7 : 4)) . ",
             :username,
@@ -412,7 +422,7 @@ if ($checkss == $array_register['checkss']) {
             :answer,
             '', 0, 1,
             '" . (defined('ACCESS_ADDUS') ? $group_id : ($global_users_config['active_group_newusers'] ? 7 : 4)) . "',
-            1, '', 0, '', '', '', " . $global_config['idsite'] . ", -1
+            1, '', 0, '', '', '', " . $global_config['idsite'] . ", -1, 'SYSTEM'
         )";
 
         $data_insert = array();
@@ -441,7 +451,11 @@ if ($checkss == $array_register['checkss']) {
             $db->query('INSERT INTO ' . NV_MOD_TABLE . '_info (' . implode(', ', array_keys($query_field)) . ') VALUES (' . implode(', ', array_values($query_field)) . ')');
 
             if (defined('ACCESS_ADDUS')) {
-                $db->query('INSERT INTO ' . NV_MOD_TABLE . '_groups_users (group_id, userid, is_leader, approved, data) VALUES (' . $group_id . ',' . $userid . ', 0, 1, \'0\')');
+                $db->query('INSERT INTO ' . NV_MOD_TABLE . '_groups_users (
+                    group_id, userid, is_leader, approved, data, time_requested, time_approved
+                ) VALUES (
+                    ' . $group_id . ',' . $userid . ', 0, 1, \'0\', ' . NV_CURRENTTIME . ', ' . NV_CURRENTTIME . '
+                )');
             }
 
             $db->query('UPDATE ' . NV_MOD_TABLE . '_groups SET numbers = numbers+1 WHERE group_id=' . (defined('ACCESS_ADDUS') ? $group_id : ($global_users_config['active_group_newusers'] ? 7 : 4)));
@@ -451,7 +465,7 @@ if ($checkss == $array_register['checkss']) {
                 $_url = NV_MY_DOMAIN . $_url;
             }
             $message = sprintf($lang_module['account_register_info'], $array_register['first_name'], $global_config['site_name'], $_url, $array_register['username']);
-            nv_sendmail($global_config['site_email'], $array_register['email'], $subject, $message);
+            nv_sendmail([$global_config['site_name'], $global_config['site_email']], $array_register['email'], $subject, $message);
 
             if (defined('ACCESS_ADDUS')) {
                 $url = NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name . '&' . NV_OP_VARIABLE . '=groups/' . $group_id;

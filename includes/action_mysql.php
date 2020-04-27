@@ -14,6 +14,11 @@ if (! defined('NV_MAINFILE')) {
 
 define('NV_MODULE_SETUP_DEFAULT', 'users,statistics,banners,seek,news,contact,about,siteterms,voting,feeds,menu,page,comment,freecontent,two-step-verification');
 
+/**
+ * @param string $table_des
+ * @param string $table_src
+ * @return number
+ */
 function nv_copy_structure_table($table_des, $table_src)
 {
     global $db;
@@ -21,6 +26,10 @@ function nv_copy_structure_table($table_des, $table_src)
     return $db->exec('CREATE TABLE ' . $table_des . ' LIKE ' . $table_src);
 }
 
+/**
+ * @param string $lang
+ * @return string[]
+ */
 function nv_delete_table_sys($lang)
 {
     global $db_config;
@@ -38,6 +47,10 @@ function nv_delete_table_sys($lang)
     return $sql_drop_table;
 }
 
+/**
+ * @param string $lang
+ * @return string[]
+ */
 function nv_create_table_sys($lang)
 {
     global $db_config, $global_config, $db;
@@ -68,7 +81,6 @@ function nv_create_table_sys($lang)
          admins varchar(255) DEFAULT '',
          rss tinyint(4) NOT NULL DEFAULT '1',
          sitemap tinyint(4) NOT NULL DEFAULT '1',
-         gid smallint(5) NOT NULL DEFAULT '0',
          PRIMARY KEY (title)
     ) ENGINE=MyISAM";
 
@@ -157,23 +169,23 @@ function nv_create_table_sys($lang)
 
     $sql_create_table[] = "INSERT INTO " . $db_config['prefix'] . "_" . $lang . "_modules (
         title, module_file, module_data, module_upload, module_theme, custom_title, admin_title, set_time, main_file, admin_file,
-        theme, mobile, description, keywords, groups_view, weight, act, admins, rss, gid
+        theme, mobile, description, keywords, groups_view, weight, act, admins, rss, sitemap
     ) VALUES
-        ('about', 'page', 'about', 'about', 'page', 'About', '', 1542337256, 1, 1, '', '', '', '', '0', 1, 1, '', 1, 0),
-         ('news', 'news', 'news', 'news', 'news', 'News', '', 1542337256, 1, 1, '', '', '', '', '0', 2, 1, '', 1, 0),
-        ('users', 'users', 'users', 'users', 'users', 'Users', 'Users', 1542337256, 1, 1, '', '', '', '', '0', 3, 1, '', 0, 0),
-        ('contact', 'contact', 'contact', 'contact', 'contact', 'Contact', '', 1542337256, 1, 1, '', '', '', '', '0', 4, 1, '', 0, 0),
-        ('statistics', 'statistics', 'statistics', 'statistics', 'statistics', 'Statistics', '', 1542337256, 1, 0, '', '', '', '', '0', 5, 1, '', 0, 0),
-        ('voting', 'voting', 'voting', 'voting', 'voting', 'Voting', '', 1542337256, 1, 1, '', '', '', '', '0', 6, 1, '', 1, 0),
-        ('banners', 'banners', 'banners', 'banners', 'banners', 'Banners', '', 1542337256, 1, 1, '', '', '', '', '0', 7, 1, '', 0, 0),
-        ('seek', 'seek', 'seek', 'seek', 'seek', 'Search', '', 1542337256, 1, 0, '', '', '', '', '0', 8, 1, '', 0, 0),
-        ('menu', 'menu', 'menu', 'menu', 'menu', 'Menu Site', '', 1542337256, 0, 1, '', '', '', '', '0', 9, 1, '', 0, 0),
-        ('feeds', 'feeds', 'feeds', 'feeds', 'feeds', 'Rss Feeds', '', 1542337256, 1, 1, '', '', '', '', '0', 10, 1, '', 0, 0),
-        ('page', 'page', 'page', 'page', 'page', 'Page', '', 1542337256, 1, 1, '', '', '', '', '0', 11, 1, '', 1, 0),
-        ('comment', 'comment', 'comment', 'comment', 'comment', 'Comment', '', 1542337256, 1, 1, '', '', '', '', '0', 12, 1, '', 0, 0),
-         ('siteterms', 'page', 'siteterms', 'siteterms', 'page', 'Siteterms', '', 1542337256, 1, 1, '', '', '', '', '0', 13, 1, '', 1, 0),
-         ('freecontent', 'freecontent', 'freecontent', 'freecontent', 'freecontent', 'Free Content', '', 1542337256, 0, 1, '', '', '', '', '0', 14, 1, '', 0, 0),
-         ('two-step-verification', 'two-step-verification', 'two_step_verification', 'two-step-verification', 'two_step_verification', 'Two-Step Verification', '', 1542337256, 1, 0, '', '', '', '', '0', 15, 1, '', 0, 0)";
+         ('about', 'page', 'about', 'about', 'page', 'About', '', 1577523600, 1, 1, '', '', '', '', '0', 1, 1, '', 1, 1),
+         ('news', 'news', 'news', 'news', 'news', 'News', '', 1577523600, 1, 1, '', '', '', '', '0', 2, 1, '', 1, 1),
+         ('users', 'users', 'users', 'users', 'users', 'Users', 'Users', 1577523600, 1, 1, '', '', '', '', '0', 3, 1, '', 0, 1),
+         ('contact', 'contact', 'contact', 'contact', 'contact', 'Contact', '', 1577523600, 1, 1, '', '', '', '', '0', 4, 1, '', 0, 1),
+         ('statistics', 'statistics', 'statistics', 'statistics', 'statistics', 'Statistics', '', 1577523600, 1, 0, '', '', '', '', '0', 5, 1, '', 0, 1),
+         ('voting', 'voting', 'voting', 'voting', 'voting', 'Voting', '', 1577523600, 1, 1, '', '', '', '', '0', 6, 1, '', 1, 1),
+         ('banners', 'banners', 'banners', 'banners', 'banners', 'Banners', '', 1577523600, 1, 1, '', '', '', '', '0', 7, 1, '', 0, 1),
+         ('seek', 'seek', 'seek', 'seek', 'seek', 'Search', '', 1577523600, 1, 0, '', '', '', '', '0', 8, 1, '', 0, 1),
+         ('menu', 'menu', 'menu', 'menu', 'menu', 'Menu Site', '', 1577523600, 0, 1, '', '', '', '', '0', 9, 1, '', 0, 1),
+         ('feeds', 'feeds', 'feeds', 'feeds', 'feeds', 'Rss Feeds', '', 1577523600, 1, 1, '', '', '', '', '0', 10, 1, '', 0, 1),
+         ('page', 'page', 'page', 'page', 'page', 'Page', '', 1577523600, 1, 1, '', '', '', '', '0', 11, 1, '', 1, 0),
+         ('comment', 'comment', 'comment', 'comment', 'comment', 'Comment', '', 1577523600, 1, 1, '', '', '', '', '0', 12, 1, '', 0, 1),
+         ('siteterms', 'page', 'siteterms', 'siteterms', 'page', 'Siteterms', '', 1577523600, 1, 1, '', '', '', '', '0', 13, 1, '', 1, 1),
+         ('freecontent', 'freecontent', 'freecontent', 'freecontent', 'freecontent', 'Free Content', '', 1577523600, 0, 1, '', '', '', '', '0', 14, 1, '', 0, 1),
+         ('two-step-verification', 'two-step-verification', 'two_step_verification', 'two-step-verification', 'two_step_verification', 'Two-Step Verification', '', 1577523600, 1, 0, '', '', '', '', '0', 15, 1, '', 0, 1)";
 
     $sql_create_table[] = "INSERT INTO " . NV_CONFIG_GLOBALTABLE . " (lang, module, config_name, config_value) VALUES
          ('" . $lang . "', 'global', 'site_domain', ''),
@@ -186,19 +198,20 @@ function nv_create_table_sys($lang)
          ('" . $lang . "', 'global', 'theme_type', 'r,d,m'),
          ('" . $lang . "', 'global', 'site_theme', '" . $global_config['site_theme'] . "'),
          ('" . $lang . "', 'global', 'preview_theme', ''),
+         ('" . $lang . "', 'global', 'user_allowed_theme', ''),
          ('" . $lang . "', 'global', 'mobile_theme', 'mobile_default'),
          ('" . $lang . "', 'global', 'site_home_module', 'users'),
          ('" . $lang . "', 'global', 'switch_mobi_des', '1'),
          ('" . $lang . "', 'global', 'upload_logo', ''),
-        ('" . $lang . "', 'global', 'upload_logo_pos', 'bottomRight'),
-        ('" . $lang . "', 'global', 'autologosize1', '50'),
-        ('" . $lang . "', 'global', 'autologosize2', '40'),
-        ('" . $lang . "', 'global', 'autologosize3', '30'),
-        ('" . $lang . "', 'global', 'autologomod', ''),
-        ('" . $lang . "', 'global', 'name_show', '" . ($lang!='vi' ? 1 : 0) . "'),
-        ('" . $lang . "', 'global', 'cronjobs_next_time', '" . NV_CURRENTTIME . "'),
-        ('" . $lang . "', 'global', 'disable_site_content', 'For technical reasons Web site temporary not available. we are very sorry for any inconvenience!'),
-        ('" . $lang . "', 'seotools', 'prcservice', '')";
+         ('" . $lang . "', 'global', 'upload_logo_pos', 'bottomRight'),
+         ('" . $lang . "', 'global', 'autologosize1', '50'),
+         ('" . $lang . "', 'global', 'autologosize2', '40'),
+         ('" . $lang . "', 'global', 'autologosize3', '30'),
+         ('" . $lang . "', 'global', 'autologomod', ''),
+         ('" . $lang . "', 'global', 'name_show', '" . ($lang != 'vi' ? 1 : 0) . "'),
+         ('" . $lang . "', 'global', 'cronjobs_next_time', '" . NV_CURRENTTIME . "'),
+         ('" . $lang . "', 'global', 'disable_site_content', 'For technical reasons Web site temporary not available. we are very sorry for any inconvenience!'),
+         ('" . $lang . "', 'seotools', 'prcservice', '')";
 
     $lang_weight = $db->query('SELECT MAX(weight) FROM ' . $db_config['prefix'] . '_setup_language')->fetchColumn() + 1;
 

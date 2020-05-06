@@ -8,7 +8,9 @@
  * @Createdate Wed, 27 Jul 2011 14:55:22 GMT
  */
 
-if (!defined('NV_IS_MOD_LAWS')) die('Stop!!!');
+if (!defined('NV_IS_MOD_LAWS')) {
+    die('Stop!!!');
+}
 
 if (empty($catid)) {
     nv_redirect_location(NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name, true);
@@ -65,17 +67,7 @@ if (empty($contents)) {
     }
 
     $generate_page = nv_generate_page($base_url, $all_page, $per_page, $page);
-
-    $array_data = array();
-    $stt = $page + 1;
-    while ($row = $result->fetch()) {
-        $row['url'] = NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&amp;" . NV_OP_VARIABLE . "=detail/" . $row['alias'];
-        $row['stt'] = $stt;
-
-        $array_data[] = $row;
-        $stt++;
-    }
-
+    $array_data = raw_law_list_by_result($result, $page, $per_page);
     $contents = nv_theme_laws_cat($array_data, $generate_page, $cat);
 
     if (!defined('NV_IS_MODADMIN') and $contents != '' and $cache_file != '') {

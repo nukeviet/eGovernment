@@ -8,8 +8,9 @@
  * @Createdate Jan 10, 2011 6:04:30 PM
  */
 
-if (!defined('NV_MAINFILE'))
+if (!defined('NV_MAINFILE')) {
     die('Stop!!!');
+}
 
 if (!nv_function_exists('nv_block_global_faq_opinion')) {
     /**
@@ -25,10 +26,10 @@ if (!nv_function_exists('nv_block_global_faq_opinion')) {
         global $site_mods;
 
         $html = '';
-        $html .= '<tr>';
-        $html .= '<td>' . $lang_block['modfaq'] . '</td>';
-        $html .= '<td>';
-        $html .= '<select name="config_modfaq" class="form-control w300">';
+        $html .= '<div class="form-group">';
+        $html .= '<label class="control-label col-sm-6">' . $lang_block['modfaq'] . ':</label>';
+        $html .= '<div class="col-sm-9">';
+        $html .= '<select name="config_modfaq" class="form-control">';
 
         foreach ($site_mods as $title => $mod) {
             if ($mod['module_file'] == 'faq') {
@@ -37,18 +38,18 @@ if (!nv_function_exists('nv_block_global_faq_opinion')) {
         }
 
         $html .= '</select>';
-        $html .= '</td>';
-        $html .= '</tr>';
+        $html .= '</div>';
+        $html .= '</div>';
 
-        $html .= '<tr>';
-        $html .= '<td>' . $lang_block['catfaq'] . '</td>';
-        $html .= '<td><input type="text" name="config_catfaq" value="' . $data_block['catfaq'] . '" class="form-control w100"/></td>';
-        $html .= '</tr>';
+        $html .= '<div class="form-group">';
+        $html .= '<label class="control-label col-sm-6">' . $lang_block['catfaq'] . ':</label>';
+        $html .= '<div class="col-sm-5"><input type="text" name="config_catfaq" value="' . $data_block['catfaq'] . '" class="form-control"/></div>';
+        $html .= '</div>';
 
-        $html .= '<tr>';
-        $html .= '<td>' . $lang_block['modopinion'] . '</td>';
-        $html .= '<td>';
-        $html .= '<select name="config_modopinion" class="form-control w300">';
+        $html .= '<div class="form-group">';
+        $html .= '<label class="control-label col-sm-6">' . $lang_block['modopinion'] . ':</label>';
+        $html .= '<div class="col-sm-9">';
+        $html .= '<select name="config_modopinion" class="form-control">';
 
         foreach ($site_mods as $title => $mod) {
             if ($mod['module_file'] == 'news') {
@@ -57,8 +58,8 @@ if (!nv_function_exists('nv_block_global_faq_opinion')) {
         }
 
         $html .= '</select>';
-        $html .= '</td>';
-        $html .= '</tr>';
+        $html .= '</div>';
+        $html .= '</div>';
 
         return $html;
     }

@@ -13,7 +13,12 @@ if (!defined('NV_MAINFILE')) {
 }
 
 if (!nv_function_exists('nv_block_news_cat_slide_tab')) {
-
+    /**
+     * @param string $module
+     * @param array $data_block
+     * @param array $lang_block
+     * @return string
+     */
     function nv_block_config_news_cat_slide_tab($module, $data_block, $lang_block)
     {
         global $nv_Cache, $site_mods, $nv_Request;
@@ -22,35 +27,35 @@ if (!nv_function_exists('nv_block_news_cat_slide_tab')) {
         if ($nv_Request->isset_request('loadajaxdata', 'get')) {
             $module = $nv_Request->get_title('loadajaxdata', 'get', '');
 
-            $html = '<tr>';
-            $html .= '<td>' . $lang_block['catid'] . '</td>';
+            $html = '<div class="form-group">';
+            $html .= '<label class="control-label col-sm-6">' . $lang_block['catid'] . ':</label>';
             $sql = 'SELECT * FROM ' . NV_PREFIXLANG . '_' . $site_mods[$module]['module_data'] . '_cat WHERE status=1 OR status=2 ORDER BY sort ASC';
             $list = $nv_Cache->db($sql, '', $module);
-            $html .= '<td>';
+            $html .= '<div class="col-sm-18"><div class="checkbox">';
             foreach ($list as $l) {
                 $xtitle_i = '';
 
                 if ($l['lev'] > 0) {
-                    for ($i = 1; $i <= $l['lev']; ++$i) {
+                    for ($i = 1; $i <= $l['lev']; ++ $i) {
                         $xtitle_i .= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
                     }
                 }
-                $html .= $xtitle_i . '<label><input type="checkbox" name="config_catid[]" value="' . $l['catid'] . '" ' . ((in_array($l['catid'], $data_block['catid'])) ? ' checked="checked"' : '') . '</input>' . $l['title'] . '</label><br />';
+                $html .= $xtitle_i . '<div><label><input type="checkbox" name="config_catid[]" value="' . $l['catid'] . '" ' . ((in_array($l['catid'], $data_block['catid'])) ? ' checked="checked"' : '') . '>' . $l['title'] . '</label></div>';
             }
-            $html .= '</td>';
-            $html .= '</tr>';
-            $html .= '<tr>';
-            $html .= '<td>' . $lang_block['title_length'] . '</td>';
-            $html .= '<td><input type="text" class="form-control w200" name="config_title_length" size="5" value="' . $data_block['title_length'] . '"/></td>';
-            $html .= '</tr>';
-            $html .= '<tr>';
-            $html .= '<td>' . $lang_block['numrow'] . '</td>';
-            $html .= '<td><input type="text" class="form-control w200" name="config_numrow" size="5" value="' . $data_block['numrow'] . '"/></td>';
-            $html .= '</tr>';
-            $html .= '<tr>';
-            $html .= '<td>' . $lang_block['showtooltip'] . '</td>';
-            $html .= '<td>';
-            $html .= '<input type="checkbox" value="1" name="config_showtooltip" ' . ($data_block['showtooltip'] == 1 ? 'checked="checked"' : '') . ' /><br /><br />';
+            $html .= '</div></div>';
+            $html .= '</div>';
+            $html .= '<div class="form-group">';
+            $html .= '<label class="control-label col-sm-6">' . $lang_block['title_length'] . ':</label>';
+            $html .= '<div class="col-sm-9"><input type="text" class="form-control" name="config_title_length" value="' . $data_block['title_length'] . '"/></div>';
+            $html .= '</div>';
+            $html .= '<div class="form-group">';
+            $html .= '<label class="control-label col-sm-6">' . $lang_block['numrow'] . ':</label>';
+            $html .= '<div class="col-sm-9"><input type="text" class="form-control" name="config_numrow" value="' . $data_block['numrow'] . '"/></div>';
+            $html .= '</div>';
+            $html .= '<div class="form-group">';
+            $html .= '<label class="control-label col-sm-6">' . $lang_block['showtooltip'] . ':</label>';
+            $html .= '<div class="col-sm-18">';
+            $html .= '<div class="checkbox"><label><input type="checkbox" value="1" name="config_showtooltip" ' . ($data_block['showtooltip'] == 1 ? 'checked="checked"' : '') . ' /></label></div>';
             $tooltip_position = array(
                 'top' => $lang_block['tooltip_position_top'],
                 'bottom' => $lang_block['tooltip_position_bottom'],
@@ -63,17 +68,17 @@ if (!nv_function_exists('nv_block_news_cat_slide_tab')) {
             }
             $html .= '</select>';
             $html .= '&nbsp;<span class="text-middle pull-left">' . $lang_block['tooltip_length'] . '&nbsp;</span><input type="text" class="form-control w100 pull-left" name="config_tooltip_length" size="5" value="' . $data_block['tooltip_length'] . '"/>';
-            $html .= '</td>';
-            $html .= '</tr>';
+            $html .= '</div>';
+            $html .= '</div>';
 
             nv_htmlOutput($html);
         }
 
         $html = '';
-        $html .= '<tr>';
-        $html .= '<td>' . $lang_block['selectmod'] . '</td>';
-        $html .= '<td>';
-        $html .= '<select name="config_selectmod" class="form-control w300">';
+        $html .= '<div class="form-group">';
+        $html .= '<label class="control-label col-sm-6">' . $lang_block['selectmod'] . ':</label>';
+        $html .= '<div class="col-sm-9">';
+        $html .= '<select name="config_selectmod" class="form-control">';
         $html .= '<option value="">--</option>';
 
         foreach ($site_mods as $title => $mod) {
@@ -99,8 +104,8 @@ if (!nv_function_exists('nv_block_news_cat_slide_tab')) {
             }
             if (mod != "") {
                 $.get(script_name + "?" + nv_name_variable + "=" + nv_module_name + \'&\' + nv_lang_variable + "=" + nv_lang_data + "&" + nv_fc_variable + "=block_config&bid=" + bid + "&module=" + module_type + "&selectthemes=" + selectthemes + "&file_name=" + blok_file_name + "&loadajaxdata=" + mod + "&nocache=" + new Date().getTime(), function(theResponse) {
-        			$("#block_config").append(theResponse);
-        		});
+                    $("#block_config").append(theResponse);
+                });
             }
         });
         $(function() {
@@ -109,8 +114,8 @@ if (!nv_function_exists('nv_block_news_cat_slide_tab')) {
         </script>
         ';
 
-        $html .= '</td>';
-        $html .= '</tr>';
+        $html .= '</div>';
+        $html .= '</div>';
 
         return $html;
     }
@@ -192,13 +197,13 @@ if (!nv_function_exists('nv_block_news_cat_slide_tab')) {
 
                     $list = $nv_Cache->db($db->sql(), '', $module);
                     if (!empty($list)) {
-                        $cat_offset++;
+                        $cat_offset ++;
                         $item_offset = 0;
                         $num_items = sizeof($list);
                         $xtpl->assign('CATINFO', $module_array_cat[$catid]);
 
                         foreach ($list as $l) {
-                            $item_offset++;
+                            $item_offset ++;
                             $l['link'] = NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&amp;' . NV_NAME_VARIABLE . '=' . $module . '&amp;' . NV_OP_VARIABLE . '=' . $module_array_cat[$l['catid']]['alias'] . '/' . $l['alias'] . '-' . $l['id'] . $global_config['rewrite_exturl'];
                             if ($l['homeimgthumb'] == 1) {
                                 $l['thumb'] = NV_BASE_SITEURL . NV_FILES_DIR . '/' . $site_mods[$module]['module_upload'] . '/' . $l['homeimgfile'];

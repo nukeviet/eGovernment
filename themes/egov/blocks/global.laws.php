@@ -8,8 +8,9 @@
  * @Createdate 3/9/2010 23:25
  */
 
-if (!defined('NV_MAINFILE'))
+if (!defined('NV_MAINFILE')) {
     die('Stop!!!');
+}
 
 if (!nv_function_exists('nv_block_hloawegov')) {
     /**
@@ -29,48 +30,48 @@ if (!nv_function_exists('nv_block_hloawegov')) {
             $module = $nv_Request->get_title('loadajaxdata', 'get', '');
 
             $html = '';
-            $html .= '<tr>';
-            $html .= '<td>' . $lang_block['numrow'] . '</td>';
-            $html .= '<td><input type="text" class="form-control w200" name="config_numrow" value="' . $data_block['numrow'] . '" /></td>';
-            $html .= '</tr>';
-            $html .= '<tr>';
-            $html .= '<td>' . $lang_block['title_length'] . '</td>';
-            $html .= '<td><input type="text" class="form-control w200" name="config_title_length" value="' . $data_block['title_length'] . '" /><span class="help-block">' . $lang_block['title_note'] . '</span></td>';
-            $html .= '</tr>';
-            $html .= '<tr>';
-            $html .= '<td>' . $lang_block['show_code'] . '</td>';
+            $html .= '<div class="form-group">';
+            $html .= '<label class="control-label col-sm-6">' . $lang_block['numrow'] . ':</label>';
+            $html .= '<div class="col-sm-5"><input type="text" class="form-control" name="config_numrow" value="' . $data_block['numrow'] . '" /></div>';
+            $html .= '</div>';
+            $html .= '<div class="row">';
+            $html .= '<label class="control-label col-sm-6">' . $lang_block['title_length'] . ':</label>';
+            $html .= '<div class="col-sm-18"><input type="text" class="form-control" name="config_title_length" value="' . $data_block['title_length'] . '" /><span class="help-block">' . $lang_block['title_note'] . '</span></div>';
+            $html .= '</div>';
+            $html .= '<div class="form-group">';
+            $html .= '<label class="control-label col-sm-6">' . $lang_block['show_code'] . ':</label>';
             $ck = $data_block['show_code'] ? 'checked="checked"' : '';
-            $html .= '<td><input type="checkbox" name="config_show_code" value="1" ' . $ck . ' /></td>';
-            $html .= '</tr>';
-            $html .= '<tr>';
-            $html .= '<td>' . $lang_block['direction'] . '</td>';
-            $html .= '<td><select name="config_direction" class="form-control">';
+            $html .= '<div class="col-sm-18"><div class="checkbox"><label><input type="checkbox" name="config_show_code" value="1" ' . $ck . ' /></label></div></div>';
+            $html .= '</div>';
+            $html .= '<div class="form-group">';
+            $html .= '<label class="control-label col-sm-6">' . $lang_block['direction'] . ':</label>';
+            $html .= '<div class="col-sm-9"><select name="config_direction" class="form-control">';
             $sl = $data_block['direction'] == 'none' ? 'selected="selected"' : '';
             $html .= '<option value="none" ' . $sl . ' >' . $lang_block['direction_none'] . '</option>';
             $sl = $data_block['direction'] == 'up' ? 'selected="selected"' : '';
             $html .= '<option value="up" ' . $sl . ' >' . $lang_block['direction_up'] . '</option>';
             $sl = $data_block['direction'] == 'down' ? 'selected="selected"' : '';
             $html .= '<option value="down" ' . $sl . ' >' . $lang_block['direction_down'] . '</option>';
-            $html .= '</select></td>';
-            $html .= '</tr>';
-            $html .= '<tr>';
-            $html .= '<td>' . $lang_block['duration'] . '</td>';
-            $html .= '<td><input type="text" class="form-control" name="config_duration" value="' . $data_block['duration'] . '" /></td>';
-            $html .= '</tr>';
-            $html .= '<tr>';
-            $html .= '<td>' . $lang_block['pauseOnHover'] . '</td>';
+            $html .= '</select></div>';
+            $html .= '</div>';
+            $html .= '<div class="form-group">';
+            $html .= '<label class="control-label col-sm-6">' . $lang_block['duration'] . ':</label>';
+            $html .= '<div class="col-sm-5"><input type="text" class="form-control" name="config_duration" value="' . $data_block['duration'] . '" /></div>';
+            $html .= '</div>';
+            $html .= '<div class="form-group">';
+            $html .= '<label class="control-label col-sm-6">' . $lang_block['pauseOnHover'] . ':</label>';
             $ck = $data_block['pauseOnHover'] ? 'checked="checked"' : '';
-            $html .= '<td><input type="checkbox" name="config_pauseOnHover" value="1" ' . $ck . ' /></td>';
-            $html .= '</tr>';
-            $html .= '<tr>';
-            $html .= '<td>' . $lang_block['duplicated'] . '</td>';
+            $html .= '<div class="col-sm-18"><div class="checkbox"><label><input type="checkbox" name="config_pauseOnHover" value="1" ' . $ck . ' /></label></div></div>';
+            $html .= '</div>';
+            $html .= '<div class="form-group">';
+            $html .= '<label class="control-label col-sm-6">' . $lang_block['duplicated'] . ':</label>';
             $ck = $data_block['duplicated'] ? 'checked="checked"' : '';
-            $html .= '<td><input type="checkbox" name="config_duplicated" value="1" ' . $ck . ' /></td>';
-            $html .= '</tr>';
+            $html .= '<div class="col-sm-18"><div class="checkbox"><label><input type="checkbox" name="config_duplicated" value="1" ' . $ck . ' /></label></div></div>';
+            $html .= '</div>';
 
-            $html .= '<tr>';
-            $html .= '<td>' . $lang_block['order'] . '</td>';
-            $html .= '<td><select name="config_order" class="form-control">';
+            $html .= '<div class="form-group">';
+            $html .= '<label class="control-label col-sm-6">' . $lang_block['order'] . ':</label>';
+            $html .= '<div class="col-sm-18"><select name="config_order" class="form-control">';
             $sel = $data_block['order'] == '1' ? 'selected="selected"' : '';
             $html .= '<option value="1" ' . $sel . ' >' . $lang_block['order_pub_new'] . '</option>';
             $sel = $data_block['order'] == '2' ? 'selected="selected"' : '';
@@ -79,22 +80,22 @@ if (!nv_function_exists('nv_block_hloawegov')) {
             $html .= '<option value="3" ' . $sel . ' >' . $lang_block['order_addtime_new'] . '</option>';
             $sel = $data_block['order'] == '4' ? 'selected="selected"' : '';
             $html .= '<option value="4" ' . $sel . ' >' . $lang_block['order_addtime_old'] . '</option>';
-            $html .= '</select></td>';
-            $html .= '</tr>';
+            $html .= '</select></div>';
+            $html .= '</div>';
 
-            $html .= '<tr>';
-            $html .= '<td>' . $lang_block['textdisplay'] . '</td>';
-            $html .= '<td><input type="text" class="form-control w300" name="config_textdisplay" value="' . $data_block['textdisplay'] . '" /></td>';
-            $html .= '</tr>';
+            $html .= '<div class="form-group">';
+            $html .= '<label class="control-label col-sm-6">' . $lang_block['textdisplay'] . ':</label>';
+            $html .= '<div class="col-sm-18"><input type="text" class="form-control" name="config_textdisplay" value="' . $data_block['textdisplay'] . '" /></div>';
+            $html .= '</div>';
 
             nv_htmlOutput($html);
         }
 
         $html = '';
-        $html .= '<tr>';
-        $html .= '<td>' . $lang_block['selectmod'] . '</td>';
-        $html .= '<td>';
-        $html .= '<select name="config_selectmod" class="form-control w300">';
+        $html .= '<div class="form-group">';
+        $html .= '<label class="control-label col-sm-6">' . $lang_block['selectmod'] . ':</label>';
+        $html .= '<div class="col-sm-9">';
+        $html .= '<select name="config_selectmod" class="form-control">';
         $html .= '<option value="">--</option>';
 
         foreach ($site_mods as $title => $mod) {
@@ -120,8 +121,8 @@ if (!nv_function_exists('nv_block_hloawegov')) {
             }
             if (mod != "") {
                 $.get(script_name + "?" + nv_name_variable + "=" + nv_module_name + \'&\' + nv_lang_variable + "=" + nv_lang_data + "&" + nv_fc_variable + "=block_config&bid=" + bid + "&module=" + module_type + "&selectthemes=" + selectthemes + "&file_name=" + blok_file_name + "&loadajaxdata=" + mod + "&nocache=" + new Date().getTime(), function(theResponse) {
-        			$("#block_config").append(theResponse);
-        		});
+                    $("#block_config").append(theResponse);
+                });
             }
         });
         $(function() {
@@ -130,8 +131,8 @@ if (!nv_function_exists('nv_block_hloawegov')) {
         </script>
         ';
 
-        $html .= '</td>';
-        $html .= '</tr>';
+        $html .= '</div>';
+        $html .= '</div>';
 
         return $html;
     }

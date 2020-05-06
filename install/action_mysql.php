@@ -20,7 +20,7 @@ while ($item = $result->fetch()) {
 }
 
 $sql_create_table[] = "CREATE TABLE " . NV_AUTHORS_GLOBALTABLE . " (
-  admin_id mediumint(8) unsigned NOT NULL,
+  admin_id int(11) unsigned NOT NULL,
   editor varchar(100) DEFAULT '',
   lev tinyint(1) unsigned NOT NULL DEFAULT '0',
   files_level varchar(255) DEFAULT '',
@@ -31,20 +31,24 @@ $sql_create_table[] = "CREATE TABLE " . NV_AUTHORS_GLOBALTABLE . " (
   edittime int(11) NOT NULL DEFAULT '0',
   is_suspend tinyint(1) unsigned NOT NULL DEFAULT '0',
   susp_reason text,
-  check_num varchar(40) NOT NULL,
+  pre_check_num varchar(40) NOT NULL DEFAULT '',
+  pre_last_login int(11) unsigned NOT NULL DEFAULT '0',
+  pre_last_ip varchar(45) DEFAULT '',
+  pre_last_agent varchar(255) DEFAULT '',
+  check_num varchar(40) NOT NULL DEFAULT '',
   last_login int(11) unsigned NOT NULL DEFAULT '0',
   last_ip varchar(45) DEFAULT '',
   last_agent varchar(255) DEFAULT '',
-   PRIMARY KEY (admin_id)
+  PRIMARY KEY (admin_id)
 ) ENGINE=MyISAM";
 
 $sql_create_table[] = "CREATE TABLE " . NV_AUTHORS_GLOBALTABLE . "_config (
   id mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
-  keyname varchar(32) DEFAULT NULL,
-  mask tinyint(4) NOT NULL DEFAULT '0',
-  begintime int(11) DEFAULT NULL,
-  endtime int(11) DEFAULT NULL,
-  notice varchar(255) NOT NULL,
+  keyname varchar(39) NOT NULL DEFAULT '',
+  mask tinyint(4) unsigned NOT NULL DEFAULT '0',
+  begintime int(11) unsigned NOT NULL DEFAULT '0',
+  endtime int(11) unsigned NOT NULL DEFAULT '0',
+  notice varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (id),
   UNIQUE KEY keyname (keyname)
 ) ENGINE=MyISAM";
@@ -62,6 +66,18 @@ $sql_create_table[] = "CREATE TABLE " . NV_AUTHORS_GLOBALTABLE . "_module (
   UNIQUE KEY module (module)
 ) ENGINE=MyISAM";
 
+$sql_create_table[] = "CREATE TABLE " . NV_AUTHORS_GLOBALTABLE . "_oauth (
+  id mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+  admin_id int(11) unsigned NOT NULL COMMENT 'ID của quản trị',
+  oauth_server varchar(50) NOT NULL COMMENT 'Eg: facebook, google...',
+  oauth_uid varchar(50) NOT NULL COMMENT 'ID duy nhất ứng với server',
+  oauth_email varchar(50) NOT NULL COMMENT 'Email',
+  addtime int(11) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (id),
+  UNIQUE KEY admin_id (admin_id, oauth_server, oauth_uid),
+  KEY oauth_email (oauth_email)
+) ENGINE=MyISAM COMMENT 'Bảng lưu xác thực 2 bước từ oauth của admin'";
+
 $sql_create_table[] = "CREATE TABLE " . NV_CONFIG_GLOBALTABLE . " (
   lang varchar(3) NOT NULL DEFAULT 'sys',
   module varchar(50) NOT NULL DEFAULT 'global',
@@ -74,6 +90,7 @@ $sql_create_table[] = "CREATE TABLE " . NV_CRONJOBS_GLOBALTABLE . " (
   id mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
   start_time int(11) unsigned NOT NULL DEFAULT '0',
   inter_val int(11) unsigned NOT NULL DEFAULT '0',
+  inter_val_type tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '0: Lặp lại sau thời điểm bắt đầu thực tế, 1:lặp lại sau thời điểm bắt đầu trong CSDL',
   run_file varchar(255) NOT NULL,
   run_func varchar(255) NOT NULL,
   params varchar(255) DEFAULT NULL,
@@ -159,10 +176,11 @@ $sql_create_table[] = "CREATE TABLE " . $db_config['prefix'] . "_extension_files
 ) ENGINE=MyISAM";
 
 $sql_create_table[] = "CREATE TABLE " . $db_config['prefix'] . "_banners_click (
+  id int(11) unsigned NOT NULL AUTO_INCREMENT,
   bid mediumint(8) NOT NULL DEFAULT '0',
   click_time int(11) unsigned NOT NULL DEFAULT '0',
   click_day int(2) NOT NULL,
-  click_ip varchar(15) NOT NULL,
+  click_ip varchar(46) NOT NULL,
   click_country varchar(10) NOT NULL,
   click_browse_key varchar(100) NOT NULL,
   click_browse_name varchar(100) NOT NULL,
@@ -174,7 +192,8 @@ $sql_create_table[] = "CREATE TABLE " . $db_config['prefix'] . "_banners_click (
   KEY click_ip (click_ip),
   KEY click_country (click_country),
   KEY click_browse_key (click_browse_key),
-  KEY click_os_key (click_os_key)
+  KEY click_os_key (click_os_key),
+  PRIMARY KEY (id)
 ) ENGINE=MyISAM";
 
 $sql_create_table[] = "CREATE TABLE " . $db_config['prefix'] . "_banners_plans (
@@ -224,7 +243,7 @@ $sql_create_table[] = "CREATE TABLE " . $db_config['prefix'] . "_ips (
   id mediumint(8) NOT NULL AUTO_INCREMENT,
   type tinyint(4) unsigned NOT NULL DEFAULT '0',
   ip varchar(32) DEFAULT NULL,
-  mask tinyint(4) NOT NULL DEFAULT '0',
+  mask tinyint(4) unsigned NOT NULL DEFAULT '0',
   area tinyint(3) NOT NULL,
   begintime int(11) DEFAULT NULL,
   endtime int(11) DEFAULT NULL,
@@ -276,17 +295,6 @@ $sql_create_table[] = "CREATE TABLE " . $db_config['prefix'] . "_upload_file (
   KEY type (type)
 ) ENGINE=MyISAM";
 
-$sql_create_table[] = "CREATE TABLE " . $db_config['prefix'] . "_googleplus (
-  gid smallint(5) unsigned NOT NULL AUTO_INCREMENT,
-  title varchar(255) NOT NULL DEFAULT '',
-  idprofile varchar(25) NOT NULL DEFAULT '',
-  weight mediumint(8) unsigned NOT NULL DEFAULT '0',
-  add_time int(11) unsigned NOT NULL DEFAULT '0',
-  edit_time int(11) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (gid),
-  UNIQUE KEY idprofile (idprofile)
-) ENGINE=MyISAM";
-
 $sql_create_table[] = "CREATE TABLE " . $db_config['prefix'] . "_plugin (
   pid tinyint(4) NOT NULL AUTO_INCREMENT,
   plugin_file varchar(50) NOT NULL,
@@ -307,7 +315,9 @@ $sql_create_table[] = "CREATE TABLE " . $db_config['prefix'] . "_counter (
 
 $sql_create_table[] = "CREATE TABLE " . $db_config['prefix'] . "_notification (
   id int(11) unsigned NOT NULL AUTO_INCREMENT,
-  send_to mediumint(8) unsigned NOT NULL,
+  admin_view_allowed tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT 'Cấp quản trị được xem: 0,1,2',
+  logic_mode tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '0: Cấp trên xem được cấp dưới, 1: chỉ cấp hoặc người được chỉ định',
+  send_to varchar(250) NOT NULL DEFAULT '' COMMENT 'Danh sách id người nhận, phân cách bởi dấu phảy',
   send_from mediumint(8) unsigned NOT NULL DEFAULT '0',
   area tinyint(1) unsigned NOT NULL,
   language char(3) NOT NULL,
@@ -317,5 +327,8 @@ $sql_create_table[] = "CREATE TABLE " . $db_config['prefix'] . "_notification (
   content text NOT NULL,
   add_time int(11) unsigned NOT NULL,
   view tinyint(1) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (id)
+  PRIMARY KEY (id),
+  KEY send_to (send_to),
+  KEY admin_view_allowed (admin_view_allowed),
+  KEY logic_mode (logic_mode)
 ) ENGINE=MyISAM";

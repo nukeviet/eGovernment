@@ -53,7 +53,7 @@ function lost_pass_sendMail($row)
         $sitename = '<a href="' . NV_MY_DOMAIN . NV_BASE_SITEURL . '">' . $global_config['site_name'] . '</a>';
         $lang_module['lostpass_email_subject'] = sprintf($lang_module['lostpass_email_subject'], NV_MY_DOMAIN);
         $message = sprintf($lang_module['lostpass_email_content'], $name, $sitename, $key, nv_date('H:i d/m/Y', $pa));
-        if (!nv_sendmail($global_config['site_email'], $row['email'], $lang_module['lostpass_email_subject'], $message)) {
+        if (!nv_sendmail([$global_config['site_name'], $global_config['site_email']], $row['email'], $lang_module['lostpass_email_subject'], $message)) {
             nv_jsonOutput(array(
                 'status' => 'error',
                 'input' => '',
@@ -110,10 +110,10 @@ if ($checkss == $data['checkss']) {
         ));
     }
 
-    $check_email = nv_check_valid_email($data['userField']);
-    if (empty($check_email)) {
+    $check_email = nv_check_valid_email($data['userField'], true);
+    if (empty($check_email[0])) {
         $sql = 'SELECT * FROM ' . NV_MOD_TABLE . ' WHERE email= :userField AND active=1';
-        $userField = nv_strtolower($data['userField']);
+        $userField = $check_email[1];
     } else {
         $sql = 'SELECT * FROM ' . NV_MOD_TABLE . ' WHERE md5username=:userField AND active=1';
         $userField = nv_md5safe($data['userField']);
@@ -132,7 +132,7 @@ if ($checkss == $data['checkss']) {
         ));
     }
 
-    $email_hint = empty($check_email) ? $row['email'] : (substr($row['email'], 0, 3) . '***' . substr($row['email'], -6));
+    $email_hint = empty($check_email[0]) ? $row['email'] : (substr($row['email'], 0, 3) . '***' . substr($row['email'], -6));
 
     if (empty($row['password'])) {
         $nv_Request->set_Session('lostpass_seccode', '');
@@ -292,7 +292,7 @@ if ($checkss == $data['checkss']) {
     $name = implode(' ', $name);
     $sitename = '<a href="' . NV_MY_DOMAIN . NV_BASE_SITEURL . '">' . $global_config['site_name'] . '</a>';
     $message = sprintf($lang_module['edit_mail_content'], $name, $sitename, $lang_global['password'], $new_password);
-    @nv_sendmail($global_config['site_email'], $row['email'], $lang_module['edit_mail_subject'], $message);
+    @nv_sendmail([$global_config['site_name'], $global_config['site_email']], $row['email'], $lang_module['edit_mail_subject'], $message);
 
     $redirect = nv_redirect_decrypt($nv_redirect, true);
     $url = !empty($redirect) ? $redirect : nv_url_rewrite(NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&amp;' . NV_NAME_VARIABLE . '=' . $module_name, true);

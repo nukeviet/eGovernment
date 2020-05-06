@@ -9,26 +9,10 @@
 var isDebugMode = false;
 
 function htmlspecialchars_decode(string, quote_style) {
-    //       discuss at: http://phpjs.org/functions/htmlspecialchars_decode/
-    //      original by: Mirek Slugen
-    //      improved by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
-    //      bugfixed by: Mateusz "loonquawl" Zalega
-    //      bugfixed by: Onno Marsman
-    //      bugfixed by: Brett Zamir (http://brett-zamir.me)
-    //      bugfixed by: Brett Zamir (http://brett-zamir.me)
-    //         input by: ReverseSyntax
-    //         input by: Slawomir Kaniecki
-    //         input by: Scott Cariss
-    //         input by: Francois
-    //         input by: Ratheous
-    //         input by: Mailfaker (http://www.weedem.fr/)
-    //       revised by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
-    // reimplemented by: Brett Zamir (http://brett-zamir.me)
-    //        example 1: htmlspecialchars_decode("<p>this -&gt; &quot;</p>", 'ENT_NOQUOTES');
-    //        returns 1: '<p>this -> &quot;</p>'
-    //        example 2: htmlspecialchars_decode("&amp;quot;");
-    //        returns 2: '&quot;'
-
+    /*
+     * Source: http://phpjs.org/functions/htmlspecialchars_decode/
+     * Author: Mirek Slugen
+     */
     var optTemp = 0,
         i = 0,
         noquotes = false;
@@ -232,7 +216,9 @@ function insertvaluetofield() {
         }
         window.close();
     } else {
-        if (window.opener === null) return !1;
+        if (window.opener === null) {
+            return !1;
+        }
         var CKEditorFuncNum = $("input[name=CKEditorFuncNum]").val();
 
         window.opener.CKEDITOR.tools.callFunction(CKEditorFuncNum, fullPath, function() {
@@ -1477,7 +1463,7 @@ function remoteUpload() {
     $("div#uploadremote").dialog({
         autoOpen: false,
         width: 400,
-        height: nv_alt_require ? 200 : 120,
+        height: 320,
         modal: true,
         position: {
             my: "center",
@@ -1494,6 +1480,22 @@ function remoteUpload() {
         });
     }
 
+    var current_folder = $('span.folder[title="' + $("span#foldervalue").attr("title") + '"]');
+    var auto_logo = current_folder.is('.auto_logo');
+    var logo = $("input[name=upload_logo]").val();
+    var panel = $('#uploadremote');
+    if (logo == '') {
+        $('[data-toggle="autoLogoArea"]', panel).addClass('hidden');
+        $('[name="auto_logo"]', panel).prop('checked', false);
+    } else {
+        $('[data-toggle="autoLogoArea"]', panel).removeClass('hidden');
+        if (auto_logo) {
+            $('[name="auto_logo"]', panel).prop('checked', true);
+        } else {
+            $('[name="auto_logo"]', panel).prop('checked', false);
+        }
+    }
+
     return false;
 }
 
@@ -1504,18 +1506,25 @@ $('[name="uploadremoteFileOK"]').click(function() {
     var folderPath = $("span#foldervalue").attr("title");
     var check = fileUrl + " " + folderPath;
     var fileAlt = $('#uploadremoteFileAlt').val();
+    var panel = $('#uploadremote');
+    var auto_logo = ($('[name="auto_logo"]', panel).is(':checked') ? 1 : 0);
+    var regex = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/gm;
 
-    if (/^(https?|ftp):\/\//i.test(fileUrl) === false) fileUrl = 'http://' + fileUrl;
+    if (/^(https?|ftp):\/\//i.test(fileUrl) === false){fileUrl = 'http://' + fileUrl;}
     $("input[name=uploadremoteFile]").val(fileUrl);
 
-    if (/^(https?|ftp):\/\/(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(\#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i.test(fileUrl) && currUrl != check && ((nv_alt_require && fileAlt != '') || !nv_alt_require)) {
+    if (
+        regex.test(fileUrl) &&
+        //currUrl != check && -- Cho phép upload lại file cũ, không có lý do gì phải cấm
+        ((nv_alt_require && fileAlt != '') || !nv_alt_require)
+    ) {
         $(this).attr('disabled', 'disabled');
         $('#upload-remote-info').html('<em class="fa fa-2x fa-spinner fa-spin"></em>');
 
         $.ajax({
             type: "POST",
             url: nv_module_url + "upload&random=" + nv_randomNum(10),
-            data: "path=" + folderPath + "&fileurl=" + fileUrl + "&filealt=" + fileAlt,
+            data: "path=" + folderPath + "&fileurl=" + fileUrl + "&filealt=" + fileAlt + '&autologo=' + auto_logo,
             success: function(k) {
                 $('[name="uploadremoteFileOK"]').removeAttr('disabled');
 
@@ -1534,7 +1543,7 @@ $('[name="uploadremoteFileOK"]').click(function() {
         });
     } else if (nv_alt_require && fileAlt == '' && fileUrl != '') {
         $("div#errorInfo").html(LANG.upload_alt_note).dialog("open");
-    } else alert(nv_url)
+    } else {alert(nv_url)}
 });
 
 /* List File Handle */
@@ -1850,8 +1859,11 @@ var NVUPLOAD = {
                 drop_element: 'upload-content',
                 file_data_name: 'upload',
                 multipart: true,
+                multipart_params: {
+                    "filealt": "--"
+                },
                 filters : {
-                       max_file_size : nv_max_size_bytes,
+                    max_file_size : nv_max_size_bytes,
                     mime_types: []
                 },
                 chunk_size: nv_chunk_size,
@@ -1954,6 +1966,7 @@ var NVUPLOAD = {
                     // Event on start upload or finish upload
                     StateChanged: function() {
                         (isDebugMode && console.log("Plupload: Event state changed " + NVUPLOAD.uploader.state));
+
                         // Start upload
                         if (NVUPLOAD.uploader.state === plupload.STARTED) {
                             if (!NVUPLOAD.started) {
@@ -2046,14 +2059,17 @@ var NVUPLOAD = {
                     BeforeUpload: function(up, file) {
                         (isDebugMode && console.log("Plupload: Event before upload"));
                         var filealt = '';
+                        var autologo = ($('[name="auto_logo"]', $('#upload-queue')).is(':checked') ? 1 : 0);
 
                         if ($('#' + file.id + ' .file-alt').length) {
                             filealt = $('#' + file.id + ' .file-alt input').val();
                         }
 
                         NVUPLOAD.uploader.settings.multipart_params = {
-                            "filealt": filealt
+                            "filealt": filealt,
+                            "autologo": autologo
                         };
+
                         // Xác định resize ảnh (bug plupload 2.3.1) => Tạm thời để lại code phòng khi lỗi, vài phiên bản nũa nếu không lỗi sẽ xóa code này
                         /*
                         if (nv_resize != false) {
@@ -2084,6 +2100,10 @@ var NVUPLOAD = {
         }
     },
     renderUI: function() {
+        var current_folder = $('span.folder[title="' + $("span#foldervalue").attr("title") + '"]');
+        var auto_logo = current_folder.is('.auto_logo');
+        var logo = $("input[name=upload_logo]").val();
+
         // Hide files list and show upload container
         $('#imglist').css({
             'display': 'none'
@@ -2091,6 +2111,12 @@ var NVUPLOAD = {
         $('#upload-queue').css({
             'display': 'block'
         });
+
+        if (logo == '') {
+            $('#upload-queue').removeClass('auto-logo');
+        } else {
+            $('#upload-queue').addClass('auto-logo');
+        }
 
         // Add some button
         $('#upload-button-area .buttons').append(
@@ -2116,7 +2142,13 @@ var NVUPLOAD = {
             '</div>' +
             '</div>' +
             '</div>' +
-            '<div id="upload-queue-files" class="container-fluid"></div>');
+            '<div id="upload-queue-files" class="container-fluid"></div>\
+            <div class="queue-opts">\
+            <div class="checkbox">\
+            <label><input type="checkbox" name="auto_logo" value="1"' + ((logo != '' && auto_logo) ? ' checked="checked"' : '') + '> ' + LANG.autologo_for_upload + '</label>\
+            </div>\
+            </div>\
+        ');
 
         // Rendered is true
         NVUPLOAD.rendered = true;
@@ -2307,7 +2339,10 @@ var NVUPLOAD = {
         LFILE.reload(folderPath, selFile);
     },
     buildBtns: function() {
-        $('#upload-button-area').html(NVUPLOAD.buttons);
+        var btnsArea = $('#upload-button-area');
+        btnsArea.html(NVUPLOAD.buttons);
+        $('#upload-remote').attr('title', btnsArea.data('title') + ' ' + btnsArea.data('remotesize'));
+        $('#upload-local').attr('title', btnsArea.data('title') + ' ' + btnsArea.data('localsize'));
         $('#upload-dropdown-btn').addClass('perload');
         setTimeout(function() {
             $('#upload-dropdown-btn').addClass('open');

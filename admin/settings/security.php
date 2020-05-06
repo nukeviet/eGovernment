@@ -12,14 +12,14 @@ if (!defined('NV_ADMIN') or !defined('NV_MAINFILE') or !defined('NV_IS_MODADMIN'
     die('Stop!!!');
 }
 
-$proxy_blocker_array = array(
+$proxy_blocker_array = [
     0 => $lang_module['proxy_blocker_0'],
     1 => $lang_module['proxy_blocker_1'],
     2 => $lang_module['proxy_blocker_2'],
     3 => $lang_module['proxy_blocker_3']
-);
+];
 
-$captcha_array = array(
+$captcha_array = [
     0 => $lang_module['captcha_0'],
     1 => $lang_module['captcha_1'],
     2 => $lang_module['captcha_2'],
@@ -28,19 +28,25 @@ $captcha_array = array(
     5 => $lang_module['captcha_5'],
     6 => $lang_module['captcha_6'],
     7 => $lang_module['captcha_7']
-);
+];
 
-$captcha_type_array = array(0 => $lang_module['captcha_type_0'], 2 => $lang_module['captcha_type_2']);
-$recaptcha_type_array = array('image' => $lang_module['recaptcha_type_image'], 'audio' => $lang_module['recaptcha_type_audio']);
+$captcha_type_array = [0 => $lang_module['captcha_type_0'], 2 => $lang_module['captcha_type_2']];
+$recaptcha_type_array = ['image' => $lang_module['recaptcha_type_image'], 'audio' => $lang_module['recaptcha_type_audio']];
+$admin_2step_array = ['code', 'facebook', 'google'];
+$array_iptypes = [
+    4 => 'IPv4',
+    6 => 'IPv6'
+];
 
 $errormess = '';
 $selectedtab = $nv_Request->get_int('selectedtab', 'get,post', 0);
-if ($selectedtab < 0 or $selectedtab > 3) {
+if ($selectedtab < 0 or $selectedtab > 4) {
     $selectedtab = 0;
 }
 
-$array_config_global = array();
-$array_config_define = array();
+$array_config_global = [];
+$array_config_define = [];
+$array_config_site = [];
 
 // Xử lý các thiết lập cơ bản
 if ($nv_Request->isset_request('submitbasic', 'post')) {
@@ -55,6 +61,8 @@ if ($nv_Request->isset_request('submitbasic', 'post')) {
     $array_config_global['login_time_tracking'] = $nv_Request->get_int('login_time_tracking', 'post', 0);
     $array_config_global['login_time_ban'] = $nv_Request->get_int('login_time_ban', 'post', 0);
     $array_config_global['two_step_verification'] = $nv_Request->get_int('two_step_verification', 'post', 0);
+    $array_config_global['admin_2step_opt'] = $nv_Request->get_typed_array('admin_2step_opt', 'post', 'title', []);
+    $array_config_global['admin_2step_default'] = $nv_Request->get_title('admin_2step_default', 'post', '');
 
     if ($array_config_global['login_number_tracking'] < 1) {
         $array_config_global['login_number_tracking'] = 5;
@@ -65,6 +73,14 @@ if ($nv_Request->isset_request('submitbasic', 'post')) {
     if ($array_config_global['two_step_verification'] < 0 or $array_config_global['two_step_verification'] > 3) {
         $array_config_global['two_step_verification'] = 0;
     }
+    $array_config_global['admin_2step_opt'] = array_intersect($array_config_global['admin_2step_opt'], $admin_2step_array);
+    if (!in_array($array_config_global['admin_2step_default'], $admin_2step_array)) {
+        $array_config_global['admin_2step_default'] = '';
+    }
+    if (!in_array($array_config_global['admin_2step_default'], $array_config_global['admin_2step_opt'])) {
+        $array_config_global['admin_2step_default'] = current($array_config_global['admin_2step_opt']);
+    }
+    $array_config_global['admin_2step_opt'] = empty($array_config_global['admin_2step_opt']) ? '' : implode(',', $array_config_global['admin_2step_opt']);
 
     $sth = $db->prepare("UPDATE " . NV_CONFIG_GLOBALTABLE . " SET config_value = :config_value WHERE lang = 'sys' AND module = 'global' AND config_name = :config_name");
     foreach ($array_config_global as $config_name => $config_value) {
@@ -78,7 +94,7 @@ if ($nv_Request->isset_request('submitbasic', 'post')) {
     $variable = $nv_Request->get_string('nv_allowed_html_tags', 'post');
     $variable = str_replace(';', ',', strtolower($variable));
     $variable = explode(',', $variable);
-    $nv_allowed_html_tags = array();
+    $nv_allowed_html_tags = [];
     foreach ($variable as $value) {
         $value = trim($value);
         if (preg_match('/^[a-z0-9]+$/', $value) and !in_array($value, $nv_allowed_html_tags)) {
@@ -106,13 +122,14 @@ if ($nv_Request->isset_request('submitbasic', 'post')) {
     }
 } else {
     $array_config_global = $global_config;
-    $array_config_define = array();
+    $array_config_define = [];
     $array_config_define['nv_anti_agent'] = NV_ANTI_AGENT;
     $array_config_define['nv_anti_iframe'] = NV_ANTI_IFRAME;
     $array_config_define['nv_allowed_html_tags'] = NV_ALLOWED_HTML_TAGS;
+    $array_config_global['admin_2step_opt'] = empty($global_config['admin_2step_opt']) ? [] : explode(',', $global_config['admin_2step_opt']);
 }
 
-$array_config_flood = array();
+$array_config_flood = [];
 
 // Xử lý phần chống Flood
 if ($nv_Request->isset_request('submitflood', 'post')) {
@@ -141,8 +158,8 @@ if ($nv_Request->isset_request('submitflood', 'post')) {
     $array_config_flood['max_requests_300'] = $global_config['max_requests_300'];
 }
 
-$array_config_captcha = array();
-$array_define_captcha = array();
+$array_config_captcha = [];
+$array_define_captcha = [];
 
 // Xử lý phần captcha
 if ($nv_Request->isset_request('submitcaptcha', 'post')) {
@@ -205,6 +222,45 @@ if ($nv_Request->isset_request('submitcaptcha', 'post')) {
 
 $lang_module['two_step_verification_note'] = sprintf($lang_module['two_step_verification_note'], $lang_module['two_step_verification0'], NV_BASE_ADMINURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&amp;' . NV_NAME_VARIABLE . '=users&amp;' . NV_OP_VARIABLE . '=groups');
 
+// Xử lý thiết lập CORS
+if ($nv_Request->isset_request('submitcors', 'post')) {
+    $array_config_site['cors_restrict_domains'] = (int)$nv_Request->get_bool('cors_restrict_domains', 'post', false);
+    $cors_valid_domains = $nv_Request->get_textarea('cors_valid_domains', '', NV_ALLOWED_HTML_TAGS, true);
+    $cors_valid_domains = explode('<br />', strip_tags($cors_valid_domains, '<br>'));
+
+    $array_config_site['cors_valid_domains'] = [];
+    foreach ($cors_valid_domains as $domain) {
+        if (!empty($domain)) {
+            $domain = parse_url($domain);
+            if (is_array($domain)) {
+                if (sizeof($domain) == 1 and !empty($domain['path'])) {
+                    $domain['host'] = $domain['path'];
+                }
+                if (!isset($domain['scheme'])) {
+                    $domain['scheme'] = 'http';
+                }
+                $array_config_site['cors_valid_domains'][] = $domain['scheme'] . '://' . $domain['host'] . ((isset($domain['port']) and $domain['port'] != '80') ? (':' . $domain['port']) : '');
+            }
+        }
+    }
+    $array_config_site['cors_valid_domains'] = empty($array_config_site['cors_valid_domains']) ? '' : json_encode($array_config_site['cors_valid_domains']);
+
+    $sth = $db->prepare("UPDATE " . NV_CONFIG_GLOBALTABLE . " SET config_value = :config_value WHERE lang = 'sys' AND module = 'site' AND config_name = :config_name");
+    foreach ($array_config_site as $config_name => $config_value) {
+        $sth->bindParam(':config_name', $config_name, PDO::PARAM_STR, 30);
+        $sth->bindParam(':config_value', $config_value, PDO::PARAM_STR);
+        $sth->execute();
+    }
+
+    nv_insert_logs(NV_LANG_DATA, $module_name, 'LOG_CHANGE_CORS_SETTING', $global_config['cors_restrict_domains'] . ': ' . $array_config_site['cors_valid_domains'], $admin_info['userid']);
+    $nv_Cache->delMod($module_name);
+
+    nv_redirect_location(NV_BASE_ADMINURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name . '&' . NV_OP_VARIABLE . '=' . $op . '&selectedtab=' . $selectedtab . '&rand=' . nv_genpass());
+} else {
+    $array_config_site['cors_restrict_domains'] = $global_config['cors_restrict_domains'];
+    $array_config_site['cors_valid_domains'] = empty($global_config['cors_valid_domains']) ? '' : implode("\n", $global_config['cors_valid_domains']);
+}
+
 $xtpl = new XTemplate($op . '.tpl', NV_ROOTDIR . '/themes/' . $global_config['module_theme'] . '/modules/' . $module_file);
 $xtpl->assign('LANG', $lang_module);
 $xtpl->assign('GLANG', $lang_global);
@@ -215,12 +271,12 @@ $xtpl->assign('MODULE_NAME', $module_name);
 $xtpl->assign('OP', $op);
 $xtpl->assign('FORM_ACTION', NV_BASE_ADMINURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&amp;' . NV_NAME_VARIABLE . '=' . $module_name . '&amp;' . NV_OP_VARIABLE . '=' . $op);
 $xtpl->assign('SELECTEDTAB', $selectedtab);
-for ($i = 0; $i <= 3; ++$i) {
+for ($i = 0; $i <= 4; ++$i) {
     $xtpl->assign('TAB' . $i . '_ACTIVE', $i == $selectedtab ? ' active' : '');
 }
 
 // Xử lý các IP bị cấm
-$error = array();
+$error = [];
 $cid = $nv_Request->get_int('id', 'get');
 $del = $nv_Request->get_int('del', 'get');
 
@@ -231,12 +287,21 @@ if (!empty($del) and !empty($cid)) {
 }
 
 if ($nv_Request->isset_request('submit', 'post')) {
+    $ip_version = $nv_Request->get_int('ip_version', 'post', 4);
     $cid = $nv_Request->get_int('cid', 'post', 0);
-    $ip = $nv_Request->get_title('ip', 'post', '', 1);
+    $ip = $nv_Request->get_title('ip', 'post', '');
     $area = $nv_Request->get_int('area', 'post', 0);
     $mask = $nv_Request->get_int('mask', 'post', 0);
+    $mask6 = $nv_Request->get_int('mask6', 'post', 1);
 
-    if (empty($ip) or !$ips->nv_validip($ip)) {
+    if ($ip_version != 4 and $ip_version != 6) {
+        $ip_version = 4;
+    }
+    if ($mask6 < 1 or $mask6 > 128) {
+        $mask6 = 128;
+    }
+
+    if (empty($ip) or ($ip_version == 4 and !$ips->isIp4($ip)) or ($ip_version == 6 and !$ips->isIp6($ip))) {
         $error[] = $lang_module['banip_error_validip'];
     }
 
@@ -257,14 +322,15 @@ if ($nv_Request->isset_request('submit', 'post')) {
     }
 
     $notice = $nv_Request->get_title('notice', 'post', '', 1);
+    $banmask = $ip_version == 4 ? $mask : $mask6;
 
     if (empty($error)) {
         if ($cid > 0) {
             $sth = $db->prepare('UPDATE ' . $db_config['prefix'] . '_ips
-				SET ip= :ip, mask= :mask,area=' . $area . ', begintime=' . $begintime . ', endtime=' . $endtime . ', notice= :notice
-				WHERE id=' . $cid);
+                SET ip= :ip, mask= :mask,area=' . $area . ', begintime=' . $begintime . ', endtime=' . $endtime . ', notice= :notice
+                WHERE id=' . $cid);
             $sth->bindParam(':ip', $ip, PDO::PARAM_STR);
-            $sth->bindParam(':mask', $mask, PDO::PARAM_STR);
+            $sth->bindParam(':mask', $banmask, PDO::PARAM_STR);
             $sth->bindParam(':notice', $notice, PDO::PARAM_STR);
             $sth->execute();
         } else {
@@ -272,7 +338,7 @@ if ($nv_Request->isset_request('submit', 'post')) {
             if ($result) {
                 $sth = $db->prepare('INSERT INTO ' . $db_config['prefix'] . '_ips (type, ip, mask, area, begintime, endtime, notice) VALUES (0, :ip, :mask, ' . $area . ', ' . $begintime . ', ' . $endtime . ', :notice )');
                 $sth->bindParam(':ip', $ip, PDO::PARAM_STR);
-                $sth->bindParam(':mask', $mask, PDO::PARAM_STR);
+                $sth->bindParam(':mask', $banmask, PDO::PARAM_STR);
                 $sth->bindParam(':notice', $notice, PDO::PARAM_STR);
                 $sth->execute();
             }
@@ -292,14 +358,29 @@ if ($nv_Request->isset_request('submit', 'post')) {
         $xtpl->parse('main.error_save');
     }
 } else {
-    $id = $ip = $mask = $area = $begintime = $endtime = $notice = '';
+    if (!empty($cid)) {
+        list($id, $ip, $mask, $area, $begintime, $endtime, $notice) = $db->query('SELECT id, ip, mask, area, begintime, endtime, notice FROM ' . $db_config['prefix'] . '_ips WHERE id=' . $cid)->fetch(3);
+        $lang_module['banip_add'] = $lang_module['banip_edit'];
+        if ($ips->isIp4($ip)) {
+            $ip_version = 4;
+            $mask6 = 128;
+        } else {
+            $ip_version = 6;
+            $mask6 = $mask;
+            $mask = '';
+        }
+    } else {
+        $id = $ip = $mask = $area = $begintime = $endtime = $notice = '';
+        $ip_version = 4;
+        $mask6 = 128;
+    }
 }
 
 // Xử lý các IP bỏ qua kiểm tra flood
-$error = array();
+$error = [];
 $flid = $nv_Request->get_int('flid', 'get,post', 0);
 $fldel = $nv_Request->get_int('fldel', 'get,post', 0);
-$array_flip = array();
+$array_flip = [];
 
 if (!empty($fldel) and !empty($flid)) {
     $db->query('DELETE FROM ' . $db_config['prefix'] . '_ips WHERE type=1 AND id=' . $flid);
@@ -308,11 +389,24 @@ if (!empty($fldel) and !empty($flid)) {
 }
 
 if ($nv_Request->isset_request('submitfloodip', 'post')) {
-    $array_flip['flip'] = $nv_Request->get_title('flip', 'post', '', 1);
+    $array_flip['ip_version'] = $nv_Request->get_int('fip_version', 'post', 4);
+    $array_flip['flip'] = $nv_Request->get_title('flip', 'post', '');
     $array_flip['flarea'] = 1;
     $array_flip['flmask'] = $nv_Request->get_int('flmask', 'post', 0);
+    $array_flip['flmask6'] = $nv_Request->get_int('flmask_v6', 'post', 1);
 
-    if (empty($array_flip['flip']) or !$ips->nv_validip($array_flip['flip'])) {
+    if ($array_flip['ip_version'] != 4 and $array_flip['ip_version'] != 6) {
+        $array_flip['ip_version'] = 4;
+    }
+    if ($array_flip['flmask6'] < 1 or $array_flip['flmask6'] > 128) {
+        $array_flip['flmask6'] = 128;
+    }
+
+    if (
+        empty($array_flip['flip']) or
+        ($array_flip['ip_version'] == 4 and !$ips->isIp4($array_flip['flip'])) or
+        ($array_flip['ip_version'] == 6 and !$ips->isIp6($array_flip['flip']))
+    ) {
         $error[] = $lang_module['banip_error_validip'];
     }
 
@@ -333,14 +427,16 @@ if ($nv_Request->isset_request('submitfloodip', 'post')) {
     }
 
     $array_flip['flnotice'] = $nv_Request->get_title('flnotice', 'post', '', 1);
+    $flmask = $array_flip['ip_version'] == 4 ? $array_flip['flmask'] : $array_flip['flmask6'];
 
     if (empty($error)) {
         if ($flid > 0) {
             $sth = $db->prepare('UPDATE ' . $db_config['prefix'] . '_ips
-                SET ip=:ip, mask=:mask, area=' . $array_flip['flarea'] . ', begintime=' . $array_flip['flbegintime'] . ', endtime=' . $array_flip['flendtime'] . ', notice=:notice
+                SET ip=:ip, mask=:mask, area=' . $array_flip['flarea'] . ', begintime=' . $array_flip['flbegintime'] . ',
+                endtime=' . $array_flip['flendtime'] . ', notice=:notice
             WHERE id=' . $flid);
             $sth->bindParam(':ip', $array_flip['flip'], PDO::PARAM_STR);
-            $sth->bindParam(':mask', $array_flip['flmask'], PDO::PARAM_STR);
+            $sth->bindParam(':mask', $flmask, PDO::PARAM_INT);
             $sth->bindParam(':notice', $array_flip['flnotice'], PDO::PARAM_STR);
             $sth->execute();
         } else {
@@ -352,7 +448,7 @@ if ($nv_Request->isset_request('submitfloodip', 'post')) {
                     1, :ip, :mask, ' . $array_flip['flarea'] . ', ' . $array_flip['flbegintime'] . ', ' . $array_flip['flendtime'] . ', :notice
                 )');
                 $sth->bindParam(':ip', $array_flip['flip'], PDO::PARAM_STR);
-                $sth->bindParam(':mask', $array_flip['flmask'], PDO::PARAM_STR);
+                $sth->bindParam(':mask', $flmask, PDO::PARAM_INT);
                 $sth->bindParam(':notice', $array_flip['flnotice'], PDO::PARAM_STR);
                 $sth->execute();
             }
@@ -379,17 +475,29 @@ if ($nv_Request->isset_request('submitfloodip', 'post')) {
         }
         $array_flip['flip'] = $row['ip'];
         $array_flip['flarea'] = $row['area'];
-        $array_flip['flmask'] = $row['mask'];
+
         $array_flip['flbegintime'] = $row['begintime'];
         $array_flip['flendtime'] = $row['endtime'];
         $array_flip['flnotice'] = $row['notice'];
+
+        if ($ips->isIp6($row['ip'])) {
+            $array_flip['flmask'] = '';
+            $array_flip['flmask6'] = $row['mask'];
+            $array_flip['ip_version'] = 6;
+        } else {
+            $array_flip['flmask'] = $row['mask'];
+            $array_flip['flmask6'] = 128;
+            $array_flip['ip_version'] = 4;
+        }
     } else {
         $array_flip['flip'] = '';
         $array_flip['flarea'] = '';
         $array_flip['flmask'] = '';
+        $array_flip['flmask6'] = 128;
         $array_flip['flbegintime'] = '';
         $array_flip['flendtime'] = '';
         $array_flip['flnotice'] = '';
+        $array_flip['ip_version'] = 4;
     }
 }
 
@@ -397,6 +505,10 @@ if (!empty($errormess)) {
     $xtpl->assign('ERROR_SAVE', $errormess);
     $xtpl->parse('main.error_save');
 }
+
+$array_config_site['cors_restrict_domains'] = empty($array_config_site['cors_restrict_domains']) ? '' : ' checked="checked"';
+
+$xtpl->assign('CONFIG_SITE', $array_config_site);
 
 $xtpl->assign('IS_FLOOD_BLOCKER', ($array_config_flood['is_flood_blocker']) ? ' checked="checked"' : '');
 $xtpl->assign('MAX_REQUESTS_60', $array_config_flood['max_requests_60']);
@@ -466,13 +578,13 @@ $xtpl->assign('NV_GFX_WIDTH', $array_define_captcha['nv_gfx_width']);
 $xtpl->assign('NV_GFX_HEIGHT', $array_define_captcha['nv_gfx_height']);
 $xtpl->assign('NV_ALLOWED_HTML_TAGS', $array_config_define['nv_allowed_html_tags']);
 
-$mask_text_array = array();
+$mask_text_array = [];
 $mask_text_array[0] = '255.255.255.255';
 $mask_text_array[3] = '255.255.255.xxx';
 $mask_text_array[2] = '255.255.xxx.xxx';
 $mask_text_array[1] = '255.xxx.xxx.xxx';
 
-$banip_area_array = array();
+$banip_area_array = [];
 $banip_area_array[0] = $lang_module['banip_area_select'];
 $banip_area_array[1] = $lang_module['banip_area_front'];
 $banip_area_array[2] = $lang_module['banip_area_admin'];
@@ -480,6 +592,45 @@ $banip_area_array[3] = $lang_module['banip_area_both'];
 
 $xtpl->assign('MASK_TEXT_ARRAY', $mask_text_array);
 $xtpl->assign('BANIP_AREA_ARRAY', $banip_area_array);
+
+// Xuất kiểu IP
+foreach ($array_iptypes as $_key => $_value) {
+    $xtpl->assign('IP_VERSION', [
+        'key' => $_key,
+        'title' => $_value,
+        'f_selected' => $_key == $array_flip['ip_version'] ? ' selected="selected"' : '',
+        'b_selected' => $_key == $ip_version ? ' selected="selected"' : '',
+    ]);
+    $xtpl->parse('main.ip_version');
+    $xtpl->parse('main.fip_version');
+}
+
+if ($array_flip['ip_version'] == 4) {
+    $xtpl->assign('CLASS_FIP_VERSION4', '');
+    $xtpl->assign('CLASS_FIP_VERSION6', ' hidden');
+} else {
+    $xtpl->assign('CLASS_FIP_VERSION4', ' hidden');
+    $xtpl->assign('CLASS_FIP_VERSION6', '');
+}
+if ($ip_version == 4) {
+    $xtpl->assign('CLASS_IP_VERSION4', '');
+    $xtpl->assign('CLASS_IP_VERSION6', ' hidden');
+} else {
+    $xtpl->assign('CLASS_IP_VERSION4', ' hidden');
+    $xtpl->assign('CLASS_IP_VERSION6', '');
+}
+
+// Xuất mask IPv6
+for ($i = 1; $i <= 128; $i++) {
+    $xtpl->assign('IPMASK', [
+        'key' => $i,
+        'title' => '/' . $i,
+        'f_selected' => $i == $array_flip['flmask6'] ? ' selected="selected"' : '',
+        'b_selected' => $i == $mask6 ? ' selected="selected"' : '',
+    ]);
+    $xtpl->parse('main.flmask6');
+    $xtpl->parse('main.mask6');
+}
 
 // Danh sách các IP cấm
 $sql = 'SELECT id, ip, mask, area, begintime, endtime FROM ' . $db_config['prefix'] . '_ips WHERE type=0 ORDER BY ip DESC';
@@ -489,7 +640,7 @@ while (list($dbid, $dbip, $dbmask, $dbarea, $dbbegintime, $dbendtime) = $result-
     ++$i;
     $xtpl->assign('ROW', array(
         'dbip' => $dbip,
-        'dbmask' => $mask_text_array[$dbmask],
+        'dbmask' => $ips->isIp4($dbip) ? $mask_text_array[$dbmask] : ('/' . $dbmask),
         'dbarea' => $banip_area_array[$dbarea],
         'dbbegintime' => !empty($dbbegintime) ? date('d/m/Y', $dbbegintime) : '',
         'dbendtime' => !empty($dbendtime) ? date('d/m/Y', $dbendtime) : $lang_module['banip_nolimit'],
@@ -501,11 +652,6 @@ while (list($dbid, $dbip, $dbmask, $dbarea, $dbbegintime, $dbendtime) = $result-
 }
 if ($i) {
     $xtpl->parse('main.listip');
-}
-
-if (!empty($cid)) {
-    list($id, $ip, $mask, $area, $begintime, $endtime, $notice) = $db->query('SELECT id, ip, mask, area, begintime, endtime, notice FROM ' . $db_config['prefix'] . '_ips WHERE id=' . $cid)->fetch(3);
-    $lang_module['banip_add'] = $lang_module['banip_edit'];
 }
 
 $xtpl->assign('BANIP_TITLE', ($cid) ? $lang_module['banip_title_edit'] : $lang_module['banip_title_add']);
@@ -531,7 +677,7 @@ while (list($dbid, $dbip, $dbmask, $dbarea, $dbbegintime, $dbendtime) = $result-
     ++$i;
     $xtpl->assign('ROW', array(
         'dbip' => $dbip,
-        'dbmask' => $mask_text_array[$dbmask],
+        'dbmask' => $ips->isIp4($dbip) ? $mask_text_array[$dbmask] : ('/' . $dbmask),
         'dbarea' => $banip_area_array[$dbarea],
         'dbbegintime' => !empty($dbbegintime) ? date('d/m/Y', $dbbegintime) : '',
         'dbendtime' => !empty($dbendtime) ? date('d/m/Y', $dbendtime) : $lang_module['banip_nolimit'],
@@ -568,6 +714,30 @@ for ($i = 0; $i <= 3; $i++) {
     );
     $xtpl->assign('TWO_STEP_VERIFICATION', $two_step_verification);
     $xtpl->parse('main.two_step_verification');
+}
+
+foreach ($admin_2step_array as $admin_2step) {
+    $admin_2step_opt = [
+        'key' => $admin_2step,
+        'title' => $lang_global['admin_2step_opt_' . $admin_2step],
+        'checked' => in_array($admin_2step, $array_config_global['admin_2step_opt']) ? ' checked="checked"' : ''
+    ];
+    $xtpl->assign('ADMIN_2STEP_OPT', $admin_2step_opt);
+
+    if ($admin_2step  == 'facebook' or $admin_2step == 'google') {
+        $xtpl->assign('LINK_CONFIG', NV_BASE_ADMINURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&amp;' . NV_NAME_VARIABLE . '=users&amp;' . NV_OP_VARIABLE . '=config&amp;oauth_config=' . $admin_2step);
+        $xtpl->parse('main.admin_2step_opt.link_config');
+    }
+
+    $xtpl->parse('main.admin_2step_opt');
+
+    $admin_2step_default = [
+        'key' => $admin_2step,
+        'title' => $lang_global['admin_2step_opt_' . $admin_2step],
+        'selected' => $array_config_global['admin_2step_default'] == $admin_2step ? ' selected="selected"' : ''
+    ];
+    $xtpl->assign('ADMIN_2STEP_DEFAULT', $admin_2step_default);
+    $xtpl->parse('main.admin_2step_default');
 }
 
 $xtpl->parse('main');

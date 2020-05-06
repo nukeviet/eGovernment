@@ -3,7 +3,7 @@
 /**
 * @Project NUKEVIET 4.x
 * @Author VINADES.,JSC <contact@vinades.vn>
-* @Copyright (C) 2017 VINADES.,JSC. All rights reserved
+* @Copyright (C) 2019 VINADES.,JSC. All rights reserved
 * @Language English
 * @License CC BY-SA (http://creativecommons.org/licenses/by-sa/4.0/)
 * @Createdate Mar 04, 2010, 08:22:00 AM
@@ -29,6 +29,7 @@ $lang_module['action'] = 'Submit';
 $lang_module['move'] = 'Move';
 $lang_module['save_temp'] = 'Draft save';
 $lang_module['publtime'] = 'Publish';
+$lang_module['publtime_action'] = 'Publish (does not apply to drafts and locked posts)';
 $lang_module['exptime'] = 'Make expired';
 $lang_module['status_action_0'] = 'Switch to wait for approval';
 $lang_module['declined'] = 'Reject posts';
@@ -141,6 +142,9 @@ $lang_module['setting_instant_articles_gettime1'] = 'Note: Facebook queries into
 $lang_module['setting_instant_articles_defaulturl'] = 'RSS feed URL to declare if using instant messaging feature';
 $lang_module['setting_instant_articles_defaulturl1'] = 'Note: This URL is the URL that contains the entire article of the module. To get the URL of the feed for each forum, after activating the instant messaging feature, you need to move to the administration section, click the button that displays the URL of the instant message RSS feed. At each respective category.';
 $lang_module['setting_instant_articles_auto'] = 'The default message is posted as an instant message if this function is activated';
+$lang_module['setting_sys'] = 'Configure system';
+$lang_module['setting_identify_cat_change'] = 'Support to change article categories';
+$lang_module['setting_identify_cat_change_help'] = 'Enabling this feature will allow the system to auto redirect the old article to a new address when changing the category of the article, but the performance will decrease a bit. If you do not regularly change article categories, turn off this feature';
 $lang_module['viewcat_page'] = 'Display method';
 $lang_module['viewcat_page_new'] = 'New categories, Up';
 $lang_module['viewcat_page_old'] = 'Old categories, Up';
@@ -311,9 +315,6 @@ $lang_module['tags_alias'] = 'Filter Vietnamese diacritics and other characters 
 $lang_module['alias_search'] = 'Show the different tags, use the search function to display more results';
 $lang_module['tags_all_link'] = 'View the description tags are not enabled, click here to see all tags';
 $lang_module['tags_no_description'] = 'Tags no description';
-$lang_module['googleplus'] = 'authentication Google+ (copyright)';
-$lang_module['googleplus_1'] = 'Not use';
-$lang_module['googleplus_0'] = 'According configuration copyright of module';
 $lang_module['input_title_blocks'] = 'Input title group';
 $lang_module['input_keyword'] = 'Input keyword ';
 $lang_module['input_tag'] = 'Input keyword ';

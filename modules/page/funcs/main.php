@@ -13,6 +13,9 @@ if (!defined('NV_IS_MOD_PAGE')) {
 }
 
 if ($page_config['viewtype'] == 2) {
+    $page_title = $module_info['site_title'];
+    $key_words = $module_info['keywords'];
+    $mod_title = isset($lang_module['main_title']) ? $lang_module['main_title'] : $module_info['custom_title'];
     $contents = '';
 } elseif ($id) {
     // Xem theo bài viết
@@ -32,8 +35,11 @@ if ($page_config['viewtype'] == 2) {
         $rowdetail['imageWidth'] = $imagesize[0] > 500 ? 500 : $imagesize[0];
         $meta_property['og:image'] = NV_MY_DOMAIN . $rowdetail['image'];
     }
+    $rowdetail['number_add_time'] = $rowdetail['add_time'];
+    $rowdetail['number_edit_time'] = $rowdetail['edit_time'] ? $rowdetail['edit_time'] : $rowdetail['add_time'];
     $rowdetail['add_time'] = nv_date('H:i T l, d/m/Y', $rowdetail['add_time']);
     $rowdetail['edit_time'] = nv_date('H:i T l, d/m/Y', $rowdetail['edit_time']);
+    $rowdetail['link'] = NV_MAIN_DOMAIN . $base_url_rewrite;
 
     $module_info['layout_funcs'][$op_file] = !empty($rowdetail['layout_func']) ? $rowdetail['layout_func'] : $module_info['layout_funcs'][$op_file];
 
@@ -53,7 +59,6 @@ if ($page_config['viewtype'] == 2) {
 
     $page_title = $mod_title = $rowdetail['title'];
     $description = $rowdetail['description'];
-    $id_profile_googleplus = $rowdetail['gid'];
 
     // Hiển thị các bài liên quan mới nhất.
     $other_links = array();
@@ -126,7 +131,7 @@ if ($page_config['viewtype'] == 2) {
     $generate_page = nv_alias_page($page_title, $base_url, $num_items, $per_page, $page);
 
     if ($page > 1) {
-        $page_title .= ' ' . NV_TITLEBAR_DEFIS . ' ' . $lang_global['page'] . ' ' . $page;
+        $page_title .= NV_TITLEBAR_DEFIS . $lang_global['page'] . ' ' . $page;
     }
 
     $contents = nv_page_main_list($array_data, $generate_page);

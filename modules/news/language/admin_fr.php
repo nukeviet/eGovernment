@@ -3,7 +3,7 @@
 /**
 * @Project NUKEVIET 4.x
 * @Author VINADES.,JSC <contact@vinades.vn>
-* @Copyright (C) 2017 VINADES.,JSC. All rights reserved
+* @Copyright (C) 2019 VINADES.,JSC. All rights reserved
 * @Language Français
 * @License CC BY-SA (http://creativecommons.org/licenses/by-sa/4.0/)
 * @Createdate Jun 21, 2010, 12:30:00 PM
@@ -29,6 +29,7 @@ $lang_module['action'] = 'Effectuer';
 $lang_module['move'] = 'Déplacer';
 $lang_module['save_temp'] = 'Sauvegarde temporairement';
 $lang_module['publtime'] = 'Publier';
+$lang_module['publtime_action'] = 'Publier (ne s\'applique pas aux brouillons et aux messages verrouillés)';
 $lang_module['exptime'] = 'Expirer l\'article';
 $lang_module['status_action_0'] = 'Passer à l\'attente d\'examiner';
 $lang_module['declined'] = 'Refuse l\'article';
@@ -141,6 +142,9 @@ $lang_module['setting_instant_articles_gettime1'] = 'Remarque: requête Facebook
 $lang_module['setting_instant_articles_defaulturl'] = 'URL du flux RSS pour déclarer si vous utilisez l\'article instantanée';
 $lang_module['setting_instant_articles_defaulturl1'] = 'Remarque: Cette URL est une URL contenant tout l\'article du module. Pour obtenir l\'URL du flux pour chaque catégorie, après activation en utilisant l\'instant de l\'article caractéristique terminée, vous devez entrer dans la catégorie de gestion, cliquez sur le bouton affichant l\'URL du flux RSS, l\'article immédiatement dans chaque catégorie respective.';
 $lang_module['setting_instant_articles_auto'] = 'Article par défaut est un article publié immédiatement si cette fonction activée';
+$lang_module['setting_sys'] = 'Configurer le système';
+$lang_module['setting_identify_cat_change'] = 'Support pour changer les catégories d\'articles';
+$lang_module['setting_identify_cat_change_help'] = 'Activer cette fonctionnalité permettra au système de rediriger manuellement l\'ancien article vers une nouvelle adresse lors du changement de catégorie de l\'article, mais les performances diminueront un peu. Si vous ne modifiez pas régulièrement les catégories d\'articles, désactivez cette fonctionnalité.';
 $lang_module['viewcat_page'] = 'Méthode d\'affichage';
 $lang_module['viewcat_page_new'] = 'liste, nouveau en haut';
 $lang_module['viewcat_page_old'] = 'liste, ancien en haut';
@@ -311,9 +315,6 @@ $lang_module['tags_alias'] = 'Enlever les signes du vietnamien, les caractères 
 $lang_module['alias_search'] = 'Pour afficher les autres tags, vous vous arrêtez le fonctionnement de recherche pour afficher plus de résultats';
 $lang_module['tags_all_link'] = 'Le mode d\'affichage des tags qui n\'ont pas de descriptions est activé; cliquer ici pour regarder tous les tags';
 $lang_module['tags_no_description'] = 'Pas de description';
-$lang_module['googleplus'] = 'Certificat de Google+';
-$lang_module['googleplus_1'] = 'N\'utilise pas';
-$lang_module['googleplus_0'] = 'Selon le droit d\'auteur du module';
 $lang_module['input_title_blocks'] = 'Saisir le titre du bloque de nouvelles';
 $lang_module['input_keyword'] = 'Saisir le mot clé';
 $lang_module['input_tag'] = 'Saisir le mot tag';

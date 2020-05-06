@@ -25,11 +25,11 @@ class Encryption
     public function __construct($key)
     {
         $this->_key = sha1($key);
-        if (isset($key{64})) {
+        if (isset($key[64])) {
             $key = pack('H32', $this->_key);
         }
 
-        if (! isset($key{63})) {
+        if (! isset($key[63])) {
             $key = str_pad($key, 64, chr(0));
         }
 
@@ -110,14 +110,8 @@ class Encryption
         } else {
             $validate_hash = $this->hash($password);
         }
-
-        if (version_compare(PHP_VERSION, '5.6.0') >= 0) {
-            return hash_equals($hash, $validate_hash);
-        }
-        elseif ($hash == $validate_hash) {
-            return true;
-        }
-        return false;
+        
+        return hash_equals($hash, $validate_hash);
     }
 
     /**

@@ -121,6 +121,8 @@ if (!nv_function_exists('nv_block_data_config_banners')) {
         if (!empty($array_banners_content)) {
             if ($xml->form == 'random') {
                 shuffle($array_banners_content);
+            } elseif ($xml->form == 'random_one') {
+                $array_banners_content = [$array_banners_content[array_rand($array_banners_content)]];
             }
             unset($xml, $array_banners);
 
@@ -138,13 +140,7 @@ if (!nv_function_exists('nv_block_data_config_banners')) {
                 $xtpl->assign('DATA', $banners);
 
                 if ($banners['file_name'] != 'no_image') {
-                    if ($banners['file_ext'] == 'swf') {
-                        if (!empty($banners['file_click'])) {
-                            $xtpl->parse('main.loop.type_swf.fix_link');
-                        }
-
-                        $xtpl->parse('main.loop.type_swf');
-                    } elseif (!empty($banners['file_click'])) {
+                    if (!empty($banners['file_click'])) {
                         $xtpl->parse('main.loop.type_image_link');
                     } else {
                         $xtpl->parse('main.loop.type_image');

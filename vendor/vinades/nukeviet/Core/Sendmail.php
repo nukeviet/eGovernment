@@ -45,16 +45,16 @@ class Sendmail extends PHPMailer
                 default:
                     $this->SMTPSecure = '';
             }
-            $this->SMTPOptions = array(
-            		'ssl' => array(
-            				'verify_peer' => ($config['verify_peer_ssl'] == 1) ? true : false,
-            				'verify_peer_name' => ($config['verify_peer_name_ssl'] == 1) ? true : false,
-            				'allow_self_signed' => true
-            		)
-            );
+            $this->SMTPOptions = [
+                'ssl' => [
+                    'verify_peer' => ($config['verify_peer_ssl'] == 1) ? true : false,
+                    'verify_peer_name' => ($config['verify_peer_name_ssl'] == 1) ? true : false,
+                    'allow_self_signed' => true
+                ]
+            ];
         } elseif ($mailer_mode == 'sendmail') {
             $this->IsSendmail();
-        } else {
+        } elseif ($mailer_mode == 'mail') {
             //disable_functions
             $disable_functions = (($disable_functions = ini_get('disable_functions')) != '' and $disable_functions != false) ? array_map('trim', preg_split("/[\s,]+/", $disable_functions)) : array();
 
@@ -64,8 +64,10 @@ class Sendmail extends PHPMailer
             if (!in_array('mail', $disable_functions)) {
                 $this->IsMail();
             } else {
-                return false;
+                $this->Mailer = 'no';
             }
+        } else {
+            $this->Mailer = 'no';
         }
 
         $this->From = $config['site_email'];
@@ -132,4 +134,15 @@ class Sendmail extends PHPMailer
         $this->AltBody = strip_tags($message);
     }
 
+    /**
+     * @return boolean
+     */
+    public function Send()
+    {
+        if ($this->Mailer == 'no') {
+            return false;
+        } else {
+            return $this->Send();
+        }
+    }
 }

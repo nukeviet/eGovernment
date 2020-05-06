@@ -9,6 +9,12 @@
 function user_validForm(a) {
     $('[type="submit"] .fa', $(a)).toggleClass('hidden');
     $('[type="submit"]', $(a)).prop('disabled', true);
+    // Xử lý các trình soạn thảo
+    if (typeof CKEDITOR != "undefined") {
+        for (var instanceName in CKEDITOR.instances) {
+            $('#' + instanceName).val(CKEDITOR.instances[instanceName].getData());
+        }
+    }
     $.ajax({
         type: $(a).prop("method"),
         cache: !1,
@@ -22,7 +28,7 @@ function user_validForm(a) {
                 alert(b.mess);
                 $("[name=\"" + b.input + "\"]", a).focus();
             } else {
-                location_href = script_name + "?" + nv_name_variable + "=" + nv_module_name + "&" + nv_fc_variable;
+                location_href = typeof(b.nv_redirect) != "undefined" && b.nv_redirect != '' ? b.nv_redirect : (script_name + "?" + nv_name_variable + "=" + nv_module_name + "&" + nv_fc_variable);
                 if( b.admin_add == "yes" ) {
                     if (confirm( b.mess )) {
                         location_href = script_name + "?" + nv_name_variable + "=authors&" + nv_fc_variable + '=add&userid=' + b.username;
@@ -32,7 +38,34 @@ function user_validForm(a) {
             }
         }
     });
-    return false
+    return false;
+}
+
+function user_editcensor_validForm(a) {
+    $('[type="submit"]', $(a)).prop('disabled', true);
+    // Xử lý các trình soạn thảo
+    if (typeof CKEDITOR != "undefined") {
+        for (var instanceName in CKEDITOR.instances) {
+            $('#' + instanceName).val(CKEDITOR.instances[instanceName].getData());
+        }
+    }
+    $.ajax({
+        type: $(a).prop("method"),
+        cache: !1,
+        url: $(a).prop("action"),
+        data: $(a).serialize(),
+        dataType: "json",
+        success: function(b) {
+            $('[type="submit"]', $(a)).prop('disabled', false);
+            if( b.status == "error" ) {
+                alert(b.mess);
+                $("[name=\"" + b.input + "\"]", a).focus();
+            } else {
+                window.location.href = script_name + '?' + nv_lang_variable + '=' + nv_lang_data + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=editcensor';
+            }
+        }
+    });
+    return false;
 }
 
 function nv_chang_question(qid) {
@@ -160,6 +193,28 @@ function nv_waiting_row_del(uid) {
     return false;
 }
 
+// Xóa thông tin chỉnh sửa
+function nv_editcensor_row_del(uid, msg) {
+    if (confirm(msg)) {
+        $.post(script_name + '?' + nv_lang_variable + '=' + nv_lang_data + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=editcensor&nocache=' + new Date().getTime(), 'del=1&userid=' + uid, function(res) {
+            location.reload();
+        });
+    }
+}
+
+// Xác nhận thông tin chỉnh sửa
+function nv_editcensor_row_accept(uid, msg) {
+    if (confirm(msg)) {
+        $.post(script_name + '?' + nv_lang_variable + '=' + nv_lang_data + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=editcensor&nocache=' + new Date().getTime(), 'approved=1&userid=' + uid, function(res) {
+            if (res.status != 'SUCCESS') {
+                 alert(res.mess);
+            } else {
+                location.reload();
+            }
+        });
+    }
+}
+
 function nv_chang_status(vid) {
     var nv_timer = nv_settimeout_disable('change_status_' + vid, 5000);
     $.post(script_name + '?' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=setactive&nocache=' + new Date().getTime(), 'userid=' + vid, function(res) {
@@ -178,10 +233,7 @@ function nv_group_change_status(group_id) {
         var sl = document.getElementById('select_' + r_split[1]);
         if (r_split[0] != 'OK') {
             alert(nv_is_change_act_confirm[2]);
-            if (sl.checked == true)
-                sl.checked = false;
-            else
-                sl.checked = true;
+            if (sl.checked == true){sl.checked = false;} else {sl.checked = true;}
             clearTimeout(nv_timer);
             sl.disabled = true;
             return;
@@ -423,29 +475,19 @@ function nv_users_check_choicetypes(elemnet) {
 }
 
 function control_theme_groups() {
-    var ingroup = $('[name="group[]"]:checked').length,
-        gdefault = $('[name="group_default"]:checked').val(),
-        groups = []
-
-    $('[name="group[]"]').each(function(){
-        if ($(this).is(':checked') && ingroup > 1) {
-            $('.group_default', $(this).parent().parent()).show()
-
-            if (typeof gdefault == 'undefined') {
-                gdefault = $(this).val()
-                $('[name="group_default"]', $(this).parent().parent()).prop('checked', true)
-            }
-        } else {
-            $('.group_default', $(this).parent().parent()).hide()
-        }
+    $('[name="group[]"]').each(function() {
         if ($(this).is(':checked')) {
-            groups.push($(this).val())
+            $('.group_default', $(this).parent().parent()).show();
+        } else {
+            var ctn = $('.group_default', $(this).parent().parent());
+            $('[name="group_default"]', ctn).prop('checked', false);
+            ctn.hide();
         }
-    })
-
-    if (typeof gdefault != 'undefined' && $.inArray(gdefault, groups) == -1 && ingroup > 1) {
-        $('[name="group_default"]').prop('checked', false)
-        $('[name="group_default"]', $('[name="group[]"]:checked:first').parent().parent()).prop('checked', true)
+    });
+    if ($('[name="group[]"]:checked').length > 0) {
+        $('#cleargroupdefault').show();
+    } else {
+        $('#cleargroupdefault').hide();
     }
 }
 
@@ -588,11 +630,11 @@ $(document).ready(function() {
     }
 
     $('[name="group[]"]').change(function(){
-        control_theme_groups()
-    })
+        control_theme_groups();
+    });
     $('[name="is_official"]').change(function(){
-        control_theme_groups()
-    })
+        control_theme_groups();
+    });
 
     // Export user
     $("input[name=data_export]").click(function() {
@@ -608,7 +650,6 @@ $(document).ready(function() {
     });
     if ($.fn.datepicker){
         $("#last_loginfrom,#last_loginto,#regdatefrom,#regdateto").datepicker({
-            showOn : "both",
             dateFormat : "dd.mm.yy",
             changeMonth : true,
             changeYear : true,
@@ -715,5 +756,108 @@ $(document).ready(function() {
         e.preventDefault();
         var wrp = $(this).parent().parent();
         wrp.find('[type="text"]').focus();
+    });
+
+    // Thay đổi thứ tự nhóm
+    var popOverALl = new Array();
+
+    function destroyAllPop() {
+        $.each(popOverALl, function(k, v) {
+            $(v).popover('destroy');
+            $(v).data('havepop', false);
+        });
+        popOverALl = new Array();
+    }
+
+    function getPopoverContent(e) {
+        var keyID = "#tmpgroup_" + $(e).data('mod');
+        var tmpgroup = $(keyID);
+        if (tmpgroup.length && tmpgroup.data('num') != $(e).data('num')) {
+            tmpgroup.remove();
+            tmpgroup = $(keyID);
+        }
+        if (!tmpgroup.length) {
+            $('body').append('<ul id="tmpgroup_' + $(e).data('mod') + '" class="hidden" data-num="' + $(e).data('num') + '"></ul>');
+            tmpgroup = $(keyID);
+            for (i = $(e).data('min'); i <= $(e).data('num'); i++) {
+                tmpgroup.append('<li><a href="#" data-value="' + i + '">' + i + '</a></li>');
+            }
+        }
+        return '<div class="dropdown-tool-ctn"><ul class="dropdown-tool" data-mod="' + $(e).data('mod') + '" data-id="' + $(e).data('id') + '">' + tmpgroup.html() + '</ul></div>';
+    }
+
+    $(document).delegate('[data-toggle="changegroupweight"]', 'click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        popOverALl.push(this);
+        if (!$(this).data('havepop')) {
+            $(this).data('havepop', true);
+            $(this).popover({
+                container: "body",
+                html: true,
+                placement: "bottom",
+                content: getPopoverContent(this),
+                trigger: "manual"
+            });
+            $(this).popover('show');
+            $(this).on('shown.bs.popover', function() {
+                var $this = $(this);
+                var ctn = $('#' + $this.attr('aria-describedby'));
+                var wrapArea = ctn.find('.dropdown-tool-ctn');
+                var wrapContent = ctn.find('.dropdown-tool');
+                wrapContent.find('[data-value="' + $this.data('current') + '"]').addClass('active');
+                if (wrapArea.height() < wrapContent.height()) {
+                    var item = wrapContent.find('li:first');
+                    var scrollTop = ($this.data('current') - $this.data('min')) * item.height();
+                    wrapArea.scrollTop(scrollTop);
+                }
+            });
+        }
+    });
+    $(document).delegate('.dropdown-tool a', 'click', function(e) {
+        e.preventDefault();
+        destroyAllPop();
+        var $this = $(this);
+        var ctn = $this.parent().parent();
+        var btn = $('#group_' + ctn.data('mod') + '_' + ctn.data('id'));
+        btn.find('span.text').html('<i class="fa fa-spinner fa-spin fa-fw"></i>' + $this.html());
+        btn.prop('disabled', true);
+        $.post(
+            script_name + '?' + nv_lang_variable + '=' + nv_lang_data + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=groups&nocache=' + new Date().getTime(),
+            'id=' + ctn.data('id') + '&cWeight=' + $this.data('value') + '&tokend=' + btn.data('tokend'),
+            function(res) {
+                if (res != 'OK') {
+                    alert(btn.data('msgerror'));
+                }
+                location.reload();
+            }
+        );
+    });
+    // Các thao tác với popover
+    $(document).delegate('div.popover', 'click', function(e) {
+        e.stopPropagation();
+    });
+    $(window).on('click', function() {
+        destroyAllPop();
+    });
+
+    // Xóa các nhóm ngưng kích hoạt
+    $('[data-toggle="delInactiveGroup"]').on('click', function(e) {
+        e.preventDefault();
+        var $this = $(this);
+        if ($this.data('busy')) {
+            return false;
+        }
+        if (confirm($this.data('msgconfirm'))) {
+            $this.data('busy', true);
+            $.post(
+                script_name + '?' + nv_lang_variable + '=' + nv_lang_data + '&' + nv_name_variable + '=' + nv_module_name + '&' + nv_fc_variable + '=groups&nocache=' + new Date().getTime(),
+                'deleteinactive=1&tokend=' + $this.data('tokend'),
+                function(res) {
+                    alert(res);
+                    location.reload();
+                }
+            );
+        }
     });
 });

@@ -23,7 +23,7 @@ $db_config['prefix'] = 'nv4';
 $db_config['persistent'] = false;
 $db_config['collation'] = '';//utf8_general_ci, utf8mb4_unicode_ci, utf8mb4_vietnamese_ci
 
-$array_data = array();
+$array_data = [];
 $array_data['lang_multi'] = 0;
 $array_data['site_name'] = '';
 $array_data['nv_login'] = '';
@@ -35,7 +35,7 @@ $array_data['answer_question'] = '';
 $array_data['socialbutton'] = 1;
 
 $global_config['unofficial_mode'] = 0; // Cảnh báo bản thử nghiệm
-$global_config['version'] = '1.1.02'; // NukeViet eGovernment Build from 4.3.04
+$global_config['version'] = '1.2.00'; // NukeViet eGovernment Build from 4.4.00
 $global_config['site_email'] = '';
 $global_config['site_phone'] = '';
 $global_config['error_set_logs'] = 1;
@@ -65,7 +65,7 @@ $global_config['str_referer_blocker'] = 0;
 $global_config['lang_multi'] = 1;
 $global_config['lang_geo'] = 0;
 $global_config['site_lang'] = 'en';
-$global_config['engine_allowed'] = array();
+$global_config['engine_allowed'] = [];
 $global_config['site_theme'] = 'default';
 $global_config['gfx_chk'] = 3;
 
@@ -321,7 +321,7 @@ $nv_parse_ini_timezone = array(
     'Asia/Bangkok' => array( 'winter_offset' => 25200, 'summer_offset' => 25200 ),
     'Asia/Jakarta' => array( 'winter_offset' => 25200, 'summer_offset' => 25200 ),
     'Asia/Phnom_Penh' => array( 'winter_offset' => 25200, 'summer_offset' => 25200 ),
-    'Asia/Saigon' => array( 'winter_offset' => 25200, 'summer_offset' => 25200 ),
+    'Asia/Ho_Chi_Minh' => array( 'winter_offset' => 25200, 'summer_offset' => 25200 ),
     'Asia/Vientiane' => array( 'winter_offset' => 25200, 'summer_offset' => 25200 ),
     'Asia/Krasnoyarsk' => array( 'winter_offset' => 25200, 'summer_offset' => 28800 ),
     'Asia/Brunei' => array( 'winter_offset' => 28800, 'summer_offset' => 28800 ),

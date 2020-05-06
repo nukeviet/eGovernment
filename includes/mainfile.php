@@ -94,7 +94,7 @@ require NV_ROOTDIR . '/vendor/autoload.php';
 require NV_ROOTDIR . '/includes/xtemplate.class.php';
 
 // Xac dinh IP cua client
-$ips = new NukeViet\Core\Ips();
+$ips = new NukeViet\Core\Ips($sys_info);
 // define( 'NV_SERVER_IP', $ips->server_ip );
 define('NV_FORWARD_IP', $ips->forward_ip);
 define('NV_REMOTE_ADDR', $ips->remote_addr);
@@ -159,18 +159,14 @@ define('NV_HEADERSTATUS', $nv_Request->headerstatus);
 define('NV_BASE_ADMINURL', $nv_Request->base_adminurl . '/');
 // vd: /ten_thu_muc_chua_site/admin/
 
-
 define('NV_DOCUMENT_ROOT', $nv_Request->doc_root);
 // D:/AppServ/www
-
 
 define('NV_CACHE_PREFIX', md5($global_config['sitekey'] . NV_SERVER_NAME));
 // Hau to cua file cache
 
-
 define('NV_CHECK_SESSION', md5(NV_CACHE_PREFIX . $nv_Request->session_id));
 // Kiem tra session cua nguoi dung
-
 
 define('NV_USER_AGENT', $nv_Request->user_agent);
 
@@ -258,18 +254,19 @@ if ($is_mobile_tablet != $nv_Request->get_string('is_mobile_tablet', 'session'))
     $nv_Request->unset_request('nv' . NV_LANG_DATA . 'themever', 'cookie');
 }
 
-// Ket noi voi class chong flood
-if ($global_config['is_flood_blocker'] and !$nv_Request->isset_request('admin', 'session') and //
-(!$nv_Request->isset_request('second', 'get') or ($nv_Request->isset_request('second', 'get') and $client_info['is_myreferer'] != 1))) {
-    require NV_ROOTDIR . '/includes/core/flood_blocker.php';
-}
-
 // Captcha
 if ($nv_Request->isset_request('scaptcha', 'get')) {
     require NV_ROOTDIR . '/includes/core/captcha.php';
 }
 // Class ma hoa du lieu
 $crypt = new NukeViet\Core\Encryption($global_config['sitekey']);
+
+// Ket noi voi class chong flood
+if ($global_config['is_flood_blocker'] and !$nv_Request->isset_request('admin', 'session') and //
+(!$nv_Request->isset_request('second', 'get') or ($nv_Request->isset_request('second', 'get') and $client_info['is_myreferer'] != 1))) {
+    require NV_ROOTDIR . '/includes/core/flood_blocker.php';
+}
+
 $global_config['ftp_user_pass'] = $crypt->decrypt($global_config['ftp_user_pass']);
 
 if (isset($nv_plugin_area[1])) {
@@ -332,6 +329,8 @@ if ($global_config['is_user_forum']) {
 if (!empty($global_config['openid_servers'])) {
     $global_config['openid_servers'] = explode(',', $global_config['openid_servers']);
     define('NV_OPENID_ALLOWED', true);
+} else {
+    $global_config['openid_servers'] = [];
 }
 
 if (empty($global_config['site_logo'])) {
@@ -340,6 +339,7 @@ if (empty($global_config['site_logo'])) {
 
 $global_config['array_theme_type'] = explode(',', $global_config['theme_type']);
 $global_config['array_preview_theme'] = explode(',', $global_config['preview_theme']);
+$global_config['array_user_allowed_theme'] = empty($global_config['user_allowed_theme']) ? [] : json_decode($global_config['user_allowed_theme'], true);
 
 define('NV_MAIN_DOMAIN', in_array($global_config['site_domain'], $global_config['my_domains']) ? str_replace(NV_SERVER_NAME, $global_config['site_domain'], NV_MY_DOMAIN) : NV_MY_DOMAIN);
 
@@ -351,6 +351,14 @@ if (!isset($global_config['upload_checking_mode']) or !in_array($global_config['
     $global_config['upload_checking_mode'] = 'strong';
 }
 define('UPLOAD_CHECKING_MODE', $global_config['upload_checking_mode']);
+
+// CORS handler
+if (!empty($global_config['cors_valid_domains'])) {
+    $global_config['cors_valid_domains'] = json_decode($global_config['cors_valid_domains'], true);
+} else {
+    $global_config['cors_valid_domains'] = [];
+}
+$nv_Request->CORSHandle($global_config);
 
 if (defined('NV_ADMIN')) {
     if (!file_exists(NV_ROOTDIR . '/includes/language/' . NV_LANG_DATA . '/global.php')) {
@@ -410,6 +418,9 @@ if ($nv_check_update and !defined('NV_IS_UPDATE')) {
 }
 unset($nv_check_update);
 
+// Quản lý thẻ meta, header các máy chủ tìm kiếm
+$nv_BotManager = new NukeViet\Seo\BotManager($global_config['private_site']);
+
 $cache_file = NV_LANG_DATA . '_sitemods_' . NV_CACHE_PREFIX . '.cache';
 if (($cache = $nv_Cache->getItem('modules', $cache_file)) != false) {
     $sys_mods = unserialize($cache);
@@ -441,7 +452,6 @@ if (($cache = $nv_Cache->getItem('modules', $cache_file)) != false) {
                     'admins' => $row['admins'],
                     'rss' => $row['rss'],
                     'sitemap' => $row['sitemap'],
-                    'gid' => $row['gid'],
                     'funcs' => array()
                 );
             }

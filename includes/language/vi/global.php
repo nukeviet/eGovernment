@@ -41,8 +41,13 @@ $lang_global['ok'] = 'OK';
 $lang_global['cancel'] = 'Hủy bỏ';
 $lang_global['reset'] = 'Thiết lập lại';
 $lang_global['fail'] = 'Thất bại';
+$lang_global['confirm'] = 'Xác nhận';
+$lang_global['manage'] = 'Quản lý';
 $lang_global['firewallsystem'] = 'Administrators Section';
 $lang_global['firewallincorrect'] = 'Hệ thống tường lửa đã chặn việc truy cập với tư cách Admin của bạn!';
+
+$lang_global['limit_user_number'] = 'Website của bạn bị giới hạn %s tài khoản, để thêm tài khoản bạn vui lòng liên hệ quản trị hệ thống';
+$lang_global['limit_admin_number'] = 'Website của bạn bị giới hạn %s quản trị, để thêm quản trị bạn vui lòng liên hệ quản trị hệ thống';
 
 $lang_global['username_empty'] = 'Tên đăng nhập chưa được khai báo';
 $lang_global['usernamelong'] = 'Tên đăng nhập quá dài. Chỉ chấp nhận tên có số ký tự tối đa là %1$d';
@@ -82,6 +87,7 @@ $lang_global['2teplogin_other_menthod'] = 'Thử cách khác';
 $lang_global['2teplogin_error_opt'] = 'Mã xác nhận không chính xác, vui lòng nhập lại';
 $lang_global['2teplogin_error_backup'] = 'Mã dự phòng không chính xác, vui lòng nhập lại';
 $lang_global['2teplogin_require'] = 'Hệ thống bắt buộc bạn phải kích hoạt chức năng xác thực hai bước mới có thể đăng nhập được. Nhấp vào đây để kích hoạt chức năng này';
+$lang_global['2teplogin'] = 'Xác thực hai bước';
 
 $lang_global['memory_time_usage'] = 'Bộ nhớ: %1$s, Thời gian xử lý: %2$s giây';
 $lang_global['for_admin'] = 'Dành cho admin';
@@ -223,11 +229,13 @@ $lang_global['pagenext'] = 'Trang sau';
 $lang_global['langinterface'] = 'Ngôn ngữ giao diện';
 $lang_global['langdata'] = 'Ngôn ngữ xử lý dữ liệu';
 $lang_global['langsite'] = 'Select language';
+$lang_global['selecttheme'] = 'Chọn giao diện';
 $lang_global['detail'] = 'Chi tiết';
 $lang_global['show_picture'] = 'Xem hình';
 $lang_global['flood_page_title'] = 'Hãy đợi...';
 $lang_global['flood_info1'] = 'Hệ thống đang từ chối truy cập của bạn';
 $lang_global['flood_info2'] = 'Hãy đợi';
+$lang_global['flood_captcha_pass'] = 'Bạn không phải là Robot? Xác nhận để tiếp tục truy cập';
 $lang_global['error_info_caption'] = 'Thông báo từ Hệ thống';
 $lang_global['error_error'] = 'Lỗi nghiêm trọng';
 $lang_global['error_warning'] = 'Lỗi cảnh báo';

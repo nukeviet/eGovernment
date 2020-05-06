@@ -35,7 +35,8 @@ $lang_module['empty_bodytext'] = 'Bài viết chưa có nội dung';
 $lang_module['bodytext'] = 'Nội dung';
 $lang_module['edit'] = 'Sửa bài viết';
 $lang_module['save'] = 'Lưu bài viết';
-$lang_module['errorsave'] = 'Lỗi hệ thống không cập nhật được nội dung, bạn hãy kiểm tra lại tiêu đề bài viết có thể bị trùng';
+$lang_module['errorsave'] = 'Lỗi hệ thống không cập nhật được nội dung, bạn hãy kiểm tra lại có thể các dữ liệu quá lớn';
+$lang_module['erroralias'] = 'Liên kết tĩnh này đã được sử dụng, mời nhập giá trị khác';
 $lang_module['saveok'] = 'Cập nhật bài viết thành công';
 $lang_module['alias'] = 'Liên kết tĩnh';
 $lang_module['keywords'] = 'Từ khóa';
@@ -56,9 +57,6 @@ $lang_module['hot_post'] = 'Nổi bật';
 
 $lang_module['layout_func'] = 'Sử dụng layout';
 $lang_module['layout_default'] = 'Mặc định';
-$lang_module['googleplus'] = 'xác thực Google+ (quyền tác giả)';
-$lang_module['googleplus_1'] = 'Không sử dụng';
-$lang_module['googleplus_0'] = 'Theo cấu hình quyền tác giả của module';
 
 $lang_module['config'] = 'Cấu hình';
 $lang_module['config_view_type'] = 'Phương án hiển thị bài viết';

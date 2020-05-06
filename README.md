@@ -5,7 +5,7 @@ NukeViet eGovernment là phiên bản NukeViet dành cho các cơ quan nhà nư�
 ## Licensing
 NukeViet is released under GNU/GPL version 2 or any later version.
 
-See [LICENSE.txt](LICENSE.txt) for the full license.
+See [LICENSE](LICENSE) for the full license.
 
 ## NukeViet official website
   - Home page - link to all resources NukeViet: http://nukeviet.vn (select Vietnamese to have the latest information).
@@ -27,7 +27,7 @@ See [LICENSE.txt](LICENSE.txt) for the full license.
 
 
 
-## Nukeviet Centre for Research and Development
+## NukeViet Centre for Research and Development
 VIETNAM OPEN SOURCE DEVELOPMENT JOINT STOCK COMPANY (VINADES.,JSC)
 
 Website: http://vinades.vn | http://nukeviet.vn | http://nukeviet.com

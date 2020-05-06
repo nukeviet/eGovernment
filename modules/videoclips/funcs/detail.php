@@ -8,13 +8,8 @@
  * @Createdate Thu, 20 Sep 2012 04:05:46 GMT
  */
 
-if (!defined('NV_IS_MOD_VIDEOCLIPS')) die('Stop!!!');
-
-if (isset($array_op[1])) {
-    $_tempUrl = NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=" . $array_op[0];
-    $_tempUrl = nv_url_rewrite($_tempUrl, 1);
-    header('Location: ' . $_tempUrl, true, 301);
-    exit();
+if (!defined('NV_IS_MOD_VIDEOCLIPS')) {
+    die('Stop!!!');
 }
 
 $sql = "SELECT * FROM " . NV_PREFIXLANG . "_" . $module_data . "_clip a,
@@ -24,13 +19,25 @@ AND a.status=1 AND a.id=b.cid LIMIT 1";
 $result = $db->query($sql);
 $num = $result->rowCount();
 if (!$num) {
-    $headerStatus = substr(php_sapi_name(), 0, 3) == 'cgi' ? "Status:" : $_SERVER['SERVER_PROTOCOL'];
-    header($headerStatus . " 404 Not Found");
-    nv_info_die($lang_global['error_404_title'], $lang_global['site_info'], $lang_global['error_404_title']);
+    nv_info_die($lang_global['error_404_title'], $lang_global['site_info'], $lang_global['error_404_title'], 404);
     die();
 }
 
 $clip = $result->fetch();
+
+$base_url_rewrite = nv_url_rewrite(NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name . '&' . NV_OP_VARIABLE . '=video-' . $clip['alias'] . $global_config['rewrite_exturl'], true);
+if ($_SERVER['REQUEST_URI'] == $base_url_rewrite) {
+    $canonicalUrl = NV_MAIN_DOMAIN . $base_url_rewrite;
+} elseif (NV_MAIN_DOMAIN . $_SERVER['REQUEST_URI'] != $base_url_rewrite) {
+    nv_redirect_location($base_url_rewrite);
+} else {
+    $canonicalUrl = $base_url_rewrite;
+}
+$canonicalUrl = str_replace('&', '&amp;', $canonicalUrl);
+
+if (isset($array_op[1])) {
+    nv_redirect_location($base_url_rewrite);
+}
 
 // comment
 if (isset($site_mods['comment']) and isset($module_config[$module_name]['activecomm'])) {
@@ -88,7 +95,7 @@ if ($nv_Request->isset_request('aj', 'post') and in_array(($aj = $nv_Request->ge
 
 $topic = $topicList[$clip['tid']];
 $clip['filepath'] = !empty($clip['internalpath']) ? NV_BASE_SITEURL . $clip['internalpath'] : $clip['externalpath'];
-$clip['url'] = nv_url_rewrite(NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=video-" . $clip['alias'], 1);
+$clip['url'] = nv_url_rewrite(NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=video-" . $clip['alias'] . $global_config['rewrite_exturl'], 1);
 $clip['editUrl'] = nv_url_rewrite(NV_BASE_ADMINURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name . "&op=main&edit&id=" . $clip['id'] . "&redirect=1", 1);
 
 $page_title = $clip['title'] . " - " . $page_title;
@@ -111,18 +118,21 @@ $cpgnum = 0;
 
 $xtpl = new XTemplate("detail.tpl", NV_ROOTDIR . "/themes/" . $module_info['template'] . "/modules/" . $module_info['module_theme']);
 $xtpl->assign('LANG', $lang_module);
-$xtpl->assign('NV_BASE_SITEURL', NV_BASE_SITEURL);
 $xtpl->assign('TEMPLATE', $module_info['template']);
 $xtpl->assign('MODULE_THEME', $module_info['module_theme']);
 $xtpl->assign('MODULE_FILE', $module_file);
 $xtpl->assign('MODULECONFIG', $configMods);
 $xtpl->assign('MODULEURL', nv_url_rewrite(NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=" . $clip['alias'], 1));
 $xtpl->assign('SELFURL', $client_info['selfurl']);
+
 $lang = (NV_LANG_DATA == 'vi') ? 'vi_VN' : 'en_US';
 $xtpl->assign('FACEBOOK_LANG', $lang);
 $meta_property['og:type'] = "website";
 $meta_property['og:url'] = $client_info['selfurl'];
-$meta_property['og:image'] = NV_BASE_SITEURL . "themes/" . $module_info['template'] . "/images/" . $module_info['module_theme'] . "/video.png";
+
+if (!empty($clip['img']) && file_exists(NV_ROOTDIR . '/' . NV_UPLOADS_DIR . '/' . $module_upload . '/' . $clip['img'])) {
+    $meta_property['og:image'] = NV_MY_DOMAIN . NV_BASE_SITEURL . NV_UPLOADS_DIR . '/' . $module_upload . '/' . $clip['img'];
+}
 
 // kiểm tra có phải youtube
 if (preg_match("/^(http(s)?\:)?\/\/([w]{3})?\.youtube[^\/]+\/watch\?v\=([^\&]+)\&?(.*?)$/is", $clip['externalpath'], $m)) {
@@ -155,27 +165,29 @@ $result = $db->query($sql);
 $res = $db->query("SELECT FOUND_ROWS()");
 $all_page = $res->fetchColumn();
 $all_page = intval($all_page);
+$array_other = array();
 if ($all_page) {
-    $i = 1;
     while ($row = $result->fetch()) {
-        if (!empty($row['img'])) {
-            $imageinfo = nv_ImageInfo(NV_ROOTDIR . '/' . $row['img'], 120, true, NV_ROOTDIR . '/' . NV_FILES_DIR . '/' . $module_name);
-            $row['img'] = $imageinfo['src'];
+        if (!empty($row['img'] && file_exists(NV_ROOTDIR . '/' . NV_FILES_DIR . '/' . $module_upload . '/' . $row['img']))) {
+            $row['img'] = NV_BASE_SITEURL . NV_FILES_DIR . '/' . $module_upload . '/' . $row['img'];
+        } elseif (!empty($row['img'] && file_exists(NV_ROOTDIR . '/' . NV_UPLOADS_DIR . '/' . $module_upload . '/' . $row['img']))) {
+            $row['img'] = NV_BASE_SITEURL . NV_UPLOADS_DIR . '/' . $module_upload . '/' . $row['img'];
         } else {
             $row['img'] = NV_BASE_SITEURL . "themes/" . $module_info['template'] . "/images/" . $module_info['module_theme'] . "/video.png";
         }
-        $row['href'] = nv_url_rewrite(NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=video-" . $row['alias'], 1);
+        $row['href'] = nv_url_rewrite(NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=video-" . $row['alias'] . $global_config['rewrite_exturl'], 1);
         $row['sortTitle'] = nv_clean60($row['title'], $module_config[$module_name]['clean_title_video']);
-        $xtpl->assign('OTHERCLIPSCONTENT', $row);
-        if ($i == 4) {
-            $i = 0;
-            $xtpl->parse('main.otherClips.otherClipsContent.clearfix');
-        }
-        $xtpl->parse('main.otherClips.otherClipsContent');
-        ++$i;
+        $array_other[$row['id']] = $row;
     }
 
+    $xtpl->assign('OTHERCLIPSCONTENT', nv_template_viewgrid($array_other));
+
     $xtpl->parse('main.otherClips');
+}
+
+if ($module_config[$module_name]['liketool']) {
+    $xtpl->parse('main.liketool');
+    $xtpl->parse('main.liketool1');
 }
 
 if (!empty($content_comment)) {

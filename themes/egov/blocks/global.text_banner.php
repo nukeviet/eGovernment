@@ -23,18 +23,17 @@ if (!nv_function_exists('nv_block_global_text_banner')) {
     function nv_block_config_text_banner($module, $data_block, $lang_block)
     {
         $html = '';
-        $html .= '<tr>';
-        $html .= '<td>' . $lang_block['site_title'] . '</td>';
-        $html .= '<td><input type="text" name="config_site_title" class="form-control w300" value="' . $data_block['site_title'] . '"/></td>';
-        $html .= '</tr>';
-        $html .= '<tr>';
-        $html .= '<td>' . $lang_block['site_description'] . '</td>';
-        $html .= '<td><input type="text" name="config_site_description" class="form-control w300" value="' . $data_block['site_description'] . '"/></td>';
-        $html .= '</tr>';
-        $html .= '<tr>';
-        $html .= '<td>&nbsp;</td>';
-        $html .= '<td><label><input type="checkbox" name="config_use_sitename" value="1"' . ($data_block['use_sitename'] ? ' checked="checked"' : '') . '/> ' . $lang_block['use_sitename'] . '</label></td>';
-        $html .= '</tr>';
+        $html .= '<div class="form-group">';
+        $html .= '<label class="control-label col-sm-6">' . $lang_block['site_title'] . ':</label>';
+        $html .= '<div class="col-sm-18"><input type="text" name="config_site_title" class="form-control" value="' . $data_block['site_title'] . '"/></div>';
+        $html .= '</div>';
+        $html .= '<div class="form-group">';
+        $html .= '<label class="control-label col-sm-6">' . $lang_block['site_description'] . ':</label>';
+        $html .= '<div class="col-sm-18"><input type="text" name="config_site_description" class="form-control" value="' . $data_block['site_description'] . '"/></div>';
+        $html .= '</div>';
+        $html .= '<div class="form-group">';
+        $html .= '<div class="col-sm-18 col-sm-offset-6"><div class="checkbox"><label><input type="checkbox" name="config_use_sitename" value="1"' . ($data_block['use_sitename'] ? ' checked="checked"' : '') . '/> ' . $lang_block['use_sitename'] . '</label></div></div>';
+        $html .= '</div>';
         return $html;
     }
 

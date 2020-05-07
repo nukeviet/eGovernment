@@ -8,11 +8,11 @@
  * @Createdate 3/9/2010 23:25
  */
 
-if (! defined('NV_MAINFILE')) {
+if (!defined('NV_MAINFILE')) {
     die('Stop!!!');
 }
 
-if (! nv_function_exists('nv_block_news_center')) {
+if (!nv_function_exists('nv_block_news_center')) {
     /**
      * nv_block_config_news_center()
      *
@@ -29,77 +29,78 @@ if (! nv_function_exists('nv_block_news_center')) {
         if ($nv_Request->isset_request('loadajaxdata', 'get')) {
             $module = $nv_Request->get_title('loadajaxdata', 'get', '');
 
-            $html = '<tr>';
-            $html .= '	<td>' . $lang_block['numrow'] . '</td>';
-            $html .= '	<td><input type="text" name="config_numrow" class="form-control w100 pull-left" size="5" value="' . $data_block['numrow'] . '"/>';
+            $html = '<div class="form-group">';
+            $html .= '	<label class="control-label col-sm-6">' . $lang_block['numrow'] . ':</label>';
+            $html .= '	<div class="col-sm-18"><input type="text" name="config_numrow" class="form-control w100 pull-left" value="' . $data_block['numrow'] . '"/>';
             $html .= '	<span class="text-middle pull-left">&nbsp; ' . $lang_block['width'] . '&nbsp; </span>';
             $html .= '	<input type="width" name="config_width" class="form-control w100 pull-left" value="' . $data_block['width'] . '"/>';
             $html .= '	<span class="text-middle pull-left">&nbsp; ' . $lang_block['height'] . '&nbsp; </span>';
             $html .= '	<input type="height" name="config_height" class="form-control w100 pull-left" value="' . $data_block['height'] . '"/>';
-            $html .= '</td>';
-            $html .= '</tr>';
+            $html .= '</div>';
+            $html .= '</div>';
 
-            $html .= '<tr>';
-            $html .= '	<td>' . $lang_block['length_title'] . '</td>';
-            $html .= '	<td>';
-            $html .= '	<input type="text" class="form-control w100 pull-left" name="config_length_title" size="5" value="' . $data_block['length_title'] . '"/>';
-            $html .= '	<span class="text-middle pull-left">&nbsp;' . $lang_block['length_hometext'] . '&nbsp;</span><input type="text" class="form-control w100 pull-left" name="config_length_hometext" size="5" value="' . $data_block['length_hometext'] . '"/>';
-            $html .= '</td>';
-            $html .= '</tr>';
+            $html .= '<div class="form-group">';
+            $html .= '	<label class="control-label col-sm-6">' . $lang_block['length_title'] . ':</label>';
+            $html .= '	<div class="col-sm-18">';
+            $html .= '	<input type="text" class="form-control w100 pull-left" name="config_length_title" value="' . $data_block['length_title'] . '"/>';
+            $html .= '	<span class="text-middle pull-left">&nbsp;' . $lang_block['length_hometext'] . '&nbsp;</span><input type="text" class="form-control w100 pull-left" name="config_length_hometext" value="' . $data_block['length_hometext'] . '"/>';
+            $html .= '</div>';
+            $html .= '</div>';
 
-            $html .= '<tr>';
-            $html .= '	<td>' . $lang_block['length_othertitle'] . '</td>';
-            $html .= '	<td>';
-            $html .= '	<input type="text" class="form-control w100" name="config_length_othertitle" size="5" value="' . $data_block['length_othertitle'] . '"/>';
-            $html .= '</td>';
-            $html .= '</tr>';
+            $html .= '<div class="form-group">';
+            $html .= '	<label class="control-label col-sm-6">' . $lang_block['length_othertitle'] . ':</label>';
+            $html .= '	<div class="col-sm-5">';
+            $html .= '	<input type="text" class="form-control" name="config_length_othertitle" value="' . $data_block['length_othertitle'] . '"/>';
+            $html .= '</div>';
+            $html .= '</div>';
 
-            $html .= '<tr>';
-            $html .= '<td>' . $lang_block['showtooltip'] . '</td>';
-            $html .= '<td>';
+            $html .= '<div class="form-group">';
+            $html .= '<label class="control-label col-sm-6">' . $lang_block['showtooltip'] . ':</label>';
+            $html .= '<div class="col-sm-18">';
             $html .= '<div class="text-middle pull-left" ><input type="checkbox" value="1" name="config_showtooltip" ' . ($data_block['showtooltip'] == 1 ? 'checked="checked"' : '') . ' /></div>';
             $tooltip_position = array(
                 'top' => $lang_block['tooltip_position_top'],
                 'bottom' => $lang_block['tooltip_position_bottom'],
                 'left' => $lang_block['tooltip_position_left'],
-                'right' => $lang_block['tooltip_position_right'] );
+                'right' => $lang_block['tooltip_position_right']
+            );
             $html .= '<span class="text-middle pull-left">' . $lang_block['tooltip_position'] . '&nbsp;</span><select name="config_tooltip_position" class="form-control w100 pull-left">';
             foreach ($tooltip_position as $key => $value) {
                 $html .= '<option value="' . $key . '" ' . ($data_block['tooltip_position'] == $key ? 'selected="selected"' : '') . '>' . $value . '</option>';
             }
             $html .= '</select>';
-            $html .= '	<span class="text-middle pull-left">&nbsp;' . $lang_block['tooltip_length'] . '&nbsp;</span><input type="text" class="form-control w100 pull-left" name="config_tooltip_length" size="5" value="' . $data_block['tooltip_length'] . '"/>';
-            $html .= '</td>';
-            $html .= '</tr>';
+            $html .= '	<span class="text-middle pull-left">&nbsp;' . $lang_block['tooltip_length'] . '&nbsp;</span><input type="text" class="form-control w100 pull-left" name="config_tooltip_length" value="' . $data_block['tooltip_length'] . '"/>';
+            $html .= '</div>';
+            $html .= '</div>';
 
-            $html .= '<tr>';
-            $html .= '<td>' . $lang_block['nocatid'] . '</td>';
+            $html .= '<div class="form-group">';
+            $html .= '<label class="control-label col-sm-6">' . $lang_block['nocatid'] . ':</label>';
             $sql = 'SELECT * FROM ' . NV_PREFIXLANG . '_' . $site_mods[$module]['module_data'] . '_cat WHERE status=1 OR status=2 ORDER BY sort ASC';
             $list = $nv_Cache->db($sql, '', $module);
-            $html .= '<td>';
+            $html .= '<div class="col-sm-18">';
             $html .= '<div style="height: 160px; overflow: auto">';
             foreach ($list as $l) {
                 $xtitle_i = '';
                 if ($l['lev'] > 0) {
-                    for ($i = 1; $i <= $l['lev']; ++$i) {
+                    for ($i = 1; $i <= $l['lev']; ++ $i) {
                         $xtitle_i .= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
                     }
                 }
-    			$data_block['nocatid'] = !empty( $data_block['nocatid'] ) ? $data_block['nocatid'] : array();
+                $data_block['nocatid'] = !empty($data_block['nocatid']) ? $data_block['nocatid'] : array();
                 $html .= $xtitle_i . '<label><input type="checkbox" name="config_nocatid[]" value="' . $l['catid'] . '" ' . ((in_array($l['catid'], $data_block['nocatid'])) ? ' checked="checked"' : '') . '</input>' . $l['title'] . '</label><br />';
             }
             $html .= '</div>';
-            $html .= '</td>';
-            $html .= '</tr>';
+            $html .= '</div>';
+            $html .= '</div>';
 
             nv_htmlOutput($html);
         }
 
         $html = '';
-        $html .= '<tr>';
-        $html .= '<td>' . $lang_block['selectmod'] . '</td>';
-        $html .= '<td>';
-        $html .= '<select name="config_selectmod" class="form-control w300">';
+        $html .= '<div class="form-group">';
+        $html .= '<label class="control-label col-sm-6">' . $lang_block['selectmod'] . ':</label>';
+        $html .= '<div class="col-sm-9">';
+        $html .= '<select name="config_selectmod" class="form-control">';
         $html .= '<option value="">--</option>';
 
         foreach ($site_mods as $title => $mod) {
@@ -125,8 +126,8 @@ if (! nv_function_exists('nv_block_news_center')) {
             }
             if (mod != "") {
                 $.get(script_name + "?" + nv_name_variable + "=" + nv_module_name + \'&\' + nv_lang_variable + "=" + nv_lang_data + "&" + nv_fc_variable + "=block_config&bid=" + bid + "&module=" + module_type + "&selectthemes=" + selectthemes + "&file_name=" + blok_file_name + "&loadajaxdata=" + mod + "&nocache=" + new Date().getTime(), function(theResponse) {
-        			$("#block_config").append(theResponse);
-        		});
+                    $("#block_config").append(theResponse);
+                });
             }
         });
         $(function() {
@@ -135,8 +136,8 @@ if (! nv_function_exists('nv_block_news_center')) {
         </script>
         ';
 
-        $html .= '</td>';
-        $html .= '</tr>';
+        $html .= '</div>';
+        $html .= '</div>';
 
         return $html;
     }
@@ -161,7 +162,7 @@ if (! nv_function_exists('nv_block_news_center')) {
         $return['config']['tooltip_length'] = $nv_Request->get_title('config_tooltip_length', 'post', 0);
         $return['config']['length_title'] = $nv_Request->get_int('config_length_title', 'post', 0);
         $return['config']['length_hometext'] = $nv_Request->get_int('config_length_hometext', 'post', 0);
-		$return['config']['length_othertitle'] = $nv_Request->get_int('config_length_othertitle', 'post', 0);
+        $return['config']['length_othertitle'] = $nv_Request->get_int('config_length_othertitle', 'post', 0);
         $return['config']['width'] = $nv_Request->get_int('config_width', 'post', '');
         $return['config']['height'] = $nv_Request->get_int('config_height', 'post', '');
         $return['config']['nocatid'] = $nv_Request->get_typed_array('config_nocatid', 'post', 'int', array());
@@ -204,11 +205,13 @@ if (! nv_function_exists('nv_block_news_center')) {
 
             $db->sqlreset()
                 ->select('id, catid, publtime, title, alias, hometext, homeimgthumb, homeimgfile, external_link')
-                ->from(NV_PREFIXLANG . '_' . $module_data . '_rows')->order('publtime DESC')->limit($block_config['numrow']);
+                ->from(NV_PREFIXLANG . '_' . $module_data . '_rows')
+                ->order('publtime DESC')
+                ->limit($block_config['numrow']);
             if (empty($block_config['nocatid'])) {
                 $db->where('status= 1');
             } else {
-                $db->where('status= 1 AND catid NOT IN ('.implode(',', $block_config['nocatid']) . ')');
+                $db->where('status= 1 AND catid NOT IN (' . implode(',', $block_config['nocatid']) . ')');
             }
 
             $list = $nv_Cache->db($db->sql(), 'id', $module);
@@ -264,7 +267,7 @@ if (! nv_function_exists('nv_block_news_center')) {
                         } elseif (nv_is_url($row['homeimgfile'])) {
                             $row['imgsource'] = $row['homeimgfile'];
                             $row['width'] = $width;
-                        } elseif (! empty($module_config[$module]['show_no_image'])) {
+                        } elseif (!empty($module_config[$module]['show_no_image'])) {
                             $row['imgsource'] = NV_BASE_SITEURL . $module_config[$module]['show_no_image'];
                             $row['width'] = $width;
                         } else {
@@ -284,7 +287,7 @@ if (! nv_function_exists('nv_block_news_center')) {
                             $row['imgsource'] = NV_BASE_SITEURL . NV_UPLOADS_DIR . '/' . $module_upload . '/' . $row['homeimgfile'];
                         } elseif ($row['homeimgthumb'] == 3) {
                             $row['imgsource'] = $row['homeimgfile'];
-                        } elseif (! empty($module_config[$module]['show_no_image'])) {
+                        } elseif (!empty($module_config[$module]['show_no_image'])) {
                             $row['imgsource'] = NV_BASE_SITEURL . $module_config[$module]['show_no_image'];
                         } else {
                             $row['imgsource'] = NV_BASE_SITEURL . 'themes/' . $global_config['site_theme'] . '/images/no_image.gif';
@@ -294,7 +297,7 @@ if (! nv_function_exists('nv_block_news_center')) {
                             $row['hometext_clean'] = strip_tags($row['hometext']);
                             $row['hometext_clean'] = nv_clean60($row['hometext_clean'], $block_config['tooltip_length'], true);
                         }
-    					$row['titleclean60'] = nv_clean60($row['title'], $block_config['length_othertitle']);
+                        $row['titleclean60'] = nv_clean60($row['title'], $block_config['length_othertitle']);
                         $xtpl->assign('othernews', $row);
 
                         if ($block_config['showtooltip']) {

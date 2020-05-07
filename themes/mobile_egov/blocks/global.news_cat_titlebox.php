@@ -8,11 +8,17 @@
  * @Createdate Sat, 10 Dec 2011 06:46:54 GMT
  */
 
-if (! defined('NV_MAINFILE')) {
+if (!defined('NV_MAINFILE')) {
     die('Stop!!!');
 }
 
-if (! nv_function_exists('nv_block_news_cat_titlebox')) {
+if (!nv_function_exists('nv_block_news_cat_titlebox')) {
+    /**
+     * @param string $module
+     * @param array $data_block
+     * @param array $lang_block
+     * @return string
+     */
     function nv_block_config_news_cat_titlebox($module, $data_block, $lang_block)
     {
         global $nv_Cache, $site_mods, $nv_Request;
@@ -21,64 +27,70 @@ if (! nv_function_exists('nv_block_news_cat_titlebox')) {
         if ($nv_Request->isset_request('loadajaxdata', 'get')) {
             $module = $nv_Request->get_title('loadajaxdata', 'get', '');
 
-            $html = '<tr>';
-            $html .= '<td>' . $lang_block['catid'] . '</td>';
+            $html = '<div class="form-group">';
+            $html .= '<label class="control-label col-sm-6">' . $lang_block['catid'] . ':</label>';
             $sql = 'SELECT * FROM ' . NV_PREFIXLANG . '_' . $site_mods[$module]['module_data'] . '_cat WHERE status=1 OR status=2 ORDER BY sort ASC';
             $list = $nv_Cache->db($sql, '', $module);
-            $html .= '<td>';
+            $html .= '<div class="col-sm-18"><div class="checkbox">';
             foreach ($list as $l) {
                 $xtitle_i = '';
 
                 if ($l['lev'] > 0) {
-                    for ($i = 1; $i <= $l['lev']; ++$i) {
+                    for ($i = 1; $i <= $l['lev']; ++ $i) {
                         $xtitle_i .= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
                     }
                 }
-                $html .= $xtitle_i . '<label><input type="checkbox" name="config_catid[]" value="' . $l['catid'] . '" ' . ((in_array($l['catid'], $data_block['catid'])) ? ' checked="checked"' : '') . '</input>' . $l['title'] . '</label><br />';
+                $html .= $xtitle_i . '<div><label><input type="checkbox" name="config_catid[]" value="' . $l['catid'] . '" ' . ((in_array($l['catid'], $data_block['catid'])) ? ' checked="checked"' : '') . '>' . $l['title'] . '</label></div>';
             }
-            $html .= '</td>';
-            $html .= '</tr>';
-            $html .= '<tr>';
-            $html .= '<td>' . $lang_block['title_length'] . '</td>';
-            $html .= '<td><input type="text" class="form-control w200" name="config_title_length" size="5" value="' . $data_block['title_length'] . '"/></td>';
-            $html .= '</tr>';
-            $html .= '<tr>';
-            $html .= '<td>' . $lang_block['numrow'] . '</td>';
-            $html .= '<td><input type="text" class="form-control w200" name="config_numrow" size="5" value="' . $data_block['numrow'] . '"/></td>';
-            $html .= '</tr>';
-            $html .= '<tr>';
-            $html .= '<td>' . $lang_block['showtooltip'] . '</td>';
-            $html .= '<td>';
-            $html .= '<input type="checkbox" value="1" name="config_showtooltip" ' . ($data_block['showtooltip'] == 1 ? 'checked="checked"' : '') . ' /><br /><br />';
-            $tooltip_position = array( 'top' => $lang_block['tooltip_position_top'], 'bottom' => $lang_block['tooltip_position_bottom'], 'left' => $lang_block['tooltip_position_left'], 'right' => $lang_block['tooltip_position_right'] );
+            $html .= '</div>';
+            $html .= '</div>';
+            $html .= '</div>';
+            $html .= '<div class="form-group">';
+            $html .= '<label class="control-label col-sm-6">' . $lang_block['title_length'] . ':</label>';
+            $html .= '<div class="col-sm-5"><input type="text" class="form-control" name="config_title_length" value="' . $data_block['title_length'] . '"/></div>';
+            $html .= '</div>';
+            $html .= '<div class="form-group">';
+            $html .= '<label class="control-label col-sm-6">' . $lang_block['numrow'] . ':</label>';
+            $html .= '<div class="col-sm-5"><input type="text" class="form-control" name="config_numrow" value="' . $data_block['numrow'] . '"/></div>';
+            $html .= '</div>';
+            $html .= '<div class="form-group">';
+            $html .= '<label class="control-label col-sm-6">' . $lang_block['showtooltip'] . ':</label>';
+            $html .= '<div class="col-sm-18"><div class="checkbox"><label>';
+            $html .= '<input type="checkbox" value="1" name="config_showtooltip" ' . ($data_block['showtooltip'] == 1 ? 'checked="checked"' : '') . ' /></label></div>';
+            $tooltip_position = array(
+                'top' => $lang_block['tooltip_position_top'],
+                'bottom' => $lang_block['tooltip_position_bottom'],
+                'left' => $lang_block['tooltip_position_left'],
+                'right' => $lang_block['tooltip_position_right']
+            );
             $html .= '<span class="text-middle pull-left">' . $lang_block['tooltip_position'] . '&nbsp;</span><select name="config_tooltip_position" class="form-control w100 pull-left">';
             foreach ($tooltip_position as $key => $value) {
                 $html .= '<option value="' . $key . '" ' . ($data_block['tooltip_position'] == $key ? 'selected="selected"' : '') . '>' . $value . '</option>';
             }
             $html .= '</select>';
             $html .= '&nbsp;<span class="text-middle pull-left">' . $lang_block['tooltip_length'] . '&nbsp;</span><input type="text" class="form-control w100 pull-left" name="config_tooltip_length" size="5" value="' . $data_block['tooltip_length'] . '"/>';
-            $html .= '</td>';
-            $html .= '</tr>';
+            $html .= '</div>';
+            $html .= '</div>';
 
-            $html .= '<tr>';
-            $html .= '<td>' . $lang_block['show_type'] . '</td>';
-            $html .= '<td><select name="config_show_type" class="form-control w200">';
+            $html .= '<div class="form-group">';
+            $html .= '<label class="control-label col-sm-6">' . $lang_block['show_type'] . ':</label>';
+            $html .= '<div class="col-sm-9"><select name="config_show_type" class="form-control">';
 
-            for ($i = 0; $i <= 1; $i++) {
+            for ($i = 0; $i <= 1; $i ++) {
                 $html .= '<option value="' . $i . '"' . ($i == $data_block['show_type'] ? ' selected="selected"' : '') . '>' . $lang_block['show_type' . $i] . '</option>';
             }
 
-            $html .= '</select></td>';
-            $html .= '</tr>';
+            $html .= '</select></div>';
+            $html .= '</div>';
 
             nv_htmlOutput($html);
         }
 
         $html = '';
-        $html .= '<tr>';
-        $html .= '<td>' . $lang_block['selectmod'] . '</td>';
-        $html .= '<td>';
-        $html .= '<select name="config_selectmod" class="form-control w300">';
+        $html .= '<div class="form-group">';
+        $html .= '<label class="control-label col-sm-6">' . $lang_block['selectmod'] . ':</label>';
+        $html .= '<div class="col-sm-9">';
+        $html .= '<select name="config_selectmod" class="form-control">';
         $html .= '<option value="">--</option>';
 
         foreach ($site_mods as $title => $mod) {
@@ -104,8 +116,8 @@ if (! nv_function_exists('nv_block_news_cat_titlebox')) {
             }
             if (mod != "") {
                 $.get(script_name + "?" + nv_name_variable + "=" + nv_module_name + \'&\' + nv_lang_variable + "=" + nv_lang_data + "&" + nv_fc_variable + "=block_config&bid=" + bid + "&module=" + module_type + "&selectthemes=" + selectthemes + "&file_name=" + blok_file_name + "&loadajaxdata=" + mod + "&nocache=" + new Date().getTime(), function(theResponse) {
-        			$("#block_config").append(theResponse);
-        		});
+                    $("#block_config").append(theResponse);
+                });
             }
         });
         $(function() {
@@ -114,8 +126,8 @@ if (! nv_function_exists('nv_block_news_cat_titlebox')) {
         </script>
         ';
 
-        $html .= '</td>';
-        $html .= '</tr>';
+        $html .= '</div>';
+        $html .= '</div>';
 
         return $html;
     }
@@ -207,7 +219,7 @@ if (! nv_function_exists('nv_block_news_cat_titlebox')) {
                                 $l['thumb'] = NV_BASE_SITEURL . NV_UPLOADS_DIR . '/' . $site_mods[$module]['module_upload'] . '/' . $l['homeimgfile'];
                             } elseif ($l['homeimgthumb'] == 3) {
                                 $l['thumb'] = $l['homeimgfile'];
-                            } elseif (! empty($show_no_image)) {
+                            } elseif (!empty($show_no_image)) {
                                 $l['thumb'] = NV_BASE_SITEURL . $show_no_image;
                             } else {
                                 $l['thumb'] = '';
@@ -218,7 +230,7 @@ if (! nv_function_exists('nv_block_news_cat_titlebox')) {
                             $l['hometext_clean'] = strip_tags($l['hometext']);
                             $l['hometext_clean'] = nv_clean60($l['hometext_clean'], $block_config['tooltip_length'], true);
 
-                            if (! $block_config['showtooltip']) {
+                            if (!$block_config['showtooltip']) {
                                 $xtpl->assign('TITLE', 'title="' . $l['title'] . '"');
                             }
 
@@ -229,7 +241,7 @@ if (! nv_function_exists('nv_block_news_cat_titlebox')) {
                             }
 
                             $xtpl->assign('ROW', $l);
-                            if (! empty($l['thumb'])) {
+                            if (!empty($l['thumb'])) {
                                 $xtpl->parse('main.loopcat' . $block_config['show_type'] . '.loop.img');
                             }
                             $xtpl->parse('main.loopcat' . $block_config['show_type'] . '.loop');

@@ -8,7 +8,7 @@
 
 /* NUKEVIET ICONS */
 .bg-shadow-body {
-	border-color:#dcdcdc;
+    border-color:#dcdcdc;
     border-style:solid;
     border-width:0 1px 0 1px;
     box-shadow:0 0 4px rgba(0,0,0,0.15);
@@ -87,10 +87,10 @@
 }
 
 .icon-icq:before {
-	content: "\e605";
+    content: "\e605";
 }
 .icon-viber:before {
-	content: "\e60a";
+    content: "\e60a";
 }
 
 .icon_new {
@@ -701,10 +701,10 @@ h6 {
 
 .bodytext {
     word-break:keep-all;
-	max-width: 100%;
-	overflow-x: hidden;
-	overflow-y: visible;
-	line-height: 1.7em;
+    max-width: 100%;
+    overflow-x: hidden;
+    overflow-y: visible;
+    line-height: 1.7em;
 }
 
 .bodytext p{
@@ -712,22 +712,22 @@ h6 {
 }
 
 .bodytext ol{
-	list-style-type: decimal!important;
+    list-style-type: decimal!important;
 }
 
 .bodytext ul{
-	list-style-type: disc!important;
-	padding-left: 40px!important;
-	margin-bottom: 10px!important;
+    list-style-type: disc!important;
+    padding-left: 40px!important;
+    margin-bottom: 10px!important;
 }
 
 .bodytext li{
-	margin-bottom: 0!important;
+    margin-bottom: 0!important;
 }
 
 .bodytext div.alert{
-	margin-bottom: 7px;
-	margin-top: 4px;
+    margin-bottom: 7px;
+    margin-top: 4px;
 }
 
 iframe {
@@ -825,12 +825,12 @@ a.btn {
 
 /* breadcrumb */
 .breadcrumbs-wrap{
-	position: relative;
+    position: relative;
 }
 
 .breadcrumbs-wrap .display{
-	height: 35px;
-	overflow: hidden;
+    height: 35px;
+    overflow: hidden;
 }
 
 .breadcrumbs {
@@ -924,7 +924,7 @@ a.btn {
 }
 
 .subs-breadcrumbs.open{
-	display: block;
+    display: block;
 }
 
 .subs-breadcrumbs li:last-child,
@@ -957,16 +957,16 @@ a.btn {
 }
 
 .subs-breadcrumbs a em{
-	display: inline-block;
-	margin-right: 5px;
-	color: #707070;
+    display: inline-block;
+    margin-right: 5px;
+    color: #707070;
 }
 
 .show-subs-breadcrumbs{
-	padding-right: 5px;
-	margin-right: 7px;
-	width: 30px;
-	text-align: center;
+    padding-right: 5px;
+    margin-right: 7px;
+    width: 30px;
+    text-align: center;
 }
 
 .fix_banner_left {
@@ -1337,7 +1337,7 @@ a.btn {
     float:right;
 }
 .float-right {
-	float: right;
+    float: right;
 }
 .contactDefault {
     position: absolute;
@@ -1474,7 +1474,7 @@ a.btn {
 } */
 
 .bg-body-new {
-	 background-color:#fff
+     background-color:#fff
 }
 
 /* Footer-NAV2 */
@@ -1558,7 +1558,7 @@ a.btn {
 /* Footer */
 
 #footer {
-	background: #d5d5d5 url("../images/bg-footer.png") center top no-repeat;
+    background: #d5d5d5 url("../images/bg-footer.png") center top no-repeat;
     position:relative;
     width:100%;
     font-size:13px
@@ -1722,7 +1722,7 @@ a.btn {
 
 .nv-social-share li.facebook {
     position:relative;
-	top:-4px;
+    top:-4px;
     padding-right:40px;
 }
 
@@ -1987,7 +1987,6 @@ input[type=radio]:checked:before {
 }
 
 .fb-like {
-    height:30px;
     margin-right:50px;
 }
 
@@ -2260,7 +2259,7 @@ button.close {
 .select2-container--default .select2-selection--single,
 .select2-container--bootstrap .select2-selection--single
 {
-	height: 32px !important;
+    height: 32px !important;
     padding-top: 2px;
 }
 .voting-col-2 {
@@ -2274,54 +2273,54 @@ button.close {
      text-align: justify;
 }
 .sum-voting {
-	margin-top:5px;
+    margin-top:5px;
 }
 .ui-sortable {
-	padding-right: 20px
+    padding-right: 20px
 }
 
 .bg-hot-news-title {
-	background: #f7a41e;
-	padding: 10px;
-	margin-bottom: 10px;
+    background: #f7a41e;
+    padding: 10px;
+    margin-bottom: 10px;
 }
 
 .bg-hot-news-title h3 {
-	background: url("../images/sao-tnb.png") center left no-repeat;
-	padding-left: 30px;
-	color: #fff;
-	font-size: 16px;
+    background: url("../images/sao-tnb.png") center left no-repeat;
+    padding-left: 30px;
+    color: #fff;
+    font-size: 16px;
 }
 
 /* Chỉnh sửa layout map */
 .fix-title-map {
-	margin: 10px 0px;
+    margin: 10px 0px;
 }
 
 .fix-title-map h2 {
-	padding-left: 25px;
-	background: url("../images/bg-tittle-map.png") center left no-repeat;
-	font-size: 16px;
-	color: #666;
-	vertical-align: middle;
+    padding-left: 25px;
+    background: url("../images/bg-tittle-map.png") center left no-repeat;
+    font-size: 16px;
+    color: #666;
+    vertical-align: middle;
 }
 
 .fix-img-thumb-map img {
-	padding: 10px 0px;
+    padding: 10px 0px;
 }
 
 .fix-more-padding {
-	padding: 20px;
+    padding: 20px;
 }
 
 .fix-pad-panel-body {
-	padding: 0px;
+    padding: 0px;
 }
 
 .fix-pad-panel-default {
-	border: 0px;
-	box-shadow: none;
-	margin-top: 20px;
+    border: 0px;
+    box-shadow: none;
+    margin-top: 20px;
 }
 
 .shadow-bg-1 {
@@ -2330,7 +2329,7 @@ button.close {
 }
 
 .shadow-bg-2 {
-	border-radius: 10px 10px 0px 0px;
+    border-radius: 10px 10px 0px 0px;
 }
 
 .shadow-bg {
@@ -2339,83 +2338,83 @@ button.close {
 }
 
 .more-news a {
-	color: #f7a41e;
-	font-size: 11px;
+    color: #f7a41e;
+    font-size: 11px;
 }
 
 .border-bottom-news {
-	border-bottom: #999 1px solid;
+    border-bottom: #999 1px solid;
 }
 
 .padding-news-tintuc-thongtinkt {
-	padding: 20px 0px;
-	border-bottom: #999 1px solid;
+    padding: 20px 0px;
+    border-bottom: #999 1px solid;
 }
 
 .fix-block-groups {
-	padding: 0px;
-	border: #ccc 1px solid;
-	border-radius: 3px;
+    padding: 0px;
+    border: #ccc 1px solid;
+    border-radius: 3px;
 }
 
 .fix-text-block-groups {
-	padding: 20px;
+    padding: 20px;
 }
 
 .padding-lanhdao-chidao {
-	padding: 10px 0px;
+    padding: 10px 0px;
 }
 
 .fix-lanhdao-chidao .panel-heading {
-	background-color: #f7a41e !important;
-	border-radius: 3px 3px 0px 0px;
+    background-color: #f7a41e !important;
+    border-radius: 3px 3px 0px 0px;
 }
 
 .fix-lanhdao-chidao .panel-heading a {
-	color: #fff;
+    color: #fff;
 }
 
 .color-text-footer {
-	color: #464d66;
+    color: #464d66;
 }
 
 .color-text-footer a, .color-text-footer p, .color-text-footer strong, .color-text-footer h3  {
-	color: #464d66;
+    color: #464d66;
 }
 
 .fix-superfish-menu a {
-	color: #464d66 !important;
+    color: #464d66 !important;
 }
 
 .fix-title-superfish-menu {
-	line-height: 42px;
-	font-size: 20px;
+    line-height: 42px;
+    font-size: 20px;
 }
 
 .fix-superfish-menu ul {
-	padding: 0px;
+    padding: 0px;
 }
 
 .fix-superfish-menu ul li a {
-	color: #464d66  !important;
+    color: #464d66  !important;
 }
 
 .fix-sub-superfish-menu {
-	margin-top: 35px;
+    margin-top: 35px;
 }
 
 .fix-sub-superfish-menu li {
-	line-height: 26px;
+    line-height: 26px;
 }
 
 .fix-sub-superfish-menu li a strong {
-	font-weight: normal;
+    font-weight: normal;
 }
 
 .margin-footer-site {
-	margin-top: 50px;
-	margin-bottom: 10px;
-	vertical-align: bottom;
+    margin-top: 50px;
+    margin-bottom: 10px;
+    vertical-align: bottom;
 }
 .height-tabs{
     height: 145px;

@@ -26,7 +26,8 @@
 }
 
 div.news_column .socialicon {
-    margin: -8px 0;
+    margin: 0;
+    margin-bottom: -4px;
 }
 
 div.news_column .imghome {
@@ -271,7 +272,7 @@ ul.other-news {
 }
 
 ul.related h4 {
-    display: inline-block;
+    display: inline;
 }
 
 .color-view a {
@@ -287,7 +288,7 @@ ul.related h4 {
     border: #ccc 1px solid;
     border-top: 0px;
     border-radius: 0px 0px 5px 5px;
-    box-shadow: 1px 2px 2px rgba(0,0,0,0.08);
+    box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.08);
 }
 
 .news-catbox-single {

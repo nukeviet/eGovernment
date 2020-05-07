@@ -395,11 +395,11 @@ ul.menutop, ul.menutop a, .socialList li a, .user-fix>span>.user, .user-fix>span
     background-image: url(../images/menu-right.png);
 }
 
-#menu-site-default ul.allowrwap .dropdown-menu > li > a {
+#menu-site-default ul.allowrwap .dropdown-menu>li>a {
     white-space: normal;
 }
 
-#menu-site-default ul.ellipsissub .dropdown-menu > li > a{
+#menu-site-default ul.ellipsissub .dropdown-menu>li>a {
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;

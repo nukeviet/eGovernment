@@ -19,6 +19,7 @@
 /uploads/logo_*
 /assets/logo_*
 /install/default.php
+/wiki/
 
 composer.lock
 #vendor test ignore 

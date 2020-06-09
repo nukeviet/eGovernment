@@ -1,6 +1,10 @@
 CHANGE LOG: NukeViet eGovernment
 http://egov.nukeviet.vn
 
+NukeViet eGovernment 1.2.01
+- Cập nhật NukeViet CMS 4.4.01
+- Sửa lỗi thanh tìm kiếm trên giao diện mobile không hoạt động (#104)
+
 NukeViet eGovernment 1.2.00
 - Cập nhật NukeViet CMS 4.4.00
 - Cập nhật module videoclips 4.3.03

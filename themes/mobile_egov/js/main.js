@@ -415,7 +415,7 @@ function headerSearchSubmit(a) {
         return !1;
     }
     $(a).attr("data-click", "n");
-    var b = $(".headerSearch input"),
+    var b = $(".headerSearchs input"),
         c = b.attr("maxlength"),
         d = strip_tags(b.val()),
         e = $(a).attr("data-minlength");

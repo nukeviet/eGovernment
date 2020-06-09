@@ -257,6 +257,7 @@ $lang_module['upass_type_0'] = 'Illimité';
 $lang_module['access_other'] = 'Autre configuration';
 $lang_module['access_caption'] = 'Configuration d\'utilisation du module';
 $lang_module['access_admin'] = 'Groupe d\'administration';
+$lang_module['access_viewlist'] = 'Afficher la liste des membres';
 $lang_module['access_addus'] = 'Créez les utilisateurs';
 $lang_module['access_waiting'] = 'Activer l\'utilisateur';
 $lang_module['access_editus'] = 'Modifier l\'utilisateur';
@@ -266,6 +267,8 @@ $lang_module['access_groups'] = 'Gérer le groupe';
 $lang_module['access_caption_leader'] = 'Puissances du module de configuration de l\'utilisateur du leader';
 $lang_module['access_groups_add'] = 'Ajouter des membres au groupe';
 $lang_module['access_groups_del'] = 'Retirer membre du groupe';
+$lang_module['viewlist_error_permission'] = 'Vous n\'êtes pas autorisé à afficher la liste des comptes';
+
 $lang_module['fields'] = 'Modification des données';
 $lang_module['captionform_add'] = 'Ajouter les lexiques de données';
 $lang_module['captionform_edit'] = 'Modifier la lexique de données';
@@ -491,6 +494,7 @@ $lang_module['active_obj_4'] = ' <strong title="%s">%s</strong> activé';
 $lang_module['account_active'] = 'Infos pour l\'activation du compte';
 $lang_module['account_active_info'] = 'Hi %1$s,<br /><br />Your account at website %2$s waitting to activate. To activate, please click link follow:<br /><br />URL: <a href="%3$s">%3$s</a><br /><br />Account information:<br /><br />Account: %4$s<br />Email: %5$s<br />Password: %6$s<br /><br />Activate expired on %7$s<br /><br />This is email automatic sending from website %2$s.<br /><br />Site administrator';
 
+$lang_module['userwait_note'] = 'Les utilisateurs en attente d\'activation seront automatiquement supprimés dans les% s heures suivant l\'inscription s\'ils ne sont pas activés';
 $lang_module['userwait_resend_email'] = 'Renvoyer le courrier activé';
 $lang_module['userwait_resend_per_email'] = 'Nombre d\'emails envoyés une fois';
 $lang_module['userwait_resend_pause_time'] = 'Arrêtez-vous entre deux soumissions';

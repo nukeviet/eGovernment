@@ -35,14 +35,17 @@ $groups_list = nv_groups_list();
 $array_config = [];
 
 $oauth_config = $nv_Request->get_title('oauth_config', 'post,get');
+$checkss = md5(NV_CHECK_SESSION . '_' . $module_name . '_' . $op . '_' . $oauth_config);
 if (preg_match('/^([a-z0-9\-\_]+)$/', $oauth_config, $m) and file_exists(NV_ROOTDIR . '/modules/users/admin/config_' . $oauth_config . '.php')) {
     $page_title = sprintf($lang_module['oauth_config'], $oauth_config);
 
     require NV_ROOTDIR . '/modules/users/admin/config_' . $oauth_config . '.php';
 } else {
     if ($nv_Request->isset_request('submit', 'post')) {
+        if ($checkss != $nv_Request->get_string('checkss', 'post')) {
+            nv_redirect_location(NV_BASE_ADMINURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name . '&' . NV_OP_VARIABLE . '=' . $op . '&rand=' . nv_genpass());
+        }
         $array_config['is_user_forum'] = $nv_Request->get_int('is_user_forum', 'post', 0);
-
         $array_config['dir_forum'] = $nv_Request->get_string('dir_forum', 'post', 0);
         if (!$array_config['is_user_forum'] or !is_dir(NV_ROOTDIR . '/' . $array_config['dir_forum'] . '/nukeviet')) {
             $array_config['dir_forum'] = '';
@@ -168,6 +171,7 @@ if (preg_match('/^([a-z0-9\-\_]+)$/', $oauth_config, $m) and file_exists(NV_ROOT
             $stmt->execute();
 
             $access_admin = [];
+            $access_admin['access_viewlist'] = $nv_Request->get_typed_array('access_viewlist', 'post', 'bool');
             $access_admin['access_addus'] = $nv_Request->get_typed_array('access_addus', 'post', 'bool');
             $access_admin['access_waiting'] = $nv_Request->get_typed_array('access_waiting', 'post', 'bool');
             $access_admin['access_editcensor'] = $nv_Request->get_typed_array('access_editcensor', 'post', 'bool');
@@ -234,6 +238,7 @@ if (preg_match('/^([a-z0-9\-\_]+)$/', $oauth_config, $m) and file_exists(NV_ROOT
         'index.html',
         '.htaccess'
     );
+    $array_config['checkss'] = $checkss;
 
     $xtpl = new XTemplate('config.tpl', NV_ROOTDIR . '/themes/' . $global_config['module_theme'] . '/modules/' . $module_file);
     $xtpl->assign('FORM_ACTION', NV_BASE_ADMINURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&amp;' . NV_NAME_VARIABLE . '=' . $module_name . '&amp;' . NV_OP_VARIABLE . '=' . $op);
@@ -429,13 +434,14 @@ if (preg_match('/^([a-z0-9\-\_]+)$/', $oauth_config, $m) and file_exists(NV_ROOT
         $xtpl->parse('main.active_user_logs');
         foreach ($array_access as $access) {
             $level = $access['id'];
-            $access['checked_addus'] = (isset($access_admin['access_addus'][$level]) and $access_admin['access_addus'][$level] == 1) ? ' checked="checked" ' : '';
-            $access['checked_waiting'] = (isset($access_admin['access_waiting'][$level]) and $access_admin['access_waiting'][$level] == 1) ? ' checked="checked" ' : '';
-            $access['checked_editcensor'] = (isset($access_admin['access_editcensor'][$level]) and $access_admin['access_editcensor'][$level] == 1) ? ' checked="checked" ' : '';
-            $access['checked_editus'] = (isset($access_admin['access_editus'][$level]) and $access_admin['access_editus'][$level] == 1) ? ' checked="checked" ' : '';
-            $access['checked_delus'] = (isset($access_admin['access_delus'][$level]) and $access_admin['access_delus'][$level] == 1) ? ' checked="checked" ' : '';
-            $access['checked_passus'] = (isset($access_admin['access_passus'][$level]) and $access_admin['access_passus'][$level] == 1) ? ' checked="checked" ' : '';
-            $access['checked_groups'] = (isset($access_admin['access_groups'][$level]) and $access_admin['access_groups'][$level] == 1) ? ' checked="checked" ' : '';
+            $access['checked_viewlist'] = !empty($access_admin['access_viewlist'][$level]) ? ' checked="checked" ' : '';
+            $access['checked_addus'] = !empty($access_admin['access_addus'][$level]) ? ' checked="checked" ' : '';
+            $access['checked_waiting'] = !empty($access_admin['access_waiting'][$level]) ? ' checked="checked" ' : '';
+            $access['checked_editcensor'] = !empty($access_admin['access_editcensor'][$level]) ? ' checked="checked" ' : '';
+            $access['checked_editus'] = !empty($access_admin['access_editus'][$level]) ? ' checked="checked" ' : '';
+            $access['checked_delus'] = !empty($access_admin['access_delus'][$level]) ? ' checked="checked" ' : '';
+            $access['checked_passus'] = !empty($access_admin['access_passus'][$level]) ? ' checked="checked" ' : '';
+            $access['checked_groups'] = !empty($access_admin['access_groups'][$level]) ? ' checked="checked" ' : '';
             $xtpl->assign('ACCESS', $access);
             $xtpl->parse('main.access.loop');
         }

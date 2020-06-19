@@ -1882,3 +1882,11 @@ hr {
 .bottomheader .col-xs-16 {
     padding-left: 0;
 }
+
+.panel-body .nv-list-item li {
+	display: flex;
+}
+
+.panel-body .nv-list-item li em{
+	margin-top: 5px;
+}

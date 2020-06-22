@@ -1284,6 +1284,14 @@ div.breadcrumbs-bg {
     display: none;
 }
 
+#body.dissmisshome .border-bottom-news .nv-list-item li {
+	display: flex;
+}
+
+#body.dissmisshome .border-bottom-news .nv-list-item li em {
+	margin-top: 5px;
+}
+
 @media ( max-width :499px) {
     .sitebannertext {
         position: relative;

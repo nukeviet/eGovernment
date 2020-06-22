@@ -35,7 +35,7 @@ $array_data['answer_question'] = '';
 $array_data['socialbutton'] = 1;
 
 $global_config['unofficial_mode'] = 0; // Cảnh báo bản thử nghiệm
-$global_config['version'] = '1.2.01'; // NukeViet eGovernment Build from 4.4.01
+$global_config['version'] = '1.2.02'; // NukeViet eGovernment Build from 4.4.02
 $global_config['site_email'] = '';
 $global_config['site_phone'] = '';
 $global_config['error_set_logs'] = 1;
